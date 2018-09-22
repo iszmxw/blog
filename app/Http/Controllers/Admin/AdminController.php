@@ -15,7 +15,7 @@ class AdminController extends Controller
         $users = User::getOne(['username'=>'admin']);
         $redis = Redis::get('user_data');
         dump("恭喜您登录成功，可以开始写项目啦！");
-        dump($redis);
+        dump(json_decode($redis));
     }
 
     public function login()

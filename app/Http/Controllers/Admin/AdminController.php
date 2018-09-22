@@ -13,12 +13,9 @@ class AdminController extends Controller
     public function index(Request $request)
     {
         $users = User::getOne(['username'=>'admin']);
-//        Redis::set('name', '');
-//        dd($users);
-//        $redis = Redis::get('name');
-//        echo $redis;
-//        echo encrypt('123456');
+        $redis = Redis::get('user_data');
         dump("恭喜您登录成功，可以开始写项目啦！");
+        dump($redis);
     }
 
     public function login()

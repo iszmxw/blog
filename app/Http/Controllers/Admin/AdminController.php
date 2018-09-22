@@ -18,7 +18,7 @@ class AdminController extends Controller
 //        $redis = Redis::get('name');
 //        echo $redis;
 //        echo encrypt('123456');
-        dump("恭喜您登录成功！");
+        dump("恭喜您登录成功，可以开始写项目啦！");
     }
 
     public function login()

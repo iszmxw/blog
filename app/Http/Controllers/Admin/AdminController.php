@@ -18,7 +18,6 @@ class AdminController extends Controller
 //        $redis = Redis::get('name');
 //        echo $redis;
 //        echo encrypt('123456');
-        dump($request->user_data);
         dump($request);
     }
 

@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    dump(11);
+    dump("钩子成功");
     return view('welcome');
 });
 //工具

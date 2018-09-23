@@ -13,6 +13,7 @@
 
 Route::get('/', function () {
     dump("成功啦，睡觉，明天开始启动项目！");
+    dump("成功啦，睡觉，明天开始启动项目！");
     return view('welcome');
 });
 //工具

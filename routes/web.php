@@ -14,3 +14,5 @@
 Route::get('/', function () {
     return view('welcome');
 });
+//工具
+Route::get('git_pull', 'Tooling\ToolingController@get_pull');

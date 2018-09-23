@@ -12,6 +12,7 @@
 */
 
 Route::get('/', function () {
+    dump(11);
     return view('welcome');
 });
 //工具

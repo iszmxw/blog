@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    dump("钩子成功");
+    dump("成功啦，睡觉，明天开始启动项目！");
     return view('welcome');
 });
 //工具

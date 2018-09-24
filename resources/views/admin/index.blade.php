@@ -4,10 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>追梦小窝 | 后台首页</title>
-	<link href="style/admin/inspinia/css/bootstrap.min.css" rel="stylesheet">
-	<link href="style/admin/inspinia/font-awesome/css/font-awesome.css" rel="stylesheet">
-	<link href="style/admin/inspinia/css/animate.css" rel="stylesheet">
-	<link href="style/admin/inspinia/css/style.css" rel="stylesheet">
+	@include('admin.public.common_css')
 </head>
 <body class="">
 <div id="wrapper">
@@ -30,13 +27,6 @@
 		@include('admin.public.footer')
 	</div>
 </div>
-<!-- Mainly scripts -->
-<script src="style/admin/inspinia/js/jquery-3.1.1.min.js"></script>
-<script src="style/admin/inspinia/js/bootstrap.min.js"></script>
-<script src="style/admin/inspinia/js/plugins/metisMenu/jquery.metisMenu.js"></script>
-<script src="style/admin/inspinia/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-<!-- Custom and plugin javascript -->
-<script src="style/admin/inspinia/js/inspinia.js"></script>
-<script src="style/admin/inspinia/js/plugins/pace/pace.min.js"></script>
+@include('admin.public.common_js')
 </body>
 </html>

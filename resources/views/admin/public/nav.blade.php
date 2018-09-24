@@ -6,7 +6,7 @@
                             <img alt="image" class="img-circle" src="style/admin/inspinia/img/profile_small.jpg"/>
                              </span>
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">王宇</strong>
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">{{$user_data['nickname']}}</strong>
                              </span> <span class="text-muted text-xs block">管理员 <b class="caret"></b></span> </span>
                     </a>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">

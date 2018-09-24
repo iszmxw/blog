@@ -14,7 +14,7 @@ class AdminController extends Controller
     {
         $user_data = $request->get('user_data');
         dump($user_data);
-        return view('admin.index');
+        return view('admin.index',['user_data'=>$user_data]);
     }
 
     public function login()

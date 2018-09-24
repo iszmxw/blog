@@ -10,7 +10,7 @@
 		</div>
 		<ul class="nav navbar-top-links navbar-right">
 			<li>
-				<span class="m-r-sm text-muted welcome-message">欢迎来到追梦小窝博客管理后台</span>
+				<span class="m-r-sm text-muted welcome-message">欢迎来到{{$user_data['nickname']}}博客管理后台</span>
 			</li>
 			<li class="dropdown">
 				<a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">

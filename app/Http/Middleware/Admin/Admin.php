@@ -39,7 +39,7 @@ class Admin
     {
         $data = $request->session()->get('user_data');
         if ($data){
-            $request->offsetSet('user_data',$data);
+            $request->attributes('user_data',$data);
             return self::RtData(1,$request);
         }else{
             if ($request->isMethod('post')) {

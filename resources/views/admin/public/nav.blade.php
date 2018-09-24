@@ -10,15 +10,13 @@
                              </span> <span class="text-muted text-xs block">管理员 <b class="caret"></b></span> </span>
                     </a>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                        <li><a href="profile.html">个人信息</a></li>
-                        <li><a href="contacts.html">好友</a></li>
-                        <li><a href="mailbox.html">信箱</a></li>
+                        <li><a href="{{url('admin/profile')}}l">个人信息</a></li>
                         <li class="divider"></li>
-                        <li><a href="login.html">登出</a></li>
+                        <li><a href="{{url('admin/quit')}}">登出</a></li>
                     </ul>
                 </div>
                 <div class="logo-element">
-                    IN+
+                    小窝
                 </div>
             </li>
             <li class="active">

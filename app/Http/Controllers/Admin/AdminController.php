@@ -13,8 +13,10 @@ class AdminController extends Controller
     public function index(Request $request)
     {
         $user_data = $request->get('user_data');
-        dump("当前Laravel版本：".app()->version());
-        dump(phpversion());
+        $data['php_version'] = phpversion();
+        $data['laravel_version'] = app()->version();
+        $data['mysql_version'] = mysqli_get_client_version();
+        dump($data);
         return view('admin.index',['user_data'=>$user_data]);
     }
 

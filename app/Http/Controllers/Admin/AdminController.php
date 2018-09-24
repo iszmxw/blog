@@ -13,7 +13,7 @@ class AdminController extends Controller
     public function index(Request $request)
     {
         $user_data = $request->get('user_data');
-        dump($user_data);
+//        dump($user_data);
         return view('admin.index',['user_data'=>$user_data]);
     }
 

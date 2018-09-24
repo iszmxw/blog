@@ -14,6 +14,7 @@ class AdminController extends Controller
     {
         $user_data = $request->get('user_data');
         dump("当前Laravel版本：".app()->version());
+        dump(phpversion());
         return view('admin.index',['user_data'=>$user_data]);
     }
 

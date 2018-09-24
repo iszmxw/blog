@@ -14,6 +14,8 @@ class AdminController extends Controller
     {
         $user_data = $request->get('user_data');
 //        dump($user_data);
+        $laravel = app();
+        dump($laravel::VERSION);
         return view('admin.index',['user_data'=>$user_data]);
     }
 

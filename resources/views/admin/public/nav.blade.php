@@ -22,48 +22,19 @@
                 </div>
             </li>
             <li>
-                <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">主页</span> <span
-                            class="fa arrow"></span></a>
+                <a href="javascript:;">
+                    <i class="fa fa-th-large"></i>
+                    <span class="nav-label">系统管理</span>
+                    <span class="fa arrow"></span>
+                </a>
                 <ul class="nav nav-second-level">
-                    <li><a href="index.html">主页示例 v.1</a></li>
-                    <li><a href="dashboard_2.html">主页示例 v.2</a></li>
-                    <li><a href="dashboard_3.html">主页示例 v.3</a></li>
-                    <li><a href="dashboard_4_1.html">主页示例 v.4</a></li>
-                    <li><a href="dashboard_5.html">主页示例 v.5 </a></li>
+                    <li><a href="{{url('admin')}}">系统首页</a></li>
                 </ul>
             </li>
             <li>
-                <a href="layouts.html"><i class="fa fa-diamond"></i> <span class="nav-label">布局</span></a>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">图表</span><span
-                            class="fa arrow"></span></a>
-                <ul class="nav nav-second-level collapse">
-                    <li><a href="graph_flot.html">Flot</a></li>
-                    <li><a href="graph_morris.html">Morris</a></li>
-                    <li><a href="graph_rickshaw.html">Rickshaw</a></li>
-                    <li><a href="graph_chartjs.html">Chart</a></li>
-                    <li><a href="graph_chartist.html">Chartist</a></li>
-                    <li><a href="c3.html">C3</a></li>
-                    <li><a href="graph_peity.html">Peity</a></li>
-                    <li><a href="graph_sparkline.html">Sparkline</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">邮箱 </span><span
-                            class="label label-warning pull-right">16/24</span></a>
-                <ul class="nav nav-second-level collapse">
-                    <li><a href="mailbox.html">收件箱</a></li>
-                    <li><a href="mail_detail.html">邮件内容</a></li>
-                    <li><a href="mail_compose.html">撰写邮件</a></li>
-                    <li><a href="email_template.html">邮件模板</a></li>
-                </ul>
-            </li>
-            <li class="landing_link">
-                <a target="_blank" href="{{url('admin/quit')}}">
+                <a href="{{url('admin/quit')}}">
                     <i class="fa fa-star"></i>
                     <span class="nav-label">退出</span>
-                    {{--<span class="label label-warning pull-right">新</span>--}}
                 </a>
             </li>
         </ul>

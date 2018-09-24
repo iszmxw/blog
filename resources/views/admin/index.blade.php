@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<title>网豫游戏 | 空白页面</title>
+	<title>追梦小窝 | 后台首页</title>
 
 	<link href="style/admin/inspinia/css/bootstrap.min.css" rel="stylesheet">
 	<link href="style/admin/inspinia/font-awesome/css/font-awesome.css" rel="stylesheet">

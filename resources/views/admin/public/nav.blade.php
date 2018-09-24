@@ -2,9 +2,14 @@
     <div class="sidebar-collapse">
         <ul class="nav metismenu" id="side-menu">
             <li class="nav-header">
-                <div class="dropdown profile-element"> <span>
+                <div class="dropdown profile-element">
+                    <span>
+                        @if($user_data['photo'])
+                            <img alt="image" class="img-circle" src="{{$user_data['photo']}}"/>
+                        @else
                             <img alt="image" class="img-circle" src="style/admin/inspinia/img/profile_small.jpg"/>
-                             </span>
+                        @endif
+                    </span>
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">{{$user_data['nickname']}}</strong>
                              </span> <span class="text-muted text-xs block">管理员 <b class="caret"></b></span> </span>

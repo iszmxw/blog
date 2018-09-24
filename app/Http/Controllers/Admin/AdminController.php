@@ -15,7 +15,7 @@ class AdminController extends Controller
         $user_data = $request->get('user_data');
         $data['php_version'] = phpversion();
         $data['laravel_version'] = app()->version();
-        $data['mysql_version'] = mysqli_get_server_version();
+        $data['mysql_version'] = mysqli_get_server_version('');
         dump($data);
         return view('admin.index',['user_data'=>$user_data]);
     }

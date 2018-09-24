@@ -12,10 +12,7 @@ class AdminController extends Controller
 {
     public function index(Request $request)
     {
-        $users = User::getOne(['username'=>'admin']);
-        $redis = Redis::get('user_data');
-        dump($users);
-        dump(json_decode($redis));
+        dump($request);
         return view('admin.index');
     }
 

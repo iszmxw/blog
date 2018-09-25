@@ -20,26 +20,29 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="ibox float-e-margins">
-						<div class="ibox-title">
-							<h5>Wyswig Summernote 编辑器</h5>
-							<div class="ibox-tools">
-								<a class="collapse-link">
-									<i class="fa fa-chevron-up"></i>
-								</a>
-								<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-									<i class="fa fa-wrench"></i>
-								</a>
-								<ul class="dropdown-menu dropdown-user">
-									<li><a href="#">Config option 1</a>
-									</li>
-									<li><a href="#">Config option 2</a>
-									</li>
-								</ul>
-								<a class="close-link">
-									<i class="fa fa-times"></i>
-								</a>
+
+						<div class="ibox-content">
+
+							<h2>
+								撰写文章
+							</h2>
+							<p>
+								在下面的输入框中编写你的文章
+							</p>
+
+							<div class="alert alert-warning">
+								Summernote.js的完整文档，包括示例和API调用，关键点快捷方式，PHP示例，Django安装和Rails（gem）集成可以在以下网址找到:
+								<a href="http://summernote.org/deep-dive/">http://summernote.org/deep-dive/</a>
+
 							</div>
 						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="ibox float-e-margins">
 						<div class="ibox-content no-padding">
 
 							<div class="summernote">
@@ -58,28 +61,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="ibox float-e-margins">
 
-						<div class="ibox-content">
-
-							<h2>
-								Summernote
-							</h2>
-							<p>
-								超级简单的所见即所得编辑器
-							</p>
-
-							<div class="alert alert-warning">
-								Summernote.js的完整文档，包括示例和API调用，关键点快捷方式，PHP示例，Django安装和Rails（gem）集成可以在以下网址找到:
-								<a href="http://summernote.org/deep-dive/">http://summernote.org/deep-dive/</a>
-
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
 
 		</div>
 		{{--底部--}}

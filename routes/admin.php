@@ -16,6 +16,10 @@ Route::middleware('admin')->namespace('Admin')->group(function () {
     Route::get('quit','AdminController@quit');
 
     //Ajax请求部分
+    Route::group(['prefix'=>'article'],function (){
+        Route::post('add','ArticleController@add');
+    });
+    //Ajax请求部分
     Route::group(['prefix'=>'ajax'],function (){
         Route::post('login_check','AdminController@login_check');
     });

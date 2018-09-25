@@ -14,12 +14,12 @@
 		{{--头部--}}
 		@include('admin.public.header')
 		<div class="wrapper wrapper-content">
-			<div class="col-lg-4">
+			<div class="col-lg-12">
 				<div class="ibox float-e-margins">
 					<div class="ibox-title">
-						<h5>最新消息</h5>
+						<h5>控制面板</h5>
 						<div class="ibox-tools">
-							<span class="label label-warning-light pull-right">10条消息未读</span>
+							<span class="label label-warning-light pull-right">系统配置</span>
 						</div>
 					</div>
 					<div class="ibox-content">

@@ -20,20 +20,16 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="ibox float-e-margins">
-
 						<div class="ibox-content">
-
 							<h2>
 								撰写文章
 							</h2>
 							<p>
 								在下面的输入框中编写你的文章
 							</p>
-
 							<div class="alert alert-warning">
 								Summernote.js的完整文档，包括示例和API调用，关键点快捷方式，PHP示例，Django安装和Rails（gem）集成可以在以下网址找到:
 								<a href="http://summernote.org/deep-dive/">http://summernote.org/deep-dive/</a>
-
 							</div>
 						</div>
 					</div>

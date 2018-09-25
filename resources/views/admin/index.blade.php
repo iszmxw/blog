@@ -52,17 +52,6 @@
 									</div>
 								</div>
 
-								<div class="feed-element">
-									<a href="javascript:;" class="pull-left">
-										<img alt="image" class="img-circle" src="{{url('style/admin/images/logo.jpeg')}}">
-									</a>
-									<div class="media-body ">
-										<small class="pull-right">PHP</small>
-										<strong>当前PHP版本：</strong> {{$data['php_version']}} <br>
-										<small class="text-muted">2017.12.12 12:00</small>
-
-									</div>
-								</div>
 							</div>
 
 							<button class="btn btn-primary btn-block m-t" onclick="window.location.href='{{url('admin?phpinfo=yes')}}'"><i class="fa fa-arrow-down"></i> 更多服务器信息</button>

@@ -14,7 +14,8 @@
 		{{--头部--}}
 		@include('admin.public.header')
 		<div class="wrapper wrapper-content">
-			<div class="col-lg-12">
+			<div class="row">
+				<div class="col-lg-12">
 				<div class="ibox float-e-margins">
 					<div class="ibox-title">
 						<h5>控制面板</h5>
@@ -118,6 +119,7 @@
 					</div>
 				</div>
 
+			</div>
 			</div>
 		</div>
 		{{--底部--}}

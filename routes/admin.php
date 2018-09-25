@@ -17,7 +17,7 @@ Route::middleware('admin')->namespace('Admin')->group(function () {
 
     //Ajax请求部分
     Route::group(['prefix'=>'article'],function (){
-        Route::post('add','ArticleController@add');
+        Route::get('add','ArticleController@add');
     });
     //Ajax请求部分
     Route::group(['prefix'=>'ajax'],function (){

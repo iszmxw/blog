@@ -65,7 +65,7 @@
 								</div>
 							</div>
 
-							<button class="btn btn-primary btn-block m-t"><i class="fa fa-arrow-down"></i> 加载更多</button>
+							<button class="btn btn-primary btn-block m-t" onclick="window.location.href='{{url('admin?phpinfo=yes')}}'"><i class="fa fa-arrow-down"></i> 更多服务器信息</button>
 
 						</div>
 

@@ -12,6 +12,6 @@ class ArticleController extends Controller
 {
     public function add(Request $request)
     {
-        dd($request);
+        return view('admin.article_add');
     }
 }

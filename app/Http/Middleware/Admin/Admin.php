@@ -18,6 +18,7 @@ class Admin
         $route = $request->getPathInfo();
         switch ($route){
             case '/admin';
+            case '/admin/article_add';
                 $re = self::CheckIsLoginAndHasRole($request);
                 return self::format_response($re,$next);
                 break;

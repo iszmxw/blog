@@ -33,9 +33,20 @@
 										<img alt="image" class="img-circle" src="{{url('style/admin/images/logo.jpeg')}}">
 									</a>
 									<div class="media-body ">
+										<small class="pull-right">统计</small>
+										当前有<strong>100</strong>篇文章，<strong>36</strong>条评论，<strong>6</strong>条微语<br>
+										<small class="text-muted">{{date('Y-m-d H:i:s',time())}}</small>
+									</div>
+								</div>
+
+								<div class="feed-element">
+									<a href="javascript:;" class="pull-left">
+										<img alt="image" class="img-circle" src="{{url('style/admin/images/logo.jpeg')}}">
+									</a>
+									<div class="media-body ">
 										<small class="pull-right">PHP</small>
 										<strong>当前PHP版本：</strong> {{$data['php_version']}} <br>
-										<small class="text-muted">2017.12.12 12:00</small>
+										<small class="text-muted">{{date('Y-m-d H:i:s',time())}}</small>
 
 									</div>
 								</div>
@@ -47,7 +58,7 @@
 									<div class="media-body ">
 										<small class="pull-right">Laravel</small>
 										<strong>当前Laravel版本：</strong> {{$data['laravel_version']}} <br>
-										<small class="text-muted">2017.12.12 12:00</small>
+										<small class="text-muted">{{date('Y-m-d H:i:s',time())}}</small>
 
 									</div>
 								</div>

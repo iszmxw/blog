@@ -86,7 +86,6 @@
                                         <input type="password" class="form-control" name="password">
                                     </div>
                                 </div>
-
                                 <div class="hr-line-dashed"></div>
                                 <div class="form-group">
                                     <div class="col-sm-4 col-sm-offset-2">

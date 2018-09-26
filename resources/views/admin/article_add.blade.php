@@ -19,6 +19,247 @@
 
 			<div class="row">
 				<div class="col-lg-12">
+
+
+					<div class="ibox float-e-margins">
+								<div class="ibox-title">
+									<h5>所有表单元素 <small>有自定义复选框和radion元素。</small></h5>
+									<div class="ibox-tools">
+										<a class="collapse-link">
+											<i class="fa fa-chevron-up"></i>
+										</a>
+										<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+											<i class="fa fa-wrench"></i>
+										</a>
+										<ul class="dropdown-menu dropdown-user">
+											<li><a href="#">选项 1</a>
+											</li>
+											<li><a href="#">选项 2</a>
+											</li>
+										</ul>
+										<a class="close-link">
+											<i class="fa fa-times"></i>
+										</a>
+									</div>
+								</div>
+								<div class="ibox-content">
+									<form method="get" class="form-horizontal">
+										<div class="form-group"><label class="col-sm-2 control-label">正常</label>
+
+											<div class="col-sm-10"><input type="text" class="form-control"></div>
+										</div>
+										<div class="hr-line-dashed"></div>
+										<div class="form-group"><label class="col-sm-2 control-label">辅助文本</label>
+											<div class="col-sm-10"><input type="text" class="form-control"> <span class="help-block m-b-none">这里可以显示说明、帮助、描述等信息</span>
+											</div>
+										</div>
+										<div class="hr-line-dashed"></div>
+										<div class="form-group"><label class="col-sm-2 control-label">密码</label>
+
+											<div class="col-sm-10"><input type="password" class="form-control" name="password"></div>
+										</div>
+										<div class="hr-line-dashed"></div>
+										<div class="form-group"><label class="col-sm-2 control-label">占位符</label>
+
+											<div class="col-sm-10"><input type="text" placeholder="占位符" class="form-control"></div>
+										</div>
+										<div class="hr-line-dashed"></div>
+										<div class="form-group"><label class="col-lg-2 control-label">禁用</label>
+
+											<div class="col-lg-10"><input type="text" disabled="" placeholder="禁用输入..." class="form-control"></div>
+										</div>
+										<div class="hr-line-dashed"></div>
+										<div class="form-group"><label class="col-lg-2 control-label">静态控制</label>
+
+											<div class="col-lg-10"><p class="form-control-static">email@example.com</p></div>
+										</div>
+										<div class="hr-line-dashed"></div>
+										<div class="form-group"><label class="col-sm-2 control-label">复选框和radios <br/>
+												<small class="text-navy">正常引导元素</small></label>
+
+											<div class="col-sm-10">
+												<div><label> <input type="checkbox" value=""> 必选项 </label></div>
+												<div><label> <input type="radio" checked="" value="option1" id="optionsRadios1" name="optionsRadios"> 未选中 </label></div>
+												<div><label> <input type="radio" value="option2" id="optionsRadios2" name="optionsRadios"> 选中 </label></div>
+											</div>
+										</div>
+										<div class="hr-line-dashed"></div>
+										<div class="form-group"><label class="col-sm-2 control-label">内联复选框</label>
+
+											<div class="col-sm-10"><label class="checkbox-inline"> <input type="checkbox" value="option1" id="inlineCheckbox1"> a </label> <label class="checkbox-inline">
+													<input type="checkbox" value="option2" id="inlineCheckbox2"> b </label> <label class="checkbox-inline">
+													<input type="checkbox" value="option3" id="inlineCheckbox3"> c </label></div>
+										</div>
+										<div class="hr-line-dashed"></div>
+										<div class="form-group"><label class="col-sm-2 control-label">复选框 &amp; radios <br/><small class="text-navy">自定义元素</small></label>
+
+											<div class="col-sm-10">
+												<div class="i-checks"><label> <input type="checkbox" value=""> <i></i> 选项一 </label></div>
+												<div class="i-checks"><label> <input type="checkbox" value="" checked=""> <i></i> 选项二 </label></div>
+												<div class="i-checks"><label> <input type="checkbox" value="" disabled="" checked=""> <i></i> 选项三检查和禁用 </label></div>
+												<div class="i-checks"><label> <input type="checkbox" value="" disabled=""> <i></i> 选项四禁用 </label></div>
+												<div class="i-checks"><label> <input type="radio" value="option1" name="a"> <i></i> 选项一 </label></div>
+												<div class="i-checks"><label> <input type="radio" checked="" value="option2" name="a"> <i></i> 选项二 </label></div>
+												<div class="i-checks"><label> <input type="radio" disabled="" checked="" value="option2"> <i></i> 选项三检查和禁用 </label></div>
+												<div class="i-checks"><label> <input type="radio" disabled="" name="a"> <i></i> 选项四禁用 </label></div>
+											</div>
+										</div>
+										<div class="hr-line-dashed"></div>
+										<div class="form-group"><label class="col-sm-2 control-label">内联复选框</label>
+
+											<div class="col-sm-10"><label class="checkbox-inline i-checks"> <input type="checkbox" value="option1">a </label>
+												<label class="checkbox-inline i-checks"> <input type="checkbox" value="option2"> b </label>
+												<label class="checkbox-inline i-checks"> <input type="checkbox" value="option3"> c </label></div>
+										</div>
+										<div class="hr-line-dashed"></div>
+										<div class="form-group"><label class="col-sm-2 control-label">选择</label>
+
+											<div class="col-sm-10"><select class="form-control m-b" name="account">
+													<option>选项 1</option>
+													<option>选项 2</option>
+													<option>选项 3</option>
+													<option>选项 4</option>
+												</select>
+
+												<div class="col-lg-4 m-l-n"><select class="form-control" multiple="">
+														<option>选项 1</option>
+														<option>选项 2</option>
+														<option>选项 3</option>
+														<option>选项 4</option>
+													</select></div>
+											</div>
+										</div>
+										<div class="hr-line-dashed"></div>
+										<div class="form-group has-success"><label class="col-sm-2 control-label">输入成功</label>
+
+											<div class="col-sm-10"><input type="text" class="form-control"></div>
+										</div>
+										<div class="hr-line-dashed"></div>
+										<div class="form-group has-warning"><label class="col-sm-2 control-label">输入警告</label>
+
+											<div class="col-sm-10"><input type="text" class="form-control"></div>
+										</div>
+										<div class="hr-line-dashed"></div>
+										<div class="form-group has-error"><label class="col-sm-2 control-label">输入错误</label>
+
+											<div class="col-sm-10"><input type="text" class="form-control"></div>
+										</div>
+										<div class="hr-line-dashed"></div>
+										<div class="form-group"><label class="col-sm-2 control-label">控制大小</label>
+
+											<div class="col-sm-10"><input type="text" placeholder=".input-lg" class="form-control input-lg m-b">
+												<input type="text" placeholder="Default input" class="form-control m-b"> <input type="text" placeholder=".input-sm" class="form-control input-sm">
+											</div>
+										</div>
+										<div class="hr-line-dashed"></div>
+										<div class="form-group"><label class="col-sm-2 control-label">列尺寸</label>
+
+											<div class="col-sm-10">
+												<div class="row">
+													<div class="col-md-2"><input type="text" placeholder=".col-md-2" class="form-control"></div>
+													<div class="col-md-3"><input type="text" placeholder=".col-md-3" class="form-control"></div>
+													<div class="col-md-4"><input type="text" placeholder=".col-md-4" class="form-control"></div>
+												</div>
+											</div>
+										</div>
+										<div class="hr-line-dashed"></div>
+										<div class="form-group"><label class="col-sm-2 control-label">输入组</label>
+
+											<div class="col-sm-10">
+												<div class="input-group m-b"><span class="input-group-addon">@</span> <input type="text" placeholder="用户名" class="form-control"></div>
+												<div class="input-group m-b"><input type="text" class="form-control"> <span class="input-group-addon">.00</span></div>
+												<div class="input-group m-b"><span class="input-group-addon">$</span> <input type="text" class="form-control"> <span class="input-group-addon">.00</span></div>
+												<div class="input-group m-b"><span class="input-group-addon"> <input type="checkbox"> </span> <input type="text" class="form-control"></div>
+												<div class="input-group"><span class="input-group-addon"> <input type="radio"> </span> <input type="text" class="form-control"></div>
+											</div>
+										</div>
+										<div class="hr-line-dashed"></div>
+										<div class="form-group"><label class="col-sm-2 control-label">按钮插件</label>
+
+											<div class="col-sm-10">
+												<div class="input-group m-b"><span class="input-group-btn">
+                                            <button type="button" class="btn btn-primary">搜索</button> </span> <input type="text" class="form-control">
+												</div>
+												<div class="input-group"><input type="text" class="form-control"> <span class="input-group-btn"> <button type="button" class="btn btn-primary">搜索
+                                        </button> </span></div>
+											</div>
+										</div>
+										<div class="hr-line-dashed"></div>
+										<div class="form-group"><label class="col-sm-2 control-label">下拉菜单</label>
+
+											<div class="col-sm-10">
+												<div class="input-group m-b">
+													<div class="input-group-btn">
+														<button data-toggle="dropdown" class="btn btn-white dropdown-toggle" type="button">操作 <span class="caret"></span></button>
+														<ul class="dropdown-menu">
+															<li><a href="#">操作</a></li>
+															<li><a href="#">复制</a></li>
+															<li><a href="#">粘贴</a></li>
+															<li class="divider"></li>
+															<li><a href="#">收藏</a></li>
+														</ul>
+													</div>
+													<input type="text" class="form-control"></div>
+												<div class="input-group"><input type="text" class="form-control">
+
+													<div class="input-group-btn">
+														<button data-toggle="dropdown" class="btn btn-white dropdown-toggle" type="button">操作 <span class="caret"></span></button>
+														<ul class="dropdown-menu pull-right">
+															<li><a href="#">操作</a></li>
+															<li><a href="#">复制</a></li>
+															<li><a href="#">粘贴</a></li>
+															<li class="divider"></li>
+															<li><a href="#">收藏</a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="hr-line-dashed"></div>
+										<div class="form-group"><label class="col-sm-2 control-label">分段</label>
+
+											<div class="col-sm-10">
+												<div class="input-group m-b">
+													<div class="input-group-btn">
+														<button tabindex="-1" class="btn btn-white" type="button">操作</button>
+														<button data-toggle="dropdown" class="btn btn-white dropdown-toggle" type="button"><span class="caret"></span></button>
+														<ul class="dropdown-menu">
+															<li><a href="#">操作</a></li>
+															<li><a href="#">复制</a></li>
+															<li><a href="#">粘贴</a></li>
+															<li class="divider"></li>
+															<li><a href="#">收藏</a></li>
+														</ul>
+													</div>
+													<input type="text" class="form-control"></div>
+												<div class="input-group"><input type="text" class="form-control">
+
+													<div class="input-group-btn">
+														<button tabindex="-1" class="btn btn-white" type="button">操作</button>
+														<button data-toggle="dropdown" class="btn btn-white dropdown-toggle" type="button"><span class="caret"></span></button>
+														<ul class="dropdown-menu pull-right">
+															<li><a href="#">操作</a></li>
+															<li><a href="#">复制</a></li>
+															<li><a href="#">粘贴</a></li>
+															<li class="divider"></li>
+															<li><a href="#">收藏</a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="hr-line-dashed"></div>
+										<div class="form-group">
+											<div class="col-sm-4 col-sm-offset-2">
+												<button class="btn btn-white" type="submit">取消</button>
+												<button class="btn btn-primary" type="submit">保存更改</button>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+
+					{{--富文本編輯器--}}
 					<div class="ibox float-e-margins">
 						<div class="ibox-content">
 							<h2>

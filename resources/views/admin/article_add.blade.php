@@ -65,6 +65,7 @@
 <!-- SUMMERNOTE -->
 <script src="{{asset('style/admin/inspinia/js/plugins/summernote/summernote.min.js?v='.time())}}"></script>
 <script>
+
     $(document).ready(function(){
         $('.summernote').summernote({
             height: 300,                 // set editor height

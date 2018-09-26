@@ -63,7 +63,7 @@
 </div>
 @include('admin.public.common_js')
 <!-- SUMMERNOTE -->
-<script src="{{asset('style/admin/inspinia/js/plugins/summernote/summernote.min.js')}}"></script>
+<script src="{{asset('style/admin/inspinia/js/plugins/summernote/summernote.min.js?v='.time())}}"></script>
 <script>
     $(document).ready(function(){
 

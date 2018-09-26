@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Sort;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -13,6 +14,8 @@ class ArticleController extends Controller
     public function add(Request $request)
     {
         $user_data = $request->get('user_data');
+        $sort = Sort::getList('');
+        dump($sort);
         return view('admin.article_add',['user_data'=>$user_data]);
     }
 }

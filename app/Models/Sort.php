@@ -13,4 +13,10 @@ class Sort extends Model
     {
         return self::where($where)->first();
     }
+
+    //获取列表数据
+    public static function getList($where)
+    {
+        return self::where($where)->get();
+    }
 }

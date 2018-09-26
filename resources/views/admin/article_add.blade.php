@@ -43,14 +43,16 @@
                         </div>
                         <div class="ibox-content">
                             <form method="get" class="form-horizontal">
-                                <div class="form-group"><label class="col-sm-2 control-label">标题</label>
-
-                                    <div class="col-sm-10"><input type="text" class="form-control"></div>
+                                <div class="form-group">
+                                    <label class="col-sm-1 control-label">标题</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control">
+                                    </div>
                                 </div>
                                 <div class="hr-line-dashed"></div>
                                 <div class="form-group">
-                                    <label class="col-sm-2 control-label">选择栏目</label>
-                                    <div class="col-sm-10">
+                                    <label class="col-sm-1 control-label">选择栏目</label>
+                                    <div class="col-sm-8">
                                         <select class="form-control m-b" name="sort_id">
                                             <option value="-1">请选择栏目</option>
                                             @foreach($sort as $value)

@@ -80,9 +80,10 @@
                                 </div>
                                 {{--富文本編輯器--}}
                                 <div class="hr-line-dashed"></div>
-                                <div class="form-group"><label class="col-sm-2 control-label">密码</label>
-
-                                    <div class="col-sm-10"><input type="password" class="form-control" name="password">
+                                <div class="form-group">
+                                    <label class="col-sm-1 control-label">密码</label>
+                                    <div class="col-sm-8">
+                                        <input type="password" class="form-control" name="password">
                                     </div>
                                 </div>
 

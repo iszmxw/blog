@@ -15,7 +15,6 @@ class ArticleController extends Controller
     {
         $user_data = $request->get('user_data');
         $sort = Sort::getList([]);
-        dump($sort);
         return view('admin.article_add',['user_data'=>$user_data,'sort'=>$sort]);
     }
 }

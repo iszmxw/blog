@@ -9,6 +9,15 @@
     <link href="{{asset('style/admin/inspinia/css/plugins/summernote/summernote-bs3.css')}}" rel="stylesheet">
 </head>
 <body class="">
+<input type="button" name="success" id="success" value="成功"/>
+
+<input type="button" name="info" id="info" value="提示"/>
+
+<input type="button" name="warning" id="warning" value="警告"/>
+
+<input type="button" name="error" id="error" value="错误"/>
+
+<input type="button" name="clear" id="clear" value="清除"/>
 <div id="wrapper">
     {{--侧边栏--}}
     @include('admin.public.nav')

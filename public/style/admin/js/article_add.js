@@ -7,6 +7,14 @@ $(document).ready(function () {
     });
 });
 
+//成功提示绑定
+
+$("#success").click(function(){
+
+    toastr.success("祝贺你成功了");
+
+});
+
 function add_data(){
     var target = $("#post_url");
     var url = target.attr("action");

@@ -117,7 +117,24 @@ function add_data(){
         if (json.status == -1) {
             window.location.reload();
         } else if(json.status == 1) {
-            $("#toastrOptions").text('Command: toastr[success]("嗨，欢迎来到网豫游戏。我是演示。")')
+            Command: toastr[success]("阿萨飒飒")
+
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "progressBar": true,
+                "preventDuplicates": false,
+                "positionClass": "toast-top-right",
+                "onclick": null,
+                "showDuration": "400",
+                "hideDuration": "1000",
+                "timeOut": "7000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
             // swal({
             //     title: "提示信息",
             //     text: json.data,

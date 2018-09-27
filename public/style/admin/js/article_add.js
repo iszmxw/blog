@@ -6,15 +6,6 @@ $(document).ready(function () {
         focus: true
     });
 });
-
-//成功提示绑定
-
-$("#success").click(function(){
-
-    toastr.success("祝贺你成功了");
-
-});
-
 function add_data(){
     var target = $("#post_url");
     var url = target.attr("action");
@@ -25,22 +16,16 @@ function add_data(){
         if (json.status == -1) {
             window.location.reload();
         } else if(json.status == 1) {
-            toastr.success('没有任何选择','简单的通知!');
-            // swal({
-            //     title: "提示信息",
-            //     text: json.data,
-            //     confirmButtonColor: "#DD6B55",
-            //     confirmButtonText: "确定",
-            // },function(){
-            //     window.location.reload();
-            // });
+            toastr.success("祝贺你添加成功了！");
+            setInterval(function(){
+                window.location.reload();
+            },300);
+            return false;
         }else{
-            // swal({
-            //     title: "提示信息",
-            //     text: json.data,
-            //     confirmButtonColor: "#DD6B55",
-            //     confirmButtonText: "确定"
-            // });
+            toastr.error("添加失败请稍后再试！");
+            setInterval(function(){
+                window.location.reload();
+            },300);
         }
     });
 }

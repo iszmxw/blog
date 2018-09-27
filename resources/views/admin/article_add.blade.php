@@ -42,18 +42,19 @@
                             </h5>
                         </div>
                         <div class="ibox-content">
-                            <form method="post" class="form-horizontal" action="{{url('article_add_check')}}">
+                            <form method="post" class="form-horizontal" id="post_url" action="{{url('admin/ajax/article_add_check')}}">
+                                <input type="hiddden" name="_token" value="{{csrf_token()}}">
                                 <div class="form-group">
                                     <label class="col-sm-1 control-label">标题</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control">
+                                        <input type="text" name="title" class="form-control">
                                     </div>
                                 </div>
                                 <div class="hr-line-dashed"></div>
                                 <div class="form-group">
                                     <label class="col-sm-1 control-label">选择栏目</label>
                                     <div class="col-sm-8">
-                                        <select class="form-control m-b" name="sort_id">
+                                        <select class="form-control m-b" name="sortid">
                                             <option value="-1">请选择栏目</option>
                                             @foreach($sort as $value)
                                             <option value="{{$value['sid']}}">{{$value['sortname']}}</option>
@@ -65,7 +66,7 @@
                                 <div class="hr-line-dashed"></div>
                                 <div class="form-group">
                                     <div class="col-sm-12">
-                                        <div class="summernote">
+                                        <div class="summernote" name="content">
                                             <h3>超级简单的所见即所得编辑器</h3>
                                             超级简单的所见即所得编辑器超级简单的所见即所得编辑器超级简单的所见即所得编辑器超级简单的所见即所得编辑器超级简单的所见即所得编辑器超级简单的所见即所得编辑器超级简单的所见即所得编辑器超级简单的所见即所得编辑器超级简单的所见即所得编辑器超级简单的所见即所得编辑器超级简单的所见即所得编辑器超级简单的所见即所得编辑器
                                             <br/>
@@ -89,8 +90,7 @@
                                 <div class="hr-line-dashed"></div>
                                 <div class="form-group">
                                     <div class="col-sm-4 col-sm-offset-2">
-                                        <button class="btn btn-white" type="submit">取消</button>
-                                        <button class="btn btn-primary" type="submit">保存更改</button>
+                                        <button class="btn btn-primary" type="button" onclick="add_data()">保存更改</button>
                                     </div>
                                 </div>
                             </form>

@@ -43,7 +43,7 @@
                         </div>
                         <div class="ibox-content">
                             <form method="post" class="form-horizontal" id="post_url" action="{{url('admin/ajax/article_add_check')}}">
-                                <input type="hiddden" name="_token" value="{{csrf_token()}}">
+                                <input type="hidden" name="_token" value="{{csrf_token()}}">
                                 <div class="form-group">
                                     <label class="col-sm-1 control-label">标题</label>
                                     <div class="col-sm-8">

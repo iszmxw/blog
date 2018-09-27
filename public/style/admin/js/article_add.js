@@ -117,7 +117,7 @@ function add_data(){
         if (json.status == -1) {
             window.location.reload();
         } else if(json.status == 1) {
-            Command: toastr[success]("阿萨飒飒")
+            toastr.success("祝贺你成功了");
 
             toastr.options = {
                 "closeButton": true,

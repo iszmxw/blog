@@ -11,6 +11,8 @@ function add_data(){
     var target = $("#post_url");
     var url = target.attr("action");
     var data = target.serialize();
+    var summernote = $(".summernote").code();
+    data = data +'&'+'content='+summernote;
     $.post(url, data, function (json) {
         if (json.status == -1) {
             window.location.reload();

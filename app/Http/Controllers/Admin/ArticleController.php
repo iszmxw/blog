@@ -17,4 +17,9 @@ class ArticleController extends Controller
         $sort = Sort::getList([]);
         return view('admin.article_add',['user_data'=>$user_data,'sort'=>$sort]);
     }
+
+    public function article_add_check(Request $request)
+    {
+        dd($request);
+    }
 }

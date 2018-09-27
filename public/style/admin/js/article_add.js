@@ -17,21 +17,22 @@ function add_data(){
         if (json.status == -1) {
             window.location.reload();
         } else if(json.status == 1) {
-            swal({
-                title: "提示信息",
-                text: json.data,
-                confirmButtonColor: "#DD6B55",
-                confirmButtonText: "确定",
-            },function(){
-                window.location.reload();
-            });
+            Command: toastr[success]("嗨，欢迎来到网豫游戏。我是演示。");
+            // swal({
+            //     title: "提示信息",
+            //     text: json.data,
+            //     confirmButtonColor: "#DD6B55",
+            //     confirmButtonText: "确定",
+            // },function(){
+            //     window.location.reload();
+            // });
         }else{
-            swal({
-                title: "提示信息",
-                text: json.data,
-                confirmButtonColor: "#DD6B55",
-                confirmButtonText: "确定"
-            });
+            // swal({
+            //     title: "提示信息",
+            //     text: json.data,
+            //     confirmButtonColor: "#DD6B55",
+            //     confirmButtonText: "确定"
+            // });
         }
     });
 }

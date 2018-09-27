@@ -6,3 +6,4 @@
 <!-- Custom and plugin javascript -->
 <script src="{{asset('style/admin/inspinia/js/inspinia.js')}}"></script>
 <script src="{{asset('style/admin/inspinia/js/plugins/pace/pace.min.js')}}"></script>
+<script src="{{asset('style/admin/inspinia/js/plugins/toastr/toastr.min.js')}}"></script>

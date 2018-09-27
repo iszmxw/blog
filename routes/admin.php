@@ -17,11 +17,12 @@ Route::middleware('admin')->namespace('Admin')->group(function () {
 
     //Ajax请求部分
     Route::group(['prefix'=>'article'],function (){
-        Route::get('add','ArticleController@add');
+        Route::get('article_add','ArticleController@article_add');
     });
     //Ajax请求部分
     Route::group(['prefix'=>'ajax'],function (){
         Route::post('login_check','AdminController@login_check');
+        Route::post('article_add_check','ArticleController@article_add_check');
     });
 });
 

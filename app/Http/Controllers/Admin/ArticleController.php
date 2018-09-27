@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Redis;
 
 class ArticleController extends Controller
 {
-    public function add(Request $request)
+    public function article_add(Request $request)
     {
         $user_data = $request->get('user_data');
         $sort = Sort::getList([]);

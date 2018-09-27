@@ -42,7 +42,7 @@
                             </h5>
                         </div>
                         <div class="ibox-content">
-                            <form method="get" class="form-horizontal">
+                            <form method="post" class="form-horizontal" action="{{url('article_add_check')}}">
                                 <div class="form-group">
                                     <label class="col-sm-1 control-label">标题</label>
                                     <div class="col-sm-8">
@@ -108,16 +108,6 @@
 @include('admin.public.common_js')
 <!-- SUMMERNOTE -->
 <script src="{{asset('style/admin/inspinia/js/plugins/summernote/summernote.min.js?v='.time())}}"></script>
-<script>
-
-    $(document).ready(function () {
-        $('.summernote').summernote({
-            height: 600,                 // set editor height
-            minHeight: null,             // set minimum height of editor
-            maxHeight: null,             // set maximum height of editor
-            focus: true                  // set focus to editable area after initializing summernote
-        });
-    });
-</script>
+<script src="{{asset('style/admin/js/article_add.js?v='.time())}}"></script>
 </body>
 </html>

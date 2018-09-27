@@ -19,13 +19,13 @@ function add_data(){
             toastr.success("祝贺你添加成功了！");
             setInterval(function(){
                 window.location.reload();
-            },300);
+            },8000);
             return false;
         }else{
             toastr.error("添加失败请稍后再试！");
             setInterval(function(){
                 window.location.reload();
-            },300);
+            },8000);
         }
     });
 }

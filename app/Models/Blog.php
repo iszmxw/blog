@@ -8,9 +8,10 @@ class Blog extends Model
 {
     protected $table = 'blog';
     protected $primaryKey = 'gid';
-    // 加上对应的字段
-    protected $fillable = ['title'];
+    //设置时间戳字段
     public $timestamps = false;
+    //过滤黑名单字段
+    public $guarded = [];
     //单条数据获取
     public static function getOne($where)
     {

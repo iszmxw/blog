@@ -36,7 +36,16 @@ class ArticleController extends Controller
         $data['excerpt'] = $excerpt?$excerpt:'';
         $data['content'] = $content;
         $data['date'] = time();
-        Blog::AddData($data);
-        return response()->json(['data'=>'祝贺你添加成功了！','status'=>'1']);
+        DB::beginTransaction();
+        try {
+            Blog::AddData($data);
+            DB::commit();
+            return response()->json(['data'=>'祝贺你添加成功了！','status'=>'1']);
+        } catch (\Exception $e) {
+            dd($e);
+            DB::rollBack();//事件回滚
+            return response()->json(['data' => '添加失败，请检查', 'status' => '0']);
+        }
+
     }
 }

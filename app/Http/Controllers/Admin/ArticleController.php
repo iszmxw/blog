@@ -38,6 +38,7 @@ class ArticleController extends Controller
 //        DB::transaction(function() use ($data){
 //
 //        });
+
         return response()->json(['data'=>'祝贺你添加成功了！','status'=>'1']);
     }
 }

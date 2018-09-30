@@ -27,6 +27,6 @@ class Blog extends Model
     //添加数据
     public static function AddData($data)
     {
-        return self::save($data);
+        return self::create($data);
     }
 }

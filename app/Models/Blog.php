@@ -12,6 +12,8 @@ class Blog extends Model
     public $timestamps = false;
     //过滤黑名单字段
     public $guarded = [];
+
+    protected $fillable = ['gid'];
     //单条数据获取
     public static function getOne($where)
     {

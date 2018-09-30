@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Blog;
 use App\Models\Sort;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -20,8 +21,21 @@ class ArticleController extends Controller
 
     public function article_add_check(Request $request)
     {
-        dd($request);
-
+        $title = $request->get('title');
+        $sortid = $request->get('sortid');
+        $password = $request->get('password');
+        $content = $request->get('content');
+        if ($sortid == '-1'){
+            return response()->json(['data'=>'请选择栏目分类！','status'=>'0']);
+        }
+        //数据库事物回滚
+        $data['title'] = $title;
+        $data['sortid'] = $sortid;
+        $data['password'] = $password;
+        $data['content'] = $content;
+        DB::transaction(function() use ($data){
+            Blog::created($data);
+        });
         return response()->json(['data'=>'祝贺你添加成功了！','status'=>'1']);
     }
 }

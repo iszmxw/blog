@@ -35,6 +35,7 @@ class ArticleController extends Controller
         $data['content'] = $content;
         $data['date'] = time();
         Blog::AddData($data);
+        
 //        DB::transaction(function() use ($data){
 //
 //        });

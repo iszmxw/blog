@@ -25,4 +25,10 @@ class Blog extends Model
     {
         return self::where($where)->get();
     }
+
+    //添加数据
+    public static function AddData($data)
+    {
+        return self::create($data);
+    }
 }

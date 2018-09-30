@@ -34,7 +34,7 @@ class ArticleController extends Controller
         $data['password'] = $password;
         $data['content'] = $content;
         $data['date'] = time();
-        Blog::create($data);
+        Blog::AddData($data);
 //        DB::transaction(function() use ($data){
 //
 //        });

@@ -10,6 +10,7 @@ class Blog extends Model
     protected $primaryKey = 'gid';
     // 加上对应的字段
     protected $fillable = ['title','sortid'];
+    public $timestamps = false;
     //单条数据获取
     public static function getOne($where)
     {

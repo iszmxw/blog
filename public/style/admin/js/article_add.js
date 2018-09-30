@@ -16,13 +16,13 @@ function add_data(){
         if (json.status == -1) {
             window.location.reload();
         } else if(json.status == 1) {
-            toastr.success("祝贺你添加成功了！");
+            toastr.success(json.data);
             setInterval(function(){
                 window.location.reload();
             },3000);
             return false;
         }else{
-            toastr.error("添加失败请稍后再试！");
+            toastr.error(json.data);
             setInterval(function(){
                 window.location.reload();
             },3000);

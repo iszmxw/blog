@@ -33,7 +33,7 @@ class ArticleController extends Controller
         $data['sortid'] = $sortid;
         $data['password'] = $password;
         $data['content'] = $content;
-        $data['date'] = time();
+        $data['date'] = '121212';
         Blog::AddData($data);
 //        DB::transaction(function() use ($data){
 //

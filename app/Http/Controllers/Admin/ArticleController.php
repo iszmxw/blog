@@ -31,7 +31,7 @@ class ArticleController extends Controller
         //数据库事物回滚
         $data['title'] = $title;
         $data['sortid'] = $sortid;
-        $data['password'] = $password?$password:'';
+        $data['password'] = $password?$password:'123456';
         $data['content'] = $content;
         $data['date'] = time();
         Blog::create($data);

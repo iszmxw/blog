@@ -21,6 +21,7 @@ class ArticleController extends Controller
     public function article_add_check(Request $request)
     {
         dd($request);
+        
         return response()->json(['data'=>'祝贺你添加成功了！','status'=>'1']);
     }
 }

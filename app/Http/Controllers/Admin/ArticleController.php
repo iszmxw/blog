@@ -24,6 +24,7 @@ class ArticleController extends Controller
         $title = $request->get('title');
         $sortid = $request->get('sortid');
         $password = $request->get('password');
+        $excerpt = $request->get('excerpt');//摘要
         $content = $request->get('content');
         if ($sortid == '-1'){
             return response()->json(['data'=>'请选择栏目分类！','status'=>'0']);
@@ -32,13 +33,10 @@ class ArticleController extends Controller
         $data['title'] = $title;
         $data['sortid'] = $sortid;
         $data['password'] = $password?$password:'';
+        $data['excerpt'] = $excerpt?$excerpt:'';
         $data['content'] = $content;
         $data['date'] = time();
         Blog::AddData($data);
-//        DB::transaction(function() use ($data){
-//
-//        });
-
         return response()->json(['data'=>'祝贺你添加成功了！','status'=>'1']);
     }
 }

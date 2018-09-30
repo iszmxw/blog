@@ -33,9 +33,10 @@ class ArticleController extends Controller
         $data['sortid'] = $sortid;
         $data['password'] = $password;
         $data['content'] = $content;
-        DB::transaction(function() use ($data){
-            Blog::created($data);
-        });
+        Blog::created($data);
+//        DB::transaction(function() use ($data){
+//
+//        });
         return response()->json(['data'=>'祝贺你添加成功了！','status'=>'1']);
     }
 }

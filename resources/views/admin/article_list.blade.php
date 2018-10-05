@@ -37,12 +37,13 @@
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
                             <h5>文章信息列表
-                                <small>开始你的写作吧。</small>
+                                <small>所有文章。</small>
                             </h5>
                         </div>
                         <div class="ibox-content">
                             <div class="row">
-                                <div class="col-sm-5 m-b-xs"><select class="input-sm form-control input-s-sm inline">
+                                <div class="col-sm-5 m-b-xs">
+                                    <select class="input-sm form-control input-s-sm inline">
                                         <option value="0">选项 1</option>
                                         <option value="1">选项 2</option>
                                         <option value="2">选项 3</option>
@@ -68,7 +69,6 @@
 
                                         <th></th>
                                         <th>项目 </th>
-                                        <th>完成度 </th>
                                         <th>任务</th>
                                         <th>数据</th>
                                         <th>操作</th>
@@ -78,7 +78,6 @@
                                     <tr>
                                         <td><input type="checkbox"  checked class="i-checks" name="input[]"></td>
                                         <td>乐高玩具<small>例子</small></td>
-                                        <td><span class="pie">0.52/1.561</span></td>
                                         <td>20%</td>
                                         <td>2017年12月12日</td>
                                         <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>

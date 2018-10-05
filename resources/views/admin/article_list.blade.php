@@ -77,15 +77,17 @@
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    @foreach($list as $value)
                                     <tr>
                                         <td><input type="checkbox"  checked class="i-checks" name="input[]"></td>
-                                        <td>{{$list['gid']}}</td>
-                                        <td>{{$list['title']}}</td>
-                                        <td>{{$list['sortid']}}</td>
-                                        <td>{{$list['views']}}</td>
-                                        <td>{{$list['date']}}</td>
+                                        <td>{{$value['gid']}}</td>
+                                        <td>{{$value['title']}}</td>
+                                        <td>{{$value['sortid']}}</td>
+                                        <td>{{$value['views']}}</td>
+                                        <td>{{$value['date']}}</td>
                                         <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
                                     </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>

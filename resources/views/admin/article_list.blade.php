@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>追梦小窝 | 博客管理系统-文章列表</title>
     @include('admin.public.common_css')
-    <link href="{{asset('style/admin/inspinia/css/plugins/summernote/summernote.css')}}" rel="stylesheet">
-    <link href="{{asset('style/admin/inspinia/css/plugins/summernote/summernote-bs3.css')}}" rel="stylesheet">
 </head>
 <body class="">
 <div id="wrapper">
@@ -55,8 +53,5 @@
     </div>
 </div>
 @include('admin.public.common_js')
-<!-- SUMMERNOTE -->
-<script src="{{asset('style/admin/inspinia/js/plugins/summernote/summernote.min.js?v='.time())}}"></script>
-<script src="{{asset('style/admin/js/article_add.js?v='.time())}}"></script>
 </body>
 </html>

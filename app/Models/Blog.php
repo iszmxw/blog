@@ -31,13 +31,14 @@ class Blog extends Model
     }
 
     //分页获取数据
-    public static function getPaginate($where,$select,$paginate)
+    public static function getPaginate($where,$select,$sort,$desc,$paginate)
     {
         return self::where($where)
             ->join('sort',function($join){
                         $join->on('sort.sid','=','blog.sortid');
                     })
             ->select($select)
+            ->sort($sort,$desc)
             ->paginate($paginate);
     }
 }

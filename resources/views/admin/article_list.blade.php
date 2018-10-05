@@ -82,8 +82,8 @@
                                         <td><input type="checkbox"  checked class="i-checks" name="input[]"></td>
                                         <td>{{$value['gid']}}</td>
                                         <td>{{$value['title']}}</td>
-                                        <td>{{$value['sortname']}}</td>
-                                        <td>{{$value['views']}}</td>
+                                        <td><span class="label label-primary">{{$value['sortname']}}</span></td>
+                                        <td><span class="label label-success">{{$value['views']}}</span></td>
                                         <td>{{date('Y-m-d H:i:s',$value['date'])}}</td>
                                         <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
                                     </tr>

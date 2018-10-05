@@ -88,9 +88,9 @@
                                         <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
                                     </tr>
                                     @endforeach
-                                    {{$list->links()}}
                                     </tbody>
                                 </table>
+                                {{$list->links()}}
                             </div>
                         </div>
                     </div>

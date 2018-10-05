@@ -29,4 +29,10 @@ class Blog extends Model
     {
         return self::create($data);
     }
+
+    //分页获取数据
+    public static function getPaginate($where,$paginate)
+    {
+        return self::where($where)->paginate($paginate);
+    }
 }

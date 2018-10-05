@@ -12,6 +12,14 @@ class Blog extends Model
     public $timestamps = false;
     //过滤黑名单字段
     public $guarded = [];
+    /**
+     * 模型关联设置
+     */
+    public function Sort()
+    {
+        return $this->hasMany('App\Models\Sort');
+    }
+
     //单条数据获取
     public static function getOne($where)
     {
@@ -33,6 +41,6 @@ class Blog extends Model
     //分页获取数据
     public static function getPaginate($where,$paginate)
     {
-        return self::where($where)->paginate($paginate);
+        return self::with('Sort')->where($where)->paginate($paginate);
     }
 }

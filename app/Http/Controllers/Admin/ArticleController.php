@@ -26,13 +26,13 @@ class ArticleController extends Controller
         $content = $request->get('content');
         if ($sortid == '-1')return response()->json(['data'=>'请选择栏目分类！','status'=>'0']);
         if (!$title)return response()->json(['data'=>'请输入文章标题！','status'=>'0']);
-        //数据库事物回滚
         $data['title'] = $title;
         $data['sortid'] = $sortid;
         $data['password'] = $password?$password:'';
         $data['excerpt'] = $excerpt?$excerpt:'';
         $data['content'] = $content?$content:'';
         $data['date'] = time();
+        //数据库事物回滚
         DB::beginTransaction();
         try {
             Blog::AddData($data);

@@ -82,30 +82,6 @@
                                         <td>2017年12月12日</td>
                                         <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
                                     </tr>
-                                    <tr>
-                                        <td><input type="checkbox" class="i-checks" name="input[]"></td>
-                                        <td>乐高玩具</td>
-                                        <td><span class="pie">6,9</span></td>
-                                        <td>40%</td>
-                                        <td>2017年12月12日</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="checkbox" class="i-checks" name="input[]"></td>
-                                        <td>乐高玩具</td>
-                                        <td><span class="pie">3,1</span></td>
-                                        <td>75%</td>
-                                        <td>2017年12月12日</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="checkbox" class="i-checks" name="input[]"></td>
-                                        <td>乐高玩具</td>
-                                        <td><span class="pie">4,9</span></td>
-                                        <td>18%</td>
-                                        <td>2017年12月12日</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
                                     </tbody>
                                 </table>
                             </div>

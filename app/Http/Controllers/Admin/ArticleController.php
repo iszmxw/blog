@@ -50,7 +50,7 @@ class ArticleController extends Controller
     public function article_list(Request $request)
     {
         $user_data = $request->get('user_data');
-        $list = Blog::getPaginate([],['sort.sortname','blog.*'],10);
+        $list = Blog::getPaginate([],['blog.gid','blog.title','sort.sortname','blog.views','blog.date'],10);
         dump($list,1);
         return view('admin.article_list',['user_data'=>$user_data,'list'=>$list]);
     }

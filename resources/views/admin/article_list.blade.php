@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>追梦小窝 | 博客管理系统-文章列表</title>
     @include('admin.public.common_css')
+    <link href="{{asset('style/admin/inspinia/css/plugins/iCheck/custom.css')}}" rel="stylesheet">
 </head>
 <body class="">
 <div id="wrapper">
@@ -121,5 +122,15 @@
     </div>
 </div>
 @include('admin.public.common_js')
+<!-- iCheck -->
+<script src="{{asset('style/admin/inspinia/js/plugins/iCheck/icheck.min.js')}}"></script>
+<script>
+    $(document).ready(function(){
+        $('.i-checks').iCheck({
+            checkboxClass: 'icheckbox_square-green',
+            radioClass: 'iradio_square-green'
+        });
+    });
+</script>
 </body>
 </html>

@@ -51,7 +51,6 @@ class ArticleController extends Controller
     {
         $user_data = $request->get('user_data');
         $list = Blog::getList([]);
-        dump($list);
         return view('admin.article_list',['user_data'=>$user_data,'list'=>$list]);
     }
 }

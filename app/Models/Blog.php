@@ -38,7 +38,7 @@ class Blog extends Model
                         $join->on('sort.sid','=','blog.sortid');
                     })
             ->select($select)
-            ->sort($sort,$desc)
+            ->orderby($sort,$desc)
             ->paginate($paginate);
     }
 }

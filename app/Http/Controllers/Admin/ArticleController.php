@@ -51,7 +51,6 @@ class ArticleController extends Controller
     {
         $user_data = $request->get('user_data');
         $list = Blog::getPaginate([],['blog.gid','blog.title','sort.sortname','blog.views','blog.date'],10);
-        dump($list,1);
         return view('admin.article_list',['user_data'=>$user_data,'list'=>$list]);
     }
 }

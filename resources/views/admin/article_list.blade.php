@@ -89,8 +89,13 @@
                                     </tr>
                                     @endforeach
                                     </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        {{$list->links()}}
+                                    </tr>
+                                    </tfoot>
                                 </table>
-                                {{$list->links()}}
+
                             </div>
                         </div>
                     </div>

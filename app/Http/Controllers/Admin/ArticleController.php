@@ -50,7 +50,12 @@ class ArticleController extends Controller
     public function article_list(Request $request)
     {
         $user_data = $request->get('user_data');
-        $list = Blog::getPaginate([],10);
+//        $list = Blog::getPaginate([],10);
+        $list = Blog::where([])->join('sort',function($join){
+            $join->on('sort.sid','=','blog.sortid');
+        })
+            ->select('sort.sortname','blog.*')
+            ->paginate(10);
         dump($list);
         return view('admin.article_list',['user_data'=>$user_data,'list'=>$list]);
     }

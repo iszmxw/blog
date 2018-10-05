@@ -45,4 +45,11 @@ class ArticleController extends Controller
         }
 
     }
+
+    //文章列表
+    public function article_list(Request $request)
+    {
+        $user_data = $request->get('user_data');
+        return view('admin.article_list',['user_data'=>$user_data]);
+    }
 }

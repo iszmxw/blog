@@ -40,6 +40,7 @@
                 <ul class="nav nav-second-level">
                     <li class="active"><a href="{{url('admin')}}">系统首页</a></li>
                     <li><a href="{{url('admin/article/article_add')}}">撰写文章</a></li>
+                    <li><a href="{{url('admin/article/article_list')}}">文章列表</a></li>
                 </ul>
             </li>
             <li>

@@ -68,18 +68,22 @@
                                     <tr>
 
                                         <th></th>
-                                        <th>项目 </th>
-                                        <th>任务</th>
-                                        <th>数据</th>
+                                        <th>ID </th>
+                                        <th>标题</th>
+                                        <th>栏目</th>
+                                        <th>浏览量</th>
+                                        <th>时间</th>
                                         <th>操作</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <tr>
                                         <td><input type="checkbox"  checked class="i-checks" name="input[]"></td>
-                                        <td>乐高玩具<small>例子</small></td>
-                                        <td>20%</td>
-                                        <td>2017年12月12日</td>
+                                        <td>{{$list['gid']}}</td>
+                                        <td>{{$list['title']}}</td>
+                                        <td>{{$list['sortid']}}</td>
+                                        <td>{{$list['views']}}</td>
+                                        <td>{{$list['date']}}</td>
                                         <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
                                     </tr>
                                     </tbody>

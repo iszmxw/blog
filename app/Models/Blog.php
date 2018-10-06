@@ -53,4 +53,5 @@ class Blog extends Model
             ->paginate($paginate);
     }
 
+
 }

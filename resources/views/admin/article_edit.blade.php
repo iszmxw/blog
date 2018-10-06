@@ -67,7 +67,7 @@
                                 <div class="form-group">
                                     <div class="col-sm-12">
                                         <div class="summernote">
-                                            {{$blog['content']}}
+                                            {!! $blog['content'] !!}
                                         </div>
                                     </div>
                                 </div>

@@ -38,8 +38,12 @@
                     <span class="fa arrow"></span>
                 </a>
                 <ul class="nav nav-second-level">
-                    <li @if(Request::path() == 'admin') class="active" @endif><a href="{{url('admin')}}">系统首页</a></li>
-                    <li @if(Request::path() == 'admin/config') class="active" @endif><a href="{{url('admin/config')}}">系统设置</a></li>
+                    <li @if(Request::path() == 'admin') class="active" @endif>
+                        <a href="{{url('admin')}}">系统首页</a>
+                    </li>
+                    <li @if(Request::path() == 'admin/config') class="active" @endif>
+                        <a href="{{url('admin/config')}}">系统设置</a>
+                    </li>
                 </ul>
             </li>
             <li @if(Request::path() == 'admin/article/article_add' || 'admin/article/article_list' || 'admin/article/article_edit') class="active" @endif>
@@ -49,8 +53,12 @@
                     <span class="fa arrow"></span>
                 </a>
                 <ul class="nav nav-second-level">
-                    <li @if(Request::path() == 'admin/article/article_add') class="active" @endif><a href="{{url('admin/article/article_add')}}">撰写文章</a></li>
-                    <li @if(Request::path() == 'admin/article/article_list') class="active" @endif><a href="{{url('admin/article/article_list')}}">文章列表</a></li>
+                    <li @if(Request::path() == 'admin/article/article_add') class="active" @endif>
+                        <a href="{{url('admin/article/article_add')}}">撰写文章</a>
+                    </li>
+                    <li @if(Request::path() == 'admin/article/article_list') class="active" @endif>
+                        <a href="{{url('admin/article/article_list')}}">文章列表</a>
+                    </li>
                 </ul>
             </li>
 
@@ -61,8 +69,12 @@
                     <span class="fa arrow"></span>
                 </a>
                 <ul class="nav nav-second-level collapse">
-                    <li @if(Request::path() == 'admin/plugins/tag_list') class="active" @endif><a href="{{url('admin/plugins/tag_list')}}">标签列表</a></li>
-                    <li @if(Request::path() == 'admin/plugins/comment_list') class="active" @endif><a href="{{url('admin/plugins/comment_list')}}">评论列表</a></li>
+                    <li @if(Request::path() == 'admin/plugins/tag_list') class="active" @endif>
+                        <a href="{{url('admin/plugins/tag_list')}}">标签列表</a>
+                    </li>
+                    <li @if(Request::path() == 'admin/plugins/comment_list') class="active" @endif>
+                        <a href="{{url('admin/plugins/comment_list')}}">评论列表</a>
+                    </li>
                 </ul>
             </li>
             <li>

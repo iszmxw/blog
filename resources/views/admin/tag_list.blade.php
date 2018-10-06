@@ -14,8 +14,11 @@
 		{{--头部--}}
 		@include('admin.public.header')
 		<div class="wrapper wrapper-content">
+
 			<ul class="tag-list">
-				<li><i class="fa fa-tag"></i> 标签</li>
+				<li>
+					<button data-toggle="button" class="btn btn-primary btn-outline" type="button"><i class="fa fa-tag"></i> 标签</button>
+				</li>
 				<li><i class="fa fa-tag"></i> 标签</li>
 				<li><i class="fa fa-tag"></i> 标签</li>
 				<li><i class="fa fa-tag"></i> 标签</li>

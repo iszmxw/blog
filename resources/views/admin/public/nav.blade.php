@@ -42,7 +42,7 @@
                     <li @if(Request::path() == 'admin/config') class="active" @endif><a href="{{url('admin/config')}}">系统设置</a></li>
                 </ul>
             </li>
-            <li @if(Request::path() == 'admin/article/article_add' || Request::path() == 'admin/article/article_list') class="active" @endif>
+            <li @if(Request::path() == 'admin/article/article_add' || 'admin/article/article_list' || 'admin/article/article_edit') class="active" @endif>
                 <a href="javascript:;">
                     <i class="fa fa-building"></i>
                     <span class="nav-label">文章管理</span>

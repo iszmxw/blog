@@ -16,10 +16,10 @@
 		<div class="wrapper wrapper-content">
 
 			<div class="tag-list">
-				<button type="button" class="btn btn-w-m btn-info"><i class="fa fa-tag"></i> 标签
-					<a class="close-link">
+				<button type="button" class="btn btn-w-m btn-info"><i class="fa fa-tag"></i> 标签&nbsp;&nbsp;
+					<span class="close-link">
 						<i class="fa fa-times"></i>
-					</a>
+					</span>
 				</button>
 				<button type="button" class="btn btn-w-m btn-info"><i class="fa fa-tag"></i> 标签
 					<a class="close-link">

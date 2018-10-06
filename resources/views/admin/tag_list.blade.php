@@ -14,7 +14,6 @@
 		{{--头部--}}
 		@include('admin.public.header')
 		<div class="wrapper wrapper-content">
-
 			<div class="tag-list">
 				@foreach($list as $value)
 				<button type="button" class="btn btn-w-m btn-info" onclick="EditData('{{$value['tid']}}')"><i class="fa fa-tag"></i> {{$value['tagname']}}&nbsp;&nbsp;

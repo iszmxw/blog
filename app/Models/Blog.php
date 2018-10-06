@@ -30,6 +30,7 @@ class Blog extends Model
         return self::create($data);
     }
 
+    //修改数据
     public static function EditData($where,$data)
     {
         if($model = self::where($where)->first()){

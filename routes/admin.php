@@ -21,6 +21,7 @@ Route::middleware('admin')->namespace('Admin')->group(function () {
         Route::get('article_edit','ArticleController@article_edit');
         Route::get('article_list','ArticleController@article_list');
     });
+
     //Ajax请求部分
     Route::group(['prefix'=>'ajax'],function (){
         Route::post('login_check','AdminController@login_check');

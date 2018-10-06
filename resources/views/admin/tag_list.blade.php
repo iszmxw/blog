@@ -19,19 +19,33 @@
 				<li>
 					<button data-toggle="button" class="btn btn-primary btn-outline" type="button"><i class="fa fa-tag"></i> 标签</button>
 				</li>
-				<li><i class="fa fa-tag"></i> 标签</li>
-				<li><i class="fa fa-tag"></i> 标签</li>
-				<li><i class="fa fa-tag"></i> 标签</li>
-				<li><i class="fa fa-tag"></i> 标签</li>
-				<li><i class="fa fa-tag"></i> 标签</li>
-				<li><i class="fa fa-tag"></i> 标签</li>
-				<li><i class="fa fa-tag"></i> 标签</li>
-				<li><i class="fa fa-tag"></i> 标签</li>
-				<li><i class="fa fa-tag"></i> 标签</li>
-				<li><i class="fa fa-tag"></i> 标签</li>
-				<li><i class="fa fa-tag"></i> 标签</li>
-				<li><i class="fa fa-tag"></i> 标签</li>
-				<li><i class="fa fa-tag"></i> 标签</li>
+				<li>
+					<button data-toggle="button" class="btn btn-primary btn-outline" type="button"><i class="fa fa-tag"></i> 标签</button>
+				</li>
+				<li>
+					<button data-toggle="button" class="btn btn-primary btn-outline" type="button"><i class="fa fa-tag"></i> 标签</button>
+				</li>
+				<li>
+					<button data-toggle="button" class="btn btn-primary btn-outline" type="button"><i class="fa fa-tag"></i> 标签</button>
+				</li>
+				<li>
+					<button data-toggle="button" class="btn btn-primary btn-outline" type="button"><i class="fa fa-tag"></i> 标签</button>
+				</li>
+				<li>
+					<button data-toggle="button" class="btn btn-primary btn-outline" type="button"><i class="fa fa-tag"></i> 标签</button>
+				</li>
+				<li>
+					<button data-toggle="button" class="btn btn-primary btn-outline" type="button"><i class="fa fa-tag"></i> 标签</button>
+				</li>
+				<li>
+					<button data-toggle="button" class="btn btn-primary btn-outline" type="button"><i class="fa fa-tag"></i> 标签</button>
+				</li>
+				<li>
+					<button data-toggle="button" class="btn btn-primary btn-outline" type="button"><i class="fa fa-tag"></i> 标签</button>
+				</li>
+				<li>
+					<button data-toggle="button" class="btn btn-primary btn-outline" type="button"><i class="fa fa-tag"></i> 标签</button>
+				</li>
 			</ul>
 		</div>
 		{{--底部--}}

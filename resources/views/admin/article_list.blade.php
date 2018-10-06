@@ -86,8 +86,8 @@
                                         <td><span class="label label-success">{{$value['views']}}</span></td>
                                         <td>{{date('Y-m-d H:i:s',$value['date'])}}</td>
                                         <td>
-                                            <button class="btn btn-info" type="button"><i class="fa fa-paste"></i>编辑</button>
-                                            <button class="btn btn-danger" type="button"><i class="fa fa-times"></i>删除</button>
+                                            <button class="btn btn-info" type="button"><i class="fa fa-paste"></i>&nbsp;&nbsp;编辑</button>
+                                            <button class="btn btn-danger" type="button"><i class="fa fa-times"></i>&nbsp;&nbsp;删除</button>
                                         </td>
                                     </tr>
                                     @endforeach

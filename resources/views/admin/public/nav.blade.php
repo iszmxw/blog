@@ -61,8 +61,8 @@
                     <span class="fa arrow"></span>
                 </a>
                 <ul class="nav nav-second-level collapse">
-                    <li><a href="http://54zm.com/admin/plugins/tag_list">标签列表</a></li>
-                    <li><a href="http://54zm.com/admin/plugins/comment_list">评论列表</a></li>
+                    <li><a href="{{url('admin/plugins/tag_list')}}">标签列表</a></li>
+                    <li><a href="{{url('admin/plugins/comment_list')}}">评论列表</a></li>
                 </ul>
             </li>
             <li>

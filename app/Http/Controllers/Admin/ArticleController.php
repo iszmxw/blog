@@ -62,7 +62,6 @@ class ArticleController extends Controller
         $sort = Sort::getList([]);
         $id = $request->get('id');
         $blog = Blog::getOne(['gid'=>$id]);
-        dump($blog);
         return view('admin.article_edit',['user_data'=>$user_data,'sort'=>$sort,'blog'=>$blog]);
     }
 }

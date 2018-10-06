@@ -68,6 +68,7 @@ class ArticleController extends Controller
     //编辑文章操作
     public function article_edit_check(Request $request)
     {
+        $gid = $request->get('gid');
         $title = $request->get('title');
         $sortid = $request->get('sortid');
         $password = $request->get('password');
@@ -84,13 +85,13 @@ class ArticleController extends Controller
         //数据库事物回滚
         DB::beginTransaction();
         try {
-            Blog::AddData($data);
+            Blog::EditData(['gid'=>$gid],$data);
             DB::commit();
-            return response()->json(['data'=>'祝贺你添加成功了！','status'=>'1']);
+            return response()->json(['data'=>'修改成功！','status'=>'1']);
         } catch (\Exception $e) {
             dd($e);
             DB::rollBack();//事件回滚
-            return response()->json(['data' => '添加失败，请检查', 'status' => '0']);
+            return response()->json(['data' => '修改失败请稍后再试！', 'status' => '0']);
         }
 
     }

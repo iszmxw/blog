@@ -126,6 +126,8 @@
         window.location.href="{{url('admin/article/article_edit?id=')}}"+id;
     }
     function deleted(id){
+        var url = "{{url('admin/ajax/article_delete_check')}}";
+        var data = {'_token':'{{csrf_token()}}','id':id};
         swal({
                 title: "你确定？",
                 text: "你将无法恢复这篇文章！",
@@ -139,8 +141,13 @@
             },
             function (isConfirm) {
                 if (isConfirm) {
-                    swal("删除", "您的文章已被删除.", "success");
-                    console.log(111);
+                    $.post(url,data,function(json){
+                        if (json.status == '1'){
+                            swal("删除", "您的文章已被删除.", "success");
+                        }else{
+                            swal("操作失败", "请稍后再试！", "error");
+                        }
+                    });
                 } else {
                     swal("取消", "您已取消了删除", "error");
                 }

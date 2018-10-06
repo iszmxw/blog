@@ -35,7 +35,7 @@
     }
     function deleted(tid,event){
         event.stopPropagation();
-        alert(tid);
+        alert(tid+'成功啦');
     }
 </script>
 </body>

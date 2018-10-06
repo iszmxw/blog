@@ -144,12 +144,18 @@
                     $.post(url,data,function(json){
                         if (json.status == '1'){
                             swal("删除", "您的文章已被删除", "success");
+                            setInterval(function(){
+                                window.location.reload();
+                            },1500);
                         }else{
                             swal("操作失败", "删除失败请稍后再试！", "error");
                         }
                     });
                 } else {
                     swal("取消", "您已取消了删除", "error");
+                    setInterval(function(){
+                        window.location.reload();
+                    },1500);
                 }
             });
     }

@@ -15,15 +15,17 @@ Route::middleware('admin')->namespace('Admin')->group(function () {
     Route::get('login','AdminController@login');
     Route::get('quit','AdminController@quit');
 
-    //Ajax请求部分
+    //文章管理
     Route::group(['prefix'=>'article'],function (){
         Route::get('article_add','ArticleController@article_add');
+        Route::get('article_edit','ArticleController@article_edit');
         Route::get('article_list','ArticleController@article_list');
     });
     //Ajax请求部分
     Route::group(['prefix'=>'ajax'],function (){
         Route::post('login_check','AdminController@login_check');
         Route::post('article_add_check','ArticleController@article_add_check');
+        Route::post('article_delete_check','ArticleController@article_delete_check');
     });
 });
 

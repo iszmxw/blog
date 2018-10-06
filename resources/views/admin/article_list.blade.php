@@ -127,22 +127,23 @@
     }
     function deleted(id){
         swal({
-            title: "你确定？",
-            text: "你将无法恢复这个虚构的文件！",
-            type: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#DD6B55",
-            confirmButtonText: "删除",
-            cancelButtonText: "取消",
-            closeOnConfirm: false,
-            closeOnCancel: false },
-        function (isConfirm) {
-            if (isConfirm) {
-                swal("删除", "您的虚构文件已被删除.", "success");
-            } else {
-                swal("取消", "你的虚构文件是安全的:)", "error");
-            }
-        });
+                title: "你确定？",
+                text: "你将无法恢复这篇文章！",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "删除",
+                cancelButtonText: "取消",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+            function (isConfirm) {
+                if (isConfirm) {
+                    swal("删除", "您的文章已被删除.", "success");
+                } else {
+                    swal("取消", "您已取消了删除", "error");
+                }
+            });
     }
     $(document).ready(function(){
         $('.i-checks').iCheck({

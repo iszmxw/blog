@@ -42,15 +42,15 @@
                     <li @if(Request::path() == 'admin/config') class="active" @endif><a href="{{url('admin/config')}}">系统设置</a></li>
                 </ul>
             </li>
-            <li class="active">
+            <li @if(Request::path() == 'admin/article/article_add' || Request::path() == 'admin/article/article_list') class="active" @endif>
                 <a href="javascript:;">
                     <i class="fa fa-building"></i>
                     <span class="nav-label">文章管理</span>
                     <span class="fa arrow"></span>
                 </a>
                 <ul class="nav nav-second-level">
-                    <li class="active"><a href="{{url('admin/article/article_add')}}">撰写文章</a></li>
-                    <li><a href="{{url('admin/article/article_list')}}">文章列表</a></li>
+                    <li @if(Request::path() == 'admin/article/article_add') class="active" @endif><a href="{{url('admin/article/article_add')}}">撰写文章</a></li>
+                    <li @if(Request::path() == 'admin/article/article_list') class="active" @endif><a href="{{url('admin/article/article_list')}}">文章列表</a></li>
                 </ul>
             </li>
 

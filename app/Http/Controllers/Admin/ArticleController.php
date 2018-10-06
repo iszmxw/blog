@@ -95,4 +95,22 @@ class ArticleController extends Controller
         }
 
     }
+
+    //删除文章
+    public function article_delete_check(Request $request)
+    {
+        $id = $request->get('id');
+        //数据库事物回滚
+        DB::beginTransaction();
+        try {
+            Blog::where(['gid'=>$id])->delete();
+            DB::commit();
+            return response()->json(['data'=>'您的文章已被删除！','status'=>'1']);
+        } catch (\Exception $e) {
+            dd($e);
+            DB::rollBack();//事件回滚
+            return response()->json(['data' => '删除失败请稍后再试！', 'status' => '0']);
+        }
+
+    }
 }

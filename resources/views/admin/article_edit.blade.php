@@ -47,7 +47,7 @@
                                 <div class="form-group">
                                     <label class="col-sm-1 control-label">标题</label>
                                     <div class="col-sm-8">
-                                        <input type="text" name="title" class="form-control">
+                                        <input type="text" name="title" class="form-control" value="{{$blog['title']}}">
                                     </div>
                                 </div>
                                 <div class="hr-line-dashed"></div>
@@ -67,15 +67,7 @@
                                 <div class="form-group">
                                     <div class="col-sm-12">
                                         <div class="summernote">
-                                            <h3>超级简单的所见即所得编辑器</h3>
-                                            超级简单的所见即所得编辑器超级简单的所见即所得编辑器超级简单的所见即所得编辑器超级简单的所见即所得编辑器超级简单的所见即所得编辑器超级简单的所见即所得编辑器超级简单的所见即所得编辑器超级简单的所见即所得编辑器超级简单的所见即所得编辑器超级简单的所见即所得编辑器超级简单的所见即所得编辑器超级简单的所见即所得编辑器
-                                            <br/>
-                                            <br/>
-                                            <ul>
-                                                <li>超级简单的所见即所得编辑器</li>
-                                                <li>超级简单的所见即所得编辑器</li>
-                                                <li>超级简单的所见即所得编辑器</li>
-                                            </ul>
+                                            {{$blog['content']}}
                                         </div>
                                     </div>
                                 </div>
@@ -84,7 +76,7 @@
                                 <div class="form-group">
                                     <label class="col-sm-1 control-label">密码</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" name="password">
+                                        <input type="text" class="form-control" name="password" value="{{$blog['password']}}">
                                     </div>
                                 </div>
                                 <div class="hr-line-dashed"></div>

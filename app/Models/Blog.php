@@ -52,4 +52,5 @@ class Blog extends Model
             ->orderby($sort,$desc)
             ->paginate($paginate);
     }
+
 }

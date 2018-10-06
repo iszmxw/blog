@@ -53,4 +53,14 @@ class ArticleController extends Controller
         $list = Blog::getPaginate([],['blog.gid','blog.title','sort.sortname','blog.views','blog.date'],'date','DESC',15);
         return view('admin.article_list',['user_data'=>$user_data,'list'=>$list]);
     }
+
+
+    //编辑文章
+    public function article_edit($id)
+    {
+        dd($id);
+        $user_data = $request->get('user_data');
+        $sort = Sort::getList([]);
+        return view('admin.article_add',['user_data'=>$user_data,'sort'=>$sort]);
+    }
 }

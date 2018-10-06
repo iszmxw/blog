@@ -44,6 +44,17 @@
                 </ul>
             </li>
             <li>
+                <a href="http://54zm.com/javascript:;">
+                    <i class="fa fa-cloud"></i>
+                    <span class="nav-label">云拓展</span>
+                    <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-second-level collapse">
+                    <li><a href="http://54zm.com/admin/plugins/tag_list">标签列表</a></li>
+                    <li><a href="http://54zm.com/admin/plugins/comment_list">评论列表</a></li>
+                </ul>
+            </li>
+            <li>
                 <a href="{{url('admin/quit')}}">
                     <i class="fa fa-star"></i>
                     <span class="nav-label">退出</span>

@@ -15,38 +15,27 @@
 		@include('admin.public.header')
 		<div class="wrapper wrapper-content">
 
-			<ul class="tag-list">
-				<li>
-					<button data-toggle="button" class="btn btn-primary btn-outline" type="button"><i class="fa fa-tag"></i> 标签</button>
-				</li>
-				<li>
-					<button data-toggle="button" class="btn btn-primary btn-outline" type="button"><i class="fa fa-tag"></i> 标签</button>
-				</li>
-				<li>
-					<button data-toggle="button" class="btn btn-primary btn-outline" type="button"><i class="fa fa-tag"></i> 标签</button>
-				</li>
-				<li>
-					<button data-toggle="button" class="btn btn-primary btn-outline" type="button"><i class="fa fa-tag"></i> 标签</button>
-				</li>
-				<li>
-					<button data-toggle="button" class="btn btn-primary btn-outline" type="button"><i class="fa fa-tag"></i> 标签</button>
-				</li>
-				<li>
-					<button data-toggle="button" class="btn btn-primary btn-outline" type="button"><i class="fa fa-tag"></i> 标签</button>
-				</li>
-				<li>
-					<button data-toggle="button" class="btn btn-primary btn-outline" type="button"><i class="fa fa-tag"></i> 标签</button>
-				</li>
-				<li>
-					<button data-toggle="button" class="btn btn-primary btn-outline" type="button"><i class="fa fa-tag"></i> 标签</button>
-				</li>
-				<li>
-					<button data-toggle="button" class="btn btn-primary btn-outline" type="button"><i class="fa fa-tag"></i> 标签</button>
-				</li>
-				<li>
-					<button data-toggle="button" class="btn btn-primary btn-outline" type="button"><i class="fa fa-tag"></i> 标签</button>
-				</li>
-			</ul>
+			<div class="tag-list">
+				<button data-toggle="button" class="btn btn-primary btn-outline" type="button"><i class="fa fa-tag"></i> 标签</button>
+				<button data-toggle="button" class="btn btn-primary btn-outline" type="button"><i class="fa fa-tag"></i> 标签</button>
+				<button data-toggle="button" class="btn btn-primary btn-outline" type="button"><i class="fa fa-tag"></i> 标签</button>
+				<button data-toggle="button" class="btn btn-primary btn-outline" type="button"><i class="fa fa-tag"></i> 标签</button>
+				<button data-toggle="button" class="btn btn-primary btn-outline" type="button"><i class="fa fa-tag"></i> 标签</button>
+				<button data-toggle="button" class="btn btn-primary btn-outline" type="button"><i class="fa fa-tag"></i> 标签</button>
+				<button data-toggle="button" class="btn btn-primary btn-outline" type="button"><i class="fa fa-tag"></i> 标签</button>
+				<button data-toggle="button" class="btn btn-primary btn-outline" type="button"><i class="fa fa-tag"></i> 标签</button>
+				<button data-toggle="button" class="btn btn-primary btn-outline" type="button"><i class="fa fa-tag"></i> 标签</button>
+				<button data-toggle="button" class="btn btn-primary btn-outline" type="button"><i class="fa fa-tag"></i> 标签</button>
+				<button data-toggle="button" class="btn btn-primary btn-outline" type="button"><i class="fa fa-tag"></i> 标签</button>
+				<button data-toggle="button" class="btn btn-primary btn-outline" type="button"><i class="fa fa-tag"></i> 标签</button>
+				<button data-toggle="button" class="btn btn-primary btn-outline" type="button"><i class="fa fa-tag"></i> 标签</button>
+				<button data-toggle="button" class="btn btn-primary btn-outline" type="button"><i class="fa fa-tag"></i> 标签</button>
+				<button data-toggle="button" class="btn btn-primary btn-outline" type="button"><i class="fa fa-tag"></i> 标签</button>
+				<button data-toggle="button" class="btn btn-primary btn-outline" type="button"><i class="fa fa-tag"></i> 标签</button>
+				<button data-toggle="button" class="btn btn-primary btn-outline" type="button"><i class="fa fa-tag"></i> 标签</button>
+				<button data-toggle="button" class="btn btn-primary btn-outline" type="button"><i class="fa fa-tag"></i> 标签</button>
+				<button data-toggle="button" class="btn btn-primary btn-outline" type="button"><i class="fa fa-tag"></i> 标签</button>
+			</div>
 		</div>
 		{{--底部--}}
 		@include('admin.public.footer')

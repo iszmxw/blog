@@ -22,6 +22,11 @@ Route::middleware('admin')->namespace('Admin')->group(function () {
         Route::get('article_list','ArticleController@article_list');
     });
 
+    //云拓展
+    Route::group(['prefix'=>'plugins'],function (){
+        Route::get('tag_list','PluginsController@tag_list');
+    });
+
     //Ajax请求部分
     Route::group(['prefix'=>'ajax'],function (){
         Route::post('login_check','AdminController@login_check');

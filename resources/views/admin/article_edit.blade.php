@@ -38,7 +38,7 @@
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
                             <h5>文章基本信息
-                                <small>修改文章内容。{{pathinfo()}}</small>
+                                <small>修改文章内容。{{app_path()}}</small>
                             </h5>
                         </div>
                         <div class="ibox-content">

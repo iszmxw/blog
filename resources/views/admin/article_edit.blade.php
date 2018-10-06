@@ -38,7 +38,6 @@
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
                             <h5>文章基本信息
-
                                 <small>修改文章内容。</small>
                             </h5>
                         </div>

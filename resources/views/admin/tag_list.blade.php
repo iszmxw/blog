@@ -14,11 +14,21 @@
 		{{--头部--}}
 		@include('admin.public.header')
 		<div class="wrapper wrapper-content">
-			<ul class="tag-list" style="padding: 0">
-				<li><a href=""><i class="fa fa-tag"></i> 标签</a></li>
-				<li><a href=""><i class="fa fa-tag"></i> 标签</a></li>
-				<li><a href=""><i class="fa fa-tag"></i> 标签</a></li>
-				<li><a href=""><i class="fa fa-tag"></i> 标签</a></li>
+			<ul class="tag-list">
+				<li><i class="fa fa-tag"></i> 标签</li>
+				<li><i class="fa fa-tag"></i> 标签</li>
+				<li><i class="fa fa-tag"></i> 标签</li>
+				<li><i class="fa fa-tag"></i> 标签</li>
+				<li><i class="fa fa-tag"></i> 标签</li>
+				<li><i class="fa fa-tag"></i> 标签</li>
+				<li><i class="fa fa-tag"></i> 标签</li>
+				<li><i class="fa fa-tag"></i> 标签</li>
+				<li><i class="fa fa-tag"></i> 标签</li>
+				<li><i class="fa fa-tag"></i> 标签</li>
+				<li><i class="fa fa-tag"></i> 标签</li>
+				<li><i class="fa fa-tag"></i> 标签</li>
+				<li><i class="fa fa-tag"></i> 标签</li>
+				<li><i class="fa fa-tag"></i> 标签</li>
 			</ul>
 		</div>
 		{{--底部--}}

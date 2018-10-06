@@ -31,7 +31,7 @@
                     小窝==={{Request::path()}}
                 </div>
             </li>
-            <li @if(Request::path() == 'admin') class="active" @endif>
+            <li @if(Request::path() == 'admin' || Request::path() == 'admin/config') class="active" @endif>
                 <a href="javascript:;">
                     <i class="fa fa-th-large"></i>
                     <span class="nav-label">系统管理</span>
@@ -46,7 +46,7 @@
                     </li>
                 </ul>
             </li>
-            <li @if(Request::path() == 'admin/article/article_add' || 'admin/article/article_list' || 'admin/article/article_edit') class="active" @endif>
+            <li @if(Request::path() == 'admin/article/article_add' || Request::path() == 'admin/article/article_list' || Request::path() == 'admin/article/article_edit') class="active" @endif>
                 <a href="javascript:;">
                     <i class="fa fa-building"></i>
                     <span class="nav-label">文章管理</span>
@@ -62,7 +62,7 @@
                 </ul>
             </li>
 
-            <li @if(Request::path() == 'admin/plugins/tag_list' || 'admin/plugins/comment_list') class="active" @endif>
+            <li @if(Request::path() == 'admin/plugins/tag_list' || Request::path() == 'admin/plugins/comment_list') class="active" @endif>
                 <a href="javascript:;">
                     <i class="fa fa-cloud"></i>
                     <span class="nav-label">云拓展</span>

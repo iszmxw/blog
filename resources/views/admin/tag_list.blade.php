@@ -34,9 +34,19 @@
     function EditData(tid){
         alert(tid);
     }
-    function deleted(tid){
-        tid.stopPropagation();
+    function deleted(tid,e){
+        stopPropagation(e);
         alert(tid+'成功啦');
+    }
+    //因为冒泡了，会执行到下面的方法。
+    function stopPropagation(e) {
+        var ev = e || window.event;
+        if (ev.stopPropagation) {
+            ev.stopPropagation();
+        }
+        else if (window.event) {
+            window.event.cancelBubble = true;//兼容IE
+        }
     }
 </script>
 </body>

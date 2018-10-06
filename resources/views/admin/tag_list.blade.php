@@ -33,7 +33,8 @@
     function EditData(tid){
         alert(tid);
     }
-    function deleted(tid){
+    function deleted(tid,event){
+        event.stopPropagation();
         alert(tid);
     }
 </script>

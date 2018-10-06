@@ -33,8 +33,8 @@
     function EditData(tid){
         alert(tid);
     }
-    function deleted(tid,event){
-        event.stopPropagation();
+    function deleted(tid){
+        tid.stopPropagation();
         alert(tid+'成功啦');
     }
 </script>

@@ -31,15 +31,15 @@
                     小窝
                 </div>
             </li>
-            <li class="active">
+            <li @if($request->path() == 'admin' || $request->path() == 'admin/config') class="active" @endif>
                 <a href="javascript:;">
                     <i class="fa fa-th-large"></i>
                     <span class="nav-label">系统管理</span>
                     <span class="fa arrow"></span>
                 </a>
                 <ul class="nav nav-second-level">
-                    <li class="active"><a href="{{url('admin')}}">系统首页</a></li>
-                    <li><a href="{{url('admin/config')}}">系统设置</a></li>
+                    <li @if($request->path() == 'admin') class="active" @endif><a href="{{url('admin')}}">系统首页</a></li>
+                    <li @if($request->path() == 'admin/config') class="active" @endif><a href="{{url('admin/config')}}">系统设置</a></li>
                 </ul>
             </li>
             <li class="active">
@@ -55,7 +55,7 @@
             </li>
 
             <li>
-                <a href="http://54zm.com/javascript:;">
+                <a href="javascript:;">
                     <i class="fa fa-cloud"></i>
                     <span class="nav-label">云拓展</span>
                     <span class="fa arrow"></span>

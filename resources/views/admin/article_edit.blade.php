@@ -38,7 +38,7 @@
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
                             <h5>文章基本信息
-                                <small>修改文章内容。{{route('admin/article/article_edit')}}</small>
+                                <small>修改文章内容。{{Request::path()}}</small>
                             </h5>
                         </div>
                         <div class="ibox-content">

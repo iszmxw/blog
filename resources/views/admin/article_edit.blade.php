@@ -39,7 +39,7 @@
                         <div class="ibox-title">
                             <h5>文章基本信息
 
-                                <small>修改文章内容。{{Request::path()}}</small>
+                                <small>修改文章内容。{{$request->path()}}</small>
                             </h5>
                         </div>
                         <div class="ibox-content">

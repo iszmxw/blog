@@ -26,6 +26,7 @@ Route::middleware('admin')->namespace('Admin')->group(function () {
         Route::post('login_check','AdminController@login_check');
         Route::post('article_add_check','ArticleController@article_add_check');
         Route::post('article_delete_check','ArticleController@article_delete_check');
+        Route::post('article_edit_check','ArticleController@article_edit_check');
     });
 });
 

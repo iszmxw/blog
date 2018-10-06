@@ -30,6 +30,16 @@ class Blog extends Model
         return self::create($data);
     }
 
+    public static function EditData($where,$data)
+    {
+        if($model = self::where($where)->first()){
+            foreach($data as $key=>$val){
+                $model->$key=$val;
+            }
+            $model->save();
+        }
+    }
+
     //分页获取数据
     public static function getPaginate($where,$select,$sort,$desc,$paginate)
     {

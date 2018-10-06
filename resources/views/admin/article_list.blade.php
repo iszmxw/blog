@@ -6,6 +6,7 @@
     <title>追梦小窝 | 博客管理系统-文章列表</title>
     @include('admin.public.common_css')
     <link href="{{asset('style/admin/inspinia/css/plugins/iCheck/custom.css')}}" rel="stylesheet">
+    <link href="{{asset('style/admin/inspinia/css/plugins/sweetalert/sweetalert.css')}}" rel="stylesheet">
 </head>
 <body class="">
 <div id="wrapper">
@@ -118,6 +119,8 @@
 @include('admin.public.common_js')
 <!-- iCheck -->
 <script src="{{asset('style/admin/inspinia/js/plugins/iCheck/icheck.min.js')}}"></script>
+<!-- Sweet alert -->
+<script src="{{asset('style/admin/inspinia/js/plugins/sweetalert/sweetalert.min.js')}}"></script>
 <script>
     function edit(id){
         window.location.href="{{url('admin/article/article_edit?id=')}}"+id;

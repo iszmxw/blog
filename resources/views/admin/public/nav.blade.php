@@ -31,7 +31,7 @@
                     小窝==={{Request::path()}}
                 </div>
             </li>
-            <li @if(Request::path() == 'admin' || 'admin/config') class="active" @endif>
+            <li @if(Request::path() == 'admin') class="active" @endif>
                 <a href="javascript:;">
                     <i class="fa fa-th-large"></i>
                     <span class="nav-label">系统管理</span>

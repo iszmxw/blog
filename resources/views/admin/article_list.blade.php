@@ -140,6 +140,7 @@
             function (isConfirm) {
                 if (isConfirm) {
                     swal("删除", "您的文章已被删除.", "success");
+                    console.log(111);
                 } else {
                     swal("取消", "您已取消了删除", "error");
                 }

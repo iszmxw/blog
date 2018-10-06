@@ -86,8 +86,8 @@
                                         <td><span class="label label-success">{{$value['views']}}</span></td>
                                         <td>{{date('Y-m-d H:i:s',$value['date'])}}</td>
                                         <td>
-                                            <button class="btn btn-info" type="button"><i class="fa fa-edit"></i>&nbsp;&nbsp;编辑</button>
-                                            <button class="btn btn-danger" type="button"><i class="fa fa-times"></i>&nbsp;&nbsp;删除</button>
+                                            <button class="btn btn-info" type="button" onclick="edit('{{$value['gid']}}')"><i class="fa fa-edit"></i>&nbsp;&nbsp;编辑</button>
+                                            <button class="btn btn-danger" type="button" onclick="deleted('{{$value['gid']}}')"><i class="fa fa-times"></i>&nbsp;&nbsp;删除</button>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -119,6 +119,22 @@
 <!-- iCheck -->
 <script src="{{asset('style/admin/inspinia/js/plugins/iCheck/icheck.min.js')}}"></script>
 <script>
+    function edit(id){
+        window.location.href="{{url('admin/article/article_edit?id=')}}"+id;
+    }
+    function deleted(id){
+        swal({
+            title: "你确定要删除该文章吗？",
+            text: "你将删除该文章",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "确定删除",
+            closeOnConfirm: false
+        }, function () {
+            swal("删除！", "该文章将百删除！", "删除成功");
+        });
+    }
     $(document).ready(function(){
         $('.i-checks').iCheck({
             checkboxClass: 'icheckbox_square-green',

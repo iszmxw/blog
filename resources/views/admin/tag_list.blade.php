@@ -16,36 +16,13 @@
 		<div class="wrapper wrapper-content">
 
 			<div class="tag-list">
-				<button type="button" class="btn btn-w-m btn-info"><i class="fa fa-tag"></i> 标签&nbsp;&nbsp;
-					<span class="close-link">
+				@foreach($list as $value)
+				<button type="button" class="btn btn-w-m btn-info" onclick="EditData('{{$value['tid']}}')"><i class="fa fa-tag"></i> {{$value['tagname']}}&nbsp;&nbsp;
+					<span class="close-link" onclick="deleted('{{$value['tid']}}')">
 						<i class="fa fa-times"></i>
 					</span>
 				</button>
-				<button type="button" class="btn btn-w-m btn-info"><i class="fa fa-tag"></i> 标签
-					<a class="close-link">
-						<i class="fa fa-times"></i>
-					</a>
-				</button>
-				<button type="button" class="btn btn-w-m btn-info"><i class="fa fa-tag"></i> 标签
-					<a class="close-link">
-						<i class="fa fa-times"></i>
-					</a>
-				</button>
-				<button type="button" class="btn btn-w-m btn-info"><i class="fa fa-tag"></i> 标签
-					<a class="close-link">
-						<i class="fa fa-times"></i>
-					</a>
-				</button>
-				<button type="button" class="btn btn-w-m btn-info"><i class="fa fa-tag"></i> 标签
-					<a class="close-link">
-						<i class="fa fa-times"></i>
-					</a>
-				</button>
-				<button type="button" class="btn btn-w-m btn-info"><i class="fa fa-tag"></i> 标签
-					<a class="close-link">
-						<i class="fa fa-times"></i>
-					</a>
-				</button>
+				@endforeach
 			</div>
 		</div>
 		{{--底部--}}
@@ -53,5 +30,13 @@
 	</div>
 </div>
 @include('admin.public.common_js')
+<script>
+    function EditData(tid){
+        alert(tid);
+    }
+    function deleted(tid){
+        alert(tid);
+    }
+</script>
 </body>
 </html>

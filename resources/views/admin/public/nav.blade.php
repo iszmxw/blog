@@ -31,7 +31,7 @@
                     小窝
                 </div>
             </li>
-            <li @if(Request::path() == 'admin' || Request::path() == 'admin/config') class="active" @endif>
+            <li @if(Request::path() == 'admin' || 'admin/config') class="active" @endif>
                 <a href="javascript:;">
                     <i class="fa fa-th-large"></i>
                     <span class="nav-label">系统管理</span>
@@ -54,15 +54,15 @@
                 </ul>
             </li>
 
-            <li>
+            <li @if(Request::path() == 'admin/plugins/tag_list' || 'admin/plugins/comment_list') class="active" @endif>
                 <a href="javascript:;">
                     <i class="fa fa-cloud"></i>
                     <span class="nav-label">云拓展</span>
                     <span class="fa arrow"></span>
                 </a>
                 <ul class="nav nav-second-level collapse">
-                    <li><a href="{{url('admin/plugins/tag_list')}}">标签列表</a></li>
-                    <li><a href="{{url('admin/plugins/comment_list')}}">评论列表</a></li>
+                    <li @if(Request::path() == 'admin/plugins/tag_list') class="active" @endif><a href="{{url('admin/plugins/tag_list')}}">标签列表</a></li>
+                    <li @if(Request::path() == 'admin/plugins/comment_list') class="active" @endif><a href="{{url('admin/plugins/comment_list')}}">评论列表</a></li>
                 </ul>
             </li>
             <li>

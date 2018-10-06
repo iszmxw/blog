@@ -57,7 +57,7 @@
                                         <select class="form-control m-b" name="sortid">
                                             <option value="-1">请选择栏目</option>
                                             @foreach($sort as $value)
-                                            <option value="{{$value['sid']}}">{{$value['sortname']}}</option>
+                                            <option value="{{$value['sid']}}" @if($blog['sortid'] == $value['sid']) selected @endif>{{$value['sortname']}}</option>
                                             @endforeach
                                         </select>
                                     </div>

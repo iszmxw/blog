@@ -76,7 +76,10 @@
             if (json.status == '1'){
                 console.log(json.data);
 			}else{
-                alert('获取数据失败！');
+                swal("失败", json.data, "error");
+                setInterval(function(){
+                    window.location.reload();
+                },1500);
 			}
 		});
     }

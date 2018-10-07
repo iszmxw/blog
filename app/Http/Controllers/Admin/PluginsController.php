@@ -36,6 +36,11 @@ class PluginsController extends Controller
     {
         $tid = $request->get('tid');
         $data = Tag::getOne(['tid'=>$tid]);
-        return response()->json(['status'=>'1','data'=>$data]);
+        if ($data){
+            return response()->json(['status'=>'1','data'=>$data]);
+        }else{
+            return response()->json(['status'=>'0','data'=>'获取数据失败，请稍后再试！']);
+        }
+
     }
 }

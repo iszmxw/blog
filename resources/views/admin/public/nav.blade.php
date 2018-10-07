@@ -62,7 +62,7 @@
                 </ul>
             </li>
 
-            <li @if(Request::path() == 'admin/plugins/tag_list' || Request::path() == 'admin/plugins/comment_list') class="active" @endif>
+            <li @if(Request::path() == 'admin/plugins/tag_list' || Request::path() == 'admin/plugins/comment_list' || Request::path() == 'admin/plugins/link_list') class="active" @endif>
                 <a href="javascript:;">
                     <i class="fa fa-cloud"></i>
                     <span class="nav-label">云拓展</span>
@@ -74,6 +74,9 @@
                     </li>
                     <li @if(Request::path() == 'admin/plugins/comment_list') class="active" @endif>
                         <a href="{{url('admin/plugins/comment_list')}}">评论列表</a>
+                    </li>
+                    <li @if(Request::path() == 'admin/plugins/link_list') class="active" @endif>
+                        <a href="{{url('admin/plugins/link_list')}}">友情链接</a>
                     </li>
                 </ul>
             </li>

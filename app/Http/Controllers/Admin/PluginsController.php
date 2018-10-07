@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use App\Models\Link;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -58,5 +59,13 @@ class PluginsController extends Controller
             DB::rollBack();
             return response()->json(['status'=>'0','data'=>'修改标签失败！']);
         }
+    }
+
+    //友情链接
+    public function link_list(Request $request)
+    {
+        $user_data = $request->get('user_data');
+        $list = Link::where([])->orderby('id','ASC')->paginate(10);
+        return view('admin.link_list',['user_data'=>$user_data,'list'=>$list]);
     }
 }

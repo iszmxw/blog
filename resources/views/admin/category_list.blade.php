@@ -233,7 +233,7 @@
                 $("#sid").val(json.data.sid);
                 $("#sortname").val(json.data.sortname);
                 $("#alias").val(json.data.alias);
-                // $("#pid").val(json.data.pid);
+                $("#pid").val(json.data.pid);
                 $("#description").val(json.data.description);
                 $("#myModal").modal();
             }else{

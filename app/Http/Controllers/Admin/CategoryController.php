@@ -14,7 +14,7 @@ class CategoryController extends Controller
     public function category_list(Request $request)
     {
         $user_data = $request->get('user_data');
-        $list = Sort::getPaginate([],'id','ASC',10);
+        $list = Sort::getPaginate([],'sid','ASC',10);
         return view('admin.category_list',['user_data'=>$user_data,'list'=>$list]);
     }
 

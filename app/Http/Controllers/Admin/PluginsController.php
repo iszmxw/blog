@@ -5,6 +5,7 @@ use App\Models\Tag;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Mockery\Exception;
 
 class PluginsController extends Controller
 {
@@ -18,6 +19,16 @@ class PluginsController extends Controller
     //删除标签
     public function tag_delete_check(Request $request)
     {
-        dd($request);
+        $tid = $request->get('tid');
+        DB::beginTransaction();
+        try{
+            Tag::where(['tid'=>$tid])->delete(2151);
+            DB::commit();
+            return response()->json(['data'=>'删除成功！','status'=>'1']);
+        }catch (Exception $e){
+            dd($e);
+            DB::rollBack();
+            return response()->json(['data'=>'删除失败请稍后再试！','status'=>'1']);
+        }
     }
 }

@@ -40,7 +40,7 @@
         var data = {'_token':'{{csrf_token()}}','tid':tid};
         swal({
                 title: "你确定？",
-                text: "你将无法恢复这篇文章！",
+                text: "你将无法恢复这个标签！",
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#DD6B55",
@@ -53,7 +53,7 @@
                 if (isConfirm) {
                     $.post(url,data,function(json){
                         if (json.status == '1'){
-                            swal("删除", "您的文章已被删除", "success");
+                            swal("删除", "您的标签已被删除", "success");
                             setInterval(function(){
                                 window.location.reload();
                             },1500);

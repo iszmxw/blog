@@ -30,6 +30,24 @@
 		@include('admin.public.footer')
 	</div>
 </div>
+<div class="modal inmodal fade" id="myModal" tabindex="-1" role="dialog"  aria-hidden="true">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title">编辑标签</h4>
+				<input type="hidden" id="tid">
+			</div>
+			<div class="modal-body">
+				<p><input type="text" value="" id="tag_name"></p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-primary">保存更改</button>
+			</div>
+		</div>
+	</div>
+</div>
 @include('admin.public.common_js')
 <!-- Sweet alert -->
 <script src="{{asset('style/admin/inspinia/js/plugins/sweetalert/sweetalert.min.js')}}"></script>
@@ -75,6 +93,9 @@
         $.post(url,data,function(json){
             if (json.status == '1'){
                 console.log(json.data);
+                $("#tid").val(json.data.tid);
+                $("#tag_name").val(json.data.tagname);
+                $("#myModal").show();
 			}else{
                 swal("失败", json.data, "error");
                 setInterval(function(){

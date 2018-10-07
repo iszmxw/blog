@@ -65,7 +65,7 @@ class PluginsController extends Controller
     public function link_list(Request $request)
     {
         $user_data = $request->get('user_data');
-        $list = Link::where([])->orderby('id','ASC')->paginate(2);
+        $list = Link::where([])->orderby('id','ASC')->paginate(15);
         return view('admin.link_list',['user_data'=>$user_data,'list'=>$list]);
     }
 }

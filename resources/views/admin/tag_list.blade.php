@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>追梦小窝 | 后台首页--标签管理</title>
 	@include('admin.public.common_css')
+	<link href="{{asset('style/admin/inspinia/css/plugins/sweetalert/sweetalert.css')}}" rel="stylesheet">
 </head>
 <body class="">
 <div id="wrapper">
@@ -30,6 +31,8 @@
 	</div>
 </div>
 @include('admin.public.common_js')
+<!-- Sweet alert -->
+<script src="{{asset('style/admin/inspinia/js/plugins/sweetalert/sweetalert.min.js')}}"></script>
 <script>
     function deleted(tid,e){
         stopPropagation(e);

@@ -31,12 +31,43 @@
 </div>
 @include('admin.public.common_js')
 <script>
-    function EditData(tid){
-        alert(tid);
-    }
     function deleted(tid,e){
         stopPropagation(e);
-        alert(tid+'成功啦');
+        var url = "{{url('admin/ajax/tag_delete_check')}}";
+        var data = {'_token':'{{csrf_token()}}','tid':tid};
+        swal({
+                title: "你确定？",
+                text: "你将无法恢复这篇文章！",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "删除",
+                cancelButtonText: "取消",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+            function (isConfirm) {
+                if (isConfirm) {
+                    $.post(url,data,function(json){
+                        if (json.status == '1'){
+                            swal("删除", "您的文章已被删除", "success");
+                            setInterval(function(){
+                                window.location.reload();
+                            },1500);
+                        }else{
+                            swal("操作失败", "删除失败请稍后再试！", "error");
+                        }
+                    });
+                } else {
+                    swal("取消", "您已取消了删除", "error");
+                    setInterval(function(){
+                        window.location.reload();
+                    },1500);
+                }
+            });
+    }
+    function EditData(tid){
+        alert(tid);
     }
     //因为冒泡了，会执行到下面的方法。
     function stopPropagation(e) {

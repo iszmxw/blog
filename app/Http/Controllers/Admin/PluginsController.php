@@ -14,4 +14,10 @@ class PluginsController extends Controller
         $list = Tag::getList([]);
         return view('admin.tag_list',['user_data'=>$user_data,'list'=>$list]);
     }
+
+    //删除标签
+    public function tag_delete_check(Request $request)
+    {
+        dd($request);
+    }
 }

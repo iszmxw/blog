@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Models\Blog;
-use App\Models\Link;
 use App\Models\Sort;
-use App\Models\Tag;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;

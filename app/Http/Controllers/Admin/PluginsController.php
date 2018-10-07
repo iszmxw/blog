@@ -54,6 +54,7 @@ class PluginsController extends Controller
             DB::commit();
             return response()->json(['status'=>'1','data'=>'修改标签成功！']);
         }catch (\Exception $e){
+            dd($e);
             DB::rollBack();
             return response()->json(['status'=>'0','data'=>'修改标签失败！']);
         }

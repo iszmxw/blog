@@ -48,7 +48,7 @@
             </li>
             <li @if(Request::path() == 'admin/category/category_list' || Request::path() == 'admin/category/navbar_list') class="active" @endif>
                 <a href="javascript:;">
-                    <i class="fa fa-building"></i>
+                    <i class="fa fa-th-large"></i>
                     <span class="nav-label">栏目管理</span>
                     <span class="fa arrow"></span>
                 </a>

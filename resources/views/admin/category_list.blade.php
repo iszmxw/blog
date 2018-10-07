@@ -74,7 +74,7 @@
 											<td>{{$value['alias']}}</td>
 											<td>{{$value['template']}}</td>
 											<td>链接地址</td>
-											<td>文章数量</td>
+											<td>{{$value['blogs']}}</td>
 											<td>
 												<button class="btn btn-info" type="button" onclick="EditData('{{$value['sid']}}')"><i class="fa fa-edit"></i>&nbsp;&nbsp;编辑</button>
 												<button class="btn btn-danger" type="button" onclick="deleted('{{$value['sid']}}')"><i class="fa fa-times"></i>&nbsp;&nbsp;删除</button>

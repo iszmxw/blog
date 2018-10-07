@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use App\Models\Blog;
 use App\Models\Link;
 use App\Models\Sort;
 use App\Models\Tag;
@@ -14,7 +15,10 @@ class CategoryController extends Controller
     public function category_list(Request $request)
     {
         $user_data = $request->get('user_data');
-        $list = Sort::getPaginate([],'sid','ASC',10);
+        $list = Sort::getPaginate([],'taxis','ASC',10);
+        foreach ($list as $value){
+            $value['blogs'] = Blog::where(['sortid'=>$value['sid']])->count();
+        }
         return view('admin.category_list',['user_data'=>$user_data,'list'=>$list]);
     }
 

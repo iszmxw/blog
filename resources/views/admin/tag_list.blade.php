@@ -34,7 +34,7 @@
 	<div class="modal-dialog modal-sm">
 		<div class="modal-content">
 			<form action="{{url('admin/ajax/tag_edit_data_check')}}" id="currentForm">
-				<input type="hidden" id="tid">
+				<input type="hidden" name="tid" id="tid">
 				<input type="hidden" name="_token" value="{{csrf_token()}}">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
@@ -42,7 +42,7 @@
 				</div>
 				<div class="modal-body">
 					<p>
-						<input type="text" placeholder="请输入标签名称" id="tag_name" class="form-control">
+						<input type="text" placeholder="请输入标签名称" name="tagname" id="tag_name" class="form-control">
 					</p>
 				</div>
 				<div class="modal-footer">

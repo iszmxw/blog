@@ -18,7 +18,25 @@ class Admin
         $route = $request->getPathInfo();
         switch ($route){
             case '/admin';
-            case '/admin/article_add';
+            case '/admin/config';
+            //文章管理
+            case '/admin/article/article_add';
+            case '/admin/ajax/article_add_check';
+            case '/admin/ajax/article_delete_check';
+            case '/admin/article/article_edit';
+            case '/admin/ajax/article_edit_check';
+            case '/admin/article/article_list';
+            //标签管理
+            case '/admin/plugins/tag_list';
+            case '/admin/ajax/tag_edit_data';
+            case '/admin/ajax/tag_edit_data_check';
+            case '/admin/ajax/tag_delete_check';
+            //友情链接
+            case '/admin/plugins/link_list';
+            case '/admin/ajax/link_list_data';
+            case '/admin/ajax/link_list_data_check';
+            case '/admin/ajax/link_delete_check';
+            case '/admin/ajax/link_list_add_check';
                 $re = self::CheckIsLoginAndHasRole($request);
                 return self::format_response($re,$next);
                 break;

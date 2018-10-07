@@ -128,9 +128,9 @@
 						<label>上级分类</label>
 						<select class="input-sm form-control input-s-sm inline">
 							<option value="0">无父级</option>
-							<option value="1">选项 2</option>
-							<option value="2">选项 3</option>
-							<option value="3">选项 4</option>
+							@foreach($sort as $value)
+							<option value="{{$value['sid']}}">{{$value['sortname']}}</option>
+							@endforeach
 						</select>
 					</div>
 					<div class="form-group">

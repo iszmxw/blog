@@ -16,10 +16,11 @@ class CategoryController extends Controller
     {
         $user_data = $request->get('user_data');
         $list = Sort::getPaginate([],'taxis','ASC',10);
+        $sort = Sort::getList([]);
         foreach ($list as $value){
             $value['blogs'] = Blog::where(['sortid'=>$value['sid']])->count();
         }
-        return view('admin.category_list',['user_data'=>$user_data,'list'=>$list]);
+        return view('admin.category_list',['user_data'=>$user_data,'sort'=>$sort,'list'=>$list]);
     }
 
     //添加分类

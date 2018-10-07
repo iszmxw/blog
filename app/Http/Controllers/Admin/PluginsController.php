@@ -22,7 +22,7 @@ class PluginsController extends Controller
         $tid = $request->get('tid');
         DB::beginTransaction();
         try{
-            Tag::where(['tid'=>$tid])->deleteSS(2151);
+            Tag::where(['tidS'=>$tid])->delete();
             DB::commit();
             return response()->json(['data'=>'删除成功！','status'=>'1']);
         }catch (Exception $e){

@@ -33,18 +33,22 @@
 <div class="modal inmodal fade" id="myModal" tabindex="-1" role="dialog"  aria-hidden="true">
 	<div class="modal-dialog modal-sm">
 		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-				<h4 class="modal-title">编辑标签</h4>
-				<input type="hidden" id="tid">
-			</div>
-			<div class="modal-body">
-				<p><input type="text" value="" id="tag_name"></p>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
-				<button type="button" class="btn btn-primary">保存更改</button>
-			</div>
+			<form action="{{url('admin/ajax/tag_edit_data_check')}}" id="currentForm">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<h4 class="modal-title">编辑标签</h4>
+					<input type="hidden" id="tid">
+				</div>
+				<div class="modal-body">
+					<p>
+						<input type="text" placeholder="请输入标签名称" id="tag_name" class="form-control">
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+					<button type="button" class="btn btn-primary" onclick="SaveData()">保存更改</button>
+				</div>
+			</form>
 		</div>
 	</div>
 </div>
@@ -104,6 +108,30 @@
 			}
 		});
     }
+    function SaveData(){
+        var target = $("#currentForm");
+        var url = target.attr("action");
+        var data = target.serialize();
+        $.post(url, data, function (json) {
+            if(json.status == 1) {
+                swal({
+                    title: "提示信息",
+                    text: json.data,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "确定",
+                },function(){
+                    window.location.reload();
+                });
+            }else{
+                swal({
+                    title: "提示信息",
+                    text: json.data,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "确定"
+                });
+            }
+        });
+	}
     //因为冒泡了，会执行到下面的方法。
     function stopPropagation(e) {
         var ev = e || window.event;

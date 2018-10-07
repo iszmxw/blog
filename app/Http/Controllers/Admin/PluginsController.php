@@ -41,6 +41,11 @@ class PluginsController extends Controller
         }else{
             return response()->json(['status'=>'0','data'=>'获取数据失败，请稍后再试！']);
         }
+    }
 
+    //编辑标签
+    public function tag_edit_data_check(Request $request)
+    {
+        dd($request);
     }
 }

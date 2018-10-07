@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>追梦小窝 | 后台首页--栏目列表</title>
+	<title>追梦小窝 | 后台首页--分类列表</title>
 	@include('admin.public.common_css')
 	<link href="{{asset('style/admin/inspinia/css/plugins/sweetalert/sweetalert.css')}}" rel="stylesheet">
 </head>
@@ -22,10 +22,10 @@
 					<div class="ibox float-e-margins">
 						<div class="ibox-content">
 							<h2>
-								栏目列表
+								分类列表
 							</h2>
 							<div class="alert alert-warning">
-								我的所有栏目列表
+								我的所有分类列表
 								<a href="{{url('admin')}}">返回首页</a>
 							</div>
 						</div>
@@ -37,14 +37,14 @@
 				<div class="col-lg-12">
 					<div class="ibox float-e-margins">
 						<div class="ibox-title">
-							<h5>栏目列表
-								<small>所有栏目。</small>
+							<h5>分类列表
+								<small>所有分类。</small>
 							</h5>
 						</div>
 						<div class="ibox-content">
 							<div class="row">
 								<div class="col-sm-3">
-									<a href="JavaScript:;" class="btn btn-primary" onclick="add_alert()">添加栏目</a>
+									<a href="JavaScript:;" class="btn btn-primary" onclick="add_alert()">添加分类</a>
 								</div>
 								<div class="col-sm-3">
 									<div class="input-group"><input type="text" placeholder="请输入搜索内容" class="input-sm form-control"> <span class="input-group-btn">
@@ -56,7 +56,7 @@
 									<thead>
 									<tr>
 										<th>序号</th>
-										<th>栏目名称</th>
+										<th>分类名称</th>
 										<th>描述</th>
 										<th>别名</th>
 										<th>模板</th>
@@ -113,19 +113,19 @@
 				<input type="hidden" name="_token" value="{{csrf_token()}}">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-					<h4 class="modal-title">添加栏目</h4>
+					<h4 class="modal-title">添加分类</h4>
 				</div>
 				<div class="modal-body">
 					<div class="form-group">
-						<label>栏目名称</label>
-						<input type="text" placeholder="栏目名称" name="sortname" class="form-control">
+						<label>分类名称</label>
+						<input type="text" placeholder="分类名称" name="sortname" class="form-control">
 					</div>
 					<div class="form-group">
 						<label>别名</label>
 						<input type="text" placeholder="别名" name="alias" class="form-control">
 					</div>
 					<div class="form-group">
-						<label>上级栏目</label>
+						<label>上级分类</label>
 						<select class="input-sm form-control input-s-sm inline">
 							<option value="0">无父级</option>
 							<option value="1">选项 2</option>
@@ -134,8 +134,8 @@
 						</select>
 					</div>
 					<div class="form-group">
-						<label>栏目描述</label>
-						<input type="text" placeholder="栏目描述" name="description" class="form-control">
+						<label>分类描述</label>
+						<input type="text" placeholder="分类描述" name="description" class="form-control">
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -156,7 +156,7 @@
 				<input type="hidden" name="_token" value="{{csrf_token()}}">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-					<h4 class="modal-title">编辑栏目</h4>
+					<h4 class="modal-title">编辑分类</h4>
 				</div>
 				<div class="modal-body">
 					{{--<div class="form-group">--}}

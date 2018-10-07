@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Models\Link;
+use App\Models\Sort;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -13,7 +14,8 @@ class CategoryController extends Controller
     public function category_list(Request $request)
     {
         $user_data = $request->get('user_data');
-        return view('admin.category_list',['user_data'=>$user_data]);
+        $list = Sort::getPaginate([],'id','ASC',10);
+        return view('admin.category_list',['user_data'=>$user_data,'list'=>$list]);
     }
 
     //首页导航栏列表

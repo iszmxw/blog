@@ -26,7 +26,7 @@ class PluginsController extends Controller
             DB::commit();
             return response()->json(['data'=>'删除成功！','status'=>'1']);
         }catch (Exception $e){
-            dd($e);
+//            dd($e);
             DB::rollBack();
             return response()->json(['data'=>'删除失败请稍后再试！','status'=>'1']);
         }

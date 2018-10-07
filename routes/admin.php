@@ -15,7 +15,6 @@ Route::middleware('admin')->namespace('Admin')->group(function () {
     Route::get('login','AdminController@login');
     Route::get('quit','AdminController@quit');
 
-
     //栏目管理
     Route::group(['prefix'=>'category'],function (){
         Route::get('category_list','CategoryController@category_list');

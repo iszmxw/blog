@@ -52,7 +52,6 @@
                     <span class="nav-label">栏目管理</span>
                     <span class="fa arrow"></span>
                 </a>
-
                 <ul class="nav nav-second-level">
                     <li @if(Request::path() == 'admin/category/category_list') class="active" @endif>
                         <a href="{{url('admin/category/category_list')}}">栏目列表</a>

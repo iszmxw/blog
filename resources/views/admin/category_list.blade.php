@@ -109,7 +109,7 @@
 <div class="modal inmodal fade" id="add_data" tabindex="-1" role="dialog"  aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<form action="{{url('admin/ajax/link_list_add_check')}}" id="post_url">
+			<form action="{{url('admin/ajax/category_add_check')}}" id="post_url">
 				<input type="hidden" name="_token" value="{{csrf_token()}}">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>

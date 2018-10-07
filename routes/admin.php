@@ -37,16 +37,21 @@ Route::middleware('admin')->namespace('Admin')->group(function () {
     //Ajax请求部分
     Route::group(['prefix'=>'ajax'],function (){
         Route::post('login_check','AdminController@login_check');
+        //文章
         Route::post('article_add_check','ArticleController@article_add_check');
         Route::post('article_delete_check','ArticleController@article_delete_check');
         Route::post('article_edit_check','ArticleController@article_edit_check');
+        //标签
         Route::post('tag_delete_check','PluginsController@tag_delete_check');
         Route::post('tag_edit_data','PluginsController@tag_edit_data');
         Route::post('tag_edit_data_check','PluginsController@tag_edit_data_check');
+        //友情链接
         Route::post('link_list_data','PluginsController@link_list_data');
         Route::post('link_list_data_check','PluginsController@link_list_data_check');
         Route::post('link_delete_check','PluginsController@link_delete_check');
         Route::post('link_list_add_check','PluginsController@link_list_add_check');
+        //分类
+        Route::post('category_add_check','CategoryController@category_add_check');
     });
 });
 

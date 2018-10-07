@@ -22,6 +22,12 @@ class CategoryController extends Controller
         return view('admin.category_list',['user_data'=>$user_data,'list'=>$list]);
     }
 
+    //添加分类
+    public function category_add_check(Request $request)
+    {
+        dd($request);
+    }
+
     //首页导航栏列表
     public function navbar_list(Request $request)
     {

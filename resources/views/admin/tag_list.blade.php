@@ -56,6 +56,7 @@
 <!-- Sweet alert -->
 <script src="{{asset('style/admin/inspinia/js/plugins/sweetalert/sweetalert.min.js')}}"></script>
 <script>
+	//删除标签数据
     function deleted(tid,e){
         stopPropagation(e);
         var url = "{{url('admin/ajax/tag_delete_check')}}";
@@ -91,6 +92,7 @@
                 }
             });
     }
+    //获取标签数据
     function EditData(tid){
         var url = "{{url('admin/ajax/tag_edit_data')}}";
         var data = {'_token':"{{csrf_token()}}",'tid':tid};
@@ -108,6 +110,7 @@
 			}
 		});
     }
+    //保存数据
     function SaveData(){
         var target = $("#currentForm");
         var url = target.attr("action");

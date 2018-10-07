@@ -62,7 +62,7 @@
 									<tbody>
 									@foreach($list as $value)
 										<tr>
-											<td><input type="number" value="{{$value['taxis']}}" class="form-control"></td>
+											<td><input type="text" value="{{$value['taxis']}}" class="form-control"></td>
 											<td>{{$value['sitename']}}</td>
 											<td><span class="label label-primary">@if($value['hide'] == 'n')显示@else隐藏@endif</span></td>
 											<td><span class="label label-success">{{$value['siteurl']}}</span></td>

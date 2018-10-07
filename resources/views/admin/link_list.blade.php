@@ -44,9 +44,7 @@
 						<div class="ibox-content">
 							<div class="row">
 								<div class="col-sm-3">
-									<div class="title-action">
-										<a href="" class="btn btn-primary">这是行动区</a>
-									</div>
+									<a href="JavaScript:;" class="btn btn-primary" onclick="add_alert()">添加友情链接</a>
 								</div>
 								<div class="col-sm-3">
 									<div class="input-group"><input type="text" placeholder="请输入搜索内容" class="input-sm form-control"> <span class="input-group-btn">
@@ -103,7 +101,40 @@
 		@include('admin.public.footer')
 	</div>
 </div>
+{{--添加数据框--}}
+<div class="modal inmodal fade" id="add_data" tabindex="-1" role="dialog"  aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form action="{{url('admin/ajax/link_list_add_check')}}" id="post_url">
+				<input type="hidden" name="_token" value="{{csrf_token()}}">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<h4 class="modal-title">编辑友情链接</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<label>友情链接名称</label>
+						<input type="text" placeholder="友情链接名称" name="sitename" class="form-control">
+					</div>
+					<div class="form-group">
+						<label>友情链接地址</label>
+						<input type="text" placeholder="友情链接地址" name="siteurl" class="form-control">
+					</div>
+					<div class="form-group">
+						<label>友情链接描述</label>
+						<input type="text" placeholder="友情链接描述" name="description" class="form-control">
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+					<button type="button" class="btn btn-primary" onclick="add_data()">保存更改</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
 
+{{--编辑数据框--}}
 <div class="modal inmodal fade" id="myModal" tabindex="-1" role="dialog"  aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -140,6 +171,36 @@
 <!-- Sweet alert -->
 <script src="{{asset('style/admin/inspinia/js/plugins/sweetalert/sweetalert.min.js')}}"></script>
 <script>
+	//显示添加数据框
+	function add_alert(){
+	    $("#add_data").modal();
+	}
+	//添加友情链接
+    function add_data(){
+        var target = $("#post_url");
+        var url = target.attr("action");
+        var data = target.serialize();
+        $.post(url, data, function (json) {
+            if(json.status == 1) {
+                swal({
+                    title: "提示信息",
+                    text: json.data,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "确定",
+                },function(){
+                    window.location.reload();
+                });
+            }else{
+                swal({
+                    title: "提示信息",
+                    text: json.data,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "确定"
+                });
+            }
+        });
+    }
+
     //获取标签数据
     function EditData(id){
         var url = "{{url('admin/ajax/link_list_data')}}";

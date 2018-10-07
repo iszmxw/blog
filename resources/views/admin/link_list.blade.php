@@ -180,6 +180,41 @@
             }
         });
     }
+    //删除友情链接数据
+    function deleted(id){
+        var url = "{{url('admin/ajax/link_delete_check')}}";
+        var data = {'_token':'{{csrf_token()}}','id':id};
+        swal({
+                title: "你确定？",
+                text: "你将无法恢复这条数据！",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "删除",
+                cancelButtonText: "取消",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+            function (isConfirm) {
+                if (isConfirm) {
+                    $.post(url,data,function(json){
+                        if (json.status == '1'){
+                            swal("删除", "您的友情链接已被删除", "success");
+                            setInterval(function(){
+                                window.location.reload();
+                            },1500);
+                        }else{
+                            swal("操作失败", "删除失败请稍后再试！", "error");
+                        }
+                    });
+                } else {
+                    swal("取消", "您已取消了删除", "error");
+                    setInterval(function(){
+                        window.location.reload();
+                    },1500);
+                }
+            });
+    }
 </script>
 </body>
 </html>

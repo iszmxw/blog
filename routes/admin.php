@@ -39,6 +39,7 @@ Route::middleware('admin')->namespace('Admin')->group(function () {
         Route::post('tag_edit_data_check','PluginsController@tag_edit_data_check');
         Route::post('link_list_data','PluginsController@link_list_data');
         Route::post('link_list_data_check','PluginsController@link_list_data_check');
+        Route::post('link_delete_check','PluginsController@link_delete_check');
     });
 });
 

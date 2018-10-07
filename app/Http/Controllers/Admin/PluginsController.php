@@ -77,6 +77,7 @@ class PluginsController extends Controller
         return response()->json(['status'=>'1','data'=>$data]);
     }
 
+    //编辑友情链接
     public function link_list_data_check(Request $request)
     {
         $id = $request->get('id');
@@ -91,6 +92,21 @@ class PluginsController extends Controller
         }catch (\Exception $e){
             DB::rollBack();
             return response()->json(['status'=>'0','data'=>'修改失败！请稍后再试！']);
+        }
+    }
+
+    //删除友情链接
+    public function link_delete_check(Request $request)
+    {
+        $id = $request->get('id');
+        DB::beginTransaction();
+        try{
+            Link::selected_delete(['id'=>$id]);
+            DB::commit();
+            return response()->json(['status'=>'1','data'=>'删除数据成功！']);
+        }catch (\Exception $e){
+            DB::rollBack();
+            return response()->json(['status'=>'0','data'=>'删除失败！请稍后再试！']);
         }
     }
 }

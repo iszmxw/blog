@@ -26,7 +26,20 @@ class CategoryController extends Controller
     //添加分类
     public function category_add_check(Request $request)
     {
-        dd($request);
+        $data['sortname'] = $request->get('sortname');
+        $data['alias'] = $request->get('alias');
+        $data['pid'] = $request->get('pid');
+        $data['description'] = $request->get('description');
+        DB::beginTransaction();
+        try{
+            Sort::create($data);
+            DB::commit();
+            return response()->json(['data'=>'添加分类成功！','status'=>'1']);
+        }catch (\Exception $e){
+            dd($e);
+            DB::rollBack();
+            return response()->json(['data'=>'添加失败请稍后再试！','status'=>'0']);
+        }
     }
 
     //首页导航栏列表

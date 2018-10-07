@@ -109,15 +109,18 @@
 					<h4 class="modal-title">编辑友情链接</h4>
 				</div>
 				<div class="modal-body">
-					<p>
+					<div class="form-group">
+						<label>友情链接名称</label>
 						<input type="text" placeholder="友情链接名称" name="sitename" id="sitename" class="form-control">
-					</p>
-					<p>
+					</div>
+					<div class="form-group">
+						<label>友情链接地址</label>
 						<input type="text" placeholder="友情链接地址" name="siteurl" id="siteurl" class="form-control">
-					</p>
-					<p>
+					</div>
+					<div class="form-group">
+						<label>友情链接描述</label>
 						<input type="text" placeholder="友情链接描述" name="description" id="description" class="form-control">
-					</p>
+					</div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>

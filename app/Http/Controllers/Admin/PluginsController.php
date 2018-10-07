@@ -68,4 +68,12 @@ class PluginsController extends Controller
         $list = Link::where([])->orderby('id','ASC')->paginate(15);
         return view('admin.link_list',['user_data'=>$user_data,'list'=>$list]);
     }
+
+    //获取友情链接数据
+    public function link_list_data(Request $request)
+    {
+        $id = $request->get('id');
+        $data = Link::getOne(['id'=>$id]);
+        return response()->json(['status'=>'1','data'=>$data]);
+    }
 }

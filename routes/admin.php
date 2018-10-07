@@ -25,6 +25,7 @@ Route::middleware('admin')->namespace('Admin')->group(function () {
     //云拓展
     Route::group(['prefix'=>'plugins'],function (){
         Route::get('tag_list','PluginsController@tag_list');
+        Route::get('link_list','PluginsController@link_list');
     });
 
     //Ajax请求部分

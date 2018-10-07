@@ -34,6 +34,7 @@ Route::middleware('admin')->namespace('Admin')->group(function () {
         Route::post('article_delete_check','ArticleController@article_delete_check');
         Route::post('article_edit_check','ArticleController@article_edit_check');
         Route::post('tag_delete_check','PluginsController@tag_delete_check');
+        Route::post('tag_edit_data','PluginsController@tag_edit_data');
     });
 });
 

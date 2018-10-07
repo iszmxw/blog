@@ -30,4 +30,12 @@ class PluginsController extends Controller
             return response()->json(['data'=>'删除失败请稍后再试！','status'=>'0']);
         }
     }
+
+    //获取标签数据信息
+    public function tag_edit_data(Request $request)
+    {
+        $tid = $request->get('tid');
+        $data = Tag::getOne(['tid'=>$tid]);
+        dd($data);
+    }
 }

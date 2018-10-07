@@ -70,7 +70,15 @@
             });
     }
     function EditData(tid){
-        alert(tid);
+        var url = "{{url('admin/ajax/tag_edit_data')}}";
+        var data = {'_token':"{{csrf_token()}}",'tid':tid};
+        $.post(url,data,function(json){
+            if (json.status == '1'){
+                console.log(json.data);
+			}else{
+                alert('获取数据失败！');
+			}
+		});
     }
     //因为冒泡了，会执行到下面的方法。
     function stopPropagation(e) {

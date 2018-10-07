@@ -36,6 +36,6 @@ class PluginsController extends Controller
     {
         $tid = $request->get('tid');
         $data = Tag::getOne(['tid'=>$tid]);
-        dd($data);
+        return response()->json(['status'=>'1','data'=>$data]);
     }
 }

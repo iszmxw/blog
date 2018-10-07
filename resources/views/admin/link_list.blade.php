@@ -131,7 +131,6 @@
 	</div>
 </div>
 @include('admin.public.common_js')
-
 <script>
     //获取标签数据
     function EditData(id){

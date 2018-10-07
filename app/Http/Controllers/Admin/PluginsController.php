@@ -76,4 +76,21 @@ class PluginsController extends Controller
         $data = Link::getOne(['id'=>$id]);
         return response()->json(['status'=>'1','data'=>$data]);
     }
+
+    public function link_list_data_check(Request $request)
+    {
+        $id = $request->get('id');
+        $data['sitename'] = $request->get('sitename');
+        $data['siteurl'] = $request->get('siteurl');
+        $data['description'] = $request->get('description');
+        DB::beginTransaction();
+        try{
+            Link::EditData(['id'=>$id],$data);
+            DB::commit();
+            return response()->json(['status'=>'1','data'=>'修改数据成功！']);
+        }catch (\Exception $e){
+            DB::rollBack();
+            return response()->json(['status'=>'0','data'=>'修改失败！请稍后再试！']);
+        }
+    }
 }

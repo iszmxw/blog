@@ -109,4 +109,10 @@ class PluginsController extends Controller
             return response()->json(['status'=>'0','data'=>'删除失败！请稍后再试！']);
         }
     }
+
+    //添加友情链接
+    public function link_list_add_check(Request $request)
+    {
+        dd($request);
+    }
 }

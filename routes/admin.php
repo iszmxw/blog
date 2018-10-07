@@ -40,6 +40,7 @@ Route::middleware('admin')->namespace('Admin')->group(function () {
         Route::post('link_list_data','PluginsController@link_list_data');
         Route::post('link_list_data_check','PluginsController@link_list_data_check');
         Route::post('link_delete_check','PluginsController@link_delete_check');
+        Route::post('link_list_add_check','PluginsController@link_list_add_check');
     });
 });
 

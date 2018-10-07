@@ -151,7 +151,7 @@
 <div class="modal inmodal fade" id="myModal" tabindex="-1" role="dialog"  aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<form action="{{url('admin/ajax/link_list_data_check')}}" id="currentForm">
+			<form action="{{url('admin/ajax/category_data_edit_check')}}" id="currentForm">
 				<input type="hidden" name="sid" id="sid">
 				<input type="hidden" name="_token" value="{{csrf_token()}}">
 				<div class="modal-header">

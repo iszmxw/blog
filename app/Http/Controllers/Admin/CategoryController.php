@@ -50,6 +50,26 @@ class CategoryController extends Controller
         return response()->json(['status'=>'1','data'=>$data]);
     }
 
+    //修改分类数据
+    public function category_data_edit_check(Request $request)
+    {
+        $sid = $request->get('sid');
+        $data['sortname'] = $request->get('sortname');
+        $data['alias'] = $request->get('alias');
+        $data['pid'] = $request->get('pid');
+        $data['description'] = $request->get('description');
+        DB::beginTransaction();
+        try{
+            Sort::EditData(['sid'=>$sid],$data);
+            DB::commit();
+            return response()->json(['data'=>'编辑分类信息成功！','status'=>'1']);
+        }catch (\Exception $e){
+            dd($e);
+            DB::rollBack();
+            return response()->json(['data'=>'编辑失败请稍后再试！','status'=>'0']);
+        }
+    }
+
     //首页导航栏列表
     public function navbar_list(Request $request)
     {

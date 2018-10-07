@@ -46,6 +46,16 @@ class PluginsController extends Controller
     //编辑标签
     public function tag_edit_data_check(Request $request)
     {
-        dd($request);
+        $tid = $request->get('tid');
+        $tagname = $request->get('tagname');
+        DB::beginTransaction();
+        try{
+            Tag::EditData(['tid'=>$tid],['tagname'=>$tagname]);
+            DB::commit();
+            return response()->json(['status'=>'1','data'=>'修改标签成功！']);
+        }catch (\Exception $e){
+            DB::rollBack();
+            return response()->json(['status'=>'0','data'=>'修改标签失败！']);
+        }
     }
 }

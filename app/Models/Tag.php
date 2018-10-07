@@ -19,4 +19,14 @@ class Tag extends Model
     {
         return self::where($where)->get();
     }
+    //修改数据
+    public static function EditData($where,$data)
+    {
+        if($model = self::where($where)->first()){
+            foreach($data as $key=>$val){
+                $model->$key=$val;
+            }
+            $model->save();
+        }
+    }
 }

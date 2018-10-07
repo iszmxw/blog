@@ -70,6 +70,23 @@ class CategoryController extends Controller
         }
     }
 
+    //删除分类信息
+    public function category_delete_check(Request $request)
+    {
+        $sid = $request->get('id');
+        DB::beginTransaction();
+        try{
+            Sort::selected_delete(['sid'=>$sid]);
+            DB::commit();
+            return response()->json(['data'=>'删除分类信息成功！','status'=>'1']);
+        }catch (\Exception $e){
+            dd($e);
+            DB::rollBack();
+            return response()->json(['data'=>'删除失败请稍后再试！','status'=>'0']);
+        }
+
+    }
+
     //首页导航栏列表
     public function navbar_list(Request $request)
     {

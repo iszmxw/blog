@@ -271,7 +271,7 @@
     }
     //删除友情链接数据
     function deleted(id){
-        var url = "{{url('admin/ajax/link_delete_check')}}";
+        var url = "{{url('admin/ajax/category_delete_check')}}";
         var data = {'_token':'{{csrf_token()}}','id':id};
         swal({
                 title: "你确定？",
@@ -288,7 +288,7 @@
                 if (isConfirm) {
                     $.post(url,data,function(json){
                         if (json.status == '1'){
-                            swal("删除", "您的友情链接已被删除", "success");
+                            swal("删除", "您的分类已被删除", "success");
                             setInterval(function(){
                                 window.location.reload();
                             },1500);

@@ -40,4 +40,10 @@ class Sort extends Model
             $model->save();
         }
     }
+
+    //删除数据
+    public static function selected_delete($where)
+    {
+        return self::where($where)->delete();
+    }
 }

@@ -95,7 +95,7 @@
                 console.log(json.data);
                 $("#tid").val(json.data.tid);
                 $("#tag_name").val(json.data.tagname);
-                $("#myModal").show();
+                $("#myModal").modal();
 			}else{
                 swal("失败", json.data, "error");
                 setInterval(function(){

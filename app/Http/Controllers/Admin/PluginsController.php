@@ -113,6 +113,17 @@ class PluginsController extends Controller
     //添加友情链接
     public function link_list_add_check(Request $request)
     {
-        dd($request);
+        $data['sitename'] = $request->get('sitename');
+        $data['siteurl'] = $request->get('siteurl');
+        $data['description'] = $request->get('description');
+        DB::beginTransaction();
+        try{
+            Link::create($data);
+            DB::commit();
+            return response()->json(['status'=>'1','data'=>'添加友情链接成功！']);
+        }catch (\Exception $e){
+            DB::rollBack();
+            return response()->json(['status'=>'0','data'=>'添加失败！请稍后再试！']);
+        }
     }
 }

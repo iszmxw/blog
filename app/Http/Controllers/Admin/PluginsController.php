@@ -27,7 +27,7 @@ class PluginsController extends Controller
         }catch (\Exception $e){
 //            dd($e);
             DB::rollBack();
-            return response()->json(['data'=>'删除失败请稍后再试！','status'=>'1']);
+            return response()->json(['data'=>'删除失败请稍后再试！','status'=>'0']);
         }
     }
 }

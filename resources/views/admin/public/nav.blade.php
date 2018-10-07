@@ -33,7 +33,7 @@
             </li>
             <li @if(Request::path() == 'admin' || Request::path() == 'admin/config') class="active" @endif>
                 <a href="javascript:;">
-                    <i class="fa fa-th-large"></i>
+                    <i class="fa fa-desktop"></i>
                     <span class="nav-label">系统管理</span>
                     <span class="fa arrow"></span>
                 </a>

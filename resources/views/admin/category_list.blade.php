@@ -152,25 +152,34 @@
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<form action="{{url('admin/ajax/link_list_data_check')}}" id="currentForm">
-				<input type="hidden" name="id" id="id">
+				<input type="hidden" name="sid" id="sid">
 				<input type="hidden" name="_token" value="{{csrf_token()}}">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 					<h4 class="modal-title">编辑分类</h4>
 				</div>
 				<div class="modal-body">
-					{{--<div class="form-group">--}}
-						{{--<label>友情链接名称</label>--}}
-						{{--<input type="text" placeholder="友情链接名称" name="sitename" id="sitename" class="form-control">--}}
-					{{--</div>--}}
-					{{--<div class="form-group">--}}
-						{{--<label>友情链接地址</label>--}}
-						{{--<input type="text" placeholder="友情链接地址" name="siteurl" id="siteurl" class="form-control">--}}
-					{{--</div>--}}
-					{{--<div class="form-group">--}}
-						{{--<label>友情链接描述</label>--}}
-						{{--<input type="text" placeholder="友情链接描述" name="description" id="description" class="form-control">--}}
-					{{--</div>--}}
+					<div class="form-group">
+						<label>分类名称</label>
+						<input type="text" placeholder="分类名称" name="sortname" id="sortname" class="form-control">
+					</div>
+					<div class="form-group">
+						<label>别名</label>
+						<input type="text" placeholder="别名" name="alias" id="alias" class="form-control">
+					</div>
+					<div class="form-group">
+						<label>上级分类</label>
+						<select class="input-sm form-control input-s-sm inline" name="pid" id="pid">
+							<option value="0">无父级</option>
+							@foreach($sort as $value)
+								<option value="{{$value['sid']}}">{{$value['sortname']}}</option>
+							@endforeach
+						</select>
+					</div>
+					<div class="form-group">
+						<label>分类描述</label>
+						<input type="text" placeholder="分类描述" name="description" id="description" class="form-control">
+					</div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
@@ -188,7 +197,7 @@
     function add_alert(){
         $("#add_data").modal();
     }
-    //添加友情链接
+    //添加分类
     function add_data(){
         var target = $("#post_url");
         var url = target.attr("action");
@@ -214,16 +223,17 @@
         });
     }
 
-    //获取标签数据
+    //获取分类数据
     function EditData(id){
-        var url = "{{url('admin/ajax/link_list_data')}}";
+        var url = "{{url('admin/ajax/category_data')}}";
         var data = {'_token':"{{csrf_token()}}",'id':id};
         $.post(url,data,function(json){
             if (json.status == '1'){
                 console.log(json.data);
-                $("#id").val(json.data.id);
-                $("#sitename").val(json.data.sitename);
-                $("#siteurl").val(json.data.siteurl);
+                $("#sid").val(json.data.sid);
+                $("#sortname").val(json.data.sortname);
+                $("#alias").val(json.data.alias);
+                // $("#pid").val(json.data.pid);
                 $("#description").val(json.data.description);
                 $("#myModal").modal();
             }else{

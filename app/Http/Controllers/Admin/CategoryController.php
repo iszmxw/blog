@@ -42,6 +42,14 @@ class CategoryController extends Controller
         }
     }
 
+    //分类数据获取
+    public function category_data(Request $request)
+    {
+        $id = $request->get('id');
+        $data = Sort::getOne(['sid'=>$id]);
+        return response()->json(['status'=>'1','data'=>$data]);
+    }
+
     //首页导航栏列表
     public function navbar_list(Request $request)
     {

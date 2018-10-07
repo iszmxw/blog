@@ -52,6 +52,7 @@ Route::middleware('admin')->namespace('Admin')->group(function () {
         Route::post('link_list_add_check','PluginsController@link_list_add_check');
         //分类
         Route::post('category_add_check','CategoryController@category_add_check');
+        Route::post('category_data','CategoryController@category_data');
     });
 });
 

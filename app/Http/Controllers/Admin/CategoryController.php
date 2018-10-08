@@ -13,7 +13,6 @@ class CategoryController extends Controller
     //栏目分类列表
     public function category_list(Request $request)
     {
-        dump(encrypt('admin'));
         $user_data = $request->get('user_data');
         $list = Sort::getPaginate([],'taxis','ASC',10);
         $sort = Sort::getList([]);

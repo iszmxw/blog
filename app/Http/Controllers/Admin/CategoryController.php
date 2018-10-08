@@ -6,6 +6,7 @@ use App\Models\Blog;
 use App\Models\Sort;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {

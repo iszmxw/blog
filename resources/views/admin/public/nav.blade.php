@@ -6,6 +6,7 @@
                     <span>
                         @if($user_data['photo'])
                             <img alt="image" class="img-circle" src="{{$user_data['photo']}}"/>
+                            {{$user_data['photo']}}
                         @else
                             <img alt="image" class="img-circle" src="{{url('style/admin/inspinia/img/profile_small.jpg')}}"/>
                         @endif

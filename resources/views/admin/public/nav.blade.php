@@ -4,6 +4,7 @@
             <li class="nav-header">
                 <div class="dropdown profile-element">
                     <span>
+                        {{$user_data['photo']}}
                         @if($user_data['photo'])
                             <img alt="image" class="img-circle" src="{{url('/').$user_data['photo']}}"/>
                         @else

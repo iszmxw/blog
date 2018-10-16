@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Blog;
+use App\Models\Navi;
 use App\Models\Sort;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -90,6 +91,11 @@ class CategoryController extends Controller
     public function navbar_list(Request $request)
     {
         $user_data = $request->get('user_data');
-        return view('admin.navbar_list',['user_data'=>$user_data]);
+        $list = Navi::getPaginate([],'taxis','ASC',10);
+//        $sort = Sort::getList([]);
+//        foreach ($list as $value){
+//            $value['blogs'] = Blog::where(['sortid'=>$value['sid']])->count();
+//        }
+        return view('admin.navbar_list',['user_data'=>$user_data,'list'=>$list]);
     }
 }

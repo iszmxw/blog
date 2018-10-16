@@ -26,6 +26,9 @@ class Admin
             case '/admin/article/article_edit';
             case '/admin/ajax/article_edit_check';
             case '/admin/article/article_list';
+            //栏目管理
+            case 'admin/category/category_list';
+            case 'admin/category/navbar_list';
             //标签管理
             case '/admin/plugins/tag_list';
             case '/admin/ajax/tag_edit_data';

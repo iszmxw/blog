@@ -133,9 +133,6 @@
 						<label>上级分类</label>
 						<select class="input-sm form-control input-s-sm inline" name="pid">
 							<option value="0">无父级</option>
-							@foreach($sort as $value)
-								<option value="{{$value['sid']}}">{{$value['sortname']}}</option>
-							@endforeach
 						</select>
 					</div>
 					<div class="form-group">

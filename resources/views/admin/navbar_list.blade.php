@@ -122,22 +122,19 @@
 				</div>
 				<div class="modal-body">
 					<div class="form-group">
-						<label>分类名称</label>
-						<input type="text" placeholder="分类名称" name="sortname" class="form-control">
+						<label>导航栏名称</label>
+						<input type="text" placeholder="导航栏名称" name="naviname" class="form-control">
 					</div>
 					<div class="form-group">
-						<label>别名</label>
-						<input type="text" placeholder="别名" name="alias" class="form-control">
+						<label>地址</label>
+						<input type="text" placeholder="地址" name="url" class="form-control">
 					</div>
 					<div class="form-group">
-						<label>上级分类</label>
-						<select class="input-sm form-control input-s-sm inline" name="pid">
-							<option value="0">无父级</option>
+						<label>是否新窗口打开</label>
+						<select class="input-sm form-control input-s-sm inline" name="newtab">
+							<option value="n">否</option>
+							<option value="y">是</option>
 						</select>
-					</div>
-					<div class="form-group">
-						<label>分类描述</label>
-						<input type="text" placeholder="分类描述" name="description" class="form-control">
 					</div>
 				</div>
 				<div class="modal-footer">

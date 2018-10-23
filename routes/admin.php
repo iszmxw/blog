@@ -55,6 +55,9 @@ Route::middleware('admin')->namespace('Admin')->group(function () {
         Route::post('category_data','CategoryController@category_data');
         Route::post('category_data_edit_check','CategoryController@category_data_edit_check');
         Route::post('category_delete_check','CategoryController@category_delete_check');
+
+        //首页导航栏
+        Route::post('navbar_add_check','CategoryController@navbar_add_check');
     });
 });
 

@@ -98,4 +98,9 @@ class CategoryController extends Controller
 //        }
         return view('admin.navbar_list',['user_data'=>$user_data,'list'=>$list]);
     }
+
+    public function navbar_add_check(Request $request)
+    {
+        dd($request);
+    }
 }

@@ -124,11 +124,11 @@
 				</div>
 				<div class="modal-body">
 					<div class="form-group">
-						<label>导航栏名称</label>
+						<label class="col-sm-2 control-label">导航栏名称</label>
 						<input type="text" placeholder="导航栏名称" name="naviname" class="form-control">
 					</div>
 					<div class="form-group">
-						<label>地址</label>
+						<label class="col-sm-2 control-label">地址</label>
 						<input type="text" placeholder="地址" name="url" class="form-control">
 					</div>
 
@@ -141,7 +141,7 @@
 					</div>
 
 					<div class="form-group">
-						<label>是否新窗口打开</label>
+						<label class="col-sm-2 control-label">是否新窗口打开</label>
 						<select class="input-sm form-control input-s-sm inline" name="newtab">
 							<option value="n">否</option>
 							<option value="y">是</option>

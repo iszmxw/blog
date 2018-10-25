@@ -129,6 +129,13 @@
 						<label>地址</label>
 						<input type="text" placeholder="地址" name="url" class="form-control">
 					</div>
+
+					<div class="form-group">
+						<label>显示--隐藏</label>
+						<div class="i-checks"><label> <input type="radio" value="option1" name="a"> <i></i> 显示 </label></div>
+						<div class="i-checks"><label> <input type="radio" checked="" value="option2" name="a"> <i></i> 隐藏 </label></div>
+					</div>
+
 					<div class="form-group">
 						<label>是否新窗口打开</label>
 						<select class="input-sm form-control input-s-sm inline" name="newtab">

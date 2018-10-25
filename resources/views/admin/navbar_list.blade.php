@@ -134,7 +134,6 @@
 
 					<div class="form-group">
 						<label class="col-sm-2 control-label">是否显示</label>
-
 						<div class="col-sm-10">
 							<div class="i-checks"><label> <input type="radio" checked="" value="option2" name="a"> <i></i> 显示 </label></div>
 							<div class="i-checks"><label> <input type="radio" value="option1" name="a"> <i></i> 隐藏 </label></div>

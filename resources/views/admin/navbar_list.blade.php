@@ -124,22 +124,22 @@
 				</div>
 				<div class="modal-body">
 					<div class="form-group">
-						<label>导航栏名称</label>
+						<label class="control-label">导航栏名称</label>
 						<input type="text" placeholder="导航栏名称" name="naviname" class="form-control">
 					</div>
 					<div class="form-group">
-						<label>地址</label>
+						<label class="control-label">地址</label>
 						<input type="text" placeholder="地址" name="url" class="form-control">
 					</div>
 					<div class="form-group">
-						<label class="col-sm-4">是否显示</label>
+						<label class="control-label">是否显示</label>
 						<div class="col-sm-8">
 							<div class="i-checks"><label> <input type="radio" checked="" value="option2" name="a"> <i></i> 显示 </label></div>
 							<div class="i-checks"><label> <input type="radio" value="option1" name="a"> <i></i> 隐藏 </label></div>
 						</div>
 					</div>
 					<div class="form-group">
-						<label>是否新窗口打开</label>
+						<label class="control-label">是否新窗口打开</label>
 						<select class="input-sm form-control input-s-sm inline" name="newtab">
 							<option value="n">否</option>
 							<option value="y">是</option>

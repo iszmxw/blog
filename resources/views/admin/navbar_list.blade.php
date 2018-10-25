@@ -132,9 +132,18 @@
 					</div>
 
 					<div class="form-group">
-						<label>显示--隐藏</label>
-						<div class="i-checks"><label> <input type="radio" value="option1" name="a"> <i></i> 显示 </label></div>
-						<div class="i-checks"><label> <input type="radio" checked="" value="option2" name="a"> <i></i> 隐藏 </label></div>
+						<label class="col-sm-2 control-label">复选框 &amp; radios <br/><small class="text-navy">自定义元素</small></label>
+
+						<div class="col-sm-10">
+							<div class="i-checks"><label> <input type="checkbox" value=""> <i></i> 选项一 </label></div>
+							<div class="i-checks"><label> <input type="checkbox" value="" checked=""> <i></i> 选项二 </label></div>
+							<div class="i-checks"><label> <input type="checkbox" value="" disabled="" checked=""> <i></i> 选项三检查和禁用 </label></div>
+							<div class="i-checks"><label> <input type="checkbox" value="" disabled=""> <i></i> 选项四禁用 </label></div>
+							<div class="i-checks"><label> <input type="radio" value="option1" name="a"> <i></i> 选项一 </label></div>
+							<div class="i-checks"><label> <input type="radio" checked="" value="option2" name="a"> <i></i> 选项二 </label></div>
+							<div class="i-checks"><label> <input type="radio" disabled="" checked="" value="option2"> <i></i> 选项三检查和禁用 </label></div>
+							<div class="i-checks"><label> <input type="radio" disabled="" name="a"> <i></i> 选项四禁用 </label></div>
+						</div>
 					</div>
 
 					<div class="form-group">

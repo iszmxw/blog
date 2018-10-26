@@ -40,10 +40,10 @@
 											{{$value['comment']}}
 										</div>
 										<div class="actions">
-											<a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> 删除 </a>
-											<a class="btn btn-xs btn-white"><i class="fa fa-heart"></i> 隐藏</a>
-											<a class="btn btn-xs btn-white"><i class="fa fa-heart"></i> 回复</a>
-											<a class="btn btn-xs btn-white"><i class="fa fa-heart"></i> 编辑</a>
+											<a class="btn btn-xs btn-white"><i class="fa fa-times"></i> 删除 </a>
+											<a class="btn btn-xs btn-white"><i class="fa fa-eye-slash"></i> 隐藏</a>
+											<a class="btn btn-xs btn-white"><i class="fa fa-comments"></i> 回复</a>
+											<a class="btn btn-xs btn-white"><i class="fa fa-edit"></i> 编辑</a>
 										</div>
 									</div>
 								</div>

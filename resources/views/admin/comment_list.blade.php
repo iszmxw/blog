@@ -45,9 +45,10 @@
 									</div>
 								</div>
 								@endforeach
-							</div>
-							<div class="pagination pull-right">
-								{{$list->links()}}
+
+								<div class="pagination pull-right">
+									{{$list->links()}}
+								</div>
 							</div>
 						</div>
 

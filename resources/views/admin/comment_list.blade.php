@@ -33,9 +33,9 @@
 										<img alt="image" class="img-circle" src="http://q1.qlogo.cn/g?b=qq&nk={{$value['mail']}}&s=640">
 									</a>
 									<div class="media-body">
-										<small class="pull-right">{{$value['date']}}</small>
+										<small class="pull-right">{{date('Y-m-d H:i:s',$value['date'])}}</small>
 										<strong>{{$value['poster']}}</strong> 评论了 <strong>{{$value['blog_title']}}</strong><br>
-										<small class="text-muted">{{$value['date']}}</small>
+										{{--<small class="text-muted">{{$value['date']}}</small>--}}
 										<div class="well">
 											{{$value['comment']}}
 										</div>

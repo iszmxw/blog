@@ -131,4 +131,30 @@ class CategoryController extends Controller
             return response()->json(['data'=>'获取数据失败请稍后再试！','status'=>'0']);
         }
     }
+
+    //编辑导航栏数据提交
+    public function navbar_data_edit_check(Request $request)
+    {
+        $id = $request->get('id');
+        $naviname = $request->get('naviname');
+        $url = $request->get('url');
+        $hide = $request->get('hide');
+        $newtab = $request->get('newtab');
+        if(!$naviname)return response()->json(['data'=>'请输入导航栏名称','status'=>'0']);
+        if(!$url)return response()->json(['data'=>'请输入链接地址','status'=>'0']);
+        $data['naviname'] = $naviname;
+        $data['url'] = $url;
+        $data['hide'] = $hide;
+        $data['newtab'] = $newtab;
+        DB::beginTransaction();
+        try{
+            Navi::EditData(['id'=>$id],$data);
+            DB::commit();
+            return response()->json(['data'=>'修改数据成功','status'=>'1']);
+        }catch (\Exception $e){
+            dd($e);
+            DB::rollBack();
+            return response()->json(['data'=>'修改数据失败！','status'=>'0']);
+        }
+    }
 }

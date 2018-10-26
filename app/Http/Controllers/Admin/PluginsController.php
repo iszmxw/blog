@@ -171,7 +171,18 @@ class PluginsController extends Controller
             DB::rollBack();
             return response()->json(['status'=>'0','data'=>'修改失败！请稍后再试！']);
         }
+    }
 
+    //获取回复数据
+    public function comment_data(Request $request)
+    {
+        $cid = $request->get('cid');
+        $data = Comment::getOne(['cid'=>$cid]);
+        if ($data){
+            return response()->json(['data'=>$data,'status'=>'1']);
+        }else{
+            return response()->json(['data'=>'获取数据失败！','status'=>'0']);
+        }
     }
 
 }

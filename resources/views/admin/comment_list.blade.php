@@ -46,7 +46,7 @@
 											@else
 												<a class="btn btn-xs btn-warning" onclick="show_fn('{{$value['cid']}}','n')"><i class="fa fa-eye"></i> 显示</a>
 											@endif
-												<a class="btn btn-xs btn-primary" onclick="comment_fn('{{$value['cid']}}')"><i class="fa fa-comments"></i> 回复</a>
+											<a class="btn btn-xs btn-primary" onclick="comment_fn('{{$value['cid']}}')"><i class="fa fa-comments"></i> 回复</a>
 											<a class="btn btn-xs btn-info" onclick="edit_fn('{{$value['cid']}}')"><i class="fa fa-edit"></i> 编辑</a>
 										</div>
 									</div>
@@ -66,6 +66,40 @@
 		</div>
 		{{--底部--}}
 		@include('admin.public.footer')
+	</div>
+</div>
+{{--编辑数据框--}}
+<div class="modal inmodal fade" id="myModal" tabindex="-1" role="dialog"  aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form action="{{url('admin/ajax/comment_data_check')}}" id="currentForm">
+				<input type="hidden" name="sid" id="sid">
+				<input type="hidden" name="_token" value="{{csrf_token()}}">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<h4 class="modal-title">回复评论人</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<p><strong>评论人：</strong> <span id="poster">匿名用户</span></p>
+					</div>
+					<div class="form-group">
+						<p><strong>时间：</strong> <span id="time">获取失败</span></p>
+					</div>
+					<div class="form-group">
+						<p><strong>内容：</strong> <span id="comment">暂无</span></p>
+					</div>
+					<div class="form-group">
+						<label>回复内容</label>
+						<input type="text" placeholder="回复内容" name="description" id="description" class="form-control">
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+					<button type="button" class="btn btn-primary" onclick="SaveData()">保存更改</button>
+				</div>
+			</form>
+		</div>
 	</div>
 </div>
 @include('admin.public.common_js')
@@ -132,10 +166,25 @@
         });
 	}
 
-	//回复方法
-	function comment_fn(){
-	    alert("回复方法");
-	}
+	//获取要回复人的相关信息
+	function comment_fn(cid){
+        var url = "{{url('admin/ajax/comment_data')}}";
+        var data = {'_token':"{{csrf_token()}}",'cid':cid};
+        $.post(url,data,function(json){
+            if (json.status == '1'){
+                console.log(json.data);
+                $("#poster").text(json.data.poster);
+                $("#time").text(json.data.date);
+                $("#comment").text(json.data.comment);
+                $("#myModal").modal();
+            }else{
+                swal("失败", json.data, "error");
+                setInterval(function(){
+                    window.location.reload();
+                },1500);
+            }
+        });
+    }
 
 	//编辑方法
 	function edit_fn(){

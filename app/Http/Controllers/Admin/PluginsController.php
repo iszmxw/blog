@@ -195,7 +195,25 @@ class PluginsController extends Controller
         $poster = Comment::where(['cid'=>$cid])->value('poster');
         $mail = "442246396@qq.com";
         $url = "http://blog.54zm.com/";
-        dd($request->getClientIp());
+        $ip = $request->getClientIp();
+        $comment = '@'.$poster.'：'.$comment;
+        $data['gid'] = $gid;
+        $data['pid'] = $pid;
+        $data['date'] = time();
+        $data['poster'] = '追梦小窝';
+        $data['comment'] = $comment;
+        $data['mail'] = $mail;
+        $data['url'] = $url;
+        $data['ip'] = $ip;
+        DB::beginTransaction();
+        try{
+            Comment::create($data);
+            DB::commit();
+            return response()->json(['status'=>'1','data'=>'回复成功！']);
+        }catch (\Exception $e){
+            DB::rollBack();
+            return response()->json(['status'=>'0','data'=>'回复失败！请稍后再试！']);
+        }
     }
 
 }

@@ -27,8 +27,8 @@
 						<div>
 							<div class="feed-activity-list">
 								<div class="feed-element">
-									<a href="profile.html" class="pull-left">
-										<img alt="image" class="img-circle" src="img/a5.jpg">
+									<a href="JavaScript:;" class="pull-left">
+										<img alt="image" class="img-circle" src="https://qlogo1.store.qq.com/qzone/442246396/442246396/200?{{time()}}">
 									</a>
 									<div class="media-body">
 										<small class="pull-right">2小时</small>

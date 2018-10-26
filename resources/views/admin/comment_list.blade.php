@@ -30,7 +30,7 @@
 									<a href="profile.html" class="pull-left">
 										<img alt="image" class="img-circle" src="img/a5.jpg">
 									</a>
-									<div class="media-body ">
+									<div class="media-body">
 										<small class="pull-right">2小时</small>
 										<strong>小王</strong> 评论了 <strong>晚上睡觉有必要把路由器关掉么？</strong><br>
 										<small class="text-muted">2017.12.12 12:00</small>

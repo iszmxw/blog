@@ -5,7 +5,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>追梦小窝 | 后台首页--分类列表</title>
 	@include('admin.public.common_css')
-	<link href="{{asset('style/admin/inspinia/css/plugins/sweetalert/sweetalert.css')}}" rel="stylesheet">
 </head>
 <body class="">
 <div id="wrapper">

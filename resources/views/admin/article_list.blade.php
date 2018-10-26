@@ -6,7 +6,6 @@
     <title>追梦小窝 | 博客管理系统-文章列表</title>
     @include('admin.public.common_css')
     <link href="{{asset('style/admin/inspinia/css/plugins/iCheck/custom.css')}}" rel="stylesheet">
-    <link href="{{asset('style/admin/inspinia/css/plugins/sweetalert/sweetalert.css')}}" rel="stylesheet">
 </head>
 <body class="">
 <div id="wrapper">

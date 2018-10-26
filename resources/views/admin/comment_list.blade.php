@@ -46,7 +46,7 @@
 								</div>
 								@endforeach
 							</div>
-							<div class="pull-right">
+							<div class="pagination pull-right">
 								{{$list->links()}}
 							</div>
 						</div>

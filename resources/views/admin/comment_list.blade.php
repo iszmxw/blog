@@ -28,20 +28,6 @@
 							<div class="feed-activity-list">
 								<div class="feed-element">
 									<a href="profile.html" class="pull-left">
-										<img alt="image" class="img-circle" src="img/a4.jpg">
-									</a>
-									<div class="media-body ">
-										<small class="pull-right text-navy">5小时</small>
-										<strong>小王</strong> 查看了 <strong>晚上睡觉有必要把路由器关掉么？</strong><br>
-										<small class="text-muted">2017.12.12 12:00</small>
-										<div class="actions">
-											<a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> 赞 </a>
-											<a class="btn btn-xs btn-white"><i class="fa fa-heart"></i> 喜欢</a>
-										</div>
-									</div>
-								</div>
-								<div class="feed-element">
-									<a href="profile.html" class="pull-left">
 										<img alt="image" class="img-circle" src="img/a5.jpg">
 									</a>
 									<div class="media-body ">
@@ -51,9 +37,13 @@
 										<div class="well">
 											人生就好像你搭乘一辆火车，沿途有不同的景色，不同的站台，和不同的人上车，也会过了这个景点到下一个景点，到下一个站台，不同的人上下车，那些都是过客，重要的是自己的旅程。
 										</div>
-										<div class="pull-right">
+										<div class="actions">
 											<a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> 赞 </a>
+											<a class="btn btn-xs btn-white"><i class="fa fa-heart"></i> 喜欢</a>
 										</div>
+										{{--<div class="pull-right">--}}
+											{{--<a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> 赞 </a>--}}
+										{{--</div>--}}
 									</div>
 								</div>
 							</div>

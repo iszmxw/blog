@@ -179,6 +179,7 @@ class PluginsController extends Controller
         $cid = $request->get('cid');
         $data = Comment::getOne(['cid'=>$cid]);
         if ($data){
+            $data['date'] = date('Y-m-d H:i:s',$data['date']);
             return response()->json(['data'=>$data,'status'=>'1']);
         }else{
             return response()->json(['data'=>'获取数据失败！','status'=>'0']);

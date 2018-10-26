@@ -57,7 +57,6 @@ class Admin
                 break;
             case '/admin/quit';
                 break;
-
         }
         return $next($request);
     }

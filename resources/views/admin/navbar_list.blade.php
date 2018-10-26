@@ -165,27 +165,32 @@
 				<input type="hidden" name="_token" value="{{csrf_token()}}">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-					<h4 class="modal-title">编辑分类</h4>
+					<h4 class="modal-title">编辑导航栏</h4>
 				</div>
 				<div class="modal-body">
 					<div class="form-group">
-						<label>分类名称</label>
-						<input type="text" placeholder="分类名称" name="sortname" id="sortname" class="form-control">
+						<label class="control-label">导航栏名称</label>
+						<input type="text" placeholder="导航栏名称" name="naviname" class="form-control">
 					</div>
 					<div class="form-group">
-						<label>别名</label>
-						<input type="text" placeholder="别名" name="alias" id="alias" class="form-control">
+						<label class="control-label">地址</label>
+						<input type="text" placeholder="地址" name="url" class="form-control">
 					</div>
 					<div class="form-group">
-						<label>上级分类</label>
-						<select class="input-sm form-control input-s-sm inline" name="pid" id="pid">
-							<option value="0">无父级</option>
-						</select>
+						<label class="control-label">是否显示</label>
+						<div style="clear: both"></div>
+						<div class="col-sm-2 i-checks"><label> <input type="radio" checked="" value="n" name="hide"> <i></i> 显示 </label></div>
+						<div class="col-sm-2 i-checks"><label> <input type="radio" value="y" name="hide"> <i></i> 隐藏 </label></div>
 					</div>
+					<br>
 					<div class="form-group">
-						<label>分类描述</label>
-						<input type="text" placeholder="分类描述" name="description" id="description" class="form-control">
+						<label class="control-label">是否新窗口打开</label>
+						<div style="clear: both"></div>
+						<div class="col-sm-2 i-checks"><label> <input type="radio" checked="" value="y" name="newtab"> <i></i> 是 </label></div>
+						<div class="col-sm-2 i-checks"><label> <input type="radio" value="n" name="newtab"> <i></i> 否 </label></div>
 					</div>
+					<br>
+					<div style="clear: both"></div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
@@ -241,7 +246,7 @@
 
     //获取分类数据
     function EditData(id){
-        var url = "{{url('admin/ajax/category_data')}}";
+        var url = "{{url('admin/ajax/navbar_data')}}";
         var data = {'_token':"{{csrf_token()}}",'id':id};
         $.post(url,data,function(json){
             if (json.status == '1'){

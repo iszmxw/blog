@@ -95,6 +95,7 @@ class CategoryController extends Controller
         return view('admin.navbar_list',['user_data'=>$user_data,'list'=>$list]);
     }
 
+    //添加导航栏数据
     public function navbar_add_check(Request $request)
     {
         $naviname = $request->get('naviname');
@@ -117,5 +118,11 @@ class CategoryController extends Controller
             DB::rollBack();
             return response()->json(['data'=>'添加导航栏失败','status'=>'0']);
         }
+    }
+
+    //异步获取导航栏数据，编辑时使用
+    public function navbar_data(Request $request)
+    {
+        dd($request);
     }
 }

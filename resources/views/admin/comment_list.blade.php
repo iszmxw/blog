@@ -35,17 +35,19 @@
 									<div class="media-body">
 										<small class="pull-right">{{date('Y-m-d H:i:s',$value['date'])}}</small>
 										<strong>{{$value['poster']}}</strong> 评论了 <strong>{{$value['blog_title']}}</strong><br>
+										<small class="text-muted">来自：{{$value['ip']}}</small>
 										<div class="well">
 											{{$value['comment']}}
 										</div>
 										<div class="actions">
-											<a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> 赞 </a>
-											<a class="btn btn-xs btn-white"><i class="fa fa-heart"></i> 喜欢</a>
+											<a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> 删除 </a>
+											<a class="btn btn-xs btn-white"><i class="fa fa-heart"></i> 隐藏</a>
+											<a class="btn btn-xs btn-white"><i class="fa fa-heart"></i> 回复</a>
+											<a class="btn btn-xs btn-white"><i class="fa fa-heart"></i> 编辑</a>
 										</div>
 									</div>
 								</div>
 								@endforeach
-
 								<div class="pagination pull-right">
 									{{$list->links()}}
 								</div>

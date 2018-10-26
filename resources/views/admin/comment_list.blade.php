@@ -93,7 +93,7 @@
 					</div>
 					<div class="form-group">
 						<label>回复内容</label>
-						<input type="text" placeholder="回复内容" name="description" id="description" class="form-control">
+						<input type="text" placeholder="回复内容" name="comment" class="form-control">
 					</div>
 				</div>
 				<div class="modal-footer">

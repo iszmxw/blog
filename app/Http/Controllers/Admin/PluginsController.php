@@ -188,7 +188,14 @@ class PluginsController extends Controller
 
     public function comment_data_check(Request $request)
     {
-        dd($request);
+        $cid = $request->get('cid');
+        $gid = $request->get('gid');
+        $pid = $request->get('pid');
+        $comment = $request->get('comment');
+        $poster = Comment::where(['cid'=>$cid])->value('poster');
+        $mail = "442246396@qq.com";
+        $url = "http://blog.54zm.com/";
+        dd($request->getClientIp());
     }
 
 }

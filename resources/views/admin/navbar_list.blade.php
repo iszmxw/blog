@@ -327,6 +327,7 @@
             function (isConfirm) {
                 if (isConfirm) {
                     $.post(url,data,function(json){
+                        console.log(json);
                         if (json.status == '1'){
                             swal("删除", json.data.data, "success");
                             setInterval(function(){

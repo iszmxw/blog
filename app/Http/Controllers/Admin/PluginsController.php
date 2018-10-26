@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use App\Models\Comment;
 use App\Models\Link;
 use App\Models\Tag;
 use Illuminate\Http\Request;
@@ -132,7 +133,9 @@ class PluginsController extends Controller
     public function comment_list(Request $request)
     {
         $user_data = $request->get('user_data');
-        return view('admin.comment_list',['user_data'=>$user_data]);
+        $list = Comment::getPaginate([],'cid','DESC','10');
+        dump($list);
+        return view('admin.comment_list',['user_data'=>$user_data,'list'=>$list]);
     }
 
 }

@@ -157,4 +157,21 @@ class PluginsController extends Controller
         }
     }
 
+    //显示隐藏评论
+    public function comment_hide_check(Request $request)
+    {
+        $cid = $request->get('cid');
+        $hide = $request->get('hide');
+        DB::beginTransaction();
+        try{
+            Comment::EditData(['cid'=>$cid],['hide'=>$hide]);
+            DB::commit();
+            return response()->json(['status'=>'1','data'=>'修改成功！']);
+        }catch (\Exception $e){
+            DB::rollBack();
+            return response()->json(['status'=>'0','data'=>'修改失败！请稍后再试！']);
+        }
+
+    }
+
 }

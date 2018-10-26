@@ -65,6 +65,7 @@ Route::middleware('admin')->namespace('Admin')->group(function () {
 
         //评论管理
         Route::post('comment_delete_check','PluginsController@comment_delete_check');
+        Route::post('comment_hide_check','PluginsController@comment_hide_check');
     });
 });
 

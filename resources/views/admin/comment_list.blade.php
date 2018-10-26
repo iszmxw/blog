@@ -41,8 +41,12 @@
 										</div>
 										<div class="actions">
 											<a class="btn btn-xs btn-danger" onclick="delete_fn('{{$value['cid']}}')"><i class="fa fa-times"></i> 删除 </a>
-											<a class="btn btn-xs btn-warning" onclick="show_fn('{{$value['cid']}}')"><i class="fa fa-eye-slash"></i> 隐藏</a>
-											<a class="btn btn-xs btn-primary" onclick="comment_fn('{{$value['cid']}}')"><i class="fa fa-comments"></i> 回复</a>
+											@if($value['hide'] == n)
+												<a class="btn btn-xs btn-warning" onclick="show_fn('{{$value['cid']}}','n')"><i class="fa fa-eye-slash"></i> 隐藏</a>
+											@else
+												<a class="btn btn-xs btn-warning" onclick="show_fn('{{$value['cid']}}','y')"><i class="fa fa-eye"></i> 显示</a>
+											@endif
+												<a class="btn btn-xs btn-primary" onclick="comment_fn('{{$value['cid']}}')"><i class="fa fa-comments"></i> 回复</a>
 											<a class="btn btn-xs btn-info" onclick="edit_fn('{{$value['cid']}}')"><i class="fa fa-edit"></i> 编辑</a>
 										</div>
 									</div>
@@ -104,8 +108,28 @@
     }
 
 	// 显示、隐藏方法
-	function show_fn(){
-	    alert("显示方法");
+	function show_fn(cid,hide){
+        var url = "{{url('admin/ajax/comment_hide_check')}}";
+        var data = {'_token':'{{csrf_token()}}','cid':cid,'hide':hide};
+        $.post(url, data, function (json) {
+            if(json.status == 1) {
+                swal({
+                    title: "提示信息",
+                    text: json.data,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "确定",
+                },function(){
+                    window.location.reload();
+                });
+            }else{
+                swal({
+                    title: "提示信息",
+                    text: json.data,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "确定"
+                });
+            }
+        });
 	}
 
 	//回复方法

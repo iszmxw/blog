@@ -327,14 +327,13 @@
             function (isConfirm) {
                 if (isConfirm) {
                     $.post(url,data,function(json){
-                        console.log(json);
                         if (json.status == '1'){
-                            swal("删除", json.data.data, "success");
+                            swal("删除", json.data, "success");
                             setInterval(function(){
                                 window.location.reload();
                             },1500);
                         }else{
-                            swal("操作失败", json.data.data, "error");
+                            swal("操作失败", json.data, "error");
                         }
                     });
                 } else {

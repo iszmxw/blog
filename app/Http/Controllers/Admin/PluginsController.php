@@ -136,6 +136,7 @@ class PluginsController extends Controller
         $user_data = $request->get('user_data');
         $list = Comment::getPaginate([],'cid','DESC','10');
         foreach($list as $key=>$value){
+            if(!$value['mail'])$value['mail'] = 0;
             $value['blog_title'] = Blog::where(['gid'=>$value['gid']])->value('title');
         }
         dump($list);

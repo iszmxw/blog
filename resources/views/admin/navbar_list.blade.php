@@ -279,7 +279,7 @@
                 swal("失败", json.data, "error");
                 setInterval(function(){
                     window.location.reload();
-                },1500);
+                },3000);
             }
         });
     }

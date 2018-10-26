@@ -142,4 +142,19 @@ class PluginsController extends Controller
         return view('admin.comment_list',['user_data'=>$user_data,'list'=>$list]);
     }
 
+    //删除评论
+    public function comment_delete_check(Request $request)
+    {
+        $cid = $request->get('cid');
+        DB::beginTransaction();
+        try{
+            Comment::selected_delete(['cid'=>$cid]);
+            DB::commit();
+            return response()->json(['status'=>'1','data'=>'删除数据成功！']);
+        }catch (\Exception $e){
+            DB::rollBack();
+            return response()->json(['status'=>'0','data'=>'删除失败！请稍后再试！']);
+        }
+    }
+
 }

@@ -40,10 +40,10 @@
 											{{$value['comment']}}
 										</div>
 										<div class="actions">
-											<a class="btn btn-xs btn-danger" onclick="delete_fn()"><i class="fa fa-times"></i> 删除 </a>
-											<a class="btn btn-xs btn-warning" onclick="show_fn()"><i class="fa fa-eye-slash"></i> 隐藏</a>
-											<a class="btn btn-xs btn-primary" onclick="comment_fn()"><i class="fa fa-comments"></i> 回复</a>
-											<a class="btn btn-xs btn-info" onclick="edit_fn()"><i class="fa fa-edit"></i> 编辑</a>
+											<a class="btn btn-xs btn-danger" onclick="delete_fn('{{$value['cid']}}')"><i class="fa fa-times"></i> 删除 </a>
+											<a class="btn btn-xs btn-warning" onclick="show_fn('{{$value['cid']}}')"><i class="fa fa-eye-slash"></i> 隐藏</a>
+											<a class="btn btn-xs btn-primary" onclick="comment_fn('{{$value['cid']}}')"><i class="fa fa-comments"></i> 回复</a>
+											<a class="btn btn-xs btn-info" onclick="edit_fn('{{$value['cid']}}')"><i class="fa fa-edit"></i> 编辑</a>
 										</div>
 									</div>
 								</div>
@@ -68,9 +68,40 @@
 <script>
 
 	//删除方法
-	function delete_fn(){
-	    alert('删除');
-	}
+	function delete_fn(cid){
+        var url = "{{url('admin/ajax/comment_delete_check')}}";
+        var data = {'_token':'{{csrf_token()}}','cid':cid};
+        swal({
+                title: "你确定？",
+                text: "你将无法恢复这条数据！",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "删除",
+                cancelButtonText: "取消",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+            function (isConfirm) {
+                if (isConfirm) {
+                    $.post(url,data,function(json){
+                        if (json.status == '1'){
+                            swal("删除", json.data, "success");
+                            setInterval(function(){
+                                window.location.reload();
+                            },1500);
+                        }else{
+                            swal("操作失败", json.data, "error");
+                        }
+                    });
+                } else {
+                    swal("取消", "您已取消了删除", "error");
+                    setInterval(function(){
+                        window.location.reload();
+                    },1500);
+                }
+            });
+    }
 
 	// 显示、隐藏方法
 	function show_fn(){

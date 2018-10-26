@@ -191,21 +191,21 @@
     }
 
     //回复方法
-	function Comment(){
+	function Comment() {
         var target = $("#currentForm");
         var url = target.attr("action");
         var data = target.serialize();
         $.post(url, data, function (json) {
-            if(json.status == 1) {
+            if (json.status == 1) {
                 swal({
                     title: "提示信息",
                     text: json.data,
                     confirmButtonColor: "#DD6B55",
                     confirmButtonText: "确定",
-                },function(){
+                }, function () {
                     window.location.reload();
                 });
-            }else{
+            } else {
                 swal({
                     title: "提示信息",
                     text: json.data,
@@ -214,6 +214,7 @@
                 });
             }
         });
+    }
 
 	//编辑方法
 	function edit_fn(){

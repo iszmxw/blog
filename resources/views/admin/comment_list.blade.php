@@ -42,7 +42,7 @@
 										<div class="actions">
 											<a class="btn btn-xs btn-danger" onclick="delete_fn('{{$value['cid']}}')"><i class="fa fa-times"></i> 删除 </a>
 											@if($value['hide'] == 'n')
-												<a class="btn btn-xs btn-warning" onclick="show_fn('{{$value['cid']}}','y')"><i class="fa fa-eye-slash"></i> 隐藏</a>
+												<a class="btn btn-xs btn-success" onclick="show_fn('{{$value['cid']}}','y')"><i class="fa fa-eye-slash"></i> 隐藏</a>
 											@else
 												<a class="btn btn-xs btn-warning" onclick="show_fn('{{$value['cid']}}','n')"><i class="fa fa-eye"></i> 显示</a>
 											@endif

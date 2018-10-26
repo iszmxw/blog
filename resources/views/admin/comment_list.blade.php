@@ -28,11 +28,11 @@
 							<div class="feed-activity-list">
 								<div class="feed-element">
 									<a href="JavaScript:;" class="pull-left">
-										<img alt="image" class="img-circle" src="https://qlogo1.store.qq.com/qzone/442246396/442246396/200?{{time()}}">
+										<img alt="image" class="img-circle" src="http://q1.qlogo.cn/g?b=qq&nk=543619552&s=640">
 									</a>
 									<div class="media-body">
 										<small class="pull-right">2小时</small>
-										<strong>小王</strong> 评论了 <strong>晚上睡觉有必要把路由器关掉么？</strong><br>
+										<strong class="nickname" data-qq="442246396">小王</strong> 评论了 <strong>晚上睡觉有必要把路由器关掉么？</strong><br>
 										<small class="text-muted">2017.12.12 12:00</small>
 										<div class="well">
 											人生就好像你搭乘一辆火车，沿途有不同的景色，不同的站台，和不同的人上车，也会过了这个景点到下一个景点，到下一个站台，不同的人上下车，那些都是过客，重要的是自己的旅程。

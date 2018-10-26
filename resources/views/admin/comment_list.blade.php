@@ -73,7 +73,9 @@
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<form action="{{url('admin/ajax/comment_data_check')}}" id="currentForm">
-				<input type="hidden" name="sid" id="sid">
+				<input type="hidden" name="cid" id="cid">
+				<input type="hidden" name="gid" id="gid">
+				<input type="hidden" name="pid" id="pid">
 				<input type="hidden" name="_token" value="{{csrf_token()}}">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
@@ -172,7 +174,9 @@
         var data = {'_token':"{{csrf_token()}}",'cid':cid};
         $.post(url,data,function(json){
             if (json.status == '1'){
-                console.log(json.data);
+                $("#cid").val(json.data.cid);
+                $("#gid").val(json.data.gid);
+                $("#pid").val(json.data.pid);
                 $("#poster").text(json.data.poster);
                 $("#time").text(json.data.date);
                 $("#comment").text(json.data.comment);

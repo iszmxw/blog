@@ -20,7 +20,7 @@
 					<div class="ibox-title">
 						<h5>评论列表</h5>
 						<div class="ibox-tools">
-							<span class="label label-warning-light pull-right">{{$list->total}}条评论</span>
+							<span class="label label-warning-light pull-right">{{$list->total()}}条评论</span>
 						</div>
 					</div>
 					<div class="ibox-content">

@@ -156,4 +156,19 @@ class CategoryController extends Controller
             return response()->json(['data'=>'修改数据失败！','status'=>'0']);
         }
     }
+
+    public function navbar_delete_check(Request $request)
+    {
+        $id = $request->get('id');
+        DB::beginTransaction();
+        try{
+            Navi::selected_delete(['id'=>$id]);
+            DB::commit();
+            return response()->json(['data'=>'删除导航栏成功','status'=>'1']);
+        }catch (\Exception $e){
+            dd($e);
+            DB::rollBack();
+            return response()->json(['data'=>'删除失败，请稍后再试！','status'=>'0']);
+        }
+    }
 }

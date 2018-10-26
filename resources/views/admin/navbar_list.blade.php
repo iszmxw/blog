@@ -311,7 +311,7 @@
     }
     //删除友情链接数据
     function deleted(id){
-        var url = "{{url('admin/ajax/category_delete_check')}}";
+        var url = "{{url('admin/ajax/navbar_delete_check')}}";
         var data = {'_token':'{{csrf_token()}}','id':id};
         swal({
                 title: "你确定？",

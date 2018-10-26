@@ -138,14 +138,14 @@
 						<div class="col-sm-2 i-checks"><label> <input type="radio" value="option1" name="a"> <i></i> 隐藏 </label></div>
 					</div>
 					<br>
-					<div style="clear: both"></div>
-					<div class="form-group">
+                    <div class="form-group">
 						<label class="control-label">是否新窗口打开</label>
-						<select class="input-sm form-control input-s-sm inline" name="newtab">
-							<option value="n">否</option>
-							<option value="y">是</option>
-						</select>
+						<div style="clear: both"></div>
+						<div class="col-sm-2 i-checks"><label> <input type="radio" checked="" value="y" name="newtab"> <i></i> 是 </label></div>
+						<div class="col-sm-2 i-checks"><label> <input type="radio" value="n" name="newtab"> <i></i> 否 </label></div>
 					</div>
+					<br>
+					<div style="clear: both"></div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>

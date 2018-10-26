@@ -92,15 +92,28 @@ class CategoryController extends Controller
     {
         $user_data = $request->get('user_data');
         $list = Navi::getPaginate([],'taxis','ASC',10);
-//        $sort = Sort::getList([]);
-//        foreach ($list as $value){
-//            $value['blogs'] = Blog::where(['sortid'=>$value['sid']])->count();
-//        }
         return view('admin.navbar_list',['user_data'=>$user_data,'list'=>$list]);
     }
 
     public function navbar_add_check(Request $request)
     {
-        dd($request);
+        $naviname = $request->get('naviname');
+        $url = $request->get('url');
+        $hide = $request->get('hide');
+        $newtab = $request->get('newtab');
+        $data['naviname'] = $naviname;
+        $data['url'] = $url;
+        $data['hide'] = $hide;
+        $data['newtab'] = $newtab;
+        DB::beginTransaction();
+        try{
+            Navi::create($data);
+            DB::commit();
+            return response()->json(['data'=>'添加导航栏成功','status'=>'1']);
+        }catch (\Exception $e){
+            dd($e);
+            DB::rollBack();
+            return response()->json(['data'=>'添加导航栏失败','status'=>'0']);
+        }
     }
 }

@@ -328,12 +328,12 @@
                 if (isConfirm) {
                     $.post(url,data,function(json){
                         if (json.status == '1'){
-                            swal("删除", "您的分类已被删除", "success");
+                            swal("删除", json.data.data, "success");
                             setInterval(function(){
                                 window.location.reload();
                             },1500);
                         }else{
-                            swal("操作失败", "删除失败请稍后再试！", "error");
+                            swal("操作失败", json.data.data, "error");
                         }
                     });
                 } else {

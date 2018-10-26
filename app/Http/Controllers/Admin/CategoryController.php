@@ -142,9 +142,9 @@ class CategoryController extends Controller
         $newtab = $request->get('newtab');
         if(!$naviname)return response()->json(['data'=>'请输入导航栏名称','status'=>'0']);
         $data['naviname'] = $naviname;
-        $data['url'] = $url;
-        $data['hide'] = $hide;
-        $data['newtab'] = $newtab;
+        if ($url)$data['url'] = $url;
+        if ($hide)$data['hide'] = $hide;
+        if ($newtab)$data['newtab'] = $newtab;
         DB::beginTransaction();
         try{
             Navi::EditData(['id'=>$id],$data);

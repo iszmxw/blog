@@ -139,7 +139,6 @@ class PluginsController extends Controller
             if(!$value['mail'])$value['mail'] = 10000;
             $value['blog_title'] = Blog::where(['gid'=>$value['gid']])->value('title');
         }
-        dump($list->total());
         return view('admin.comment_list',['user_data'=>$user_data,'list'=>$list]);
     }
 

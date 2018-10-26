@@ -32,6 +32,7 @@ Route::middleware('admin')->namespace('Admin')->group(function () {
     Route::group(['prefix'=>'plugins'],function (){
         Route::get('tag_list','PluginsController@tag_list');
         Route::get('link_list','PluginsController@link_list');
+        Route::get('comment_list','PluginsController@comment_list');
     });
 
     //Ajax请求部分

@@ -126,4 +126,13 @@ class PluginsController extends Controller
             return response()->json(['status'=>'0','data'=>'添加失败！请稍后再试！']);
         }
     }
+
+
+    //评论列表
+    public function comment_list(Request $request)
+    {
+        $user_data = $request->get('user_data');
+        return view('admin.comment_list',['user_data'=>$user_data]);
+    }
+
 }

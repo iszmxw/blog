@@ -29,11 +29,17 @@ class Admin
             //栏目管理
             case '/admin/category/category_list';
             case '/admin/category/navbar_list';
+            case '/admin/ajax/navbar_add_check';
+            case '/admin/ajax/navbar_data';
+            case '/admin/ajax/navbar_data_edit_check';
+            case '/admin/ajax/navbar_delete_check';
             //标签管理
             case '/admin/plugins/tag_list';
             case '/admin/ajax/tag_edit_data';
             case '/admin/ajax/tag_edit_data_check';
             case '/admin/ajax/tag_delete_check';
+            //评论管理
+            case '/admin/plugins/comment_list';
             //友情链接
             case '/admin/plugins/link_list';
             case '/admin/ajax/link_list_data';

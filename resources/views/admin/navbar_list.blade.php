@@ -78,9 +78,9 @@
 											</td>
 											<td>
 												@if($value['hide'] == 'n')
-													隐藏
-												@else
 													显示
+												@else
+													隐藏
 												@endif</td>
 											<td>
 												<button class="btn btn-info" type="button" onclick="EditData('{{$value['id']}}')"><i class="fa fa-edit"></i>&nbsp;&nbsp;编辑</button>

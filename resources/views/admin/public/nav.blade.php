@@ -28,7 +28,7 @@
                     </ul>
                 </div>
                 <div class="logo-element">
-                    小窝==={{Request::path()}}
+                    小窝
                 </div>
             </li>
             <li @if(Request::path() == 'admin' || Request::path() == 'admin/config') class="active" @endif>

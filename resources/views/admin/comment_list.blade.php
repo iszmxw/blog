@@ -98,7 +98,7 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
-					<button type="button" class="btn btn-primary" onclick="SaveData()">保存更改</button>
+					<button type="button" class="btn btn-primary" onclick="Comment()">保存更改</button>
 				</div>
 			</form>
 		</div>
@@ -189,6 +189,31 @@
             }
         });
     }
+
+    //回复方法
+	function Comment(){
+        var target = $("#currentForm");
+        var url = target.attr("action");
+        var data = target.serialize();
+        $.post(url, data, function (json) {
+            if(json.status == 1) {
+                swal({
+                    title: "提示信息",
+                    text: json.data,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "确定",
+                },function(){
+                    window.location.reload();
+                });
+            }else{
+                swal({
+                    title: "提示信息",
+                    text: json.data,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "确定"
+                });
+            }
+        });
 
 	//编辑方法
 	function edit_fn(){

@@ -67,6 +67,7 @@ Route::middleware('admin')->namespace('Admin')->group(function () {
         Route::post('comment_delete_check','PluginsController@comment_delete_check');
         Route::post('comment_hide_check','PluginsController@comment_hide_check');
         Route::post('comment_data','PluginsController@comment_data');
+        Route::post('comment_data_check','PluginsController@comment_data_check');
     });
 });
 

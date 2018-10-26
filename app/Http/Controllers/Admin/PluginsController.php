@@ -186,4 +186,9 @@ class PluginsController extends Controller
         }
     }
 
+    public function comment_data_check(Request $request)
+    {
+        dd($request);
+    }
+
 }

@@ -43,6 +43,7 @@ class Admin
             case '/admin/ajax/comment_delete_check';
             case '/admin/ajax/comment_hide_check';
             case '/admin/ajax/comment_data';
+            case '/admin/ajax/comment_data_check';
             //友情链接
             case '/admin/plugins/link_list';
             case '/admin/ajax/link_list_data';

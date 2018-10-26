@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use App\Models\Blog;
 use App\Models\Comment;
 use App\Models\Link;
 use App\Models\Tag;
@@ -134,6 +135,9 @@ class PluginsController extends Controller
     {
         $user_data = $request->get('user_data');
         $list = Comment::getPaginate([],'cid','DESC','10');
+        foreach($list as $key=>$value){
+            $value['blog_title'] = Blog::where(['gid'=>$value['gid']])->value('title');
+        }
         dump($list);
         return view('admin.comment_list',['user_data'=>$user_data,'list'=>$list]);
     }

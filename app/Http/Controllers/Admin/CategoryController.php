@@ -123,6 +123,12 @@ class CategoryController extends Controller
     //异步获取导航栏数据，编辑时使用
     public function navbar_data(Request $request)
     {
-        dd($request);
+        $id = $request->get('id');
+        $data = Navi::getOne(['id'=>$id]);
+        if ($data){
+            return response()->json(['data'=>$data,'status'=>'1']);
+        }else{
+            return response()->json(['data'=>'获取数据失败请稍后再试！','status'=>'0']);
+        }
     }
 }

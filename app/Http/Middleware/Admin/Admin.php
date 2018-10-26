@@ -40,6 +40,7 @@ class Admin
             case '/admin/ajax/tag_delete_check';
             //评论管理
             case '/admin/plugins/comment_list';
+            case '/admin/ajax/comment_delete_check';
             //友情链接
             case '/admin/plugins/link_list';
             case '/admin/ajax/link_list_data';

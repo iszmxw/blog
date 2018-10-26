@@ -35,7 +35,6 @@
 									<div class="media-body">
 										<small class="pull-right">{{date('Y-m-d H:i:s',$value['date'])}}</small>
 										<strong>{{$value['poster']}}</strong> 评论了 <strong>{{$value['blog_title']}}</strong><br>
-										{{--<small class="text-muted">{{$value['date']}}</small>--}}
 										<div class="well">
 											{{$value['comment']}}
 										</div>
@@ -47,8 +46,6 @@
 								</div>
 								@endforeach
 							</div>
-
-							{{--<button class="btn btn-primary btn-block m-t"><i class="fa fa-arrow-down"></i> 加载更多</button>--}}
 							<div class="pull-right">
 								{{$list->links()}}
 							</div>

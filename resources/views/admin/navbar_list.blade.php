@@ -170,24 +170,24 @@
 				<div class="modal-body">
 					<div class="form-group">
 						<label class="control-label">导航栏名称</label>
-						<input type="text" placeholder="导航栏名称" name="naviname" class="form-control">
+						<input type="text" placeholder="导航栏名称" name="naviname"  id="naviname" class="form-control">
 					</div>
 					<div class="form-group">
 						<label class="control-label">地址</label>
-						<input type="text" placeholder="地址" name="url" class="form-control">
+						<input type="text" placeholder="地址" name="url" id="url" class="form-control">
 					</div>
 					<div class="form-group">
 						<label class="control-label">是否显示</label>
 						<div style="clear: both"></div>
-						<div class="col-sm-2 i-checks"><label> <input type="radio" checked="" value="n" name="hide"> <i></i> 显示 </label></div>
-						<div class="col-sm-2 i-checks"><label> <input type="radio" value="y" name="hide"> <i></i> 隐藏 </label></div>
+						<div class="col-sm-2 i-checks"><label> <input type="radio" checked="" value="n" id="show" name="hide"> <i></i> 显示 </label></div>
+						<div class="col-sm-2 i-checks"><label> <input type="radio" value="y" id="hide" name="hide"> <i></i> 隐藏 </label></div>
 					</div>
 					<br>
 					<div class="form-group">
 						<label class="control-label">是否新窗口打开</label>
 						<div style="clear: both"></div>
-						<div class="col-sm-2 i-checks"><label> <input type="radio" checked="" value="y" name="newtab"> <i></i> 是 </label></div>
-						<div class="col-sm-2 i-checks"><label> <input type="radio" value="n" name="newtab"> <i></i> 否 </label></div>
+						<div class="col-sm-2 i-checks"><label> <input type="radio" checked="" value="y" id="newtab_ok" name="newtab"> <i></i> 是 </label></div>
+						<div class="col-sm-2 i-checks"><label> <input type="radio" value="n" id="newtab_no" name="newtab"> <i></i> 否 </label></div>
 					</div>
 					<br>
 					<div style="clear: both"></div>
@@ -250,12 +250,22 @@
         var data = {'_token':"{{csrf_token()}}",'id':id};
         $.post(url,data,function(json){
             if (json.status == '1'){
-                console.log(json.data);
-                $("#sid").val(json.data.sid);
-                $("#sortname").val(json.data.sortname);
-                $("#alias").val(json.data.alias);
-                $("#pid").find("option[value="+json.data.pid+"]").attr("selected",true);
-                $("#description").val(json.data.description);
+                $("#naviname").val(json.data.naviname);
+                $("#url").val(json.data.url);
+                if (json.data.hide == 'y'){
+                    $("#hide").attr("selected",true);
+                    $("#show").attr("selected",false);
+                }else{
+                    $("#hide").attr("selected",false);
+                    $("#show").attr("selected",true);
+                }
+                if (json.data.newtab == 'y'){
+                    $("#newtab_ok").attr("selected",true);
+                    $("#newtab_no").attr("selected",false);
+                }else{
+                    $("#newtab_ok").attr("selected",false);
+                    $("#newtab_no").attr("selected",true);
+                }
                 $("#myModal").modal();
             }else{
                 swal("失败", json.data, "error");

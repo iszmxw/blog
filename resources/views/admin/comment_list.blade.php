@@ -40,10 +40,10 @@
 											{{$value['comment']}}
 										</div>
 										<div class="actions">
-											<a class="btn btn-xs btn-white"><i class="fa fa-times"></i> 删除 </a>
-											<a class="btn btn-xs btn-white"><i class="fa fa-eye-slash"></i> 隐藏</a>
-											<a class="btn btn-xs btn-white"><i class="fa fa-comments"></i> 回复</a>
-											<a class="btn btn-xs btn-white"><i class="fa fa-edit"></i> 编辑</a>
+											<a class="btn btn-xs btn-danger" onclick="delete_fn()"><i class="fa fa-times"></i> 删除 </a>
+											<a class="btn btn-xs btn-warning" onclick="show_fn()"><i class="fa fa-eye-slash"></i> 隐藏</a>
+											<a class="btn btn-xs btn-primary" onclick="comment_fn()"><i class="fa fa-comments"></i> 回复</a>
+											<a class="btn btn-xs btn-info" onclick="edit_fn()"><i class="fa fa-edit"></i> 编辑</a>
 										</div>
 									</div>
 								</div>
@@ -65,5 +65,27 @@
 	</div>
 </div>
 @include('admin.public.common_js')
+<script>
+
+	//删除方法
+	function delete_fn(){
+	    alert('删除');
+	}
+
+	// 显示、隐藏方法
+	function show_fn(){
+	    alert("显示方法");
+	}
+
+	//回复方法
+	function comment_fn(){
+	    alert("回复方法");
+	}
+
+	//编辑方法
+	function edit_fn(){
+	    alert("编辑方法");
+	}
+</script>
 </body>
 </html>

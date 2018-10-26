@@ -118,8 +118,6 @@
 @include('admin.public.common_js')
 <!-- iCheck -->
 <script src="{{asset('style/admin/inspinia/js/plugins/iCheck/icheck.min.js')}}"></script>
-<!-- Sweet alert -->
-<script src="{{asset('style/admin/inspinia/js/plugins/sweetalert/sweetalert.min.js')}}"></script>
 <script>
     function edit(id){
         window.location.href="{{url('admin/article/article_edit?id=')}}"+id;

@@ -8,3 +8,5 @@
 <script src="{{asset('style/admin/inspinia/js/plugins/pace/pace.min.js')}}"></script>
 <script src="{{asset('style/admin/inspinia/js/plugins/toastr/toastr.min.js')}}"></script>
 <script src="{{asset('style/admin/inspinia/js/plugins/toastr/toastr_style.js')}}"></script>
+<!-- Sweet alert -->
+<script src="{{asset('style/admin/inspinia/js/plugins/sweetalert/sweetalert.min.js')}}"></script>

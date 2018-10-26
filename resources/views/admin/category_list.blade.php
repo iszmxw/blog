@@ -189,8 +189,6 @@
 	</div>
 </div>
 @include('admin.public.common_js')
-<!-- Sweet alert -->
-<script src="{{asset('style/admin/inspinia/js/plugins/sweetalert/sweetalert.min.js')}}"></script>
 <script>
     //显示添加数据框
     function add_alert(){

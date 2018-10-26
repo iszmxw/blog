@@ -201,8 +201,6 @@
 	</div>
 </div>
 @include('admin.public.common_js')
-<!-- Sweet alert -->
-<script src="{{asset('style/admin/inspinia/js/plugins/sweetalert/sweetalert.min.js')}}"></script>
 <!-- iCheck -->
 <script src="{{asset('style/admin/inspinia/js/plugins/iCheck/icheck.min.js')}}"></script>
 <script>

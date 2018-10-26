@@ -53,8 +53,6 @@
 	</div>
 </div>
 @include('admin.public.common_js')
-<!-- Sweet alert -->
-<script src="{{asset('style/admin/inspinia/js/plugins/sweetalert/sweetalert.min.js')}}"></script>
 <script>
 	//删除标签数据
     function deleted(tid,e){

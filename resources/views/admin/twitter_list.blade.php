@@ -30,7 +30,8 @@
 								@foreach($list as $value)
 								<div class="vertical-timeline-block">
 									<div class="vertical-timeline-icon navy-bg">
-										<i class="fa fa-briefcase"></i>
+										{{--<i class="fa fa-briefcase"></i>--}}
+										<img src="{{asset('/').$value['photo']}}" alt="">
 									</div>
 
 									<div class="vertical-timeline-content">

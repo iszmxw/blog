@@ -6,6 +6,7 @@ use App\Models\Comment;
 use App\Models\Link;
 use App\Models\Tag;
 use App\Models\Twitter;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -16,6 +17,9 @@ class PluginsController extends Controller
     {
         $user_data = $request->get('user_data');
         $list = Twitter::getList([]);
+        foreach($list as $value){
+            $value['header'] = User::where(['uid'=>$value['author']])->value('photo');
+        }
         dump($list);
         return view('admin.twitter_list',['user_data'=>$user_data,'list'=>$list]);
     }

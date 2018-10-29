@@ -186,34 +186,44 @@ class PluginsController extends Controller
         }
     }
 
+    //创建or编辑数据
     public function comment_data_check(Request $request)
     {
+        $is_edit = $request->get('is_edit');
         $cid = $request->get('cid');
-        $gid = $request->get('gid');
-        $pid = $request->get('pid');
-        $comment = $request->get('comment');
-        if(!$comment)return response()->json(['data'=>'请输入要回复的话！','status'=>'0']);
-        $poster = Comment::where(['cid'=>$cid])->value('poster');
-        $mail = "442246396@qq.com";
-        $url = "http://blog.54zm.com/";
-        $ip = $request->getClientIp();
-        $comment = '@'.$poster.'：'.$comment;
-        $data['gid'] = $gid;
-        $data['pid'] = $pid;
-        $data['date'] = time();
-        $data['poster'] = '追梦小窝';
-        $data['comment'] = $comment;
-        $data['mail'] = $mail;
-        $data['url'] = $url;
-        $data['ip'] = $ip;
+        if ($is_edit != 1){//判断是否编辑数据
+            $comment = $request->get('comment');
+            $poster = Comment::where(['cid'=>$cid])->value('poster');
+            $comment = '@'.$poster.'：'.$comment;
+            $data['mail'] = "442246396@qq.com";
+            $data['url'] = "http://blog.54zm.com/";
+            $data['ip'] = $request->getClientIp();
+            $data['gid'] = $request->get('gid');
+            $data['pid'] = $request->get('pid');
+            $data['date'] = time();
+            $data['poster'] = '追梦小窝';
+            $data['comment'] = $comment;
+            $message = "回复";
+        }else{
+            $data['poster'] = $request->get('poster');
+            $data['mail'] = $request->get('mail');
+            $data['url'] = $request->get('url');
+            $data['comment'] = $request->get('comment');
+            $message = "编辑";
+        }
+        if(!$data['comment'])return response()->json(['data'=>'请输入要回复的话！','status'=>'0']);
         DB::beginTransaction();
         try{
-            Comment::create($data);
+            if ($is_edit != 1){
+                Comment::create($data);
+            }else{
+                Comment::EditData(['cid'=>$cid],$data);
+            }
             DB::commit();
-            return response()->json(['status'=>'1','data'=>'回复成功！']);
+            return response()->json(['status'=>'1','data'=>$message.'成功！']);
         }catch (\Exception $e){
             DB::rollBack();
-            return response()->json(['status'=>'0','data'=>'回复失败！请稍后再试！']);
+            return response()->json(['status'=>'0','data'=>$message.'失败！请稍后再试！']);
         }
     }
 

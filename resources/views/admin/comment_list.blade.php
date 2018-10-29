@@ -110,6 +110,7 @@
 		<div class="modal-content">
 			<form action="{{url('admin/ajax/comment_data_check')}}" id="e_currentForm">
 				<input type="hidden" name="cid" id="e_cid">
+				<input type="hidden" name="is_edit" value="1">
 				<input type="hidden" name="_token" value="{{csrf_token()}}">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>

@@ -5,6 +5,7 @@ use App\Models\Blog;
 use App\Models\Comment;
 use App\Models\Link;
 use App\Models\Tag;
+use App\Models\Twitter;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -14,7 +15,7 @@ class PluginsController extends Controller
     public function twitter_list(Request $request)
     {
         $user_data = $request->get('user_data');
-        $list = Tag::getList([]);
+        $list = Twitter::getList([]);
         return view('admin.twitter_list',['user_data'=>$user_data,'list'=>$list]);
     }
 

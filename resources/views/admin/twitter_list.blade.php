@@ -20,9 +20,9 @@
 					<div class="ibox float-e-margins">
 						<div class="text-center float-e-margins p-md">
 							<span>打开/关闭颜色/背景或方向版本: </span>
-							<a href="#" class="btn btn-xs btn-primary" id="lightVersion">轻型版本 </a>
-							<a href="#" class="btn btn-xs btn-primary" id="darkVersion">黑色版本 </a>
-							<a href="#" class="btn btn-xs btn-primary" id="leftVersion">左侧版本 </a>
+							<a href="javascript:;" class="btn btn-xs btn-primary" id="lightVersion">轻型版本 </a>
+							<a href="javascript:;" class="btn btn-xs btn-primary" id="darkVersion">黑色版本 </a>
+							<a href="javascript:;" class="btn btn-xs btn-primary" id="leftVersion">左侧版本 </a>
 						</div>
 						<div class="ibox-content" id="ibox-content">
 

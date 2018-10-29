@@ -30,6 +30,7 @@ Route::middleware('admin')->namespace('Admin')->group(function () {
 
     //云拓展
     Route::group(['prefix'=>'plugins'],function (){
+        Route::get('twitter_list','PluginsController@twitter_list');
         Route::get('tag_list','PluginsController@tag_list');
         Route::get('link_list','PluginsController@link_list');
         Route::get('comment_list','PluginsController@comment_list');

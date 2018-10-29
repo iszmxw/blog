@@ -11,6 +11,13 @@ use Illuminate\Support\Facades\DB;
 
 class PluginsController extends Controller
 {
+    public function twitter_list(Request $request)
+    {
+        $user_data = $request->get('user_data');
+        $list = Tag::getList([]);
+        return view('admin.twitter_list',['user_data'=>$user_data,'list'=>$list]);
+    }
+
     public function tag_list(Request $request)
     {
         $user_data = $request->get('user_data');

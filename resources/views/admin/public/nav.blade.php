@@ -85,6 +85,9 @@
                     <span class="fa arrow"></span>
                 </a>
                 <ul class="nav nav-second-level collapse">
+                    <li @if(Request::path() == 'admin/plugins/twitter_list') class="active" @endif>
+                        <a href="{{url('admin/plugins/twitter_list')}}">说说列表</a>
+                    </li>
                     <li @if(Request::path() == 'admin/plugins/tag_list') class="active" @endif>
                         <a href="{{url('admin/plugins/tag_list')}}">标签列表</a>
                     </li>

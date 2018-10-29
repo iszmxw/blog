@@ -6,6 +6,13 @@
 	<title>追梦小窝 | 后台首页--说说管理</title>
 	@include('admin.public.common_css')
 	<link href="{{asset('style/admin/inspinia/css/plugins/iCheck/custom.css')}}" rel="stylesheet">
+	<style>
+		.vertical-timeline-icon.navy-bg img {
+			width: 100%;
+			height: 100%;
+			border-radius: 50%;
+		}
+	</style>
 </head>
 <body class="">
 <div id="wrapper">

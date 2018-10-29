@@ -16,6 +16,7 @@ class PluginsController extends Controller
     {
         $user_data = $request->get('user_data');
         $list = Twitter::getList([]);
+        dump($list);
         return view('admin.twitter_list',['user_data'=>$user_data,'list'=>$list]);
     }
 

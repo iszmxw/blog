@@ -20,7 +20,6 @@ class PluginsController extends Controller
         foreach($list as $value){
             $value['header'] = User::where(['uid'=>$value['author']])->value('photo');
         }
-        dump($list);
         return view('admin.twitter_list',['user_data'=>$user_data,'list'=>$list]);
     }
 

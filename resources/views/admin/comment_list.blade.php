@@ -267,7 +267,7 @@
                 $("#poster").text(json.data.poster);
                 $("#time").text(json.data.date);
                 $("#comment").text(json.data.comment);
-                $("#myModal").modal();
+                $("#myModal_edit").modal();
             }else{
                 swal("失败", json.data, "error");
                 setInterval(function(){

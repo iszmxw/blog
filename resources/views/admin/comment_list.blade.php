@@ -68,7 +68,7 @@
 		@include('admin.public.footer')
 	</div>
 </div>
-{{--编辑数据框--}}
+{{--回复数据框--}}
 <div class="modal inmodal fade" id="myModal" tabindex="-1" role="dialog"  aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -99,6 +99,45 @@
 				<div class="modal-footer">
 					<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
 					<button type="button" class="btn btn-primary" onclick="Comment()">回复</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+{{--编辑数据框--}}
+<div class="modal inmodal fade" id="myModal_edit" tabindex="-1" role="dialog"  aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form action="{{url('admin/ajax/comment_data_check')}}" id="e_currentForm">
+				<input type="hidden" name="cid" id="e_cid">
+				<input type="hidden" name="gid" id="e_gid">
+				<input type="hidden" name="pid" id="e_pid">
+				<input type="hidden" name="_token" value="{{csrf_token()}}">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<h4 class="modal-title">编辑评论</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<label>评论人：</label>
+						<input type="text" placeholder="评论人" name="poster" id="e_poster" class="form-control">
+					</div>
+					<div class="form-group">
+						<label>电子邮件：</label>
+						<input type="text" placeholder="电子邮件" name="mail" id="e_mail" class="form-control">
+					</div>
+					<div class="form-group">
+						<label>主页：</label>
+						<input type="text" placeholder="主页" name="url" id="e_url" class="form-control">
+					</div>
+					<div class="form-group">
+						<label>评论内容：</label>
+						<input type="text" placeholder="评论内容" name="comment" id="e_comment" class="form-control">
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+					<button type="button" class="btn btn-primary" onclick="Edit_Comment()">编辑</button>
 				</div>
 			</form>
 		</div>
@@ -217,8 +256,51 @@
     }
 
 	//编辑方法
-	function edit_fn(){
-	    alert("编辑方法");
+	function edit_fn(cid){
+        var url = "{{url('admin/ajax/comment_data')}}";
+        var data = {'_token':"{{csrf_token()}}",'cid':cid};
+        $.post(url,data,function(json){
+            if (json.status == '1'){
+                $("#cid").val(json.data.cid);
+                $("#gid").val(json.data.gid);
+                $("#pid").val(json.data.pid);
+                $("#poster").text(json.data.poster);
+                $("#time").text(json.data.date);
+                $("#comment").text(json.data.comment);
+                $("#myModal").modal();
+            }else{
+                swal("失败", json.data, "error");
+                setInterval(function(){
+                    window.location.reload();
+                },1500);
+            }
+        });
+	}
+
+	//编辑评论提交
+	function Edit_Comment(){
+        var target = $("#e_currentForm");
+        var url = target.attr("action");
+        var data = target.serialize();
+        $.post(url, data, function (json) {
+            if (json.status == 1) {
+                swal({
+                    title: "提示信息",
+                    text: json.data,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "确定",
+                }, function () {
+                    window.location.reload();
+                });
+            } else {
+                swal({
+                    title: "提示信息",
+                    text: json.data,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "确定"
+                });
+            }
+        });
 	}
 </script>
 </body>

@@ -42,9 +42,10 @@
 									</div>
 
 									<div class="vertical-timeline-content">
-										<h2>追梦小窝</h2>
+										<a href="JavaScript:;" class="btn btn-sm btn-primary"> 追梦小窝</a>
+										<br>
 										<p>{{$value['content']}}</p>
-										<a href="JavaScript:;" class="btn btn-sm btn-primary"> 更多信息</a>
+										{{--<a href="JavaScript:;" class="btn btn-sm btn-primary"> 更多信息</a>--}}
 										<span class="vertical-date">
                                         时间 <br/>
                                         <small>{{date('Y-m-d H:i:s',$value['date'])}}</small>

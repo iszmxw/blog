@@ -26,7 +26,7 @@
 				<div class="col-lg-12">
 					<div class="ibox float-e-margins">
 						<div class="text-center float-e-margins p-md">
-							<span>打开/关闭颜色/背景或方向版本: </span>
+							{{--<span>打开/关闭颜色/背景或方向版本: </span>--}}
 							<a href="javascript:;" class="btn btn-xs btn-primary" id="lightVersion">轻型版本 </a>
 							<a href="javascript:;" class="btn btn-xs btn-primary" id="darkVersion">黑色版本 </a>
 							<a href="javascript:;" class="btn btn-xs btn-primary" id="leftVersion">左侧版本 </a>
@@ -42,9 +42,9 @@
 									</div>
 
 									<div class="vertical-timeline-content">
-										<h2>追梦小窝</h2>
+										{{--<h2>追梦小窝</h2>--}}
+										<a href="JavaScript:;" class="btn btn-sm btn-primary"> 追梦小窝</a>
 										<p>{{$value['content']}}</p>
-										<a href="JavaScript:;" class="btn btn-sm btn-primary"> 更多信息</a>
 										<span class="vertical-date">
                                         时间 <br/>
                                         <small>{{date('Y-m-d H:i:s',$value['date'])}}</small>

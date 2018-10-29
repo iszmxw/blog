@@ -45,6 +45,9 @@
 										<h2>追梦小窝</h2>
 										<p>{{$value['content']}}</p>
 										{{--<a href="JavaScript:;" class="btn btn-sm btn-primary"> 更多信息</a>--}}
+										<div class="actions">
+											<a class="btn btn-xs btn-danger" onclick="delete_fn('{{$value['id']}}')"><i class="fa fa-times"></i> 删除 </a>
+										</div>
 										<span class="vertical-date">
                                         时间 <br/>
                                         <small>{{date('Y-m-d H:i:s',$value['date'])}}</small>

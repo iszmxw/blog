@@ -32,7 +32,7 @@
 									<a href="JavaScript:;" class="pull-left">
 										<img alt="image" class="img-circle" src="http://q1.qlogo.cn/g?b=qq&nk={{$value['mail']}}&s=640">
 									</a>
-									<div class="media-body">
+									<div class="media-body">`
 										<small class="pull-right">{{date('Y-m-d H:i:s',$value['date'])}}</small>
 										<strong>{{$value['poster']}}</strong> 评论了 <strong>{{$value['blog_title']}}</strong><br>
 										<small class="text-muted">来自：{{$value['ip']}}</small>
@@ -98,7 +98,7 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
-					<button type="button" class="btn btn-primary" onclick="Comment()">保存更改</button>
+					<button type="button" class="btn btn-primary" onclick="Comment()">回复</button>
 				</div>
 			</form>
 		</div>

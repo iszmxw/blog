@@ -73,7 +73,6 @@
 <script src="{{asset('style/admin/inspinia/js/demo/peity-demo.js')}}"></script>
 <script>
     $(document).ready(function(){
-
         // Local script for demo purpose only
         $('#lightVersion').click(function(event) {
             event.preventDefault();
@@ -81,21 +80,52 @@
             $('#vertical-timeline').removeClass('dark-timeline');
             $('#vertical-timeline').addClass('light-timeline');
         });
-
         $('#darkVersion').click(function(event) {
             event.preventDefault();
             $('#ibox-content').addClass('ibox-content');
             $('#vertical-timeline').removeClass('light-timeline');
             $('#vertical-timeline').addClass('dark-timeline');
         });
-
         $('#leftVersion').click(function(event) {
             event.preventDefault();
             $('#vertical-timeline').toggleClass('center-orientation');
         });
-
-
     });
+    //删除方法
+    function delete_fn(id){
+        var url = "{{url('admin/ajax/twitter_delete_check')}}";
+        var data = {'_token':'{{csrf_token()}}','id':id};
+        swal({
+                title: "你确定？",
+                text: "你将无法恢复这条数据！",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "删除",
+                cancelButtonText: "取消",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+            function (isConfirm) {
+                if (isConfirm) {
+                    $.post(url,data,function(json){
+                        if (json.status == '1'){
+                            swal("删除", json.data, "success");
+                            setInterval(function(){
+                                window.location.reload();
+                            },1500);
+                        }else{
+                            swal("操作失败", json.data, "error");
+                        }
+                    });
+                } else {
+                    swal("取消", "您已取消了删除", "error");
+                    setInterval(function(){
+                        window.location.reload();
+                    },1500);
+                }
+            });
+    }
 </script>
 </body>
 </html>

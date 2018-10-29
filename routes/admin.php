@@ -69,6 +69,9 @@ Route::middleware('admin')->namespace('Admin')->group(function () {
         Route::post('comment_hide_check','PluginsController@comment_hide_check');
         Route::post('comment_data','PluginsController@comment_data');
         Route::post('comment_data_check','PluginsController@comment_data_check');
+
+        //微语管理
+        Route::post('twitter_delete_check','PluginsController@twitter_delete_check');
     });
 });
 

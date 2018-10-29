@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\DB;
 
 class PluginsController extends Controller
 {
+    //微语列表
     public function twitter_list(Request $request)
     {
         $user_data = $request->get('user_data');
@@ -23,6 +24,23 @@ class PluginsController extends Controller
         return view('admin.twitter_list',['user_data'=>$user_data,'list'=>$list]);
     }
 
+    //删除微语
+    public function twitter_delete_check(Request $request)
+    {
+        $id = $request->get('id');
+        DB::beginTransaction();
+        try{
+            Twitter::selected_delete(['id'=>$id]);
+            DB::commit();
+            return response()->json(['data'=>'删除成功！','status'=>'1']);
+        }catch (\Exception $e){
+            dd($e);
+            DB::rollBack();
+            return response()->json(['data'=>'删除失败请稍后再试！','status'=>'0']);
+        }
+    }
+
+    //标签列表
     public function tag_list(Request $request)
     {
         $user_data = $request->get('user_data');

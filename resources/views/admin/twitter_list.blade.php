@@ -27,86 +27,87 @@
 						<div class="ibox-content" id="ibox-content">
 
 							<div id="vertical-timeline" class="vertical-container dark-timeline center-orientation">
+								@foreach($list as $value)
 								<div class="vertical-timeline-block">
 									<div class="vertical-timeline-icon navy-bg">
 										<i class="fa fa-briefcase"></i>
 									</div>
 
 									<div class="vertical-timeline-content">
-										<h2>欧文</h2>
-										<p>真理惟一可靠的标准就是永远自相符合</p>
-										<a href="#" class="btn btn-sm btn-primary"> 更多信息</a>
+										<h2>追梦小窝</h2>
+										<p>{{$value['content']}}</p>
+										<a href="JavaScript:;" class="btn btn-sm btn-primary"> 更多信息</a>
 										<span class="vertical-date">
-                                        今天 <br/>
-                                        <small>12月24日</small>
+                                        {{--今天 <br/>--}}
+                                        <small>{{date('Y-m-d H:i:s',$value['date'])}}</small>
                                     </span>
 									</div>
 								</div>
+								@endforeach
+								{{--<div class="vertical-timeline-block">--}}
+									{{--<div class="vertical-timeline-icon blue-bg">--}}
+										{{--<i class="fa fa-file-text"></i>--}}
+									{{--</div>--}}
 
-								<div class="vertical-timeline-block">
-									<div class="vertical-timeline-icon blue-bg">
-										<i class="fa fa-file-text"></i>
-									</div>
+									{{--<div class="vertical-timeline-content">--}}
+										{{--<h2>欧文</h2>--}}
+										{{--<p>真理惟一可靠的标准就是永远自相符合</p>--}}
+										{{--<a href="#" class="btn btn-sm btn-success"> 下载文件 </a>--}}
+										{{--<span class="vertical-date">--}}
+                                        {{--今天 <br/>--}}
+                                        {{--<small>12月24日</small>--}}
+                                    {{--</span>--}}
+									{{--</div>--}}
+								{{--</div>--}}
 
-									<div class="vertical-timeline-content">
-										<h2>欧文</h2>
-										<p>真理惟一可靠的标准就是永远自相符合</p>
-										<a href="#" class="btn btn-sm btn-success"> 下载文件 </a>
-										<span class="vertical-date">
-                                        今天 <br/>
-                                        <small>12月24日</small>
-                                    </span>
-									</div>
-								</div>
+								{{--<div class="vertical-timeline-block">--}}
+									{{--<div class="vertical-timeline-icon lazur-bg">--}}
+										{{--<i class="fa fa-coffee"></i>--}}
+									{{--</div>--}}
 
-								<div class="vertical-timeline-block">
-									<div class="vertical-timeline-icon lazur-bg">
-										<i class="fa fa-coffee"></i>
-									</div>
+									{{--<div class="vertical-timeline-content">--}}
+										{{--<h2>欧文</h2>--}}
+										{{--<p>真理惟一可靠的标准就是永远自相符合</p>--}}
+										{{--<a href="#" class="btn btn-sm btn-info">阅读更多</a>--}}
+										{{--<span class="vertical-date"> 昨天 <br/><small>12月23日</small></span>--}}
+									{{--</div>--}}
+								{{--</div>--}}
 
-									<div class="vertical-timeline-content">
-										<h2>欧文</h2>
-										<p>真理惟一可靠的标准就是永远自相符合</p>
-										<a href="#" class="btn btn-sm btn-info">阅读更多</a>
-										<span class="vertical-date"> 昨天 <br/><small>12月23日</small></span>
-									</div>
-								</div>
+								{{--<div class="vertical-timeline-block">--}}
+									{{--<div class="vertical-timeline-icon yellow-bg">--}}
+										{{--<i class="fa fa-phone"></i>--}}
+									{{--</div>--}}
 
-								<div class="vertical-timeline-block">
-									<div class="vertical-timeline-icon yellow-bg">
-										<i class="fa fa-phone"></i>
-									</div>
+									{{--<div class="vertical-timeline-content">--}}
+										{{--<h2>欧文</h2>--}}
+										{{--<p>真理惟一可靠的标准就是永远自相符合</p>--}}
+										{{--<span class="vertical-date">昨天 <br/><small>12月23日</small></span>--}}
+									{{--</div>--}}
+								{{--</div>--}}
 
-									<div class="vertical-timeline-content">
-										<h2>欧文</h2>
-										<p>真理惟一可靠的标准就是永远自相符合</p>
-										<span class="vertical-date">昨天 <br/><small>12月23日</small></span>
-									</div>
-								</div>
+								{{--<div class="vertical-timeline-block">--}}
+									{{--<div class="vertical-timeline-icon lazur-bg">--}}
+										{{--<i class="fa fa-user-md"></i>--}}
+									{{--</div>--}}
 
-								<div class="vertical-timeline-block">
-									<div class="vertical-timeline-icon lazur-bg">
-										<i class="fa fa-user-md"></i>
-									</div>
+									{{--<div class="vertical-timeline-content">--}}
+										{{--<h2>欧文</h2>--}}
+										{{--<p>真理惟一可靠的标准就是永远自相符合</p>--}}
+										{{--<span class="vertical-date">昨天 <br/><small>12月23日</small></span>--}}
+									{{--</div>--}}
+								{{--</div>--}}
 
-									<div class="vertical-timeline-content">
-										<h2>欧文</h2>
-										<p>真理惟一可靠的标准就是永远自相符合</p>
-										<span class="vertical-date">昨天 <br/><small>12月23日</small></span>
-									</div>
-								</div>
+								{{--<div class="vertical-timeline-block">--}}
+									{{--<div class="vertical-timeline-icon navy-bg">--}}
+										{{--<i class="fa fa-comments"></i>--}}
+									{{--</div>--}}
 
-								<div class="vertical-timeline-block">
-									<div class="vertical-timeline-icon navy-bg">
-										<i class="fa fa-comments"></i>
-									</div>
-
-									<div class="vertical-timeline-content">
-										<h2>欧文</h2>
-										<p>真理惟一可靠的标准就是永远自相符合</p>
-										<span class="vertical-date">昨天 <br/><small>12月23日</small></span>
-									</div>
-								</div>
+									{{--<div class="vertical-timeline-content">--}}
+										{{--<h2>欧文</h2>--}}
+										{{--<p>真理惟一可靠的标准就是永远自相符合</p>--}}
+										{{--<span class="vertical-date">昨天 <br/><small>12月23日</small></span>--}}
+									{{--</div>--}}
+								{{--</div>--}}
 							</div>
 
 						</div>

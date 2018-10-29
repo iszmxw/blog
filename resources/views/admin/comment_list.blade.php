@@ -143,7 +143,6 @@
 </div>
 @include('admin.public.common_js')
 <script>
-
 	//删除方法
 	function delete_fn(cid){
         var url = "{{url('admin/ajax/comment_delete_check')}}";

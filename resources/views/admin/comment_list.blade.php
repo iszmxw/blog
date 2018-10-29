@@ -110,8 +110,6 @@
 		<div class="modal-content">
 			<form action="{{url('admin/ajax/comment_data_check')}}" id="e_currentForm">
 				<input type="hidden" name="cid" id="e_cid">
-				<input type="hidden" name="gid" id="e_gid">
-				<input type="hidden" name="pid" id="e_pid">
 				<input type="hidden" name="_token" value="{{csrf_token()}}">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
@@ -262,11 +260,11 @@
         $.post(url,data,function(json){
             if (json.status == '1'){
                 console.log(json);
-                $("#cid").val(json.data.cid);
-                $("#gid").val(json.data.gid);
-                $("#pid").val(json.data.pid);
-                $("#poster").text(json.data.poster);
-                $("#comment").text(json.data.comment);
+                $("#e_cid").val(json.data.cid);
+                $("#e_poster").text(json.data.poster);
+                $("#e_mail").text(json.data.email);
+                $("#e_url").text(json.data.url);
+                $("#e_comment").text(json.data.comment);
                 $("#myModal_edit").modal();
             }else{
                 swal("失败", json.data, "error");

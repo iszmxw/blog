@@ -261,10 +261,10 @@
             if (json.status == '1'){
                 console.log(json);
                 $("#e_cid").val(json.data.cid);
-                $("#e_poster").text(json.data.poster);
-                $("#e_mail").text(json.data.email);
-                $("#e_url").text(json.data.url);
-                $("#e_comment").text(json.data.comment);
+                $("#e_poster").val(json.data.poster);
+                $("#e_mail").val(json.data.email);
+                $("#e_url").val(json.data.url);
+                $("#e_comment").val(json.data.comment);
                 $("#myModal_edit").modal();
             }else{
                 swal("失败", json.data, "error");

@@ -261,11 +261,11 @@
         var data = {'_token':"{{csrf_token()}}",'cid':cid};
         $.post(url,data,function(json){
             if (json.status == '1'){
+                console.log(json);
                 $("#cid").val(json.data.cid);
                 $("#gid").val(json.data.gid);
                 $("#pid").val(json.data.pid);
                 $("#poster").text(json.data.poster);
-                $("#time").text(json.data.date);
                 $("#comment").text(json.data.comment);
                 $("#myModal_edit").modal();
             }else{

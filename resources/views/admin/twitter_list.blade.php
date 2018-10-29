@@ -43,7 +43,7 @@
 
 									<div class="vertical-timeline-content">
 										<a href="JavaScript:;" class="btn btn-sm btn-primary"> 追梦小窝</a>
-										<br>
+										<h2></h2>
 										<p>{{$value['content']}}</p>
 										{{--<a href="JavaScript:;" class="btn btn-sm btn-primary"> 更多信息</a>--}}
 										<span class="vertical-date">

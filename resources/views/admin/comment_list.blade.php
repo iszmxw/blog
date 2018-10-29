@@ -261,7 +261,7 @@
                 console.log(json);
                 $("#e_cid").val(json.data.cid);
                 $("#e_poster").val(json.data.poster);
-                $("#e_mail").val(json.data.email);
+                $("#e_mail").val(json.data.mail);
                 $("#e_url").val(json.data.url);
                 $("#e_comment").val(json.data.comment);
                 $("#myModal_edit").modal();

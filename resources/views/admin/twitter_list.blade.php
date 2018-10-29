@@ -42,8 +42,7 @@
 									</div>
 
 									<div class="vertical-timeline-content">
-										{{--<h2>追梦小窝</h2>--}}
-										<a href="JavaScript:;" class="btn btn-sm btn-primary"> 追梦小窝</a>
+										<h2><a href="JavaScript:;" class="btn btn-sm btn-primary"> 追梦小窝</a></h2>
 										<p>{{$value['content']}}</p>
 										<span class="vertical-date">
                                         时间 <br/>

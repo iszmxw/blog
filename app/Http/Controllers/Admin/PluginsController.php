@@ -192,6 +192,7 @@ class PluginsController extends Controller
         $gid = $request->get('gid');
         $pid = $request->get('pid');
         $comment = $request->get('comment');
+        if(!$comment)return response()->json(['data'=>'请输入要回复的话！','status'=>'0']);
         $poster = Comment::where(['cid'=>$cid])->value('poster');
         $mail = "442246396@qq.com";
         $url = "http://blog.54zm.com/";

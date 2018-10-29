@@ -38,7 +38,7 @@
 										<p>{{$value['content']}}</p>
 										<a href="JavaScript:;" class="btn btn-sm btn-primary"> 更多信息</a>
 										<span class="vertical-date">
-                                        {{--今天 <br/>--}}
+                                        时间 <br/>
                                         <small>{{date('Y-m-d H:i:s',$value['date'])}}</small>
                                     </span>
 									</div>

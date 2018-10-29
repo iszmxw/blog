@@ -31,7 +31,7 @@
 								<div class="vertical-timeline-block">
 									<div class="vertical-timeline-icon navy-bg">
 										{{--<i class="fa fa-briefcase"></i>--}}
-										<img src="{{asset('/').$value['photo']}}" alt="">
+										<img src="{{asset('/').$value['header']}}">
 									</div>
 
 									<div class="vertical-timeline-content">

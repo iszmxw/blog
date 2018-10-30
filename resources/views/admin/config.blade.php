@@ -62,11 +62,9 @@
                                         <textarea name="tongji" rows="10" placeholder="(支持html，可用于添加流量统计代码)" style="width:70%"></textarea>
                                     </div>
                                 </div>
-
                                 <div class="hr-line-dashed"></div>
                                 <div class="form-group">
                                     <div class="col-sm-4 col-sm-offset-2">
-                                        <button class="btn btn-white" type="submit">取消</button>
                                         <button class="btn btn-primary" type="submit">保存更改</button>
                                     </div>
                                 </div>

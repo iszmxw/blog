@@ -44,7 +44,21 @@ class AdminController extends Controller
         $data['blogurl'] = $request->get('blogurl');
         $data['icp'] = $request->get('icp');
         $data['footer_info'] = $request->get('footer_info');
-        Options::EditData(['']);
+        //数据库事物回滚
+        DB::beginTransaction();
+        try {
+            if ($data['blogname'])Options::EditData(['option_name'=>'blogname'],$data['blogname']);
+            if ($data['bloginfo'])Options::EditData(['option_name'=>'bloginfo'],$data['bloginfo']);
+            if ($data['blogurl'])Options::EditData(['option_name'=>'blogurl'],$data['blogurl']);
+            if ($data['icp'])Options::EditData(['option_name'=>'icp'],$data['icp']);
+            if ($data['footer_info'])Options::EditData(['option_name'=>'footer_info'],$data['footer_info']);
+            DB::commit();
+            return response()->json(['data'=>'修改成功！','status'=>'1']);
+        } catch (\Exception $e) {
+            dd($e);
+            DB::rollBack();//事件回滚
+            return response()->json(['data'=>'编辑失败，请稍后再试！','status'=>'0']);
+        }
     }
 
     public function login()

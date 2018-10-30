@@ -40,6 +40,7 @@ Route::middleware('admin')->namespace('Admin')->group(function () {
     //Ajax请求部分
     Route::group(['prefix'=>'ajax'],function (){
         Route::post('login_check','AdminController@login_check');
+        Route::post('config_edit_check','AdminController@config_edit_check');
         //文章
         Route::post('article_add_check','ArticleController@article_add_check');
         Route::post('article_delete_check','ArticleController@article_delete_check');

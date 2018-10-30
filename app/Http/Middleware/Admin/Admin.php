@@ -19,6 +19,7 @@ class Admin
         switch ($route){
             case '/admin';
             case '/admin/config';
+            case '/admin/ajax/config_edit_check';
             //文章管理
             case '/admin/article/article_add';
             case '/admin/ajax/article_add_check';

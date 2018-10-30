@@ -37,6 +37,11 @@ class AdminController extends Controller
         return view('admin.config',['user_data'=>$user_data,'config'=>$config]);
     }
 
+    public function config_edit_check(Request $request)
+    {
+        dd($request);
+    }
+
     public function login()
     {
         return view('admin.login');

@@ -21,30 +21,34 @@
 					</div>
 					<div class="ibox-content">
 						<form method="get" class="form-horizontal">
-							<div class="form-group"><label class="col-sm-2 control-label">正常</label>
-
-								<div class="col-sm-10"><input type="text" class="form-control"></div>
-							</div>
-							<div class="hr-line-dashed"></div>
-							<div class="form-group"><label class="col-sm-2 control-label">辅助文本</label>
-								<div class="col-sm-10"><input type="text" class="form-control"> <span class="help-block m-b-none">这里可以显示说明、帮助、描述等信息</span>
+							<div class="form-group"><label class="col-sm-2 control-label">站点标题：</label>
+								<div class="col-sm-10">
+									<input type="text" placeholder="站点标题" class="form-control">
 								</div>
 							</div>
 							<div class="hr-line-dashed"></div>
-							<div class="form-group"><label class="col-sm-2 control-label">密码</label>
-
-								<div class="col-sm-10"><input type="password" class="form-control" name="password"></div>
+							<div class="form-group"><label class="col-sm-2 control-label">站点副标题：</label>
+								<div class="col-sm-10">
+									<input type="text" placeholder="站点副标题" class="form-control"> <span class="help-block m-b-none">__生活 随笔 记录点点滴滴</span>
+								</div>
 							</div>
 							<div class="hr-line-dashed"></div>
-							<div class="form-group"><label class="col-sm-2 control-label">占位符</label>
+							<div class="form-group"><label class="col-sm-2 control-label">站点地址：</label>
 
-								<div class="col-sm-10"><input type="text" placeholder="占位符" class="form-control"></div>
+								<div class="col-sm-10"><input type="url" placeholder="站点地址" class="form-control" name="app_url"></div>
 							</div>
 							<div class="hr-line-dashed"></div>
-							<div class="form-group"><label class="col-lg-2 control-label">禁用</label>
+							<div class="form-group"><label class="col-sm-2 control-label">ICP备案号：</label>
 
-								<div class="col-lg-10"><input type="text" disabled="" placeholder="禁用输入..." class="form-control"></div>
+								<div class="col-sm-10"><input type="text" placeholder="ICP备案号" class="form-control"></div>
 							</div>
+
+							<div class="hr-line-dashed"></div>
+							<div class="form-group"><label class="col-sm-2 control-label">首页底部信息：</label>
+
+								<div class="col-sm-10"><input type="text" placeholder="(支持html，可用于添加流量统计代码)" class="form-control"></div>
+							</div>
+
 							<div class="hr-line-dashed"></div>
 							<div class="form-group">
 								<div class="col-sm-4 col-sm-offset-2">

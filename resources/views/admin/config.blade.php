@@ -23,7 +23,7 @@
                             </h5>
                         </div>
                         <div class="ibox-content">
-                            <form method="post" action="{{url('admin/ajax/config_edit')}}" class="form-horizontal">
+                            <form method="post" action="{{url('admin/ajax/config_edit')}}" id="currentForm" class="form-horizontal">
 
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">站点标题：</label>
@@ -67,7 +67,7 @@
                                 <div class="hr-line-dashed"></div>
                                 <div class="form-group">
                                     <div class="col-sm-4 col-sm-offset-2">
-                                        <button class="btn btn-primary" type="submit">保存更改</button>
+                                        <button class="btn btn-primary" type="button" onclick="edit_data()">保存更改</button>
                                     </div>
                                 </div>
                             </form>
@@ -81,5 +81,31 @@
     </div>
 </div>
 @include('admin.public.common_js')
+<script>
+    function edit_data(){
+        var target = $("#currentForm");
+        var url = target.attr("action");
+        var data = target.serialize();
+        $.post(url, data, function (json) {
+            if(json.status == 1) {
+                swal({
+                    title: "提示信息",
+                    text: json.data,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "确定",
+                },function(){
+                    window.location.reload();
+                });
+            }else{
+                swal({
+                    title: "提示信息",
+                    text: json.data,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "确定"
+                });
+            }
+        });
+    }
+</script>
 </body>
 </html>

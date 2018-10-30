@@ -15,13 +15,18 @@ class AdminController extends Controller
         $user_data = $request->get('user_data');
         $data['php_version'] = phpversion();
         $data['laravel_version'] = app()->version();
-//        dump($data);
         $phpinfo = $request->get('phpinfo');
         if ($phpinfo == 'yes'){
             echo phpinfo();
         }else{
             return view('admin.index',['user_data'=>$user_data,'data'=>$data]);
         }
+    }
+
+    public function config(Request $request)
+    {
+        $user_data = $request->get('user_data');
+        return view('admin.config',['user_data'=>$user_data]);
     }
 
     public function login()

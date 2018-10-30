@@ -47,11 +47,11 @@ class AdminController extends Controller
         //数据库事物回滚
         DB::beginTransaction();
         try {
-            if ($data['blogname'])Options::EditData(['option_name'=>'blogname'],$data['blogname']);
-            if ($data['bloginfo'])Options::EditData(['option_name'=>'bloginfo'],$data['bloginfo']);
-            if ($data['blogurl'])Options::EditData(['option_name'=>'blogurl'],$data['blogurl']);
-            if ($data['icp'])Options::EditData(['option_name'=>'icp'],$data['icp']);
-            if ($data['footer_info'])Options::EditData(['option_name'=>'footer_info'],$data['footer_info']);
+            if ($data['blogname'])Options::EditData(['option_name'=>'blogname'],['blogname'=>$data['blogname']]);
+            if ($data['bloginfo'])Options::EditData(['option_name'=>'bloginfo'],['bloginfo'=>$data['bloginfo']]);
+            if ($data['blogurl'])Options::EditData(['option_name'=>'blogurl'],['blogurl'=>$data['blogurl']]);
+            if ($data['icp'])Options::EditData(['option_name'=>'icp'],['icp'=>$data['icp']]);
+            if ($data['footer_info'])Options::EditData(['option_name'=>'footer_info'],['footer_info'=>$data['footer_info']]);
             DB::commit();
             return response()->json(['data'=>'修改成功！','status'=>'1']);
         } catch (\Exception $e) {

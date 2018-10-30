@@ -56,7 +56,6 @@
 					</div>
 				</div>
 			</div>
-
 			<form class="form-horizontal" method="get">
 				<div class="form-group"><label class="col-sm-2 control-label">发送人:</label>
 

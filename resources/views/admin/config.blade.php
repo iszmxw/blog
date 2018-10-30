@@ -23,18 +23,22 @@
                     </div>
                     <div class="ibox-content">
                         <form method="get" class="form-horizontal">
-                            <div class="form-group"><label class="col-sm-2 control-label">站点标题：</label>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">站点标题：</label>
                                 <div class="col-sm-10">
                                     <input type="text" placeholder="站点标题" class="form-control">
                                 </div>
                             </div>
+
                             <div class="hr-line-dashed"></div>
-                            <div class="form-group"><label class="col-sm-2 control-label">站点副标题：</label>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">站点副标题：</label>
                                 <div class="col-sm-10">
                                     <input type="text" placeholder="站点副标题" class="form-control">
                                     <span class="help-block m-b-none">__生活 随笔 记录点点滴滴</span>
                                 </div>
                             </div>
+
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">站点地址：</label>
@@ -42,6 +46,7 @@
                                     <input type="url" placeholder="站点地址" class="form-control" name="app_url">
                                 </div>
                             </div>
+
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">ICP备案号：</label>

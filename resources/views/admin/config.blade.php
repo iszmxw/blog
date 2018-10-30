@@ -46,7 +46,9 @@
 							<div class="hr-line-dashed"></div>
 							<div class="form-group"><label class="col-sm-2 control-label">首页底部信息：</label>
 
-								<div class="col-sm-10"><input type="text" placeholder="(支持html，可用于添加流量统计代码)" class="form-control"></div>
+								<div class="col-sm-10">
+									<textarea name="tongji" id="" cols="30" rows="10" placeholder="(支持html，可用于添加流量统计代码)"></textarea>
+								</div>
 							</div>
 
 							<div class="hr-line-dashed"></div>

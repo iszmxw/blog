@@ -56,16 +56,6 @@
 					</div>
 				</div>
 			</div>
-			<form class="form-horizontal" method="get">
-				<div class="form-group"><label class="col-sm-2 control-label">发送人:</label>
-
-					<div class="col-sm-10"><input type="text" class="form-control" value="abc@admin.com"></div>
-				</div>
-				<div class="form-group"><label class="col-sm-2 control-label">标题:</label>
-
-					<div class="col-sm-10"><input type="text" class="form-control" value=""></div>
-				</div>
-			</form>
 		</div>
 		{{--底部--}}
 		@include('admin.public.footer')

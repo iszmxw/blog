@@ -39,7 +39,12 @@ class AdminController extends Controller
 
     public function config_edit_check(Request $request)
     {
-        dd($request);
+        $data['blogname'] = $request->get('blogname');
+        $data['bloginfo'] = $request->get('bloginfo');
+        $data['blogurl'] = $request->get('blogurl');
+        $data['icp'] = $request->get('icp');
+        $data['footer_info'] = $request->get('footer_info');
+        Options::EditData(['']);
     }
 
     public function login()

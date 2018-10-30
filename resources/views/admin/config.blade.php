@@ -24,7 +24,7 @@
                         </div>
                         <div class="ibox-content">
                             <form method="post" action="{{url('admin/ajax/config_edit_check')}}" id="currentForm" class="form-horizontal">
-
+                                <input type="hidden" value="{{csrf_token()}}">
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">站点标题：</label>
                                     <div class="col-sm-10">

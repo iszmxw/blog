@@ -241,7 +241,7 @@ class PluginsController extends Controller
             $data['comment'] = $request->get('comment');
             $message = "编辑";
         }
-        if(!$data['comment'])return response()->json(['data'=>'请输入要回复的话！','status'=>'0']);
+        if(!$request->get('comment'))return response()->json(['data'=>'请输入要回复的话！','status'=>'0']);
         DB::beginTransaction();
         try{
             if ($is_edit != 1){

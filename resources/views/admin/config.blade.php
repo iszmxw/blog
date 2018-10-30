@@ -53,7 +53,7 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">首页底部信息：</label>
                                 <div class="col-sm-10">
-                                    <textarea name="tongji" id="" cols="30" rows="10" placeholder="(支持html，可用于添加流量统计代码)"></textarea>
+                                    <textarea name="tongji" placeholder="(支持html，可用于添加流量统计代码)"></textarea>
                                 </div>
                             </div>
 

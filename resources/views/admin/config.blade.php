@@ -27,7 +27,7 @@
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">站点标题：</label>
                                     <div class="col-sm-10">
-                                        <input type="text" placeholder="站点标题" class="form-control" name="blogname" value="">
+                                        <input type="text" placeholder="站点标题" class="form-control" name="blogname" value="{{$config['blogname']}}">
                                     </div>
                                 </div>
 
@@ -35,7 +35,7 @@
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">站点副标题：</label>
                                     <div class="col-sm-10">
-                                        <input type="text" placeholder="站点副标题" class="form-control" name="bloginfo" value="">
+                                        <input type="text" placeholder="站点副标题" class="form-control" name="bloginfo" value="{{$config['bloginfo']}}">
                                         <span class="help-block m-b-none">__生活 随笔 记录点点滴滴</span>
                                     </div>
                                 </div>
@@ -44,7 +44,7 @@
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">站点地址：</label>
                                     <div class="col-sm-10">
-                                        <input type="url" placeholder="站点地址" class="form-control" name="blogurl" value="">
+                                        <input type="url" placeholder="站点地址" class="form-control" name="blogurl" value="{{$config['blogurl']}}">
                                     </div>
                                 </div>
 
@@ -52,7 +52,7 @@
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">ICP备案号：</label>
                                     <div class="col-sm-10">
-                                        <input type="text" placeholder="ICP备案号" class="form-control" name="icp" value="">
+                                        <input type="text" placeholder="ICP备案号" class="form-control" name="icp" value="{{$config['icp']}}">
                                     </div>
                                 </div>
 
@@ -60,7 +60,7 @@
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">首页底部信息：</label>
                                     <div class="col-sm-10">
-                                        <textarea name="footer_info" rows="10" placeholder="(支持html，可用于添加流量统计代码)" style="width:70%"></textarea>
+                                        <textarea name="footer_info" rows="10" placeholder="(支持html，可用于添加流量统计代码)" style="width:70%">{{$config['footer_info']}}</textarea>
                                     </div>
                                 </div>
                                 <div class="hr-line-dashed"></div>

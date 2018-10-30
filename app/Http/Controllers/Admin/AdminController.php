@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Options;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -10,6 +11,7 @@ use Illuminate\Support\Facades\Redis;
 
 class AdminController extends Controller
 {
+    //后台首页
     public function index(Request $request)
     {
         $user_data = $request->get('user_data');
@@ -23,10 +25,16 @@ class AdminController extends Controller
         }
     }
 
+    //基本配置
     public function config(Request $request)
     {
         $user_data = $request->get('user_data');
-        return view('admin.config',['user_data'=>$user_data]);
+        $config['blogname'] = Options::getValue(['option_name'=>'blogname'],'option_value');
+        $config['bloginfo'] = Options::getValue(['option_name'=>'bloginfo'],'option_value');
+        $config['blogurl'] = Options::getValue(['option_name'=>'blogurl'],'option_value');
+        $config['icp'] = Options::getValue(['option_name'=>'icp'],'option_value');
+        $config['footer_info'] = Options::getValue(['option_name'=>'footer_info'],'option_value');
+        return view('admin.config',['user_data'=>$user_data,'config'=>$config]);
     }
 
     public function login()

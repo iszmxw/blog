@@ -13,7 +13,7 @@ class WebController extends Controller
     {
         $nav = Navi::getList([]);
         dump($nav);
-        return view('web.default_template.index');
+        return view('web.default_template.index',['nav'=>$nav]);
     }
 
     public function about()

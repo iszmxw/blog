@@ -15,7 +15,6 @@ nav ul li { padding: 0px 10px; }
 .mbpic { padding: 5px; margin: 0 10px 5px }
 .mbimg { height: 150px; }
 }
- 
  /* 大于768px，小于959px */ 
  @media screen and (min-width: 768px) and (max-width: 959px) {
 header, article, footer { width: 100%; margin: auto; overflow: hidden }

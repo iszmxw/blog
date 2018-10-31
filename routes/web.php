@@ -12,7 +12,6 @@
 */
 
 Route::get('/', function () {
-    dump("欢迎来到追梦小窝的博客！");
     return view('web.default_template.index');
 });
 //工具

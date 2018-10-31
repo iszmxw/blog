@@ -10,9 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//前台页面
+Route::get('/', 'Web\WebController@index');
+Route::get('about', 'Web\WebController@about');
 
-Route::get('/', function () {
-    return view('web.default_template.index');
-});
+
 //工具
 Route::any('git_pull', 'Tooling\ToolingController@get_pull');

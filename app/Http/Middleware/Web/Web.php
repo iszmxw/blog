@@ -25,6 +25,7 @@ class Web
         return $next($request);
     }
 
+
     public static function Navdata($request)
     {
         $nav = Navi::get_select(['hide'=>'n'],['naviname','url','newtab'],'taxis','ASC');

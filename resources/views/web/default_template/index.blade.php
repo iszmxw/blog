@@ -77,7 +77,7 @@
                 <div class="autor"><span class="lm f_l"></span><span class="dtime f_l">{{$value['date']}}</span><span class="viewnum f_l">浏览（<a href="/">{{$value['views']}}</a>）</span><span class="f_r"><a href="/jstt/css3/2018-03-26/812.html" class="more">阅读原文>></a></span></div>
                 <div class="line"></div>
             </li>
-            @foreach
+            @endforeach
         </ul>
     </div>
     <div class="rbox">

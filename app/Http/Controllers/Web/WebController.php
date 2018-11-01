@@ -13,6 +13,7 @@ class WebController extends Controller
     {
         $nav = $request->get('nav');
         $blog = Blog::getPaginate([],['title','date','content','views'],'date','DESC',10)->toArray();
+        dd($blog);
         $blog['date'] = date('Y-m-d H:i:s',$blog['date']);
         $blog['content'] = substr($blog['content'],0,200);
         $data = ['nav'=>$nav,'blog'=>$blog];

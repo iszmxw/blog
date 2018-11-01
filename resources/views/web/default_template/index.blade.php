@@ -46,15 +46,6 @@
             });
         </script>
     </div>
-    {{--<div class="blog" >--}}
-        {{--<figure>--}}
-            {{--<ul>--}}
-                {{--<a href="/"><img src="{{url('style/web/default_template/images')}}/mb01.jpg"><span>下载个人博客模板</span></a>--}}
-            {{--</ul>--}}
-            {{--<p><a href="/">灯具公司复古风格PSD设计稿</a></p>--}}
-            {{--<figcaption>此模板为PSD设计稿，复古风格。首页主要突出产品，以及公司简介。手绘灯作为头部背景图片，这个比较特别。html可以做出灯一闪一闪的效果，或者说旁边有个按钮...</figcaption>--}}
-        {{--</figure>--}}
-    {{--</div>--}}
     <div class="newblogs">
         <h2 class="hometitle">最新文章</h2>
         <ul>

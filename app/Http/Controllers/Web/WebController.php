@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Models\Blog;
 use App\Models\Sort;
+use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -31,6 +32,7 @@ class WebController extends Controller
         $blog['date'] = date('Y-m-d H:i:s',$blog['date']);
         $blog['author'] = User::getValue(['uid'=>$blog['author']],'nickname');
         $blog['sortname'] = Sort::getValue(['sid'=>$blog['sortid']],'sortname');
+        $blog['tags'] = Tag::getList(['gid','like','%'.','.$blog['gid'].'%']);
         $data = ['nav'=>$nav,'blog'=>$blog];
         return view('web.default_template.article',$data);
     }

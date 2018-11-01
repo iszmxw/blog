@@ -30,6 +30,6 @@ class Web
     {
         $nav = Navi::get_select(['hide'=>'n'],['naviname','url','newtab'],'taxis','ASC')->toArray();
         $request->attributes->add(['nav'=>$nav]);
-        dump($request);
+        return $request;
     }
 }

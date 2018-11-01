@@ -32,7 +32,7 @@ class WebController extends Controller
         $blog['date'] = date('Y-m-d H:i:s',$blog['date']);
         $blog['author'] = User::getValue(['uid'=>$blog['author']],'nickname');
         $blog['sortname'] = Sort::getValue(['sid'=>$blog['sortid']],'sortname');
-        $blog['tags'] = Tag::getList('gid','like','%'{$blog['gid']}'%');
+        $blog['tags'] = Tag::getList("gid","like","%".",{$blog['gid']}"."%");
         dump($blog['tags']);
         $data = ['nav'=>$nav,'blog'=>$blog];
         return view('web.default_template.article',$data);

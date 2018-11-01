@@ -19,6 +19,7 @@ class WebController extends Controller
         foreach($blog as $value){
             $value['date'] = date('Y-m-d H:i:s',$value['date']);
             $value['content'] = substr($value['content'],0,200);
+            $value['sortname'] = Sort::getValue(['sid'=>$value['sortid']],'sortname');
         }
         $data = ['nav'=>$nav,'blog'=>$blog];
         return view('web.default_template.index',$data);

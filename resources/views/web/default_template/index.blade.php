@@ -53,19 +53,24 @@
             <li>
                 <h3 class="blogtitle">
                     <span>
-                        <a href="/jstt/css3/" title="css3" target="_blank"  class="classname">个人博客</a>
+                        <a href="/jstt/css3/" title="css3" target="_blank"  class="classname">{{$value['sortname']}}</a>
                     </span>
-                    <a href="/jstt/css3/2018-03-26/812.html" target="_blank" >{{$value['title']}}</a>
+                    <a href="{{url('article').'/'.$value['gid']}}" target="_blank" >{{$value['title']}}</a>
                 </h3>
                 <div class="bloginfo">
                     <span class="blogpic">
-                        <a href="/jstt/css3/2018-03-26/812.html" title="{{$value['title']}}">
+                        <a href="{{url('article').'/'.$value['gid']}}" title="{{$value['title']}}">
                             <img src="{{url('style/web/default_template/images')}}/t01.jpg" alt="{{$value['title']}}" />
                         </a>
                     </span>
                     <p>{!! substr($value['content'],0,200) !!}</p>
                 </div>
-                <div class="autor"><span class="lm f_l"></span><span class="dtime f_l">{{$value['date']}}</span><span class="viewnum f_l">浏览（<a href="/">{{$value['views']}}</a>）</span><span class="f_r"><a href="/jstt/css3/2018-03-26/812.html" class="more">阅读原文>></a></span></div>
+                <div class="autor">
+                    <span class="lm f_l"></span>
+                    <span class="dtime f_l">{{$value['date']}}</span>
+                    <span class="viewnum f_l">浏览（<a href="/">{{$value['views']}}</a>）</span>
+                    <span class="f_r"><a href="{{url('article').'/'.$value['gid']}}" class="more">阅读原文>></a></span>
+                </div>
                 <div class="line"></div>
             </li>
             @endforeach

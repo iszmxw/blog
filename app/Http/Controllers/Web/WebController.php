@@ -12,6 +12,7 @@ class WebController extends Controller
     public function index(Request $request)
     {
         $nav = Navi::getList([]);
+        dump(1,$request);
         return view('web.default_template.index',['nav'=>$nav]);
     }
 

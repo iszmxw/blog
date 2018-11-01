@@ -14,12 +14,11 @@ class WebController extends Controller
         $nav = $request->get('nav');
         $blog = Blog::getPaginate([],['title','date','content','views'],'date','DESC',10);
         foreach($blog as $value){
-            dump($value);
-//            $value['date'] = date('Y-m-d H:i:s',$value['date']);
-//            $value['content'] = substr($value['content'],0,200);
+            $value['date'] = date('Y-m-d H:i:s',$value['date']);
+            $value['content'] = substr($value['content'],0,200);
         }
         $data = ['nav'=>$nav,'blog'=>$blog];
-//        dump($data);
+        dump($blog);
         return view('web.default_template.index',$data);
     }
 

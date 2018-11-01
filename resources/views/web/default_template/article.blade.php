@@ -31,11 +31,24 @@
 <article>
     <div class="infos">
         <div class="newsview">
-            <h2 class="intitle">您现在的位置是：<a href="/">网站首页</a>&nbsp;&gt;&nbsp;<a href="/">学无止境</a></h2>
+            <h2 class="intitle">您现在的位置是：<a href="/">网站首页</a>&nbsp;&gt;&nbsp;<a href="/">{{$blog['sortname']}}</a></h2>
             <h3 class="news_title">{{$blog['title']}}</h3>
-            <div class="news_author"><span class="au01">追梦小窝</span><span class="au02">2018-03-18</span><span class="au03">共<b>{{$blog['views']}}</b>人围观</span></div>
-            <div class="tags"><a href="/">中兴</a> <a href="/" target="_blank">咔咔</a> <a href="/" target="_blank">MWC</a> <a href="/" target="_blank">小蚁</a> <a href="/" target="_blank">运动相机</a></div>
-            <div class="news_about"><strong>简介</strong>曾经有站长找我求助，他说他不知道该怎么办，自己做出来的网站，不仅没有得到大家的认可，反而让大家给他开了一个评判大会。他自己认为已经是做的最好的，却遭受大家无情的指责是“垃圾”作品。</div>
+            <div class="news_author">
+                <span class="au01">{{$blog['author']}}</span>
+                <span class="au02">{{$blog['date']}}</span>
+                <span class="au03">共<b>{{$blog['views']}}</b>人围观</span>
+            </div>
+            <div class="tags">
+                <a href="/">中兴</a>
+                <a href="/" target="_blank">咔咔</a>
+                <a href="/" target="_blank">MWC</a>
+                <a href="/" target="_blank">小蚁</a>
+                <a href="/" target="_blank">运动相机</a>
+            </div>
+            <div class="news_about">
+                <strong>简介</strong>
+                曾经有站长找我求助，他说他不知道该怎么办，自己做出来的网站，不仅没有得到大家的认可，反而让大家给他开了一个评判大会。他自己认为已经是做的最好的，却遭受大家无情的指责是“垃圾”作品。
+            </div>
             <div class="news_infos">
                 {!! $blog['content'] !!}
             </div>

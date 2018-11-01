@@ -46,4 +46,10 @@ class Sort extends Model
     {
         return self::where($where)->delete();
     }
+
+    //取值
+    public static function getValue($where, $value)
+    {
+        return self::where($where)->value($value);
+    }
 }

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Web;
 
 use App\Models\Blog;
+use App\Models\Sort;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -25,6 +27,9 @@ class WebController extends Controller
     {
         $nav = $request->get('nav');
         $blog = Blog::getOne(['gid'=>$article_id]);
+        $blog['date'] = date('Y-m-d H:i:s',$blog['date']);
+        $blog['author'] = User::getValue(['uid'=>$blog['author']],'nickname');
+        $blog['sortname'] = Sort::getValue(['sid'=>$blog['sortid']],'sortname');
         $data = ['nav'=>$nav,'blog'=>$blog];
         return view('web.default_template.article',$data);
     }

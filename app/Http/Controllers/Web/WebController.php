@@ -27,7 +27,6 @@ class WebController extends Controller
             }
         }
         $data = ['nav'=>$nav,'blog'=>$blog];
-        dump($blog);
         return view('web.default_template.index',$data);
     }
 

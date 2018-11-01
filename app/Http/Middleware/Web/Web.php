@@ -16,7 +16,7 @@ class Web
      */
     public function handle($request, Closure $next)
     {
-        dd($id);
+        dd($request->route('id'));
         $route = $request->getPathInfo();
         switch ($route){
             case '/';

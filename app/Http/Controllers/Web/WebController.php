@@ -23,6 +23,7 @@ class WebController extends Controller
         return view('web.default_template.index',$data);
     }
 
+    //文章页面
     public function article(Request $request,$article_id)
     {
         $nav = $request->get('nav');

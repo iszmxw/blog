@@ -18,7 +18,6 @@ class WebController extends Controller
             $value['content'] = substr($value['content'],0,200);
         }
         $data = ['nav'=>$nav,'blog'=>$blog];
-        dump($blog);
         return view('web.default_template.index',$data);
     }
 

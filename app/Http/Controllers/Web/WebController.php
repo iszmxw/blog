@@ -14,8 +14,9 @@ class WebController extends Controller
         $nav = $request->get('nav');
         $blog = Blog::getPaginate([],['title','date','content','views'],'date','DESC',10)->toArray();
         foreach($blog as $value){
-            $value['date'] = date('Y-m-d H:i:s',$value['date']);
-            $value['content'] = substr($value['content'],0,200);
+            dump($value);
+//            $value['date'] = date('Y-m-d H:i:s',$value['date']);
+//            $value['content'] = substr($value['content'],0,200);
         }
         $data = ['nav'=>$nav,'blog'=>$blog];
 //        dump($data);

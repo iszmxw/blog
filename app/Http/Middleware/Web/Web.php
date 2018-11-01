@@ -28,8 +28,8 @@ class Web
 
     public static function Navdata($request)
     {
-        $nav = Navi::get_select(['hide'=>'n'],['naviname','url','newtab'],'taxis','ASC');
-        $request->attributes->add(['nav'=>$nav->toArray()]);
+        $nav = Navi::get_select(['hide'=>'n'],['naviname','url','newtab'],'taxis','ASC')->toArray();
+        $request->attributes->add(['nav'=>$nav]);
         dump($nav,$request);
     }
 }

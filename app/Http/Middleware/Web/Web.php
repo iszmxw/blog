@@ -28,7 +28,7 @@ class Web
     public static function Navdata($request)
     {
         $nav = Navi::getList([]);
-        $request->offsetSet(['nav'=>$nav]);
+        $request->setAttributeNames(['nav'=>$nav]);
         dump($nav,$request);
     }
 }

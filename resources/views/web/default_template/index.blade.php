@@ -80,11 +80,13 @@
             @endforeach
         </ul>
     </div>
+
     <div id="pull_right">
         <div class="pull-right">
             {{$blog->links()}}
         </div>
     </div>
+
     <div class="rbox">
         <div class="paihang">
             <h2 class="hometitle">模板排行</h2>

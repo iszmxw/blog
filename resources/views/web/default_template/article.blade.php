@@ -27,6 +27,7 @@
     </script>
 </head>
 <body>
+
 @include('web.default_template.public.header')
 <article>
     <div class="infos">

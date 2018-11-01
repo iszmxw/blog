@@ -2,9 +2,9 @@
 <html>
 <head>
     <meta charset="gb2312">
-    <title>内容页_追梦小窝的博客 - 努力霍城自己想要的样子</title>
-    <meta name="keywords" content="个人博客,追梦小窝的博客,个人博客模板,追梦小窝" />
-    <meta name="description" content="追梦小窝的博客，是一个站在web前端设计之路的女程序员个人网站，提供个人博客模板免费资源下载的个人原创网站。" />
+    <title>{{$blog['title']}}_追梦小窝的博客 - 努力霍城自己想要的样子</title>
+    <meta name="keywords" content="{{$blog['title']}}，个人博客,追梦小窝的博客,个人博客模板,追梦小窝" />
+    <meta name="description" content="{{$blog['title']}}，追梦小窝的博客，是一个站在web前端设计之路的女程序员个人网站，提供个人博客模板免费资源下载的个人原创网站。" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{asset('style/web/default_template/css/base.css')}}" rel="stylesheet">
     <link href="{{asset('style/web/default_template/css/info.css')}}" rel="stylesheet">

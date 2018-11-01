@@ -59,7 +59,7 @@
         <h2 class="hometitle">最新文章</h2>
         <ul>
             @foreach($blog as $value)
-                {{$value->title}}
+                {{$value['title']}}
             {{--<li>--}}
                 {{--<h3 class="blogtitle">--}}
                     {{--<span>--}}

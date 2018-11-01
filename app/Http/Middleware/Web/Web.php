@@ -14,13 +14,12 @@ class Web
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request,$id, Closure $next)
+    public function handle($request, Closure $next)
     {
         $route = $request->getPathInfo();
         switch ($route){
             case '/';
             case 'article/1000_{id}';
-            dd(1);
                 self::Navdata($request);
                 break;
         }

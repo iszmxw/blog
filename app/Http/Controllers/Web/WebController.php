@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Web;
 
+use App\Models\Attachment;
 use App\Models\Blog;
 use App\Models\Sort;
 use App\Models\Tag;
@@ -20,8 +21,12 @@ class WebController extends Controller
             $value['date'] = date('Y-m-d H:i:s',$value['date']);
             $value['content'] = substr($value['content'],0,200);
             $value['sortname'] = Sort::getValue(['sid'=>$value['sortid']],'sortname');
+            $value['thumb'] = Attachment::getOne([['blogid',$value['gid']],['mimetype','like','%'.'image/'.'%']]);
         }
+        //取第一张图片作为缩略图
+
         $data = ['nav'=>$nav,'blog'=>$blog];
+        dump($blog);
         return view('web.default_template.index',$data);
     }
 

@@ -79,11 +79,10 @@
             </li>
             @endforeach
         </ul>
-    </div>
-
-    <div id="pull_right">
-        <div class="pull-right">
-            {{$blog->links()}}
+        <div id="pull_right">
+            <div class="pull-right">
+                {{$blog->links()}}
+            </div>
         </div>
     </div>
 

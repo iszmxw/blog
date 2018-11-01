@@ -16,7 +16,7 @@ class WebController extends Controller
     public function index(Request $request)
     {
         $nav = $request->get('nav');
-        $blog = Blog::getPaginate([],['gid','sortid','title','date','content','views'],'date','DESC',10);
+        $blog = Blog::getPaginate([],['gid','sortid','title','date','content','views'],'date','DESC',15);
         foreach($blog as $value){
             $value['date'] = date('Y-m-d H:i:s',$value['date']);
             $value['content'] = substr($value['content'],0,200);

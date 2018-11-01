@@ -65,7 +65,9 @@
                         </a>
                     </span>
                     @endif
-                    <p>{!! substr($value['content'],0,200) !!}</p>
+                    <div class="description">
+                        <p>{!! substr($value['content'],0,200) !!}</p>
+                    </div>
                 </div>
                 <div class="autor">
                     <span class="lm f_l"></span>

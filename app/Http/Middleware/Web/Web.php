@@ -19,6 +19,7 @@ class Web
         $route = $request->getPathInfo();
         switch ($route){
             case '/';
+            case 'article';
                 self::Navdata($request);
                 break;
         }

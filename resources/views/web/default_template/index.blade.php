@@ -29,33 +29,7 @@
     </script>
 </head>
 <body>
-<header>
-    <div id="mnav">
-        <h2><span class="navicon"></span></h2>
-        <ul>
-            <li><a href="index.html">网站首页</a></li>
-            <li><a href="about.html">关于我</a></li>
-            <li><a href="share.html">模板分享</a></li>
-            <li><a href="list.html">学无止境</a></li>
-            <li><a href="list.html">慢生活</a></li>
-            <li><a href="link.html">博客导航</a></li>
-            <li><a href="gbook.html">留言</a></li>
-        </ul>
-    </div>
-    <div class="topnav">
-        <nav>
-            <ul>
-                <li><a href="index.html">网站首页</a></li>
-                <li><a href="about.html">关于我</a></li>
-                <li><a href="share.html">模板分享</a></li>
-                <li><a href="list.html">学无止境</a></li>
-                <li><a href="list.html">慢生活</a></li>
-                <li><a href="link.html">博客导航</a></li>
-                <li><a href="gbook.html">留言</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+@include('web.default_template.public.header')
 <article>
     <div class="banner">
         <div id="sucaihuo" class="fader"> <img class="slide" src="{{url('style/web/default_template/images')}}/banner01.jpg"> <img class="slide" src="{{url('style/web/default_template/images')}}/banner02.jpg"> <img class="slide" src="{{url('style/web/default_template/images')}}/banner03.jpg">
@@ -273,8 +247,6 @@
         </div>
     </div>
 </article>
-<footer>
-    <p>Design by <a href="/">追梦小窝的博客</a> <a href="/">蜀ICP备11002373号-1</a></p>
-</footer>
+@include('web.default_template.public.footer')
 </body>
 </html>

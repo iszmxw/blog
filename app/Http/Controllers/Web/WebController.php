@@ -25,7 +25,7 @@ class WebController extends Controller
     {
         $nav = $request->get('nav');
         $blog = Blog::getOne(['gid'=>$id]);
-        dd($id,$request,$blog);
+        dd($id,$nav,$request);
         $data = ['nav'=>$nav,'blog'=>$blog];
         return view('web.default_template.article',$data);
     }

@@ -13,7 +13,7 @@
 //前台页面
 Route::middleware('web_common')->namespace('Web')->group(function () {
     Route::get('/', 'WebController@index');
-    Route::get('article/1000{article_id}', 'WebController@article');
+    Route::get('article/{article_id}', 'WebController@article');
     Route::get('about', 'WebController@about');
 });
 

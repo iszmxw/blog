@@ -21,7 +21,7 @@ class WebController extends Controller
         return view('web.default_template.index',$data);
     }
 
-    public function article(Request $request)
+    public function article(Request $request,$id)
     {
         $nav = $request->get('nav');
         $blog = Blog::getOne(['gid'=>$id]);

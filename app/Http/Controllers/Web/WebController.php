@@ -26,7 +26,7 @@ class WebController extends Controller
         //取第一张图片作为缩略图
 
         $data = ['nav'=>$nav,'blog'=>$blog];
-        dump($blog);
+//        dump($blog);
         return view('web.default_template.index',$data);
     }
 

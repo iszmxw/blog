@@ -11,8 +11,11 @@
 |
 */
 //前台页面
-Route::get('/', 'Web\WebController@index');
-Route::get('about', 'Web\WebController@about');
+Route::middleware('web_common')->namespace('Web')->group(function () {
+    Route::get('/', 'WebController@index');
+    Route::get('about', 'WebController@about');
+});
+
 
 
 //工具

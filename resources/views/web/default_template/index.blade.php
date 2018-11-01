@@ -58,11 +58,13 @@
                     <a href="{{url('article').'/'.$value['gid']}}" target="_blank" >{{$value['title']}}</a>
                 </h3>
                 <div class="bloginfo">
+                    @if($blog['thumb'])
                     <span class="blogpic">
                         <a href="{{url('article').'/'.$value['gid']}}" title="{{$value['title']}}">
-                            <img src="{{url('style/web/default_template/images')}}/t01.jpg" alt="{{$value['title']}}" />
+                            <img src="http://blog.54zm.com/{{$blog['thumb']['filepath']}}" alt="{{$value['title']}}" />
                         </a>
                     </span>
+                    @endif
                     <p>{!! substr($value['content'],0,200) !!}</p>
                 </div>
                 <div class="autor">

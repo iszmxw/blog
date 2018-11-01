@@ -22,11 +22,11 @@ class WebController extends Controller
             $value['content'] = substr($value['content'],0,200);
             $value['sortname'] = Sort::getValue(['sid'=>$value['sortid']],'sortname');
             $value['thumb'] = Attachment::getOne([['blogid',$value['gid']],['mimetype','like','%'.'image/'.'%']]);
+            dump($value['thumb']);
         }
         //取第一张图片作为缩略图
 
         $data = ['nav'=>$nav,'blog'=>$blog];
-        dump($blog);
         return view('web.default_template.index',$data);
     }
 

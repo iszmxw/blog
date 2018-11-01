@@ -65,12 +65,12 @@
                         <a href="/jstt/css3/" title="css3" target="_blank"  class="classname">个人博客</a>
                     </span>
 
-                    <a href="/jstt/css3/2018-03-26/812.html" target="_blank" >{{$value['title']}}</a>
+                    <a href="/jstt/css3/2018-03-26/812.html" target="_blank" ></a>
                 </h3>
                 <div class="bloginfo">
                     <span class="blogpic">
-                        <a href="/jstt/css3/2018-03-26/812.html" title="{{$value['title']}}">
-                            <img src="{{url('style/web/default_template/images')}}/t01.jpg" alt="{{$value['title']}}" />
+                        <a href="/jstt/css3/2018-03-26/812.html" title="">
+                            <img src="{{url('style/web/default_template/images')}}/t01.jpg" alt="" />
                         </a>
                     </span>
                     <p>{{substr($value['content'],0,200)}}</p>

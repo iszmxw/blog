@@ -73,7 +73,6 @@
         <ul>
         </ul>
     </div>
-
 </article>
 @include('web.default_template.public.footer')
 </body>

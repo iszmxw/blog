@@ -80,6 +80,7 @@
             @endforeach
         </ul>
     </div>
+    {{$blog->links()}}
     <div class="rbox">
         <div class="paihang">
             <h2 class="hometitle">模板排行</h2>

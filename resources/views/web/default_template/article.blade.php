@@ -37,7 +37,7 @@
             <div class="tags"><a href="/">中兴</a> <a href="/" target="_blank">咔咔</a> <a href="/" target="_blank">MWC</a> <a href="/" target="_blank">小蚁</a> <a href="/" target="_blank">运动相机</a></div>
             <div class="news_about"><strong>简介</strong>曾经有站长找我求助，他说他不知道该怎么办，自己做出来的网站，不仅没有得到大家的认可，反而让大家给他开了一个评判大会。他自己认为已经是做的最好的，却遭受大家无情的指责是“垃圾”作品。</div>
             <div class="news_infos">
-                {{$blog['content']}}
+                {!! $blog['content'] !!}
             </div>
         </div>
     </div>

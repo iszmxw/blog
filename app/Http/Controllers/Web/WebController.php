@@ -21,11 +21,11 @@ class WebController extends Controller
         return view('web.default_template.index',$data);
     }
 
-    public function article(Request $request,$id)
+    public function article(Request $request,$article_id)
     {
         $nav = $request->get('nav');
-        $blog = Blog::getOne(['gid'=>$id]);
-        dd($id,$nav,$request);
+        $blog = Blog::getOne(['gid'=>$article_id]);
+        dd($article_id,$nav,$request);
         $data = ['nav'=>$nav,'blog'=>$blog];
         return view('web.default_template.article',$data);
     }

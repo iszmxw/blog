@@ -16,11 +16,12 @@ class Web
      */
     public function handle($request, Closure $next)
     {
-        dd($request->route('id'));
+        //获取路由中的参数，文章id
+        $article_id = $request->route('article_id');
         $route = $request->getPathInfo();
         switch ($route){
             case '/';
-            case '/article/1000'.$id;
+            case '/article/1000'.$article_id;
                 self::Navdata($request);
                 break;
         }

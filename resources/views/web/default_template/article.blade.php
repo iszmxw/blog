@@ -40,11 +40,9 @@
                 <span class="au03">共<b>{{$blog['views']}}</b>人围观</span>
             </div>
             <div class="tags">
-                <a href="/">中兴</a>
-                <a href="/" target="_blank">咔咔</a>
-                <a href="/" target="_blank">MWC</a>
-                <a href="/" target="_blank">小蚁</a>
-                <a href="/" target="_blank">运动相机</a>
+                @foreach($blog['tags'] as $value)
+                <a href="/{{$value['tid']}}" target="_blank">{{$value['tagname']}}</a>
+                @endforeach
             </div>
             <div class="news_about">
                 <strong>申明</strong>

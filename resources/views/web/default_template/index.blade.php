@@ -64,6 +64,7 @@
                     <span>
                         <a href="/jstt/css3/" title="css3" target="_blank"  class="classname">个人博客</a>
                     </span>
+
                     <a href="/jstt/css3/2018-03-26/812.html" target="_blank" >{{$value['title']}}</a>
                 </h3>
                 <div class="bloginfo">

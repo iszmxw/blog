@@ -47,8 +47,8 @@
                 <a href="/" target="_blank">运动相机</a>
             </div>
             <div class="news_about">
-                <strong>简介</strong>
-                曾经有站长找我求助，他说他不知道该怎么办，自己做出来的网站，不仅没有得到大家的认可，反而让大家给他开了一个评判大会。他自己认为已经是做的最好的，却遭受大家无情的指责是“垃圾”作品。
+                <strong>申明</strong>
+                本博客所有文章如无特别注明均为原创。作者：{{$blog['author']}} ，复制或转载请以超链接形式注明转自 追梦小窝的博客 。
             </div>
             <div class="news_infos">
                 {!! $blog['content'] !!}

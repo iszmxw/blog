@@ -34,7 +34,7 @@ class WebController extends Controller
         $blog['sortname'] = Sort::getValue(['sid'=>$blog['sortid']],'sortname');
         $where = '"gid","like","%".",{$blog[\'gid\']}"."%"';
         dump($where);
-        $blog['tags'] = Tag::getList(`gid`,`like`,`%`.$blog['gid'].`%`);
+        $blog['tags'] = Tag::getList('gid'.','.'like'.','.'%'.$blog['gid'].'%');
         dump($blog['tags']);
         $data = ['nav'=>$nav,'blog'=>$blog];
         return view('web.default_template.article',$data);

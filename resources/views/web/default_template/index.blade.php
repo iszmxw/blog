@@ -61,7 +61,7 @@
                     @if($blog['thumb'])
                     <span class="blogpic">
                         <a href="{{url('article').'/'.$value['gid']}}" title="{{$value['title']}}">
-                            <img src="http://blog.54zm.com/{{$blog['thumb']['filepath']}}" alt="{{$value['title']}}" />
+                            <img src="http://blog.54zm.com/{{$blog['thumb']}}" alt="{{$value['title']}}" />
                         </a>
                     </span>
                     @endif

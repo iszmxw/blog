@@ -11,7 +11,7 @@
 		<nav>
 			<ul>
 				@foreach($nav as $value)
-					<li><a href="{{$value['url']}}">{{$value['naviname']}}</a></li>
+					<li><a href="{{$value['url']}}" @if($value['newtab'] == 'y')target="_blank"@endif>{{$value['naviname']}}</a></li>
 				@endforeach
 			</ul>
 		</nav>

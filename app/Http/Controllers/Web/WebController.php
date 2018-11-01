@@ -12,7 +12,7 @@ class WebController extends Controller
     public function index(Request $request)
     {
         $nav = $request->get('nav');
-        $blog = Blog::getPaginate([],['title','date','content','views'],'date','DESC',10);
+        $blog = Blog::getPaginate([],['title','date','content','views'],'date','DESC',10)->toArray();
         $blog['date'] = date('Y-m-d H:i:s',$blog['date']);
         $blog['content'] = substr($blog['content'],0,200);
         $data = ['nav'=>$nav,'blog'=>$blog];

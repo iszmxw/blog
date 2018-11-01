@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Web;
 
+use App\Models\Blog;
 use App\Models\Navi;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -12,7 +13,10 @@ class WebController extends Controller
     public function index(Request $request)
     {
         $nav = $request->get('nav');
-        return view('web.default_template.index',['nav'=>$nav]);
+        $blog = Blog::getPaginate([],['title','date','content','views'],'date','DESC',10);
+        $data = ['nav'=>$nav,'blog'=>$blog];
+        dump($data);
+        return view('web.default_template.index',$data);
     }
 
     public function about()

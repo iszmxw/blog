@@ -24,6 +24,12 @@ class Navi extends Model
         return self::where($where)->get();
     }
 
+    //选择性获取数据
+    public static function get_select($where,$select,$orderby,$sort="ASC")
+    {
+        return self::where($where)->select($select)->orderby($orderby,$sort)->get();
+    }
+
     //分页获取数据
     public static function getPaginate($where,$sort,$desc,$paginate)
     {

@@ -41,7 +41,7 @@
             </div>
             <div class="tags">
                 @foreach($blog['tags'] as $value)
-                <a href="{{url('/tag/').$value['tid']}}" target="_blank">{{$value['tagname']}}</a>
+                <a href="{{url('/tag').'/'.$value['tid']}}" target="_blank">{{$value['tagname']}}</a>
                 @endforeach
             </div>
             <div class="news_about">

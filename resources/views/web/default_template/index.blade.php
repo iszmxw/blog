@@ -1,154 +1,459 @@
-<!doctype html>
-<html>
-<head>
-    <meta charset="gb2312">
-    <title>首页_追梦小窝的博客 - 努力霍城自己想要的样子</title>
-    <meta name="keywords" content="个人博客,追梦小窝的博客,个人博客模板,追梦小窝" />
-    <meta name="description" content="追梦小窝的博客，是一个站在web前端设计之路的女程序员个人网站，提供个人博客模板免费资源下载的个人原创网站。" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{asset('style/web/default_template/css/base.css')}}" rel="stylesheet">
-    <link href="{{asset('style/web/default_template/css/index.css')}}" rel="stylesheet">
-    <link href="{{asset('style/web/default_template/css/m.css')}}" rel="stylesheet">
-    <script src="{{asset('style/web/default_template/js/jquery.min.js')}}"></script>
-    <script src="{{asset('style/web/default_template/js/jquery.easyfader.min.js')}}"></script>
-    <!--[if lt IE 9]>
-    <script src="{{asset('style/web/default_template/js/modernizr.js')}}"></script>
-    <![endif]-->
-    <script>
-        window.onload = function ()
-        {
-            var oH2 = document.getElementsByTagName("h2")[0];
-            var oUl = document.getElementsByTagName("ul")[0];
-            oH2.onclick = function ()
-            {
-                var style = oUl.style;
-                style.display = style.display == "block" ? "none" : "block";
-                oH2.className = style.display == "block" ? "open" : ""
-            }
-        }
-    </script>
-</head>
-<body>
-@include('web.default_template.public.header')
-<article>
-    <div class="banner">
-        <div id="sucaihuo" class="fader"> <img class="slide" src="{{url('style/web/default_template/images')}}/banner01.jpg"> <img class="slide" src="{{url('style/web/default_template/images')}}/banner02.jpg"> <img class="slide" src="{{url('style/web/default_template/images')}}/banner03.jpg">
-            <div class="fader_controls">
-                <div class="page prev" data-target="prev">&lsaquo;</div>
-                <div class="page next" data-target="next">&rsaquo;</div>
-                <ul class="pager_list">
-                </ul>
-            </div>
-        </div>
-        <script>
-            $(function() {
-                $('#sucaihuo').easyFader();
-            });
-        </script>
-    </div>
-    <div class="newblogs">
-        <h2 class="hometitle">最新文章</h2>
-        <ul>
-            @foreach($blog as $value)
-            <li>
-                <h3 class="blogtitle">
-                    <span>
-                        <a href="/jstt/css3/" title="css3" target="_blank"  class="classname">{{$value['sortname']}}</a>
-                    </span>
-                    <a href="{{url('article').'/'.$value['gid']}}" target="_blank" >{{$value['title']}}</a>
-                </h3>
-                <div class="bloginfo">
-                    @if($value['thumb'])
-                    <span class="blogpic">
-                        <a href="{{url('article').'/'.$value['gid']}}" title="{{$value['title']}}">
-                            <img src="http://blog.54zm.com/{{$value['thumb']}}" alt="{{$value['title']}}" />
-                        </a>
-                    </span>
-                    @endif
-                    <div class="description">
-                        <p>{!! substr($value['content'],0,200) !!}</p>
+@extends('web.default_template.app')
+
+@section('title', '追梦小窝博客首页')
+{{--样式引入--}}
+@section('style')
+
+@endsection
+
+{{--内容部分--}}
+@section('content')
+    <div class="col-lg-8">
+        <div class="ibox">
+            <div class="ibox-content">
+                <a href="article.html" class="btn-link">
+                    <h2>
+                        时间从何而来？为什么时间似乎是流动的？
+                    </h2>
+                </a>
+                <div class="small m-b-xs">
+                                    <span class="text-muted">
+                                        <button class="btn btn-info btn-outline" type="button"><i class="fa fa-user-o"></i>&nbsp;&nbsp;追梦小窝</button>
+                                    </span>
+                    <span class="text-muted">
+                                        <button class="btn btn-primary btn-outline" type="button"><i class="fa fa-clock-o"></i>&nbsp;&nbsp;2017年12月12日</button>
+                                    </span>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="http://blog.54zm.cn/ademo/img/p1.jpg" style="width:100%;max-height:150px;">
+                    </div>
+                    <p class="col-md-8">在我们看来，宇宙万物皆是永恒变化的，所以我们产生了时间的概念。通过时间，我们可以研究事物的变化。然而，关于时间的本质，还有待我们进一步探究。
+                    </p>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="small text-right">
+                            <button class="btn btn-primary btn-xs" type="button"><i class="fa fa-comments-o"> </i> 56 评论 </button>
+                            <button class="btn btn-white btn-xs" type="button"><i class="fa fa-eye"> </i> 144 浏览</button>
+                        </div>
                     </div>
                 </div>
-                <div class="autor">
-                    <span class="lm f_l"></span>
-                    <span class="dtime f_l">{{$value['date']}}</span>
-                    <span class="viewnum f_l">浏览（<a href="/">{{$value['views']}}</a>）</span>
-                    <span class="f_r"><a href="{{url('article').'/'.$value['gid']}}" class="more">阅读原文>></a></span>
+            </div>
+        </div>
+
+        <div class="ibox">
+            <div class="ibox-content">
+                <a href="article.html" class="btn-link">
+                    <h2>
+                        时间从何而来？为什么时间似乎是流动的？
+                    </h2>
+                </a>
+                <div class="small m-b-xs">
+                                    <span class="text-muted">
+                                        <button class="btn btn-info btn-outline" type="button"><i class="fa fa-user-o"></i>&nbsp;&nbsp;追梦小窝</button>
+                                    </span>
+                    <span class="text-muted">
+                                        <button class="btn btn-primary btn-outline" type="button"><i class="fa fa-clock-o"></i>&nbsp;&nbsp;2017年12月12日</button>
+                                    </span>
                 </div>
-                <div class="line"></div>
-            </li>
-            @endforeach
-        </ul>
-        <div id="pull_right">
-            <div class="pull-right">
-                {{$blog->links()}}
+                <br>
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="http://blog.54zm.cn/ademo/img/p1.jpg" style="width:100%;max-height:150px;">
+                    </div>
+                    <p class="col-md-8">在我们看来，宇宙万物皆是永恒变化的，所以我们产生了时间的概念。通过时间，我们可以研究事物的变化。然而，关于时间的本质，还有待我们进一步探究。
+                    </p>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="small text-right">
+                            <button class="btn btn-primary btn-xs" type="button"><i class="fa fa-comments-o"> </i> 56 评论 </button>
+                            <button class="btn btn-white btn-xs" type="button"><i class="fa fa-eye"> </i> 144 浏览</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ibox">
+            <div class="ibox-content">
+                <a href="article.html" class="btn-link">
+                    <h2>
+                        时间从何而来？为什么时间似乎是流动的？
+                    </h2>
+                </a>
+                <div class="small m-b-xs">
+                                    <span class="text-muted">
+                                        <button class="btn btn-info btn-outline" type="button"><i class="fa fa-user-o"></i>&nbsp;&nbsp;追梦小窝</button>
+                                    </span>
+                    <span class="text-muted">
+                                        <button class="btn btn-primary btn-outline" type="button"><i class="fa fa-clock-o"></i>&nbsp;&nbsp;2017年12月12日</button>
+                                    </span>
+                </div>
+                <br>
+                <div class="row">
+                    <p class="col-md-12">
+                        在我们看来，宇宙万物皆是永恒变化的，所以我们产生了时间的概念。通过时间，我们可以研究事物的变化。然而，关于时间的本质，还有待我们进一步探究。
+                        在我们看来，宇宙万物皆是永恒变化的，所以我们产生了时间的概念。通过时间，我们可以研究事物的变化。然而，关于时间的本质，还有待我们进一步探究。
+                        在我们看来，宇宙万物皆是永恒变化的，所以我们产生了时间的概念。通过时间，我们可以研究事物的变化。然而，关于时间的本质，还有待我们进一步探究。
+                        在我们看来，宇宙万物皆是永恒变化的，所以我们产生了时间的概念。通过时间，我们可以研究事物的变化。然而，关于时间的本质，还有待我们进一步探究。
+                        在我们看来，宇宙万物皆是永恒变化的，所以我们产生了时间的概念。通过时间，我们可以研究事物的变化。然而，关于时间的本质，还有待我们进一步探究。
+                        在我们看来，宇宙万物皆是永恒变化的，所以我们产生了时间的概念。通过时间，我们可以研究事物的变化。然而，关于时间的本质，还有待我们进一步探究。
+                        在我们看来，宇宙万物皆是永恒变化的，所以我们产生了时间的概念。通过时间，我们可以研究事物的变化。然而，关于时间的本质，还有待我们进一步探究。
+                    </p>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="small text-right">
+                            <button class="btn btn-primary btn-xs" type="button"><i class="fa fa-comments-o"> </i> 56 评论 </button>
+                            <button class="btn btn-white btn-xs" type="button"><i class="fa fa-eye"> </i> 144 浏览</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ibox">
+            <div class="ibox-content">
+                <a href="article.html" class="btn-link">
+                    <h2>
+                        时间从何而来？为什么时间似乎是流动的？
+                    </h2>
+                </a>
+                <div class="small m-b-xs">
+                                    <span class="text-muted">
+                                        <button class="btn btn-info btn-outline" type="button"><i class="fa fa-user-o"></i>&nbsp;&nbsp;追梦小窝</button>
+                                    </span>
+                    <span class="text-muted">
+                                        <button class="btn btn-primary btn-outline" type="button"><i class="fa fa-clock-o"></i>&nbsp;&nbsp;2017年12月12日</button>
+                                    </span>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="http://blog.54zm.cn/ademo/img/p1.jpg" style="width:100%;max-height:150px;">
+                    </div>
+                    <p class="col-md-8">在我们看来，宇宙万物皆是永恒变化的，所以我们产生了时间的概念。通过时间，我们可以研究事物的变化。然而，关于时间的本质，还有待我们进一步探究。
+                    </p>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="small text-right">
+                            <button class="btn btn-primary btn-xs" type="button"><i class="fa fa-comments-o"> </i> 56 评论 </button>
+                            <button class="btn btn-white btn-xs" type="button"><i class="fa fa-eye"> </i> 144 浏览</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ibox">
+            <div class="ibox-content">
+                <a href="article.html" class="btn-link">
+                    <h2>
+                        时间从何而来？为什么时间似乎是流动的？
+                    </h2>
+                </a>
+                <div class="small m-b-xs">
+                                    <span class="text-muted">
+                                        <button class="btn btn-info btn-outline" type="button"><i class="fa fa-user-o"></i>&nbsp;&nbsp;追梦小窝</button>
+                                    </span>
+                    <span class="text-muted">
+                                        <button class="btn btn-primary btn-outline" type="button"><i class="fa fa-clock-o"></i>&nbsp;&nbsp;2017年12月12日</button>
+                                    </span>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="http://blog.54zm.cn/ademo/img/p1.jpg" style="width:100%;max-height:150px;">
+                    </div>
+                    <p class="col-md-8">在我们看来，宇宙万物皆是永恒变化的，所以我们产生了时间的概念。通过时间，我们可以研究事物的变化。然而，关于时间的本质，还有待我们进一步探究。
+                    </p>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="small text-right">
+                            <button class="btn btn-primary btn-xs" type="button"><i class="fa fa-comments-o"> </i> 56 评论 </button>
+                            <button class="btn btn-white btn-xs" type="button"><i class="fa fa-eye"> </i> 144 浏览</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ibox">
+            <div class="ibox-content">
+                <a href="article.html" class="btn-link">
+                    <h2>
+                        时间从何而来？为什么时间似乎是流动的？
+                    </h2>
+                </a>
+                <div class="small m-b-xs">
+                                    <span class="text-muted">
+                                        <button class="btn btn-info btn-outline" type="button"><i class="fa fa-user-o"></i>&nbsp;&nbsp;追梦小窝</button>
+                                    </span>
+                    <span class="text-muted">
+                                        <button class="btn btn-primary btn-outline" type="button"><i class="fa fa-clock-o"></i>&nbsp;&nbsp;2017年12月12日</button>
+                                    </span>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="http://blog.54zm.cn/ademo/img/p1.jpg" style="width:100%;max-height:150px;">
+                    </div>
+                    <p class="col-md-8">在我们看来，宇宙万物皆是永恒变化的，所以我们产生了时间的概念。通过时间，我们可以研究事物的变化。然而，关于时间的本质，还有待我们进一步探究。
+                    </p>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="small text-right">
+                            <button class="btn btn-primary btn-xs" type="button"><i class="fa fa-comments-o"> </i> 56 评论 </button>
+                            <button class="btn btn-white btn-xs" type="button"><i class="fa fa-eye"> </i> 144 浏览</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ibox">
+            <div class="ibox-content">
+                <a href="article.html" class="btn-link">
+                    <h2>
+                        时间从何而来？为什么时间似乎是流动的？
+                    </h2>
+                </a>
+                <div class="small m-b-xs">
+                                    <span class="text-muted">
+                                        <button class="btn btn-info btn-outline" type="button"><i class="fa fa-user-o"></i>&nbsp;&nbsp;追梦小窝</button>
+                                    </span>
+                    <span class="text-muted">
+                                        <button class="btn btn-primary btn-outline" type="button"><i class="fa fa-clock-o"></i>&nbsp;&nbsp;2017年12月12日</button>
+                                    </span>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="http://blog.54zm.cn/ademo/img/p1.jpg" style="width:100%;max-height:150px;">
+                    </div>
+                    <p class="col-md-8">在我们看来，宇宙万物皆是永恒变化的，所以我们产生了时间的概念。通过时间，我们可以研究事物的变化。然而，关于时间的本质，还有待我们进一步探究。
+                    </p>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="small text-right">
+                            <button class="btn btn-primary btn-xs" type="button"><i class="fa fa-comments-o"> </i> 56 评论 </button>
+                            <button class="btn btn-white btn-xs" type="button"><i class="fa fa-eye"> </i> 144 浏览</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ibox">
+            <div class="ibox-content">
+                <a href="article.html" class="btn-link">
+                    <h2>
+                        时间从何而来？为什么时间似乎是流动的？
+                    </h2>
+                </a>
+                <div class="small m-b-xs">
+                                    <span class="text-muted">
+                                        <button class="btn btn-info btn-outline" type="button"><i class="fa fa-user-o"></i>&nbsp;&nbsp;追梦小窝</button>
+                                    </span>
+                    <span class="text-muted">
+                                        <button class="btn btn-primary btn-outline" type="button"><i class="fa fa-clock-o"></i>&nbsp;&nbsp;2017年12月12日</button>
+                                    </span>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="http://blog.54zm.cn/ademo/img/p1.jpg" style="width:100%;max-height:150px;">
+                    </div>
+                    <p class="col-md-8">在我们看来，宇宙万物皆是永恒变化的，所以我们产生了时间的概念。通过时间，我们可以研究事物的变化。然而，关于时间的本质，还有待我们进一步探究。
+                    </p>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="small text-right">
+                            <button class="btn btn-primary btn-xs" type="button"><i class="fa fa-comments-o"> </i> 56 评论 </button>
+                            <button class="btn btn-white btn-xs" type="button"><i class="fa fa-eye"> </i> 144 浏览</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ibox">
+            <div class="ibox-content">
+                <a href="article.html" class="btn-link">
+                    <h2>
+                        时间从何而来？为什么时间似乎是流动的？
+                    </h2>
+                </a>
+                <div class="small m-b-xs">
+                                    <span class="text-muted">
+                                        <button class="btn btn-info btn-outline" type="button"><i class="fa fa-user-o"></i>&nbsp;&nbsp;追梦小窝</button>
+                                    </span>
+                    <span class="text-muted">
+                                        <button class="btn btn-primary btn-outline" type="button"><i class="fa fa-clock-o"></i>&nbsp;&nbsp;2017年12月12日</button>
+                                    </span>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="http://blog.54zm.cn/ademo/img/p1.jpg" style="width:100%;max-height:150px;">
+                    </div>
+                    <p class="col-md-8">在我们看来，宇宙万物皆是永恒变化的，所以我们产生了时间的概念。通过时间，我们可以研究事物的变化。然而，关于时间的本质，还有待我们进一步探究。
+                    </p>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="small text-right">
+                            <button class="btn btn-primary btn-xs" type="button"><i class="fa fa-comments-o"> </i> 56 评论 </button>
+                            <button class="btn btn-white btn-xs" type="button"><i class="fa fa-eye"> </i> 144 浏览</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--分页-->
+        <div class="btn-group pull-right">
+            <button type="button" class="btn btn-white"><i class="fa fa-chevron-left"></i></button>
+            <button class="btn btn-white">1</button>
+            <button class="btn btn-white  active">2</button>
+            <button class="btn btn-white">3</button>
+            <button class="btn btn-white">4</button>
+            <button type="button" class="btn btn-white"><i class="fa fa-chevron-right"></i> </button>
+        </div>
+        <br>
+    </div>
+
+    <!--右侧侧边栏-->
+    <div class="row">
+        <!--关于我==自我介绍-->
+        <div class="col-lg-4">
+            <div class="contact-box">
+                <a href="profile.html">
+                    <div class="col-sm-4">
+                        <div class="text-center">
+                            <img alt="image" class="img-circle m-t-xs img-responsive" src="img/a6.jpg">
+                            <div class="m-t-xs font-bold">超级CEO</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <h3><strong>小红</strong></h3>
+                        <p><i class="fa fa-map-marker"></i> 中国.北京 123/123</p>
+                        <address>
+                            <strong>企鹅公司</strong><br>
+                            北京市朝阳区某区某街道<br>
+                            企鹅 100000 <br>
+                            手机 18900000000 <br>
+                            邮编 100020 <br>
+                        </address>
+                    </div>
+                    <div class="clearfix"></div>
+                </a>
+            </div>
+        </div>
+        <!--系统统计-->
+        <div class="col-md-4">
+            <div class="contact-box">
+                <table class="table small m-b-xs">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <strong>142</strong> 项目
+                        </td>
+                        <td>
+                            <strong>22</strong> 关注
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>61</strong> 评论
+                        </td>
+                        <td>
+                            <strong>54</strong> 文章
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>154</strong> 标签
+                        </td>
+                        <td>
+                            <strong>32</strong> 好友
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--分类-->
+        <div class="col-lg-4">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>分组列表</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="#">选项 1</a>
+                            </li>
+                            <li><a href="#">选项 2</a>
+                            </li>
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content no-padding">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <span class="badge badge-primary">16</span>
+                            分组列表
+                        </li>
+                        <li class="list-group-item ">
+                            <span class="badge badge-info">12</span>
+                            分组列表
+                        </li>
+                        <li class="list-group-item">
+                            <span class="badge badge-danger">10</span>
+                            分组列表
+                        </li>
+                        <li class="list-group-item">
+                            <span class="badge badge-success">10</span>
+                            分组列表
+                        </li>
+                        <li class="list-group-item">
+                            <span class="badge badge-warning">7</span>
+                            分组列表
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
+@endsection
 
-    <div class="rbox">
-        <div class="paihang">
-            <h2 class="hometitle">模板排行</h2>
-            <ul>
-                <li><b><a href="/download/div/2015-04-10/746.html" target="_blank">【活动作品】柠檬绿兔小白个人博客模板30...</a></b>
-                    <p><i><img src="{{url('style/web/default_template/images')}}/t02.jpg"  /></i>展示的是首页html，博客页面布局格式简单，没有复杂的背景，色彩局部点缀，动态的幻灯片展示，切换卡，标...</p>
-                </li>
-                <li><b><a href="/download/div/2014-02-19/649.html" target="_blank"> 个人博客模板（2014草根寻梦）30...</a></b>
-                    <p><i><img src="{{url('style/web/default_template/images')}}/b03.jpg"  /></i>2014第一版《草根寻梦》个人博客模板简单、优雅、稳重、大气、低调。专为年轻有志向却又低调的草根站长设...</p>
-                </li>
-                <li><b><a href="/download/div/2013-08-08/571.html" target="_blank">黑色质感时间轴html5个人博客模板30...</a></b>
-                    <p><i><img src="{{url('style/web/default_template/images')}}/b04.jpg"  /></i>黑色时间轴html5个人博客模板颜色以黑色为主色，添加了彩色作为网页的一个亮点，导航高亮显示、banner图片...</p>
-                </li>
-                <li><b><a href="/download/div/2014-09-18/730.html" target="_blank">情侣博客模板系列之《回忆》Html30...</a></b>
-                    <p><i><img src="{{url('style/web/default_template/images')}}/b05.jpg"  /></i>Html5+css3情侣博客模板，主题《回忆》，使用css3技术实现网站动画效果，主题《回忆》,分为四个主要部分，...</p>
-                </li>
-                <li><b><a href="/download/div/2014-04-17/661.html" target="_blank">黑色Html5个人博客模板主题《如影随形》30...</a></b>
-                    <p><i><img src="{{url('style/web/default_template/images')}}/b06.jpg"  /></i>014第二版黑色Html5个人博客模板主题《如影随形》，如精灵般的影子会给人一种神秘的感觉。一张剪影图黑白...</p>
-                </li>
-                <li><b><a href="/jstt/bj/2015-01-09/740.html" target="_blank">【匆匆那些年】总结个人博客经历的这四年…30...</a></b>
-                    <p><i><img src="{{url('style/web/default_template/images')}}/mb02.jpg"  /></i>博客从最初的域名购买，到上线已经有四年的时间了，这四年的时间，有笑过，有怨过，有悔过，有执着过，也...</p>
-                </li>
-            </ul>
-        </div>
-        <div class="paihang">
-            <h2 class="hometitle">站长推荐</h2>
-            <ul>
-                <li><b><a href="/download/div/2015-04-10/746.html" target="_blank">【活动作品】柠檬绿兔小白个人博客模板30...</a></b>
-                    <p><i><img src="{{url('style/web/default_template/images')}}/t02.jpg"  /></i>展示的是首页html，博客页面布局格式简单，没有复杂的背景，色彩局部点缀，动态的幻灯片展示，切换卡，标...</p>
-                </li>
-                <li><b><a href="/download/div/2014-02-19/649.html" target="_blank"> 个人博客模板（2014草根寻梦）30...</a></b>
-                    <p><i><img src="{{url('style/web/default_template/images')}}/b03.jpg"  /></i>2014第一版《草根寻梦》个人博客模板简单、优雅、稳重、大气、低调。专为年轻有志向却又低调的草根站长设...</p>
-                </li>
-                <li><b><a href="/download/div/2013-08-08/571.html" target="_blank">黑色质感时间轴html5个人博客模板30...</a></b>
-                    <p><i><img src="{{url('style/web/default_template/images')}}/b04.jpg"  /></i>黑色时间轴html5个人博客模板颜色以黑色为主色，添加了彩色作为网页的一个亮点，导航高亮显示、banner图片...</p>
-                </li>
-                <li><b><a href="/download/div/2014-09-18/730.html" target="_blank">情侣博客模板系列之《回忆》Html30...</a></b>
-                    <p><i><img src="{{url('style/web/default_template/images')}}/b05.jpg"  /></i>Html5+css3情侣博客模板，主题《回忆》，使用css3技术实现网站动画效果，主题《回忆》,分为四个主要部分，...</p>
-                </li>
-                <li><b><a href="/download/div/2014-04-17/661.html" target="_blank">黑色Html5个人博客模板主题《如影随形》30...</a></b>
-                    <p><i><img src="{{url('style/web/default_template/images')}}/b06.jpg"  /></i>014第二版黑色Html5个人博客模板主题《如影随形》，如精灵般的影子会给人一种神秘的感觉。一张剪影图黑白...</p>
-                </li>
-                <li><b><a href="/jstt/bj/2015-01-09/740.html" target="_blank">【匆匆那些年】总结个人博客经历的这四年…30...</a></b>
-                    <p><i><img src="{{url('style/web/default_template/images')}}/mb02.jpg"  /></i>博客从最初的域名购买，到上线已经有四年的时间了，这四年的时间，有笑过，有怨过，有悔过，有执着过，也...</p>
-                </li>
-            </ul>
-        </div>
-        <div class="links">
-            <h2 class="hometitle">友情链接</h2>
-            <ul>
-                <li><a href="http://www.yangqq.com">追梦小窝的博客</a></li>
-                <li><a href="http://www.yangqq.com/download/">个人博客模板</a></li>
-                <li><a href="http://www.yangqq.com/link.html">优秀个人博客</a></li>
-            </ul>
-        </div>
-        <div class="weixin">
-            <h2 class="hometitle">官方微信</h2>
-            <ul>
-                <img src="{{url('style/web/default_template/images')}}/wx.jpg">
-            </ul>
-        </div>
-    </div>
-</article>
-@include('web.default_template.public.footer')
-</body>
-</html>
+{{--js引用--}}
+@section('style')
+
+@endsection

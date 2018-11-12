@@ -101,23 +101,22 @@ class AdminController extends Controller
     //QQ登录授权第二步
     public function qq_login(Request $request)
     {
-        $grant_type = 'authorization_code';
         $client_id = '101523010';
         $client_secret = 'ac7d4e7a120f907e69df29799619cc47';
         $code = $request->get('code');
+        //跳转回调地址
         $redirect_uri = 'http://blog.54zm.cn/admin/qq_login';
-        $request_url = 'https://graph.qq.com/oauth2.0/token';
-        $url = "{$request_url}?grant_type={$grant_type}&client_id={$client_id}&client_secret={$client_secret}&code={$code}&redirect_uri={$redirect_uri}";
-        $re = HttpCurl::doGet($url);
-        $data = explode('&',$re);
+        //请求地址
+        $url = "https://graph.qq.com/oauth2.0/token?grant_type=authorization_code&client_id={$client_id}&client_secret={$client_secret}&code={$code}&redirect_uri={$redirect_uri}";
+        $response = HttpCurl::doGet($url);
+        //获取access_token
+        $data = explode('&',$response);
         $data = explode('=',$data[0]);
         $access_token = $data[1];
         $result = HttpCurl::doGet('https://graph.qq.com/oauth2.0/me?access_token='.$access_token);
-//        dd(eval("$result"));
-//        $user_info = HttpCurl::doGet('https://graph.qq.com/user/get_user_info?access_token='.$access_token.'&oauth_consumer_key='.$result['client_id'].'&openid='.$result['openid']);
-
-        $re_json = trim(str_replace(')','',str_replace('callback(','',$result)));
-        dd(json_decode(str_replace(' ;','',$re_json),true));
+        //将返回的jsonp转换为json
+        $re_json = trim(str_replace(' ;','',str_replace(')','',str_replace('callback(','',$result))));
+        dd(json_decode($re_json,true));
     }
     
     //QQ登录获取用户openid

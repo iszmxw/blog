@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Library\HttpCurl;
 use App\Models\Options;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -93,16 +94,7 @@ class AdminController extends Controller
         $appkey = 'f21c00281b7411a01962167c734a4ec1';
         $redirect_uri = 'http://blog.54zm.com/';
         $url='https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id='.$appid.'redirect_uri='.$redirect_uri.'state=state';
-
-
-        $ch = curl_init();
-        $timeout = 5;
-        curl_setopt ($ch, CURLOPT_URL, $url);
-        curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
-        $file_contents = curl_exec($ch);
-        curl_close($ch);
-        return ['data'=>$file_contents];
+        HttpCurl::doGet($url);
     }
 
     public function quit()

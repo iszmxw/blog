@@ -111,7 +111,8 @@ class AdminController extends Controller
         $re = HttpCurl::doGet($url);
         $data = explode('&',$re);
         $data = explode('=',$data[0]);
-        return $data;
+        $access_token = $data[1];
+        return $access_token;
     }
     
     //QQ登录获取用户openid

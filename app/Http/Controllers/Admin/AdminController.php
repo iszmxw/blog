@@ -114,7 +114,7 @@ class AdminController extends Controller
         $access_token = $data[1];
         $result = HttpCurl::doGet('https://graph.qq.com/oauth2.0/me?access_token='.$access_token);
         //将返回的jsonp转换为json
-        $re_json = trim(str_replace(' ;','',str_replace(')','',str_replace('callback(','',$result))));
+        $re_json = trim(str_replace(';','',str_replace(')','',str_replace('callback(','',$result))));
         //获取openid
         $openid = json_decode($re_json,true)['openid'];
 

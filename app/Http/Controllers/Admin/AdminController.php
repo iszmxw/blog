@@ -120,7 +120,7 @@ class AdminController extends Controller
 
         $user_info = HttpCurl::doGet("https://graph.qq.com/user/get_user_info?access_token={$access_token}&oauth_consumer_key={$client_id}&openid={$openid}");
 
-        return $user_info;
+        dd($user_info);
     }
 
     public function quit()

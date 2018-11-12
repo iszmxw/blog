@@ -94,19 +94,13 @@ class AdminController extends Controller
         $appkey = 'ac7d4e7a120f907e69df29799619cc47';
         $redirect_uri = 'http://blog.54zm.cn/admin/qq_login';
         $url='https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id='.$appid.'&redirect_uri='.$redirect_uri.'&state=state';
-        $response = HttpCurl::doGet($url);
         return redirect($url);
     }
 
     //QQ登录
     public function qq_login(Request $request)
     {
-        $appid = '101523010';
-        $appkey = 'ac7d4e7a120f907e69df29799619cc47';
-        $redirect_uri = 'http://blog.54zm.cn/admin/qq_login';
-        $url='https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id='.$appid.'&redirect_uri='.$redirect_uri.'&state=state';
-        $response = HttpCurl::doGet($url);
-        return ['response'=>$response];
+        dd($request);
     }
 
     public function quit()

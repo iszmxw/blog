@@ -115,7 +115,8 @@ class AdminController extends Controller
         $result = HttpCurl::doGet('https://graph.qq.com/oauth2.0/me?access_token='.$access_token);
 //        dd(eval("$result"));
 //        $user_info = HttpCurl::doGet('https://graph.qq.com/user/get_user_info?access_token='.$access_token.'&oauth_consumer_key='.$result['client_id'].'&openid='.$result['openid']);
-        dd($result);
+        dd(json_decode($result));
+
         return $result;
     }
     

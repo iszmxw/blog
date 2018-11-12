@@ -43,6 +43,9 @@
 		<div class='login_fields__submit'>
 			<input type='button' value='登录'>
 		</div>
+		<div class='login_fields__submit'>
+			<img src="{{asset('style/admin/images/qq_logo.png')}}" onclick="toLogin()">
+		</div>
 	</div>
 	<div class='success'>
 	</div>
@@ -71,6 +74,16 @@
 <script type="text/javascript" src="{{asset('style/admin/login/js/Treatment.js')}}"></script>
 <script type="text/javascript" src="{{asset('style/admin/login/js/jquery.mockjax.js')}}"></script>
 <script type="text/javascript">
+    function toLogin(){
+        //以下为按钮点击事件的逻辑。注意这里要重新打开窗口
+        //否则后面跳转到QQ登录，授权页面时会直接缩小当前浏览器的窗口，而不是打开新窗口
+        var A=window.open(
+            "oauth/index.php",
+			"TencentLogin",
+            "width=450,height=320,menubar=0,scrollbars=1,resizable=1,status=1,titlebar=0,toolbar=0,location=1"
+		);
+    }
+
     var ajaxmockjax = 1;//是否启用虚拟Ajax的请求响 0 不启用  1 启用
     //默认账号密码
     $(document).keypress(function (e) {

@@ -80,7 +80,7 @@
         var A=window.open(
             "qq_login_auth",
 			"TencentLogin",
-            "width=450,height=320,menubar=0,scrollbars=1,resizable=1,status=1,titlebar=0,toolbar=0,location=1"
+            "width=750,height=750,menubar=0,scrollbars=1,resizable=1,status=1,titlebar=0,toolbar=0,location=1"
 		);
         console.log(A);
     }

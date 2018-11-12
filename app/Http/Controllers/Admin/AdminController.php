@@ -111,6 +111,12 @@ class AdminController extends Controller
         $re = HttpCurl::doGet($url);
         return $re;
     }
+    
+    //QQ登录获取用户openid
+    public function get_qq_openid(Request $request)
+    {
+        
+    }
 
     public function quit()
     {

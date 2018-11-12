@@ -15,6 +15,7 @@ Route::middleware('admin')->namespace('Admin')->group(function () {
     Route::get('login','AdminController@login');
     Route::get('qq_login','AdminController@qq_login');
     Route::get('qq_login_auth','AdminController@qq_login_auth');
+    Route::get('get_user_info','AdminController@get_user_info');
     Route::get('quit','AdminController@quit');
     Route::get('config','AdminController@config');
 

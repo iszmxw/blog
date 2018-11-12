@@ -115,12 +115,14 @@ class AdminController extends Controller
         $result = HttpCurl::doGet('https://graph.qq.com/oauth2.0/me?access_token='.$access_token);
 //        dd(eval("$result"));
 //        $user_info = HttpCurl::doGet('https://graph.qq.com/user/get_user_info?access_token='.$access_token.'&oauth_consumer_key='.$result['client_id'].'&openid='.$result['openid']);
-        dd($result);
+        $str = str_replace('callback(','',$result);
+
+        dd(str_replace(')','',$str));
         return $result;
     }
     
     //QQ登录获取用户openid
-    public function get_qq_openid(Request $request)
+    public function get_user_info(Request $request)
     {
 
     }

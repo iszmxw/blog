@@ -120,6 +120,7 @@ class AdminController extends Controller
         $openid = json_decode($re_json,true)['openid'];
 
         $user_info = HttpCurl::doGet("https://graph.qq.com/user/get_user_info?access_token={$access_token}&oauth_consumer_key={$client_id}&openid={$openid}");
+
         dd($user_info);
     }
     

@@ -87,7 +87,7 @@ class AdminController extends Controller
     }
 
 
-    //QQ登录授权
+    //QQ登录授权第一步
     public function qq_login_auth(Request $request)
     {
         $appid = '101523010';
@@ -98,7 +98,7 @@ class AdminController extends Controller
         return redirect($url);
     }
 
-    //QQ登录
+    //QQ登录授权第二步
     public function qq_login(Request $request)
     {
         $grant_type = 'authorization_code';

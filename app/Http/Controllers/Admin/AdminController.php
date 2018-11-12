@@ -109,7 +109,7 @@ class AdminController extends Controller
         $request_url = 'https://graph.qq.com/oauth2.0/token';
         $url = "{$request_url}?grant_type={$grant_type}&client_id={$client_id}&client_secret={$client_secret}&code={$code}&redirect_uri={$redirect_uri}";
         $re = HttpCurl::doGet($url);
-        $data = explode($re,'=');
+        $data = explode('=',$re);
         return $data;
     }
     

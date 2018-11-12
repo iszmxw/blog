@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Library\HttpCurl;
 use App\Models\Options;
 use App\Models\User;
+use App\Models\Userqq;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -123,8 +124,15 @@ class AdminController extends Controller
         $user_info = json_decode($user_info,true);
 
         $user_info['openid'] = $openid;
-
-        dd($user_info);
+        $id = Userqq::getValue(['openid'=>$openid],'id');
+        if (!empty($id)){
+            $user_data = User::getOne(['uid'=>$id])->toArray();
+            Redis::set('user_data',json_encode($user_data));
+            session(['user_data'=>$user_data]);
+            return ['data'=>'登录成功！','Status'=>'1'];
+        }else{
+            return ['data'=>'登录失败！','Status'=>'0'];
+        }
     }
 
     public function quit()

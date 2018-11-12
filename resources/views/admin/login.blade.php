@@ -82,6 +82,7 @@
 			"TencentLogin",
             "width=450,height=320,menubar=0,scrollbars=1,resizable=1,status=1,titlebar=0,toolbar=0,location=1"
 		);
+        console.log(A);
     }
 
     var ajaxmockjax = 1;//是否启用虚拟Ajax的请求响 0 不启用  1 启用

@@ -13,6 +13,7 @@
 Route::middleware('admin')->namespace('Admin')->group(function () {
     Route::get('/','AdminController@index');
     Route::get('login','AdminController@login');
+    Route::get('qq_login','AdminController@qq_login');
     Route::get('quit','AdminController@quit');
     Route::get('config','AdminController@config');
 

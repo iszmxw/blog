@@ -85,6 +85,13 @@ class AdminController extends Controller
         }
     }
 
+
+    //QQ登录
+    public function qq_login(Request $request)
+    {
+        dd($request);
+    }
+
     public function quit()
     {
         session()->put('user_data','');

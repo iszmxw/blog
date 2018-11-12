@@ -113,7 +113,7 @@ class AdminController extends Controller
         $data = explode('=',$data[0]);
         $access_token = $data[1];
         $result = HttpCurl::doGet('https://graph.qq.com/oauth2.0/me?access_token='.$access_token);
-        dd($result);
+        dd($result->toArray());
         $user_info = HttpCurl::doGet('https://graph.qq.com/user/get_user_info?access_token='.$access_token.'&oauth_consumer_key='.$result['client_id'].'&openid='.$result['openid']);
         return $user_info;
     }

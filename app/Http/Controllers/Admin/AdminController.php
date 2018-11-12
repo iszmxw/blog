@@ -109,13 +109,14 @@ class AdminController extends Controller
         $request_url = 'https://graph.qq.com/oauth2.0/token';
         $url = "{$request_url}?grant_type={$grant_type}&client_id={$client_id}&client_secret={$client_secret}&code={$code}&redirect_uri={$redirect_uri}";
         $re = HttpCurl::doGet($url);
-        return $re;
+        $data = explode($re,'=');
+        return $data;
     }
     
     //QQ登录获取用户openid
     public function get_qq_openid(Request $request)
     {
-        
+
     }
 
     public function quit()

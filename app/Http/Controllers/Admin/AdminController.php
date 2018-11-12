@@ -102,7 +102,7 @@ class AdminController extends Controller
         curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
         $file_contents = curl_exec($ch);
         curl_close($ch);
-        return $file_contents;
+        return ['data'=>$file_contents];
     }
 
     public function quit()

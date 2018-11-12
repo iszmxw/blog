@@ -95,7 +95,8 @@ class AdminController extends Controller
         $redirect_uri = 'http://blog.54zm.cn/admin/qq_login';
         $url='https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id='.$appid.'redirect_uri='.$redirect_uri.'state=state';
         $response = HttpCurl::doGet($url);
-        dd($response);
+//        dd($response)
+        return redirect($url);
     }
 
     public function quit()

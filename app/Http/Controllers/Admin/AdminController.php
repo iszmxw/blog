@@ -93,7 +93,7 @@ class AdminController extends Controller
         $appid = '101454284';
         $appkey = 'f21c00281b7411a01962167c734a4ec1';
         $redirect_uri = 'http://blog.54zm.cn/admin/qq_login';
-        $url='https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id='.$appid.'redirect_uri='.$redirect_uri.'state=state';
+        $url='https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id='.$appid.'&redirect_uri='.$redirect_uri.'&state=state';
         $response = HttpCurl::doGet($url);
 //        dd($response)
         return redirect($url);

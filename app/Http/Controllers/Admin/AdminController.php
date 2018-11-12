@@ -123,12 +123,6 @@ class AdminController extends Controller
 
         return $user_info;
     }
-    
-    //QQ登录获取用户openid
-    public function get_user_info(Request $request)
-    {
-
-    }
 
     public function quit()
     {

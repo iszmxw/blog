@@ -87,7 +87,7 @@ class AdminController extends Controller
     }
 
 
-    //QQ登录
+    //QQ登录授权
     public function qq_login_auth(Request $request)
     {
         $appid = '101523010';

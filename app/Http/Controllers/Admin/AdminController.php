@@ -110,6 +110,7 @@ class AdminController extends Controller
         $url = "{$request_url}?grant_type={$grant_type}&client_id={$client_id}&client_secret={$client_secret}&code={$code}&redirect_uri={$redirect_uri}";
         $re = HttpCurl::doGet($url);
         $data = explode('&',$re);
+        $data = explode('=',$data[0]);
         return $data;
     }
     

@@ -142,6 +142,7 @@ class AdminController extends Controller
             session(['user_data'=>$user_data]);
             return redirect('admin');
         }else{
+            dd($request);
             return ['data'=>'登录失败！','Status'=>'0'];
         }
     }

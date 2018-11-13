@@ -143,8 +143,10 @@ class AdminController extends Controller
         }elseif(empty($id)){
             $user_qq_data['openid'] = $openid;
             Userqq::create($user_qq_data);
-            return redirect('admin/qq_login_auth');
+        }else{
+            Userqq::EditData(['openid'=>$openid],$user_qq_data);
         }
+        return redirect('admin/qq_login_auth');
     }
 
     public function quit()

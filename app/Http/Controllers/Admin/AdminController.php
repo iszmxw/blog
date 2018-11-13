@@ -124,9 +124,19 @@ class AdminController extends Controller
         $user_info = json_decode($user_info,true);
 
         $user_info['openid'] = $openid;
-        return $user_info;
         $id = Userqq::getValue(['openid'=>$openid],'id');
+        //需要更新的数据
+        $user_qq_data = [
+            'nickname'=>$user_info['nickname'],
+            'header_img'=>$user_info['figureurl_qq_2'],
+            'sex'=>$user_info['gender'],
+            'year'=>$user_info['year'],
+            'province'=>$user_info['province'],
+            'city'=>$user_info['city'],
+            'updated_at'=>time(),
+        ];
         if (!empty($id)){
+            Userqq::EditData(['openid'=>$openid],$user_qq_data);
             $user_data = User::getOne(['uid'=>$id])->toArray();
             Redis::set('user_data',json_encode($user_data));
             session(['user_data'=>$user_data]);

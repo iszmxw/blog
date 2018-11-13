@@ -140,7 +140,7 @@ class AdminController extends Controller
             Redis::set('user_data',json_encode($user_data));
             session(['user_data'=>$user_data]);
             return redirect('admin');
-        }else{
+        }elseif(empty($id)){
             $user_qq_data['openid'] = $openid;
             Userqq::create($user_qq_data);
             return redirect('admin/qq_login_auth');

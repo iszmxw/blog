@@ -18,12 +18,18 @@
                     </h2>
                 </a>
                 <div class="small m-b-xs">
-                                    <span class="text-muted">
-                                        <button class="btn btn-info btn-xs btn-outline" type="button"><i class="fa fa-user-o"></i>&nbsp;&nbsp;{{$val['sortname']}}</button>
-                                    </span>
                     <span class="text-muted">
-                                        <button class="btn btn-primary btn-xs btn-outline" type="button"><i class="fa fa-clock-o"></i>&nbsp;&nbsp;{{$val['date']}}</button>
-                                    </span>
+                        <button class="btn btn-info btn-xs btn-outline" type="button">
+                            <i class="fa fa-user-o"></i>&nbsp;&nbsp;
+                            {{$val['sortname']}}
+                        </button>
+                    </span>
+                    <span class="text-muted">
+                        <button class="btn btn-primary btn-xs btn-outline" type="button">
+                            <i class="fa fa-clock-o"></i>&nbsp;&nbsp;
+                            {{$val['date']}}
+                        </button>
+                    </span>
                 </div>
                 <br>
                 <div class="row">

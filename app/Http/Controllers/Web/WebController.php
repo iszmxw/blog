@@ -6,6 +6,7 @@ use App\Library\Tooling;
 use App\Models\Attachment;
 use App\Models\Blog;
 use App\Models\Sort;
+use App\Models\Comment;
 use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -22,6 +23,7 @@ class WebController extends Controller
             $value['date'] = date('Y-m-d H:i:s',$value['date']);
             $value['content'] = Tooling::tool_purecontent($value['content'],240);
             $value['sortname'] = Sort::getValue(['sid'=>$value['sortid']],'sortname');
+            $value['comments'] = Comment::where(['gid'=>$value['gid']])->count();
             //取第一张图片作为缩略图
             if($value['thumb'] = Attachment::getOne([['blogid',$value['gid']],['mimetype','like','%'.'image/'.'%']])){
                 $value['thumb'] = $value['thumb']['filepath'];

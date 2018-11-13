@@ -12,6 +12,15 @@ use App\Http\Controllers\Controller;
 
 class WebController extends Controller
 {
+    //格式化内容工具
+    function tool_purecontent($content, $strlen = null){
+        $content = str_replace('继续阅读&gt;&gt;', '', $content);
+        $content = preg_replace("/\[hide\](.*)\[\/hide\]/Uims", '|*********此处内容回复可见*********|', strip_tags($content));
+        if ($strlen) {
+            $content = subString($content, 0, $strlen);
+        }
+        return $content;
+    }
     //首页
     public function index(Request $request)
     {
@@ -19,7 +28,7 @@ class WebController extends Controller
         $blog = Blog::getPaginate([],['gid','sortid','title','date','content','views'],'date','DESC',15);
         foreach($blog as $value){
             $value['date'] = date('Y-m-d H:i:s',$value['date']);
-            $value['content'] = substr($value['content'],0,200);
+            $value['content'] = $this->tool_purecontent($value['content'],180);
             $value['sortname'] = Sort::getValue(['sid'=>$value['sortid']],'sortname');
             //取第一张图片作为缩略图
             if($value['thumb'] = Attachment::getOne([['blogid',$value['gid']],['mimetype','like','%'.'image/'.'%']])){

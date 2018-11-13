@@ -32,7 +32,8 @@
                         <img src="http://blog.54zm.com/{{$val['thumb']}}" style="width:100%;max-height:150px;">
                     </div>
                     @endif
-                    <p @if($val['thumb']) class="col-md-8" @endif>{{$val['content']}}
+                    <p @if($val['thumb']) class="col-md-8" @else class="col-md-12" @endif>
+                        {{$val['content']}}
                     </p>
                 </div>
                 <br>

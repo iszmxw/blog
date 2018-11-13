@@ -129,7 +129,7 @@ class AdminController extends Controller
             $user_data = User::getOne(['uid'=>$id])->toArray();
             Redis::set('user_data',json_encode($user_data));
             session(['user_data'=>$user_data]);
-            return ['data'=>'登录成功！','Status'=>'1'];
+            return redirect('admin');
         }else{
             return ['data'=>'登录失败！','Status'=>'0'];
         }

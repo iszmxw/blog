@@ -9,13 +9,13 @@
 
 @section('header_bar')
     <div class="col-lg-10">
-        <h2>博客</h2>
+        <h2>{{$blog['sortname']}}</h2>
         <ol class="breadcrumb">
             <li>
                 <a href="{{url('/')}}">主页</a>
             </li>
             <li class="active">
-                <strong>博客</strong>
+                <strong>{{$blog['sortname']}}</strong>
             </li>
         </ol>
     </div>
@@ -29,7 +29,6 @@
     <div class="ibox">
         <div class="ibox-content">
             <div class="pull-right">
-                <button class="btn btn-white btn-xs" type="button">{{$blog['sortname']}}</button>
                 <button class="btn btn-white btn-xs" type="button">{{$blog['author']}}</button>
             </div>
             <div class="text-center article-title">

@@ -23,10 +23,7 @@
                 <h2>博客</h2>
                 <ol class="breadcrumb">
                     <li>
-                        <a href="index.html">主页</a>
-                    </li>
-                    <li>
-                        <a>应用</a>
+                        <a href="{{url('/')}}">主页</a>
                     </li>
                     <li class="active">
                         <strong>博客</strong>

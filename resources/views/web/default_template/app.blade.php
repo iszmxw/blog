@@ -31,7 +31,7 @@
                 </div>
                 <ul class="nav navbar-top-links navbar-right">
                     <li>
-                        <span class="m-r-sm text-muted welcome-message">欢迎来到{{$user_data['nickname']}}博客管理后台</span>
+                        <span class="m-r-sm text-muted welcome-message">欢迎来到追梦小窝的博客收藏馆</span>
                     </li>
                     <li>
                         <a href="{{url('admin/quit')}}">

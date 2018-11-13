@@ -6,6 +6,24 @@
 
 @endsection
 
+
+@section('header_bar')
+    <div class="col-lg-10">
+        <h2>博客</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="{{url('/')}}">主页</a>
+            </li>
+            <li class="active">
+                <strong>博客</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+@endsection
+
 {{--内容部分--}}
 @section('content')
     <div class="ibox">

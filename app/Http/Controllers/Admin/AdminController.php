@@ -124,6 +124,7 @@ class AdminController extends Controller
         $user_info = json_decode($user_info,true);
 
         $user_info['openid'] = $openid;
+        return $user_info;
         $id = Userqq::getValue(['openid'=>$openid],'id');
         if (!empty($id)){
             $user_data = User::getOne(['uid'=>$id])->toArray();

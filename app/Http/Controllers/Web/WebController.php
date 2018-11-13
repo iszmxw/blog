@@ -26,7 +26,7 @@ class WebController extends Controller
                 $value['thumb'] = $value['thumb']['filepath'];
             }
         }
-        $data['user_data'] = User::getOne(['id'=>'1']);
+        $data['user_data'] = User::getOne(['uid'=>'1']);
         $data = ['nav'=>$nav,'blog'=>$blog];
         return view('web.default_template.index',$data);
     }

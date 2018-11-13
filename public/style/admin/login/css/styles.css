@@ -186,15 +186,18 @@ body .login_fields__submit .forgot a {
 body .login_fields__submit input {
   border-radius: 50px;
   background: transparent;
-  padding: 10px 50px;
+  padding: 10px 35px;
   border: 2px solid #4FA1D9;
   color: #4FA1D9;
   text-transform: uppercase;
+  float: left;
+  width: 50%;
+  text-align: center;
   font-size: 11px;
   -webkit-transition-property: background,color;
-          transition-property: background,color;
+  transition-property: background,color;
   -webkit-transition-duration: .2s;
-          transition-duration: .2s;
+  transition-duration: .2s;
 }
 body .login_fields__submit input:focus {
   box-shadow: none;

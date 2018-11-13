@@ -41,8 +41,8 @@
 			</div>
 		</div>
 		<div class='login_fields__submit'>
-			<input type='button' value='登录'>
-			<input type='button' value='QQ登录' onclick="toLogin()">
+			<input id="login" type='button' value='登录'>
+			<input id="login_qq" type="button" value='QQ登录' onclick="toLogin()">
 		</div>
 	</div>
 	<div class='success'>
@@ -73,14 +73,6 @@
 <script type="text/javascript" src="{{asset('style/admin/login/js/jquery.mockjax.js')}}"></script>
 <script type="text/javascript">
     function toLogin(){
-        //以下为按钮点击事件的逻辑。注意这里要重新打开窗口
-        //否则后面跳转到QQ登录，授权页面时会直接缩小当前浏览器的窗口，而不是打开新窗口
-        // var A=window.open(
-        //     "qq_login_auth",
-			// "TencentLogin",
-        //     "width=750,height=750,menubar=0,scrollbars=1,resizable=1,status=1,titlebar=0,toolbar=0,location=1"
-        // );
-        // console.log(A);
 		window.location.href='qq_login_auth';
     }
 
@@ -89,7 +81,7 @@
     $(document).keypress(function (e) {
         // 回车键事件
         if (e.which == 13) {
-            $('input[type="button"]').click();
+            $('#login').click();
         }
     });
     //粒子背景特效
@@ -122,7 +114,7 @@
     });
     layui.use('layer', function () {
         //非空验证
-        $('input[type="button"]').click(function () {
+        $('#login').click(function () {
             var username = $('input[name="username"]').val();
             var password = $('input[name="password"]').val();
             var _token = $('#_token').val();

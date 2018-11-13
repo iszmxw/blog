@@ -124,7 +124,7 @@ class AdminController extends Controller
         $user_info = json_decode($user_info,true);
 
         $user_info['openid'] = $openid;
-        $id = Userqq::getValue(['openid'=>$openid],'id');
+        $id = Userqq::getValue(['openid'=>$openid],'uid');
         //需要更新的数据
         $user_qq_data = [
             'nickname'=>$user_info['nickname'],
@@ -133,15 +133,16 @@ class AdminController extends Controller
             'year'=>$user_info['year'],
             'province'=>$user_info['province'],
             'city'=>$user_info['city'],
-            'updated_at'=>time(),
         ];
-        if (!empty($id)){
+        if (!empty($id) && $id == '1'){
             Userqq::EditData(['openid'=>$openid],$user_qq_data);
             $user_data = User::getOne(['uid'=>$id])->toArray();
             Redis::set('user_data',json_encode($user_data));
             session(['user_data'=>$user_data]);
             return redirect('admin');
         }else{
+            $user_qq_data['openid'] = $openid;
+            Userqq::create($user_qq_data);
             return redirect('admin/qq_login_auth');
         }
     }

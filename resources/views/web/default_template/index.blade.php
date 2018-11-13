@@ -15,7 +15,7 @@
         @foreach($blog as $key=>$val)
         <div class="ibox">
             <div class="ibox-content">
-                <a href="{{url('article')}}/{{$val['gid']}}" class="btn-link">
+                <a href="{{route('article')}}/{{$val['gid']}}" class="btn-link">
                     <h2>
                         {{$val['title']}}
                     </h2>

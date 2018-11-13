@@ -42,10 +42,7 @@
 		</div>
 		<div class='login_fields__submit'>
 			<input type='button' value='登录'>
-		</div>
-		<div class='login_fields__submit'>
 			<input type='button' value='QQ登录' onclick="toLogin()">
-			{{--<img src="{{asset('style/admin/images/qq_logo.png')}}" >--}}
 		</div>
 	</div>
 	<div class='success'>

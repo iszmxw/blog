@@ -26,8 +26,8 @@
             <hr>
             <div class="row">
                 <div class="col-md-6">
-                    <h5>标签:</h5>
                     @foreach($blog['tags'] as $value)
+                        <h5>标签:</h5>
                         <button class="btn btn-primary btn-xs" type="button" onclick="window.location.href='{{url('tag').'/'.$value['tid']}}'">{{$value['tagname']}}</button>
                     @endforeach
                 </div>

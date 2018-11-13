@@ -50,12 +50,7 @@
 
         <!--分页-->
         <div class="btn-group pull-right">
-            <button type="button" class="btn btn-white"><i class="fa fa-chevron-left"></i></button>
-            <button class="btn btn-white">1</button>
-            <button class="btn btn-white  active">2</button>
-            <button class="btn btn-white">3</button>
-            <button class="btn btn-white">4</button>
-            <button type="button" class="btn btn-white"><i class="fa fa-chevron-right"></i> </button>
+            {{$blog->links()}}
         </div>
         <br>
     </div>

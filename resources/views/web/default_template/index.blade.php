@@ -12,7 +12,7 @@
         @foreach($blog as $key=>$val)
         <div class="ibox">
             <div class="ibox-content">
-                <a href="article.html" class="btn-link">
+                <a href="{{url('article/').$val['gid']}}" class="btn-link">
                     <h2>
                         {{$val['title']}}
                     </h2>

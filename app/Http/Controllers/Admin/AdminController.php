@@ -142,9 +142,7 @@ class AdminController extends Controller
             session(['user_data'=>$user_data]);
             return redirect('admin');
         }else{
-            $url = url()->previous();
-            dd($url,$request);
-            return ['data'=>'登录失败！','Status'=>'0'];
+            return redirect('admin/qq_login_auth');
         }
     }
 

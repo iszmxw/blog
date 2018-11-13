@@ -40,7 +40,7 @@
                     <div class="col-md-12">
                         <div class="small text-right">
                             <button class="btn btn-primary btn-xs" type="button"><i class="fa fa-comments-o"> </i> 56 评论 </button>
-                            <button class="btn btn-white btn-xs" type="button"><i class="fa fa-eye"> </i> 144 浏览</button>
+                            <button class="btn btn-white btn-xs" type="button"><i class="fa fa-eye"> </i> {{$val['views']}} 浏览</button>
                         </div>
                     </div>
                 </div>

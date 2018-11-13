@@ -21,7 +21,7 @@
     </div>
     <div class="col-sm-8">
         <div class="title-action">
-            <a href="{{url()->previous()}}" class="btn btn-primary">这是行动区</a>
+            <a href="{{url()->previous()}}" class="btn btn-primary">返回上一级</a>
         </div>
     </div>
 @endsection

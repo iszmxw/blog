@@ -29,7 +29,7 @@
                 <div class="row">
                     @if($val['thumb'])
                     <div class="col-md-4">
-                        <img src="{{$val['thumb']}}" style="width:100%;max-height:150px;">
+                        <img src="http://blog.54zm.com/{{$val['thumb']}}" style="width:100%;max-height:150px;">
                     </div>
                     @endif
                     <p @if($val['thumb']) class="col-md-8" @endif>{{$val['content']}}

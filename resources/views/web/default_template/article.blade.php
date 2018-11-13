@@ -8,7 +8,7 @@
 
 
 @section('header_bar')
-    <div class="col-lg-10">
+    <div class="col-sm-4">
         <h2>{{$blog['sortname']}}</h2>
         <ol class="breadcrumb">
             <li>
@@ -19,8 +19,10 @@
             </li>
         </ol>
     </div>
-    <div class="col-lg-2">
-
+    <div class="col-sm-8">
+        <div class="title-action">
+            <a href="" class="btn btn-primary">这是行动区</a>
+        </div>
     </div>
 @endsection
 

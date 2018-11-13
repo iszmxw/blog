@@ -15,10 +15,10 @@
                 <button class="btn btn-white btn-xs" type="button">{{$blog['author']}}</button>
             </div>
             <div class="text-center article-title">
-                <span class="text-muted"><i class="fa fa-clock-o"></i> {{$blog['date']}}</span>
                 <h1>
                     {{$blog['title']}}
                 </h1>
+                <span class="text-muted"><i class="fa fa-clock-o"></i> {{$blog['date']}}</span>
             </div>
             <p>
                 {!! $blog['content'] !!}

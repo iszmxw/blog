@@ -28,7 +28,6 @@ class WebController extends Controller
         }
         $data = ['nav'=>$nav,'blog'=>$blog];
         $data['user_data'] = User::getOne(['uid'=>'1']);
-        dump($data);
         return view('web.default_template.index',$data);
     }
 

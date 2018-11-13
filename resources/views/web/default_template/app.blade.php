@@ -34,8 +34,8 @@
                         <span class="m-r-sm text-muted welcome-message">欢迎来到追梦小窝的博客收藏馆</span>
                     </li>
                     <li>
-                        <a href="{{url('admin/quit')}}">
-                            <i class="fa fa-sign-out"></i> 注销
+                        <a href="{{url('admin/register')}}">
+                            <i class="fa fa-sign-out"></i> 登记
                         </a>
                     </li>
                 </ul>

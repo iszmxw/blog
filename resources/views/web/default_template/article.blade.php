@@ -139,7 +139,25 @@
             var url = $("#currentForm").attr('action');
             var data = $("#currentForm").serialize();
             $.post(url,data,function(json){
-                console.log(json);
+                if(json.status==0){
+                    swal({
+                        title: "提示信息",
+                        text: json.data,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "确定",
+                    },function(){
+                        window.location.href='admin/qq_login_auth';
+                    });
+                }else{
+                    swal({
+                        title: "提示信息",
+                        text: json.data,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "确定",
+                    },function(){
+                        window.location.reload();
+                    });
+                }
             });
         }
     </script>

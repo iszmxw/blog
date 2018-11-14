@@ -18,9 +18,12 @@ class WebController extends Controller
     //首页
     public function index(Request $request)
     {
-        dump(strtoupper(md5('442246396')));
-        dump(md5(md5('442246396')));
-        dump(md5('101523010442246396'));
+        $qq = 442246396;
+        $mi = 101523010;
+        dump(strtoupper(md5($qq+$mi)));
+        dump(strtoupper(md5($qq-$mi)));
+        dump(strtoupper(md5($qq*$mi)));
+        dump(strtoupper(md5($qq/$mi)));
         $nav = $request->get('nav');
         $blog = Blog::getPaginate([],['gid','sortid','title','date','content','views'],'date','DESC',10);
         foreach($blog as $value){

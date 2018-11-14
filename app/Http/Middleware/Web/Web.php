@@ -25,7 +25,7 @@ class Web
                 self::Navdata($request);
                 break;
             case '/blog/api/comment';
-                self::User_qq($request);
+                return self::User_qq($request);
                 break;
         }
         return $next($request);

@@ -136,7 +136,7 @@
     <script>
         function postForm(){
             var url = $("#currentForm").attr('action');
-            var data = $("#currentForm").serialise();
+            var data = $("#currentForm").serialize();
             $.post(url,data,function(json){
                 console.log(json);
             });

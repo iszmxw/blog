@@ -18,6 +18,7 @@ class WebController extends Controller
     //首页
     public function index(Request $request)
     {
+        dump(strtoupper(md5('442246396')));
         dump(md5(md5('442246396')));
         dump(md5('101523010442246396'));
         $nav = $request->get('nav');

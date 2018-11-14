@@ -45,7 +45,6 @@ class Web
     {
         $data = session()->get('qq_data');
         if ($data){
-            $request->attributes->add(['qq_data'=>$data]); //添加参数
             return self::RtData(1,$request);
         }else{
             if ($request->isMethod('post')) {

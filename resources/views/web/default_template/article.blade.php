@@ -144,7 +144,7 @@
 
         function check_user() {
             var qq = $("#qq").val();
-            var url = 'http://users.qzone.qq.com/fcg-bin/cgi_get_portrait.fcg';
+            var url = 'http://r.pengyou.com/fcg-bin/cgi_get_portrait.fcg';
             $.post(url,{'uins':qq},function (json) {
                 console.log(json);
             });

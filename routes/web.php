@@ -21,7 +21,7 @@ Route::middleware('web_common')->namespace('Web')->group(function () {
     Route::prefix('blog')->group(function () {
         //api
         Route::prefix('api')->group(function () {
-            Route::get('comment', 'WebController@comment_api');
+            Route::any('comment', 'WebController@comment_api');
         });
     });
 

@@ -74,7 +74,11 @@ class WebController extends Controller
     }
 
 
-    //前台评论留言
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     * 前台评论留言
+     */
     public function comment_api(Request $request)
     {
         $user_data = $request->get('qq_data');

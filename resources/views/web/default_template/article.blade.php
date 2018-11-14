@@ -68,7 +68,7 @@
                                 <textarea class="form-control" placeholder="评论内容" rows="5"></textarea>
                             </div>
                             <div class="text-right">
-                                <button type="submit" class="btn btn-sm btn-primary m-t-n-xs"><strong>评论</strong></button>
+                                <button type="submit" class="btn btn-sm btn-primary m-t-n-xs"><strong>发表评论</strong></button>
                             </div>
                     </div>
 

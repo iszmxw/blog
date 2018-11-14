@@ -148,7 +148,7 @@
                         confirmButtonColor: "#DD6B55",
                         confirmButtonText: "确定",
                     },function(){
-                        window.location.href='admin/qq_login_auth';
+                        window.location.href='{{url('admin/qq_login_auth')}}';
                     });
                 }else{
                     swal({

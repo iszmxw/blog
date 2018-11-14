@@ -70,7 +70,7 @@
                                 @if($val['mail'])
                                     <img alt="image" src="http://q1.qlogo.cn/g?b=qq&nk={{$val['mail']}}&s=640">
                                 @else
-                                    <img alt="image" src="http://q1.qlogo.cn/g?b=qq&nk=10001&s=640">
+                                    <img alt="image" src="http://q1.qlogo.cn/g?b=qq&nk=10000&s=640">
                                 @endif
                             </a>
                             <div class="media-body">

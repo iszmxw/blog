@@ -151,7 +151,7 @@
             var qq = $("#qq").val();
             $.ajax({  /* 使用ajax请求 */
                 type: "get",  /* 请求方式为GET */
-                url: "http://base.qzone.qq.com/fcg-bin/cgi_get_portrait.fcg?uins="+qq,  /* 发送请求的地址 */
+                url: "http://users.qzone.qq.com/fcg-bin/cgi_get_portrait.fcg?uins="+qq,  /* 发送请求的地址 */
                 dataType: "jsonp",   /* 返回JSONP格式 */
                 jsonp: "callback",    /* 重写回调函数名 */
                 jsonpCallback:"portraitCallBack",  /* 指定回调函数名 */

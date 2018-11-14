@@ -71,18 +71,19 @@
                             <p class="small">
                                 评论该篇文章
                             </p>
-
-                            <div class="form-group">
-                                <label>您的QQ</label>
-                                <input type="email" class="form-control" placeholder="留下你的QQ号，方便联系！">
-                            </div>
-                            <div class="form-group">
-                                <label>内容</label>
-                                <textarea class="form-control" placeholder="发表意见" rows="5"></textarea>
-                            </div>
-                            <div class="text-right">
-                                <button type="submit" class="btn btn-sm btn-primary m-t-n-xs"><strong>发表评论</strong></button>
-                            </div>
+                            <form  action="{{url('blog/api/comment')}}" id="currentForm">
+                                <div class="form-group">
+                                    <label>您的QQ</label>
+                                    <input type="email" class="form-control" placeholder="留下你的QQ号，方便联系！">
+                                </div>
+                                <div class="form-group">
+                                    <label>内容</label>
+                                    <textarea class="form-control" placeholder="发表意见" rows="5"></textarea>
+                                </div>
+                                <div class="text-right">
+                                    <button type="button" class="btn btn-sm btn-primary m-t-n-xs" onclick="postForm()"><strong>发表评论</strong></button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                     @if($blog['comment'] > 0)
@@ -131,6 +132,10 @@
 @endsection
 
 {{--js引用--}}
-@section('style')
+@section('script')
+    <script>
+        function postForm(){
 
+        }
+    </script>
 @endsection

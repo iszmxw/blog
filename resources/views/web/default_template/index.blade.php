@@ -179,6 +179,5 @@
 @endsection
 
 {{--js引用--}}
-@section('style')
-
+@section('script')
 @endsection

@@ -143,28 +143,10 @@
     <script>
 
         function check_user() {
-            // var qq = $("#qq").val();
-            // var url = 'http://users.qzone.qq.com/fcg-bin/cgi_get_portrait.fcg';
-            // $.post(url,{'uins':qq},function (json) {
-            //     console.log(json);
-            // });
             var qq = $("#qq").val();
-            $.ajax({  /* 使用ajax请求 */
-                type: "post",  /* 请求方式为GET */
-                url: "http://users.qzone.qq.com/fcg-bin/cgi_get_portrait.fcg?uins="+qq,  /* 发送请求的地址 */
-                dataType: "jsonp",   /* 返回JSONP格式 */
-                jsonp: "callback",    /* 重写回调函数名 */
-                jsonpCallback:"portraitCallBack",  /* 指定回调函数名 */
-                success: function(json){  /* 请求成功输出 */
-                    for(var key in json){
-                        alert("QQ："+key);  /* 弹出：QQ：574201314 */
-                    }
-                    alert("昵称："+json[qq][6]);  /* 弹出：昵称：冷逸尘*/
-                    alert("头像地址："+json[qq][0]);  /* 弹出：QQ空间头像地址：http://qlogo4.store.qq.com/qzone/574201314/574201314/100 */
-                },
-                error: function(){  /* 请求失败输出 */
-                    alert('获取失败');
-                }
+            var url = 'http://users.qzone.qq.com/fcg-bin/cgi_get_portrait.fcg';
+            $.post(url,{'uins':qq},function (json) {
+                console.log(json);
             });
         }
         function postForm(){

@@ -102,6 +102,7 @@ class AdminController extends Controller
     //QQ登录授权第二步
     public function qq_login(Request $request)
     {
+        dd($request);
         $client_id = '101523010';
         $client_secret = 'ac7d4e7a120f907e69df29799619cc47';
         $code = $request->get('code');
@@ -110,7 +111,6 @@ class AdminController extends Controller
         //请求地址
         $url = "https://graph.qq.com/oauth2.0/token?grant_type=authorization_code&client_id={$client_id}&client_secret={$client_secret}&code={$code}&redirect_uri={$redirect_uri}";
         $response = HttpCurl::doGet($url);
-        return $response;
         //获取access_token
         $data = explode('&',$response);
         $data = explode('=',$data[0]);

@@ -58,14 +58,13 @@
                     </div>
                 </div>
             </div>
-
+            <br><br>
             <div class="row">
                 <div class="col-lg-12">
 
                     <div class="ibox">
                         <div class="ibox-content">
                             <h3>马上批阅</h3>
-
                             <p class="small">
                                 评论该篇文章
                             </p>
@@ -81,7 +80,6 @@
                             <div class="text-right">
                                 <button type="submit" class="btn btn-sm btn-primary m-t-n-xs"><strong>发表评论</strong></button>
                             </div>
-
                         </div>
                     </div>
 

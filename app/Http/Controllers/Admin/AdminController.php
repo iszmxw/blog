@@ -105,6 +105,7 @@ class AdminController extends Controller
         $client_id = '101523010';
         $client_secret = 'ac7d4e7a120f907e69df29799619cc47';
         $code = $request->get('code');
+        //上一页地址
         $state = $request->get('state');
         //跳转回调地址
         $redirect_uri = 'http://blog.54zm.cn/admin/qq_login';

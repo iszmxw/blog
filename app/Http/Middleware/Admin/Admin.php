@@ -54,7 +54,6 @@ class Admin
             case '/admin/ajax/link_list_data_check';
             case '/admin/ajax/link_delete_check';
             case '/admin/ajax/link_list_add_check';
-            dd($request);
                 $re = self::CheckIsLoginAndHasRole($request);
                 return self::format_response($re,$next);
                 break;
@@ -76,6 +75,7 @@ class Admin
         $data = $request->session()->get('user_data');
         if ($data){
             $request->attributes->add(['user_data'=>$data]); //添加参数
+            dd($request);
             return self::RtData(1,$request);
         }else{
             if ($request->isMethod('post')) {

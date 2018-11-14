@@ -75,7 +75,6 @@ class Admin
         $data = $request->session()->get('user_data');
         if ($data){
             $request->attributes->add(['user_data'=>$data]); //添加参数
-            dd($request);
             return self::RtData(1,$request);
         }else{
             if ($request->isMethod('post')) {
@@ -83,8 +82,6 @@ class Admin
             } elseif ($request->isMethod('get')) {
                 return self::RtData(0,redirect('admin/login'));
             }
-
-
         }
     }
 

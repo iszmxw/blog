@@ -42,6 +42,31 @@ class Web
     //检测用户是否QQ登录
     public static function User_qq($request)
     {
+        $data = $request->session()->get('qq_data');
+        if ($data){
+            $request->attributes->add(['user_data'=>$data]); //添加参数
+            return self::RtData(1,$request);
+        }else{
+            if ($request->isMethod('post')) {
+                return self::RtJson(0,'请先登录后再操作!');
+            } elseif ($request->isMethod('get')) {
+                return self::RtData(0,redirect('admin/login'));
+            }
+        }
         dd(1,$request);
+    }
+
+
+    //返回结果
+    public static function RtData($status,$data)
+    {
+        return ['status'=>$status,'data'=>$data];
+    }
+
+
+    //返回Json数据
+    public static function RtJson($status,$data)
+    {
+        return response()->json(['status'=>$status,'data'=>$data]);
     }
 }

@@ -64,7 +64,7 @@
 
                     <div class="form-group">
                         <label>评论:</label>
-                        <textarea class="form-control" placeholder="评论内容" rows="3"></textarea>
+                        <textarea class="form-control" placeholder="评论内容" rows="5"></textarea>
                     </div>
                     @foreach($comment as $val)
                         <div class="social-feed-box">

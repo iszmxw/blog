@@ -153,7 +153,7 @@ class AdminController extends Controller
             session(['qq_data'=>$user_qq_data]);
             $request->attributes->add(['qq_data'=>$user_qq_data]); //添加参数
         }
-        return redirect('admin/qq_login_auth');
+        return redirect(url()->previous());
     }
 
     public function quit()

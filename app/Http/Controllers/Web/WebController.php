@@ -77,6 +77,7 @@ class WebController extends Controller
     public function comment_api(Request $request)
     {
         $user_data = $request->get('qq_data');
+        $gid = $request->get('gid');
         $qq = $request->get('qq');
         $url = $request->get('url');
         $comment = $request->get('comment');

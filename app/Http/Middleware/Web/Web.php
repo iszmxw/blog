@@ -48,6 +48,7 @@ class Web
             return self::RtData(1,$request);
         }else{
             if ($request->isMethod('post')) {
+                dd($data);
                 return self::RtJson(0,'请先登录后再操作!');
             } elseif ($request->isMethod('get')) {
                 return redirect('admin/login');

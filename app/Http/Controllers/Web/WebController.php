@@ -71,4 +71,11 @@ class WebController extends Controller
     {
         return view('web.default_template.about');
     }
+
+
+    //前台评论留言
+    public function comment_api(Request $request)
+    {
+        dd($request);
+    }
 }

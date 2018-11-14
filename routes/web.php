@@ -16,6 +16,15 @@ Route::middleware('web_common')->namespace('Web')->group(function () {
     Route::get('article/{article_id}', 'WebController@article');
     Route::get('category/{category_id}', 'WebController@category');
     Route::get('about', 'WebController@about');
+
+
+    Route::prefix('blog')->group(function () {
+        //api
+        Route::prefix('api')->group(function () {
+            Route::get('comment', 'WebController@comment_api');
+        });
+    });
+
 });
 
 

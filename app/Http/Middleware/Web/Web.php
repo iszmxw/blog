@@ -25,7 +25,8 @@ class Web
                 self::Navdata($request);
                 break;
             case '/blog/api/comment';
-                return self::User_qq($request);
+                $re = self::User_qq($request);
+                return self::format_response($re,$next);
                 break;
         }
         return $next($request);
@@ -67,5 +68,15 @@ class Web
     public static function RtJson($status,$data)
     {
         return response()->json(['status'=>$status,'data'=>$data]);
+    }
+
+    //格式化返回值
+    public static function format_response($re, Closure $next)
+    {
+        if ($re['status'] == '0') {
+            return $re['data'];
+        } else {
+            return $next($re['data']);
+        }
     }
 }

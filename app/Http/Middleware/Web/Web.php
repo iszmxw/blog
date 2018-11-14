@@ -43,7 +43,6 @@ class Web
     public static function User_qq($request)
     {
         $data = session()->get('qq_data');
-        dd($data);
         if ($data){
             $request->attributes->add(['user_data'=>$data]); //添加参数
             return self::RtData(1,$request);

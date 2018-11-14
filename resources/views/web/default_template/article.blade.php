@@ -72,6 +72,7 @@
                                 评论该篇文章
                             </p>
                             <form  action="{{url('blog/api/comment')}}" id="currentForm">
+                                {{csrf_field()}}
                                 <div class="form-group">
                                     <label>您的QQ</label>
                                     <input type="number" class="form-control" name="qq" placeholder="留下你的QQ号，方便联系！">

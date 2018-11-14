@@ -144,8 +144,14 @@ class AdminController extends Controller
         }elseif(empty($qq_id)){
             $user_qq_data['openid'] = $openid;
             Userqq::create($user_qq_data);
+            //用户登录留言使用
+            session(['qq_data'=>$user_qq_data]);
+            $request->attributes->add(['qq_data'=>$user_qq_data]); //添加参数
         }else{
             Userqq::EditData(['openid'=>$openid],$user_qq_data);
+            //用户登录留言使用
+            session(['qq_data'=>$user_qq_data]);
+            $request->attributes->add(['qq_data'=>$user_qq_data]); //添加参数
         }
         return redirect('admin/qq_login_auth');
     }

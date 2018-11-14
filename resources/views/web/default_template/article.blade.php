@@ -72,6 +72,7 @@
                                 评论该篇文章
                             </p>
                             <form  action="{{url('blog/api/comment')}}" id="currentForm">
+                                <input type="hidden" name="gid" value="{{ $blog['gid'] }}">
                                 {{csrf_field()}}
                                 <div class="form-group">
                                     <label>您的QQ</label>

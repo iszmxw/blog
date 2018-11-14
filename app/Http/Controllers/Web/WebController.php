@@ -76,6 +76,30 @@ class WebController extends Controller
     //前台评论留言
     public function comment_api(Request $request)
     {
-        dd($request);
+        $user_data = $request->get('qq_data');
+        $qq = $request->get('qq');
+        $url = $request->get('url');
+        $comment = $request->get('comment');
+        $data = [
+            'gid' => $gid,
+            'pid' => '0',
+            'date' => time(),
+            'poster' => $user_data['nickname'],
+            'comment' => $comment,
+            'mail' => $qq.'@qq.com',
+            'url' => $url,
+            'ip' => $user_data['nickname'],
+        ];
+        //数据库事物回滚
+        DB::beginTransaction();
+        try {
+            Comment::create($data);
+            DB::commit();
+            return response()->json(['data'=>'发表评论成功！','status'=>'1']);
+        } catch (\Exception $e) {
+            dd($e);
+            DB::rollBack();//事件回滚
+            return response()->json(['data'=>'发表失败，请稍后再试！','status'=>'0']);
+        }
     }
 }

@@ -24,6 +24,9 @@ class Web
             case '/article/'.$article_id;
                 self::Navdata($request);
                 break;
+            case '/blog/api/comment';
+                self::User_qq($request);
+                break;
         }
         return $next($request);
     }
@@ -34,5 +37,11 @@ class Web
         $nav = Navi::get_select(['hide'=>'n'],['naviname','url','newtab'],'taxis','ASC')->toArray();
         $request->attributes->add(['nav'=>$nav]);
         return $request;
+    }
+
+    //检测用户是否QQ登录
+    public static function User_qq($request)
+    {
+        dd(1,$request);
     }
 }

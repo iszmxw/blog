@@ -43,12 +43,12 @@ class Web
     public static function User_qq($request)
     {
         $data = $request->session()->get('qq_data');
-        dd($data);
         if ($data){
             $request->attributes->add(['user_data'=>$data]); //添加参数
             return self::RtData(1,$request);
         }else{
             if ($request->isMethod('post')) {
+                dd(222);
                 return self::RtJson(0,'请先登录后再操作!');
             } elseif ($request->isMethod('get')) {
                 return self::RtData(0,redirect('admin/login'));

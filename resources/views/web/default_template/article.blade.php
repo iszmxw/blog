@@ -76,7 +76,7 @@
                                 {{csrf_field()}}
                                 <div class="form-group">
                                     <label>您的QQ</label>
-                                    <input type="number" class="form-control" name="qq" placeholder="留下你的QQ号，方便联系！">
+                                    <input type="number" class="form-control" name="qq" id="qq" placeholder="留下你的QQ号，方便联系！" onfocus="check_user()">
                                 </div>
                                 <div class="form-group">
                                     <label>您的主页地址</label>
@@ -142,6 +142,13 @@
     <script src="{{asset('style/admin/inspinia/js/plugins/sweetalert/sweetalert.min.js')}}"></script>
     <script>
 
+        function check_user() {
+            var qq = $("#qq").val();
+            var url = 'http://users.qzone.qq.com/fcg-bin/cgi_get_portrait.fcg';
+            $.post(url,{'uins':qq},function (json) {
+                console.log(json);
+            });
+        }
         function postForm(){
             var url = $("#currentForm").attr('action');
             var data = $("#currentForm").serialize();

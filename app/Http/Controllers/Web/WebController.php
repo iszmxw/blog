@@ -63,9 +63,6 @@ class WebController extends Controller
         $blog['tags'] = Tag::getList([['gid','like','%,'.$blog['gid'].',%']]);
         $comment = Comment::where(['gid'=>$article_id])->get()->toArray();
         $blog['comment'] = Comment::where(['gid'=>$article_id])->count();
-//        foreach($comment as $key=>$val){
-//            $val['sub_comment'] =
-//        }
         $data = ['nav'=>$nav,'blog'=>$blog,'comment'=>$comment];
         return view('web.default_template.article',$data);
     }

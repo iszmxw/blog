@@ -86,7 +86,7 @@ class WebController extends Controller
         $qq = $request->get('qq');
         $url = $request->get('url');
         $comment = $request->get('comment');
-        $ip = $request->getClientIps();
+        $ip = $request->getClientIp();
         $data = [
             'gid' => $gid,
             'pid' => '0',

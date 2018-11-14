@@ -63,79 +63,26 @@
                 <div class="col-lg-12">
 
                     <h2>评论:</h2>
-                    <div class="social-feed-box">
+                    @foreach($comment as $val)
+                        <div class="social-feed-box">
                         <div class="social-avatar">
-                            <a href="" class="pull-left">
-                                <img alt="image" src="img/a1.jpg">
+                            <a href="{{$val['url']}}" class="pull-left">
+                                <img alt="image" src="http://q1.qlogo.cn/g?b=qq&nk={{$val['mail']}}&s=640">
                             </a>
                             <div class="media-body">
                                 <a href="#">
-                                    小明
+                                    {{$val['poster']}}
                                 </a>
-                                <small class="text-muted">今天下午2017.12.12 4:21</small>
+                                <small class="text-muted">{{date('Y-m-d H:i:s',$val['date'])}}</small>
                             </div>
                         </div>
                         <div class="social-body">
                             <p>
-                                时间是一切财富中最宝贵的财富。
+                                {{$val['comment']}}
                             </p>
                         </div>
                     </div>
-                    <div class="social-feed-box">
-                        <div class="social-avatar">
-                            <a href="" class="pull-left">
-                                <img alt="image" src="img/a2.jpg">
-                            </a>
-                            <div class="media-body">
-                                <a href="#">
-                                    小红
-                                </a>
-                                <small class="text-muted">今天下午2017.12.12 4:21</small>
-                            </div>
-                        </div>
-                        <div class="social-body">
-                            <p>
-                                时间是一切财富中最宝贵的财富。
-                            </p>
-                        </div>
-                    </div>
-                    <div class="social-feed-box">
-                        <div class="social-avatar">
-                            <a href="" class="pull-left">
-                                <img alt="image" src="img/a3.jpg">
-                            </a>
-                            <div class="media-body">
-                                <a href="#">
-                                    小黑
-                                </a>
-                                <small class="text-muted">今天下午2017.12.12 4:21</small>
-                            </div>
-                        </div>
-                        <div class="social-body">
-                            <p>
-                                时间是一切财富中最宝贵的财富。
-                            </p>
-                        </div>
-                    </div>
-                    <div class="social-feed-box">
-                        <div class="social-avatar">
-                            <a href="" class="pull-left">
-                                <img alt="image" src="img/a5.jpg">
-                            </a>
-                            <div class="media-body">
-                                <a href="#">
-                                    小白
-                                </a>
-                                <small class="text-muted">今天下午2017.12.12 4:21</small>
-                            </div>
-                        </div>
-                        <div class="social-body">
-                            <p>
-                                时间是一切财富中最宝贵的财富。
-                            </p>
-                        </div>
-                    </div>
-
+                    @endforeach
 
                 </div>
             </div>

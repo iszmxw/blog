@@ -62,6 +62,9 @@ class WebController extends Controller
         $blog['sortname'] = Sort::getValue(['sid'=>$blog['sortid']],'sortname');
         $blog['tags'] = Tag::getList([['gid','like','%,'.$blog['gid'].',%']]);
         $data['comment'] = Comment::where(['gid'=>$article_id])->get();
+//        foreach($comment as $key=>$val){
+//            $val['sub_comment'] =
+//        }
         dump($data);
         $data = ['nav'=>$nav,'blog'=>$blog];
         return view('web.default_template.article',$data);

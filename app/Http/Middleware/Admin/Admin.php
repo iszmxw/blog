@@ -54,11 +54,11 @@ class Admin
             case '/admin/ajax/link_list_data_check';
             case '/admin/ajax/link_delete_check';
             case '/admin/ajax/link_list_add_check';
+            dd($request);
                 $re = self::CheckIsLoginAndHasRole($request);
                 return self::format_response($re,$next);
                 break;
             case '/admin/login';
-            dd($request);
                 $data = $request->session()->get('user_data');
                 if ($data){//检测是否已经登录，已经登录就跳转
                     return redirect('admin');

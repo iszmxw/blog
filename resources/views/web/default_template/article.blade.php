@@ -78,6 +78,10 @@
                                     <input type="number" class="form-control" name="qq" placeholder="留下你的QQ号，方便联系！">
                                 </div>
                                 <div class="form-group">
+                                    <label>您的主页地址</label>
+                                    <input type="url" class="form-control" name="url" placeholder="您的主页地址！">
+                                </div>
+                                <div class="form-group">
                                     <label>内容</label>
                                     <textarea class="form-control" name="comment" placeholder="发表意见" rows="5"></textarea>
                                 </div>

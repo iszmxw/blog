@@ -76,7 +76,7 @@
                                 {{csrf_field()}}
                                 <div class="form-group">
                                     <label>您的QQ</label>
-                                    <input type="number" class="form-control" name="qq" id="qq" placeholder="留下你的QQ号，方便联系！" onfocus="check_user()">
+                                    <input type="number" class="form-control" name="qq" id="qq" placeholder="留下你的QQ号，方便联系！" onblur="check_user()">
                                 </div>
                                 <div class="form-group">
                                     <label>您的主页地址</label>

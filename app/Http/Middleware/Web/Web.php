@@ -50,6 +50,7 @@ class Web
             if ($request->isMethod('post')) {
                 return ['status'=>0,'data'=>'请先登录后再操作!'];
             } elseif ($request->isMethod('get')) {
+                dd(1);
                 return redirect('admin/login');
             }
         }

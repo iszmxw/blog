@@ -86,6 +86,7 @@ class WebController extends Controller
         $qq = $request->get('qq');
         $url = $request->get('url');
         $comment = $request->get('comment');
+        $ip = $request->getClientIps();
         $data = [
             'gid' => $gid,
             'pid' => '0',
@@ -94,7 +95,7 @@ class WebController extends Controller
             'comment' => $comment,
             'mail' => $qq.'@qq.com',
             'url' => $url,
-            'ip' => $user_data['nickname'],
+            'ip' => $ip,
         ];
         //数据库事物回滚
         DB::beginTransaction();

@@ -14,6 +14,7 @@
 Route::middleware('web_common')->namespace('Web')->group(function () {
     Route::get('/', 'WebController@index');
     Route::get('article/{article_id}', 'WebController@article');
+    Route::get('category/{category_id}', 'WebController@category');
     Route::get('about', 'WebController@about');
 });
 

@@ -61,7 +61,7 @@ class WebController extends Controller
         $blog['author'] = User::getValue(['uid'=>$blog['author']],'nickname');
         $blog['sortname'] = Sort::getValue(['sid'=>$blog['sortid']],'sortname');
         $blog['tags'] = Tag::getList([['gid','like','%,'.$blog['gid'].',%']]);
-        $data['comment'] = Comment::where(['gid'=>$article_id])->get();
+        $data['comment'] = Comment::where(['gid'=>$article_id])->get()->toArray();
 //        foreach($comment as $key=>$val){
 //            $val['sub_comment'] =
 //        }

@@ -18,7 +18,7 @@ class WebController extends Controller
     public function index(Request $request)
     {
         $nav = $request->get('nav');
-        $blog = Blog::getPaginate([],['gid','sortid','title','date','content','views'],'date','DESC',15);
+        $blog = Blog::getPaginate([],['gid','sortid','title','date','content','views'],'date','DESC',10);
         foreach($blog as $value){
             $value['date'] = date('Y-m-d H:i:s',$value['date']);
             $value['content'] = Tooling::tool_purecontent($value['content'],240);
@@ -37,7 +37,7 @@ class WebController extends Controller
     public function category(Request $request,$category_id)
     {
         $nav = $request->get('nav');
-        $blog = Blog::getPaginate(['sortid'=>$category_id],['gid','sortid','title','date','content','views'],'date','DESC',15);
+        $blog = Blog::getPaginate(['sortid'=>$category_id],['gid','sortid','title','date','content','views'],'date','DESC',10);
         foreach($blog as $value){
             $value['date'] = date('Y-m-d H:i:s',$value['date']);
             $value['content'] = Tooling::tool_purecontent($value['content'],240);

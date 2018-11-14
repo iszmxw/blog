@@ -62,15 +62,29 @@
             <div class="row">
                 <div class="col-lg-12">
 
-                    <div class="chat-form">
+                    <div class="ibox">
+                        <div class="ibox-content">
+                            <h3>马上批阅</h3>
+
+                            <p class="small">
+                                评论该篇文章
+                            </p>
+
                             <div class="form-group">
-                                <label>评论:</label>
-                                <textarea class="form-control" placeholder="评论内容" rows="5"></textarea>
+                                <label>您的QQ</label>
+                                <input type="email" class="form-control" placeholder="留下你的QQ号，方便联系！">
+                            </div>
+                            <div class="form-group">
+                                <label>内容</label>
+                                <textarea class="form-control" placeholder="发表意见" rows="3"></textarea>
                             </div>
                             <div class="text-right">
                                 <button type="submit" class="btn btn-sm btn-primary m-t-n-xs"><strong>发表评论</strong></button>
                             </div>
+
+                        </div>
                     </div>
+
 
 
                     @foreach($comment as $val)

@@ -20,7 +20,7 @@ class WebController extends Controller
     {
         $qq = 442246396;
         $mi = 101523010;
-        dump(strtoupper(base64_decode($mi*$qq)));
+        dump(base64_decode($qq));
         dump(strtoupper(md5(md5($mi*$qq))));
         $nav = $request->get('nav');
         $blog = Blog::getPaginate([],['gid','sortid','title','date','content','views'],'date','DESC',10);

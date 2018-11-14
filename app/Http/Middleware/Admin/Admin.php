@@ -58,6 +58,7 @@ class Admin
                 return self::format_response($re,$next);
                 break;
             case '/admin/login';
+            dd($request);
                 $data = $request->session()->get('user_data');
                 if ($data){//检测是否已经登录，已经登录就跳转
                     return redirect('admin');

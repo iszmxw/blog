@@ -62,7 +62,10 @@
             <div class="row">
                 <div class="col-lg-12">
 
-                    <div class="ibox">
+                    @if($blog['comment'] > 0)
+                    <div class="col-lg-6">
+                    @endif
+                        <div class="ibox">
                         <div class="ibox-content">
                             <h3>马上批阅</h3>
                             <p class="small">
@@ -82,9 +85,15 @@
                             </div>
                         </div>
                     </div>
+                    @if($blog['comment'] > 0)
+                    </div>
+                    @endif
 
 
 
+                    @if($blog['comment'] > 0)
+                    <div class="col-lg-6">
+                    @endif
                     @foreach($comment as $val)
                         <div class="social-feed-box">
                         <div class="social-avatar">
@@ -109,6 +118,9 @@
                         </div>
                     </div>
                     @endforeach
+                    @if($blog['comment'] > 0)
+                    </div>
+                    @endif
 
                 </div>
             </div>

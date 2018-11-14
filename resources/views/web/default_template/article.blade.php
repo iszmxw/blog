@@ -135,6 +135,7 @@
 {{--js引用--}}
 @section('script')
     <script>
+
         function postForm(){
             var url = $("#currentForm").attr('action');
             var data = $("#currentForm").serialize();

@@ -75,7 +75,7 @@
                             </div>
                             <div class="form-group">
                                 <label>内容</label>
-                                <textarea class="form-control" placeholder="发表意见" rows="3"></textarea>
+                                <textarea class="form-control" placeholder="发表意见" rows="5"></textarea>
                             </div>
                             <div class="text-right">
                                 <button type="submit" class="btn btn-sm btn-primary m-t-n-xs"><strong>发表评论</strong></button>

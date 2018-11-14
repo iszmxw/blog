@@ -33,6 +33,25 @@ class WebController extends Controller
         return view('web.default_template.index',$data);
     }
 
+    //栏目页面
+    public function category(Request $request)
+    {
+        $nav = $request->get('nav');
+        $blog = Blog::getPaginate([],['gid','sortid','title','date','content','views'],'date','DESC',15);
+        foreach($blog as $value){
+            $value['date'] = date('Y-m-d H:i:s',$value['date']);
+            $value['content'] = Tooling::tool_purecontent($value['content'],240);
+            $value['sortname'] = Sort::getValue(['sid'=>$value['sortid']],'sortname');
+            $value['comments'] = Comment::where(['gid'=>$value['gid']])->count();
+            //取第一张图片作为缩略图
+            if($value['thumb'] = Attachment::getOne([['blogid',$value['gid']],['mimetype','like','%'.'image/'.'%']])){
+                $value['thumb'] = $value['thumb']['filepath'];
+            }
+        }
+        $data = ['nav'=>$nav,'blog'=>$blog];
+        return view('web.default_template.category',$data);
+    }
+
     //文章页面
     public function article(Request $request,$article_id)
     {

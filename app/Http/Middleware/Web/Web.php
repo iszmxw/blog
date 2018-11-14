@@ -53,7 +53,6 @@ class Web
                 return self::RtData(0,redirect('admin/login'));
             }
         }
-        dd(1,$request);
     }
 
 

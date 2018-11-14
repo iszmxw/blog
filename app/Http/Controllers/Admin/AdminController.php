@@ -102,10 +102,10 @@ class AdminController extends Controller
     //QQ登录授权第二步
     public function qq_login(Request $request)
     {
-        dd($request);
         $client_id = '101523010';
         $client_secret = 'ac7d4e7a120f907e69df29799619cc47';
         $code = $request->get('code');
+        $state = $request->get('state');
         //跳转回调地址
         $redirect_uri = 'http://blog.54zm.cn/admin/qq_login';
         //请求地址
@@ -155,7 +155,7 @@ class AdminController extends Controller
             session(['qq_data'=>$user_qq_data]);
             $request->attributes->add(['qq_data'=>$user_qq_data]); //添加参数
         }
-        return redirect(url()->previous());
+        return redirect($state);
     }
 
     public function quit()

@@ -74,11 +74,11 @@
                             <form  action="{{url('blog/api/comment')}}" id="currentForm">
                                 <div class="form-group">
                                     <label>您的QQ</label>
-                                    <input type="email" class="form-control" placeholder="留下你的QQ号，方便联系！">
+                                    <input type="number" class="form-control" name="qq" placeholder="留下你的QQ号，方便联系！">
                                 </div>
                                 <div class="form-group">
                                     <label>内容</label>
-                                    <textarea class="form-control" placeholder="发表意见" rows="5"></textarea>
+                                    <textarea class="form-control" name="comment" placeholder="发表意见" rows="5"></textarea>
                                 </div>
                                 <div class="text-right">
                                     <button type="button" class="btn btn-sm btn-primary m-t-n-xs" onclick="postForm()"><strong>发表评论</strong></button>
@@ -135,7 +135,11 @@
 @section('script')
     <script>
         function postForm(){
-
+            var url = $("#currentForm").attr('action');
+            var data = $("#currentForm").serialise();
+            $.post(url,data,function(json){
+                console.log(json);
+            });
         }
     </script>
 @endsection

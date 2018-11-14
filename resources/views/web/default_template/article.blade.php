@@ -62,10 +62,17 @@
             <div class="row">
                 <div class="col-lg-12">
 
-                    <div class="form-group">
-                        <label>评论:</label>
-                        <textarea class="form-control" placeholder="评论内容" rows="5"></textarea>
+                    <div class="chat-form">
+                            <div class="form-group">
+                                <label>评论:</label>
+                                <textarea class="form-control" placeholder="评论内容" rows="5"></textarea>
+                            </div>
+                            <div class="text-right">
+                                <button type="submit" class="btn btn-sm btn-primary m-t-n-xs"><strong>评论</strong></button>
+                            </div>
                     </div>
+
+
                     @foreach($comment as $val)
                         <div class="social-feed-box">
                         <div class="social-avatar">

@@ -53,7 +53,7 @@
                 <div class="col-md-6">
                     <div class="small text-right">
                         <h5>统计:</h5>
-                        <div> <i class="fa fa-comments-o"> </i> 56 评论 </div>
+                        <div> <i class="fa fa-comments-o"> </i> {{$blog['comment']}} 评论 </div>
                         <i class="fa fa-eye"> </i> {{$blog['views']}} 查看
                     </div>
                 </div>

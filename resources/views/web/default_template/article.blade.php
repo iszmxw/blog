@@ -153,7 +153,7 @@
             var url = $("#currentForm").attr('action');
             var data = $("#currentForm").serialize();
             $.post(url,data,function(json){
-                if(json.status==0){
+                if(json.status==0){//未登录
                     swal({
                         title: "提示信息",
                         text: json.data,

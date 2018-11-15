@@ -51,8 +51,7 @@ class Web
             if ($request->isMethod('post')) {
                 return self::RtData(0,"请先登录后再操作!");
             } elseif ($request->isMethod('get')) {
-                dd(1);
-                return redirect('admin/login');
+                return self::RtData(1,redirect('admin/login'));
             }
         }
     }
@@ -76,7 +75,7 @@ class Web
     {
         if ($re['status'] == '0') {
             dd($re);
-            return $re;
+            return $re['status'];
         } else {
             return $next($re['data']);
         }

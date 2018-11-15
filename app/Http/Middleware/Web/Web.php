@@ -27,8 +27,7 @@ class Web
             case '/blog/api/comment';
                 $re = self::User_qq($request);
                 $res=self::format_response($re,$next);
-                dd($res);
-                return $res;
+                return response()->json(['status'=>'0','data'=>'asasasasasasas']);
                 break;
         }
         return $next($request);

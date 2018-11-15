@@ -26,7 +26,7 @@ class Web
                 break;
             case '/blog/api/comment';
                 $re = self::User_qq($request);
-                return self::format_response($re,$next);
+                self::format_response($re,$next);
                 break;
         }
         return $next($request);

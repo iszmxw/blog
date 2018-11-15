@@ -26,8 +26,7 @@ class Web
                 break;
             case '/blog/api/comment';
                 $re = self::User_qq($request);
-                $res=self::format_response($re,$next);
-                return response()->json(['status'=>'0','data'=>'asasasasasasas']);
+                return self::format_response($re,$next);
                 break;
         }
         return $next($request);
@@ -76,7 +75,7 @@ class Web
     public static function format_response($re, Closure $next)
     {
         if ($re['status'] == '0') {
-            return $re['data'];
+            return response()->json($re['data']);
         } else {
             return $next($re['data']);
         }

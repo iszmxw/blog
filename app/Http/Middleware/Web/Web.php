@@ -70,6 +70,7 @@ class Web
         return response()->json(['status'=>$status,'data'=>$data]);
     }
 
+
     //格式化返回值
     public static function format_response($re, Closure $next)
     {

@@ -74,9 +74,7 @@ class Web
     //格式化返回值
     public static function format_response($re, Closure $next)
     {
-        dd($re);
         if ($re['status'] == '0') {
-            dd($re['data']);
             return $re['data'];
         } else {
             return $next($re['data']);

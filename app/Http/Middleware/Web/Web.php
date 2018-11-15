@@ -75,6 +75,7 @@ class Web
     public static function format_response($re, Closure $next)
     {
         if ($re['status'] == '0') {
+            dd($re['data']);
             return $re['data'];
         } else {
             return $next($re['data']);

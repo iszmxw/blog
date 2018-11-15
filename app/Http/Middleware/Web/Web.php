@@ -49,7 +49,7 @@ class Web
             return self::RtData(1,$request);
         }else{
             if ($request->isMethod('post')) {
-                return self::RtJson(0,'请先登录后再操作!');
+                return self::RtData(0,"请先登录后再操作!");
             } elseif ($request->isMethod('get')) {
                 return redirect('admin/login');
             }
@@ -73,7 +73,6 @@ class Web
     //格式化返回值
     public static function format_response($re, Closure $next)
     {
-        dd($re['status']);
         if ($re['status'] == '0') {
             return $re['data'];
         } else {

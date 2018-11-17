@@ -36,7 +36,7 @@ class Web
     public static function Navdata($request)
     {
         $nav = Navi::get_select(['hide'=>'n'],['naviname','url','newtab'],'taxis','ASC')->toArray();
-        dump($nav);
+//        dump($nav);
         $request->attributes->add(['nav'=>$nav]);
         return $request;
     }

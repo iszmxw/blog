@@ -19,10 +19,10 @@ class Web
         //获取路由中的参数，文章id
         $article_id = $request->route('article_id');
         $route = $request->getPathInfo();
+        self::Navdata($request); //添加菜单
         switch ($route){
             case '/';
             case '/article/'.$article_id;
-                self::Navdata($request);
                 break;
             case '/blog/api/comment';
                 $re = self::User_qq($request);
@@ -36,6 +36,7 @@ class Web
     public static function Navdata($request)
     {
         $nav = Navi::get_select(['hide'=>'n'],['naviname','url','newtab'],'taxis','ASC')->toArray();
+        dump($nav);
         $request->attributes->add(['nav'=>$nav]);
         return $request;
     }

@@ -54,6 +54,7 @@
 								<table class="table table-striped">
 									<thead>
 									<tr>
+										<th>id</th>
 										<th>序号</th>
 										<th>分类名称</th>
 										<th>描述</th>
@@ -67,6 +68,7 @@
 									<tbody>
 									@foreach($list as $value)
 										<tr>
+											<td>{{$value['sid']}}</td>
 											<td><input type="text" value="{{$value['taxis']}}" class="form-control"></td>
 											<td>{{$value['sortname']}}</td>
 											<td>{{$value['description']}}</td>

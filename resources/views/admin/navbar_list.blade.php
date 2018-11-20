@@ -181,8 +181,13 @@
 							<div class="tab-content">
 								<div id="tab-1" class="tab-pane active">
 									<div class="panel-body">
-										<label class="control-label">地址</label>
-										<input type="text" placeholder="地址" name="url" id="url" class="form-control">
+										<label class="control-label">系统地址</label>
+										<select class="form-control m-b" name="url" id="url">
+											<option>请选择</option>
+											@foreach($category as $val)
+											<option value="{{ $val['sid'] }}">{{ $val['sortname'] }}</option>
+											@endforeach
+										</select>
 									</div>
 								</div>
 								<div id="tab-2" class="tab-pane">

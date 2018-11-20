@@ -90,9 +90,11 @@ class CategoryController extends Controller
     //首页导航栏列表
     public function navbar_list(Request $request)
     {
-        $user_data = $request->get('user_data');
-        $list = Navi::getPaginate([],'taxis','ASC',10);
-        return view('admin.navbar_list',['user_data'=>$user_data,'list'=>$list]);
+        $data['user_data'] = $request->get('user_data');
+        $data['list'] = Navi::getPaginate([],'taxis','ASC',10);
+        $data['category'] = Sort::getList([]);
+        dump($data['category']);
+        return view('admin.navbar_list',$data);
     }
 
     //添加导航栏数据

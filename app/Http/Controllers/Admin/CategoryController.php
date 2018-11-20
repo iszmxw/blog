@@ -93,7 +93,7 @@ class CategoryController extends Controller
         $data['user_data'] = $request->get('user_data');
         $data['list'] = Navi::getPaginate([],'taxis','ASC',10);
         $data['category'] = Sort::getList([]);
-        dump($data['category']);
+//        dump($data['category']);
         return view('admin.navbar_list',$data);
     }
 

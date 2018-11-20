@@ -183,7 +183,7 @@
 									<div class="panel-body">
 										<label class="control-label">系统地址</label>
 										<select class="form-control m-b" name="url" id="url">
-											<option value="0" selected>请选择</option>
+											<option value="0" selected="selected">请选择</option>
 											@foreach($category as $val)
 											<option value="{{ $val['sid'] }}">{{ $val['sortname'] }}</option>
 											@endforeach

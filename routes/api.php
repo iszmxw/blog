@@ -21,5 +21,6 @@ Route::group(['namespace'=>'Api'],function(){
     Route::group(['prefix'=>'wechat'],function(){
         //token基本配置
         Route::any('token','WechatController@token');
+        Route::any('getAccessToken','WechatController@getAccessToken');
     });
 });

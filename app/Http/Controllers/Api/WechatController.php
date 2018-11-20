@@ -25,11 +25,19 @@ class WechatController extends Controller
         sort($tmpArr, SORT_STRING);
         $tmpStr = implode( $tmpArr );
         $tmpStr = sha1( $tmpStr );
-
         if( $signature == $tmpStr ){
             echo $echostr;
         }else{
             return false;
         }
+    }
+
+    public function getAccessToken(Request $request)
+    {
+        $APPID = config('wechat.AppID');
+        $APPSECRET = config('wechat.AppSecret');
+        $url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={$APPID}&secret={$APPSECRET}";
+        $re = HttpCurl::doGet($url);
+        return $re;
     }
 }

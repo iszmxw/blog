@@ -18,6 +18,6 @@ use Illuminate\Http\Request;
 //});
 Route::group(['namespace'=>'Api'],function(){
     Route::group(['prefix'=>'wechat'],function(){
-        Route::get('token','WechatController@index');
+        Route::get('token','WechatController@token');
     });
 });

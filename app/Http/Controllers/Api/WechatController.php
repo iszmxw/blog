@@ -16,5 +16,20 @@ class WechatController extends Controller
     //token
     public function token(Request $request)
     {
+        $signature = $request->get('signature');
+        $timestamp = $request->get('timestamp');
+        $nonce = $request->get('nonce');
+        $echostr = $request->get('echostr');
+        $token = 'iszmxw';
+        $tmpArr = array($token,$timestamp, $nonce);
+        sort($tmpArr, SORT_STRING);
+        $tmpStr = implode( $tmpArr );
+        $tmpStr = sha1( $tmpStr );
+
+        if( $signature == $tmpStr ){
+            return true;
+        }else{
+            return false;
+        }
     }
 }

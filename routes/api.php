@@ -17,7 +17,9 @@ use Illuminate\Http\Request;
 //    return $request->user();
 //});
 Route::group(['namespace'=>'Api'],function(){
+    //微信订阅号(aszmxw)
     Route::group(['prefix'=>'wechat'],function(){
-        Route::get('token','WechatController@token');
+        //token基本配置
+        Route::any('token','WechatController@token');
     });
 });

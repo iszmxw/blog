@@ -275,7 +275,7 @@
             if (json.status == '1'){
                 $("#id").val(json.data.id);
                 $("#naviname").val(json.data.naviname);
-                $("#url").val(json.data.url);
+                // $("#url").val(json.data.url);
                 if (json.data.hide == 'y'){
                     $("#hide").attr("selected",true);
                     $("#hide").parent().addClass("checked");

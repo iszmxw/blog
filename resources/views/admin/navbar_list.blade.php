@@ -125,6 +125,15 @@
 				</div>
 				<div class="modal-body">
 					<div class="form-group">
+						<label class="control-label">上级导航栏</label>
+						<select class="form-control m-b" name="pid">
+							<option value="0" selected="selected">请选择</option>
+							@foreach($navi as $val)
+								<option value="{{ $val['id'] }}">{{ $val['naviname'] }}</option>
+							@endforeach
+						</select>
+					</div>
+					<div class="form-group">
 						<label class="control-label">导航栏名称</label>
 						<input type="text" placeholder="导航栏名称" name="naviname" class="form-control">
 					</div>

@@ -13,13 +13,11 @@ class HttpCurl
     {
         //初始化
         $ch = curl_init();
-        $head = array(
-            "Content-Type: application/json;charset=UTF-8"
-        );
+
         curl_setopt($ch, CURLOPT_URL, $url);
         // 执行后不直接打印出来
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_HEADER, 'Content-Type: application/json;charset=GB2312');
         // 跳过证书检查
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         // 不从证书中检查SSL加密算法是否存在
@@ -74,7 +72,7 @@ class HttpCurl
      * @param bool $debug
      * @return mixed
      */
-    public static function httpRequest($url, $method, $postData = [], $headers = [], $ssl = false, $ssl_config = [], $debug = false)
+    public function httpRequest($url, $method, $postData = [], $headers = [], $ssl = false, $ssl_config = [], $debug = false)
     {
         // 将方法统一换成大写
         $method = strtoupper($method);

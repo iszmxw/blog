@@ -6,6 +6,7 @@ $(document).ready(function () {
         focus: true
     });
 });
+
 $.fn.serializeObject = function() {
     var o = {};
     var a = this.serializeArray();

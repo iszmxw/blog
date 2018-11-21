@@ -45,6 +45,7 @@ class Web
         foreach ($nav as $key=>$val){
             $val['sub_menu'] = Navi::get_select(['pid'=>$val['id'],'hide'=>'n'],['id','naviname','url','newtab'],'taxis','ASC')->toArray();
         }
+        dump($nav);
         $request->attributes->add(['nav'=>$nav]);
         return $request;
     }

@@ -150,14 +150,27 @@ class CategoryController extends Controller
     {
         $id = $request->get('id');
         $naviname = $request->get('naviname');
-        $url = $request->get('url');
         $hide = $request->get('hide');
         $newtab = $request->get('newtab');
+
+        $system_url = $request->get('system_url');
+        $url = $request->get('url');
+        $url_type = $request->get('url_type');
         if(!$naviname)return response()->json(['data'=>'请输入导航栏名称','status'=>'0']);
+        if($url_type == 1){
+            if(!$system_url)return response()->json(['data'=>'请选择系统地址','status'=>'0']);
+            $category_url = config('app.url').'/category/'.$system_url;
+            $data['type_id'] = $system_url;
+        }else{
+            if(!$url)return response()->json(['data'=>'请输入链接地址','status'=>'0']);
+            $category_url = $url;
+            $data['type_id'] = 0;
+        }
         $data['naviname'] = $naviname;
-        if ($url)$data['url'] = $url;
-        if ($hide)$data['hide'] = $hide;
-        if ($newtab)$data['newtab'] = $newtab;
+        $data['url'] = $category_url;
+        $data['hide'] = $hide;
+        $data['newtab'] = $newtab;
+        $data['type'] = $url_type;
         DB::beginTransaction();
         try{
             Navi::EditData(['id'=>$id],$data);

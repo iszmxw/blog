@@ -85,7 +85,7 @@
                                         <td><span class="label label-primary">{{$value['ip_position']}}</span></td>
                                         <td><span class="label label-success">{{$value['num']}}</span></td>
                                         <td>{{$value['created_at']}}</td>
-                                        <td>{{date('Y-m-d H:i:s',$value['updated_at'])}}</td>
+                                        <td>{{$value['updated_at']}}</td>
                                     </tr>
                                     @endforeach
                                     </tbody>

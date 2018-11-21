@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware\Web;
 
+use App\Library\IpAddress;
 use App\Models\Navi;
 use Closure;
 
@@ -16,6 +17,9 @@ class Web
      */
     public function handle($request, Closure $next)
     {
+        $ip = $request->getClientIp();
+        $address = IpAddress::address($ip);
+        return $address;
         //获取路由中的参数，文章id
         $article_id = $request->route('article_id');
         $route = $request->getPathInfo();

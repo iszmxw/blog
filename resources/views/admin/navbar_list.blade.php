@@ -192,7 +192,7 @@
 				<input type="hidden" name="url_type" id="url_type" value="1">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-					<h4 class="modal-title">编辑导航栏</h4>
+					<h4 class="modal-title">编辑导航栏是</h4>
 				</div>
 				<div class="modal-body">
 					<div class="form-group">

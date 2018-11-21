@@ -209,10 +209,10 @@
 								<div id="tab-1" class="tab-pane active">
 									<div class="panel-body">
 										<label class="control-label">系统地址</label>
-										<select class="form-control m-b" name="system_url" id="system_url" onchange="SetType(1)">
+										<select class="form-control m-b" name="system_url" onchange="SetType(1)">
 											<option value="0" selected="selected">请选择</option>
 											@foreach($category as $val)
-											<option value="{{ $val['sid'] }}">{{ $val['sortname'] }}</option>
+												<option value="{{ $val['sid'] }}">{{ $val['sortname'] }}</option>
 											@endforeach
 										</select>
 									</div>
@@ -220,7 +220,7 @@
 								<div id="tab-2" class="tab-pane">
 									<div class="panel-body">
 										<label class="control-label">地址</label>
-										<input type="text" placeholder="地址" name="url" id="url" class="form-control" onblur="SetType(2)">
+										<input type="text" placeholder="地址" name="url" class="form-control" onblur="SetType(2)">
 									</div>
 								</div>
 							</div>

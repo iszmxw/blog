@@ -16,10 +16,12 @@ function add_data(){
         if (json.status == -1) {
             window.location.reload();
         } else if(json.status == 1) {
+            console.log(data);
+            console.log(json);
             toastr.success(json.data);
-            setInterval(function(){
-                window.location.reload();
-            },3000);
+            // setInterval(function(){
+            //     window.location.reload();
+            // },3000);
             return false;
         }else{
             toastr.error(json.data);

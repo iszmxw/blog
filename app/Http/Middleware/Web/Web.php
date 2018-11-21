@@ -19,6 +19,7 @@ class Web
     {
         $ip = $request->getClientIp();
         $address = IpAddress::address($ip);
+        dd($address);
         echo $address;exit;
         //获取路由中的参数，文章id
         $article_id = $request->route('article_id');

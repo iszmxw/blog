@@ -13,7 +13,9 @@ class HttpCurl
     {
         //初始化
         $ch = curl_init();
-
+        $head = array(
+            "Content-Type: application/json;charset=UTF-8"
+        );
         curl_setopt($ch, CURLOPT_URL, $url);
         // 执行后不直接打印出来
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

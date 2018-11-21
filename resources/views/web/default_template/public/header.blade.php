@@ -2,7 +2,7 @@
 	<li class="nav-header">
 		<div class="dropdown profile-element">
 			<span>
-				<img alt="image" class="img-circle" src="img/profile_small.jpg" />
+				<img alt="image" class="img-circle" src="{{ asset('style/web/default_template') }}/img/profile_small.jpg" />
 			</span>
 		</div>
 		<div class="logo-element">

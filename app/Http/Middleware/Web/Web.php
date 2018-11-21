@@ -20,8 +20,9 @@ class Web
     {
         $ip = $request->getClientIp();
         $address = IpAddress::address($ip);
+        dump($address);
         //添加用户访问记录
-        self::AddViewlog($address);
+//        self::AddViewlog($address);
         //获取路由中的参数，文章id
         $article_id = $request->route('article_id');
         $route = $request->getPathInfo();

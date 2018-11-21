@@ -101,13 +101,21 @@ class CategoryController extends Controller
     public function navbar_add_check(Request $request)
     {
         $naviname = $request->get('naviname');
+        $system_url = $request->get('system_url');
         $url = $request->get('url');
+        $url_type = $request->get('url_type');
+        if($url_type == 1){
+            if(!$system_url)return response()->json(['data'=>'请选择系统地址','status'=>'0']);
+            $category_url = config('app.url').'/category/'.$system_url;
+        }else{
+            if(!$url)return response()->json(['data'=>'请输入链接地址','status'=>'0']);
+            $category_url = $url;
+        }
         $hide = $request->get('hide');
         $newtab = $request->get('newtab');
         if(!$naviname)return response()->json(['data'=>'请输入导航栏名称','status'=>'0']);
-        if(!$url)return response()->json(['data'=>'请输入链接地址','status'=>'0']);
         $data['naviname'] = $naviname;
-        $data['url'] = $url;
+        $data['url'] = $category_url;
         $data['hide'] = $hide;
         $data['newtab'] = $newtab;
         DB::beginTransaction();

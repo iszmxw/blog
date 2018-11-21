@@ -9,48 +9,20 @@
 			博客
 		</div>
 	</li>
+	@foreach($nav as $val)
 	<li>
-		<a href="index.html">
+		<a href="{{ $val['url'] }}">
 			<i class="fa fa-th-large"></i>
-			<span class="nav-label">首页</span>
+			<span class="nav-label">{{ $val['naviname'] }}</span>
+			<span class="fa arrow"></span>
 		</a>
-	</li>
-	<li>
-		<a href="index.html">
-			<i class="fa fa-th-large"></i>
-			<span class="nav-label">软件分享</span>
-		</a>
-	</li>
-	<li>
-		<a href="index.html">
-			<i class="fa fa-th-large"></i>
-			<span class="nav-label">随笔日记</span>
-		</a>
-	</li>
-	<li>
-		<a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">WEB类</span> <span class="fa arrow"></span></a>
+		@if($val['sub_menu'])
 		<ul class="nav nav-second-level">
-			<li><a href="index.html">插件软件</a></li>
-			<li><a href="dashboard_2.html">WEB前端</a></li>
-			<li><a href="dashboard_3.html">WEB程序</a></li>
+			@foreach($val['sub_menu'] as $k=>$v)
+			<li><a href="{{$v['url']}}">{{ $v['naviname'] }}</a></li>
+			@endforeach
 		</ul>
+		@endif
 	</li>
-	<li>
-		<a href="index.html">
-			<i class="fa fa-th-large"></i>
-			<span class="nav-label">说说</span>
-		</a>
-	</li>
-	<li>
-		<a href="index.html">
-			<i class="fa fa-th-large"></i>
-			<span class="nav-label">学习空间</span>
-		</a>
-	</li>
-	<li>
-		<a href="index.html">
-			<i class="fa fa-th-large"></i>
-			<span class="nav-label">登录</span>
-		</a>
-	</li>
+	@endforeach
 </ul>

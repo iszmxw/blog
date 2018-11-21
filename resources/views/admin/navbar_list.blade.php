@@ -325,6 +325,7 @@
             if (json.status == '1'){
                 $("#id").val(json.data.id);
                 $(".url_type").val(json.data.type);
+                $("#naviname").val(json.data.naviname);
                 $("#nav_pid option[value='"+json.data.pid+"']").attr("selected", "selected");
                 if(json.data.type == 1){
                     $("#switch-1").addClass("active");
@@ -339,7 +340,6 @@
                     $("#tabs-2").addClass("active");
                     $("#url").val(json.data.url);
 				}
-                $("#naviname").val(json.data.naviname);
                 if (json.data.hide == 'y'){
                     $("#hide").attr("selected",true);
                     $("#hide").parent().addClass("checked");

@@ -17,7 +17,7 @@ class HttpCurl
         curl_setopt($ch, CURLOPT_URL, $url);
         // 执行后不直接打印出来
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HEADER, 'Content-Type: application/json;charset=GB2312');
+        curl_setopt($ch, CURLOPT_HEADER, false);
         // 跳过证书检查
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         // 不从证书中检查SSL加密算法是否存在

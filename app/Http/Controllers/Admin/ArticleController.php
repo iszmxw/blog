@@ -24,7 +24,7 @@ class ArticleController extends Controller
         $password = $request->get('password');
         $excerpt = $request->get('excerpt');//摘要
         $content = $request->get('content');
-        dd($content);
+        dd($request);
         if ($sortid == '-1')return response()->json(['data'=>'请选择栏目分类！','status'=>'0']);
         if (!$title)return response()->json(['data'=>'请输入文章标题！','status'=>'0']);
         $data['title'] = $title;

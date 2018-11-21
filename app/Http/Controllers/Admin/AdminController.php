@@ -64,7 +64,6 @@ class AdminController extends Controller
         }
     }
 
-
     //浏览记录
     public function view_log(Request $request)
     {

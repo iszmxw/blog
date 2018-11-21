@@ -10,8 +10,8 @@ class IpAddress
     {
         $url = "https://sp0.baidu.com/8aQDcjqpAAV3otqbppnN2DJv/api.php?query={$ip}&co=&resource_id=6006&t=1542771237972&ie=utf8&oe=gbk";
         $response = HttpCurl::doGet($url);
-        $re = json_decode($response,JSON_UNESCAPED_UNICODE);
         $response = mb_convert_encoding($response, 'utf-8','GB2312');
-        return $response;
+        $re = json_decode($response,JSON_UNESCAPED_UNICODE);
+        return $re;
     }
 }

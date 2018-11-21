@@ -24,7 +24,6 @@ class ArticleController extends Controller
         $password = $request->get('password');
         $excerpt = $request->get('excerpt');//摘要
         $content = $request->get('content');
-        dd($request);
         if ($sortid == '-1')return response()->json(['data'=>'请选择栏目分类！','status'=>'0']);
         if (!$title)return response()->json(['data'=>'请输入文章标题！','status'=>'0']);
         $data['title'] = $title;
@@ -34,14 +33,12 @@ class ArticleController extends Controller
         $data['content'] = $content?$content:'';
         $data['date'] = time();
         //数据库事物回滚
-        dd($data);
         DB::beginTransaction();
         try {
             Blog::AddData($data);
             DB::commit();
             return response()->json(['data'=>'祝贺你添加成功了！','status'=>'1']);
         } catch (\Exception $e) {
-            dd($e);
             DB::rollBack();//事件回滚
             return response()->json(['data' => '添加失败，请检查', 'status' => '0']);
         }
@@ -84,7 +81,6 @@ class ArticleController extends Controller
         $data['excerpt'] = $excerpt?$excerpt:'';
         $data['content'] = $content?$content:'';
         $data['date'] = time();
-        dd(2,$content,$data);
         //数据库事物回滚
         DB::beginTransaction();
         try {
@@ -92,7 +88,6 @@ class ArticleController extends Controller
             DB::commit();
             return response()->json(['data'=>'修改成功！','status'=>'1']);
         } catch (\Exception $e) {
-            dd($e);
             DB::rollBack();//事件回滚
             return response()->json(['data' => '修改失败请稍后再试！', 'status' => '0']);
         }
@@ -110,7 +105,6 @@ class ArticleController extends Controller
             DB::commit();
             return response()->json(['data'=>'您的文章已被删除！','status'=>'1']);
         } catch (\Exception $e) {
-            dd($e);
             DB::rollBack();//事件回滚
             return response()->json(['data' => '删除失败请稍后再试！', 'status' => '0']);
         }

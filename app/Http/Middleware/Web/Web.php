@@ -20,9 +20,8 @@ class Web
     {
         $ip = $request->getClientIp();
         $address = IpAddress::address($ip);
-        dump($address);
         //添加用户访问记录
-//        self::AddViewlog($address);
+        self::AddViewlog($address);
         //获取路由中的参数，文章id
         $article_id = $request->route('article_id');
         $route = $request->getPathInfo();
@@ -97,7 +96,7 @@ class Web
             $num = $log['num'] + 1;
             ViewLog::editData(['num'=>$num],['ip'=>$log['id']]);
         }else{
-            ViewLog::addData(['ip'=>$address['origip'],'ip_position'=>$address['ip_position']]);
+            ViewLog::addData(['ip'=>$address['origip'],'ip_position'=>$address['location']]);
         }
     }
 }

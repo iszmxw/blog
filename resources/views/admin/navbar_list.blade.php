@@ -202,11 +202,11 @@
 					<div class="form-group">
 						<div class="tabs-container">
 							<ul class="nav nav-tabs">
-								<li class="active"><a data-toggle="tabs" href="#tab-1"><i class="fa fa-cog"></i>&nbsp;系统地址</a></li>
-								<li class=""><a data-toggle="tabs" href="#tab-2"><i class="fa fa-link"></i>&nbsp;手动输入</a></li>
+								<li class="active"><a data-toggle="tab" href="#tabs-1"><i class="fa fa-cog"></i>&nbsp;系统地址</a></li>
+								<li class=""><a data-toggle="tab" href="#tabs-2"><i class="fa fa-link"></i>&nbsp;手动输入</a></li>
 							</ul>
 							<div class="tab-content">
-								<div id="tab-1" class="tab-pane active">
+								<div id="tabs-1" class="tab-pane active">
 									<div class="panel-body">
 										<label class="control-label">系统地址</label>
 										<select class="form-control m-b" name="system_url" onchange="SetType(1)">
@@ -217,7 +217,7 @@
 										</select>
 									</div>
 								</div>
-								<div id="tab-2" class="tab-pane">
+								<div id="tabs-2" class="tab-pane">
 									<div class="panel-body">
 										<label class="control-label">地址</label>
 										<input type="text" placeholder="地址" name="url" class="form-control" onblur="SetType(2)">

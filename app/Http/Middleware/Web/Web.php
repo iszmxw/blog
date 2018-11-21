@@ -94,7 +94,7 @@ class Web
         $log = ViewLog::getOne(['ip'=>$address['origip']]);
         if ($log){
             $num = $log['num'] + 1;
-            ViewLog::editData(['num'=>$num],['ip'=>$log['id']]);
+            ViewLog::editData(['num'=>$num],['id'=>$log['id']]);
         }else{
             ViewLog::addData(['ip'=>$address['origip'],'ip_position'=>$address['location']]);
         }

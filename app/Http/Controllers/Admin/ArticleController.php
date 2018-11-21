@@ -83,6 +83,7 @@ class ArticleController extends Controller
         $data['excerpt'] = $excerpt?$excerpt:'';
         $data['content'] = $content?$content:'';
         $data['date'] = time();
+        dd($data);
         //数据库事物回滚
         DB::beginTransaction();
         try {

@@ -77,18 +77,15 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($list as $value)
+                                    @foreach(view_log as $value)
                                     <tr>
                                         <td><input type="checkbox"  checked class="i-checks" name="input[]"></td>
-                                        <td>{{$value['gid']}}</td>
-                                        <td>{{$value['title']}}</td>
-                                        <td><span class="label label-primary">{{$value['sortname']}}</span></td>
-                                        <td><span class="label label-success">{{$value['views']}}</span></td>
-                                        <td>{{date('Y-m-d H:i:s',$value['date'])}}</td>
-                                        <td>
-                                            <button class="btn btn-info" type="button" onclick="edit('{{$value['gid']}}')"><i class="fa fa-edit"></i>&nbsp;&nbsp;编辑</button>
-                                            <button class="btn btn-danger" type="button" onclick="deleted('{{$value['gid']}}')"><i class="fa fa-times"></i>&nbsp;&nbsp;删除</button>
-                                        </td>
+                                        <td>{{$value['id']}}</td>
+                                        <td>{{$value['ip']}}</td>
+                                        <td><span class="label label-primary">{{$value['ip_position']}}</span></td>
+                                        <td><span class="label label-success">{{$value['num']}}</span></td>
+                                        <td>{{date('Y-m-d H:i:s',$value['created_at'])}}</td>
+                                        <td>{{date('Y-m-d H:i:s',$value['updated_at'])}}</td>
                                     </tr>
                                     @endforeach
                                     </tbody>

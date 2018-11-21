@@ -33,6 +33,7 @@ class ArticleController extends Controller
         $data['content'] = $content?$content:'';
         $data['date'] = time();
         //数据库事物回滚
+        dd($data);
         DB::beginTransaction();
         try {
             Blog::AddData($data);

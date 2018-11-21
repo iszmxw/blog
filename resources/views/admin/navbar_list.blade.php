@@ -118,6 +118,7 @@
 		<div class="modal-content">
 			<form action="{{url('admin/ajax/navbar_add_check')}}" id="post_url">
 				<input type="hidden" name="_token" value="{{csrf_token()}}">
+				<input type="hidden" name="url_type" id="set_url_type" value="1">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 					<h4 class="modal-title">添加导航栏</h4>
@@ -137,7 +138,7 @@
 								<div id="tab-1" class="tab-pane active">
 									<div class="panel-body">
 										<label class="control-label">系统地址</label>
-										<select class="form-control m-b" name="url">
+										<select class="form-control m-b" name="system_url" onchange="set_url_type(1)">
 											<option value="0" selected="selected">请选择</option>
 											@foreach($category as $val)
 												<option value="{{ $val['sid'] }}">{{ $val['sortname'] }}</option>
@@ -148,7 +149,7 @@
 								<div id="tab-2" class="tab-pane">
 									<div class="panel-body">
 										<label class="control-label">地址</label>
-										<input type="text" placeholder="地址" name="url" class="form-control">
+										<input type="text" placeholder="地址" name="url" class="form-control" onblur="set_url_type(2)">
 									</div>
 								</div>
 							</div>
@@ -268,7 +269,7 @@
         $("#add_data").modal();
     }
     function set_url_type(type){
-        $("#url_type").val(type);
+        $("#set_url_type").val(type);
 	}
     //添加分类
     function add_data(){

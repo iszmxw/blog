@@ -111,6 +111,7 @@ class CategoryController extends Controller
         }else{
             if(!$url)return response()->json(['data'=>'请输入链接地址','status'=>'0']);
             $category_url = $url;
+            $data['type_id'] = 0;
         }
         $hide = $request->get('hide');
         $newtab = $request->get('newtab');

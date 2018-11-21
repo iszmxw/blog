@@ -202,8 +202,8 @@
 					<div class="form-group">
 						<div class="tabs-container">
 							<ul class="nav nav-tabs">
-								<li class="active"><a data-toggle="tab" href="#tabs-1"><i class="fa fa-cog"></i>&nbsp;系统地址</a></li>
-								<li class=""><a data-toggle="tab" href="#tabs-2"><i class="fa fa-link"></i>&nbsp;手动输入</a></li>
+								<li class="active" id="switch-1"><a data-toggle="tab" href="#tabs-1"><i class="fa fa-cog"></i>&nbsp;系统地址</a></li>
+								<li class="" id="switch-2"><a data-toggle="tab" href="#tabs-2"><i class="fa fa-link"></i>&nbsp;手动输入</a></li>
 							</ul>
 							<div class="tab-content">
 								<div id="tabs-1" class="tab-pane active">
@@ -306,8 +306,16 @@
                 $("#id").val(json.data.id);
                 $("#url_type").val(json.data.type);
                 if(json.data.type == 1){
+                    $("#switch-1").addClass("active");
+                    $("#tabs-1").addClass("active");
+                    $("#switch-2").removeClass("active");
+                    $("#tabs-2").removeClass("active");
                     $("#system_url option[value='"+json.data.type_id+"']").attr("selected", "selected");
 				}else{
+                    $("#switch-1").removeClass("active");
+                    $("#tabs-1").removeClass("active");
+                    $("#switch-2").addClass("active");
+                    $("#tabs-2").addClass("active");
                     $("#url").val(json.data.url);
 				}
                 $("#naviname").val(json.data.naviname);

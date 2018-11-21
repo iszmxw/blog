@@ -77,7 +77,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach(view_log as $value)
+                                    @foreach($view_log as $value)
                                     <tr>
                                         <td><input type="checkbox"  checked class="i-checks" name="input[]"></td>
                                         <td>{{$value['id']}}</td>

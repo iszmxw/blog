@@ -93,7 +93,7 @@
                                     <tr>
                                         <td colspan="7" class="footable-visible">
                                             <ul class="pagination pull-right">
-                                                {{$list->links()}}
+                                                {{$view_log->links()}}
                                             </ul>
                                         </td>
                                     </tr>

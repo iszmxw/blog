@@ -341,25 +341,25 @@
                     $("#url").val(json.data.url);
 				}
                 if (json.data.hide == 'y'){
-                    $("#hide").attr("selected",true);
+                    $("#hide").attr("selected","selected");
                     $("#hide").parent().addClass("checked");
                     $("#show").attr("selected",false);
                     $("#show").parent().removeClass("checked");
                 }else{
                     $("#hide").attr("selected",false);
                     $("#hide").parent().removeClass("checked");
-                    $("#show").attr("selected",true);
+                    $("#show").attr("selected","selected");
                     $("#show").parent().addClass("checked");
                 }
                 if (json.data.newtab == 'y'){
-                    $("#newtab_ok").attr("selected",true);
+                    $("#newtab_ok").attr("selected","selected");
                     $("#newtab_ok").parent().addClass("checked");
                     $("#newtab_no").attr("selected",false);
                     $("#newtab_no").parent().removeClass("checked");
                 }else{
                     $("#newtab_ok").attr("selected",false);
                     $("#newtab_ok").parent().removeClass("checked");
-                    $("#newtab_no").attr("selected",true);
+                    $("#newtab_no").attr("selected","selected");
                     $("#newtab_no").parent().addClass("checked");
                 }
                 $("#myModal").modal();

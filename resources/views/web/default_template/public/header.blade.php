@@ -14,7 +14,9 @@
 		<a href="{{ $val['url'] }}">
 			<i class="fa fa-th-large"></i>
 			<span class="nav-label">{{ $val['naviname'] }}</span>
+			@if($val['sub_menu'])
 			<span class="fa arrow"></span>
+			@endif
 		</a>
 		@if($val['sub_menu'])
 		<ul class="nav nav-second-level">

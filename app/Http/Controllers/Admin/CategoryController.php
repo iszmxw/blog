@@ -100,8 +100,8 @@ class CategoryController extends Controller
     //添加导航栏数据
     public function navbar_add_check(Request $request)
     {
-        $naviname = $request->get('naviname');
         $pid = $request->get('pid');
+        $naviname = $request->get('naviname');
         $system_url = $request->get('system_url');
         $url = $request->get('url');
         $url_type = $request->get('url_type');
@@ -117,8 +117,8 @@ class CategoryController extends Controller
         $hide = $request->get('hide');
         $newtab = $request->get('newtab');
         if(!$naviname)return response()->json(['data'=>'请输入导航栏名称','status'=>'0']);
-        $data['naviname'] = $naviname;
         $data['pid'] = $pid;
+        $data['naviname'] = $naviname;
         $data['url'] = $category_url;
         $data['hide'] = $hide;
         $data['newtab'] = $newtab;
@@ -151,6 +151,7 @@ class CategoryController extends Controller
     public function navbar_data_edit_check(Request $request)
     {
         $id = $request->get('id');
+        $pid = $request->get('pid');
         $naviname = $request->get('naviname');
         $hide = $request->get('hide');
         $newtab = $request->get('newtab');
@@ -168,6 +169,7 @@ class CategoryController extends Controller
             $category_url = $url;
             $data['type_id'] = 0;
         }
+        $data['pid'] = $pid;
         $data['naviname'] = $naviname;
         $data['url'] = $category_url;
         $data['hide'] = $hide;

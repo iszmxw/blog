@@ -74,7 +74,7 @@ class HttpCurl
      * @param bool $debug
      * @return mixed
      */
-    public function httpRequest($url, $method, $postData = [], $headers = [], $ssl = false, $ssl_config = [], $debug = false)
+    public static function httpRequest($url, $method, $postData = [], $headers = [], $ssl = false, $ssl_config = [], $debug = false)
     {
         // 将方法统一换成大写
         $method = strtoupper($method);

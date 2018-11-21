@@ -268,6 +268,7 @@
     function add_alert(){
         $("#add_data").modal();
     }
+
     function set_url_type(type){
         $("#set_url_type").val(type);
 	}

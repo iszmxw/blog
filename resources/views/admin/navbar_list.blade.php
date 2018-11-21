@@ -118,7 +118,7 @@
 		<div class="modal-content">
 			<form action="{{url('admin/ajax/navbar_add_check')}}" id="post_url">
 				<input type="hidden" name="_token" value="{{csrf_token()}}">
-				<input type="hidden" name="url_type" id="set_url_type" value="1">
+				<input type="hidden" name="url_type" class="url_type" value="1">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 					<h4 class="modal-title">添加导航栏</h4>
@@ -189,7 +189,7 @@
 			<form action="{{url('admin/ajax/navbar_data_edit_check')}}" id="currentForm">
 				<input type="hidden" name="id" id="id">
 				<input type="hidden" name="_token" value="{{csrf_token()}}">
-				<input type="hidden" name="url_type" id="url_type" value="1">
+				<input type="hidden" name="url_type" class="url_type" value="1">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 					<h4 class="modal-title">编辑导航栏是</h4>
@@ -269,7 +269,7 @@
     }
 
     function SetType(type){
-        $("#set_url_type").val(type);
+        $(".url_type").val(type);
 	}
     //添加分类
     function add_data(){
@@ -304,7 +304,7 @@
         $.post(url,data,function(json){
             if (json.status == '1'){
                 $("#id").val(json.data.id);
-                $("#url_type").val(json.data.type);
+                $(".url_type").val(json.data.type);
                 if(json.data.type == 1){
                     $("#switch-1").addClass("active");
                     $("#tabs-1").addClass("active");

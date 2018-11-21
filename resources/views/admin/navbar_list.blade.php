@@ -127,7 +127,7 @@
 					<div class="form-group">
 						<label class="control-label">上级导航栏</label>
 						<select class="form-control m-b" name="pid">
-							<option value="0" selected="selected">请选择</option>
+							<option value="0" selected="selected">无</option>
 							@foreach($navi as $val)
 								<option value="{{ $val['id'] }}">{{ $val['naviname'] }}</option>
 							@endforeach

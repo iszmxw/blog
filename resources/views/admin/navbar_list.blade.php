@@ -267,7 +267,7 @@
     function add_alert(){
         $("#add_data").modal();
     }
-
+    //修改导航栏链接类型
     function SetType(type){
         $(".url_type").val(type);
 	}

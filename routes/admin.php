@@ -17,6 +17,7 @@ Route::middleware('admin')->namespace('Admin')->group(function () {
     Route::get('qq_login_auth','AdminController@qq_login_auth');
     Route::get('quit','AdminController@quit');
     Route::get('config','AdminController@config');
+    Route::get('view_log','AdminController@view_log');
 
     //栏目管理
     Route::group(['prefix'=>'category'],function (){

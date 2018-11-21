@@ -6,6 +6,7 @@ use App\Library\HttpCurl;
 use App\Models\Options;
 use App\Models\User;
 use App\Models\Userqq;
+use App\Models\ViewLog;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -61,6 +62,16 @@ class AdminController extends Controller
             DB::rollBack();//事件回滚
             return response()->json(['data'=>'编辑失败，请稍后再试！','status'=>'0']);
         }
+    }
+
+
+    //浏览记录
+    public function view_log(Request $request)
+    {
+        $user_data = $request->get('user_data');
+        $view_log = ViewLog::getPaginate([],['*'],10,'updated_at','DESC');
+        dd($view_log);
+        return view('admin.view_log_list',['user_data'=>$user_data,'view_log'=>$view_log]);
     }
 
     public function login()

@@ -206,7 +206,7 @@
 				<div class="modal-body">
 					<div class="form-group">
 						<label class="control-label">上级导航栏</label>
-						<select class="form-control m-b" name="pid" id="pid">
+						<select class="form-control m-b" name="pid" id="nav_pid">
 							<option value="0" selected="selected">无</option>
 							@foreach($navi as $val)
 								<option value="{{ $val['id'] }}">{{ $val['naviname'] }}</option>
@@ -330,7 +330,7 @@
                     $("#tabs-1").addClass("active");
                     $("#switch-2").removeClass("active");
                     $("#tabs-2").removeClass("active");
-                    $("#pid option[value='"+json.data.pid+"']").attr("selected", "selected");
+                    $("#nav_pid option[value='"+json.data.pid+"']").attr("selected", "selected");
                     $("#system_url option[value='"+json.data.type_id+"']").attr("selected", "selected");
 				}else{
                     $("#switch-1").removeClass("active");

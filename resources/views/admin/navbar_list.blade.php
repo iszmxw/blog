@@ -325,12 +325,12 @@
             if (json.status == '1'){
                 $("#id").val(json.data.id);
                 $(".url_type").val(json.data.type);
+                $("#nav_pid option[value='"+json.data.pid+"']").attr("selected", "selected");
                 if(json.data.type == 1){
                     $("#switch-1").addClass("active");
                     $("#tabs-1").addClass("active");
                     $("#switch-2").removeClass("active");
                     $("#tabs-2").removeClass("active");
-                    $("#nav_pid option[value='"+json.data.pid+"']").attr("selected", "selected");
                     $("#system_url option[value='"+json.data.type_id+"']").attr("selected", "selected");
 				}else{
                     $("#switch-1").removeClass("active");

@@ -107,6 +107,7 @@ class CategoryController extends Controller
         if($url_type == 1){
             if(!$system_url)return response()->json(['data'=>'请选择系统地址','status'=>'0']);
             $category_url = config('app.url').'/category/'.$system_url;
+            $data['type_id'] = $system_url;
         }else{
             if(!$url)return response()->json(['data'=>'请输入链接地址','status'=>'0']);
             $category_url = $url;
@@ -118,6 +119,7 @@ class CategoryController extends Controller
         $data['url'] = $category_url;
         $data['hide'] = $hide;
         $data['newtab'] = $newtab;
+        $data['type'] = $url_type;
         DB::beginTransaction();
         try{
             Navi::create($data);

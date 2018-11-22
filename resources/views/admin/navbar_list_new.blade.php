@@ -33,6 +33,10 @@
 				</div>
 			</div>
 
+			<style>
+				button.dd-demo{position: absolute;top: 0px;right: 50px;}
+				button.dd-demo1{position: absolute;top: 0px;right: 0px;}
+			</style>
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="ibox ">
@@ -54,8 +58,8 @@
 									<li class="dd-item" data-id="{{ $val['id'] }}">
 										<div class="dd-handle">
 											<span class="pull-right">
-												<button style="position:absolute" class="btn btn-xs btn-info" type="button" onclick="EditData('{{$val['id']}}')"><i class="fa fa-edit"></i>&nbsp;&nbsp;编辑</button>
-												<button style="position:absolute" class="btn btn-xs btn-danger" type="button" onclick="deleted('{{$val['id']}}')"><i class="fa fa-times"></i>&nbsp;&nbsp;删除</button>
+												<button class="dd-demo btn btn-xs btn-info" type="button" onclick="EditData('{{$val['id']}}')"><i class="fa fa-edit"></i>&nbsp;&nbsp;编辑</button>
+												<button class="dd-demo1 btn btn-xs btn-danger" type="button" onclick="deleted('{{$val['id']}}')"><i class="fa fa-times"></i>&nbsp;&nbsp;删除</button>
 											</span>
 											<span class="label label-info"><i class="fa fa-link"></i></span> {{ $val['naviname'] }}
 										</div>
@@ -65,8 +69,8 @@
 											<li class="dd-item" data-id="{{$v['id']}}">
 												<div class="dd-handle">
 													<span class="pull-right">
-														<button style="position:absolute" class="btn btn-xs btn-info" type="button" onclick="EditData('{{$v['id']}}')"><i class="fa fa-edit"></i>&nbsp;&nbsp;编辑</button>
-														<button style="position:absolute" class="btn btn-xs btn-danger" type="button" onclick="deleted('{{$v['id']}}')"><i class="fa fa-times"></i>&nbsp;&nbsp;删除</button>
+														<button class="dd-demobtn btn-xs btn-info" type="button" onclick="EditData('{{$v['id']}}')"><i class="fa fa-edit"></i>&nbsp;&nbsp;编辑</button>
+														<button class="dd-demo1 btn btn-xs btn-danger" type="button" onclick="deleted('{{$v['id']}}')"><i class="fa fa-times"></i>&nbsp;&nbsp;删除</button>
 													</span>
 													<span class="label label-info"><i class="fa fa-link"></i></span> {{ $v['naviname'] }}
 												</div>

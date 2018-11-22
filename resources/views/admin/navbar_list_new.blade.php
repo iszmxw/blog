@@ -56,6 +56,7 @@
 											</span>
 											<span class="label label-info"><i class="fa fa-link"></i></span> {{ $val['naviname'] }}
 										</div>
+
 										<ol class="dd-list">
 											@foreach($val['sub_menu'] as $k=>$v)
 											<li class="dd-item" data-id="{{$k}}">

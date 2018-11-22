@@ -75,7 +75,7 @@
 
                 var $label = $('<label />');
                 $label.html('代码内容');
-                var $textarea = $('<textarea class="ext-highlight-code form-control" rows="10" />');
+                var $textarea = $('<textarea class="ext-highlight-code form-control" rows="10" style="width:70%" />');
 
                 $box.append($textGroup.append($label));
                 $box.append($textGroup.append($textarea));

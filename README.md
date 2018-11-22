@@ -31,3 +31,13 @@ DB_DATABASE=数据库名称
 DB_USERNAME=数据库账号
 
 DB_PASSWORD=数据库密码
+
+REDIS_HOST=127.0.0.1
+
+REDIS_PASSWORD=redis密码
+
+REDIS_PORT=6379
+
+
+WC_AppID=微信订阅号appid
+WC_AppSecret=微信AppSecret

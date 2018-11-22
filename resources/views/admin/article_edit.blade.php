@@ -99,6 +99,7 @@
 @include('admin.public.common_js')
 <!-- SUMMERNOTE -->
 <script src="{{asset('style/admin/inspinia/js/plugins/summernote/summernote.js?v='.time())}}"></script>
+<script src="{{asset('style/admin/inspinia/js/plugins/summernote/summernote-ext-highlight.js?v='.time())}}"></script>
 <script src="{{asset('style/admin/js/article_add.js?v='.time())}}"></script>
 </body>
 </html>

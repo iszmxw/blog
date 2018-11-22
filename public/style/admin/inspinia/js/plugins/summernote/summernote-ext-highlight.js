@@ -69,12 +69,12 @@
                 }
 
                 var $label = $('<label />');
-                $label.html('Select language');
+                $label.html('选择语言');
                 $box.append($selectGroup.append($label));
                 $box.append($selectGroup.append($select));
 
                 var $label = $('<label />');
-                $label.html('Enter the code fragment');
+                $label.html('代码内容');
                 var $textarea = $('<textarea class="ext-highlight-code form-control" rows="10" />');
 
                 $box.append($textGroup.append($label));
@@ -164,13 +164,13 @@
 
                 var body = [
                     '<button href="#" class="btn btn-primary ext-highlight-btn disabled" disabled>',
-                    'Insert code',
+                    '插入代码',
                     '</button>'
                 ].join('');
 
                 this.$dialog = ui.dialog({
                     className: 'ext-highlight',
-                    title: 'Insert code',
+                    title: '插入代码',
                     body: this.createDialog(),
                     footer: body,
                     //callback: function ($node) {

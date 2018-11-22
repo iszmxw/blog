@@ -100,6 +100,7 @@ class CategoryController extends Controller
             $nav[$key]['sub_menu'] = Navi::get_select(['pid'=>$val['id'],'hide'=>'n'],['id','naviname','url','newtab'],'taxis','ASC')->toArray();
         }
         $data['navi'] = $nav;
+        dd($data);
 //        return view('admin.navbar_list',$data);
         return view('admin.navbar_list_new',$data);
     }

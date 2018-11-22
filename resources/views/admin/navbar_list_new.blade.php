@@ -329,7 +329,7 @@
             var data = {'_token':_token,'data':json};
             console.log(json);
             $.post(url,data,function (json) {
-                Command: toastr[success](json.data);
+                toastr.success(json.data);
             });
             output.val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));
         } else {

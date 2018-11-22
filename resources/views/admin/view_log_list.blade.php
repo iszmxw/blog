@@ -62,8 +62,8 @@
                                         <td>{{$value['ip']}}</td>
                                         <td><span class="label label-primary">{{$value['ip_position']}}</span></td>
                                         <td><span class="label label-success">{{$value['num']}}</span></td>
-                                        <td>{{$value['created_at']->diffForHumans}}</td>
-                                        <td>{{$value['updated_at']->diffForHumans}}</td>
+                                        <td>{{$value['created_at']->diffForHumans()}}</td>
+                                        <td>{{$value['updated_at']->diffForHumans()}}</td>
                                     </tr>
                                     @endforeach
                                     </tbody>

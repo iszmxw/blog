@@ -47,7 +47,7 @@
 
 							<div class="dd" id="nestable2">
 								<ol class="dd-list">
-									@foreach($nav as $key=>$val)
+									@foreach($navi as $key=>$val)
 									<li class="dd-item" data-id="{{ $key }}">
 										<div class="dd-handle">
 											<span class="label label-info"><i class="fa fa-link"></i></span> {{ $val['naviname'] }}

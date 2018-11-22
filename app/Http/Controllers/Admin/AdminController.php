@@ -68,7 +68,7 @@ class AdminController extends Controller
     public function view_log(Request $request)
     {
         $user_data = $request->get('user_data');
-        $view_log = ViewLog::getPaginate([],['*'],10,'updated_at','DESC');
+        $view_log = ViewLog::getPaginate([],['*'],20,'updated_at','DESC');
         return view('admin.view_log_list',['user_data'=>$user_data,'view_log'=>$view_log]);
     }
 

@@ -92,11 +92,11 @@ class CategoryController extends Controller
     {
         $data['user_data'] = $request->get('user_data');
         $data['category'] = Sort::getList([]);
-        $nav = Navi::get_select(['pid'=>'0','hide'=>'n'],['id','naviname','url','newtab'],'taxis','ASC')->toArray();
-        foreach ($nav as $key=>$val){
-            $nav[$key]['sub_menu'] = Navi::get_select(['pid'=>$val['id'],'hide'=>'n'],['id','naviname','url','newtab'],'taxis','ASC')->toArray();
+        $navi = Navi::get_select(['pid'=>'0','hide'=>'n'],['id','naviname','url','newtab'],'taxis','ASC')->toArray();
+        foreach ($navi as $key=>$val){
+            $navi[$key]['sub_menu'] = Navi::get_select(['pid'=>$val['id'],'hide'=>'n'],['id','naviname','url','newtab'],'taxis','ASC')->toArray();
         }
-        $data['navi'] = $nav;
+        $data['navi'] = $navi;
         return view('admin.navbar_list',$data);
     }
 

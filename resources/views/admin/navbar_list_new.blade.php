@@ -321,7 +321,7 @@
             var list = e.length ? e : $(e.target),
                 output = list.data('output');
             if (window.JSON) {
-                var json = eval("("+window.JSON.stringify(list.nestable('serialize'))+")")
+                var json = eval("("+window.JSON.stringify(list.nestable('serialize'))+")");
                 console.log(json);
 
                 output.val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));

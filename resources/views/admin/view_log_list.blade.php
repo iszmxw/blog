@@ -45,7 +45,6 @@
                                 <table class="table table-striped">
                                     <thead>
                                     <tr>
-                                        <th></th>
                                         <th>ID </th>
                                         <th>IP</th>
                                         <th>地址</th>
@@ -57,7 +56,6 @@
                                     <tbody>
                                     @foreach($view_log as $value)
                                     <tr>
-                                        <td><input type="checkbox"  checked class="i-checks" name="input[]"></td>
                                         <td>{{$value['id']}}</td>
                                         <td>{{$value['ip']}}</td>
                                         <td><span class="label label-primary">{{$value['ip_position']}}</span></td>

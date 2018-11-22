@@ -54,6 +54,7 @@
 												<button class="btn btn-info" type="button" onclick="EditData('{{$val['id']}}')"><i class="fa fa-edit"></i>&nbsp;&nbsp;编辑</button>
 												<button class="btn btn-danger" type="button" onclick="deleted('{{$val['id']}}')"><i class="fa fa-times"></i>&nbsp;&nbsp;删除</button>
 											</span>
+											<div style="clear:both"></div>
 											<span class="label label-info"><i class="fa fa-link"></i></span> {{ $val['naviname'] }}
 										</div>
 										<ol class="dd-list">

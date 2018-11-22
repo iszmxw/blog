@@ -114,8 +114,7 @@ class CategoryController extends Controller
         try{
             foreach($data as $key=>$val){
                 Navi::EditData(['id'=>$val['id']],['taxis'=>$key]);
-                dd($val['children']);
-                if($val['children']){
+                if(!empty($val['children'])){
                     foreach($val['children'] as $k=>$v){
                         Navi::EditData(['id'=>$v['id']],['taxis'=>$k]);
                         Navi::EditData(['id'=>$v['id']],['pid'=>$val['id']]);

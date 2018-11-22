@@ -46,7 +46,7 @@
 								</div>
 							</div>
 							<br>
-							<div class="dd" id="nestable">
+							<div class="dd" id="nestable2">
 								<input type="hidden" id="navbar_sort" value="{{ url('admin/ajax/navbar_sort') }}">
 								<input type="hidden" id="_token" value="{{csrf_token()}}">
 								<ol class="dd-list">
@@ -80,7 +80,7 @@
 							<div class="m-t-md">
 								<h5>序列化输出</h5>
 							</div>
-							<textarea id="nestable-output" class="form-control"></textarea>
+							<textarea id="nestable2-output" class="form-control"></textarea>
 
 
 						</div>
@@ -337,11 +337,11 @@
             }
         };
         // activate Nestable for list 2
-        $('#nestable').nestable({
+        $('#nestable2').nestable({
             group: 1
         }).on('change', updateOutput);
         // output initial serialised data
-        updateOutput($('#nestable').data('output', $('#nestable-output')));
+        updateOutput($('#nestable2').data('output', $('#nestable2-output')));
         $('#nestable-menu').on('click', function (e) {
             var target = $(e.target),
                 action = target.data('action');

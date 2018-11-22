@@ -13,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        //引用时间戳转换方法
         Carbon::setLocale('zh');
     }
 

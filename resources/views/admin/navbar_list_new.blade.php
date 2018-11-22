@@ -57,6 +57,7 @@
 											<span class="pull-left">
 												<span class="label label-info"><i class="fa fa-link"></i></span> {{ $val['naviname'] }}
 											</span>
+											<div style="clear: both;"></div>
 										</div>
 										<ol class="dd-list">
 											@foreach($val['sub_menu'] as $k=>$v)

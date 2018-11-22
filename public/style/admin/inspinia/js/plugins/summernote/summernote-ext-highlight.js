@@ -59,9 +59,9 @@
                 var $select = $('<select class="form-control ext-highlight-select" />');
 
                 var languages = [
-                    'bsh', 'c', 'cc', 'cpp', 'cs', 'csh', 'cyc', 'cv', 'htm', 'html',
-                    'java', 'js', 'm', 'mxml', 'perl', 'pl', 'pm', 'py', 'php', 'rb',
-                    'sh', 'xhtml', 'xml', 'xsl'
+                    'html', 'htm', 'js', 'php', 'py', 'java', 'sh', 'c', 'bsh',
+                    'm', 'mxml', 'perl', 'pl', 'pm', 'rb', 'cc', 'cpp', 'cs',
+                    'xhtml', 'xml', 'xsl', 'csh', 'cyc', 'cv'
                 ];
 
                 for (var i = 0; i < languages.length; i++) {

@@ -329,7 +329,14 @@
                 var data = {'_token':_token,'data':json};
                 console.log(json);
                 $.post(url,data,function (json) {
-					console.log(json);
+                    swal({
+                        title: "提示信息",
+                        text: json.data,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "确定",
+                    },function(){
+                        window.location.reload();
+                    });
                 });
                 output.val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));
             } else {

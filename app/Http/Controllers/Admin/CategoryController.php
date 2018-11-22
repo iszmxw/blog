@@ -104,11 +104,30 @@ class CategoryController extends Controller
 
     /**
      * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
      * 导航栏排序以及层级修改
      */
     public function navbar_sort(Request $request)
     {
-        dd($request);
+        $data = $request->get('data');
+        DB::beginTransaction();
+        try{
+            foreach($data as $key=>$val){
+                Navi::EditData(['id'=>$val['id']],['taxis'=>$key]);
+                if($val['children']){
+                    foreach($val['children'] as $k=>$v){
+                        Navi::EditData(['id'=>$v['id']],['taxis'=>$k]);
+                        Navi::EditData(['id'=>$v['id']],['pid'=>$val['id']]);
+                    }
+                }
+            }
+            DB::commit();
+            return response()->json(['data'=>'编辑成功','status'=>'1']);
+        }catch (\Exception $e){
+            dd($e);
+            DB::rollBack();
+            return response()->json(['data'=>'编辑失败','status'=>'0']);
+        }
     }
 
     //添加导航栏数据

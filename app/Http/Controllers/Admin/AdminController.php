@@ -85,7 +85,7 @@ class AdminController extends Controller
         $data = $user_data->toArray();
         if ($user_data){
             if (decrypt($user_data['password']) == $password){
-                Redis::set('user_data',json_encode($data));
+                Redis::connection('blog_admin')->set('user_data',json_encode($data));
                 session(['user_data'=>$data]);
                 return response()->json(['data'=>'登录成功！','Status'=>'1']);
             }else{

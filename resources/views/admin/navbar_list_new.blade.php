@@ -66,7 +66,7 @@
 											<li class="dd-item" data-id="{{$v['id']}}">
 												<div class="dd-handle">
 													<span class="pull-right">
-														<button class="dd-nodrag btn-xs btn-info" type="button" onclick="EditData('{{$v['id']}}')"><i class="fa fa-edit"></i>&nbsp;&nbsp;编辑</button>
+														<button class="dd-nodrag btn btn-xs btn-info" type="button" onclick="EditData('{{$v['id']}}')"><i class="fa fa-edit"></i>&nbsp;&nbsp;编辑</button>
 														<button class="dd-nodrag btn btn-xs btn-danger" type="button" onclick="deleted('{{$v['id']}}')"><i class="fa fa-times"></i>&nbsp;&nbsp;删除</button>
 													</span>
 													<span class="label label-info"><i class="fa fa-link"></i></span> {{ $v['naviname'] }}

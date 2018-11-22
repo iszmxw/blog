@@ -94,7 +94,8 @@ class CategoryController extends Controller
         $data['list'] = Navi::getPaginate([],'taxis','ASC',10);
         $data['category'] = Sort::getList([]);
         $data['navi'] = Navi::getList(['pid'=>'0']);
-        return view('admin.navbar_list',$data);
+//        return view('admin.navbar_list',$data);
+        return view('admin.navbar_list_new',$data);
     }
 
     //添加导航栏数据

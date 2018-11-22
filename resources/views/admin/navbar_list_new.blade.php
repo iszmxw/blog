@@ -391,8 +391,20 @@
         });
     }
 
+    //因为冒泡了，会执行到下面的方法。
+    function stopPropagation(e) {
+        var ev = e || window.event;
+        if (ev.stopPropagation) {
+            ev.stopPropagation();
+        }
+        else if (window.event) {
+            window.event.cancelBubble = true;//兼容IE
+        }
+    }
+
     //获取分类数据
-    function EditData(id){
+    function EditData(id,e){
+        stopPropagation(e);
         var url = "{{url('admin/ajax/navbar_data')}}";
         var data = {'_token':"{{csrf_token()}}",'id':id};
         $.post(url,data,function(json){

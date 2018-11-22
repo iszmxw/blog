@@ -40,7 +40,7 @@
                 // create button
                 var button = ui.button({
                     contents: '<i class="fa fa-file-code-o"></i>',
-                    tooltip: 'highlight',
+                    tooltip: '插入高亮代码',
                     click: function () {
                         self.show()
                     }

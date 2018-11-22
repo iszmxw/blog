@@ -47,44 +47,23 @@
 
 							<div class="dd" id="nestable2">
 								<ol class="dd-list">
-									<li class="dd-item" data-id="1">
+									@foreach($nav as $key=>$val)
+									<li class="dd-item" data-id="{{ $key }}">
 										<div class="dd-handle">
-											<span class="label label-info"><i class="fa fa-link"></i></span> 列表
+											<span class="label label-info"><i class="fa fa-link"></i></span> {{ $val['naviname'] }}
 										</div>
 										<ol class="dd-list">
-											<li class="dd-item" data-id="2">
+											@foreach($val['sub_menu'] as $k=>$v)
+											<li class="dd-item" data-id="{{$k}}">
 												<div class="dd-handle">
 													<span class="pull-right"> 12:00 </span>
-													<span class="label label-info"><i class="fa fa-link"></i></span> 列表
+													<span class="label label-info"><i class="fa fa-link"></i></span> {{ $v['naviname'] }}
 												</div>
 											</li>
-											<li class="dd-item" data-id="2">
-												<div class="dd-handle">
-													<span class="pull-right"> 12:00 </span>
-													<span class="label label-info"><i class="fa fa-link"></i></span> 列表
-												</div>
-											</li>
+											@endforeach
 										</ol>
 									</li>
-									<li class="dd-item" data-id="1">
-										<div class="dd-handle">
-											<span class="label label-info"><i class="fa fa-link"></i></span> 列表
-										</div>
-										<ol class="dd-list">
-											<li class="dd-item" data-id="2">
-												<div class="dd-handle">
-													<span class="pull-right"> 12:00 </span>
-													<span class="label label-info"><i class="fa fa-link"></i></span> 列表
-												</div>
-											</li>
-											<li class="dd-item" data-id="2">
-												<div class="dd-handle">
-													<span class="pull-right"> 12:00 </span>
-													<span class="label label-info"><i class="fa fa-link"></i></span> 列表
-												</div>
-											</li>
-										</ol>
-									</li>
+									@endforeach
 								</ol>
 							</div>
 							<div class="m-t-md">

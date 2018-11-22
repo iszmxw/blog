@@ -151,7 +151,7 @@ class AdminController extends Controller
             Userqq::EditData(['openid'=>$openid],$user_qq_data);
             $user_data = User::getOne(['uid'=>$id])->toArray();
 //            Redis::set('user_data',json_encode($user_data));
-            Redis::connection('blog_admin')->set('user_data',json_encode($user_data));
+            Redis::connection('default')->set('user_data',json_encode($user_data));
             session(['user_data'=>$user_data]);
             return redirect('admin');
         }elseif(empty($qq_id)){

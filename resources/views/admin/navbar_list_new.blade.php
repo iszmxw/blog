@@ -49,7 +49,7 @@
 							<div class="dd" id="nestable2">
 								<ol class="dd-list">
 									@foreach($navi as $key=>$val)
-									<li class="dd-item" data-id="{{ $key }}">
+									<li class="dd-item" data-id="{{ $val['id'] }}">
 										<div class="dd-handle">
 											<span class="pull-right">
 												<button class="btn btn-xs btn-info" type="button" onclick="EditData('{{$val['id']}}')"><i class="fa fa-edit"></i>&nbsp;&nbsp;编辑</button>
@@ -60,7 +60,7 @@
 
 										<ol class="dd-list">
 											@foreach($val['sub_menu'] as $k=>$v)
-											<li class="dd-item" data-id="{{$k}}">
+											<li class="dd-item" data-id="{{$v['id']}}">
 												<div class="dd-handle">
 													<span class="pull-right">
 														<button class="btn btn-xs btn-info" type="button" onclick="EditData('{{$v['id']}}')"><i class="fa fa-edit"></i>&nbsp;&nbsp;编辑</button>

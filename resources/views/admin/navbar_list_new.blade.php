@@ -42,7 +42,9 @@
 						<div class="ibox-content">
 
 							<p class="m-b-lg">
-								您可以通过标准的CSS样式定制每个列表。每个元素都是响应的，所以你可以添加任何其他元素来提高列表的功能。
+								<div class="col-sm-3">
+									<a href="JavaScript:;" class="btn btn-primary" onclick="add_alert()">添加导航</a>
+								</div>
 							</p>
 
 							<div class="dd" id="nestable2">
@@ -91,15 +93,6 @@
 							</h5>
 						</div>
 						<div class="ibox-content">
-							<div class="row">
-								<div class="col-sm-3">
-									<a href="JavaScript:;" class="btn btn-primary" onclick="add_alert()">添加导航</a>
-								</div>
-								<div class="col-sm-3">
-									<div class="input-group"><input type="text" placeholder="请输入搜索内容" class="input-sm form-control"> <span class="input-group-btn">
-                                        <button type="button" class="btn btn-sm btn-primary"> 搜索</button> </span></div>
-								</div>
-							</div>
 							<div class="table-responsive">
 								<table class="table table-striped">
 									<thead>

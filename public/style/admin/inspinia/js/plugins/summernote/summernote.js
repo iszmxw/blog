@@ -7097,7 +7097,8 @@ $$1.summernote = $$1.extend($$1.summernote, {
             ['para', ['ul', 'ol', 'paragraph']],
             ['table', ['table']],
             ['insert', ['link', 'picture', 'video']],
-            ['view', ['fullscreen', 'codeview', 'help']]
+            ['view', ['fullscreen', 'codeview', 'help']],
+            ['highlight', ['highlight']]
         ],
         // popover
         popatmouse: true,

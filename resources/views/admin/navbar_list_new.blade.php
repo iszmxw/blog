@@ -500,14 +500,16 @@
             output.val('JSON browser support required for this demo.');
         }
     };
+    var mc = function (mc){
+        console.log("66666");
+        console.log(mc);
+    };
+
     // activate Nestable for list 2
     $('#nestable2').nestable({
         group: 1
     }).on('change', updateOutput).click(mc);
-    var mc = function (mc){
-        console.log("66666");
-        console.log(mc);
-	};
+
     // output initial serialised data
     updateOutput($('#nestable2').data('output', $('#nestable2-output')));
     $('#nestable-menu').on('click', function (e) {

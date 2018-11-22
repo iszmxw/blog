@@ -87,69 +87,8 @@
 						</div>
 
 					</div>
-
-					<div class="ibox float-e-margins">
-						<div class="ibox-title">
-							<h5>分类列表
-								<small>所有分类。</small>
-							</h5>
-						</div>
-						<div class="ibox-content">
-							<div class="table-responsive">
-								<table class="table table-striped">
-									<thead>
-									<tr>
-										<th>序号</th>
-										<th>导航名称</th>
-										<th>导航地址</th>
-										<th>是否新窗口打开</th>
-										<th>当前状态</th>
-										<th>操作</th>
-									</tr>
-									</thead>
-									<tbody>
-									@foreach($list as $value)
-										<tr>
-											<td><input type="text" value="{{$value['taxis']}}" class="form-control"></td>
-											<td>{{$value['naviname']}}</td>
-											<td>{{$value['url']}}</td>
-											<td>
-												@if($value['newtab'] == 'n')
-													否
-												@else
-													是
-												@endif
-											</td>
-											<td>
-												@if($value['hide'] == 'n')
-													显示
-												@else
-													隐藏
-												@endif</td>
-											<td>
-												<button class="btn btn-info" type="button" onclick="EditData('{{$value['id']}}')"><i class="fa fa-edit"></i>&nbsp;&nbsp;编辑</button>
-												<button class="btn btn-danger" type="button" onclick="deleted('{{$value['id']}}')"><i class="fa fa-times"></i>&nbsp;&nbsp;删除</button>
-											</td>
-										</tr>
-									@endforeach
-									</tbody>
-									<tfoot>
-									<tr>
-										<td colspan="7" class="footable-visible">
-											<ul class="pagination pull-right">
-												{{$list->links()}}
-											</ul>
-										</td>
-									</tr>
-									</tfoot>
-								</table>
-
-							</div>
-						</div>
-					</div>
 				</div>
 			</div>
-
 
 		</div>
 		{{--底部--}}
@@ -328,7 +267,6 @@
             var _token = $("#_token").val();
             var json = eval("("+window.JSON.stringify(list.nestable('serialize'))+")");
             var data = {'_token':_token,'data':json};
-            console.log(json);
             $.post(url,data,function (json) {
                 toastr.success(json.data);
             });

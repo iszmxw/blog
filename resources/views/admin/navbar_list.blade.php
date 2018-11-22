@@ -33,79 +33,62 @@
 				</div>
 			</div>
 
+
 			<div class="row">
 				<div class="col-lg-12">
-					<div class="ibox float-e-margins">
+					<div class="ibox ">
 						<div class="ibox-title">
-							<h5>分类列表
-								<small>所有分类。</small>
-							</h5>
+							<h5>网站导航列表</h5>
 						</div>
 						<div class="ibox-content">
 							<div class="row">
 								<div class="col-sm-3">
 									<a href="JavaScript:;" class="btn btn-primary" onclick="add_alert()">添加导航</a>
 								</div>
-								<div class="col-sm-3">
-									<div class="input-group"><input type="text" placeholder="请输入搜索内容" class="input-sm form-control"> <span class="input-group-btn">
-                                        <button type="button" class="btn btn-sm btn-primary"> 搜索</button> </span></div>
-								</div>
 							</div>
-							<div class="table-responsive">
-								<table class="table table-striped">
-									<thead>
-									<tr>
-										<th>序号</th>
-										<th>导航名称</th>
-										<th>导航地址</th>
-										<th>是否新窗口打开</th>
-										<th>当前状态</th>
-										<th>操作</th>
-									</tr>
-									</thead>
-									<tbody>
-									@foreach($list as $value)
-										<tr>
-											<td><input type="text" value="{{$value['taxis']}}" class="form-control"></td>
-											<td>{{$value['naviname']}}</td>
-											<td>{{$value['url']}}</td>
-											<td>
-												@if($value['newtab'] == 'n')
-													否
-												@else
-													是
-												@endif
-											</td>
-											<td>
-												@if($value['hide'] == 'n')
-													显示
-												@else
-													隐藏
-												@endif</td>
-											<td>
-												<button class="btn btn-info" type="button" onclick="EditData('{{$value['id']}}')"><i class="fa fa-edit"></i>&nbsp;&nbsp;编辑</button>
-												<button class="btn btn-danger" type="button" onclick="deleted('{{$value['id']}}')"><i class="fa fa-times"></i>&nbsp;&nbsp;删除</button>
-											</td>
-										</tr>
-									@endforeach
-									</tbody>
-									<tfoot>
-									<tr>
-										<td colspan="7" class="footable-visible">
-											<ul class="pagination pull-right">
-												{{$list->links()}}
-											</ul>
-										</td>
-									</tr>
-									</tfoot>
-								</table>
+							<br>
+							<div class="dd" id="nestable2">
+								<input type="hidden" id="navbar_sort" value="{{ url('admin/ajax/navbar_sort') }}">
+								<input type="hidden" id="_token" value="{{csrf_token()}}">
+								<ol class="dd-list">
+									@foreach($navi as $key=>$val)
+										<li class="dd-item" data-id="{{ $val['id'] }}">
+											<div class="dd-handle">
+											<span class="pull-right">
+												<button class="dd-nodrag btn btn-xs btn-info" type="button" onclick="EditData('{{$val['id']}}')"><i class="fa fa-edit"></i>&nbsp;&nbsp;编辑</button>
+												<button class="dd-nodrag btn btn-xs btn-danger" type="button" onclick="deleted('{{$val['id']}}')"><i class="fa fa-times"></i>&nbsp;&nbsp;删除</button>
+											</span>
+												<span class="label label-info"><i class="fa fa-link"></i></span> {{ $val['naviname'] }}
+											</div>
 
+											<ol class="dd-list">
+												@foreach($val['sub_menu'] as $k=>$v)
+													<li class="dd-item" data-id="{{$v['id']}}">
+														<div class="dd-handle">
+													<span class="pull-right">
+														<button class="dd-nodrag btn btn-xs btn-info" type="button" onclick="EditData('{{$v['id']}}')"><i class="fa fa-edit"></i>&nbsp;&nbsp;编辑</button>
+														<button class="dd-nodrag btn btn-xs btn-danger" type="button" onclick="deleted('{{$v['id']}}')"><i class="fa fa-times"></i>&nbsp;&nbsp;删除</button>
+													</span>
+															<span class="label label-info"><i class="fa fa-link"></i></span> {{ $v['naviname'] }}
+														</div>
+													</li>
+												@endforeach
+											</ol>
+										</li>
+									@endforeach
+								</ol>
 							</div>
+							<div class="m-t-md">
+								<h5>序列化输出</h5>
+							</div>
+							<textarea id="nestable2-output" class="form-control"></textarea>
+
+
 						</div>
+
 					</div>
 				</div>
 			</div>
-
 
 		</div>
 		{{--底部--}}
@@ -173,7 +156,7 @@
 						<div class="col-sm-2 i-checks"><label> <input type="radio" value="y" name="hide"> <i></i> 隐藏 </label></div>
 					</div>
 					<br>
-                    <div class="form-group">
+					<div class="form-group">
 						<label class="control-label">是否新窗口打开</label>
 						<div style="clear: both"></div>
 						<div class="col-sm-2 i-checks"><label> <input type="radio" checked="" value="y" name="newtab"> <i></i> 是 </label></div>
@@ -272,13 +255,43 @@
 @include('admin.public.common_js')
 <!-- iCheck -->
 <script src="{{asset('style/admin/inspinia/js/plugins/iCheck/icheck.min.js')}}"></script>
+<!-- Nestable List -->
+<script src="{{asset('style/admin/inspinia/js/plugins/nestable/jquery.nestable.js')}}"></script>
 <script>
-    $(document).ready(function () {
-        $('.i-checks').iCheck({
-            checkboxClass: 'icheckbox_square-green',
-            radioClass: 'iradio_square-green',
-        });
+
+    var updateOutput = function (e) {
+        var list = e.length ? e : $(e.target),
+            output = list.data('output');
+        if (window.JSON) {
+            var url = $("#navbar_sort").val();
+            var _token = $("#_token").val();
+            var json = eval("("+window.JSON.stringify(list.nestable('serialize'))+")");
+            var data = {'_token':_token,'data':json};
+            $.post(url,data,function (json) {
+                toastr.success(json.data);
+            });
+            output.val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));
+        } else {
+            output.val('JSON browser support required for this demo.');
+        }
+    };
+    // activate Nestable for list 2
+    $('#nestable2').nestable({
+        group: 1
+    }).on('change', updateOutput);
+    // output initial serialised data
+    updateOutput($('#nestable2').data('output', $('#nestable2-output')));
+    $('#nestable-menu').on('click', function (e) {
+        var target = $(e.target),
+            action = target.data('action');
+        if (action === 'expand-all') {
+            $('.dd').nestable('expandAll');
+        }
+        if (action === 'collapse-all') {
+            $('.dd').nestable('collapseAll');
+        }
     });
+
 </script>
 <script>
     //显示添加数据框
@@ -289,7 +302,7 @@
     //修改导航栏链接类型
     function SetType(type){
         $(".url_type").val(type);
-	}
+    }
 
     //添加分类
     function add_data(){
@@ -317,8 +330,20 @@
         });
     }
 
+    //因为冒泡了，会执行到下面的方法。
+    function stopPropagation(e) {
+        var ev = e || window.event;
+        if (ev.stopPropagation) {
+            ev.stopPropagation();
+        }
+        else if (window.event) {
+            window.event.cancelBubble = true;//兼容IE
+        }
+    }
+
     //获取分类数据
-    function EditData(id){
+    function EditData(id,e){
+        stopPropagation(e);
         var url = "{{url('admin/ajax/navbar_data')}}";
         var data = {'_token':"{{csrf_token()}}",'id':id};
         $.post(url,data,function(json){
@@ -333,13 +358,13 @@
                     $("#switch-2").removeClass("active");
                     $("#tabs-2").removeClass("active");
                     $("#system_url option[value='"+json.data.type_id+"']").attr("selected", "selected");
-				}else{
+                }else{
                     $("#switch-1").removeClass("active");
                     $("#tabs-1").removeClass("active");
                     $("#switch-2").addClass("active");
                     $("#tabs-2").addClass("active");
                     $("#url").val(json.data.url);
-				}
+                }
                 if (json.data.hide == 'y'){
                     $("#hide").attr("checked","checked");
                     $("#hide").parent().addClass("checked");

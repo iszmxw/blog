@@ -49,51 +49,38 @@
 								<ol class="dd-list">
 									<li class="dd-item" data-id="1">
 										<div class="dd-handle">
-											<span class="label label-info"><i class="fa fa-users"></i></span> 列表
+											<span class="label label-info"><i class="fa fa-child"></i></span> 列表
 										</div>
 										<ol class="dd-list">
 											<li class="dd-item" data-id="2">
 												<div class="dd-handle">
 													<span class="pull-right"> 12:00 </span>
-													<span class="label label-info"><i class="fa fa-cog"></i></span> 列表
+													<span class="label label-info"><i class="fa fa-child"></i></span> 列表
 												</div>
 											</li>
-											<li class="dd-item" data-id="3">
+											<li class="dd-item" data-id="2">
 												<div class="dd-handle">
-													<span class="pull-right"> 11:00 </span>
-													<span class="label label-info"><i class="fa fa-bolt"></i></span> 列表
-												</div>
-											</li>
-											<li class="dd-item" data-id="4">
-												<div class="dd-handle">
-													<span class="pull-right"> 11:00 </span>
-													<span class="label label-info"><i class="fa fa-laptop"></i></span> 列表
+													<span class="pull-right"> 12:00 </span>
+													<span class="label label-info"><i class="fa fa-child"></i></span> 列表
 												</div>
 											</li>
 										</ol>
 									</li>
-
-									<li class="dd-item" data-id="5">
+									<li class="dd-item" data-id="1">
 										<div class="dd-handle">
-											<span class="label label-warning"><i class="fa fa-users"></i></span> 列表
+											<span class="label label-info"><i class="fa fa-child"></i></span> 列表
 										</div>
 										<ol class="dd-list">
-											<li class="dd-item" data-id="6">
+											<li class="dd-item" data-id="2">
 												<div class="dd-handle">
-													<span class="pull-right"> 15:00 </span>
-													<span class="label label-warning"><i class="fa fa-users"></i></span> 列表
+													<span class="pull-right"> 12:00 </span>
+													<span class="label label-info"><i class="fa fa-child"></i></span> 列表
 												</div>
 											</li>
-											<li class="dd-item" data-id="7">
+											<li class="dd-item" data-id="2">
 												<div class="dd-handle">
-													<span class="pull-right"> 16:00 </span>
-													<span class="label label-warning"><i class="fa fa-bomb"></i></span> 列表
-												</div>
-											</li>
-											<li class="dd-item" data-id="8">
-												<div class="dd-handle">
-													<span class="pull-right"> 21:00 </span>
-													<span class="label label-warning"><i class="fa fa-child"></i></span> 列表
+													<span class="pull-right"> 12:00 </span>
+													<span class="label label-info"><i class="fa fa-child"></i></span> 列表
 												</div>
 											</li>
 										</ol>

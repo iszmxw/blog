@@ -296,6 +296,9 @@
             if (this.hasNewRoot) {
                 this.dragRootEl.trigger('change');
             }
+            if(this.mouse.distAxY===0 && this.mouse.distAxX==0){
+                this.el.trigger('click');
+            }
             this.reset();
         },
 

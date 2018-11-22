@@ -34,9 +34,9 @@
 			</div>
 
 			<style>
-				#nestable2 .dd-item >.dd-demo::before{content:  "编辑";width: 40px;height: 30px;line-height: 30px;top: -0px;border-radius: 2px;color: orange;
+				#nestable2 .dd-item .dd-demo::before{content:  "编辑";width: 40px;height: 30px;line-height: 30px;top: -0px;border-radius: 2px;color: orange;
 				}
-				#nestable2 .dd-item >.dd-demo1::before{content:  "删除";width: 40px;height: 30px;line-height: 30px;top: -0px;border-radius: 2px;color: red;}
+				#nestable2 .dd-item .dd-demo1::before{content:  "删除";width: 40px;height: 30px;line-height: 30px;top: -0px;border-radius: 2px;color: red;}
 				button.dd-demo{position: absolute;top: 0px;right: 50px;}
 				button.dd-demo1{position: absolute;top: 0px;right: 0px;}
 			</style>

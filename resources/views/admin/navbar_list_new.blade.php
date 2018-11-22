@@ -339,7 +339,7 @@
     // activate Nestable for list 2
     $('#nestable2').nestable({
         group: 1
-    }).on('change', updateOutput);
+    }).on('change', updateOutput).click(editnav);
     // output initial serialised data
     updateOutput($('#nestable2').data('output', $('#nestable2-output')));
     $('#nestable-menu').on('click', function (e) {
@@ -403,7 +403,7 @@
     }
 
     //获取分类数据
-    function EditData(id,e){
+    var editnav = function EditData(id,e){
         stopPropagation(e);
         var url = "{{url('admin/ajax/navbar_data')}}";
         var data = {'_token':"{{csrf_token()}}",'id':id};

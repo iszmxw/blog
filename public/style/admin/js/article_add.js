@@ -3,7 +3,8 @@ $(document).ready(function () {
         height: 600,
         minHeight: null,
         maxHeight: null,
-        focus: true
+        focus: true,
+        prettifyHtml:false
     });
 });
 

@@ -321,7 +321,9 @@
             var list = e.length ? e : $(e.target),
                 output = list.data('output');
             if (window.JSON) {
-                console.log(window.JSON.stringify(list.nestable('serialize')));
+                var json = eval("("+window.JSON.stringify(list.nestable('serialize'))+")")
+                console.log(json);
+
                 output.val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));
             } else {
                 output.val('JSON browser support required for this demo.');

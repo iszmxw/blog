@@ -38,6 +38,6 @@ REDIS_PASSWORD=redis密码
 
 REDIS_PORT=6379
 
-
 WC_AppID=微信订阅号appid
+
 WC_AppSecret=微信AppSecret

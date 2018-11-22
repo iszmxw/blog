@@ -35,6 +35,81 @@
 
 			<div class="row">
 				<div class="col-lg-12">
+					<div class="ibox ">
+						<div class="ibox-title">
+							<h5>可嵌套自定义主题列表</h5>
+						</div>
+						<div class="ibox-content">
+
+							<p class="m-b-lg">
+								您可以通过标准的CSS样式定制每个列表。每个元素都是响应的，所以你可以添加任何其他元素来提高列表的功能。
+							</p>
+
+							<div class="dd" id="nestable2">
+								<ol class="dd-list">
+									<li class="dd-item" data-id="1">
+										<div class="dd-handle">
+											<span class="label label-info"><i class="fa fa-users"></i></span> 列表
+										</div>
+										<ol class="dd-list">
+											<li class="dd-item" data-id="2">
+												<div class="dd-handle">
+													<span class="pull-right"> 12:00 </span>
+													<span class="label label-info"><i class="fa fa-cog"></i></span> 列表
+												</div>
+											</li>
+											<li class="dd-item" data-id="3">
+												<div class="dd-handle">
+													<span class="pull-right"> 11:00 </span>
+													<span class="label label-info"><i class="fa fa-bolt"></i></span> 列表
+												</div>
+											</li>
+											<li class="dd-item" data-id="4">
+												<div class="dd-handle">
+													<span class="pull-right"> 11:00 </span>
+													<span class="label label-info"><i class="fa fa-laptop"></i></span> 列表
+												</div>
+											</li>
+										</ol>
+									</li>
+
+									<li class="dd-item" data-id="5">
+										<div class="dd-handle">
+											<span class="label label-warning"><i class="fa fa-users"></i></span> 列表
+										</div>
+										<ol class="dd-list">
+											<li class="dd-item" data-id="6">
+												<div class="dd-handle">
+													<span class="pull-right"> 15:00 </span>
+													<span class="label label-warning"><i class="fa fa-users"></i></span> 列表
+												</div>
+											</li>
+											<li class="dd-item" data-id="7">
+												<div class="dd-handle">
+													<span class="pull-right"> 16:00 </span>
+													<span class="label label-warning"><i class="fa fa-bomb"></i></span> 列表
+												</div>
+											</li>
+											<li class="dd-item" data-id="8">
+												<div class="dd-handle">
+													<span class="pull-right"> 21:00 </span>
+													<span class="label label-warning"><i class="fa fa-child"></i></span> 列表
+												</div>
+											</li>
+										</ol>
+									</li>
+								</ol>
+							</div>
+							<div class="m-t-md">
+								<h5>序列化输出</h5>
+							</div>
+							<textarea id="nestable2-output" class="form-control"></textarea>
+
+
+						</div>
+
+					</div>
+
 					<div class="ibox float-e-margins">
 						<div class="ibox-title">
 							<h5>分类列表

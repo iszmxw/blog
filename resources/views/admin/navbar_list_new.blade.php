@@ -318,6 +318,43 @@
 <!-- Nestable List -->
 <script src="{{asset('style/admin/inspinia/js/plugins/nestable/jquery.nestable.js')}}"></script>
 <script>
+
+    var updateOutput = function (e) {
+        var list = e.length ? e : $(e.target),
+            output = list.data('output');
+        if (window.JSON) {
+            var url = $("#navbar_sort").val();
+            var _token = $("#_token").val();
+            var json = eval("("+window.JSON.stringify(list.nestable('serialize'))+")");
+            var data = {'_token':_token,'data':json};
+            console.log(json);
+            $.post(url,data,function (json) {
+                toastr.success(json.data);
+            });
+            output.val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));
+        } else {
+            output.val('JSON browser support required for this demo.');
+        }
+    };
+    // activate Nestable for list 2
+    $('#nestable2').nestable({
+        group: 1
+    }).on('change', updateOutput);
+    // output initial serialised data
+    updateOutput($('#nestable2').data('output', $('#nestable2-output')));
+    $('#nestable-menu').on('click', function (e) {
+        var target = $(e.target),
+            action = target.data('action');
+        if (action === 'expand-all') {
+            $('.dd').nestable('expandAll');
+        }
+        if (action === 'collapse-all') {
+            $('.dd').nestable('collapseAll');
+        }
+    });
+
+</script>
+<script>
     //显示添加数据框
     function add_alert(){
         $("#add_data").modal();
@@ -366,7 +403,7 @@
     }
 
     //获取分类数据
-    var editnav = function EditData(id,e){
+    function EditData(id,e){
         stopPropagation(e);
         var url = "{{url('admin/ajax/navbar_data')}}";
         var data = {'_token':"{{csrf_token()}}",'id':id};
@@ -480,48 +517,6 @@
                 }
             });
     }
-
-
-
-    var updateOutput = function (e) {
-        var list = e.length ? e : $(e.target),
-            output = list.data('output');
-        if (window.JSON) {
-            var url = $("#navbar_sort").val();
-            var _token = $("#_token").val();
-            var json = eval("("+window.JSON.stringify(list.nestable('serialize'))+")");
-            var data = {'_token':_token,'data':json};
-            console.log(json);
-            $.post(url,data,function (json) {
-                toastr.success(json.data);
-            });
-            output.val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));
-        } else {
-            output.val('JSON browser support required for this demo.');
-        }
-    };
-    var mc = function (id){
-        console.log("66666");
-        console.log(id);
-    };
-
-    // activate Nestable for list 2
-    $('#nestable2').nestable({
-        group: 1
-    }).on('change', updateOutput).click(mc(121212121));
-
-    // output initial serialised data
-    updateOutput($('#nestable2').data('output', $('#nestable2-output')));
-    $('#nestable-menu').on('click', function (e) {
-        var target = $(e.target),
-            action = target.data('action');
-        if (action === 'expand-all') {
-            $('.dd').nestable('expandAll');
-        }
-        if (action === 'collapse-all') {
-            $('.dd').nestable('collapseAll');
-        }
-    });
 </script>
 </body>
 </html>

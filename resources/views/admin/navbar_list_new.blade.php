@@ -40,12 +40,11 @@
 							<h5>可嵌套自定义主题列表</h5>
 						</div>
 						<div class="ibox-content">
-
-							<p class="m-b-lg">
-								<div class="col-sm-3">
+							<div class="row">
+								<p class="m-b-lg">
 									<a href="JavaScript:;" class="btn btn-primary" onclick="add_alert()">添加导航</a>
-								</div>
-							</p>
+								</p>
+							</div>
 
 							<div class="dd" id="nestable2">
 								<ol class="dd-list">

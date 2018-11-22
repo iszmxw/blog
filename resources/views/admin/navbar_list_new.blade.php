@@ -37,7 +37,7 @@
 				<div class="col-lg-12">
 					<div class="ibox ">
 						<div class="ibox-title">
-							<h5>可嵌套自定义主题列表</h5>
+							<h5>网站导航列表</h5>
 						</div>
 						<div class="ibox-content">
 							<div class="row">
@@ -45,7 +45,7 @@
 									<a href="JavaScript:;" class="btn btn-primary" onclick="add_alert()">添加导航</a>
 								</div>
 							</div>
-
+							<br>
 							<div class="dd" id="nestable2">
 								<ol class="dd-list">
 									@foreach($navi as $key=>$val)

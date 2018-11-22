@@ -34,9 +34,27 @@
 			</div>
 
 			<style>
-				button.dd-demo{position: absolute;top: 0px;right: 50px;}
-				button.dd-demo1{position: absolute;top: 0px;right: 0px;}
+				.dd {position: relative;display: block;list-style: none;line-height: 1.5;}
+				.dd-list {display: block;position: relative;padding: 0;list-style: none;}
+				.dd-list .dd-list {padding-left: 2rem;}
+				.dd-collapsed .dd-list {display: none;}
+				.dd-item, .dd-empty, .dd-placeholder {display: block;position: relative;min-height: 20px;line-height: 1.5;}
+				.dd-handle {display: block;height: 30px;margin: 5px 0;padding: 5px 10px;border: 1px solid #ccc;background: #fff;box-sizing: border-box;-moz-box-sizing: border-box;}
+				.dd-handle:hover {color: #2ea8e5;}
+
+				/* 注意这里只设置nesttable自带折叠按钮的样式 */
+				.dd-item>button[data-action] {display: block;position: relative;cursor: pointer;float: left;width: 25px;height: 20px;margin: 5px 0;padding: 0;text-indent: 100%;white-space: nowrap;overflow: hidden;border: 0;background: transparent;font-size: 12px;line-height: 1;}
+				/* 注意这里只设置nesttable自带折叠按钮的样式 */
+				.dd-item>button[data-action]:before {content: '+';display: block;position: absolute;width: 100%;text-align: center;text-indent: 0;}
+				.dd-item>button[data-action="collapse"]:before {content: '-';}
+				.dd-placeholder, .dd-empty {margin: 5px 0;padding: 0;min-height: 30px;background: #f2fbff;border: 1px dashed #b6bcbf;box-sizing: border-box;-moz-box-sizing: border-box;}
+				.dd-empty {border: 1px dashed #bbb;}
+				.dd-dragel {position: absolute;pointer-events: none;z-index: 9999;}
+				.dd-dragel>.dd-item .dd-handle {margin-top: 0;}
+				.dd-dragel .dd-handle {-webkit-box-shadow: 2px 4px 6px 0 rgba(0, 0, 0, .1);box-shadow: 2px 4px 6px 0 rgba(0, 0, 0, .1);}
+				button.btn{position: absolute;top: 2px;left: 150px;height: 26px}
 			</style>
+
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="ibox ">

@@ -41,9 +41,9 @@
 						</div>
 						<div class="ibox-content">
 							<div class="row">
-								<p class="m-b-lg">
+								<div class="col-sm-3">
 									<a href="JavaScript:;" class="btn btn-primary" onclick="add_alert()">添加导航</a>
-								</p>
+								</div>
 							</div>
 
 							<div class="dd" id="nestable2">

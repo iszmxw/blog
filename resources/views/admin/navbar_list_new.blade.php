@@ -50,13 +50,20 @@
 									@foreach($navi as $key=>$val)
 									<li class="dd-item" data-id="{{ $key }}">
 										<div class="dd-handle">
+											<span class="pull-right">
+												<button class="btn btn-info" type="button" onclick="EditData('{{$val['id']}}')"><i class="fa fa-edit"></i>&nbsp;&nbsp;编辑</button>
+												<button class="btn btn-danger" type="button" onclick="deleted('{{$val['id']}}')"><i class="fa fa-times"></i>&nbsp;&nbsp;删除</button>
+											</span>
 											<span class="label label-info"><i class="fa fa-link"></i></span> {{ $val['naviname'] }}
 										</div>
 										<ol class="dd-list">
 											@foreach($val['sub_menu'] as $k=>$v)
 											<li class="dd-item" data-id="{{$k}}">
 												<div class="dd-handle">
-													<span class="pull-right"> 12:00 </span>
+													<span class="pull-right">
+														<button class="btn btn-info" type="button" onclick="EditData('{{$v['id']}}')"><i class="fa fa-edit"></i>&nbsp;&nbsp;编辑</button>
+														<button class="btn btn-danger" type="button" onclick="deleted('{{$v['id']}}')"><i class="fa fa-times"></i>&nbsp;&nbsp;删除</button>
+													</span>
 													<span class="label label-info"><i class="fa fa-link"></i></span> {{ $v['naviname'] }}
 												</div>
 											</li>

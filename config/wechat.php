@@ -25,5 +25,4 @@ return [
 
     'AppID' => env('WC_AppID', 'wx24f1bdc282e9141d'),
     'AppSecret' => env('WC_AppSecret', 'c8b578a9aa74d0bb5a62b8339f1b9e85')
-
 ];

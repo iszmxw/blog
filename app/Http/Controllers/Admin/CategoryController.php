@@ -113,11 +113,11 @@ class CategoryController extends Controller
         DB::beginTransaction();
         try{
             foreach($data as $key=>$val){
-                Navi::EditData(['id'=>$val['id']],['taxis'=>$key]);
-                if(!empty($val['children'])){
+                if(empty($val['children'])){
+                    Navi::EditData(['id'=>$val['id']],['taxis'=>$key,'pid'=>'0']);
+                }else{
                     foreach($val['children'] as $k=>$v){
-                        Navi::EditData(['id'=>$v['id']],['taxis'=>$k]);
-                        Navi::EditData(['id'=>$v['id']],['pid'=>$val['id']]);
+                        Navi::EditData(['id'=>$v['id']],['taxis'=>$k,'pid'=>$val['id']]);
                     }
                 }
             }

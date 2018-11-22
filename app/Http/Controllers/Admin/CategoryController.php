@@ -102,6 +102,15 @@ class CategoryController extends Controller
         return view('admin.navbar_list_new',$data);
     }
 
+    /**
+     * @param Request $request
+     * 导航栏排序以及层级修改
+     */
+    public function navbar_sort(Request $request)
+    {
+        dd($request);
+    }
+
     //添加导航栏数据
     public function navbar_add_check(Request $request)
     {

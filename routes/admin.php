@@ -68,6 +68,8 @@ Route::middleware('admin')->namespace('Admin')->group(function () {
         Route::post('navbar_data','CategoryController@navbar_data');
         Route::post('navbar_data_edit_check','CategoryController@navbar_data_edit_check');
         Route::post('navbar_delete_check','CategoryController@navbar_delete_check');
+        //导航栏排序以及层级修改
+        Route::post('navbar_sort','CategoryController@navbar_sort');
 
         //评论管理
         Route::post('comment_delete_check','PluginsController@comment_delete_check');

@@ -35,6 +35,7 @@ class Admin
             case '/admin/ajax/navbar_data';
             case '/admin/ajax/navbar_data_edit_check';
             case '/admin/ajax/navbar_delete_check';
+            case '/admin/ajax/navbar_sort';
             //说说管理
             case '/admin/plugins/twitter_list';
             case '/admin/plugins/twitter_delete_check';

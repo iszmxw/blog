@@ -47,6 +47,8 @@
 							</div>
 							<br>
 							<div class="dd" id="nestable">
+								<input type="hidden" id="navbar_sort" value="{{ url('admin/ajax/navbar_sort') }}">
+								<input type="hidden" id="_token" value="{{csrf_token()}}">
 								<ol class="dd-list">
 									@foreach($navi as $key=>$val)
 									<li class="dd-item" data-id="{{ $val['id'] }}">
@@ -321,9 +323,14 @@
             var list = e.length ? e : $(e.target),
                 output = list.data('output');
             if (window.JSON) {
+                var url = $("#navbar_sort").val();
+                var _token = $("#_token").val();
                 var json = eval("("+window.JSON.stringify(list.nestable('serialize'))+")");
+                var data = {'_token':_token,'data':json};
                 console.log(json);
-
+                $.post(url,data,function (json) {
+					console.log(json);
+                });
                 output.val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));
             } else {
                 output.val('JSON browser support required for this demo.');

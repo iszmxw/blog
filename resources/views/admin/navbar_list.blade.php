@@ -271,20 +271,14 @@
             $.post(url,data,function (json) {
                 toastr.success(json.data);
             });
-            // output.val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));
-            // output.val('JSON browser support required for this demo.');
-			console.log(1);
         } else {
-            // output.val('JSON browser support required for this demo.');
-            console.log(2);
+            toastr.success('这个演示需要JSON浏览器支持。');
         }
     };
-    // activate Nestable for list 2
+    // 对嵌套的表2
     $('#nestable2').nestable({
         group: 1
     }).on('change', updateOutput);
-    // output initial serialised data
-    // updateOutput($('#nestable2').data('output', $('#nestable2-output')));
     $('#nestable-menu').on('click', function (e) {
         var target = $(e.target),
             action = target.data('action');

@@ -78,9 +78,9 @@
 									@endforeach
 								</ol>
 							</div>
-							<div class="m-t-md">
-								<h5>序列化输出</h5>
-							</div>
+							{{--<div class="m-t-md">--}}
+								{{--<h5>序列化输出</h5>--}}
+							{{--</div>--}}
 							{{--<textarea id="nestable2-output" class="form-control"></textarea>--}}
 
 

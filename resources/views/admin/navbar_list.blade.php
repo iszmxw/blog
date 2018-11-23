@@ -267,6 +267,7 @@
             var _token = $("#_token").val();
             var json = eval("("+window.JSON.stringify(list.nestable('serialize'))+")");
             var data = {'_token':_token,'data':json};
+            console.log(data);
             $.post(url,data,function (json) {
                 toastr.success(json.data);
             });

@@ -281,7 +281,7 @@
         group: 1
     }).on('change', updateOutput);
     // output initial serialised data
-    updateOutput($('#nestable2');
+    // updateOutput($('#nestable2').data('output', $('#nestable2-output')));
     $('#nestable-menu').on('click', function (e) {
         var target = $(e.target),
             action = target.data('action');

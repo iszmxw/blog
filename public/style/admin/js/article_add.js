@@ -4,7 +4,7 @@ $(document).ready(function () {
         minHeight: null,
         maxHeight: null,
         focus: true,
-        prettifyHtml:false
+        prettifyHtml:true
     });
 });
 

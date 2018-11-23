@@ -258,10 +258,8 @@
 <!-- Nestable List -->
 <script src="{{asset('style/admin/inspinia/js/plugins/nestable/jquery.nestable.js')}}"></script>
 <script>
-
     var updateOutput = function (e) {
-        var list = e.length ? e : $(e.target),
-            output = list.data('output');
+        var list = e.length ? e : $(e.target);
         if (window.JSON) {
             var url = $("#navbar_sort").val();
             var _token = $("#_token").val();

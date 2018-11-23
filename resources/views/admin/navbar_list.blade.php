@@ -282,6 +282,16 @@
     }).on('change', updateOutput);
     // output initial serialised data
     updateOutput($('#nestable2');
+    $('#nestable-menu').on('click', function (e) {
+        var target = $(e.target),
+            action = target.data('action');
+        if (action === 'expand-all') {
+            $('.dd').nestable('expandAll');
+        }
+        if (action === 'collapse-all') {
+            $('.dd').nestable('collapseAll');
+        }
+    });
 
 </script>
 <script>

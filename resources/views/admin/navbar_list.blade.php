@@ -283,12 +283,10 @@
     function add_alert(){
         $("#add_data").modal();
     }
-
     //修改导航栏链接类型
     function SetType(type){
         $(".url_type").val(type);
     }
-
     //添加分类
     function add_data(){
         var target = $("#post_url");
@@ -325,7 +323,6 @@
             window.event.cancelBubble = true;//兼容IE
         }
     }
-
     //获取分类数据
     function EditData(id,e){
         stopPropagation(e);

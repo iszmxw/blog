@@ -272,9 +272,11 @@
                 toastr.success(json.data);
             });
             // output.val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));
-            output.val('JSON browser support required for this demo.');
+            // output.val('JSON browser support required for this demo.');
+			console.log(1);
         } else {
-            output.val('JSON browser support required for this demo.');
+            // output.val('JSON browser support required for this demo.');
+            console.log(2);
         }
     };
     // activate Nestable for list 2

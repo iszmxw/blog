@@ -271,7 +271,8 @@
             $.post(url,data,function (json) {
                 toastr.success(json.data);
             });
-            output.val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));
+            // output.val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));
+            output.val('JSON browser support required for this demo.');
         } else {
             output.val('JSON browser support required for this demo.');
         }

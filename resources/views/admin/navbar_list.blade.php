@@ -78,10 +78,10 @@
 									@endforeach
 								</ol>
 							</div>
-							<div class="m-t-md">
-								<h5>序列化输出</h5>
-							</div>
-							<textarea id="nestable2-output" class="form-control"></textarea>
+							{{--<div class="m-t-md">--}}
+								{{--<h5>序列化输出</h5>--}}
+							{{--</div>--}}
+							{{--<textarea id="nestable2-output" class="form-control"></textarea>--}}
 
 
 						</div>
@@ -281,17 +281,7 @@
         group: 1
     }).on('change', updateOutput);
     // output initial serialised data
-    updateOutput($('#nestable2').data('output', $('#nestable2-output')));
-    $('#nestable-menu').on('click', function (e) {
-        var target = $(e.target),
-            action = target.data('action');
-        if (action === 'expand-all') {
-            $('.dd').nestable('expandAll');
-        }
-        if (action === 'collapse-all') {
-            $('.dd').nestable('collapseAll');
-        }
-    });
+    updateOutput($('#nestable2');
 
 </script>
 <script>

@@ -33,7 +33,7 @@
             var $editor = context.layoutInfo.editor;
             var options = context.options;
             var lang = options.langInfo;
-            
+
             // add button
 
             context.memo('button.highlight', function () {
@@ -97,7 +97,7 @@
 
             this.showHighlightDialog = function (codeInfo) {
                 return $.Deferred(function (deferred) {
-                    var $extHighlightCode = self.$dialog.find('.ext-highlight-code');
+                    var $extHighlightCode = self.$dialog.find('.ext-highlight-code'),$code,$type;
                     var $extHighlightBtn = self.$dialog.find('.ext-highlight-btn');
                     var $extHighlightSelect = self.$dialog.find('.ext-highlight-select');
 
@@ -112,7 +112,11 @@
 
                         $extHighlightBtn.one('click', function (event) {
                             event.preventDefault();
-                            deferred.resolve(self.createCodeNode($extHighlightCode.val(), $extHighlightSelect.val()));
+                            //转义后的html
+                            $code = $extHighlightCode.val().replace(/[<>&"]/g,function(c){return {'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c];});
+                            //插入的代码类型
+                            $type = $extHighlightSelect.val();
+                            deferred.resolve(self.createCodeNode($code, $type));
                         });
                     });
 

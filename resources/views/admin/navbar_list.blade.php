@@ -114,7 +114,7 @@
 					<br>
 					<div class="form-group">
 						<h3>是否新窗口打开</h3>
-						<input type="checkbox" name="newtab" value="y" class="js-switch" checked />
+						<input type="checkbox" name="newtab" value="y" class="js-switch_2" checked />
 					</div>
 					<br>
 					<div style="clear: both"></div>

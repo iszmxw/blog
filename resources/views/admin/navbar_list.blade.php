@@ -258,7 +258,7 @@
     var elem = document.querySelector('.js-switch');
     var elem_2 = document.querySelector('.js-switch_2');
     new Switchery(elem, { color: '#1AB394' });
-    new Switchery(elem_2, { color: '#ED5565' });
+    new Switchery(elem_2, { color: '#1AB394' });
     var updateOutput = function (e) {
         var list = e.length ? e : $(e.target);
         if (window.JSON) {

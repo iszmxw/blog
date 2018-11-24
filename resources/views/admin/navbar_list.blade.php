@@ -121,7 +121,7 @@
 						<label class="control-label">是否根目录</label>
 						<select class="form-control m-b" name="isdefault">
 							<option value="n" selected="selected">否</option>
-							<option value="y" selected="selected">是</option>
+							<option value="y">是</option>
 						</select>
 					</div>
 					<div class="form-group">

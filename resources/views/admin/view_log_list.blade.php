@@ -63,7 +63,7 @@
                                         <td><span class="label label-primary">{{$value['ip_position']}}</span></td>
                                         <td><span class="label label-success">{{$value['num']}}</span></td>
                                         <td>{{$value['created_at']->diffForHumans()}}</td>
-                                        <td>{{$value['previous']}}</td>
+                                        <td>@if($value['previous']){{$value['previous']}}@else暂无@endif</td>
                                         <td>{{$value['updated_at']->diffForHumans()}}</td>
                                         <td>{{$value['full']}}</td>
                                     </tr>

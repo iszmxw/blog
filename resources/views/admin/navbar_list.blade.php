@@ -118,6 +118,13 @@
 					</div>
 					<div style="clear: both;  padding-top: 15px;"></div>
 					<div class="form-group">
+						<label class="control-label">是否根目录</label>
+						<select class="form-control m-b" name="isdefault">
+							<option value="n" selected="selected">否</option>
+							<option value="y" selected="selected">是</option>
+						</select>
+					</div>
+					<div class="form-group">
 						<label class="control-label">上级导航栏</label>
 						<select class="form-control m-b" name="pid">
 							<option value="0" selected="selected">无</option>

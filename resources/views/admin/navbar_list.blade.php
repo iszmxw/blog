@@ -111,7 +111,7 @@
 					<div class="form-group">
 						<label class="control-label">是否显示</label>
 						<div style="clear: both"></div>
-						<input type="checkbox" class="js-switch" checked />
+						<input type="checkbox" name="switch-hide" class="js-switch" checked />
 						<div class="col-sm-2 i-checks"><label> <input type="radio" checked="" value="n" name="hide"> <i></i> 显示 </label></div>
 						<div class="col-sm-2 i-checks"><label> <input type="radio" value="y" name="hide"> <i></i> 隐藏 </label></div>
 					</div>

@@ -7,6 +7,7 @@
 	@include('admin.public.common_css')
 	<link href="{{asset('style/admin/inspinia/css/plugins/iCheck/custom.css')}}" rel="stylesheet">
 	<link href="{{asset('style/admin/inspinia/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css')}}" rel="stylesheet">
+	<link href="{{asset('style/admin/inspinia/css/plugins/switchery/switchery.css')}}" rel="stylesheet">
 </head>
 <body class="">
 <div id="wrapper">
@@ -110,6 +111,7 @@
 					<div class="form-group">
 						<label class="control-label">是否显示</label>
 						<div style="clear: both"></div>
+						<input type="checkbox" class="js-switch" checked />
 						<div class="col-sm-2 i-checks"><label> <input type="radio" checked="" value="n" name="hide"> <i></i> 显示 </label></div>
 						<div class="col-sm-2 i-checks"><label> <input type="radio" value="y" name="hide"> <i></i> 隐藏 </label></div>
 					</div>
@@ -254,11 +256,13 @@
 	</div>
 </div>
 @include('admin.public.common_js')
-<!-- iCheck -->
-<script src="{{asset('style/admin/inspinia/js/plugins/iCheck/icheck.min.js')}}"></script>
+<!-- Switchery -->
+<script src="{{asset('style/admin/inspinia/js/plugins/switchery/switchery.js')}}"></script>
 <!-- Nestable List -->
 <script src="{{asset('style/admin/inspinia/js/plugins/nestable/jquery.nestable.js')}}"></script>
 <script>
+    var elem = document.querySelector('.js-switch');
+    var switchery = new Switchery(elem, { color: '#1AB394' });
     var updateOutput = function (e) {
         var list = e.length ? e : $(e.target);
         if (window.JSON) {

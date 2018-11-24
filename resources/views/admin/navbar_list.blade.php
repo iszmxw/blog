@@ -138,6 +138,10 @@
 						<input type="text" placeholder="导航栏名称" name="naviname" class="form-control">
 					</div>
 					<div class="form-group">
+						<label class="control-label">导航栏ICON</label>
+						<input type="text" placeholder="导航栏ICON" name="navicon" class="form-control">
+					</div>
+					<div class="form-group">
 						<div class="tabs-container">
 							<ul class="nav nav-tabs">
 								<li class="active"><a data-toggle="tab" href="#tab-1"><i class="fa fa-cog"></i>&nbsp;系统地址</a></li>

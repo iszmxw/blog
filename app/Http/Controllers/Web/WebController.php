@@ -11,6 +11,7 @@ use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\DB;
 
 class WebController extends Controller
@@ -65,6 +66,12 @@ class WebController extends Controller
         $comment = Comment::where(['gid'=>$article_id])->get()->toArray();
         $blog['comment'] = Comment::where(['gid'=>$article_id])->count();
         $data = ['nav'=>$nav,'blog'=>$blog,'comment'=>$comment];
+        $current = URL::current();
+        $full = URL::full();
+        $previous = URL::previous();
+        dump($current);
+        dump($full);
+        dump($previous);
         return view('web.default_template.article',$data);
     }
 

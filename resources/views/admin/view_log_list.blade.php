@@ -63,9 +63,17 @@
                                         <td><span class="label label-primary">{{$value['ip_position']}}</span></td>
                                         <td><span class="label label-success">{{$value['num']}}</span></td>
                                         <td>{{$value['created_at']->diffForHumans()}}</td>
-                                        <td>@if($value['previous'])<span class="label label-default"><a href="{{$value['previous']}}" title="{{$value['previous']}}" target="_blank">新窗口打开查看</a></span>@else暂无@endif</td>
+                                        <td>
+                                            @if($value['previous'])
+                                                <a href="{{$value['previous']}}" title="{{$value['previous']}}" target="_blank" class="btn btn-default">新窗口打开查看</a>
+                                            @else
+                                                暂无
+                                            @endif
+                                        </td>
                                         <td>{{$value['updated_at']->diffForHumans()}}</td>
-                                        <td><span class="label label-danger"><a href="{{$value['full']}}" title="{{$value['full']}}" target="_blank">新窗口打开查看</a></span></td>
+                                        <td>
+                                            <a href="{{$value['full']}}" title="{{$value['full']}}" target="_blank" class="btn btn-danger">新窗口打开查看</a>
+                                        </td>
                                     </tr>
                                     @endforeach
                                     </tbody>

@@ -115,10 +115,9 @@
 							<h3>是否新窗口打开</h3>
 							<input type="checkbox" name="newtab" value="y" class="js-switch_2" checked />
 						</div>
+						<div style="clear: both"></div>
 					</div>
-					<br>
-					<br>
-					<div style="clear: both"></div>
+					<div style="clear: both;  padding-top: 10px;"></div>
 					<div class="form-group">
 						<label class="control-label">上级导航栏</label>
 						<select class="form-control m-b" name="pid">

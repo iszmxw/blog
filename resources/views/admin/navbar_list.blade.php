@@ -107,7 +107,8 @@
 				</div>
 				<div class="modal-body">
 					<div class="form-group">
-						<label class="control-label">是否显示</label>
+						<h3>是否显示</h3>
+						<p>切换状态，将会决定知否在前台显示</p>
 						<input type="checkbox" name="hide" value="y" class="js-switch" checked />
 					</div>
 					<br>

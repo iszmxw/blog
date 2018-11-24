@@ -5,8 +5,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>追梦小窝 | 后台首页</title>
 	@include('admin.public.common_css')
-	<link href="{{asset('style/admin/inspinia/css/plugins/iCheck/custom.css')}}" rel="stylesheet">
-	<link href="{{asset('style/admin/inspinia/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css')}}" rel="stylesheet">
 	<link href="{{asset('style/admin/inspinia/css/plugins/switchery/switchery.css')}}" rel="stylesheet">
 </head>
 <body class="">
@@ -110,10 +108,7 @@
 				<div class="modal-body">
 					<div class="form-group">
 						<label class="control-label">是否显示</label>
-						<div style="clear: both"></div>
-						<input type="checkbox" name="switch-hide" class="js-switch" checked />
-						<div class="col-sm-2 i-checks"><label> <input type="radio" checked="" value="n" name="hide"> <i></i> 显示 </label></div>
-						<div class="col-sm-2 i-checks"><label> <input type="radio" value="y" name="hide"> <i></i> 隐藏 </label></div>
+						<input type="checkbox" name="hide" value="y" class="js-switch" checked />
 					</div>
 					<br>
 					<div class="form-group">

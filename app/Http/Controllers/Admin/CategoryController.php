@@ -147,6 +147,7 @@ class CategoryController extends Controller
         }
         $hide = $request->get('hide');
         $newtab = $request->get('newtab');
+        $isdefault = $request->get('isdefault');
         if (empty($hide)) $hide = 'n';
         if (empty($newtab)) $newtab = 'n';
         if(!$naviname)return response()->json(['data'=>'请输入导航栏名称','status'=>'0']);
@@ -155,6 +156,7 @@ class CategoryController extends Controller
         $data['url'] = $category_url;
         $data['hide'] = $hide;
         $data['newtab'] = $newtab;
+        $data['isdefault'] = $isdefault;
         $data['type'] = $url_type;
         DB::beginTransaction();
         try{

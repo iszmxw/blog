@@ -149,7 +149,7 @@ class CategoryController extends Controller
         $hide = $request->get('hide');
         $newtab = $request->get('newtab');
         $isdefault = $request->get('isdefault');
-        if (empty($hide)) $hide = 'n';
+        if (empty($hide)) $hide = 'y';
         if (empty($newtab)) $newtab = 'n';
         if(!$naviname)return response()->json(['data'=>'请输入导航栏名称','status'=>'0']);
         $data['naviname'] = $naviname;

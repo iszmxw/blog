@@ -72,7 +72,11 @@
                                         </td>
                                         <td>{{$value['updated_at']->diffForHumans()}}</td>
                                         <td>
-                                            <a href="{{$value['full']}}" title="{{$value['full']}}" target="_blank" class="btn btn-danger">新窗口打开查看</a>
+                                            @if($value['full'])
+                                                <a href="{{$value['full']}}" title="{{$value['full']}}" target="_blank" class="btn btn-danger">新窗口打开查看</a>
+                                            @else
+                                                暂无
+                                            @endif
                                         </td>
                                     </tr>
                                     @endforeach

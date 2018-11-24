@@ -133,6 +133,7 @@ class CategoryController extends Controller
     {
         $pid = $request->get('pid');
         $naviname = $request->get('naviname');
+        $navicon = $request->get('navicon');
         $system_url = $request->get('system_url');
         $url = $request->get('url');
         $url_type = $request->get('url_type');
@@ -152,6 +153,7 @@ class CategoryController extends Controller
         if (empty($newtab)) $newtab = 'n';
         if(!$naviname)return response()->json(['data'=>'请输入导航栏名称','status'=>'0']);
         $data['naviname'] = $naviname;
+        $data['navicon'] = $navicon;
         $data['url'] = $category_url;
         $data['newtab'] = $newtab;
         $data['hide'] = $hide;

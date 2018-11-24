@@ -50,7 +50,9 @@
                                         <th>地址</th>
                                         <th>浏览量</th>
                                         <th>第一次访问时间</th>
+                                        <th>来源地址</th>
                                         <th>最后访问时间</th>
+                                        <th>最后访问地址</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -61,7 +63,9 @@
                                         <td><span class="label label-primary">{{$value['ip_position']}}</span></td>
                                         <td><span class="label label-success">{{$value['num']}}</span></td>
                                         <td>{{$value['created_at']->diffForHumans()}}</td>
+                                        <td>{{$value['previous']}}</td>
                                         <td>{{$value['updated_at']->diffForHumans()}}</td>
+                                        <td>{{$value['full']}}</td>
                                     </tr>
                                     @endforeach
                                     </tbody>

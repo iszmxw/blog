@@ -5,6 +5,7 @@ namespace App\Http\Middleware\Web;
 use App\Library\IpAddress;
 use App\Models\Navi;
 use App\Models\ViewLog;
+use Illuminate\Support\Facades\URL;
 use Closure;
 
 class Web
@@ -19,7 +20,11 @@ class Web
     public function handle($request, Closure $next)
     {
         $ip = $request->getClientIp();
+        $full = URL::full();
+        $previous = URL::previous();
         $address = IpAddress::address($ip);
+        $address['full'] = $full;
+        $address['previous'] = $previous;
         //添加用户访问记录
         self::AddViewlog($address);
         //获取路由中的参数，文章id
@@ -96,9 +101,9 @@ class Web
         $log = ViewLog::getOne(['ip'=>$address['origip']]);
         if ($log){
             $num = $log['num'] + 1;
-            ViewLog::editData(['num'=>$num],['id'=>$log['id']]);
+            ViewLog::editData(['num'=>$num,'full'=>$address['full']],['id'=>$log['id']]);
         }else{
-            ViewLog::addData(['ip'=>$address['origip'],'ip_position'=>$address['location']]);
+            ViewLog::addData(['ip'=>$address['origip'],'ip_position'=>$address['location'],'previous'=>$address['previous'],'full'=>$address['full']]);
         }
     }
 }

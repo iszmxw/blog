@@ -71,7 +71,7 @@
                                     </tbody>
                                     <tfoot>
                                     <tr>
-                                        <td colspan="7" class="footable-visible">
+                                        <td colspan="8" class="footable-visible">
                                             <ul class="pagination pull-right">
                                                 {{$view_log->links()}}
                                             </ul>

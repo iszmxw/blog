@@ -194,6 +194,13 @@
 				</div>
 				<div class="modal-body">
 					<div class="form-group">
+						<label class="control-label">是否根目录</label>
+						<select class="form-control m-b" name="isdefault" id="isdefault">
+							<option value="n">否</option>
+							<option value="y">是</option>
+						</select>
+					</div>
+					<div class="form-group">
 						<label class="control-label">上级导航栏</label>
 						<select class="form-control m-b" name="pid" id="nav_pid">
 							<option value="0" selected="selected">无</option>
@@ -205,6 +212,10 @@
 					<div class="form-group">
 						<label class="control-label">导航栏名称</label>
 						<input type="text" placeholder="导航栏名称" name="naviname"  id="naviname" class="form-control">
+					</div>
+					<div class="form-group">
+						<label class="control-label">导航栏ICON</label>
+						<input type="text" placeholder="导航栏ICON" name="navicon" id="navicon" class="form-control">
 					</div>
 					<div class="form-group">
 						<div class="tabs-container">
@@ -343,6 +354,8 @@
                 $("#id").val(json.data.id);
                 $(".url_type").val(json.data.type);
                 $("#naviname").val(json.data.naviname);
+                $("#navicon").val(json.data.navicon);
+                $("#isdefault option[value='"+json.data.isdefault+"']").attr("selected", "selected");
                 $("#nav_pid option[value='"+json.data.pid+"']").attr("selected", "selected");
                 if(json.data.type == 1){
                     $("#switch-1").addClass("active");

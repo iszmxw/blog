@@ -109,7 +109,6 @@
 					<div class="form-group">
 						<div class="col-lg-6">
 							<h3>是否显示</h3>
-							<p>切换状态，将会决定知否在前台显示</p>
 							<input type="checkbox" name="hide" value="y" class="js-switch" checked />
 						</div>
 						<div class="col-lg-6">

@@ -256,7 +256,9 @@
 <script src="{{asset('style/admin/inspinia/js/plugins/nestable/jquery.nestable.js')}}"></script>
 <script>
     var elem = document.querySelector('.js-switch');
-    var switchery = new Switchery(elem, { color: '#1AB394' });
+    var elem_2 = document.querySelector('.js-switch_2');
+    new Switchery(elem, { color: '#1AB394' });
+    new Switchery(elem_2, { color: '#ED5565' });
     var updateOutput = function (e) {
         var list = e.length ? e : $(e.target);
         if (window.JSON) {

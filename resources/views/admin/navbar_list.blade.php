@@ -201,7 +201,7 @@
 						</div>
 						<div class="col-lg-6">
 							<h3>是否新窗口打开</h3>
-							<input type="checkbox" name="newtab" value="y" class="js-switch_4" checked />
+							<input type="checkbox" name="newtab" value="y" class="js-switch_4" />
 						</div>
 					</div>
 					<div style="clear: both;  padding-top: 15px;"></div>

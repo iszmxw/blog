@@ -121,10 +121,12 @@ class AdminController extends Controller
         //请求地址
         $url = "https://graph.qq.com/oauth2.0/token?grant_type=authorization_code&client_id={$client_id}&client_secret={$client_secret}&code={$code}&redirect_uri={$redirect_uri}";
         $response = HttpCurl::doGet($url);
+        $email = 'user@example.com';
+        $domain = strstr($email, '@');
         //获取access_token
         $data = explode('&',$response);
         $data = explode('=',$data[0]);
-        dd($response,$data);
+        dd($domain,$response,$data);
         $access_token = $data[1];
         $result = HttpCurl::doGet('https://graph.qq.com/oauth2.0/me?access_token='.$access_token);
         //将返回的jsonp转换为json

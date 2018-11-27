@@ -379,15 +379,9 @@
                     $(".js-switch_3").attr("checked","checked");
                 }
                 if (json.data.newtab == 'y'){
-                    $("#newtab_ok").attr("checked","checked");
-                    $("#newtab_ok").parent().addClass("checked");
-                    $("#newtab_no").attr("checked",false);
-                    $("#newtab_no").parent().removeClass("checked");
+                    $(".js-switch_4").attr("checked","checked");
                 }else{
-                    $("#newtab_ok").attr("checked",false);
-                    $("#newtab_ok").parent().removeClass("checked");
-                    $("#newtab_no").attr("checked","checked");
-                    $("#newtab_no").parent().addClass("checked");
+                    $(".js-switch_4").attr("checked",false);
                 }
                 $("#myModal").modal();
             }else{

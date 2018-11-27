@@ -132,7 +132,6 @@ class AdminController extends Controller
         //获取access_token
         $data = explode('&',$response);
         $data = explode('=',$data[0]);
-        dump($data);
         $access_token = $data[1];
         $result = HttpCurl::doGet('https://graph.qq.com/oauth2.0/me?access_token='.$access_token);
         //将返回的jsonp转换为json

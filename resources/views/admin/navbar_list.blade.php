@@ -375,8 +375,8 @@
                     $("#show").attr("checked",false);
                     $("#show").parent().removeClass("checked");
 
-                    var elem = document.querySelector('.js-switch_3');
-                    new Switchery(elem, { color: '#1AB394' });
+                    var elem_3 = document.querySelector('.js-switch_3');
+                    new Switchery(elem_3, { color: '#1AB394' });
                 }else{
                     $("#hide").attr("checked",false);
                     $("#hide").parent().removeClass("checked");

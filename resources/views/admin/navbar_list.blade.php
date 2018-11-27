@@ -373,7 +373,7 @@
                     $("#tabs-2").addClass("active");
                     $("#url").val(json.data.url);
                 }
-                if (json.data.hide == 'y'){
+                if (json.data.hide == 'n'){
                     $(".js-switch_3").attr("checked",false);
 
                 }else{

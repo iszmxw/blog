@@ -375,6 +375,7 @@
                 }
                 if (json.data.hide == 'y'){
                     $(".js-switch_3").attr("checked",false);
+
                 }else{
                     $(".js-switch_3").attr("checked","checked");
                 }

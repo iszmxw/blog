@@ -369,7 +369,7 @@
                     $("#tabs-2").addClass("active");
                     $("#url").val(json.data.url);
                 }
-                if (json.data.hide == 'n'){
+                if (json.data.hide == 'y'){
                     $(".js-switch_3").attr("checked",false);
                 }else{
                     $(".js-switch_3").attr("checked","checked");

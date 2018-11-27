@@ -197,11 +197,11 @@
 					<div class="form-group">
 						<div class="col-lg-6">
 							<h3>是否显示</h3>
-							<input type="checkbox" name="hide" value="n" id="hide" checked />
+							<input type="checkbox" name="hide" value="n" class="js-switch_3" checked />
 						</div>
 						<div class="col-lg-6">
 							<h3>是否新窗口打开</h3>
-							<input type="checkbox" name="newtab" value="y" id="newtab" checked />
+							<input type="checkbox" name="newtab" value="y" class="js-switch_4" checked />
 						</div>
 					</div>
 					<div style="clear: both;  padding-top: 15px;"></div>
@@ -375,7 +375,7 @@
                     $("#show").attr("checked",false);
                     $("#show").parent().removeClass("checked");
 
-                    var elem = document.querySelector('#hide');
+                    var elem = document.querySelector('.js-switch_3');
                     new Switchery(elem, { color: '#1AB394' });
                 }else{
                     $("#hide").attr("checked",false);

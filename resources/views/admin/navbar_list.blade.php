@@ -374,15 +374,9 @@
                     $("#url").val(json.data.url);
                 }
                 if (json.data.hide == 'y'){
-                    $("#hide").attr("checked","checked");
-                    $("#hide").parent().addClass("checked");
-                    $("#show").attr("checked",false);
-                    $("#show").parent().removeClass("checked");
+                    $(".js-switch_3").attr("checked",false);
                 }else{
-                    $("#hide").attr("checked",false);
-                    $("#hide").parent().removeClass("checked");
-                    $("#show").attr("checked","checked");
-                    $("#show").parent().addClass("checked");
+                    $(".js-switch_3").attr("checked","checked");
                 }
                 if (json.data.newtab == 'y'){
                     $("#newtab_ok").attr("checked","checked");

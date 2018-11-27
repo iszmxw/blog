@@ -128,6 +128,7 @@ class AdminController extends Controller
             //如果包含错误信息则返回上一级页面重新登录
             return redirect($state);
         }
+
         //获取access_token
         $data = explode('&',$response);
         $data = explode('=',$data[0]);

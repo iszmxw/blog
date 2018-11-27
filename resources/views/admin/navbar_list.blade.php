@@ -276,8 +276,12 @@
 <script>
     var elem = document.querySelector('.js-switch');
     var elem_2 = document.querySelector('.js-switch_2');
+    var elem_3 = document.querySelector('.js-switch_3');
+    var elem_4 = document.querySelector('.js-switch_4');
     new Switchery(elem, { color: '#1AB394' });
     new Switchery(elem_2, { color: '#1AB394' });
+    new Switchery(elem_3, { color: '#1AB394' });
+    new Switchery(elem_4, { color: '#1AB394' });
     var updateOutput = function (e) {
         var list = e.length ? e : $(e.target);
         if (window.JSON) {
@@ -374,9 +378,6 @@
                     $("#hide").parent().addClass("checked");
                     $("#show").attr("checked",false);
                     $("#show").parent().removeClass("checked");
-
-                    var elem_3 = document.querySelector('.js-switch_3');
-                    new Switchery(elem_3, { color: '#1AB394' });
                 }else{
                     $("#hide").attr("checked",false);
                     $("#hide").parent().removeClass("checked");

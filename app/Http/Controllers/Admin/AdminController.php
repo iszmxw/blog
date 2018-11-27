@@ -125,13 +125,13 @@ class AdminController extends Controller
         //检测返回结果是否包含错误信息
         $error_msg = strstr($response, 'callback( {"error":100020,"error_description":"code is reused error"} );');
         if ($error_msg){
-            dd($error_msg);
+            //如果包含错误信息则返回上一级页面重新登录
+            return redirect($state);
         }
         //获取access_token
         $data = explode('&',$response);
         $data = explode('=',$data[0]);
         $access_token = $data[1];
-        dd($response,$data);
         $result = HttpCurl::doGet('https://graph.qq.com/oauth2.0/me?access_token='.$access_token);
         //将返回的jsonp转换为json
         $re_json = trim(str_replace(';','',str_replace(')','',str_replace('callback(','',$result))));

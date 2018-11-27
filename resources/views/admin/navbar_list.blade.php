@@ -193,6 +193,19 @@
 					<h4 class="modal-title">编辑导航栏是</h4>
 				</div>
 				<div class="modal-body">
+
+					<div class="form-group">
+						<div class="col-lg-6">
+							<h3>是否显示</h3>
+							<input type="checkbox" name="hide" value="n" class="js-switch" id="show" checked />
+						</div>
+						<div class="col-lg-6">
+							<h3>是否新窗口打开</h3>
+							<input type="checkbox" name="newtab" value="y" class="js-switch_2" id="newtab" checked />
+						</div>
+					</div>
+					<div style="clear: both;  padding-top: 15px;"></div>
+
 					<div class="form-group">
 						<label class="control-label">是否根目录</label>
 						<select class="form-control m-b" name="isdefault" id="isdefault">
@@ -245,20 +258,6 @@
 
 						</div>
 					</div>
-					<div class="form-group">
-						<label class="control-label">是否显示</label>
-						<div style="clear: both"></div>
-						<div class="col-sm-2 i-checks"><label> <input type="radio" checked="" value="n" id="show" name="hide"> <i></i> 显示 </label></div>
-						<div class="col-sm-2 i-checks"><label> <input type="radio" value="y" id="hide" name="hide"> <i></i> 隐藏 </label></div>
-					</div>
-					<br>
-					<div class="form-group">
-						<label class="control-label">是否新窗口打开</label>
-						<div style="clear: both"></div>
-						<div class="col-sm-2 i-checks"><label> <input type="radio" checked="" value="y" id="newtab_ok" name="newtab"> <i></i> 是 </label></div>
-						<div class="col-sm-2 i-checks"><label> <input type="radio" value="n" id="newtab_no" name="newtab"> <i></i> 否 </label></div>
-					</div>
-					<br>
 					<div style="clear: both"></div>
 				</div>
 				<div class="modal-footer">

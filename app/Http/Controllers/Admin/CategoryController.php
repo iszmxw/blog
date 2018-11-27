@@ -187,11 +187,16 @@ class CategoryController extends Controller
     //编辑导航栏数据提交
     public function navbar_data_edit_check(Request $request)
     {
+        dd($request);
         $id = $request->get('id');
         $pid = $request->get('pid');
         $naviname = $request->get('naviname');
         $hide = $request->get('hide');
         $newtab = $request->get('newtab');
+
+        $isdefault = $request->get('isdefault');
+        if (empty($hide)) $hide = 'y';
+        if (empty($newtab)) $newtab = 'n';
 
         $system_url = $request->get('system_url');
         $url = $request->get('url');
@@ -211,6 +216,7 @@ class CategoryController extends Controller
         $data['url'] = $category_url;
         $data['hide'] = $hide;
         $data['newtab'] = $newtab;
+        $data['isdefault'] = $isdefault;
         $data['type'] = $url_type;
         DB::beginTransaction();
         try{

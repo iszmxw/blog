@@ -123,14 +123,10 @@ class AdminController extends Controller
         $response = HttpCurl::doGet($url);
 
         //检测返回结果是否包含错误信息
-        $error_msg = strstr($response, 'callback( {"error":100020,"error_description":"code is reused error"} );');
+        $error_msg = strstr($response, '100020');
         if ($error_msg){
-            dd($error_msg);
             //如果包含错误信息则返回上一级页面重新登录
-            if (!$state){
-                $state = config('app.url').'/admin/qq_login_auth';
-            }
-            return redirect($state);
+            return redirect(config('app.url').'/admin/qq_login_auth');
         }
 
         //获取access_token

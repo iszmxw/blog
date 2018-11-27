@@ -126,7 +126,9 @@ class AdminController extends Controller
         $error_msg = strstr($response, 'callback( {"error":100020,"error_description":"code is reused error"} );');
         if ($error_msg){
             //如果包含错误信息则返回上一级页面重新登录
-            dd($state);
+            if (!$state){
+                $state = config('app.url').'/admin/qq_login_auth';
+            }
             return redirect($state);
         }
 

@@ -375,7 +375,6 @@
                 }
                 if (json.data.hide == 'n'){
                     $(".js-switch_3").attr("checked",false);
-
                 }else{
                     $(".js-switch_3").attr("checked","checked");
                 }

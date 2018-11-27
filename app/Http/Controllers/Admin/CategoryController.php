@@ -187,21 +187,13 @@ class CategoryController extends Controller
     //编辑导航栏数据提交
     public function navbar_data_edit_check(Request $request)
     {
-        dd($request);
         $id = $request->get('id');
         $pid = $request->get('pid');
         $naviname = $request->get('naviname');
-        $hide = $request->get('hide');
-        $newtab = $request->get('newtab');
-
-        $isdefault = $request->get('isdefault');
-        if (empty($hide)) $hide = 'y';
-        if (empty($newtab)) $newtab = 'n';
-
+        $navicon = $request->get('navicon');
         $system_url = $request->get('system_url');
         $url = $request->get('url');
         $url_type = $request->get('url_type');
-        if(!$naviname)return response()->json(['data'=>'请输入导航栏名称','status'=>'0']);
         if($url_type == 1){
             if(!$system_url)return response()->json(['data'=>'请选择系统地址','status'=>'0']);
             $category_url = config('app.url').'/category/'.$system_url;
@@ -211,11 +203,18 @@ class CategoryController extends Controller
             $category_url = $url;
             $data['type_id'] = 0;
         }
-        $data['pid'] = $pid;
+        $hide = $request->get('hide');
+        $newtab = $request->get('newtab');
+        $isdefault = $request->get('isdefault');
+        if (empty($hide)) $hide = 'y';
+        if (empty($newtab)) $newtab = 'n';
+        if(!$naviname)return response()->json(['data'=>'请输入导航栏名称','status'=>'0']);
         $data['naviname'] = $naviname;
+        $data['navicon'] = $navicon;
         $data['url'] = $category_url;
-        $data['hide'] = $hide;
         $data['newtab'] = $newtab;
+        $data['hide'] = $hide;
+        $data['pid'] = $pid;
         $data['isdefault'] = $isdefault;
         $data['type'] = $url_type;
         DB::beginTransaction();

@@ -276,12 +276,8 @@
 <script>
     var elem = document.querySelector('.js-switch');
     var elem_2 = document.querySelector('.js-switch_2');
-    var elem_3 = document.querySelector('.js-switch_3');
-    var elem_4 = document.querySelector('.js-switch_4');
     new Switchery(elem, { color: '#1AB394' });
     new Switchery(elem_2, { color: '#1AB394' });
-    new Switchery(elem_3, { color: '#1AB394' });
-    new Switchery(elem_4, { color: '#1AB394' });
     var updateOutput = function (e) {
         var list = e.length ? e : $(e.target);
         if (window.JSON) {
@@ -383,6 +379,10 @@
                 }else{
                     $(".js-switch_4").attr("checked",false);
                 }
+                var elem_3 = document.querySelector('.js-switch_3');
+                var elem_4 = document.querySelector('.js-switch_4');
+                new Switchery(elem_3, { color: '#1AB394' });
+                new Switchery(elem_4, { color: '#1AB394' });
                 $("#myModal").modal();
             }else{
                 swal("失败", json.data, "error");

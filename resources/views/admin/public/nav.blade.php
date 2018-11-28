@@ -5,7 +5,7 @@
                 <div class="dropdown profile-element">
                     <span>
                         @if($user_data['photo'])
-                            <img alt="image" class="img-circle" src="{{ url('/') }} {{ realpath('../content/uploadfile/201809/thum-b56f1537795824.jpg') }}"/>
+                            <img alt="image" class="img-circle" src="{{ url('/').$user_data['photo'] }}"/>
                         @else
                             <img alt="image" class="img-circle" src="{{url('style/admin/inspinia/img/profile_small.jpg')}}"/>
                         @endif

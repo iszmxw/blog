@@ -21,7 +21,7 @@
 					<li>
 						<div class="dropdown-messages-box">
 							<a href="{{ url('profile') }}" class="pull-left">
-								<img alt="image" class="img-circle" src="{{ url('/').realpath($user_data['photo']) }}">
+								<img alt="image" class="img-circle" src="{{ url('/').$user_data['photo'] }}">
 							</a>
 							<div class="media-body">
 								<small class="pull-right">46小时前</small>
@@ -34,7 +34,7 @@
 					<li>
 						<div class="dropdown-messages-box">
 							<a href="{{ url('profile') }}" class="pull-left">
-								<img alt="image" class="img-circle" src="{{url('style/admin/inspinia/img/a4.jpg')}}">
+								<img alt="image" class="img-circle" src="{{ url('/').$user_data['photo'] }}">
 							</a>
 							<div class="media-body ">
 								<small class="pull-right text-navy">5小时前</small>
@@ -47,7 +47,7 @@
 					<li>
 						<div class="dropdown-messages-box">
 							<a href="profile.html" class="pull-left">
-								<img alt="image" class="img-circle" src="{{url('style/admin/inspinia/img/profile.jpg')}}">
+								<img alt="image" class="img-circle" src="{{ url('/').$user_data['photo'] }}">
 							</a>
 							<div class="media-body ">
 								<small class="pull-right">23小时前</small>

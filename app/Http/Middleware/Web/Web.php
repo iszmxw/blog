@@ -23,7 +23,7 @@ class Web
         $uesr_data = User::getOne(['uid'=>'1']);
         $uesr_data['photo'] = str_replace('../','/',$uesr_data['photo']);
         view()->share('user_data',$uesr_data);
-
+        dump($uesr_data);
 
         $ip = $request->getClientIp();
         $full = URL::full();

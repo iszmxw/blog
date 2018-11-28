@@ -45,6 +45,7 @@ class Web
         $uesr_data = User::getOne(['uid'=>'1']);
         $uesr_data['photo'] = str_replace('../','/',$uesr_data['photo']);
         View::share('user_data', $uesr_data);
+        $request->attributes->add(['user_data'=>$uesr_data]);
         return $next($request);
     }
 

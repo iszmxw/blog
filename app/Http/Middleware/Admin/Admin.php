@@ -96,7 +96,6 @@ class Admin
             return $re;
         }else{
             //权限暂时不做拦截
-            dd($re);
             return $re;
         }
     }

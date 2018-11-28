@@ -30,7 +30,6 @@ class WebController extends Controller
                 $value['thumb'] = $value['thumb']['filepath'];
             }
         }
-        dump($nav);
         $data = ['nav'=>$nav,'blog'=>$blog];
         return view('web.default_template.index',$data);
     }

@@ -23,7 +23,6 @@ class AdminController extends Controller
         if ($phpinfo == 'yes'){
             echo phpinfo();
         }else{
-            dump($request);
             return view('admin.index',['data'=>$data]);
         }
     }

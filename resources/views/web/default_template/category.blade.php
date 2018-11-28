@@ -79,7 +79,7 @@
                     </div>
                     <div class="col-sm-8">
                         <h3><strong>{{ $user_data['nickname'] }}</strong></h3>
-                        <p><i class="fa fa-map-marker"></i> {{ $user_data['email'] }}</p>
+                        <p><i class="fa fa-envelope"></i> {{ $user_data['email'] }}</p>
                         <address>
                             <strong>签名：</strong><br>
                             {{ $user_data['description'] }}

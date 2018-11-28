@@ -10,15 +10,12 @@
 |
 */
 
-Route::namespace('Admin')->group(function () {
+Route::middleware('admin')->namespace('Admin')->group(function () {
+    Route::get('/','AdminController@index');
     Route::get('login','AdminController@login');
     Route::get('qq_login','AdminController@qq_login');
     Route::get('qq_login_auth','AdminController@qq_login_auth');
     Route::get('quit','AdminController@quit');
-});
-
-Route::middleware('admin')->namespace('Admin')->group(function () {
-    Route::get('/','AdminController@index');
     Route::get('config','AdminController@config');
     Route::get('view_log','AdminController@view_log');
 

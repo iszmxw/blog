@@ -7,6 +7,7 @@ use App\Models\Navi;
 use App\Models\User;
 use App\Models\ViewLog;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\View;
 use Closure;
 
 class Web
@@ -20,9 +21,6 @@ class Web
      */
     public function handle($request, Closure $next)
     {
-        $uesr_data = User::getOne(['uid'=>'1']);
-        $uesr_data['photo'] = str_replace('../','/',$uesr_data['photo']);
-        view()->share('user_info',$uesr_data);
         $ip = $request->getClientIp();
         $full = URL::full();
         $previous = URL::previous();
@@ -35,6 +33,12 @@ class Web
         $article_id = $request->route('article_id');
         $route = $request->getPathInfo();
         self::Navdata($request); //添加菜单
+
+        //共享用户信息到所有视图
+        $uesr_data = User::getOne(['uid'=>'1']);
+        $uesr_data['photo'] = str_replace('../','/',$uesr_data['photo']);
+        View::share('user_data', $uesr_data);
+
         switch ($route){
             case '/';
             case '/article/'.$article_id;

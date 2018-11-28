@@ -7,7 +7,6 @@ use App\Models\Navi;
 use App\Models\User;
 use App\Models\ViewLog;
 use Illuminate\Support\Facades\URL;
-use Illuminate\Support\Facades\View;
 use Closure;
 
 class Web
@@ -36,9 +35,8 @@ class Web
 
         $uesr_data = User::getOne(['uid'=>'1']);
         $uesr_data['photo'] = str_replace('../','/',$uesr_data['photo']);
-        View::share('user_data', $uesr_data);
+        view()->share('user_data',$uesr_data);
         $request->attributes->add(['user_data'=>$uesr_data]);
-
         switch ($route){
             case '/';
             case '/article/'.$article_id;

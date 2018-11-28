@@ -33,8 +33,9 @@ class WebController extends Controller
         }
         $uesr_data = User::getOne(['uid'=>'1']);
         $uesr_data['photo'] = str_replace('../','/',$uesr_data['photo']);
-        View::share('user_data', $uesr_data);
         $data = ['nav'=>$nav,'blog'=>$blog];
+        $data['uesr_data'] = $uesr_data;
+        View::share('user_data', $uesr_data);
         return view('web.default_template.index',$data);
     }
 

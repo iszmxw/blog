@@ -17,19 +17,24 @@ class Admin
     public function handle($request, Closure $next)
     {
         $route = $request->getPathInfo();
-        switch ($route){//检测特殊路由
-            case '/admin/login';
-                $data = $request->session()->get('user_data');
-                if ($data){//检测是否已经登录，已经登录就跳转
-                    return redirect('admin');
-                }
-                break;
-            case '/admin/quit';
-                break;
-        }
         //公共检测方法，检测是否登录以及具有权限
         $re = self::CheckIsLoginAndHasRole($request);
-        return self::format_response($re,$next);
+        if ($re['status'] == '0') {
+            return $re['data'];
+        } else {
+            switch ($route){//检测特殊路由
+                case '/admin/login';
+                    $data = $request->session()->get('user_data');
+                    if ($data){//检测是否已经登录，已经登录就跳转
+                        return redirect('admin');
+                    }
+                    break;
+                case '/admin/quit';
+                    break;
+            }
+        }
+        //数据成功通过中间件，接下来传递到控制器
+        return $next($re['data']);
     }
 
     //检测是否登录

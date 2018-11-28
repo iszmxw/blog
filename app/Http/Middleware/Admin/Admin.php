@@ -23,16 +23,16 @@ class Admin
             return $re['data'];
         } else {
             switch ($route){//检测特殊路由
-                case '/admin/login';
-                dump($re);
-                dump($request);
-                    $data = $request->session()->get('user_data');
-                    if ($data){//检测是否已经登录，已经登录就跳转
-                        return redirect('admin');
-                    }
-                    break;
-                case '/admin/quit';
-                    break;
+//                case '/admin/login';
+//                dump($re);
+//                dump($request);
+//                    $data = $request->session()->get('user_data');
+//                    if ($data){//检测是否已经登录，已经登录就跳转
+//                        return redirect('admin');
+//                    }
+//                    break;
+//                case '/admin/quit';
+//                    break;
             }
         }
         //数据成功通过中间件，接下来传递到控制器

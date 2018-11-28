@@ -17,7 +17,6 @@ class AdminController extends Controller
     //后台首页
     public function index(Request $request)
     {
-        $user_data = $request->get('user_data');
         $data['php_version'] = phpversion();
         $data['laravel_version'] = app()->version();
         $phpinfo = $request->get('phpinfo');
@@ -25,7 +24,7 @@ class AdminController extends Controller
             echo phpinfo();
         }else{
             dump($request);
-            return view('admin.index',['user_data'=>$user_data,'data'=>$data]);
+            return view('admin.index',['data'=>$data]);
         }
     }
 

@@ -32,7 +32,7 @@
 					<li class="divider"></li>
 					<li>
 						<div class="dropdown-messages-box">
-							<a href="profile.html" class="pull-left">
+							<a href="{{ url('profile') }}" class="pull-left">
 								<img alt="image" class="img-circle" src="{{url('style/admin/inspinia/img/a4.jpg')}}">
 							</a>
 							<div class="media-body ">

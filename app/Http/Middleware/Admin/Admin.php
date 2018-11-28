@@ -63,14 +63,14 @@ class Admin
             case '/admin/login';
                 $data = $request->session()->get('user_data');
                 if ($data){//检测是否已经登录，已经登录就跳转
-                    View::share('user_data', $data);
                     return redirect('admin');
                 }
                 break;
             case '/admin/quit';
                 break;
         }
-        dump($data);
+        $data = $request->session()->get('user_data');
+        View::share('user_data', $data);
         return $next($request);
     }
 

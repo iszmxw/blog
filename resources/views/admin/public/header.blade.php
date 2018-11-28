@@ -16,6 +16,7 @@
 				<a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
 					<i class="fa fa-envelope"></i>  <span class="label label-warning">16</span>
 				</a>
+
 				<ul class="dropdown-menu dropdown-messages">
 					<li>
 						<div class="dropdown-messages-box">

@@ -70,6 +70,7 @@ class Admin
             case '/admin/quit';
                 break;
         }
+        dump($data);
         return $next($request);
     }
 

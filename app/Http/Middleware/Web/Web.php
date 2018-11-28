@@ -33,6 +33,12 @@ class Web
         $article_id = $request->route('article_id');
         $route = $request->getPathInfo();
         self::Navdata($request); //添加菜单
+
+        $uesr_data = User::getOne(['uid'=>'1']);
+        $uesr_data['photo'] = str_replace('../','/',$uesr_data['photo']);
+        View::share('user_data', $uesr_data);
+        $request->attributes->add(['user_data'=>$uesr_data]);
+
         switch ($route){
             case '/';
             case '/article/'.$article_id;
@@ -42,10 +48,6 @@ class Web
                 return self::format_response($re,$next);
                 break;
         }
-        $uesr_data = User::getOne(['uid'=>'1']);
-        $uesr_data['photo'] = str_replace('../','/',$uesr_data['photo']);
-        View::share('user_data', $uesr_data);
-        $request->attributes->add(['user_data'=>$uesr_data]);
         return $next($request);
     }
 

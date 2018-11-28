@@ -12,7 +12,7 @@
 	@foreach($nav as $val)
 	<li>
 		<a href="{{ $val['url'] }}">
-			<i class="fa fa-th-large"></i>
+			<i class="{{ $val['navicon'] }}"></i>
 			<span class="nav-label">{{ $val['naviname'] }}</span>
 			@if($val['sub_menu'])
 			<span class="fa arrow"></span>

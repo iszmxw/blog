@@ -23,7 +23,7 @@ class Admin
             return $re['data'];
         } else {
             switch ($route){//检测特殊路由
-                case '/admin/quit';
+//                case '/admin/quit';
                     break;
             }
         }

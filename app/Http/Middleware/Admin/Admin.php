@@ -76,6 +76,7 @@ class Admin
     public static function CheckIsLogin($request)
     {
         $data = $request->session()->get('user_data');
+        dump($data,11);
         if ($data){
             View::share('user_data', $data);
             return self::RtData(1,$request);

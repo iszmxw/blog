@@ -14,12 +14,10 @@
 Route::namespace('Admin')->group(function () {
 
     //不需要检测登录和权限就可以访问的路由
-    Route::group(function () {
-        Route::get('login','AdminController@login');
-        Route::get('qq_login','AdminController@qq_login');
-        Route::get('qq_login_auth','AdminController@qq_login_auth');
-        Route::get('quit','AdminController@quit');
-    });
+    Route::get('login','AdminController@login');
+    Route::get('qq_login','AdminController@qq_login');
+    Route::get('qq_login_auth','AdminController@qq_login_auth');
+    Route::get('quit','AdminController@quit');
 
     //需要检测登录和权限才能访问
     Route::middleware('admin')->group(function () {

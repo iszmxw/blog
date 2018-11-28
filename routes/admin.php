@@ -10,7 +10,6 @@
 |
 */
 
-//不需要检测登录和权限就可以访问的路由
 Route::namespace('Admin')->group(function () {
     Route::get('login','AdminController@login');
     Route::get('qq_login','AdminController@qq_login');
@@ -18,9 +17,9 @@ Route::namespace('Admin')->group(function () {
     Route::get('quit','AdminController@quit');
 });
 
-//需要检测登录和权限才能访问
-Route::namespace('Admin')->middleware('admin')->group(function () {
+Route::middleware('admin')->namespace('Admin')->group(function () {
     Route::get('/','AdminController@index');
+
     Route::get('config','AdminController@config');
     Route::get('view_log','AdminController@view_log');
 

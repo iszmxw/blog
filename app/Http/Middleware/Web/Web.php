@@ -46,7 +46,7 @@ class Web
 
     public static function Navdata($request)
     {
-        $nav = Navi::get_select(['pid'=>'0','hide'=>'n'],['id','naviname','url','newtab'],'taxis','ASC')->toArray();
+        $nav = Navi::get_select(['pid'=>'0','hide'=>'n'],['id','naviname','navicon','url','newtab'],'taxis','ASC')->toArray();
         foreach ($nav as $key=>$val){
             $nav[$key]['sub_menu'] = Navi::get_select(['pid'=>$val['id'],'hide'=>'n'],['id','naviname','navicon','url','newtab'],'taxis','ASC')->toArray();
         }

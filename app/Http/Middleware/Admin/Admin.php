@@ -22,10 +22,10 @@ class Admin
         if ($re['status'] == '0') {
             return $re['data'];
         } else {
-//            switch ($route){    //检测特殊路由
-//                case '/admin/quit';
-//                    break;
-//            }
+            switch ($route){ //检测特殊路由
+                case '/admin/quit';
+                    break;
+            }
         }
         //数据成功通过中间件，接下来传递到控制器
         return $next($re['data']);

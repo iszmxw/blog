@@ -8,4 +8,4 @@
 </div>
 @endsection
 
-@section('message', __('Sorry, the page you are looking for could not be found.'))
+@section('message', __('抱歉，找不到您要查找的页面。'))

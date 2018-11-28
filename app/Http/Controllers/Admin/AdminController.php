@@ -178,6 +178,6 @@ class AdminController extends Controller
     public function quit()
     {
         session()->put('user_data','');
-        return redirect('admin');
+        return redirect('admin/login');
     }
 }

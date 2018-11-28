@@ -58,7 +58,6 @@ class Admin
             case '/admin/ajax/link_delete_check';
             case '/admin/ajax/link_list_add_check';
                 $re = self::CheckIsLoginAndHasRole($request);
-                dump($re,222);
                 return self::format_response($re,$next);
                 break;
             case '/admin/login';
@@ -97,6 +96,7 @@ class Admin
             return $re;
         }else{
             //权限暂时不做拦截
+            dd($re);
             return $re;
         }
     }

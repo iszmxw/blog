@@ -77,7 +77,7 @@ class Admin
     {
         $data = $request->session()->get('user_data');
         if ($data){
-            dump($data['photo']);
+            dump(base_path().$data['photo']);
             $data['photo'] = realpath(base_path().$data['photo']);
             dump($data['photo']);
             $request->attributes->add(['user_data'=>$data]);

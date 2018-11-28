@@ -78,7 +78,7 @@ class Admin
         $data = $request->session()->get('user_data');
         if ($data){
             dump(base_path().$data['photo']);
-            $data['photo'] = realpath('./content/uploadfile/201809/thum-b56f1537795824.jpg');
+            $data['photo'] = realpath($data['photo']);
             dump($data['photo']);
             $request->attributes->add(['user_data'=>$data]);
             View::share('user_data', $data);

@@ -78,7 +78,7 @@ class Admin
         $data = $request->session()->get('user_data');
         if ($data){
             View::share('user_data', $data);
-            return self::RtData(1,$request);
+            return self::RtData(1,$data);
         }else{
             if ($request->isMethod('post')) {
                 return self::RtJson(0,'登录状态失效!');

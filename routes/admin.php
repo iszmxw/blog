@@ -19,7 +19,6 @@ Route::namespace('Admin')->group(function () {
 
 Route::middleware('admin')->namespace('Admin')->group(function () {
     Route::get('/','AdminController@index');
-
     Route::get('config','AdminController@config');
     Route::get('view_log','AdminController@view_log');
 

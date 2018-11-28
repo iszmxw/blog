@@ -69,8 +69,6 @@ class Admin
             case '/admin/quit';
                 break;
         }
-        $data = $request->session()->get('user_data');
-        View::share('user_data', $data);
         return $next($request);
     }
 
@@ -79,6 +77,7 @@ class Admin
     {
         $data = $request->session()->get('user_data');
         if ($data){
+            View::share('user_data', $data);
             return self::RtData(1,$request);
         }else{
             if ($request->isMethod('post')) {

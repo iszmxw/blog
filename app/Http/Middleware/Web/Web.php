@@ -4,8 +4,10 @@ namespace App\Http\Middleware\Web;
 
 use App\Library\IpAddress;
 use App\Models\Navi;
+use App\Models\User;
 use App\Models\ViewLog;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\View;
 use Closure;
 
 class Web
@@ -51,6 +53,9 @@ class Web
             $nav[$key]['sub_menu'] = Navi::get_select(['pid'=>$val['id'],'hide'=>'n'],['id','naviname','navicon','url','newtab'],'taxis','ASC')->toArray();
         }
         $request->attributes->add(['nav'=>$nav]);
+        $uesr_data = User::getOne(['uid'=>'1']);
+        $uesr_data['photo'] = str_replace('../','/',$uesr_data['photo']);
+        View::share('user_data', $uesr_data);
         return $request;
     }
 

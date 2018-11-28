@@ -70,22 +70,19 @@
         <!--关于我==自我介绍-->
         <div class="col-lg-4">
             <div class="contact-box">
-                <a href="profile.html">
+                <a href="{{ url('profile') }}">
                     <div class="col-sm-4">
                         <div class="text-center">
-                            <img alt="image" class="img-circle m-t-xs img-responsive" src="img/a6.jpg">
-                            <div class="m-t-xs font-bold">超级CEO</div>
+                            <img alt="image" class="img-circle m-t-xs img-responsive" src="{{ url('/').$uesr_data['photo'] }}">
+                            <div class="m-t-xs font-bold">{{ $uesr_data['role'] }}</div>
                         </div>
                     </div>
                     <div class="col-sm-8">
-                        <h3><strong>小红</strong></h3>
-                        <p><i class="fa fa-map-marker"></i> 中国.北京 123/123</p>
+                        <h3><strong>{{ $uesr_data['nickname'] }}</strong></h3>
+                        <p><i class="fa fa-map-marker"></i> {{ $user_data['email'] }}</p>
                         <address>
-                            <strong>企鹅公司</strong><br>
-                            北京市朝阳区某区某街道<br>
-                            企鹅 100000 <br>
-                            手机 18900000000 <br>
-                            邮编 100020 <br>
+                            <strong>签名：</strong><br>
+                            {{ $user_data['description'] }}
                         </address>
                     </div>
                     <div class="clearfix"></div>

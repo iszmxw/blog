@@ -3,6 +3,7 @@
 namespace App\Http\Middleware\Admin;
 
 use Closure;
+use Illuminate\Support\Facades\View;
 
 class Admin
 {
@@ -62,6 +63,7 @@ class Admin
             case '/admin/login';
                 $data = $request->session()->get('user_data');
                 if ($data){//检测是否已经登录，已经登录就跳转
+                    View::share('user_data', $data);
                     return redirect('admin');
                 }
                 break;

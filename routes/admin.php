@@ -10,7 +10,7 @@
 |
 */
 
-Route::middleware('admin')->group(function () {
+Route::namespace('Admin')->group(function () {
     Route::get('login','AdminController@login');
     Route::get('quit','AdminController@quit');
 });

@@ -71,9 +71,14 @@ class AdminController extends Controller
         return view('admin.view_log_list',['user_data'=>$user_data,'view_log'=>$view_log]);
     }
 
-    public function login()
+    public function login(Request $request)
     {
-        return view('admin.login');
+        $data = $request->session()->get('user_data');
+        if ($data){//检测是否已经登录，已经登录就跳转
+            return redirect('admin');
+        }else{
+            return view('admin.login');
+        }
     }
 
     public function login_check(Request $request)

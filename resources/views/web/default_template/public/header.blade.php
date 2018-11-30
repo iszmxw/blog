@@ -10,7 +10,7 @@
 		</div>
 	</li>
 	@foreach($nav as $val)
-	<li @if($val['url'] == url()->current() || in_array(url()->current(),$val['sub_menu']) ) class="active" @endif>
+	<li @if(in_array(url()->current(),$val['sub_menu']) ) class="active" @endif>
 		<a href="{{ $val['url'] }}">
 			<i class="{{ $val['navicon'] }}"></i>
 			<span class="nav-label">{{ $val['naviname'] }}</span>

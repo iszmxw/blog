@@ -67,7 +67,9 @@
 <script>
     $(function(){
         var obj = $(".menu");
-        console.log(obj);
+        for(var i=0;i<obj.length;i++){
+            console.log(obj[i]);
+        }
         // var sub_menu = obj.find('ul li').hasClass('active');
         // console.log(sub_menu);
         // if(sub_menu){

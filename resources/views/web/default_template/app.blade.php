@@ -74,13 +74,7 @@
                     menu.addClass('active');
                 }
             }
-
         }
-        // var sub_menu = obj.find('ul li').hasClass('active');
-        // console.log(sub_menu);
-        // if(sub_menu){
-        //     $(sub_menu).html();
-        // }
     });
 </script>
 @yield('script')

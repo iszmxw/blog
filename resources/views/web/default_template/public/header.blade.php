@@ -21,7 +21,9 @@
 		@if($val['sub_menu'])
 		<ul class="nav nav-second-level">
 			@foreach($val['sub_menu'] as $k=>$v)
-			<li><a href="{{$v['url']}}">{{ $v['naviname'] }}</a></li>
+			<li @if($v['url'] == url()->current()) class="active" @endif>
+				<a href="{{$v['url']}}">{{ $v['naviname'] }}</a>
+			</li>
 			@endforeach
 		</ul>
 		@endif

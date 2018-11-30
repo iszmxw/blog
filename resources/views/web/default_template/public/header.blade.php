@@ -11,7 +11,7 @@
 	</li>
 	@foreach($nav as $val)
 	<li @if($val['url'] == url()->current()) active @endif>
-		<a href="{{ $val['url'] }}" @if($val['url'] == url()->current()) active @endif>
+		<a href="{{ $val['url'] }}">
 			<i class="{{ $val['navicon'] }}"></i>
 			<span class="nav-label">{{ $val['naviname'] }}</span>
 			@if($val['sub_menu'])

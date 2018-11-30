@@ -59,6 +59,7 @@ class Web
             $nav[$key]['sub_menu'] = Navi::get_select(['pid'=>$val['id'],'hide'=>'n'],['id','naviname','navicon','url','newtab'],'taxis','ASC')->toArray();
         }
         $request->attributes->add(['nav'=>$nav]);
+        dump($nav);
         return $request;
     }
 

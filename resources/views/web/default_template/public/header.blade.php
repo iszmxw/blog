@@ -9,24 +9,35 @@
 			博客 {{ url()->current() }}
 		</div>
 	</li>
-	@foreach($nav as $val)
-	<li @if(in_array(url()->current(),$val['sub_menu']) ) class="active" @endif>
-		<a href="{{ $val['url'] }}">
-			<i class="{{ $val['navicon'] }}"></i>
-			<span class="nav-label">{{ $val['naviname'] }}</span>
-			@if($val['sub_menu'])
-			<span class="fa arrow"></span>
-			@endif
-		</a>
-		@if($val['sub_menu'])
-		<ul class="nav nav-second-level">
+	@foreach($nav as $key=>$val)
+		@if($val['isdefault'] == 'y')
 			@foreach($val['sub_menu'] as $k=>$v)
-			<li @if($v['url'] == url()->current()) class="active" @endif>
-				<a href="{{$v['url']}}">{{ $v['naviname'] }}</a>
-			</li>
+				<li @if($v['url'] == url()->current()) class="active" @endif>
 			@endforeach
-		</ul>
+				<a href="{{ $val['url'] }}">
+					<i class="{{ $val['navicon'] }}"></i>
+					<span class="nav-label">{{ $val['naviname'] }}</span>
+					@if($val['sub_menu'])
+					<span class="fa arrow"></span>
+					@endif
+				</a>
+				@if($val['sub_menu'])
+				<ul class="nav nav-second-level">
+					@foreach($val['sub_menu'] as $k=>$v)
+					<li @if($v['url'] == url()->current()) class="active" @endif>
+						<a href="{{$v['url']}}">{{ $v['naviname'] }}</a>
+					</li>
+					@endforeach
+				</ul>
+				@endif
+			</li>
+		@else
+			<li @if(in_array(url()->current(),$val['sub_menu']) ) class="active" @endif>
+				<a href="{{ $val['url'] }}">
+					<i class="{{ $val['navicon'] }}"></i>
+					<span class="nav-label">{{ $val['naviname'] }}</span>
+				</a>
+			</li>
 		@endif
-	</li>
 	@endforeach
 </ul>

@@ -66,10 +66,15 @@
 <script src="{{asset('style/web/default_template/js/plugins/pace/pace.min.js')}}"></script>
 <script>
     $(function(){
-        var obj = $(".menu");
-        for(var i=0;i<obj.length;i++){
-            console.log(obj[i]);
-            console.log($(obj[i]).find('ul li'));
+        var menu = $(".menu");
+        for(var i=0;i<menu.length;i++){
+            var li = $(menu[i]).find('ul li');
+            for(var _i=0;_i<li.length;_i++){
+                if($(li[_i]).hasClass('active')){
+                    menu.addClass('active');
+                }
+            }
+
         }
         // var sub_menu = obj.find('ul li').hasClass('active');
         // console.log(sub_menu);

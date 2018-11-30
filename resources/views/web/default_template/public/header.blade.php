@@ -11,9 +11,7 @@
 	</li>
 	@foreach($nav as $key=>$val)
 		@if($val['isdefault'] == 'y')
-			@foreach($val['sub_menu'] as $k=>$v)
-				<li @if($v['url'] == url()->current()) class="active" @endif>
-			@endforeach
+			<li @if(in_array(url()->current(),$val['sub_menu']) ) class="active" @endif>
 				<a href="{{ $val['url'] }}">
 					<i class="{{ $val['navicon'] }}"></i>
 					<span class="nav-label">{{ $val['naviname'] }}</span>

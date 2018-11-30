@@ -69,7 +69,7 @@
         var obj = $(".menu");
         for(var i=0;i<obj.length;i++){
             console.log(obj[i]);
-            console.log(obj[i].children('li'));
+            console.log(obj[i].find());
         }
         // var sub_menu = obj.find('ul li').hasClass('active');
         // console.log(sub_menu);

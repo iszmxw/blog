@@ -66,6 +66,7 @@
 <script src="{{asset('style/web/default_template/js/plugins/pace/pace.min.js')}}"></script>
 <script>
     $(function(){
+        //控制菜单自动展开
         var menu = $(".menu");
         for(var i=0;i<menu.length;i++){
             var li = $(menu[i]).find('ul li');

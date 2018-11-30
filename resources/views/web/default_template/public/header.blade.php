@@ -11,7 +11,7 @@
 	</li>
 	@foreach($nav as $key=>$val)
 		@if($val['isdefault'] == 'y')
-			<li @if(in_array(url()->current(),$val['sub_menu']) ) class="active" @endif>
+			<li @if(in_array(url()->current(),$val['sub_menu']['2']) ) class="active" @endif>
 				<a href="{{ $val['url'] }}">
 					<i class="{{ $val['navicon'] }}"></i>
 					<span class="nav-label">{{ $val['naviname'] }}</span>
@@ -30,7 +30,7 @@
 				@endif
 			</li>
 		@else
-			<li @if(in_array(url()->current(),$val['sub_menu']) ) class="active" @endif>
+			<li @if($val['url'] == url()->current()) class="active" @endif>
 				<a href="{{ $val['url'] }}">
 					<i class="{{ $val['navicon'] }}"></i>
 					<span class="nav-label">{{ $val['naviname'] }}</span>

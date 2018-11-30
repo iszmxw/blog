@@ -10,7 +10,7 @@
 		</div>
 	</li>
 	@foreach($nav as $val)
-	<li @if($val['url'] == url()->current()) class="active" @endif>
+	<li @if($val['url'] == url()->current() || $val['url'] == url()->current() && $val['id'] == $val['sub_menu']['0']['pid'] ) class="active" @endif>
 		<a href="{{ $val['url'] }}">
 			<i class="{{ $val['navicon'] }}"></i>
 			<span class="nav-label">{{ $val['naviname'] }}</span>

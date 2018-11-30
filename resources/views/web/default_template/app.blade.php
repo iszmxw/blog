@@ -66,7 +66,7 @@
 <script src="{{asset('style/web/default_template/js/plugins/pace/pace.min.js')}}"></script>
 <script>
     $(function(){
-        var sub_menu = $("#sub_menu").hasClass('active');
+        var sub_menu = $(".sub_menu").hasClass('active');
         console.log(sub_menu);
     });
 </script>

@@ -68,6 +68,9 @@
     $(function(){
         var sub_menu = $(".sub_menu").hasClass('active');
         console.log(sub_menu);
+        if(sub_menu){
+            $(this).html();
+        }
     });
 </script>
 @yield('script')

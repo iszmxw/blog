@@ -71,7 +71,7 @@
             var li = $(menu[i]).find('ul li');
             for(var _i=0;_i<li.length;_i++){
                 if($(li[_i]).hasClass('active')){
-                    menu.addClass('active');
+                    $(menu[i]).addClass('active');
                 }
             }
         }

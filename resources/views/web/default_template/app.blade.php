@@ -66,11 +66,13 @@
 <script src="{{asset('style/web/default_template/js/plugins/pace/pace.min.js')}}"></script>
 <script>
     $(function(){
-        var sub_menu = $(".sub_menu").hasClass('active');
-        console.log(sub_menu);
-        if(sub_menu){
-            $(this).html();
-        }
+        var obj = $(".menu");
+        console.log(obj);
+        // var sub_menu = obj.find('ul li').hasClass('active');
+        // console.log(sub_menu);
+        // if(sub_menu){
+        //     $(sub_menu).html();
+        // }
     });
 </script>
 @yield('script')

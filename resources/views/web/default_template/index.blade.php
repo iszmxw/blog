@@ -92,31 +92,48 @@
         <!--系统统计-->
         <div class="col-md-4">
             <div class="contact-box">
-                <table class="table small m-b-xs">
+                <table class="table">
                     <tbody>
                     <tr>
                         <td>
-                            <strong>142</strong> 项目
+                            <button type="button" class="btn btn-danger m-r-sm">12</button>
+                            消息
                         </td>
                         <td>
-                            <strong>22</strong> 关注
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <td>
-                            <strong>61</strong> 评论
+                            <button type="button" class="btn btn-primary m-r-sm">28</button>
+                            帖子
                         </td>
                         <td>
-                            <strong>54</strong> 文章
+                            <button type="button" class="btn btn-info m-r-sm">15</button>
+                            好友
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <strong>154</strong> 标签
+                            <button type="button" class="btn btn-info m-r-sm">20</button>
+                            新闻
                         </td>
                         <td>
-                            <strong>32</strong> 好友
+                            <button type="button" class="btn btn-success m-r-sm">40</button>
+                            喜欢
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger m-r-sm">30</button>
+                            通知
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button type="button" class="btn btn-warning m-r-sm">20</button>
+                            相册
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-default m-r-sm">40</button>
+                            群组
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-warning m-r-sm">30</button>
+                            权限
                         </td>
                     </tr>
                     </tbody>

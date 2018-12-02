@@ -1,7 +1,7 @@
 <!--右侧侧边栏-->
 <div class="col-lg-4">
             {{--关于我==自我介绍--}}
-            <div class="col-lg-4">
+            <div class="col-lg-12">
                 <div class="contact-box">
                     <a href="{{ url('profile') }}">
                         <div class="col-sm-4">
@@ -23,7 +23,7 @@
                 </div>
             </div>
             {{--微语说说--}}
-            <div class="col-lg-4">
+            <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         站长最新说说动态
@@ -37,7 +37,7 @@
                 </div>
             </div>
             {{--分类统计--}}
-            <div class="col-lg-4">
+            <div class="col-lg-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <h5>分类统计</h5>
@@ -66,7 +66,7 @@
                 </div>
             </div>
             {{--评论--}}
-            <div class="col-lg-4">
+            <div class="col-lg-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <h5>最新评论</h5>
@@ -97,7 +97,7 @@
 
             </div>
             {{--友情链接--}}
-            <div class="col-md-4">
+            <div class="col-md-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <h5>友情链接</h5>
@@ -135,7 +135,7 @@
                 </div>
             </div>
             {{--站点统计--}}
-            <div class="col-lg-4">
+            <div class="col-lg-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <h5>站点统计</h5>

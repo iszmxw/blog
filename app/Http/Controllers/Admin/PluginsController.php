@@ -18,8 +18,8 @@ class PluginsController extends Controller
     {
         $user_data = $request->get('user_data');
         $list = Twitter::getList([]);
-        foreach($list as $value){
-            $value['header'] = User::getValue(['uid'=>$value['author']],'photo');
+        foreach($list as $key=>$value){
+            $list[$key]['header'] = User::getValue(['uid'=>$value['author']],'photo');
         }
         return view('admin.twitter_list',['user_data'=>$user_data,'list'=>$list]);
     }

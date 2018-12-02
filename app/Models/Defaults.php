@@ -4,13 +4,10 @@ namespace App\Models;
 
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Defaults extends Model
 {
-    use SoftDeletes;
     public $guarded = [];
-
     // 获取单字段数据
     public static function getValue($where = [], $field = "id")
     {

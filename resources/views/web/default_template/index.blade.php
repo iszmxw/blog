@@ -97,8 +97,7 @@
                     <tr>
                         @foreach($sort as $key=>$val)
                         <td>
-                            <button type="button" class="btn btn-danger m-r-sm">12</button>
-                            {{ $val['sortname'] }}
+                            <button type="button" class="btn btn-danger m-r-sm">{{ $val['sortname'] }}</button>
                         </td>
                         @endforeach
                     </tr>

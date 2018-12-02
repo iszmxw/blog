@@ -9,8 +9,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Defaults extends Model
 {
     use SoftDeletes;
-    public $timestamps = true;
-    public $dateFormat = 'U';
     public $guarded = [];
 
     // 获取单字段数据

@@ -46,15 +46,17 @@
                 </div>
             </div>
             <div class="ibox-content no-padding">
-                <ul class="tag-list" style="padding: 0">
-                    @foreach($sort as $key=>$val)
-                        <li>
-                            <a href="{{ url('category').'/'.$val['sid'] }}" target="_blank">{{ $val['sortname'] }}</a>
-                        </li>
-                    @endforeach
-                </ul>
+                <div class="contact-box">
+                    <ul class="tag-list" style="padding: 0">
+                        @foreach($sort as $key=>$val)
+                            <li>
+                                <a href="{{ url('category').'/'.$val['sid'] }}" target="_blank">{{ $val['sortname'] }}</a>
+                            </li>
+                        @endforeach
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
             </div>
-            <div class="clearfix"></div>
         </div>
     </div>
     <!--分类-->

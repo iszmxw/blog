@@ -11,14 +11,6 @@ class Sort extends Defaults
     //过滤黑名单字段
     public $guarded = [];
 
-
-
-    //分页获取数据
-    public static function getPaginate($where,$sort,$desc,$paginate)
-    {
-        return self::where($where)->orderby($sort,$desc)->paginate($paginate);
-    }
-
     //修改数据
     public static function EditData($where,$data)
     {

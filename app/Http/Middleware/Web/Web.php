@@ -89,7 +89,7 @@ class Web
         View::share('nav',$nav);
         View::share('sort',$sort);
         View::share('link',$link);
-        View::share('comment',$comment);
+        View::share('comments',$comments);
         View::share('site_info',$site_info);
         return $request;
     }

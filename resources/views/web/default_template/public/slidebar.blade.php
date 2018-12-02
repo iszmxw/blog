@@ -147,17 +147,19 @@
                 <ul class="list-group">
                     <li class="list-group-item">
                         文章总数：
-                        <span class="label label-primary">109篇</span>
+                        <span class="label label-info">109篇</span>
                     </li>
                     <li class="list-group-item">
-                        微语总数：7条
+                        微语总数：
+                        <span class="label label-primary">7条</span>
                     </li>
                     <li class="list-group-item">
-                        评论总数：10条
+                        评论总数：
+                        <span class="label label-success">10条</span>
                     </li>
                     <li class="list-group-item">
                         运行天数:
-                        <span class="label label-primary">1219天</span>
+                        <span class="label label-danger">1219天</span>
                     </li>
 
                 </ul>

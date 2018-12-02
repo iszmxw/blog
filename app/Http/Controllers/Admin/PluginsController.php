@@ -167,7 +167,7 @@ class PluginsController extends Controller
         $list = Comment::getPaginate([],'cid','10','date','DESC');
         foreach($list as $key=>$value){
             if(!$value['mail'])$value['mail'] = 10000;
-            $value['blog_title'] = Blog::getValue(['gid'=>$value['gid']],'title');
+            $list[$key]['blog_title'] = Blog::getValue(['gid'=>$value['gid']],'title');
         }
         return view('admin.comment_list',['user_data'=>$user_data,'list'=>$list]);
     }

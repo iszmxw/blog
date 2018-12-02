@@ -48,7 +48,6 @@ class WebController extends Controller
             }
         }
         $data = ['blog'=>$blog];
-        dump($blog);
         return view('web.default_template.category',$data);
     }
 

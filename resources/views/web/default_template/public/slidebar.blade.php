@@ -36,7 +36,7 @@
     <div class="col-md-4">
         <div class="ibox float-e-margins">
             <div class="ibox-title">
-                <h5>分类</h5>
+                <h5>友情链接</h5>
                 <div class="ibox-tools">
                     <a class="collapse-link">
                         <i class="fa fa-chevron-up"></i>
@@ -74,7 +74,7 @@
     <div class="col-lg-4">
         <div class="ibox float-e-margins">
             <div class="ibox-title">
-                <h5>分组列表</h5>
+                <h5>分类统计</h5>
                 <div class="ibox-tools">
                     <a class="collapse-link">
                         <i class="fa fa-chevron-up"></i>

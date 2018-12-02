@@ -29,8 +29,8 @@ class Defaults extends Model
         }
     }
 
-    // 获取多条数据
-    public static function getList($where = [], $field = [], $offset = 0, $limit = 0, $orderby = "id", $sort = 'DESC')
+    //获取列表数据
+    public static function getList($where = [], $field = [], $offset = 0, $limit = 0, $orderby = "", $sort = 'DESC')
     {
         if (empty($field)) {
             $field = '*';
@@ -39,7 +39,9 @@ class Defaults extends Model
         if (!empty($where)) {
             $model = $model->where($where);
         }
-        $model = $model->orderBy($orderby, $sort);
+        if(!empty($orderby)){
+            $model = $model->orderBy($orderby, $sort);
+        }
         if (!empty($offset)) {
             $model = $model->offset($offset);
         }

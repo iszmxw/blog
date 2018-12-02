@@ -11,11 +11,7 @@ class Sort extends Defaults
     //过滤黑名单字段
     public $guarded = [];
 
-    //获取列表数据
-    public static function getList($where)
-    {
-        return self::where($where)->get();
-    }
+
 
     //分页获取数据
     public static function getPaginate($where,$sort,$desc,$paginate)

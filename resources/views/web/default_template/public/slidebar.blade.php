@@ -61,7 +61,7 @@
                     <ul class="tag-list" style="padding: 0">
                         @foreach($sort as $key=>$val)
                             <li>
-                                <a href="{{ url('category').'/'.$val['sid'] }}" target="_blank">{{ $val['sortname'] }}</a>
+                                <a href="{{ url('category').'/'.$val['sid'] }}" target="_blank" style="color:#000;">{{ $val['sortname'] }}</a>
                             </li>
                         @endforeach
                     </ul>

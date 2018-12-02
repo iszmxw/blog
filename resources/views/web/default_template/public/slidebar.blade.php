@@ -147,7 +147,7 @@
                 <ul class="list-group">
                     <li class="list-group-item">
                         文章总数：
-                        <span class="badge badge-primary">109篇</span>
+                        <span class="label label-primary">109篇</span>
                     </li>
                     <li class="list-group-item">
                         微语总数：7条
@@ -157,7 +157,7 @@
                     </li>
                     <li class="list-group-item">
                         运行天数:
-                        <span class="badge badge-primary">1219天</span>
+                        <span class="label label-primary">1219天</span>
                     </li>
 
                 </ul>

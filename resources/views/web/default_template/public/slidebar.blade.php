@@ -53,8 +53,8 @@
                         </li>
                     @endforeach
                 </ul>
-                <div class="clearfix"></div>
             </div>
+            <div class="clearfix"></div>
         </div>
     </div>
     <!--分类-->

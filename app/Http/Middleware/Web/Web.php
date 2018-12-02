@@ -5,6 +5,7 @@ namespace App\Http\Middleware\Web;
 use App\Library\IpAddress;
 use App\Models\Navi;
 use App\Models\Sort;
+use App\Models\Link;
 use App\Models\User;
 use App\Models\Blog;
 use App\Models\ViewLog;
@@ -65,8 +66,10 @@ class Web
         foreach ($sort as $key=>$val){
             $val['count'] = Blog::where(['sortid'=>$val['sid']])->count();
         }
+        $link = Link::getList([]);
         View::share('nav',$nav);
         View::share('sort',$sort);
+        View::share('link',$link);
         return $request;
     }
 

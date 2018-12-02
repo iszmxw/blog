@@ -45,9 +45,9 @@
                         <i class="fa fa-wrench"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        @foreach($sort as $key=>$val)
+                        @foreach($link as $key=>$val)
                             <li>
-                                <a href="{{ url('category').'/'.$val['sid'] }}" target="_blank">{{ $val['sortname'] }}</a>
+                                <a href="{{ $val['siteurl'] }}" target="_blank" title="{{ $val['description'] }}">{{ $val['sitename'] }}</a>
                             </li>
                         @endforeach
                     </ul>
@@ -59,9 +59,9 @@
             <div class="ibox-content no-padding">
                 <div class="contact-box">
                     <ul class="tag-list" style="padding: 0">
-                        @foreach($sort as $key=>$val)
+                        @foreach($link as $key=>$val)
                             <li>
-                                <a href="{{ url('category').'/'.$val['sid'] }}" target="_blank">{{ $val['sortname'] }}</a>
+                                <a href="{{ $val['siteurl'] }}" target="_blank" title="{{ $val['description'] }}">{{ $val['sitename'] }}</a>
                             </li>
                         @endforeach
                     </ul>

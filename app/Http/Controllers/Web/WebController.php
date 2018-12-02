@@ -18,7 +18,7 @@ class WebController extends Controller
     //首页
     public function index()
     {
-        $blog = Blog::getPaginate([],['gid','sortid','title','date','content','views'],'date','DESC',10);
+        $blog = Blog::getPaginate([],['gid','sortid','title','date','content','views'],10,'date','DESC');
         foreach($blog as $value){
             $value['date'] = date('Y-m-d H:i:s',$value['date']);
             $value['content'] = Tooling::tool_purecontent($value['content'],240);

@@ -59,10 +59,6 @@ class Defaults extends Model
     }
 
     //分页获取数据
-//    public static function getPaginate($where,$sort,$desc,$paginate)
-//    {
-//        return self::where($where)->orderby($sort,$desc)->paginate($paginate);
-//    }
     public static function getPaginate($where = [], $field = [], $paginate = 1, $orderby = "id", $sort = "DESC")
     {
         if (empty($field)) {

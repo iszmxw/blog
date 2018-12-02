@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Defaults extends Model
 {
+    //过滤黑名单字段
     public $guarded = [];
     // 获取单字段数据
     public static function getValue($where, $value)
@@ -101,7 +102,7 @@ class Defaults extends Model
     }
 
     // 编辑数据
-    public static function editData($data = [], $where = [])
+    public static function EditData($where = [], $data = [])
     {
         $res = self::where($where)->update($data);
 

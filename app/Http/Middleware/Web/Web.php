@@ -85,7 +85,7 @@ class Web
         $site_info['comments'] = Comment::getCount([]);
         $site_info['twitters'] = Twitter::getCount([]);
         $site_info['blogs'] = Blog::getCount([]);
-
+        dump($site_info);
         View::share('nav',$nav);
         View::share('sort',$sort);
         View::share('link',$link);

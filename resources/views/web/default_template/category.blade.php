@@ -12,9 +12,7 @@
 {{--内容部分--}}
 @section('content')
     <div class="col-lg-8">
-        {{ $blog }}
-        @foreach($blog as $key=>$val)
-        @if(empty($val['gid']))
+        @if(empty($blog))
             <div class="wrapper wrapper-content">
                 <div class="middle-box text-center animated fadeInRightBig">
                     <h3 class="font-bold">暂无内容</h3>
@@ -26,6 +24,7 @@
                 </div>
             </div>
         @else
+        @foreach($blog as $key=>$val)
         <div class="ibox">
             <div class="ibox-content">
                 <a href="{{url('article')}}/{{$val['gid']}}" class="btn-link">
@@ -69,8 +68,8 @@
                 </div>
             </div>
         </div>
-        @endif
         @endforeach
+        @endif
 
         <!--分页-->
         <div class="btn-group pull-right">

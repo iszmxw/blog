@@ -141,33 +141,23 @@
                     <a class="collapse-link">
                         <i class="fa fa-chevron-up"></i>
                     </a>
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-wrench"></i>
-                    </a>
-                    <a class="close-link">
-                        <i class="fa fa-times"></i>
-                    </a>
                 </div>
             </div>
-
             <div class="ibox-content no-padding">
                 <ul class="list-group">
-
                     <li class="list-group-item">
-                        {{--<span class="badge badge-primary">{{ $val['count'] }}</span>--}}
-                        文章总数：109篇
+                        文章总数：
+                        <span class="badge badge-primary">109篇</span>
                     </li>
                     <li class="list-group-item">
-                        {{--<span class="badge badge-primary">{{ $val['count'] }}</span>--}}
                         微语总数：7条
                     </li>
                     <li class="list-group-item">
-                        {{--<span class="badge badge-primary">{{ $val['count'] }}</span>--}}
                         评论总数：10条
                     </li>
                     <li class="list-group-item">
-                        {{--<span class="badge badge-primary">{{ $val['count'] }}</span>--}}
-                        运行天数: 1219天
+                        运行天数:
+                        <span class="badge badge-primary">1219天</span>
                     </li>
 
                 </ul>

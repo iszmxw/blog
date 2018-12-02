@@ -122,10 +122,8 @@ class Web
         $log = ViewLog::getOne(['ip'=>$address['origip']]);
         if ($log){
             $num = $log['num'] + 1;
-            ViewLog::editData(['num'=>$num,'full'=>$address['full']],['id'=>$log['id']]);
-            dd(1);
+            ViewLog::editData(['id'=>$log['id']],['num'=>$num,'full'=>$address['full']]);
         }else{
-            dd(2);
             ViewLog::addData(['ip'=>$address['origip'],'ip_position'=>$address['location'],'previous'=>$address['previous'],'full'=>$address['full']]);
         }
     }

@@ -63,7 +63,6 @@ class Web
         $sort = Sort::getList([]);
         View::share('nav',$nav);
         View::share('sort',$sort);
-        dump($sort);
         return $request;
     }
 

@@ -26,7 +26,7 @@
     <div class="col-lg-4">
         <div class="panel panel-default">
             <div class="panel-heading">
-                站长动态
+                站长最新说说动态
             </div>
             <div class="panel-body">
                 <br>

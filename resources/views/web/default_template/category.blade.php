@@ -13,6 +13,18 @@
 @section('content')
     <div class="col-lg-8">
         @foreach($blog as $key=>$val)
+            @if(empty($val))
+                <div class="wrapper wrapper-content">
+                    <div class="middle-box text-center animated fadeInRightBig">
+                        <h3 class="font-bold">暂无内容</h3>
+                        <div class="error-desc">
+                            该栏目下暂时没有发布文章哦:)<br>
+                            看看其他栏目吧或者返回首页看看吧。
+                            <br><a href="{{ url('/') }}" class="btn btn-primary m-t">返回主页</a>
+                        </div>
+                    </div>
+                </div>
+            @endif
         <div class="ibox">
             <div class="ibox-content">
                 <a href="{{url('article')}}/{{$val['gid']}}" class="btn-link">

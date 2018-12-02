@@ -68,7 +68,7 @@
             <div class="ibox-title">
                 <h5>最新评论</h5>
                 <div class="ibox-tools">
-                    <span class="label label-warning-light pull-right">共10条评论</span>
+                    <span class="label label-warning-light pull-right">共{{ $site_info['comments'] }}条评论</span>
                 </div>
             </div>
             <div class="ibox-content">

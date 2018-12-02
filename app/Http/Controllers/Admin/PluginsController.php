@@ -164,7 +164,7 @@ class PluginsController extends Controller
     public function comment_list(Request $request)
     {
         $user_data = $request->get('user_data');
-        $list = Comment::getPaginate([],'cid','10','date','DESC');
+        $list = Comment::getPaginate([],'','10','date','DESC');
         foreach($list as $key=>$value){
             if(!$value['mail'])$value['mail'] = 10000;
             $list[$key]['blog_title'] = Blog::getValue(['gid'=>$value['gid']],'title');

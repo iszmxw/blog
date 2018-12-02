@@ -75,10 +75,10 @@ class Web
             if(!$val['mail'])$val['mail'] = 10000;
             $comment[$key]['blog_title'] = Blog::getValue(['gid'=>$val['gid']],'title');
         }
-        dump($comment);
         View::share('nav',$nav);
         View::share('sort',$sort);
         View::share('link',$link);
+        View::share('comment',$comment);
         return $request;
     }
 

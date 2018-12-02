@@ -18,7 +18,7 @@ class CategoryController extends Controller
         $list = Sort::getPaginate([],'taxis',10);
         $sort = Sort::getList([]);
         foreach ($list as $value){
-            $value['blogs'] = Blog::where(['sortid'=>$value['sid']])->count();
+            $value['blogs'] = Blog::getCount(['sortid'=>$value['sid']]);
         }
         return view('admin.category_list',['user_data'=>$user_data,'sort'=>$sort,'list'=>$list]);
     }

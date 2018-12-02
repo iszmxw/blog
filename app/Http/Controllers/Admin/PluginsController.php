@@ -19,7 +19,7 @@ class PluginsController extends Controller
         $user_data = $request->get('user_data');
         $list = Twitter::getList([]);
         foreach($list as $value){
-            $value['header'] = User::where(['uid'=>$value['author']])->value('photo');
+            $value['header'] = User::getValue(['uid'=>$value['author']],'photo');
         }
         return view('admin.twitter_list',['user_data'=>$user_data,'list'=>$list]);
     }
@@ -97,7 +97,7 @@ class PluginsController extends Controller
     public function link_list(Request $request)
     {
         $user_data = $request->get('user_data');
-        $list = Link::where([])->orderby('id','ASC')->paginate(15);
+        $list = Link::getPaginate([],'',15,'id','ASC');
         return view('admin.link_list',['user_data'=>$user_data,'list'=>$list]);
     }
 
@@ -164,10 +164,10 @@ class PluginsController extends Controller
     public function comment_list(Request $request)
     {
         $user_data = $request->get('user_data');
-        $list = Comment::getPaginate([],'cid','DESC','10');
+        $list = Comment::getPaginate([],'cid','10','date','DESC');
         foreach($list as $key=>$value){
             if(!$value['mail'])$value['mail'] = 10000;
-            $value['blog_title'] = Blog::where(['gid'=>$value['gid']])->value('title');
+            $value['blog_title'] = Blog::getValue(['gid'=>$value['gid']],'title');
         }
         return view('admin.comment_list',['user_data'=>$user_data,'list'=>$list]);
     }
@@ -223,7 +223,7 @@ class PluginsController extends Controller
         $cid = $request->get('cid');
         if ($is_edit != 1){//判断是否编辑数据
             $comment = $request->get('comment');
-            $poster = Comment::where(['cid'=>$cid])->value('poster');
+            $poster = Comment::getValue(['cid'=>$cid],'poster');
             $comment = '@'.$poster.'：'.$comment;
             $data['mail'] = "442246396@qq.com";
             $data['url'] = "http://blog.54zm.com/";

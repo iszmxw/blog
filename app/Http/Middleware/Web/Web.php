@@ -6,6 +6,7 @@ use App\Library\IpAddress;
 use App\Models\Navi;
 use App\Models\Sort;
 use App\Models\Link;
+use App\Models\Comment;
 use App\Models\User;
 use App\Models\Blog;
 use App\Models\ViewLog;
@@ -67,6 +68,7 @@ class Web
             $val['count'] = Blog::where(['sortid'=>$val['sid']])->count();
         }
         $link = Link::getList([]);
+        $comment = Comment::getList(['hide'=>'n']);
         View::share('nav',$nav);
         View::share('sort',$sort);
         View::share('link',$link);

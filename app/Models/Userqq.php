@@ -2,10 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Userqq extends Model
+class Userqq extends Defaults
 {
     use SoftDeletes;
     public $timestamps = true;

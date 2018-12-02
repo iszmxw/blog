@@ -2,9 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class User extends Model
+class User extends Defaults
 {
     protected $table = 'user';
     protected $primaryKey = 'uid';

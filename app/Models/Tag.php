@@ -2,9 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 
-class Tag extends Model
+class Tag extends Defaults
 {
     protected $table = 'tag';
     protected $primaryKey = 'tid';

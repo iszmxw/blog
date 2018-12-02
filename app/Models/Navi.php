@@ -1,10 +1,7 @@
 <?php
 
 namespace App\Models;
-
-use Illuminate\Database\Eloquent\Model;
-
-class Navi extends Model
+class Navi extends Defaults
 {
     protected $table = 'navi';
     protected $primaryKey = 'id';

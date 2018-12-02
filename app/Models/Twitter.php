@@ -2,9 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Twitter extends Model
+class Twitter extends Defaults
 {
     protected $table = 'twitter';
     protected $primaryKey = 'id';

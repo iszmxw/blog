@@ -2,9 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Sort extends Model
+class Sort extends Defaults
 {
     protected $table = 'sort';
     protected $primaryKey = 'sid';

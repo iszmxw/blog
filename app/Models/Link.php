@@ -2,9 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Link extends Model
+class Link extends Defaults
 {
     protected $table = 'link';
     protected $primaryKey = 'id';

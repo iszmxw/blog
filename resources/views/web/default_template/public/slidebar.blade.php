@@ -33,6 +33,38 @@
             </div>
         </div>
     </div>
+    {{--分类统计--}}
+    <div class="col-lg-4">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>分类统计</h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-wrench"></i>
+                    </a>
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="ibox-content no-padding">
+                <ul class="list-group">
+                    @foreach($sort as $key=>$val)
+                        <li class="list-group-item">
+                            <span class="badge badge-primary">{{ $val['count'] }}</span>
+                            <a href="{{ url('category').'/'.$val['sid'] }}" target="_blank" style="color:#000;">
+                                {{ $val['sortname'] }}
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+    </div>
     {{--评论--}}
     <div class="col-lg-4">
         <div class="ibox float-e-margins">
@@ -100,38 +132,6 @@
                     </ul>
                     <div class="clearfix"></div>
                 </div>
-            </div>
-        </div>
-    </div>
-    {{--分类统计--}}
-    <div class="col-lg-4">
-        <div class="ibox float-e-margins">
-            <div class="ibox-title">
-                <h5>分类统计</h5>
-                <div class="ibox-tools">
-                    <a class="collapse-link">
-                        <i class="fa fa-chevron-up"></i>
-                    </a>
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-wrench"></i>
-                    </a>
-                    <a class="close-link">
-                        <i class="fa fa-times"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="ibox-content no-padding">
-                <ul class="list-group">
-                    @foreach($sort as $key=>$val)
-                        <li class="list-group-item">
-                            <span class="badge badge-primary">{{ $val['count'] }}</span>
-                            <a href="{{ url('category').'/'.$val['sid'] }}" target="_blank" style="color:#000;">
-                                {{ $val['sortname'] }}
-                            </a>
-                        </li>
-                    @endforeach
-                </ul>
             </div>
         </div>
     </div>

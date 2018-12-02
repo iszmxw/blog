@@ -82,12 +82,6 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-wrench"></i>
                     </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#">选项 1</a>
-                        </li>
-                        <li><a href="#">选项 2</a>
-                        </li>
-                    </ul>
                     <a class="close-link">
                         <i class="fa fa-times"></i>
                     </a>
@@ -95,26 +89,17 @@
             </div>
             <div class="ibox-content no-padding">
                 <ul class="list-group">
-                    <li class="list-group-item">
-                        <span class="badge badge-primary">16</span>
-                        分组列表
-                    </li>
-                    <li class="list-group-item ">
-                        <span class="badge badge-info">12</span>
-                        分组列表
-                    </li>
-                    <li class="list-group-item">
-                        <span class="badge badge-danger">10</span>
-                        分组列表
-                    </li>
-                    <li class="list-group-item">
-                        <span class="badge badge-success">10</span>
-                        分组列表
-                    </li>
-                    <li class="list-group-item">
-                        <span class="badge badge-warning">7</span>
-                        分组列表
-                    </li>
+                    @foreach($sort as $key=>$val)
+                        <li>
+
+                        </li>
+                        <li class="list-group-item">
+                            <a href="{{ url('category').'/'.$val['sid'] }}" target="_blank">
+                                <span class="badge badge-primary">{{ $val['count'] }}</span>
+                                {{ $val['sortname'] }}
+                            </a>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
         </div>

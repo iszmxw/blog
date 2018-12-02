@@ -52,7 +52,7 @@
                             <div class="media-body ">
                                 <small class="pull-right">{{ $val['date']->diffForHumans() }}</small>
                                 <strong>{{ $val['poster'] }}</strong> 评论了 <strong>{{ $val['blog_title'] }}</strong><br>
-                                <small class="text-muted">2017.12.12 12:00</small>
+                                <small class="text-muted">来自：{{ $val['ip'] }}</small>
                                 <div class="well">
                                     {{ $val['comment'] }}
                                 </div>

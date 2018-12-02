@@ -97,6 +97,7 @@
                         <li><a href="">{{ $val['sortname'] }}</a></li>
                     @endforeach
                 </ul>
+                <div class="clearfix"></div>
             </div>
         </div>
         <!--分类-->

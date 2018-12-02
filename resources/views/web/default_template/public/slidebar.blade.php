@@ -76,7 +76,7 @@
                 </div>
                 <div class="ibox-content">
                         <div class="feed-activity-list">
-                            @foreach($comment as $key=>$val)
+                            @foreach($comments as $key=>$val)
                             <div class="feed-element">
                                 <a href="javascript:;" class="pull-left">
                                     <img alt="image" class="img-circle" src="http://q1.qlogo.cn/g?b=qq&nk={{ $val['mail'] }}&s=640">

@@ -74,13 +74,11 @@ class Web
         //友情链接
         $link = Link::getList([]);
         //前十条评论数据调用
-        $comment = Comment::getList(['hide'=>'n'],'',0,6,'date','DESC');
-        foreach($comment as $key=>$val){
+        $comments = Comment::getList(['hide'=>'n'],'',0,6,'date','DESC');
+        foreach($comments as $key=>$val){
             if(!$val['mail'])$val['mail'] = 10000;
-            $comment[$key]['blog_title'] = Blog::getValue(['gid'=>$val['gid']],'title');
+            $comments[$key]['blog_title'] = Blog::getValue(['gid'=>$val['gid']],'title');
         }
-
-        dd($comment);
 
         //站点统计信息
         $site_info['naissance'] = floor((time()-strtotime('2015-8-1'))/86400);

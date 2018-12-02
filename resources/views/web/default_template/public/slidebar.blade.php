@@ -90,9 +90,6 @@
             <div class="ibox-content no-padding">
                 <ul class="list-group">
                     @foreach($sort as $key=>$val)
-                        <li>
-
-                        </li>
                         <li class="list-group-item">
                             <a href="{{ url('category').'/'.$val['sid'] }}" target="_blank">
                                 <span class="badge badge-primary">{{ $val['count'] }}</span>

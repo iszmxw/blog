@@ -29,14 +29,14 @@ class WebController extends Controller
                 $value['thumb'] = $value['thumb']['filepath'];
             }
         }
-        $data = ['blog'=>$blog];
-        return view('web.default_template.index',$data);
+        $view = ['blog'=>$blog];
+        return view('web.default_template.index',$view);
     }
 
     //栏目页面
     public function category($category_id)
     {
-        $blog = Blog::getPaginate(['sortid'=>$category_id],['gid','sortid','title','date','content','views'],'date','DESC',10);
+        $blog = Blog::getPaginate(['sortid'=>$category_id],['gid','sortid','title','date','content','views'],10,'date','DESC');
         foreach($blog as $value){
             $value['date'] = date('Y-m-d H:i:s',$value['date']);
             $value['content'] = Tooling::tool_purecontent($value['content'],240);
@@ -47,8 +47,8 @@ class WebController extends Controller
                 $value['thumb'] = $value['thumb']['filepath'];
             }
         }
-        $data = ['blog'=>$blog];
-        return view('web.default_template.category',$data);
+        $view = ['blog'=>$blog];
+        return view('web.default_template.category',$view);
     }
 
     //文章页面

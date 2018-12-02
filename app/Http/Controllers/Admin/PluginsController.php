@@ -34,7 +34,6 @@ class PluginsController extends Controller
             DB::commit();
             return response()->json(['data'=>'删除成功！','status'=>'1']);
         }catch (\Exception $e){
-            dd($e);
             DB::rollBack();
             return response()->json(['data'=>'删除失败请稍后再试！','status'=>'0']);
         }
@@ -58,7 +57,6 @@ class PluginsController extends Controller
             DB::commit();
             return response()->json(['data'=>'删除成功！','status'=>'1']);
         }catch (\Exception $e){
-            dd($e);
             DB::rollBack();
             return response()->json(['data'=>'删除失败请稍后再试！','status'=>'0']);
         }
@@ -87,7 +85,6 @@ class PluginsController extends Controller
             DB::commit();
             return response()->json(['status'=>'1','data'=>'修改标签成功！']);
         }catch (\Exception $e){
-            dd($e);
             DB::rollBack();
             return response()->json(['status'=>'0','data'=>'修改标签失败！']);
         }

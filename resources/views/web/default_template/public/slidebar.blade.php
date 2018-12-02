@@ -161,7 +161,6 @@
                         运行天数:
                         <span class="label label-danger">1219天</span>
                     </li>
-
                 </ul>
             </div>
         </div>

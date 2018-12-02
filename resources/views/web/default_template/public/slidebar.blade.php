@@ -87,28 +87,17 @@
                     </a>
                 </div>
             </div>
+
             <div class="ibox-content no-padding">
                 <ul class="list-group">
-                    <li class="list-group-item">
-                        <span class="badge badge-primary">16</span>
-                        分组列表
-                    </li>
-                    <li class="list-group-item ">
-                        <span class="badge badge-info">12</span>
-                        分组列表
-                    </li>
-                    <li class="list-group-item">
-                        <span class="badge badge-danger">10</span>
-                        分组列表
-                    </li>
-                    <li class="list-group-item">
-                        <span class="badge badge-success">10</span>
-                        分组列表
-                    </li>
-                    <li class="list-group-item">
-                        <span class="badge badge-warning">7</span>
-                        分组列表
-                    </li>
+                    @foreach($sort as $key=>$val)
+                        <li class="list-group-item">
+                            <span class="badge badge-primary">{{ $val['count'] }}</span>
+                            <a href="{{ url('category').'/'.$val['sid'] }}" target="_blank">
+                                {{ $val['sortname'] }}
+                            </a>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
         </div>

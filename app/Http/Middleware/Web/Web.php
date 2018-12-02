@@ -4,6 +4,7 @@ namespace App\Http\Middleware\Web;
 
 use App\Library\IpAddress;
 use App\Models\Navi;
+use App\Models\Sort;
 use App\Models\User;
 use App\Models\ViewLog;
 use Illuminate\Support\Facades\URL;
@@ -32,7 +33,7 @@ class Web
         //获取路由中的参数，文章id
         $article_id = $request->route('article_id');
         $route = $request->getPathInfo();
-        self::Navdata($request); //添加菜单
+        self::CommonData($request); //处理公共数据
 
         //共享用户信息到所有视图
         $uesr_data = User::getOne(['uid'=>'1']);
@@ -52,13 +53,17 @@ class Web
     }
 
 
-    public static function Navdata($request)
+    //公共数据
+    public static function CommonData($request)
     {
         $nav = Navi::get_select(['pid'=>'0','hide'=>'n'],['id','naviname','navicon','url','newtab','pid','isdefault'],'taxis','ASC')->toArray();
         foreach ($nav as $key=>$val){
             $nav[$key]['sub_menu'] = Navi::get_select(['pid'=>$val['id'],'hide'=>'n'],['id','naviname','navicon','url','newtab','pid','isdefault'],'taxis','ASC')->toArray();
         }
+        $sort = Sort::getList([]);
         View::share('nav',$nav);
+        View::share('sort',$sort);
+        dump($sort);
         return $request;
     }
 

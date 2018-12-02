@@ -49,7 +49,7 @@ class ArticleController extends Controller
     public function article_list(Request $request)
     {
         $user_data = $request->get('user_data');
-        $list = Blog::getPaginate([],['blog.gid','blog.title','sort.sortname','blog.views','blog.date'],'date','DESC',15);
+        $list = Blog::getPaginate([],['blog.gid','blog.title','sort.sortname','blog.views','blog.date'],15,'date','DESC');
         return view('admin.article_list',['user_data'=>$user_data,'list'=>$list]);
     }
 
@@ -101,7 +101,7 @@ class ArticleController extends Controller
         //数据库事物回滚
         DB::beginTransaction();
         try {
-            Blog::where(['gid'=>$id])->delete();
+            Blog::selected_delete(['gid'=>$id]);
             DB::commit();
             return response()->json(['data'=>'您的文章已被删除！','status'=>'1']);
         } catch (\Exception $e) {

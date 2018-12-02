@@ -59,7 +59,7 @@ class Defaults extends Model
     }
 
     //分页获取数据
-    public static function getPaginate($where = [], $field = [], $paginate = 1, $orderby = "id", $sort = "DESC")
+    public static function getPaginate($where = [], $field = [], $paginate = 1, $orderby = "", $sort = "DESC")
     {
         if (empty($field)) {
             $field = '*';
@@ -68,7 +68,9 @@ class Defaults extends Model
         if (!empty($where)) {
             $model = $model->where($where);
         }
-        $model = $model->orderBy($orderby, $sort);
+        if (!empty($orderby)){
+            $model = $model->orderBy($orderby, $sort);
+        }
         $res = $model->paginate($paginate);
 
         if (!empty($res)) {

@@ -80,6 +80,8 @@ class Web
             $comment[$key]['blog_title'] = Blog::getValue(['gid'=>$val['gid']],'title');
         }
 
+        dd($comment);
+
         //站点统计信息
         $site_info['naissance'] = floor((time()-strtotime('2015-8-1'))/86400);
         $site_info['comments'] = Comment::getCount([]);

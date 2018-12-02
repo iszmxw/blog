@@ -24,15 +24,37 @@
     </div>
     <!--系统统计-->
     <div class="col-md-4">
-        <div class="contact-box">
-            <ul class="tag-list" style="padding: 0">
-                @foreach($sort as $key=>$val)
-                    <li>
-                        <a href="{{ url('category').'/'.$val['sid'] }}" target="_blank">{{ $val['sortname'] }}</a>
-                    </li>
-                @endforeach
-            </ul>
-            <div class="clearfix"></div>
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>分类</h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-wrench"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#">选项 1</a>
+                        </li>
+                        <li><a href="#">选项 2</a>
+                        </li>
+                    </ul>
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content no-padding">
+                <ul class="tag-list" style="padding: 0">
+                    @foreach($sort as $key=>$val)
+                        <li>
+                            <a href="{{ url('category').'/'.$val['sid'] }}" target="_blank">{{ $val['sortname'] }}</a>
+                        </li>
+                    @endforeach
+                </ul>
+                <div class="clearfix"></div>
+            </div>
         </div>
     </div>
     <!--分类-->

@@ -94,13 +94,13 @@
             <div class="contact-box">
                 <table class="table">
                     <tbody>
-                    <tr>
                         @foreach($sort as $key=>$val)
-                        <td>
-                            <button type="button" class="btn btn-danger m-r-sm">{{ $val['sortname'] }}</button>
-                        </td>
+                            <tr>
+                                <td>
+                                    <button type="button" class="btn btn-danger m-r-sm">{{ $val['sortname'] }}</button>
+                                </td>
+                            </tr>
                         @endforeach
-                    </tr>
                     </tbody>
                 </table>
             </div>

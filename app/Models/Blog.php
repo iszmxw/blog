@@ -22,11 +22,6 @@ class Blog extends Defaults
 //        return self::where($where)->get();
 //    }
 
-    //添加数据
-    public static function AddData($data)
-    {
-        return self::create($data);
-    }
 
 //    //修改数据
 //    public static function EditData($where,$data)

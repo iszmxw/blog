@@ -92,17 +92,11 @@
         <!--系统统计-->
         <div class="col-md-4">
             <div class="contact-box">
-                <table class="table">
-                    <tbody>
-                        @foreach($sort as $key=>$val)
-                            <tr>
-                                <td>
-                                    <button type="button" class="btn btn-danger m-r-sm">{{ $val['sortname'] }}</button>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                <ul class="tag-list" style="padding: 0">
+                    @foreach($sort as $key=>$val)
+                        <li><a href="">{{ $val['sortname'] }}</a></li>
+                    @endforeach
+                </ul>
             </div>
         </div>
         <!--分类-->

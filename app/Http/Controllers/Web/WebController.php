@@ -30,7 +30,6 @@ class WebController extends Controller
             }
         }
         $data = ['blog'=>$blog];
-        dd($data);
         return view('web.default_template.index',$data);
     }
 

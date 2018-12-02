@@ -1,6 +1,5 @@
 <!--右侧侧边栏-->
 <div class="col-lg-4">
-    <div class="row">
             {{--关于我==自我介绍--}}
             <div class="col-lg-4">
                 <div class="contact-box">
@@ -168,5 +167,4 @@
                     </div>
                 </div>
             </div>
-    </div>
 </div>

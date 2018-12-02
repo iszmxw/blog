@@ -6,6 +6,7 @@ use App\Library\IpAddress;
 use App\Models\Navi;
 use App\Models\Sort;
 use App\Models\User;
+use App\Models\Blog;
 use App\Models\ViewLog;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\View;

@@ -66,7 +66,7 @@
     </div>
 
     <!--右侧侧边栏-->
-    @include('web.default_template.public.slidebar');
+    @include('web.default_template.public.slidebar')
 @endsection
 
 {{--js引用--}}

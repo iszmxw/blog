@@ -15,7 +15,7 @@
         @if($blog['total'] == 0)
             <div class="wrapper wrapper-content" style="height:1200px;">
                 <div class="middle-box text-center">
-                    <h3 class="font-bold">暂无内容=={{ $blog['total'] }}</h3>
+                    <h3 class="font-bold">暂无内容=={{ $blog->total() }}</h3>
                     <div class="error-desc">
                         该栏目下暂时没有发布文章哦:)<br>
                         看看其他栏目吧或者返回首页看看吧。

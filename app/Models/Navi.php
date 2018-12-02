@@ -22,20 +22,20 @@ class Navi extends Defaults
 //        return self::where($where)->orderby($sort,$desc)->paginate($paginate);
 //    }
 
-    //修改数据
-    public static function EditData($where,$data)
-    {
-        if($model = self::where($where)->first()){
-            foreach($data as $key=>$val){
-                $model->$key=$val;
-            }
-            $model->save();
-        }
-    }
-
-    //删除数据
-    public static function selected_delete($where)
-    {
-        return self::where($where)->delete();
-    }
+//    //修改数据
+//    public static function EditData($where,$data)
+//    {
+//        if($model = self::where($where)->first()){
+//            foreach($data as $key=>$val){
+//                $model->$key=$val;
+//            }
+//            $model->save();
+//        }
+//    }
+//
+//    //删除数据
+//    public static function selected_delete($where)
+//    {
+//        return self::where($where)->delete();
+//    }
 }

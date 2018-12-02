@@ -12,7 +12,7 @@
 {{--内容部分--}}
 @section('content')
     <div class="col-lg-8">
-        @if(empty($blog))
+        @if($blog['total'] == 0)
             <div class="wrapper wrapper-content">
                 <div class="middle-box text-center animated fadeInRightBig">
                     <h3 class="font-bold">暂无内容</h3>

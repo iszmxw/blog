@@ -13,8 +13,8 @@
 @section('content')
     <div class="col-lg-8">
         @if($blog['total'] == 0)
-            <div class="wrapper wrapper-content">
-                <div class="middle-box text-center animated fadeInRightBig">
+            <div class="wrapper wrapper-content" style="height:1200px;">
+                <div class="middle-box text-center">
                     <h3 class="font-bold">暂无内容</h3>
                     <div class="error-desc">
                         该栏目下暂时没有发布文章哦:)<br>

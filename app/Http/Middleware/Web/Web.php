@@ -73,7 +73,7 @@ class Web
         //友情链接
         $link = Link::getList([]);
         //前十条评论数据调用
-        $comment = Comment::getList(['hide'=>'n'],'',0,10,'date','DESC');
+        $comment = Comment::getList(['hide'=>'n'],'',0,6,'date','DESC');
         foreach($comment as $key=>$val){
             if(!$val['mail'])$val['mail'] = 10000;
             $comment[$key]['blog_title'] = Blog::getValue(['gid'=>$val['gid']],'title');

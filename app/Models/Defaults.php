@@ -147,10 +147,9 @@ class Defaults extends Model
     }
 
     // 求总数
-    public static function getCount($where = [], $field = "id")
+    public static function getCount($where = [])
     {
-        $res = self::where($where)->count($field);
-        return $res;
+        return self::where($where)->count();
     }
 
     // 求和

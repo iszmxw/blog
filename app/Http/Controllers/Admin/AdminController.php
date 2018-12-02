@@ -86,7 +86,7 @@ class AdminController extends Controller
         $username = $request->get('username');
         $password = $request->get('password');
         $user_data = User::getOne(['username'=>$username]);
-        $data = $user_data->toArray();
+        $data = $user_data;
         if ($user_data){
             if (decrypt($user_data['password']) == $password){
                 Redis::connection('blog_admin')->set('user_data',json_encode($data));
@@ -161,7 +161,7 @@ class AdminController extends Controller
         ];
         if (!empty($id) && $id == '1'){
             Userqq::EditData(['openid'=>$openid],$user_qq_data);
-            $user_data = User::getOne(['uid'=>$id])->toArray();
+            $user_data = User::getOne(['uid'=>$id]);
             Redis::connection('blog_admin')->set('user_data',json_encode($user_data));
             session(['user_data'=>$user_data]);
             return redirect('admin');

@@ -28,7 +28,8 @@
 
 {{--内容部分--}}
 @section('content')
-    <div class="ibox">
+    <div class="col-lg-8">
+        <div class="ibox">
         <div class="ibox-content">
             <div class="pull-right">
                 <button class="btn btn-white btn-xs" type="button">{{$blog['author']}}</button>
@@ -135,6 +136,9 @@
 
         </div>
     </div>
+    </div>
+    <!--右侧侧边栏-->
+    @include('web.default_template.public.slidebar')
 @endsection
 
 {{--js引用--}}

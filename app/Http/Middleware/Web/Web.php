@@ -65,11 +65,10 @@ class Web
         }
         $sort = Sort::getList([]);
         foreach ($sort as $key=>$val){
-            $val['count'] = Blog::where(['sortid'=>$val['sid']])->count();
+            $val['count'] = Blog::getCount(['sortid'=>$val['sid']]);
         }
         $link = Link::getList([]);
-        $comment = Comment::getList(['hide'=>'n'],'',0,10,'date','DESC');
-        dump($comment);
+//        $comment = Comment::getList(['hide'=>'n'],'',0,10,'date','DESC');
         View::share('nav',$nav);
         View::share('sort',$sort);
         View::share('link',$link);

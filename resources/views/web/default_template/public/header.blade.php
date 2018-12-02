@@ -6,7 +6,7 @@
 			</span>
 		</div>
 		<div class="logo-element">
-			博客 {{ url()->current() }}
+			博客
 		</div>
 	</li>
 	@foreach($nav as $key=>$val)

@@ -60,14 +60,17 @@ class Web
     //公共数据
     public static function CommonData($request)
     {
+        //左侧导航栏
         $nav = Navi::get_select(['pid'=>'0','hide'=>'n'],['id','naviname','navicon','url','newtab','pid','isdefault'],'taxis','ASC')->toArray();
         foreach ($nav as $key=>$val){
             $nav[$key]['sub_menu'] = Navi::get_select(['pid'=>$val['id'],'hide'=>'n'],['id','naviname','navicon','url','newtab','pid','isdefault'],'taxis','ASC')->toArray();
         }
+        //分类统计
         $sort = Sort::getList([]);
         foreach ($sort as $key=>$val){
             $sort[$key]['count'] = Blog::getCount(['sortid'=>$val['sid']]);
         }
+        //友情链接
         $link = Link::getList([]);
         //前十条评论数据调用
         $comment = Comment::getList(['hide'=>'n'],'',0,10,'date','DESC');

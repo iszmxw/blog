@@ -36,7 +36,6 @@ class CategoryController extends Controller
             DB::commit();
             return response()->json(['data'=>'添加分类成功！','status'=>'1']);
         }catch (\Exception $e){
-            dd($e);
             DB::rollBack();
             return response()->json(['data'=>'添加失败请稍后再试！','status'=>'0']);
         }
@@ -64,7 +63,6 @@ class CategoryController extends Controller
             DB::commit();
             return response()->json(['data'=>'编辑分类信息成功！','status'=>'1']);
         }catch (\Exception $e){
-            dd($e);
             DB::rollBack();
             return response()->json(['data'=>'编辑失败请稍后再试！','status'=>'0']);
         }
@@ -80,7 +78,6 @@ class CategoryController extends Controller
             DB::commit();
             return response()->json(['data'=>'删除分类信息成功！','status'=>'1']);
         }catch (\Exception $e){
-            dd($e);
             DB::rollBack();
             return response()->json(['data'=>'删除失败请稍后再试！','status'=>'0']);
         }
@@ -122,7 +119,6 @@ class CategoryController extends Controller
             DB::commit();
             return response()->json(['data'=>'编辑成功','status'=>'1']);
         }catch (\Exception $e){
-            dd($e);
             DB::rollBack();
             return response()->json(['data'=>'编辑失败','status'=>'0']);
         }
@@ -166,7 +162,6 @@ class CategoryController extends Controller
             DB::commit();
             return response()->json(['data'=>'添加导航栏成功','status'=>'1']);
         }catch (\Exception $e){
-            dd($e);
             DB::rollBack();
             return response()->json(['data'=>'添加导航栏失败','status'=>'0']);
         }
@@ -223,7 +218,6 @@ class CategoryController extends Controller
             DB::commit();
             return response()->json(['data'=>'修改数据成功','status'=>'1']);
         }catch (\Exception $e){
-            dd($e);
             DB::rollBack();
             return response()->json(['data'=>'修改数据失败！','status'=>'0']);
         }
@@ -238,7 +232,6 @@ class CategoryController extends Controller
             DB::commit();
             return response()->json(['data'=>'删除导航栏成功','status'=>'1']);
         }catch (\Exception $e){
-            dd($e);
             DB::rollBack();
             return response()->json(['data'=>'删除失败，请稍后再试！','status'=>'0']);
         }

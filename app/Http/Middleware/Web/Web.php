@@ -36,7 +36,8 @@ class Web
         //获取路由中的参数，文章id
         $article_id = $request->route('article_id');
         $route = $request->getPathInfo();
-        self::CommonData($request); //处理公共数据
+        //处理公共数据
+        self::CommonData($request);
 
         //共享用户信息到所有视图
         $uesr_data = User::getOne(['uid'=>'1']);
@@ -68,7 +69,13 @@ class Web
             $sort[$key]['count'] = Blog::getCount(['sortid'=>$val['sid']]);
         }
         $link = Link::getList([]);
-//        $comment = Comment::getList(['hide'=>'n'],'',0,10,'date','DESC');
+        //前十条评论数据调用
+        $comment = Comment::getList(['hide'=>'n'],'',0,10,'date','DESC');
+        foreach($comment as $key=>$val){
+            if(!$val['mail'])$val['mail'] = 10000;
+            $comment[$key]['blog_title'] = Blog::getValue(['gid'=>$val['gid']],'title');
+        }
+        dump($comment);
         View::share('nav',$nav);
         View::share('sort',$sort);
         View::share('link',$link);

@@ -67,7 +67,6 @@ class Web
         foreach ($sort as $key=>$val){
             $sort[$key]['count'] = Blog::where('sortid',$val['sid'])->count();
         }
-        dd($sort);
         $link = Link::getList([]);
 //        $comment = Comment::getList(['hide'=>'n'],'',0,10,'date','DESC');
         View::share('nav',$nav);

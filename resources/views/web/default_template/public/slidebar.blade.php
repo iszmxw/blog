@@ -50,7 +50,7 @@
                                 <img alt="image" class="img-circle" src="http://q1.qlogo.cn/g?b=qq&nk={{ $val['mail'] }}&s=640">
                             </a>
                             <div class="media-body ">
-                                <small class="pull-right">{{ $val['date'] }}</small>
+                                <small class="pull-right">{{ date('Y-m-m H:i:s',$val['date']) }}</small>
                                 <strong>{{ $val['poster'] }}</strong> 评论了 <strong>{{ $val['blog_title'] }}</strong><br>
                                 <small class="text-muted">来自：{{ $val['ip'] }}</small>
                                 <div class="well">

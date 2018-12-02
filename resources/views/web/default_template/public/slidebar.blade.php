@@ -35,10 +35,11 @@
                         <i class="fa fa-wrench"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#">选项 1</a>
-                        </li>
-                        <li><a href="#">选项 2</a>
-                        </li>
+                        @foreach($sort as $key=>$val)
+                            <li>
+                                <a href="{{ url('category').'/'.$val['sid'] }}" target="_blank">{{ $val['sortname'] }}</a>
+                            </li>
+                        @endforeach
                     </ul>
                     <a class="close-link">
                         <i class="fa fa-times"></i>

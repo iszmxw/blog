@@ -24,7 +24,7 @@
     </div>
     {{--微语说说--}}
     <div class="col-lg-4">
-        <div class="panel panel-primary">
+        <div class="panel panel-default">
             <div class="panel-heading">
                 站长动态
             </div>

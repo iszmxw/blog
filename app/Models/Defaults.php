@@ -9,7 +9,7 @@ class Defaults extends Model
 {
     public $guarded = [];
     // 获取单字段数据
-    public static function getValue($where = [], $field = "id")
+    public static function getValue($where = [], $field = "")
     {
         $res = self::where($where)->value($field);
         if (!empty($res)) {

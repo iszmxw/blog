@@ -9,7 +9,6 @@ class Sort extends Defaults
     //设置时间戳字段
     public $timestamps = false;
 
-
     //删除数据
     public static function selected_delete($where)
     {

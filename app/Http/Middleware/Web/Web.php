@@ -63,7 +63,7 @@ class Web
         }
         $sort = Sort::getList([]);
         foreach ($sort as $key=>$val){
-            $val['count'] = Blog::where(['sid'=>$val['sid']])->count();
+            $val['count'] = Blog::where(['sortid'=>$val['sid']])->count();
         }
         View::share('nav',$nav);
         View::share('sort',$sort);

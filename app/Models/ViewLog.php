@@ -10,4 +10,5 @@ class ViewLog extends Defaults
     public $dateFormat = 'U';
     protected $table = 'view_log';
     protected $primaryKey = 'id';
+
 }

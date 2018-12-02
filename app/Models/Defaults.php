@@ -113,8 +113,8 @@ class Defaults extends Model
         }
     }
 
-    // 删除数据
-    public static function deleteData($where = [])
+    //删除数据
+    public static function selected_delete($where)
     {
         $res = self::where($where)->delete();
         if (!empty($res)) {

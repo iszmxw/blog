@@ -9,14 +9,9 @@ class Defaults extends Model
 {
     public $guarded = [];
     // 获取单字段数据
-    public static function getValue($where = [], $field = "")
+    public static function getValue($where, $value)
     {
-        $res = self::where($where)->value($field);
-        if (!empty($res)) {
-            return $res;
-        } else {
-            return false;
-        }
+        return self::where($where)->value($value);
     }
 
     // 获取单组数据

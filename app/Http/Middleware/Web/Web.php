@@ -68,7 +68,8 @@ class Web
             $val['count'] = Blog::where(['sortid'=>$val['sid']])->count();
         }
         $link = Link::getList([]);
-        $comment = Comment::getList(['hide'=>'n']);
+        $comment = Comment::getList(['hide'=>'n'],'',0,10,'date','DESC');
+        dump($comment);
         View::share('nav',$nav);
         View::share('sort',$sort);
         View::share('link',$link);

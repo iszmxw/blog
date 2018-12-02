@@ -12,6 +12,7 @@
 {{--内容部分--}}
 @section('content')
     <div class="col-lg-8">
+        {{ $blog }}
         @foreach($blog as $key=>$val)
         @if(empty($val['gid']))
             <div class="wrapper wrapper-content">

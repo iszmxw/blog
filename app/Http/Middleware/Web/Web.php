@@ -65,7 +65,7 @@ class Web
         }
         $sort = Sort::getList([]);
         foreach ($sort as $key=>$val){
-            $sort[$key]['count'] = Blog::where('sortid',$val['sid'])->count();
+            $sort[$key]['count'] = Blog::getCount(['sortid'=>$val['sid']]);
         }
         $link = Link::getList([]);
 //        $comment = Comment::getList(['hide'=>'n'],'',0,10,'date','DESC');

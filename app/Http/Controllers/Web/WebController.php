@@ -41,7 +41,7 @@ class WebController extends Controller
             $value['date'] = date('Y-m-d H:i:s',$value['date']);
             $value['content'] = Tooling::tool_purecontent($value['content'],240);
             $value['sortname'] = Sort::getValue(['sid'=>$value['sortid']],'sortname');
-            $value['comments'] = Comment::where(['gid'=>$value['gid']])->count();
+            $value['comments'] = Comment::getCount(['gid'=>$value['gid']]);
             //取第一张图片作为缩略图
             if($value['thumb'] = Attachment::getOne([['blogid',$value['gid']],['mimetype','like','%'.'image/'.'%']])){
                 $value['thumb'] = $value['thumb']['filepath'];

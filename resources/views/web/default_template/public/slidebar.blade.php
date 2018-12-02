@@ -1,5 +1,15 @@
 <!--右侧侧边栏-->
 <div class="row">
+    <div class="col-lg-4">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                欢迎光临
+            </div>
+            <div class="panel-body">
+                <p>欢迎来到追梦小窝的博客，有什么值得收藏的就拿去用吧，不客气，大部分内容来自互联网，如有侵犯版权请您注明来信，我将会第一时间妥善处理</p>
+            </div>
+        </div>
+    </div>
     <!--关于我==自我介绍-->
     <div class="col-lg-4">
         <div class="contact-box">

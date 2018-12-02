@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\DB;
 class WebController extends Controller
 {
     //首页
-    public function index(Request $request)
+    public function index()
     {
         $blog = Blog::getPaginate([],['gid','sortid','title','date','content','views'],'date','DESC',10);
         foreach($blog as $value){
@@ -34,7 +34,7 @@ class WebController extends Controller
     }
 
     //栏目页面
-    public function category(Request $request,$category_id)
+    public function category($category_id)
     {
         $blog = Blog::getPaginate(['sortid'=>$category_id],['gid','sortid','title','date','content','views'],'date','DESC',10);
         foreach($blog as $value){
@@ -52,7 +52,7 @@ class WebController extends Controller
     }
 
     //文章页面
-    public function article(Request $request,$article_id)
+    public function article($article_id)
     {
         $blog = Blog::getOne(['gid'=>$article_id]);
         $blog['date'] = date('Y-m-d H:i:s',$blog['date']);

@@ -7,6 +7,7 @@ use App\Models\Navi;
 use App\Models\Sort;
 use App\Models\Link;
 use App\Models\Comment;
+use App\Models\Twitter;
 use App\Models\User;
 use App\Models\Blog;
 use App\Models\ViewLog;
@@ -78,10 +79,18 @@ class Web
             if(!$val['mail'])$val['mail'] = 10000;
             $comment[$key]['blog_title'] = Blog::getValue(['gid'=>$val['gid']],'title');
         }
+
+        //站点统计信息
+        $site_info['naissance'] = floor((time()-strtotime('2015-8-1'))/86400);
+        $site_info['comments'] = Comment::getCount([]);
+        $site_info['twitters'] = Twitter::getCount([]);
+        $site_info['blogs'] = Blog::getCount([]);
+
         View::share('nav',$nav);
         View::share('sort',$sort);
         View::share('link',$link);
         View::share('comment',$comment);
+        View::share('site_info',$site_info);
         return $request;
     }
 

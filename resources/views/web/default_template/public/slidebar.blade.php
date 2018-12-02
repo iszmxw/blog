@@ -147,19 +147,19 @@
                 <ul class="list-group">
                     <li class="list-group-item">
                         文章总数：
-                        <span class="label label-info">109篇</span>
+                        <span class="label label-info">{{ $site_info['blogs'] }}篇</span>
                     </li>
                     <li class="list-group-item">
                         微语总数：
-                        <span class="label label-primary">7条</span>
+                        <span class="label label-primary">{{ $site_info['twitters'] }}条</span>
                     </li>
                     <li class="list-group-item">
                         评论总数：
-                        <span class="label label-success">10条</span>
+                        <span class="label label-success">{{ $site_info['comments'] }}条</span>
                     </li>
                     <li class="list-group-item">
                         运行天数:
-                        <span class="label label-danger">1219天</span>
+                        <span class="label label-danger">{{ $site_info['naissance'] }}天</span>
                     </li>
                 </ul>
             </div>

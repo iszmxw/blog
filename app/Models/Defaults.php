@@ -83,7 +83,7 @@ class Defaults extends Model
     }
 
     // 添加数据
-    public static function addData($data = [], $where = [])
+    public static function AddData($data = [], $where = [])
     {
         if (!empty($where)) {
             $res = self::where($where)->first();

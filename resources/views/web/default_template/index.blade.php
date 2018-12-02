@@ -95,46 +95,12 @@
                 <table class="table">
                     <tbody>
                     <tr>
+                        @foreach($sort as $key=>$val)
                         <td>
                             <button type="button" class="btn btn-danger m-r-sm">12</button>
-                            消息
+                            {{ $val['sortname'] }}
                         </td>
-                        <td>
-                            <button type="button" class="btn btn-primary m-r-sm">28</button>
-                            帖子
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-info m-r-sm">15</button>
-                            好友
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button type="button" class="btn btn-info m-r-sm">20</button>
-                            新闻
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-success m-r-sm">40</button>
-                            喜欢
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-danger m-r-sm">30</button>
-                            通知
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button type="button" class="btn btn-warning m-r-sm">20</button>
-                            相册
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-default m-r-sm">40</button>
-                            群组
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-warning m-r-sm">30</button>
-                            权限
-                        </td>
+                        @endforeach
                     </tr>
                     </tbody>
                 </table>

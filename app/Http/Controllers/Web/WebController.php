@@ -18,7 +18,6 @@ class WebController extends Controller
     //首页
     public function index()
     {
-        dd(1);
         $blog = Blog::getPaginate([],['gid','sortid','title','date','content','views'],'date','DESC',10);
         foreach($blog as $value){
             $value['date'] = date('Y-m-d H:i:s',$value['date']);
@@ -31,6 +30,7 @@ class WebController extends Controller
             }
         }
         $data = ['blog'=>$blog];
+        dd($data);
         return view('web.default_template.index',$data);
     }
 

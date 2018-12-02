@@ -15,7 +15,7 @@ class CategoryController extends Controller
     public function category_list(Request $request)
     {
         $user_data = $request->get('user_data');
-        $list = Sort::getPaginate([],'taxis',10);
+        $list = Sort::getPaginate([],'',10,'taxis','ASC');
         $sort = Sort::getList([]);
         foreach ($list as $value){
             $value['blogs'] = Blog::getCount(['sortid'=>$value['sid']]);

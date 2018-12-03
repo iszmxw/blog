@@ -61,7 +61,7 @@
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">首页底部信息：</label>
                                     <div class="col-sm-10">
-                                        <textarea name="footer_info" rows="10" placeholder="(支持html，可用于添加流量统计代码)" style="width:70%">{{$config['footer_info']}}</textarea>
+                                        <textarea class="ext-highlight-code form-control" name="footer_info" rows="10" placeholder="(支持html，可用于添加流量统计代码)">{{$config['footer_info']}}</textarea>
                                     </div>
                                 </div>
                                 <div class="hr-line-dashed"></div>

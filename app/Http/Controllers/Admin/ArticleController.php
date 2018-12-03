@@ -38,7 +38,8 @@ class ArticleController extends Controller
         $NewFileName = time().mt_rand(1,999).'.'.$ext;
         // 上传文件并判断
         $path = $file->move(public_path().'/'.$upload_path,$NewFileName);
-        if ($path) return ['status'  => 1,'msg' => '文件上传成功','img' => $upload_path.$NewFileName];
+        $img_url = config('app.url').'/'.$upload_path.$NewFileName;
+        if ($path) return ['status'  => 1,'msg' => '文件上传成功','img' => $img_url];
     }
 
     public function article_add_check(Request $request)

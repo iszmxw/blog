@@ -7,17 +7,17 @@ $(document).ready(function () {
         prettifyHtml:true,
         callbacks: {//上传base64图片特殊上传处理
             onImageUpload: function(files, editor, $editable) {
-                console.log(files);
-                console.log(editor);
-                console.log($editable);
-                // sendFile(files,editor,$editable);
+                sendFile(files,editor,$editable);
             }
         }
     });
 });
 
 //发送图片文件给服务器端
-function sendFile(files) {
+function sendFile(files,editor,$editable) {
+    console.log(files);
+    console.log(editor);
+    console.log($editable);
     var imageData = new FormData();
     var _token = $("#_token").val();
     var url = $("#article_image_upload").val();

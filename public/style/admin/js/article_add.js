@@ -23,8 +23,6 @@ function sendFile(files) {
     var url = $("#article_image_upload").val();
     imageData.append("_token", _token);
     imageData.append("imageData", files[0]);
-    console.log(files[0]);
-    console.log(imageData);
     $.ajax({
         url: url, // 图片上传url
         type: 'POST',
@@ -38,7 +36,7 @@ function sendFile(files) {
             console.log($result);
             var imgNode = document.createElement("img");
             imgNode.src = $result.img;
-            $summernote.summernote('insertNode', imgNode);
+            $('.summernote').summernote('insertNode', imgNode);
         },
         // 图片上传失败
         error: function () {

@@ -62,7 +62,7 @@
         <div class="btn-group pull-right">
             {{$blog->links()}}
         </div>
-        <br>
+        <div class="clearfix"></div>
     </div>
 
     <!--右侧侧边栏-->

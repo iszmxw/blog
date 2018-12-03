@@ -1,5 +1,4 @@
 <!--右侧侧边栏-->
-<div class="clearfix"></div>
 <div class="col-lg-4">
         {{--关于我==自我介绍--}}
         <div class="col-lg-12">

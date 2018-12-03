@@ -3947,6 +3947,10 @@ code {
   border-width: 1px 0;
   word-wrap:break-word;
 }
+.ibox-content img{
+  width: 100%;
+  height: auto;
+}
 .ibox-footer {
   color: inherit;
   border-top: 1px solid #e7eaec;

@@ -38,10 +38,10 @@ class ArticleController extends Controller
         //文件将要上传的路径
         $upload_path = 'content/uploadfile/article/'.date('Y_m_d').'/';
         //重命名文件
-        $NewFileName = time().mt_rand(1,999).$ext;
+        $NewFileName = time().mt_rand(1,999).'.'.$ext;
 
         // 上传文件并判断
-        $path = $file->move(app_path().$upload_path,$NewFileName);
+        $path = $file->move(app_path().'/'.$upload_path,$NewFileName);
         return ['status'  => 1,'msg' => '文件上传成功','img' => $upload_path.$NewFileName];
     }
 

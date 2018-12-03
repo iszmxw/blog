@@ -20,7 +20,29 @@ class ArticleController extends Controller
     //上传文章富文本图片
     public function article_image_upload(Request $request)
     {
-        dd($request);
+        // 接收数据
+        $file = $request->file('imageData');
+        // 判断是否上传成功
+        if (!$file->isValid() ) {
+            return ['status' => 0,'msg' => '文件上传失败'];
+        }
+        // 获取文件扩展名
+        $ext = $file->getClientOriginalExtension();
+
+        // 判断文件类型是否允许
+        if (! in_array(strtolower($ext),['jpg','png','gif'])) {
+            return ['status' => 0,'msg' => '文件类型不允许'];
+        }
+
+        // 为避免一个文件夹中的文件过多和文件名重复,所以需要设置上传文件夹和文件名
+        //文件将要上传的路径
+        $upload_path = 'content/uploadfile/article/'.date('Y_m_d').'/';
+        //重命名文件
+        $NewFileName = time().mt_rand(1,999).$ext;
+
+        // 上传文件并判断
+        $path = $file->move(app_path().$upload_path,$NewFileName);
+        if ( $path ) return ['status'  => 1,'msg' => '文件上传成功','img'     => $path];
     }
 
     public function article_add_check(Request $request)

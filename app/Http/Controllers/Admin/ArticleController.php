@@ -36,7 +36,7 @@ class ArticleController extends Controller
 
         // 为避免一个文件夹中的文件过多和文件名重复,所以需要设置上传文件夹和文件名
         //文件将要上传的路径
-        $upload_path = 'content/uploadfile/article/'.date('Y_m_d').'/';
+        $upload_path = 'content/uploadfile/article/'.date('Ymd').'/';
         //重命名文件
         $NewFileName = time().mt_rand(1,999).'.'.$ext;
 

@@ -53,7 +53,6 @@ class Admin
     public static function CheckIsLoginAndHasRole($request)
     {
         $re = self::CheckIsLogin($request);
-        dd($re);
         if ($re['status'] == '0'){
             return $re;
         }else{

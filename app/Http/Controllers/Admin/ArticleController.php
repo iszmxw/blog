@@ -12,7 +12,6 @@ class ArticleController extends Controller
 {
     public function article_add(Request $request)
     {
-        dump(encrypt('wap.54zm.com'));
         $user_data = $request->get('user_data');
         $sort = Sort::getList([]);
         return view('admin.article_add',['user_data'=>$user_data,'sort'=>$sort]);

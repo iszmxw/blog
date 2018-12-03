@@ -42,7 +42,7 @@ class ArticleController extends Controller
 
         // 上传文件并判断
         $path = $file->move(public_path().'/'.$upload_path,$NewFileName);
-        return ['status'  => 1,'msg' => '文件上传成功','img' => $upload_path.$NewFileName];
+        return ['status'  => 1,'msg' => '文件上传成功'.$path,'img' => $upload_path.$NewFileName];
     }
 
     public function article_add_check(Request $request)

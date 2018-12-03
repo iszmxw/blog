@@ -6,8 +6,11 @@ $(document).ready(function () {
         focus: true,
         prettifyHtml:true,
         callbacks: {//上传base64图片特殊上传处理
-            onImageUpload: function (files) {
-                sendFile(files);
+            onImageUpload: function (files,as,hah) {
+                console.log(files);
+                console.log(as);
+                console.log(hah);
+                // sendFile(files);
             }
         }
     });

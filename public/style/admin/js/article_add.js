@@ -34,6 +34,7 @@ function sendFile(files) {
             console.log($result);
             var imgNode = document.createElement("img");
             imgNode.src = $result.img;
+            console.log(imgNode);
             $summernote.summernote('insertNode', imgNode);
         },
         // 图片上传失败

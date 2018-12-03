@@ -31,15 +31,14 @@ function sendFile(files) {
         dataType: 'json',     // 以json的形式接收返回的数据
         // 图片上传成功
         success: function ($result) {
-            console.log($result);
             var imgNode = document.createElement("img");
             imgNode.src = $result.img;
-            console.log(imgNode);
             $summernote.summernote('insertNode', imgNode);
+            toastr.success($result.msg);
         },
         // 图片上传失败
         error: function () {
-            console.log('图片上传失败');
+            toastr.error('图片上传失败');
         }
     });
 }

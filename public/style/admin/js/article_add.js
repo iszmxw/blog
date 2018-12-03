@@ -36,7 +36,7 @@ function sendFile(files,editor,$editable) {
             console.log($result);
             var imgNode = document.createElement("img");
             imgNode.src = $result.img;
-            $('.summernote').summernote('insertNode', imgNode);
+            $editable.summernote('insertNode', imgNode);
         },
         // 图片上传失败
         error: function () {

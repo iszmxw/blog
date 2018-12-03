@@ -6,11 +6,11 @@ $(document).ready(function () {
         focus: true,
         prettifyHtml:true,
         callbacks: {//上传base64图片特殊上传处理
-            onImageUpload: function (files,as,hah) {
+            onImageUpload: function(files, editor, $editable) {
                 console.log(files);
-                console.log(as);
-                console.log(hah);
-                // sendFile(files);
+                console.log(editor);
+                console.log($editable);
+                // sendFile(files,editor,$editable);
             }
         }
     });

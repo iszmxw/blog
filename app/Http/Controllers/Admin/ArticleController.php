@@ -17,6 +17,12 @@ class ArticleController extends Controller
         return view('admin.article_add',['user_data'=>$user_data,'sort'=>$sort]);
     }
 
+    //上传文章富文本图片
+    public function article_image_upload(Request $request)
+    {
+        dd($request);
+    }
+
     public function article_add_check(Request $request)
     {
         $title = $request->get('title');

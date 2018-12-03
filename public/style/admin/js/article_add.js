@@ -4,9 +4,42 @@ $(document).ready(function () {
         minHeight: null,
         maxHeight: null,
         focus: true,
-        prettifyHtml:true
+        prettifyHtml:true,
+        callbacks: {//上传base64图片特殊上传处理
+            onImageUpload: function (files) {
+                sendFile(files);
+            }
+        }
     });
 });
+
+/** * 发送图片文件给服务器端 */
+function sendFile(files) {
+    var imageData = new FormData();
+    var url = $("#article_image_upload").val();
+    imageData.append("imageData", files[0]);
+    console.log(files[0]);
+    console.log(imageData);
+    $.ajax({
+        url: url, // 图片上传url
+        type: 'POST',
+        data: imageData,
+        cache: false,
+        contentType: false,
+        processData: false,
+        dataType: 'json',     // 以json的形式接收返回的数据
+        // 图片上传成功
+        success: function ($result) {
+            var imgNode = document.createElement("img");
+            imgNode.src = $result.img;
+            summer.summernote('insertNode', imgNode);
+        },
+        // 图片上传失败
+        error: function () {
+            console.log('图片上传失败');
+        }
+    });
+}
 
 $.fn.serializeObject = function() {
     var o = {};

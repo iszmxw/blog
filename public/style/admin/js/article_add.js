@@ -13,7 +13,7 @@ $(document).ready(function () {
     });
 });
 
-/** * 发送图片文件给服务器端 */
+//发送图片文件给服务器端
 function sendFile(files) {
     var imageData = new FormData();
     var url = $("#article_image_upload").val();

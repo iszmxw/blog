@@ -1,23 +1,21 @@
+var $summernote;
 $(document).ready(function () {
-    $('.summernote').summernote({
+    $summernote = $('.summernote').summernote({
         height: 600,
         minHeight: null,
         maxHeight: null,
         focus: true,
         prettifyHtml:true,
         callbacks: {//上传base64图片特殊上传处理
-            onImageUpload: function(files, editor, $editable) {
-                sendFile(files,editor,$editable);
+            onImageUpload: function(files) {
+                sendFile(files);
             }
         }
     });
 });
 
 //发送图片文件给服务器端
-function sendFile(files,editor,$editable) {
-    console.log(files);
-    console.log(editor);
-    console.log($editable);
+function sendFile(files) {
     var imageData = new FormData();
     var _token = $("#_token").val();
     var url = $("#article_image_upload").val();
@@ -36,7 +34,7 @@ function sendFile(files,editor,$editable) {
             console.log($result);
             var imgNode = document.createElement("img");
             imgNode.src = $result.img;
-            editor.summernote('insertNode', imgNode);
+            $summernote.summernote('insertNode', imgNode);
         },
         // 图片上传失败
         error: function () {

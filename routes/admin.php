@@ -14,6 +14,7 @@
 Route::namespace('Admin')->group(function () {
     //不需要检测登录和权限就可以访问的路由
     Route::get('login','AdminController@login');
+    Route::post('ajax/login_check','AdminController@login_check');
     Route::get('qq_login','AdminController@qq_login');
     Route::get('qq_login_auth','AdminController@qq_login_auth');
     Route::get('quit','AdminController@quit');
@@ -47,7 +48,6 @@ Route::namespace('Admin')->group(function () {
 
         //Ajax请求部分
         Route::group(['prefix'=>'ajax'],function (){
-            Route::post('login_check','AdminController@login_check');
             Route::post('config_edit_check','AdminController@config_edit_check');
             //文章
             Route::post('article_image_upload','ArticleController@article_image_upload');

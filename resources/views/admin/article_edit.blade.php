@@ -45,6 +45,7 @@
                             <form method="post" class="form-horizontal" id="post_url" action="{{url('admin/ajax/article_edit_check')}}">
                                 <input type="hidden" id="_token" name="_token" value="{{csrf_token()}}">
                                 <input type="hidden" name="gid" value="{{$blog['gid']}}">
+                                <input type="hidden" id="filedata" name="filedata" value="{{ $attachment }}">
                                 <input type="hidden" id="article_image_upload" value="{{ url('admin/ajax/article_image_upload') }}">
                                 <div class="form-group">
                                     <label class="col-sm-1 control-label">标题</label>

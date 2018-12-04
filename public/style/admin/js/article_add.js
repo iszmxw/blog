@@ -86,9 +86,9 @@ function add_data(){
             return false;
         }else{
             toastr.error(json.data);
-            // setInterval(function(){
-            //     window.location.reload();
-            // },3000);
+            setInterval(function(){
+                window.location.reload();
+            },3000);
         }
     });
 }

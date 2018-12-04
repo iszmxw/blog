@@ -16,7 +16,6 @@ $(document).ready(function () {
 
 //发送图片文件给服务器端
 function sendFile(files) {
-    console.log(files);
     var imageData = new FormData();
     var _token = $("#_token").val();
     var url = $("#article_image_upload").val();
@@ -34,6 +33,13 @@ function sendFile(files) {
         success: function ($result) {
             var imgNode = document.createElement("img");
             imgNode.src = $result.img;
+
+            var filename = files[0].name;
+            var filesize = files[0].size;
+            var mimetype = files[0].type;
+            var filepath = $result.img;
+            var filedata = 'filename='+filename+'&filesize='+filesize+'&mimetype='+mimetype+'&filepath='+filepath;
+            console.log(filedata);
             $summernote.summernote('insertNode', imgNode);
             toastr.success($result.msg);
         },

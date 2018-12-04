@@ -34,12 +34,16 @@ function sendFile(files) {
             var imgNode = document.createElement("img");
             imgNode.src = 'http://blog.54zm.com'+$result.img;
             //将图片信息存储起来
+            var filedata = [];
             var filename = files[0].name;
             var filesize = files[0].size;
             var mimetype = files[0].type;
             var filepath = '..'+$result.img;
-            var filedata = 'filename='+filename+'&filesize='+filesize+'&mimetype='+mimetype+'&filepath='+filepath;
-            $("#filedata").val(filedata);
+            filedata['filename'] = filename;
+            filedata['filesize'] = filesize;
+            filedata['mimetype'] = mimetype;
+            filedata['filepath'] = filepath;
+            $("#filedata").val(JSON.stringify(filedata));
             $summernote.summernote('insertNode', imgNode);
             toastr.success($result.msg);
         },

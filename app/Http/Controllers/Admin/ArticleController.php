@@ -106,6 +106,7 @@ class ArticleController extends Controller
         $view['blog'] = Blog::getOne(['gid'=>$id]);
         $attachment = Attachment::getOne(['blogid'=>$id]);
         $view['attachment'] = 'filename='.$attachment['filename'].'&filesize='.$attachment['filesize'].'&mimetype='.$attachment['mimetype'].'&filepath='.$attachment['filepath'];
+        $view['attachment_id'] = $attachment['aid'];
         return view('admin.article_edit',$view);
     }
 
@@ -113,6 +114,7 @@ class ArticleController extends Controller
     public function article_edit_check(Request $request)
     {
         $filedata = $request->input('filedata');
+        $attachment_id = $request->input('attachment_id');
         if (!empty($filedata)){
             $arr = explode('&',$filedata);
             foreach ($arr as $key=>$val){
@@ -138,7 +140,7 @@ class ArticleController extends Controller
         try {
             Blog::EditData(['gid'=>$gid],$data);
             if (!empty($filedata)){
-                Attachment::EditData(['gid'=>$gid],$attachment);
+                Attachment::EditData(['gid'=>$gid,'attachment_id'=>$attachment_id],$attachment);
             }
             DB::commit();
             return response()->json(['data'=>'修改成功！','status'=>'1']);

@@ -40,8 +40,8 @@ function sendFile(files) {
             filedata['mimetype'] = files[0].type;
             filedata['filepath'] = '..'+$result.img;
             console.log(filedata);
-            console.log(JSON.stringify(filedata));
-            $("#filedata").val(JSON.stringify(filedata));
+            console.log(JSON.stringify( filedata ));
+            $("#filedata").val(JSON.stringify( filedata ));
             $summernote.summernote('insertNode', imgNode);
             toastr.success($result.msg);
         },

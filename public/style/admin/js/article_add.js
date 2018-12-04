@@ -73,8 +73,8 @@ function add_data(){
     var target = $("#post_url");
     var url = target.attr("action");
     var data = target.serializeObject();
+    console.log(data);
     data.content = $(".summernote").summernote('code');
-    // data.filedata = $("#filedata").val();
     $.post(url, data, function (json) {
         if (json.status == -1) {
             window.location.reload();

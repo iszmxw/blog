@@ -10,9 +10,7 @@
 # blog
 Laravel重写Blog   采用Laravel版本： 5.7.3 
 ######
-# 后台登录地址：http://blog.54zm.cn/admin
-# 账号：admin
-# 密码：admin
+# 地址：http://blog.54zm.cn
 
 
 # 配置文件.env

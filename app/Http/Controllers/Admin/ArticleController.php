@@ -50,7 +50,7 @@ class ArticleController extends Controller
         foreach ($arr as $key=>$val){
             $attachment[explode('=',$val)[0]] = explode('=',$val)[1];
         }
-        dd(1);
+        dd($attachment,1);
         $title = $request->get('title');
         $sortid = $request->get('sortid');
         $password = $request->get('password');

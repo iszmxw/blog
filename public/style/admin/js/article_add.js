@@ -32,13 +32,12 @@ function sendFile(files) {
         // 图片上传成功
         success: function ($result) {
             var imgNode = document.createElement("img");
-            imgNode.src = $result.img;
-
+            imgNode.src = 'http://blog.54zm.com'+$result.img;
             //将图片信息存储起来
             var filename = files[0].name;
             var filesize = files[0].size;
             var mimetype = files[0].type;
-            var filepath = $result.img;
+            var filepath = '..'+$result.img;
             var filedata = 'filename='+filename+'&filesize='+filesize+'&mimetype='+mimetype+'&filepath='+filepath;
             console.log(filedata);
             $summernote.summernote('insertNode', imgNode);

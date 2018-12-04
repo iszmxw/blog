@@ -16,6 +16,7 @@ $(document).ready(function () {
 
 //发送图片文件给服务器端
 function sendFile(files) {
+    console.log(files);
     var imageData = new FormData();
     var _token = $("#_token").val();
     var url = $("#article_image_upload").val();

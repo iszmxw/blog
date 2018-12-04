@@ -34,6 +34,7 @@ function sendFile(files) {
             var imgNode = document.createElement("img");
             imgNode.src = $result.img;
 
+            //将图片信息存储起来
             var filename = files[0].name;
             var filesize = files[0].size;
             var mimetype = files[0].type;

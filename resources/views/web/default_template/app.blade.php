@@ -10,7 +10,7 @@
     <link href="{{asset('style/web/default_template/css/style.css')}}" rel="stylesheet">
     @yield('style')
 </head>
-<body class="">
+<body class="pace-done mini-navbar">
 <div id="wrapper">
     <nav class="navbar-default navbar-static-side" role="navigation">
         <div class="sidebar-collapse">

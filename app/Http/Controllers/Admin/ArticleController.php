@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Attachment;
 use App\Models\Blog;
 use App\Models\Sort;
 use Illuminate\Http\Request;
@@ -50,7 +51,7 @@ class ArticleController extends Controller
         foreach ($arr as $key=>$val){
             $attachment[explode('=',$val)[0]] = explode('=',$val)[1];
         }
-        dd($attachment,1);
+        $attachment['addtime'] = time();
         $title = $request->get('title');
         $sortid = $request->get('sortid');
         $password = $request->get('password');
@@ -67,7 +68,9 @@ class ArticleController extends Controller
         //数据库事物回滚
         DB::beginTransaction();
         try {
-            Blog::AddData($data);
+            $re = Blog::AddData($data);
+            $attachment['blogid'] = $re['gid'];
+            Attachment::AddData($attachment);
             DB::commit();
             return response()->json(['data'=>'祝贺你添加成功了！','status'=>'1']);
         } catch (\Exception $e) {

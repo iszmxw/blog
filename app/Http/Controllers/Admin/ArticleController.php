@@ -44,9 +44,13 @@ class ArticleController extends Controller
 
     public function article_add_check(Request $request)
     {
+        $attachment = [];
         $filedata = $request->input('filedata');
-        $arr = unserialize($filedata);
-        dd($arr);
+        $arr = explode('&',$filedata);
+        foreach ($arr as $key=>$val){
+            $attachment[explode('=',$val)[0]] = explode('=',$val)[1];
+        }
+        dd(1);
         $title = $request->get('title');
         $sortid = $request->get('sortid');
         $password = $request->get('password');

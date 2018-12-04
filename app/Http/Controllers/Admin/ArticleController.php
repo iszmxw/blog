@@ -43,15 +43,22 @@ class ArticleController extends Controller
         if ($path) return ['status'  => 1,'msg' => '文件上传成功','img' => $img_url];
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     * 添加文章
+     */
     public function article_add_check(Request $request)
     {
         $attachment = [];
         $filedata = $request->input('filedata');
-        $arr = explode('&',$filedata);
-        foreach ($arr as $key=>$val){
-            $attachment[explode('=',$val)[0]] = explode('=',$val)[1];
+        if (!empty($filedata)){
+            $arr = explode('&',$filedata);
+            foreach ($arr as $key=>$val){
+                $attachment[explode('=',$val)[0]] = explode('=',$val)[1];
+            }
+            $attachment['addtime'] = time();
         }
-        $attachment['addtime'] = time();
         $title = $request->get('title');
         $sortid = $request->get('sortid');
         $password = $request->get('password');
@@ -69,8 +76,10 @@ class ArticleController extends Controller
         DB::beginTransaction();
         try {
             $re = Blog::AddData($data);
-            $attachment['blogid'] = $re['gid'];
-            Attachment::AddData($attachment);
+            if (!empty($filedata)){
+                $attachment['blogid'] = $re['gid'];
+                Attachment::AddData($attachment);
+            }
             DB::commit();
             return response()->json(['data'=>'祝贺你添加成功了！','status'=>'1']);
         } catch (\Exception $e) {

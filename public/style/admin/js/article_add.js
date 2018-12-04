@@ -43,6 +43,7 @@ function sendFile(files) {
             filedata['filesize'] = filesize;
             filedata['mimetype'] = mimetype;
             filedata['filepath'] = filepath;
+            console.log(JSON.stringify(filedata));
             $("#filedata").val(JSON.stringify(filedata));
             $summernote.summernote('insertNode', imgNode);
             toastr.success($result.msg);

@@ -74,7 +74,7 @@ function add_data(){
     var url = target.attr("action");
     var data = target.serializeObject();
     data.content = $(".summernote").summernote('code');
-    data.filedata = $("#filedata").val();
+    // data.filedata = $("#filedata").val();
     $.post(url, data, function (json) {
         if (json.status == -1) {
             window.location.reload();

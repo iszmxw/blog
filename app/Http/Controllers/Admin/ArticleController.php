@@ -145,6 +145,7 @@ class ArticleController extends Controller
             DB::commit();
             return response()->json(['data'=>'修改成功！','status'=>'1']);
         } catch (\Exception $e) {
+            dd($e);
             DB::rollBack();//事件回滚
             return response()->json(['data' => '修改失败请稍后再试！', 'status' => '0']);
         }

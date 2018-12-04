@@ -34,14 +34,12 @@ function sendFile(files) {
             var imgNode = document.createElement("img");
             imgNode.src = 'http://blog.54zm.com'+$result.img;
             //将图片信息存储起来
-            var filedata = new Array();
-            filedata['filename'] = files[0].name;
-            filedata['filesize'] = files[0].size;
-            filedata['mimetype'] = files[0].type;
-            filedata['filepath'] = '..'+$result.img;
-            img_data = serli_arr(filedata);
-            console.log(img_data);
-            $("#filedata").val(img_data);
+            var filename = files[0].name;
+            var filesize = files[0].size;
+            var mimetype = files[0].type;
+            var filepath = '..'+$result.img;
+            var filedata = 'filename='+filename+'&filesize='+filesize+'&mimetype='+mimetype+'&filepath='+filepath;
+            $("#filedata").val(filedata);
             $summernote.summernote('insertNode', imgNode);
             toastr.success($result.msg);
         },
@@ -55,6 +53,7 @@ function sendFile(files) {
 $.fn.serializeObject = function() {
     var o = {};
     var a = this.serializeArray();
+    console.log(a);
     $.each(a, function() {
         if (o[this.name] !== undefined) {
             if (!o[this.name].push) {
@@ -68,20 +67,6 @@ $.fn.serializeObject = function() {
     return o;
 };
 
-function serli_arr(a){
-    var o = {};
-    $.each(a, function() {
-        if (o[this.name] !== undefined) {
-            if (!o[this.name].push) {
-                o[this.name] = [o[this.name]];
-            }
-            o[this.name].push(this.value || '');
-        } else {
-            o[this.name] = this.value || '';
-        }
-    });
-    return o;
-}
 
 
 function add_data(){

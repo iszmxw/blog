@@ -140,7 +140,7 @@ class ArticleController extends Controller
         try {
             Blog::EditData(['gid'=>$gid],$data);
             if (!empty($filedata)){
-                Attachment::EditData(['attachment_id'=>$attachment_id],$attachment);
+                Attachment::EditData(['aid'=>$attachment_id],$attachment);
             }
             DB::commit();
             return response()->json(['data'=>'修改成功！','status'=>'1']);

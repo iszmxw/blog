@@ -39,7 +39,7 @@ function sendFile(files) {
             var mimetype = files[0].type;
             var filepath = '..'+$result.img;
             var filedata = 'filename='+filename+'&filesize='+filesize+'&mimetype='+mimetype+'&filepath='+filepath;
-            console.log(filedata);
+            $("#filedata").val(filedata);
             $summernote.summernote('insertNode', imgNode);
             toastr.success($result.msg);
         },
@@ -72,6 +72,7 @@ function add_data(){
     var url = target.attr("action");
     var data = target.serializeObject();
     data.content = $(".summernote").summernote('code');
+    data.filedata = $("#filedata").val();
     $.post(url, data, function (json) {
         if (json.status == -1) {
             window.location.reload();

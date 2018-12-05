@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\DB;
 
 class WebController extends Controller
 {
-
     //首页
     public function index()
     {

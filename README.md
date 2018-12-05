@@ -14,7 +14,11 @@ Laravel重写Blog   采用Laravel版本： 5.7.3
 
 # 安装
 ## git clone https://gitee.com/iszmxw/blog.git 或者 git clone https://github.com/iszmxw/blog
+# 清除缓存
 ## php artisan cache:clear
+# 应用程序加密密钥生成
+## php artisan key:generate
+# 复制生成配置文件
 ## cp .env.example .env
 
 # 配置文件.env

@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-# blogaaaaa
+# blog
 Laravel重写Blog   采用Laravel版本： 5.7.3 
 ######
 # 地址：http://blog.54zm.cn

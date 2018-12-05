@@ -12,6 +12,10 @@ Laravel重写Blog   采用Laravel版本： 5.7.3
 ######
 # 地址：http://blog.54zm.cn
 
+# 安装
+## git clone https://gitee.com/iszmxw/blog.git 或者 git clone https://github.com/iszmxw/blog
+## php artisan cache:clear
+## cp .env.example .env
 
 # 配置文件.env
 APP_NAME=网站名称

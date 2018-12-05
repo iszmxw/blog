@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\DB;
 
 class WebController extends Controller
 {
-    //首页
+    //首页控制器
     public function index()
     {
         $blog = Blog::getPaginate([], ['gid', 'sortid', 'title', 'date', 'content', 'views'], 10, 'date', 'DESC');

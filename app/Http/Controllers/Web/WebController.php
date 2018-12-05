@@ -18,51 +18,51 @@ class WebController extends Controller
     //首页
     public function index()
     {
-        $blog = Blog::getPaginate([],['gid','sortid','title','date','content','views'],10,'date','DESC');
-        foreach($blog as $value){
-            $value['date'] = date('Y-m-d H:i:s',$value['date']);
-            $value['content'] = Tooling::tool_purecontent($value['content'],240);
-            $value['sortname'] = Sort::getValue(['sid'=>$value['sortid']],'sortname');
-            $value['comments'] = Comment::getCount(['gid'=>$value['gid']]);
+        $blog = Blog::getPaginate([], ['gid', 'sortid', 'title', 'date', 'content', 'views'], 10, 'date', 'DESC');
+        foreach ($blog as $value) {
+            $value['date'] = date('Y-m-d H:i:s', $value['date']);
+            $value['content'] = Tooling::tool_purecontent($value['content'], 240);
+            $value['sortname'] = Sort::getValue(['sid' => $value['sortid']], 'sortname');
+            $value['comments'] = Comment::getCount(['gid' => $value['gid']]);
             //取第一张图片作为缩略图
-            if($value['thumb'] = Attachment::getOne([['blogid',$value['gid']],['mimetype','like','%'.'image/'.'%']])){
+            if ($value['thumb'] = Attachment::getOne([['blogid', $value['gid']], ['mimetype', 'like', '%' . 'image/' . '%']])) {
                 $value['thumb'] = $value['thumb']['filepath'];
             }
         }
-        $view = ['blog'=>$blog];
-        return view('web.default_template.index',$view);
+        $view = ['blog' => $blog];
+        return view('web.default_template.index', $view);
     }
 
     //栏目页面
     public function category($category_id)
     {
-        $blog = Blog::getPaginate(['sortid'=>$category_id],['gid','sortid','title','date','content','views'],10,'date','DESC');
-        foreach($blog as $value){
-            $value['date'] = date('Y-m-d H:i:s',$value['date']);
-            $value['content'] = Tooling::tool_purecontent($value['content'],240);
-            $value['sortname'] = Sort::getValue(['sid'=>$value['sortid']],'sortname');
-            $value['comments'] = Comment::getCount(['gid'=>$value['gid']]);
+        $blog = Blog::getPaginate(['sortid' => $category_id], ['gid', 'sortid', 'title', 'date', 'content', 'views'], 10, 'date', 'DESC');
+        foreach ($blog as $value) {
+            $value['date'] = date('Y-m-d H:i:s', $value['date']);
+            $value['content'] = Tooling::tool_purecontent($value['content'], 240);
+            $value['sortname'] = Sort::getValue(['sid' => $value['sortid']], 'sortname');
+            $value['comments'] = Comment::getCount(['gid' => $value['gid']]);
             //取第一张图片作为缩略图
-            if($value['thumb'] = Attachment::getOne([['blogid',$value['gid']],['mimetype','like','%'.'image/'.'%']])){
+            if ($value['thumb'] = Attachment::getOne([['blogid', $value['gid']], ['mimetype', 'like', '%' . 'image/' . '%']])) {
                 $value['thumb'] = $value['thumb']['filepath'];
             }
         }
-        $view = ['blog'=>$blog];
-        return view('web.default_template.category',$view);
+        $view = ['blog' => $blog];
+        return view('web.default_template.category', $view);
     }
 
     //文章页面
     public function article($article_id)
     {
-        $blog = Blog::getOne(['gid'=>$article_id]);
-        $blog['date'] = date('Y-m-d H:i:s',$blog['date']);
-        $blog['author'] = User::getValue(['uid'=>$blog['author']],'nickname');
-        $blog['sortname'] = Sort::getValue(['sid'=>$blog['sortid']],'sortname');
-        $blog['tags'] = Tag::getList([['gid','like','%,'.$blog['gid'].',%']]);
-        $comment = Comment::where(['gid'=>$article_id])->get()->toArray();
-        $blog['comment'] = Comment::where(['gid'=>$article_id])->count();
-        $data = ['blog'=>$blog,'comment'=>$comment];
-        return view('web.default_template.article',$data);
+        $blog = Blog::getOne(['gid' => $article_id]);
+        $blog['date'] = date('Y-m-d H:i:s', $blog['date']);
+        $blog['author'] = User::getValue(['uid' => $blog['author']], 'nickname');
+        $blog['sortname'] = Sort::getValue(['sid' => $blog['sortid']], 'sortname');
+        $blog['tags'] = Tag::getList([['gid', 'like', '%,' . $blog['gid'] . ',%']]);
+        $comment = Comment::where(['gid' => $article_id])->get()->toArray();
+        $blog['comment'] = Comment::where(['gid' => $article_id])->count();
+        $data = ['blog' => $blog, 'comment' => $comment];
+        return view('web.default_template.article', $data);
     }
 
     public function about()
@@ -90,7 +90,7 @@ class WebController extends Controller
             'date' => time(),
             'poster' => $user_data['nickname'],
             'comment' => $comment,
-            'mail' => $qq.'@qq.com',
+            'mail' => $qq . '@qq.com',
             'url' => $url,
             'ip' => $ip,
         ];
@@ -99,10 +99,10 @@ class WebController extends Controller
         try {
             Comment::create($data);
             DB::commit();
-            return response()->json(['data'=>'发表评论成功！','status'=>'1']);
+            return response()->json(['data' => '发表评论成功！', 'status' => '1']);
         } catch (\Exception $e) {
             DB::rollBack();//事件回滚
-            return response()->json(['data'=>'发表失败，请稍后再试！','status'=>'-1']);
+            return response()->json(['data' => '发表失败，请稍后再试！', 'status' => '-1']);
         }
     }
 }

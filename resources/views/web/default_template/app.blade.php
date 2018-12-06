@@ -8,6 +8,7 @@
     <link href="{{asset('style/web/default_template/font-awesome/css/font-awesome.css')}}" rel="stylesheet">
     <link href="{{asset('style/web/default_template/css/animate.css')}}" rel="stylesheet">
     <link href="{{asset('style/web/default_template/css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('style/web/default_template/prismjs/prismjs.css')}}" rel="stylesheet">
     @yield('style')
 </head>
 <body class="pace-done mini-navbar">
@@ -64,6 +65,7 @@
 <!-- Custom and plugin javascript -->
 <script src="{{asset('style/web/default_template/js/inspinia.js')}}"></script>
 <script src="{{asset('style/web/default_template/js/plugins/pace/pace.min.js')}}"></script>
+<script src="{{asset('style/web/default_template/prismjs/prismjs.js')}}"></script>
 <script>
     $(function(){
         //控制菜单自动展开

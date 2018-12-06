@@ -12,6 +12,10 @@ class IpAddress
         $response = HttpCurl::doGet($url);
         $response = mb_convert_encoding($response, 'utf-8','GB2312');
         $re = json_decode($response,true);
-        return $re['data']['0'];
+        if (empty($re['data'])){
+            return false;
+        }else{
+            return $re['data']['0'];
+        }
     }
 }

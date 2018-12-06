@@ -30,10 +30,12 @@ class Web
         $full = URL::full();
         $previous = URL::previous();
         $address = IpAddress::address($ip);
-        $address['full'] = $full;
-        $address['previous'] = $previous;
         //添加用户访问记录
-        self::AddViewlog($address);
+        if ($address){
+            $address['full'] = $full;
+            $address['previous'] = $previous;
+            self::AddViewlog($address);
+        }
         //获取路由中的参数，文章id
         $article_id = $request->route('article_id');
         $route = $request->getPathInfo();

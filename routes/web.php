@@ -28,6 +28,5 @@ Route::middleware('web_common')->namespace('Web')->group(function () {
 });
 
 
-
 //工具
 Route::any('git_pull', 'Tooling\ToolingController@get_pull');

@@ -115,13 +115,15 @@ class AdminController extends Controller
     //QQ登录授权第二步
     public function qq_login(Request $request)
     {
-        $client_id = '101523010';
-        $client_secret = 'ac7d4e7a120f907e69df29799619cc47';
+//        $client_id = '101523010';
+        $client_id = '101518045';
+//        $client_secret = 'ac7d4e7a120f907e69df29799619cc47';
+        $client_secret = '9d7c45e29ed77a7d728b2367f06361f8';
         $code = $request->get('code');
         //上一页地址
         $state = $request->get('state');
         //跳转回调地址
-        $redirect_uri = 'http://blog.54zm.cn/admin/qq_login';
+        $redirect_uri = 'http://blog.54zm.com/admin/qq_login';
         //请求地址
         $url = "https://graph.qq.com/oauth2.0/token?grant_type=authorization_code&client_id={$client_id}&client_secret={$client_secret}&code={$code}&redirect_uri={$redirect_uri}";
         $response = HttpCurl::doGet($url);
@@ -177,7 +179,7 @@ class AdminController extends Controller
             session(['qq_data'=>$user_qq_data]);
             $request->attributes->add(['qq_data'=>$user_qq_data]); //添加参数
         }
-        return redirect('http://qq.com');
+        return redirect('http://blog.54zm.com');
     }
 
     public function quit()

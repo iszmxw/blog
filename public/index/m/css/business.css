@@ -63,12 +63,12 @@
 .model .model_item img {
     display: block;
     width: 0.72rem;
-    height: 1rem;
+    height: 0.72rem;
     margin: auto;
 }
 .model .model_item .info{
     float:left;
-    padding-left:0.32rem;
+    padding:0 0.32rem;
     width:100%;
 }
 .model .model_item .info h1{

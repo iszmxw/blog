@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>代理商</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script type='text/javascript' src='js/index.min.js' charset='utf-8'></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/business.css">
+  </head>
+  <body>
+  	<!-- top -->
+    <div class="head">
+    	<div class="nav">
+			<div class="nav_box">
+				<a href="javascript:;" class="caidan" onclick="caidan()"></a>
+			</div>
+    	</div>
+    </div>
+    <div class="nav_daohang" id="nav_daohang">
+    	<div class="nav_daohang_box">
+	    	<div class="nav">
+				<div class="nav_box">
+					<a href="javascript:;" class="caidan" onclick="caidan()"></a>
+				</div>
+	    	</div>
+    	</div>
+        <ul id="nav">
+            <li><a href="javascript:;" data-href="index.html">首页</a></li>
+            <li><a href="javascript:;" data-href="index.html">零壹坊</a></li>
+            <li><a href="javascript:;" data-href="index.html">商家入驻</a></li>
+            <li><a href="javascript:;" data-href="index.html">零壹人</a></li>
+            <li><a href="javascript:;" data-href="index.html">代理商</a></li>
+            <li><a href="javascript:;" data-href="index.html">关于我们</a></li>
+            <li><a href="javascript:;" data-href="index.html">APP下载</a></li>
+        </ul>
+    </div>
+    <!-- top -->
+    <script type='text/javascript' src='js/jquery-3.3.1.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='js/swiper.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='js/jquery.lazyload.min.js' charset='utf-8'></script>
+    <script>
+        $(function(){
+            $("img").lazyload({threshold: 100,failure_limit : 20,offset: 500});
+        });
+        function guanbi(obj) {
+        	$(".guagngao").hide();
+        }
+        // 展开导航
+        $("#nav li").click(function(){
+        	if ($(this).children("a").hasClass("action")) {
+        		$(this).children("ul").slideToggle();
+        	}else {
+        		window.location.href = $(this).children("a").data("href");
+        	}
+        });
+        //子栏目
+        $("#nav_item li").click(function(e){
+        	e.stopPropagation();
+        	window.location.href = $(this).children("a").data("href");
+        });
+        //展开菜单
+        function caidan(){
+        	$("#nav_daohang").slideToggle();
+        }
+    </script>
+  </body>
+</html>

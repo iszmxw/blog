@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>关于我们</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script type='text/javascript' src='js/index.min.js' charset='utf-8'></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/about.css">
+  </head>
+  <body>
+  	<!-- top -->
+    <div class="head">
+    	<div class="nav">
+			<div class="nav_box">
+				<a href="javascript:;" class="caidan" onclick="caidan()"></a>
+			</div>
+    	</div>
+        <div class="topbeijing">
+            <img src="images/page4_banner@2x.png">
+        </div>
+    </div>
+    <div class="nav_daohang" id="nav_daohang">
+    	<div class="nav_daohang_box">
+	    	<div class="nav">
+				<div class="nav_box">
+					<a href="javascript:;" class="caidan" onclick="caidan()"></a>
+				</div>
+	    	</div>
+    	</div>
+        <ul id="nav">
+            <li><a href="javascript:;" data-href="index.html">首页</a></li>
+            <li><a href="javascript:;" data-href="index.html">零壹坊</a></li>
+            <li><a href="javascript:;" data-href="business.html">商家入驻</a></li>
+            <li><a href="javascript:;" data-href="index.html">零壹人</a></li>
+            <li><a href="javascript:;" data-href="agent.html">代理商</a></li>
+            <li><a href="javascript:;" data-href="about.html">关于我们</a></li>
+            <!--<li><a href="javascript:;" data-href="index.html">APP下载</a></li>-->
+        </ul>
+    </div>
+    <!-- top -->
+
+    <div class="info-box">
+        <div class="title">
+            产品简介
+        </div>
+        <p>
+            &nbsp;&nbsp;&nbsp;实体店以其所在地点为中心，沿着一定的方向和
+            距离扩展，吸引顾客的辐射范围，简单地说，也就是
+            来店顾客所居住的区域范围。无论大商场还是小商店，
+            它们的销售总是有一定的地理范围。这个地理范围就
+            是以实体店为中心，向四周辐射直径三公里至可能来
+            店购买的消费者所居住的地点。三公里商圈可能是一
+            个SHOPPING MALL，美食街，商业街、小区底商
+            及其附近区域。
+        </p>
+    </div>
+    <div class="company_logo">
+        <img src="images/page4_image1@2x.png">
+    </div>
+    <div class="info-box">
+        <div class="title">
+            产品简介
+        </div>
+        <p>
+            &nbsp;&nbsp;&nbsp;实体店以其所在地点为中心，沿着一定的方向和
+            距离扩展，吸引顾客的辐射范围，简单地说，也就是
+            来店顾客所居住的区域范围。无论大商场还是小商店，
+            它们的销售总是有一定的地理范围。这个地理范围就
+            是以实体店为中心，向四周辐射直径三公里至可能来
+            店购买的消费者所居住的地点。三公里商圈可能是一
+            个SHOPPING MALL，美食街，商业街、小区底商
+            及其附近区域。
+        </p>
+        <br>
+        <img src="images/page4_image2@2x.png">
+        <br>
+        <div class="title">
+            零壹新科技（深圳）有限公司
+        </div>
+        <p class="info">客服座机：4008-360-328</p>
+        <p class="info">办公时间：周一～周五（9:00-18:00）</p>
+        <p class="info">公司地址：深圳市龙岗区万汇大厦1606</p>
+        <img src="images/page4_image3@2x.png" style="width: 4.96rem;height: 4.96rem;">
+    </div>
+    <br>
+    <br>
+    <script type='text/javascript' src='js/jquery-3.3.1.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='js/swiper.min.js' charset='utf-8'></script>
+     <script type='text/javascript' src='js/jquery.lazyload.min.js' charset='utf-8'></script>
+    <script>
+        $(function(){
+            $("img").lazyload({threshold: 100,failure_limit : 20,offset: 500});
+        });
+        function guanbi(obj) {
+        	$(".guagngao").hide();
+        }
+        // 展开导航
+        $("#nav li").click(function(){
+        	if ($(this).children("a").hasClass("action")) {
+        		$(this).children("ul").slideToggle();
+        	}else {
+        		window.location.href = $(this).children("a").data("href");
+        	}
+        });
+        //子栏目
+        $("#nav_item li").click(function(e){
+        	e.stopPropagation();
+        	window.location.href = $(this).children("a").data("href");
+        });
+        //展开菜单
+        function caidan(){
+        	$("#nav_daohang").slideToggle();
+        }
+    </script>
+  </body>
+</html>

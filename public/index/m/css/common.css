@@ -1,0 +1,311 @@
+body {
+    background: #ffffff;
+    height: 100%;
+}
+.clear_after:after {
+    display: block;
+    clear: both;
+    overflow: hidden;
+    content: '';
+}
+/* top */
+
+.head {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.head .swiper-container .swiper-wrapper .swiper-slide a {
+    display: block;
+}
+
+.head .swiper-container .swiper-wrapper .swiper-slide img {
+    height: auto;
+    width: 100%;
+}
+
+.head .nav {
+    width: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    background: #fff;
+}
+
+.head .nav .nav_box {
+    width: 100%;
+    height: 1.306667rem;
+    position: relative;
+}
+
+.head .nav .nav_box .caidan {
+    position: absolute;
+    left: 0.386667rem;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    display: block;
+    width: 0.52rem;
+    height: 0.44rem;
+    background: url('../images/caidan@2x.png') no-repeat;
+    background-size: cover;
+}
+
+.head .nav .nav_box .logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    display: block;
+    width: 0.746667rem;
+    height: 0.693333rem;
+    background: url('../images/logo@2x.png') no-repeat;
+    background-size: cover;
+}
+
+.head .nav .nav_box .kefu {
+    position: absolute;
+    right: 0.386667rem;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    display: block;
+    width: 0.48rem;
+    height: 0.48rem;
+    background: url('../images/kefu@2x.png') no-repeat;
+    background-size: cover;
+}
+
+.head .guagngao {
+    width: 100%;
+    position: absolute;
+    top: 1.306667rem;
+    left: 0;
+    z-index: 99;
+}
+
+.head .guagngao .guagngao_box {
+    height: 1.186667rem;
+    line-height: 1.186667rem;
+    padding-left: .533333rem;
+    padding-right: 1.56rem;
+    background: #f2f2f2;
+    font-size: 0.346667rem;
+    color: #1d1d1d;
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.head .guagngao .guagngao_box:before {
+    content: "";
+    position: absolute;
+    right: 1.213333rem;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    display: block;
+    width: 0.146667rem;
+    height: 0.28rem;
+    background: url('../images/jiantou@2x.png') no-repeat;
+    background-size: cover;
+}
+
+.head .guagngao .guagngao_box .guagngao_icon {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    display: block;
+    width: 0.973333rem;
+    height: 100%;
+}
+
+.head .guagngao .guagngao_box .guagngao_wenzi {
+    display: block;
+    height: 100%;
+    color: #1d1d1d;
+}
+
+.head .guagngao .guagngao_box .guagngao_icon:before {
+    content: "";
+    position: absolute;
+    right: 0.533333rem;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    display: block;
+    width: 0.4rem;
+    height: 0.4rem;
+    background: url('../images/guanbi@2x.png') no-repeat;
+    background-size: cover;
+}
+.head .topbeijing {
+    width: 100%;
+    height: 3.947rem;
+    position: relative;
+}
+.head .topbeijing img{
+    width: 100%;
+    height:100%;
+}
+.nav_daohang {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: #fff;
+    z-index: 100;
+    display: none;
+}
+
+.nav_daohang .nav_daohang_box {
+    position: relative;
+    height: 1.306667rem;
+}
+
+.nav_daohang .nav_daohang_box .nav {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+.nav_daohang .nav_daohang_box .nav .nav_box {
+    width: 100%;
+    height: 1.306667rem;
+    position: relative;
+}
+
+.nav_daohang .nav_daohang_box .nav .nav_box .caidan {
+    position: absolute;
+    left: 0.386667rem;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    display: block;
+    width: 0.386667rem;
+    height: 0.386667rem;
+    background: url('../images/guanbi01@2x.png') no-repeat;
+    background-size: cover;
+}
+
+.nav_daohang .nav_daohang_box .nav .nav_box .logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    display: block;
+    width: 0.746667rem;
+    height: 0.693333rem;
+    background: url('../images/logo@2x.png') no-repeat;
+    background-size: cover;
+}
+
+.nav_daohang>ul>li {
+    padding: 0 1.146667rem 0 1.093333rem;
+    padding-right: 0.4rem;
+}
+
+.nav_daohang>ul>li>a {
+    display: block;
+    font-size: 0.4rem;
+    color: #1d1d1d;
+    padding: 0.48rem 1.2rem 0.48rem 0;
+    border-bottom: 0.026667rem solid #ebebeb;
+    position: relative;
+    text-align:center;
+}
+
+.nav_daohang>ul>li .action:before {
+    content: "";
+    position: absolute;
+    right: 0.533333rem;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    display: block;
+    width: 0.373333rem;
+    height: 0.2rem;
+    background: url('../images/gengduo@2x.png') no-repeat;
+    background-size: cover;
+}
+
+.nav_daohang>ul>li>ul {
+    display: none;
+}
+
+.nav_daohang>ul>li>ul>li {
+    padding-left: 1.6rem;
+    border-bottom: 0.026667rem solid #ebebeb;
+}
+
+.nav_daohang>ul>li>ul>li>a {
+    display: block;
+    font-size: 0.4rem;
+    color: #1d1d1d;
+    padding: 0.48rem 0 0.48rem 0;
+    position: relative;
+}
+/* top */
+
+.h1title{
+    width:100%;
+    padding:0.627rem 0;
+    text-align:center;
+    font-family: PingFangSC-Medium;
+    font-size: 0.534rem;
+    font-weight: bold;
+    font-stretch: normal;
+    line-height: 0.395rem;
+    letter-spacing: 0.032rem;
+    color: #2c2e32;
+}
+.min_tit{
+    padding:0 1.08rem;
+    font-family: PingFangSC-Regular;
+    font-size: 0.267rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 0.5rem;
+    letter-spacing: 0.032rem;
+    color: #414245;
+    text-align: center;
+}
+.blockimg{
+    padding:0 1.08rem;
+    height:auto;
+}
+.blockimg img{
+    width: 5.027rem;
+    height: 3.467rem;
+    margin:0 auto;
+    margin-top:0.24rem;
+    display:block;
+}
+

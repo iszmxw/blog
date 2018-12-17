@@ -312,3 +312,130 @@ body{
     margin:0 auto;
 }
 
+
+
+
+/*底部左*/
+.foot_box{
+    padding-bottom: 40px;
+    overflow: hidden;
+    margin: 0 auto;
+    width: 1200px;
+}
+.foot_box1{
+    padding-top: 70px;
+}
+.foot_left{
+    border-right:1px solid #cccccc;
+    width: 214px;
+    height: 260px;
+    float: left;
+}
+.foot_left_box{
+    width: 166px;
+    text-align: center;
+}
+.logo_80{
+    width: 80px;
+    height: 80px;
+}
+.foot_left_word01{
+    padding-bottom: 37px;
+    padding-top: 20px;
+    font-size: 16px;
+    color:#4d4d4d;
+    font-weight: bold;
+}
+.foot_left_word02{
+    color: #808080;
+}
+.telnub{
+    padding-bottom: 18px;
+    font-size: 20px;
+}
+.foot_time{
+    font-size: 14px;
+}
+/*底部中*/
+.foot_cen01{
+    border-right: 1px solid #cccccc;
+    width: 528px;
+    height: 260px;
+    float: left;
+}
+.foot_cen01_box{
+    padding-left: 75px;
+    padding-right: 98px;
+    float: left;
+}
+.foot_cen01_title01{
+    color: #4d4d4d;
+    font-size: 14px;
+    padding-bottom: 43px;
+}
+.foot_cen01_word{
+    list-style: none;
+    padding-bottom: 15px;
+}
+.foot_cen01_word a{
+    text-decoration: none;
+    color: #808080;
+    font-size: 14px;
+}
+.foot_cen02_box{
+    padding-right: 98px;
+    float: left;
+}
+.foot_cen02_title02{
+    color: #4d4d4d;
+    font-size: 14px;
+    padding-bottom: 43px;
+}
+.foot_cen03_box{
+    float: left;
+}
+.foot_cen03_title03{
+    color: #4d4d4d;
+    font-size: 14px;
+    padding-bottom: 43px;
+}
+.foot_right{
+    float: left;
+    overflow: hidden;
+}
+.foot_right_top{
+    padding-top: 55px;
+}
+.foot_right_box_l{
+    padding-left: 66px;
+    float: left;
+}
+.ewm{
+    width: 100px;
+    height: 100px;
+}
+.foot_cord_01{
+    padding-left: 23px;
+    padding-top: 19px;
+    color: #4d4d4d;
+    font-size: 14px;
+}
+.foot_right_box_r{
+    padding-left: 66px;
+    float: left;
+}
+.foot_cord_02{
+    padding-left: 23px;
+    padding-top: 19px;
+    color: #4d4d4d;
+    font-size: 14px;
+}
+.foot_ewm_word{
+    padding: 160px 0 0 80px;
+    font-size: 20px;
+}
+.foot_icp{
+    padding-bottom: 20px;
+    margin: 0 auto;
+    width: 1200px;
+}

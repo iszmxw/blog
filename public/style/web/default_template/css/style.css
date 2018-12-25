@@ -3948,7 +3948,7 @@ code {
   word-wrap:break-word;
 }
 .ibox-content img{
-  width: 100%;
+  max-width: 100%;
   height: auto;
 }
 .ibox-footer {

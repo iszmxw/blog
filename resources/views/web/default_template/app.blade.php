@@ -11,7 +11,7 @@
     <link href="{{asset('style/web/default_template/prismjs/prism.css')}}" rel="stylesheet">
     @yield('style')
 </head>
-<body class="pace-done mini-navbar">
+<body class="pace-done">
 <div id="wrapper">
     <nav class="navbar-default navbar-static-side" role="navigation">
         <div class="sidebar-collapse">

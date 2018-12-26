@@ -19,8 +19,7 @@ class BaiduController extends Controller
         $strSignature = $this->getSHA1($TOKEN, $_GET['timestamp'], $_GET['nonce']);
         if ($strSignature == $_GET['signature']) {
             echo $_GET['echostr'];
-
-
+            $this->Doting();
         } else {
             //校验失败
             echo 'failed';

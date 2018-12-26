@@ -13,7 +13,7 @@ use Xiongzhang\Server;
 class BaiduController extends Controller
 {
     //token
-    public function token(Request $request)
+    public function xiongzhang(Request $request)
     {
         $TOKEN = 'BlogToken';
         $strSignature = $this->getSHA1($TOKEN, $_GET['timestamp'], $_GET['nonce']);

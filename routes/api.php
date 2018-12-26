@@ -20,7 +20,7 @@ Route::group(['namespace'=>'Api'],function(){
     //微信订阅号(aszmxw)
     Route::group(['prefix'=>'baidu'],function(){
         //token基本配置
-        Route::any('token','BaiduController@token');
+        Route::any('xiongzhang','BaiduController@xiongzhang');
         //内容推送工具
         Route::any('push_content','BaiduController@push_content');
     });

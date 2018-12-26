@@ -18,6 +18,11 @@ use Illuminate\Http\Request;
 //});
 Route::group(['namespace'=>'Api'],function(){
     //微信订阅号(aszmxw)
+    Route::group(['prefix'=>'baidu'],function(){
+        //token基本配置
+        Route::any('token','BaiduController@token');
+    });
+    //微信订阅号(aszmxw)
     Route::group(['prefix'=>'wechat'],function(){
         //token基本配置
         Route::any('token','WechatController@token');

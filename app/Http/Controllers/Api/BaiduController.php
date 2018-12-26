@@ -28,7 +28,10 @@ class BaiduController extends Controller
         $client = new Client();
         $url = 'http://data.zz.baidu.com/urls?appid=1606122614792135&token=zIWbEIZuASc0biYF&type=realtime';
         $blog = Blog::getList([],'gid');
-        dd($blog);
+        foreach($blog as $key=>$val){
+            $content[] = 'http://blog.54zm.com/article/'.$val['gid'];
+        }
+        dd($blog,$content);
         $data = [
 
         ];

@@ -29,23 +29,23 @@ class BaiduController extends Controller
         switch ($msgType) {
             case SdkConfig::MSGTYPE_TEXT:
                 // 文本类型 $content 开发者根据$msgData自己组织回复
-                $xzhLib->text(SdkConfig::REV_TEXT_DEFAULT_REPLY)->reply('文本');
+                $xzhLib->text(SdkConfig::REV_TEXT_DEFAULT_REPLY)->reply();
                 break;
             case SdkConfig::MSGTYPE_EVENT:
                 // 事件类型（如不需跟开发者交互，返回success即可）
                 $event = $msgData['Event'];
                 switch ($event) {
                     case SdkConfig::EVENT_SUBSCRIBE:
-                        $xzhLib->text(SdkConfig::EVENT_SUBSCRIBE)->reply('欢迎您关注追梦小窝！');
+                        $xzhLib->text(SdkConfig::EVENT_SUBSCRIBE)->reply();
                         break;
                     case SdkConfig::EVENT_UNSUBSCRIBE:
-                        $xzhLib->text(SdkConfig::EVENT_UNSUBSCRIBE)->reply('您取消关注，欢迎下次回来');
+                        $xzhLib->text(SdkConfig::EVENT_UNSUBSCRIBE)->reply();
                         break;
                     case SdkConfig::EVENT_MENU_VIEW:
                         $xzhLib->text(SdkConfig::EVENT_MENU_VIEW)->reply();
                         break;
                     case SdkConfig::EVENT_MENU_CLICK:
-                        $xzhLib->text(SdkConfig::EVENT_MENU_CLICK)->reply('您点击了菜单');
+                        $xzhLib->text(SdkConfig::EVENT_MENU_CLICK)->reply();
                         break;
                     default:
                         //TODO 如有新增事件，在补充

@@ -159,6 +159,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        //注册 熊掌号ServiceProvider
+        Xiongzhang\Laravel\XiongzhangServiceProvider::class,
 
     ],
 

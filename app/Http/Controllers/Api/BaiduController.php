@@ -52,7 +52,7 @@ class BaiduController extends Controller
         switch ($msgType) {
             case SdkConfig::MSGTYPE_TEXT:
                 // 文本类型 $content 开发者根据$msgData自己组织回复
-                $xzhLib->text(SdkConfig::REV_TEXT_DEFAULT_REPLY)->reply();
+                $xzhLib->text(SdkConfig::REV_TEXT_DEFAULT_REPLY)->reply('文本');
                 break;
             case SdkConfig::MSGTYPE_EVENT:
                 // 事件类型（如不需跟开发者交互，返回success即可）

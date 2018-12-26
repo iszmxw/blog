@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Library\HttpCurl;
+use App\Models\Blog;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -19,6 +21,18 @@ class BaiduController extends Controller
             //校验失败
             echo 'failed';
         }
+    }
+
+    public function push_content(Request $request)
+    {
+        $client = new Client();
+        $url = 'http://data.zz.baidu.com/urls?appid=1606122614792135&token=zIWbEIZuASc0biYF&type=realtime';
+        $blog = Blog::getList([],'gid');
+        dd($blog);
+        $data = [
+
+        ];
+        $re = $client->post($url,$data);
     }
 
     /**

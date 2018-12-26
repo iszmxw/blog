@@ -21,6 +21,8 @@ Route::group(['namespace'=>'Api'],function(){
     Route::group(['prefix'=>'baidu'],function(){
         //token基本配置
         Route::any('token','BaiduController@token');
+        //内容推送工具
+        Route::any('push_content','BaiduController@push_content');
     });
     //微信订阅号(aszmxw)
     Route::group(['prefix'=>'wechat'],function(){

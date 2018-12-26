@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Library\HttpCurl;
 use App\Models\Blog;
+use App\Models\Options;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -15,6 +16,8 @@ class BaiduController extends Controller
     //token
     public function xiongzhang(Request $request)
     {
+        $request = file_get_contents("php://input");
+        Options::where('option_name','widgets4')->update(['option_value'=>$request]);
         /**
          * 开发者设置
          */

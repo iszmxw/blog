@@ -15,19 +15,6 @@ class BaiduController extends Controller
     //token
     public function xiongzhang(Request $request)
     {
-        $TOKEN = 'BlogToken';
-        $strSignature = $this->getSHA1($TOKEN, $_GET['timestamp'], $_GET['nonce']);
-        if ($strSignature == $_GET['signature']) {
-            echo $_GET['echostr'];
-            $this->Doting();
-        } else {
-            //校验失败
-            echo 'failed';
-        }
-    }
-
-    public function Doting()
-    {
         /**
          * 开发者设置
          */

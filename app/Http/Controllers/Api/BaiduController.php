@@ -33,6 +33,7 @@ class BaiduController extends Controller
         }
         $response = $client->post($url,[$data]);
         dump($response->getBody()->getContents());
+        dump($data);
     }
 
     /**

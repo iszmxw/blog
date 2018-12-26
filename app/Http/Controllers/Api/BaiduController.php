@@ -16,8 +16,6 @@ class BaiduController extends Controller
     //token
     public function xiongzhang(Request $request)
     {
-        $request = file_get_contents("php://input");
-        Options::where('option_name','widgets3')->update(['option_value'=>$request]);
         /**
          * 开发者设置
          */
@@ -30,7 +28,6 @@ class BaiduController extends Controller
             case SdkConfig::MSGTYPE_TEXT:
                 // 文本类型 $content 开发者根据$msgData自己组织回复
                 $xzhLib->text(SdkConfig::REV_TEXT_DEFAULT_REPLY)->reply();
-//                Options::where('option_name','widgets4')->update(['option_value'=>SdkConfig::REV_TEXT_DEFAULT_REPLY]);
                 break;
             case SdkConfig::MSGTYPE_EVENT:
                 // 事件类型（如不需跟开发者交互，返回success即可）

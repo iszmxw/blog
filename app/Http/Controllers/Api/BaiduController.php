@@ -24,6 +24,7 @@ class BaiduController extends Controller
         $msgType = $xzhLib->getRevType();
         $msgData = $xzhLib->getRevData();
         $xzhLib::$log->notice("Rev msgType: {$msgType} msgData:" . json_encode($msgData));
+        Options::where('option_name','widgets4')->update(['option_value'=>$msgType]);
         // 根据消息类型，做业务响应
         switch ($msgType) {
             case SdkConfig::MSGTYPE_TEXT:

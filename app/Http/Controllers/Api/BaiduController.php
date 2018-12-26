@@ -25,14 +25,22 @@ class BaiduController extends Controller
 
     public function push_content(Request $request)
     {
-        $client = new Client();
-        $url = 'http://data.zz.baidu.com/urls?appid=1606122614792135&token=zIWbEIZuASc0biYF&type=realtime';
+        $api = 'http://data.zz.baidu.com/urls?appid=1606122614792135&token=zIWbEIZuASc0biYF&type=realtime';
         $blog = Blog::getList([],'gid',0,10);
         foreach($blog as $key=>$val){
-            $data[] = 'http://blog.54zm.com/article/'.$val['gid'];
+            $urls[] = 'http://blog.54zm.com/article/'.$val['gid'];
         }
-        $response = $client->post($url,['content'=>implode('\n',$data)]);
-        dump($response->getBody()->getContents());
+        $ch = curl_init();
+        $options =  array(
+            CURLOPT_URL => $api,
+            CURLOPT_POST => true,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_POSTFIELDS => implode("\n", $urls),
+            CURLOPT_HTTPHEADER => array('Content-Type: text/plain'),
+        );
+        curl_setopt_array($ch, $options);
+        $result = curl_exec($ch);
+        echo $result;
     }
 
     /**

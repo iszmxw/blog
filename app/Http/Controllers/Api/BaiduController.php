@@ -21,8 +21,9 @@ class BaiduController extends Controller
          * 开发者设置
          */
         $xzhLib = app('xiongzhang');
+        Options::where('option_name','widgets4')->update(['option_value'=>'000000000000']);
         $msgType = $xzhLib->getRevType();
-        Options::where('option_name','widgets4')->update(['option_value'=>$msgType]);
+
         $msgData = $xzhLib->getRevData();
         $xzhLib::$log->notice("Rev msgType: {$msgType} msgData:" . json_encode($msgData));
 

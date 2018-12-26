@@ -31,7 +31,7 @@ class BaiduController extends Controller
         foreach($blog as $key=>$val){
             $data[] = 'http://blog.54zm.com/article/'.$val['gid'];
         }
-        $response = $client->post($url,['content'=>$data]);
+        $response = $client->post($url,[$data]);
         dump($response->getBody()->getContents());
     }
 

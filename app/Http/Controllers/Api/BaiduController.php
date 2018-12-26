@@ -21,19 +21,7 @@ class BaiduController extends Controller
         /**
          * 开发者设置
          */
-        $init = array(
-            'token' => 'TOKEN',
-            'encodingAesKey' => 'ENCODINGAESKEY',
-            'clientId' => 'CLIENTID',
-            'clientSecret' => 'CLIENTSECRET',
-            'packType' => 'json',
-
-            'log' => [
-                'level' => 'debug',
-                'file' => 'xzh.log',
-            ],
-        );
-        $xzhLib = Server::init($init);
+        $xzhLib = app('xiongzhang');
         $msgType = $xzhLib->getRevType();
         $msgData = $xzhLib->getRevData();
         $xzhLib::$log->notice("Rev msgType: {$msgType} msgData:" . json_encode($msgData));

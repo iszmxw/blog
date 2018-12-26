@@ -19,10 +19,12 @@ class BaiduController extends Controller
         /**
          * 开发者设置
          */
-        $xzhLib = Server::init(config('baidu.xiongzhang'));
+        $xzhLib = app('xiongzhang');
         $msgType = $xzhLib->getRevType();
+
         $msgData = $xzhLib->getRevData();
         $xzhLib::$log->notice("Rev msgType: {$msgType} msgData:" . json_encode($msgData));
+
         // 根据消息类型，做业务响应
         switch ($msgType) {
             case SdkConfig::MSGTYPE_TEXT:

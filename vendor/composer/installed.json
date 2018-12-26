@@ -1969,6 +1969,59 @@
         ]
     },
     {
+        "name": "lyndon1994/xiongzhang-sdk",
+        "version": "1.0.2",
+        "version_normalized": "1.0.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Lyndon1994/xiongzhang-sdk.git",
+            "reference": "d35be906947e002ca250c7080cd46a72697aa437"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Lyndon1994/xiongzhang-sdk/zipball/d35be906947e002ca250c7080cd46a72697aa437",
+            "reference": "d35be906947e002ca250c7080cd46a72697aa437",
+            "shasum": ""
+        },
+        "require": {
+            "ext-openssl": "*",
+            "monolog/monolog": "^1.23",
+            "php": ">=5.6.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.0"
+        },
+        "time": "2018-03-19T03:05:55+00:00",
+        "type": "library",
+        "extra": {
+            "laravel": {
+                "providers": [
+                    "Xiongzhang\\Laravel\\XiongzhangServiceProvider"
+                ],
+                "aliases": {
+                    "Xiongzhang": "Xiongzhang\\Laravel\\Facade"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Xiongzhang\\": "src/Xiongzhang"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "lyndon",
+                "email": "wuhulinyi@gmail.com"
+            }
+        ],
+        "description": "熊掌号 SDK"
+    },
+    {
         "name": "mockery/mockery",
         "version": "1.2.0",
         "version_normalized": "1.2.0.0",

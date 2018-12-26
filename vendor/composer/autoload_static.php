@@ -43,6 +43,7 @@ class ComposerStaticInit80e74e3cc98fb61872274dfabac78f34
         ),
         'X' => 
         array (
+            'Xiongzhang\\' => 11,
             'XdgBaseDir\\' => 11,
         ),
         'W' => 
@@ -178,6 +179,10 @@ class ComposerStaticInit80e74e3cc98fb61872274dfabac78f34
         'Zend\\Diactoros\\' => 
         array (
             0 => __DIR__ . '/..' . '/zendframework/zend-diactoros/src',
+        ),
+        'Xiongzhang\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/lyndon1994/xiongzhang-sdk/src/Xiongzhang',
         ),
         'XdgBaseDir\\' => 
         array (
@@ -488,6 +493,7 @@ class ComposerStaticInit80e74e3cc98fb61872274dfabac78f34
         'App\\Http\\Controllers\\Admin\\ArticleController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ArticleController.php',
         'App\\Http\\Controllers\\Admin\\CategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CategoryController.php',
         'App\\Http\\Controllers\\Admin\\PluginsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/PluginsController.php',
+        'App\\Http\\Controllers\\Api\\BaiduController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/BaiduController.php',
         'App\\Http\\Controllers\\Api\\WechatController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/WechatController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\Tooling\\ToolingController' => __DIR__ . '/../..' . '/app/Http/Controllers/Tooling/ToolingController.php',
@@ -4758,6 +4764,14 @@ class ComposerStaticInit80e74e3cc98fb61872274dfabac78f34
         'Whoops\\Util\\SystemFacade' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/SystemFacade.php',
         'Whoops\\Util\\TemplateHelper' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/TemplateHelper.php',
         'XdgBaseDir\\Xdg' => __DIR__ . '/..' . '/dnoegel/php-xdg-base-dir/src/Xdg.php',
+        'Xiongzhang\\Constant\\SdkConfig' => __DIR__ . '/..' . '/lyndon1994/xiongzhang-sdk/src/Xiongzhang/Constant/SdkConfig.php',
+        'Xiongzhang\\Encrypt\\AesEncrypt' => __DIR__ . '/..' . '/lyndon1994/xiongzhang-sdk/src/Xiongzhang/Encrypt/AesEncrypt.php',
+        'Xiongzhang\\Exception\\XzhException' => __DIR__ . '/..' . '/lyndon1994/xiongzhang-sdk/src/Xiongzhang/Exception/XzhException.php',
+        'Xiongzhang\\Laravel\\Facade' => __DIR__ . '/..' . '/lyndon1994/xiongzhang-sdk/src/Xiongzhang/Laravel/Facade.php',
+        'Xiongzhang\\Laravel\\XiongzhangServiceProvider' => __DIR__ . '/..' . '/lyndon1994/xiongzhang-sdk/src/Xiongzhang/Laravel/XiongzhangServiceProvider.php',
+        'Xiongzhang\\Server' => __DIR__ . '/..' . '/lyndon1994/xiongzhang-sdk/src/Xiongzhang/Server.php',
+        'Xiongzhang\\Util\\SHA1Util' => __DIR__ . '/..' . '/lyndon1994/xiongzhang-sdk/src/Xiongzhang/Util/SHA1Util.php',
+        'Xiongzhang\\Util\\XML' => __DIR__ . '/..' . '/lyndon1994/xiongzhang-sdk/src/Xiongzhang/Util/XML.php',
         'Zend\\Diactoros\\AbstractSerializer' => __DIR__ . '/..' . '/zendframework/zend-diactoros/src/AbstractSerializer.php',
         'Zend\\Diactoros\\CallbackStream' => __DIR__ . '/..' . '/zendframework/zend-diactoros/src/CallbackStream.php',
         'Zend\\Diactoros\\Exception\\DeprecatedMethodException' => __DIR__ . '/..' . '/zendframework/zend-diactoros/src/Exception/DeprecatedMethodException.php',

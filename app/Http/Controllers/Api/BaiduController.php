@@ -20,13 +20,12 @@ class BaiduController extends Controller
          * 开发者设置
          */
         $init = config('baidu.xiongzhang');
-        Options::EditData(['option_name'=>'test_info'],['option_value'=>$init]);
-        Options::EditData(['option_name'=>'test_content'],['option_value'=>000]);
 //        $xzhLib = app('xiongzhang');
         $xzhLib = Server::init($init);
         $msgType = $xzhLib->getRevType();
         $msgData = $xzhLib->getRevData();
-
+        Options::EditData(['option_name'=>'test_info'],['option_value'=>$msgType]);
+        Options::EditData(['option_name'=>'test_content'],['option_value'=>$msgData]);
         $xzhLib::$log->notice("Rev msgType: {$msgType} msgData:" . json_encode($msgData));
 
         // 根据消息类型，做业务响应

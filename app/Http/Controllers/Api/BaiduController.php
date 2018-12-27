@@ -80,7 +80,7 @@ class BaiduController extends Controller
     public function push_content(Request $request)
     {
         $api = 'http://data.zz.baidu.com/urls?appid=1606122614792135&token=zIWbEIZuASc0biYF&type=realtime';
-        $blog = Blog::getList([],'gid',11,10);
+        $blog = Blog::getList([],'gid',10,10);
         foreach($blog as $key=>$val){
             $urls[] = 'http://blog.54zm.com/article/'.$val['gid'];
         }

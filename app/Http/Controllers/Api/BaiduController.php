@@ -89,7 +89,7 @@ class BaiduController extends Controller
         $data = implode("\n", $urls);
         $client = new Client();
         $result = $client->post($api,['content'=>$data]);
-        echo $result->getBody()->getContents();
+        echo $result->getBody();
 //        $ch = curl_init();
 //        $options =  array(
 //            CURLOPT_URL => $api,

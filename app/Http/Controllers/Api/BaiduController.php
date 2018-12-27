@@ -86,18 +86,21 @@ class BaiduController extends Controller
         foreach($blog as $key=>$val){
             $urls[] = 'http://blog.54zm.com/article/'.$val['gid'];
         }
-        dd(implode("\n", $urls));
-        $ch = curl_init();
-        $options =  array(
-            CURLOPT_URL => $api,
-            CURLOPT_POST => true,
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_POSTFIELDS => implode("\n", $urls),
-            CURLOPT_HTTPHEADER => array('Content-Type: text/plain'),
-        );
-        curl_setopt_array($ch, $options);
-        $result = curl_exec($ch);
-        echo $result;
+        $data = implode("\n", $urls);
+        $client = new Client();
+        $result = $client->post($api,[$data]);
+        echo $result->getBody()->getContents();
+//        $ch = curl_init();
+//        $options =  array(
+//            CURLOPT_URL => $api,
+//            CURLOPT_POST => true,
+//            CURLOPT_RETURNTRANSFER => true,
+//            CURLOPT_POSTFIELDS => implode("\n", $urls),
+//            CURLOPT_HTTPHEADER => array('Content-Type: text/plain'),
+//        );
+//        curl_setopt_array($ch, $options);
+//        $result = curl_exec($ch);
+//        echo $result;
     }
 
 }

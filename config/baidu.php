@@ -11,7 +11,7 @@ return [
         'encodingAesKey' => env('XZH_AES_KEY'),
         'clientId' => env('XZH_CLIENTID'),
         'clientSecret' => env('XZH_CLIENTSECRET'),
-        'packType' => 'xml',
+        'packType' => 'json',
 
         'log' => [
             'level' => 'debug',

@@ -16,12 +16,13 @@ class BaiduController extends Controller
     //token
     public function xiongzhang(Request $request)
     {
-        Options::EditData(['option_name'=>'test_info'],['option_value'=>1]);
+        Options::EditData(['option_name'=>'test_info'],['option_value'=>config('baidu.xiongzhang')]);
         Options::EditData(['option_name'=>'test_content'],['option_value'=>2]);
         /**
          * 开发者设置
          */
-        $xzhLib = app('xiongzhang');
+//        $xzhLib = app('xiongzhang');
+        $xzhLib = Server::init(config('baidu.xiongzhang'));
         $msgType = $xzhLib->getRevType();
         $msgData = $xzhLib->getRevData();
 

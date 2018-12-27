@@ -21,8 +21,20 @@ class BaiduController extends Controller
         /**
          * 开发者设置
          */
+        $init = array(
+            'token' => config('baidu.xiongzhang.token'),
+            'encodingAesKey' => config('baidu.xiongzhang.encodingAesKey'),
+            'clientId' => config('baidu.xiongzhang.clientId'),
+            'clientSecret' => config('baidu.xiongzhang.clientSecret'),
+            'packType' => 'json',
+
+            'log' => [
+                'level' => 'debug',
+                'file' => storage_path('logs/xzh.log'),
+            ],
+        );
 //        $xzhLib = app('xiongzhang');
-        $xzhLib = Server::init(config('baidu.xiongzhang'));
+        $xzhLib = Server::init($init);
         $msgType = $xzhLib->getRevType();
         $msgData = $xzhLib->getRevData();
 

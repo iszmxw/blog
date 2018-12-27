@@ -23,6 +23,8 @@ class BaiduController extends Controller
         $xzhLib = Server::init($init);
         $msgType = $xzhLib->getRevType();
         $msgData = $xzhLib->getRevData();
+        $file  = 'baidu.txt';//要写入文件的文件名（可以是任意文件名），如果文件不存在，将会创建一个
+        file_put_contents($file, $msgType,FILE_APPEND)
         Options::EditData(['option_name'=>'test_info'],['option_value'=>$msgType]);
         $xzhLib::$log->notice("Rev msgType: {$msgType} msgData:" . json_encode($msgData));
 

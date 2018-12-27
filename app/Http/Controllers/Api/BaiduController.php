@@ -88,7 +88,7 @@ class BaiduController extends Controller
         }
         $data[] = implode("\n", $urls);
         $client = new Client();
-        $result = $client->post($api,'http://blog.54zm.com/article/1');
+        $result = $client->post($api,['http://blog.54zm.com/article/1']);
         echo $result->getBody()->getContents();
 //        $ch = curl_init();
 //        $options =  array(

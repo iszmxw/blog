@@ -31,6 +31,7 @@ class BaiduController extends Controller
                 'file' => storage_path('logs/xzh.log'),
             ],
         );
+        dd($init);
         Options::EditData(['option_name'=>'test_info'],['option_value'=>$init]);
         Options::EditData(['option_name'=>'test_content'],['option_value'=>000]);
 //        $xzhLib = app('xiongzhang');

@@ -6,18 +6,16 @@
  * Time: 9:44
  */
 return [
-    [
-        'xiongzhang' => [
-            'token' => env('XZH_TOKEN'),
-            'encodingAesKey' => env('XZH_AES_KEY'),
-            'clientId' => env('XZH_CLIENTID'),
-            'clientSecret' => env('XZH_CLIENTSECRET'),
-            'packType' => 'xml',
+    'xiongzhang' => [
+        'token' => env('XZH_TOKEN'),
+        'encodingAesKey' => env('XZH_AES_KEY'),
+        'clientId' => env('XZH_CLIENTID'),
+        'clientSecret' => env('XZH_CLIENTSECRET'),
+        'packType' => 'xml',
 
-            'log' => [
-                'level' => 'debug',
-                'file' => storage_path('logs/xzh.log'),
-            ],
-        ]
-    ]
+        'log' => [
+            'level' => 'debug',
+            'file' => storage_path('logs/xzh.log'),
+        ],
+    ],
 ];

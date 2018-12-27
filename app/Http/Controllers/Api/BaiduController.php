@@ -16,16 +16,16 @@ class BaiduController extends Controller
     //token
     public function xiongzhang(Request $request)
     {
+        Options::EditData(['option_name'=>'test_info'],['option_value'=>'test_info']);
         /**
          * 开发者设置
          */
         $init = config('baidu.xiongzhang');
         $xzhLib = Server::init($init);
         $msgType = $xzhLib->getRevType();
-        $msgData = $xzhLib->getRevData();
         $file  = 'baidu.txt';//要写入文件的文件名（可以是任意文件名），如果文件不存在，将会创建一个
         file_put_contents($file, $msgType,FILE_APPEND);
-        Options::EditData(['option_name'=>'test_info'],['option_value'=>$msgType]);
+        $msgData = $xzhLib->getRevData();
         $xzhLib::$log->notice("Rev msgType: {$msgType} msgData:" . json_encode($msgData));
 
         // 根据消息类型，做业务响应

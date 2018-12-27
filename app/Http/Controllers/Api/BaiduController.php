@@ -16,10 +16,7 @@ class BaiduController extends Controller
     //token
     public function xiongzhang(Request $request)
     {
-        Options::EditData(['option_name'=>'test_info'],['option_value'=>'test_info']);
-        /**
-         * 开发者设置
-         */
+       //读取配置文件
         $init = config('baidu.xiongzhang');
         $xzhLib = Server::init($init);
         $msgType = $xzhLib->getRevType();

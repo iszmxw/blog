@@ -161,9 +161,6 @@ class Server
         if (isset($this->revMsgContent['MsgType'])) {
             // PUSH给xzh的消息类型
             return $this->revMsgContent['MsgType'];
-        } else if (isset($this->revMsgContent['msgType'])) {
-            // TODO 支付消息类型，兼容逻辑，已经修复
-            return $this->revMsgContent['msgType'];
         } else if (isset($this->revMsgContent['InfoType'])) {
             // PUSH给TP的消息类型
             return $this->revMsgContent['InfoType'];

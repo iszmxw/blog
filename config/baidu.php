@@ -8,7 +8,7 @@
 return [
     'xiongzhang' => [
         'token' => env('XZH_TOKEN'),
-        'encodingAesKey' => 'hbQBQBtZA5NBGDgoQoGakZHujfe1mrWNxESkK0w1HpB',
+        'encodingAesKey' => env('XZH_AES_KEY'),
         'clientId' => env('XZH_CLIENTID'),
         'clientSecret' => env('XZH_CLIENTSECRET'),
         'packType' => 'json',

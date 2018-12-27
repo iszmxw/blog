@@ -20,7 +20,6 @@ class BaiduController extends Controller
          * 开发者设置
          */
         $init = config('baidu.xiongzhang');
-//        $xzhLib = app('xiongzhang');
         $xzhLib = Server::init($init);
         $msgType = $xzhLib->getRevType();
         $msgData = $xzhLib->getRevData();

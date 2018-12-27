@@ -84,6 +84,7 @@ class BaiduController extends Controller
         foreach($blog as $key=>$val){
             $urls[] = 'http://blog.54zm.com/article/'.$val['gid'];
         }
+        dd($urls);
         $ch = curl_init();
         $options =  array(
             CURLOPT_URL => $api,

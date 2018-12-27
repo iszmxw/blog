@@ -20,7 +20,7 @@ class BaiduController extends Controller
          * 开发者设置
          */
         $init = config('baidu.xiongzhang');
-        dd($init);
+        dd($init,1);
         Options::EditData(['option_name'=>'test_info'],['option_value'=>$init]);
         Options::EditData(['option_name'=>'test_content'],['option_value'=>000]);
 //        $xzhLib = app('xiongzhang');

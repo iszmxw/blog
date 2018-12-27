@@ -79,28 +79,19 @@ class BaiduController extends Controller
 
     public function push_content(Request $request)
     {
-        $api = 'http://data.zz.baidu.com/urls?appid=1606122614792135&token=zIWbEIZuASc0biYF&type=realtime';
-//        $api = 'http://data.zz.baidu.com/urls?appid=1606122614792135&token=zIWbEIZuASc0biYF&type=batch';
-        $blog = Blog::getList([],'gid',10,10);
-//        $blog = Blog::getList([],'gid');
+        //每天推送十条的地址
+        $api1 = 'http://data.zz.baidu.com/urls?appid=1606122614792135&token=zIWbEIZuASc0biYF&type=realtime';
+        //每周无线推送的地址
+        $api2 = 'http://data.zz.baidu.com/urls?appid=1606122614792135&token=zIWbEIZuASc0biYF&type=batch';
+//        $blog = Blog::getList([],'gid',10,10);
+        $blog = Blog::getList([],'gid');
         foreach($blog as $key=>$val){
             $urls[] = 'http://blog.54zm.com/article/'.$val['gid'];
         }
-        $data[] = implode("\n", $urls);
+        $data['body'] = implode("\n", $urls);
         $client = new Client();
-        $result = $client->post($api,['body'=>'http://blog.54zm.com/article/1']);
+        $result = $client->post($api2,$data);
         echo $result->getBody()->getContents();
-//        $ch = curl_init();
-//        $options =  array(
-//            CURLOPT_URL => $api,
-//            CURLOPT_POST => true,
-//            CURLOPT_RETURNTRANSFER => true,
-//            CURLOPT_POSTFIELDS => implode("\n", $urls),
-//            CURLOPT_HTTPHEADER => array('Content-Type: text/plain'),
-//        );
-//        curl_setopt_array($ch, $options);
-//        $result = curl_exec($ch);
-//        echo $result;
     }
 
 }

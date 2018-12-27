@@ -272,6 +272,7 @@ class Server
      * 回复消息格式化
      * @param array $msg
      * @return bool
+     * @throws Exception\XzhException
      */
     public function reply($msg = array())
     {

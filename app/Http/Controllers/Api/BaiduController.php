@@ -32,7 +32,7 @@ class BaiduController extends Controller
             ],
         );
         Options::EditData(['option_name'=>'test_info'],['option_value'=>$init]);
-        Options::EditData(['option_name'=>'test_content'],['option_value'=>2]);
+        Options::EditData(['option_name'=>'test_content'],['option_value'=>000]);
 //        $xzhLib = app('xiongzhang');
         $xzhLib = Server::init($init);
         $msgType = $xzhLib->getRevType();

@@ -277,9 +277,9 @@ class Server
     public function reply($msg = array())
     {
         // 防止不先设置回复内容，直接调用reply方法导致异常
-        if (empty($msg) && empty($this->sendMsg)) {
-            return false;
-        }
+//        if (empty($msg) && empty($this->sendMsg)) {
+//            return false;
+//        }
 
         $msg = $this->sendMsg;
         $packStr = $this->pack($msg);

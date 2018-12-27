@@ -16,14 +16,15 @@ class BaiduController extends Controller
     //token
     public function xiongzhang(Request $request)
     {
+        Options::EditData(['option_name'=>'test_info'],['option_value'=>1]);
+        Options::EditData(['option_name'=>'test_content'],['option_value'=>2]);
         /**
          * 开发者设置
          */
         $xzhLib = app('xiongzhang');
         $msgType = $xzhLib->getRevType();
         $msgData = $xzhLib->getRevData();
-        Options::EditData(['option_name'=>'test_info'],['option_value'=>$msgType]);
-        Options::EditData(['option_name'=>'test_content'],['option_value'=>$msgData]);
+
         $xzhLib::$log->notice("Rev msgType: {$msgType} msgData:" . json_encode($msgData));
 
         // 根据消息类型，做业务响应

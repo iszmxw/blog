@@ -86,9 +86,9 @@ class BaiduController extends Controller
         foreach($blog as $key=>$val){
             $urls[] = 'http://blog.54zm.com/article/'.$val['gid'];
         }
-        $data = implode("\n", $urls);
+        $data[] = implode("\n", $urls);
         $client = new Client();
-        $result = $client->post($api,['content'=>$data]);
+        $result = $client->post($api,$data);
         echo $result->getBody();
 //        $ch = curl_init();
 //        $options =  array(

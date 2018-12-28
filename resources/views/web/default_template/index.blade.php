@@ -1,5 +1,5 @@
 @extends('web.default_template.app')
-{{ debug() }}
+
 @section('title', '追梦小窝博客首页')
 {{--样式引入--}}
 @section('style')

@@ -9,6 +9,7 @@ use App\Models\Sort;
 use App\Models\Comment;
 use App\Models\Tag;
 use App\Models\User;
+use DebugBar\DebugBar;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -30,6 +31,7 @@ class WebController extends Controller
             }
         }
         $view = ['blog' => $blog];
+        Debugbar::info($view);
         return view('web.default_template.index', $view);
     }
 

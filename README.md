@@ -47,3 +47,12 @@ REDIS_PORT=6379
 WC_AppID=微信订阅号appid
 
 WC_AppSecret=微信AppSecret
+
+# composer仓库 （主要用了以下扩展）
+## 1、"caouecs/laravel-lang": "~3.0",
+## 2、"barryvdh/laravel-debugbar": "^3.2",
+## 3、"barryvdh/laravel-ide-helper": "^2.5",
+## 4、"guzzlehttp/guzzle": "~6.0",
+## 5、"lyndon1994/xiongzhang-sdk": "^1.0",
+## 6、"predis/predis": "^1.1",
+## 7、"xethron/migrations-generator": "^2.0"

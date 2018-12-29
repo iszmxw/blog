@@ -81,7 +81,7 @@ class BaiduController extends Controller
     {
         $start = $request->get('start');
         if (empty($start)){
-            return ['缺少start参数，请设置从那条数据开始提交，上次提交是从30条开始的'];
+            return ['status'=>'0','msg'=>'缺少start参数，请设置从那条数据开始提交，上次提交是从30条开始的'];
         }
         //每天推送十条的地址
         $api1 = 'http://data.zz.baidu.com/urls?appid=1606122614792135&token=zIWbEIZuASc0biYF&type=realtime';

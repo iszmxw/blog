@@ -28,6 +28,6 @@ class OrderShipped extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.welcome');
+        return $this->subject('欢迎您注册成为我们的会员！')->view('emails.welcome');;
     }
 }

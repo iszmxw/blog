@@ -83,13 +83,12 @@ class BaiduController extends Controller
         $api1 = 'http://data.zz.baidu.com/urls?appid=1606122614792135&token=zIWbEIZuASc0biYF&type=realtime';
         //每周无线推送的地址
         $api2 = 'http://data.zz.baidu.com/urls?appid=1606122614792135&token=zIWbEIZuASc0biYF&type=batch';
-        $blog = Blog::getList([],'gid',20,10);
-        dd($blog,1);
+        $blog = Blog::getList([],'gid',30,10);
 //        $blog = Blog::getList([],'gid');
         foreach($blog as $key=>$val){
             $urls[] = 'http://blog.54zm.com/article/'.$val['gid'];
         }
-//        dd($urls);
+        dd($urls);
         $data['body'] = implode("\n", $urls);
         $client = new Client();
         $result = $client->post($api1,$data);

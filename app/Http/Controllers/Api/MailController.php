@@ -15,10 +15,7 @@ class MailController extends Controller{
     public function push_content(Request $request)
     {
         $name = '傻妞';
-        $flag = Mail::send('welcome',['name'=>$name],function($message){
-            $to = '442246396@qq.com';
-            $message ->to($to)->subject('邮件测试');
-        });
+        $flag = Mail::send('welcome',['name'=>$name]);
         if($flag){
             echo '发送邮件成功，请查收！';
         }else{

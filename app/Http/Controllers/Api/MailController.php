@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Mail;
 class MailController extends Controller{
     public function push_content(Request $request)
     {
-        Mail::to('442246396@qq.com')->send(new OrderShipped());
+        $response = Mail::to('442246396@qq.com')->send(new OrderShipped());
+        dd($response);
     }
 }

@@ -30,4 +30,10 @@ Route::group(['namespace'=>'Api'],function(){
         Route::any('token','WechatController@token');
         Route::any('getAccessToken','WechatController@getAccessToken');
     });
+
+    //微信订阅号(aszmxw)
+    Route::group(['prefix'=>'mail'],function(){
+        //发送邮件
+        Route::any('push_content','MailController@push_content');
+    });
 });

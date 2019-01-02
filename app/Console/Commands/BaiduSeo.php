@@ -51,7 +51,7 @@ class BaiduSeo extends Command
         $result = $client->post($api,$data);
         $response = $result->getBody()->getContents();
         $dataArr = json_decode($response,true);
-        if ($dataArr['success'] >= 0){
+        if ($dataArr['success'] > 0){
             foreach($blog as $key=>$val){
                 Blog::EditData(['gid'=>$val['gid']],['baidu_seo'=>'1']);
             }

@@ -86,7 +86,7 @@ class BaiduController extends Controller
             $blog = Blog::getList(['baidu_seo'=>'0'],'gid',0,10);
 
         }else{
-            $blog = Blog::getList([],'gid',$start,10);
+            $blog = Blog::getList(['baidu_seo'=>'0'],'gid',$start,10);
         }
         if (empty($type)){
             //每周无线推送的地址
@@ -98,12 +98,10 @@ class BaiduController extends Controller
         foreach($blog as $key=>$val){
             $urls[] = 'http://blog.54zm.com/article/'.$val['gid'];
         }
-//        dd($urls);
         $data['body'] = implode("\n", $urls);
         $client = new Client();
         $result = $client->post($api,$data);
-        $response = $result->getBody()->getContents();
-        dd(json_decode($response,true)['success_realtime']);
+        echo $result->getBody()->getContents();
     }
 
 }

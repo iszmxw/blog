@@ -83,7 +83,7 @@ class BaiduController extends Controller
         $type = $request->get('type');
         if (empty($start)){
 //            return ['status'=>'0','msg'=>'缺少start参数，请设置从那条数据开始提交，上次提交是从40条开始的'];
-            $blog = Blog::getList([],'gid');
+            $blog = Blog::getList(['baidu_seo'=>'0'],'gid',0,10);
 
         }else{
             $blog = Blog::getList([],'gid',$start,10);
@@ -102,7 +102,8 @@ class BaiduController extends Controller
         $data['body'] = implode("\n", $urls);
         $client = new Client();
         $result = $client->post($api,$data);
-        echo $result->getBody()->getContents();
+        $response = $result->getBody()->getContents();
+        dd(json_decode($response,true));
     }
 
 }

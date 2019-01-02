@@ -14,7 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         //注册我的定时任务类
-        \App\Console\Commands\AreYouOK::class,
+        \App\Console\Commands\BaiduSeo::class,
     ];
 
     /**
@@ -27,7 +27,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
-        $schedule->command('areyou:ok')
+        $schedule->command('baiduseo:ok')
             ->timezone('Asia/Shanghai')
             ->everyMinute();
     }

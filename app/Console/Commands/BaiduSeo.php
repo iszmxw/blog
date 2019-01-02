@@ -51,13 +51,13 @@ class BaiduSeo extends Command
         $result = $client->post($api,$data);
         $response = $result->getBody()->getContents();
         $dataArr = json_decode($response,true);
+        $file  = 'cron.txt';//要写入文件的文件名（可以是任意文件名），如果文件不存在，将会创建一个
+        $content = "百度内容提交成功\r\n";
         if ($dataArr['success'] > 0){
             foreach($blog as $key=>$val){
                 Blog::EditData(['gid'=>$val['gid']],['baidu_seo'=>'1']);
             }
+            file_put_contents($file, $content,FILE_APPEND);
         }
-        $file  = 'cron.txt';//要写入文件的文件名（可以是任意文件名），如果文件不存在，将会创建一个
-        $content = "百度内容提交成功\r\n";
-        file_put_contents($file, $content,FILE_APPEND);
     }
 }

@@ -103,7 +103,7 @@ class BaiduController extends Controller
         $client = new Client();
         $result = $client->post($api,$data);
         $response = $result->getBody()->getContents();
-        dd(json_decode($response,true));
+        dd(json_decode($response,true)['success_realtime']);
     }
 
 }

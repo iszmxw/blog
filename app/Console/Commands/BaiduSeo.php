@@ -50,7 +50,8 @@ class BaiduSeo extends Command
         $client = new Client();
         $result = $client->post($api,$data);
         $response = $result->getBody()->getContents();
-        if ($response){
+        $dataArr = json_decode($response,true);
+        if ($dataArr['success'] == 10){
             foreach($blog as $key=>$val){
                 Blog::EditData(['gid'=>$val['gid']],['baidu_seo'=>'1']);
             }

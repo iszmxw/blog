@@ -80,13 +80,17 @@ class BaiduController extends Controller
     public function push_content(Request $request)
     {
         $start = $request->get('start');
+        $type = $request->get('type');
         if (empty($start)){
             return ['status'=>'0','msg'=>'缺少start参数，请设置从那条数据开始提交，上次提交是从40条开始的'];
         }
-        //每天推送十条的地址
-        $api1 = 'http://data.zz.baidu.com/urls?appid=1606122614792135&token=zIWbEIZuASc0biYF&type=realtime';
-        //每周无线推送的地址
-        $api2 = 'http://data.zz.baidu.com/urls?appid=1606122614792135&token=zIWbEIZuASc0biYF&type=batch';
+        if (empty($type)){
+            //每周无线推送的地址
+            $api = 'http://data.zz.baidu.com/urls?appid=1606122614792135&token=zIWbEIZuASc0biYF&type=batch';
+        }else{
+            //每天推送十条的地址
+            $api = 'http://data.zz.baidu.com/urls?appid=1606122614792135&token=zIWbEIZuASc0biYF&type=realtime';
+        }
         $blog = Blog::getList([],'gid',$start,10);
 //        $blog = Blog::getList([],'gid');
         foreach($blog as $key=>$val){
@@ -95,7 +99,7 @@ class BaiduController extends Controller
 //        dd($urls);
         $data['body'] = implode("\n", $urls);
         $client = new Client();
-        $result = $client->post($api1,$data);
+        $result = $client->post($api,$data);
         echo $result->getBody()->getContents();
     }
 

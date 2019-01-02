@@ -82,7 +82,11 @@ class BaiduController extends Controller
         $start = $request->get('start');
         $type = $request->get('type');
         if (empty($start)){
-            return ['status'=>'0','msg'=>'缺少start参数，请设置从那条数据开始提交，上次提交是从40条开始的'];
+//            return ['status'=>'0','msg'=>'缺少start参数，请设置从那条数据开始提交，上次提交是从40条开始的'];
+            $blog = Blog::getList([],'gid');
+
+        }else{
+            $blog = Blog::getList([],'gid',$start,10);
         }
         if (empty($type)){
             //每周无线推送的地址
@@ -91,8 +95,6 @@ class BaiduController extends Controller
             //每天推送十条的地址
             $api = 'http://data.zz.baidu.com/urls?appid=1606122614792135&token=zIWbEIZuASc0biYF&type=realtime';
         }
-        $blog = Blog::getList([],'gid',$start,10);
-//        $blog = Blog::getList([],'gid');
         foreach($blog as $key=>$val){
             $urls[] = 'http://blog.54zm.com/article/'.$val['gid'];
         }

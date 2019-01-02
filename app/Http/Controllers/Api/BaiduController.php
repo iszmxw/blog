@@ -82,10 +82,11 @@ class BaiduController extends Controller
         $start = $request->get('start');
         $type = $request->get('type');
         if (empty($start)){
-            $blog = Blog::getList(['baidu_seo'=>'0'],'gid');
+            $blog = Blog::getList(['baidu_seo'=>'0'],'gid',0,10);
         }else{
             $blog = Blog::getList(['baidu_seo'=>'0'],'gid',$start,10);
         }
+        dd($blog);
         if (empty($type)){
             //每周无线推送的地址
             $api = 'http://data.zz.baidu.com/urls?appid=1606122614792135&token=zIWbEIZuASc0biYF&type=batch';

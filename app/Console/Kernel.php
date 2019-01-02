@@ -13,12 +13,13 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        //注册我的定时任务类
+        \App\Console\Commands\AreYouOK::class,
     ];
 
     /**
      * Define the application's command schedule.
-     *
+     * 定时任务调用逻辑
      * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
      * @return void
      */
@@ -26,6 +27,9 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+        $schedule->command('areyou:ok')
+            ->timezone('Asia/Shanghai')
+            ->everyMinute();
     }
 
     /**

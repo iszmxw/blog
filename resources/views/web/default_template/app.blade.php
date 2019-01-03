@@ -65,6 +65,7 @@
 <script src="{{asset('style/web/default_template/js/inspinia.js')}}"></script>
 <script src="{{asset('style/web/default_template/js/plugins/pace/pace.min.js')}}"></script>
 <script src="{{asset('style/web/default_template/prismjs/prism.js')}}"></script>
+<script src="{{asset('style/web/default_template/js/baidu_seo.js')}}"></script>
 <script>
     $(function(){
         //控制菜单自动展开

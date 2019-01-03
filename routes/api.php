@@ -12,10 +12,6 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-//Route::middleware('auth:api')->get('/user', function (Request $request) {
-//    return $request->user();
-//});
 Route::group(['namespace'=>'Api'],function(){
     //微信订阅号(aszmxw)
     Route::group(['prefix'=>'baidu'],function(){
@@ -36,4 +32,25 @@ Route::group(['namespace'=>'Api'],function(){
         //发送邮件
         Route::any('push_content','MailController@push_content');
     });
+});
+
+Route::prefix('wechat_xcx')->group(function () {
+    //消息推送接口设置
+    Route::get('message_push', 'WeChat\ApiController@message_push');
+    //获取access_token
+    Route::get('access_token', 'WeChat\ApiController@access_token');
+    Route::get('get_access_token', 'WeChat\ApiController@get_access_token');
+    //获取小程序码
+    Route::get('getwxacode', 'WeChat\ApiController@getwxacode');
+    //获取小程序二维码
+    Route::get('createwxaqrcode', 'WeChat\ApiController@createwxaqrcode');
+    //登录小程序
+    Route::get('login', 'WeChat\ApiController@login');
+    //测试专用
+    Route::get('test', 'WeChat\ApiController@test');
+
+    //小程序首页
+    Route::get('index', 'WeChat\ApiController@index');
+    //小程序文章页面
+    Route::get('article', 'WeChat\ApiController@article');
 });

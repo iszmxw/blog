@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Library\HttpCurl;
 use App\Models\Blog;
-use App\Models\Options;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;

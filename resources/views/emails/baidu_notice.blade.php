@@ -289,7 +289,7 @@
                                 </tr>
                                 <tr>
                                     <td class="content-block">
-                                        <a href="#" class="btn-primary">知道了</a>
+                                        <a href="#" class="btn-primary">（づ￣3￣）づ╭❤～</a>
                                     </td>
                                 </tr>
                                 <tr>

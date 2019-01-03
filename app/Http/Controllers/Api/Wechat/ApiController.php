@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\WeChat;
+namespace App\Http\Controllers\Api\Wechat;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog;

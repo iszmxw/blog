@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Console\\Commands\\BaiduSeo' => $baseDir . '/app/Console/Commands/BaiduSeo.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Admin\\AdminController' => $baseDir . '/app/Http/Controllers/Admin/AdminController.php',
@@ -13,7 +14,9 @@ return array(
     'App\\Http\\Controllers\\Admin\\CategoryController' => $baseDir . '/app/Http/Controllers/Admin/CategoryController.php',
     'App\\Http\\Controllers\\Admin\\PluginsController' => $baseDir . '/app/Http/Controllers/Admin/PluginsController.php',
     'App\\Http\\Controllers\\Api\\BaiduController' => $baseDir . '/app/Http/Controllers/Api/BaiduController.php',
+    'App\\Http\\Controllers\\Api\\MailController' => $baseDir . '/app/Http/Controllers/Api/MailController.php',
     'App\\Http\\Controllers\\Api\\WechatController' => $baseDir . '/app/Http/Controllers/Api/WechatController.php',
+    'App\\Http\\Controllers\\Api\\Wechat\\ApiController' => $baseDir . '/app/Http/Controllers/Api/Wechat/ApiController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\Tooling\\ToolingController' => $baseDir . '/app/Http/Controllers/Tooling/ToolingController.php',
     'App\\Http\\Controllers\\Web\\WebController' => $baseDir . '/app/Http/Controllers/Web/WebController.php',
@@ -30,6 +33,7 @@ return array(
     'App\\Library\\HttpCurl' => $baseDir . '/app/Library/HttpCurl.php',
     'App\\Library\\IpAddress' => $baseDir . '/app/Library/IpAddress.php',
     'App\\Library\\Tooling' => $baseDir . '/app/Library/Tooling.php',
+    'App\\Mail\\OrderShipped' => $baseDir . '/app/Mail/OrderShipped.php',
     'App\\Models\\Attachment' => $baseDir . '/app/Models/Attachment.php',
     'App\\Models\\Blog' => $baseDir . '/app/Models/Blog.php',
     'App\\Models\\Comment' => $baseDir . '/app/Models/Comment.php',

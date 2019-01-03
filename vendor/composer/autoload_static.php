@@ -527,6 +527,7 @@ class ComposerStaticInit80e74e3cc98fb61872274dfabac78f34
     );
 
     public static $classMap = array (
+        'App\\Console\\Commands\\BaiduSeo' => __DIR__ . '/../..' . '/app/Console/Commands/BaiduSeo.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Admin\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/AdminController.php',
@@ -534,7 +535,9 @@ class ComposerStaticInit80e74e3cc98fb61872274dfabac78f34
         'App\\Http\\Controllers\\Admin\\CategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CategoryController.php',
         'App\\Http\\Controllers\\Admin\\PluginsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/PluginsController.php',
         'App\\Http\\Controllers\\Api\\BaiduController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/BaiduController.php',
+        'App\\Http\\Controllers\\Api\\MailController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/MailController.php',
         'App\\Http\\Controllers\\Api\\WechatController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/WechatController.php',
+        'App\\Http\\Controllers\\Api\\Wechat\\ApiController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/Wechat/ApiController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\Tooling\\ToolingController' => __DIR__ . '/../..' . '/app/Http/Controllers/Tooling/ToolingController.php',
         'App\\Http\\Controllers\\Web\\WebController' => __DIR__ . '/../..' . '/app/Http/Controllers/Web/WebController.php',
@@ -551,6 +554,7 @@ class ComposerStaticInit80e74e3cc98fb61872274dfabac78f34
         'App\\Library\\HttpCurl' => __DIR__ . '/../..' . '/app/Library/HttpCurl.php',
         'App\\Library\\IpAddress' => __DIR__ . '/../..' . '/app/Library/IpAddress.php',
         'App\\Library\\Tooling' => __DIR__ . '/../..' . '/app/Library/Tooling.php',
+        'App\\Mail\\OrderShipped' => __DIR__ . '/../..' . '/app/Mail/OrderShipped.php',
         'App\\Models\\Attachment' => __DIR__ . '/../..' . '/app/Models/Attachment.php',
         'App\\Models\\Blog' => __DIR__ . '/../..' . '/app/Models/Blog.php',
         'App\\Models\\Comment' => __DIR__ . '/../..' . '/app/Models/Comment.php',

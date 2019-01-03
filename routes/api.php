@@ -34,7 +34,7 @@ Route::group(['namespace'=>'Api'],function(){
     });
 
     //小程序
-    Route::group(['prefix'=>'wechat_xcx','namespace'=>'WeChat'],function () {
+    Route::group(['prefix'=>'wechat_xcx'],function () {
         //消息推送接口设置
         Route::get('message_push', 'ApiController@message_push');
         //获取access_token

@@ -32,6 +32,7 @@ Route::group(['namespace'=>'Api'],function(){
         //发送邮件
         Route::any('push_content','MailController@push_content');
     });
+
     //小程序
     Route::group(['prefix'=>'wechat_xcx'],function () {
         //消息推送接口设置

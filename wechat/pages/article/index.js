@@ -14,7 +14,7 @@ Page({
   onLoad: function (options) {
     var that = this
     wx.request({
-      url: 'https://54zm.com/api/wechat_xcx/article',
+      url: 'https://blog.54zm.com/api/wechat_xcx/article',
       data: {
         blog_id: options.blog_id,
       },

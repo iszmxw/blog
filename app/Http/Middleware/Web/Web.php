@@ -78,6 +78,7 @@ class Web
         //前十条评论数据调用
         $comments = Comment::getList(['hide'=>'n'],'',0,6,'date','DESC');
         foreach($comments as $key=>$val){
+            dump($val['mail']);
             if(empty($val['mail'])){
                 $val['mail'] = "10000";
             }

@@ -134,7 +134,6 @@ class ArticleController extends Controller
         $data['password'] = $password?$password:'';
         $data['excerpt'] = $excerpt?$excerpt:'';
         $data['content'] = $content?$content:'';
-        $data['date'] = time();
         //数据库事物回滚
         DB::beginTransaction();
         try {

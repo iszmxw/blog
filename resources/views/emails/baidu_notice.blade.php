@@ -279,17 +279,17 @@
                             <table width="100%" cellpadding="0" cellspacing="0">
                                 <tr>
                                     <td class="content-block">
-                                        您有一份 <strong>1 免费</strong> 的笑话
+                                        您有一条 <strong>新的</strong> 消息
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="content-block">
-                                        本人护士，今天早上有个病人家属到护士站为问我WIFI密码，我说住院部这边没有，一会儿工夫不到那个病人家属居然办理好转院手续了。。。
+                                        今天您的seo已经提交成功啦，恭喜您。
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="content-block">
-                                        <a href="#" class="btn-primary">升级账户</a>
+                                        <a href="#" class="btn-primary">知道了</a>
                                     </td>
                                 </tr>
                                 <tr>

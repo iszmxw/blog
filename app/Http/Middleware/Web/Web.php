@@ -80,7 +80,7 @@ class Web
         dump($comments);
         foreach($comments as $key=>$val){
             if(empty($val['mail'])){
-                $val['mail'] = 10000;
+                $val['mail'] = "10000";
             }
             $comments[$key]['blog_title'] = Blog::getValue(['gid'=>$val['gid']],'title');
         }

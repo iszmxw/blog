@@ -58,6 +58,7 @@ class BaiduSeo extends Command
                 Blog::EditData(['gid'=>$val['gid']],['baidu_seo'=>'1']);
             }
             file_put_contents($file, $content,FILE_APPEND);
+            $client->get("http://blog.54zm.com/api/mail/push_content");
         }
     }
 }

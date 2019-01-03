@@ -1,8 +1,8 @@
 //pages/index.js
 
 const app = getApp();
-// var url = 'https://54zm.com/api/wechat_xcx/index';
-var url = 'https://ctwxl.com';
+var url = 'https://blog.54zm.com/api/wechat_xcx/index';
+// var url = 'https://ctwxl.com';
 var animation = wx.createAnimation()
 var i_tips = 0;
 Page({

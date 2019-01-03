@@ -83,8 +83,6 @@ class Web
             }
             $comments[$key]['blog_title'] = Blog::getValue(['gid'=>$val['gid']],'title');
         }
-        dump($comments);
-
         //站点统计信息
         $site_info['naissance'] = floor((time()-strtotime('2015-8-1'))/86400);
         $site_info['comments'] = Comment::getCount([]);

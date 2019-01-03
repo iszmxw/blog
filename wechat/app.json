@@ -1,0 +1,20 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/article/index"
+  ],
+  "window":{
+    "backgroundTextStyle":"#ccc",
+    "navigationBarBackgroundColor": "#009688",
+    "navigationBarTitleText": "追梦小窝",
+    "navigationBarTextStyle":"light",
+    "onReachBottomDistance":"50"
+  },
+  "plugins": {
+    "htmltowxml": {
+      "version": "1.3.0",
+      "provider": "wxa51b9c855ae38f3c"
+    }
+  }
+}

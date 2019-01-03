@@ -1,0 +1,21 @@
+<!--pages/article/index.wxml-->
+<!-- 头部 -->
+<view class="header">
+  <view class="cosplay_tx">
+    <image src="https://cambrian-images.cdn.bcebos.com/771df369020a47a1337b265dbad378df_1531717703740.jpeg"></image>
+
+  </view>
+  <view class="webname">追梦小窝-Blog</view>
+  <view class="menu"></view>
+</view>
+
+<!-- 文章内容部分 -->
+<view class="content">
+<htmltowxml text="{{content}}" bindWxmlTagATap="wxmlTagATap" />
+</view>
+<!-- 文章内容部分 -->
+
+<!-- 博客底部 -->
+<view class="copyright">
+  Copyright © <text>追梦小窝-Blog</text> 2018-08-18
+</view>

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Api;
+
 use App\Models\Blog;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;

@@ -34,24 +34,24 @@ Route::group(['namespace'=>'Api'],function(){
     });
 
     //小程序
-    Route::group(['prefix'=>'wechat_xcx'],function () {
+    Route::group(['prefix'=>'wechat_xcx','namespace'=>'WeChat'],function () {
         //消息推送接口设置
-        Route::get('message_push', 'WeChat\ApiController@message_push');
+        Route::get('message_push', 'ApiController@message_push');
         //获取access_token
-        Route::get('access_token', 'WeChat\ApiController@access_token');
-        Route::get('get_access_token', 'WeChat\ApiController@get_access_token');
+        Route::get('access_token', 'ApiController@access_token');
+        Route::get('get_access_token', 'ApiController@get_access_token');
         //获取小程序码
-        Route::get('getwxacode', 'WeChat\ApiController@getwxacode');
+        Route::get('getwxacode', 'ApiController@getwxacode');
         //获取小程序二维码
-        Route::get('createwxaqrcode', 'WeChat\ApiController@createwxaqrcode');
+        Route::get('createwxaqrcode', 'ApiController@createwxaqrcode');
         //登录小程序
-        Route::get('login', 'WeChat\ApiController@login');
+        Route::get('login', 'ApiController@login');
         //测试专用
-        Route::get('test', 'WeChat\ApiController@test');
+        Route::get('test', 'ApiController@test');
 
         //小程序首页
-        Route::get('index', 'WeChat\ApiController@index');
+        Route::get('index', 'ApiController@index');
         //小程序文章页面
-        Route::get('article', 'WeChat\ApiController@article');
+        Route::get('article', 'ApiController@article');
     });
 });

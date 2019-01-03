@@ -16,7 +16,7 @@ class MailController extends Controller{
     public function push_content(Request $request)
     {
         $build = new OrderShipped();
-        $response = Mail::to('442246396@qq.com')->send($build->subject('欢迎欢迎'));
-        dd($response);
+        Mail::to('iszmxw@189.cn')->send($build->subject('恭喜您，今日seo提交成功！'));
+        dd('恭喜您，今日seo提交成功！');
     }
 }

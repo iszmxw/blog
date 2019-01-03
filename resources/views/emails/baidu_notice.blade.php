@@ -3,8 +3,8 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>邮件订阅提醒</title>
-    <link href="styles.css" media="all" rel="stylesheet" type="text/css" />
+    <title>消息通知：您的Seo链接提交成功</title>
+    <link href="{{ asset('style/admin/email/styles.css') }}" media="all" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -17,7 +17,7 @@
                 <table class="main" width="100%" cellpadding="0" cellspacing="0">
                     <tr>
                         <td class="alert alert-good">
-                            信息: 您的邮件权限不足，请升级
+                            信息: 您的Seo链接提交成功啦！
                         </td>
                     </tr>
                     <tr>
@@ -40,7 +40,7 @@
                                 </tr>
                                 <tr>
                                     <td class="content-block">
-                                        感谢网豫游戏公司
+                                        以上邮件信息由追梦小窝的博客提供
                                     </td>
                                 </tr>
                             </table>

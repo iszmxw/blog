@@ -79,7 +79,7 @@ class Web
         $comments = Comment::getList(['hide'=>'n'],'',0,6,'date','DESC');
         dump($comments);
         foreach($comments as $key=>$val){
-            if(!$val['mail'])$val['mail'] = 10000;
+            if(empty($val['mail']))$val['mail'] = 10000;
             $comments[$key]['blog_title'] = Blog::getValue(['gid'=>$val['gid']],'title');
         }
 

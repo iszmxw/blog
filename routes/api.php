@@ -43,7 +43,7 @@ Route::group(['namespace'=>'Api'],function(){
         //测试专用
         Route::get('test', 'MiniController@test');
         //小程序首页
-        Route::get('index1', 'MiniController@index');
+        Route::get('index', 'MiniController@index');
         //小程序文章页面
         Route::get('article', 'MiniController@article');
     });

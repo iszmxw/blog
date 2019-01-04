@@ -23,7 +23,7 @@ Route::group(['namespace'=>'Api'],function(){
     //微信订阅号(aszmxw)
     Route::group(['prefix'=>'wechat','namespace'=>'Wechat'],function(){
         //token基本配置
-        Route::any('token','WechatController@token');
+        Route::any('serve','WechatController@serve');
         Route::any('getAccessToken','WechatController@getAccessToken');
     });
 

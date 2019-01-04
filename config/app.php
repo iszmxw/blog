@@ -161,6 +161,8 @@ return [
         App\Providers\RouteServiceProvider::class,
 //        Barryvdh\Debugbar\ServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        //注册微信公众号
+        Overtrue\LaravelWeChat\ServiceProvider::class,
         //注册 熊掌号ServiceProvider
         Xiongzhang\Laravel\XiongzhangServiceProvider::class,
         Way\Generators\GeneratorsServiceProvider::class,
@@ -214,6 +216,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        //注册微信公众号
+        'EasyWeChat' => Overtrue\LaravelWeChat\Facade::class,
 
     ],
 

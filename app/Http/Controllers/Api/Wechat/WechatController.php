@@ -22,6 +22,9 @@ class WechatController extends Controller
         $config = config('wechat.official_account');
         $app = Factory::officialAccount($config);
         $response = $app->server->serve();
+        $app->server->push(function ($message) {
+            return "您好！欢迎使用 EasyWeChat!";
+        });
         // 将响应输出
         // Laravel 里请使用：return $response;
         return $response;

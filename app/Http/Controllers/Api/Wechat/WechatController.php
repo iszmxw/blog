@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\Wechat;
 
 use App\Library\HttpCurl;
 use App\Models\Options;

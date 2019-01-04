@@ -21,20 +21,14 @@ Route::group(['namespace'=>'Api'],function(){
         Route::any('push_content','BaiduController@push_content');
     });
     //微信订阅号(aszmxw)
-    Route::group(['prefix'=>'wechat'],function(){
+    Route::group(['prefix'=>'wechat','namespace'=>'Wechat'],function(){
         //token基本配置
         Route::any('token','WechatController@token');
         Route::any('getAccessToken','WechatController@getAccessToken');
     });
 
-    //发送邮件(aszmxw)
-    Route::group(['prefix'=>'mail'],function(){
-        //发送邮件
-        Route::any('push_content','MailController@push_content');
-    });
-
     //小程序
-    Route::group(['prefix'=>'wechat_xcx'],function () {
+    Route::group(['prefix'=>'wechat_xcx','namespace'=>'Wechat'],function () {
         //消息推送接口设置
         Route::get('message_push', 'ApiController@message_push');
         //获取access_token
@@ -48,10 +42,15 @@ Route::group(['namespace'=>'Api'],function(){
         Route::get('login', 'ApiController@login');
         //测试专用
         Route::get('test', 'ApiController@test');
-
         //小程序首页
         Route::get('index', 'ApiController@index');
         //小程序文章页面
         Route::get('article', 'ApiController@article');
+    });
+
+    //发送邮件(aszmxw)
+    Route::group(['prefix'=>'mail'],function(){
+        //发送邮件
+        Route::any('push_content','MailController@push_content');
     });
 });

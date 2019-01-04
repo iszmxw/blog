@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\Wechat;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
@@ -8,7 +8,7 @@ use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
 
-class ApiController extends Controller
+class MiniController extends Controller
 {
     /**
      * 微信小程序相关信息

@@ -30,22 +30,22 @@ Route::group(['namespace'=>'Api'],function(){
     //小程序
     Route::group(['prefix'=>'wechat_xcx','namespace'=>'Wechat'],function () {
         //消息推送接口设置
-        Route::get('message_push', 'ApiController@message_push');
+        Route::get('message_push', 'MiniController@message_push');
         //获取access_token
-        Route::get('access_token', 'ApiController@access_token');
-        Route::get('get_access_token', 'ApiController@get_access_token');
+        Route::get('access_token', 'MiniController@access_token');
+        Route::get('get_access_token', 'MiniController@get_access_token');
         //获取小程序码
-        Route::get('getwxacode', 'ApiController@getwxacode');
+        Route::get('getwxacode', 'MiniController@getwxacode');
         //获取小程序二维码
-        Route::get('createwxaqrcode', 'ApiController@createwxaqrcode');
+        Route::get('createwxaqrcode', 'MiniController@createwxaqrcode');
         //登录小程序
-        Route::get('login', 'ApiController@login');
+        Route::get('login', 'MiniController@login');
         //测试专用
-        Route::get('test', 'ApiController@test');
+        Route::get('test', 'MiniController@test');
         //小程序首页
-        Route::get('index', 'ApiController@index');
+        Route::get('index', 'MiniController@index');
         //小程序文章页面
-        Route::get('article', 'ApiController@article');
+        Route::get('article', 'MiniController@article');
     });
 
     //发送邮件(aszmxw)

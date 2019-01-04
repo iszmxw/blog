@@ -22,7 +22,7 @@ class WechatController extends Controller
         $config = config('wechat.official_account');
         $app = Factory::officialAccount($config);
         $app->server->push(function($message){
-            return "欢迎关注 overtrue！";
+            return "欢迎关注追梦小窝的公众号，此公众号仅供提供一些服务！";
         });
 
         return $app->server->serve();

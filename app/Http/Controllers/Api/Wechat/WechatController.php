@@ -40,7 +40,7 @@ class WechatController extends Controller
         // 未登录
         if (empty($_SESSION['wechat_user'])) {
 
-            $_SESSION['target_url'] = 'user/profile';
+            $_SESSION['target_url'] = 'http://blog.54zm.com/api/wechat/user/profile';
 
             return $oauth->redirect();
             // 这里不一定是return，如果你的框架action不是返回内容的话你就得使用
@@ -50,6 +50,12 @@ class WechatController extends Controller
             return redirect('api/wechat/user/profile');
         }
 
+    }
+
+
+    public function profile(Request $request)
+    {
+        dd($request);
     }
 
     //创建菜单

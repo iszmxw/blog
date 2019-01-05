@@ -37,10 +37,7 @@ class WechatController extends Controller
 
     public function oauth_callback(Request $request)
     {
-        // 获取 access token 实例
-        $accessToken = $this->app->access_token;
-        $newAccessToken = $accessToken->getToken(); // token 数组  token['access_token'] 字符串
-        $this->app['access_token']->setToken($newAccessToken, 7200);
+
 
         $list = $this->app->menu->list();
 //        Options::EditData(['option_name'=>'test_info'],['option_value'=>serialize($list)]);

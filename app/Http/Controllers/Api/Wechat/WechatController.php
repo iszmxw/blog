@@ -34,6 +34,12 @@ class WechatController extends Controller
     {
         $config = config('wechat.official_account');
         $app = Factory::officialAccount($config);
+
+        // 获取 access token 实例
+        $accessToken = $app->access_token;
+        $newAccessToken = $accessToken->getToken(); // token 数组  token['access_token'] 字符串
+        $app['access_token']->setToken($newAccessToken, 7200);
+
         $list = $app->menu->list();
 //        Options::EditData(['option_name'=>'test_info'],['option_value'=>serialize($list)]);
         Options::EditData(['option_name'=>'test_info'],['option_value'=>11]);

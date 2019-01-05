@@ -29,7 +29,15 @@ class WechatController extends Controller
         return $response;
     }
 
+    //授权回调设置
     public function oauth_callback(Request $request)
+    {
+        $config = config('wechat.official_account');
+        $app = Factory::officialAccount($config);
+    }
+
+    //创建菜单
+    public function create_menu(Request $request)
     {
         $config = config('wechat.official_account');
         $app = Factory::officialAccount($config);

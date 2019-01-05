@@ -50,7 +50,9 @@ class WechatController extends Controller
 
     public function profile(Request $request)
     {
-        dd($request);
+        // 已经登录过
+        $user = $_SESSION['wechat_user'];
+        dump($user);
     }
 
     //创建菜单

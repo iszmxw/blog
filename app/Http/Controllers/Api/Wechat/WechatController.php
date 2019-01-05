@@ -28,8 +28,7 @@ class WechatController extends Controller
      */
     public function serve()
     {
-        $config = config('wechat.official_account');
-        $app = Factory::officialAccount($config);
+        $app = self::App();
         $app->server->push(function ($message) {
             return "您好！欢迎使用 公众号服务!";
         });
@@ -37,7 +36,6 @@ class WechatController extends Controller
         // 将响应输出
         return $response;
     }
-
 
     /**
      * 授权回调设置
@@ -47,19 +45,12 @@ class WechatController extends Controller
     public function oauth_callback(Request $request)
     {
         $app = self::App();
-        $app->server->push(function ($message) {
-            return "您好！欢迎使用 公众号服务!";
-        });
-        $response = $app->server->serve();
-        // 将响应输出
-        return $response;
-
-//        $oauth = $app->oauth;
-//        // 未登录
-//        if (empty($_SESSION['wechat_user'])) {
-//            // 这里不一定是return，如果你的框架action不是返回内容的话你就得使用
-//            return $oauth->redirect();
-//        }
+        $oauth = $app->oauth;
+        // 未登录
+        if (empty($_SESSION['wechat_user'])) {
+            // 这里不一定是return，如果你的框架action不是返回内容的话你就得使用
+            return $oauth->redirect();
+        }
     }
 
 

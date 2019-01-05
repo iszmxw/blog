@@ -40,5 +40,6 @@ class WechatController extends Controller
         $list = $app->menu->list();
 //        Options::EditData(['option_name'=>'test_info'],['option_value'=>serialize($list)]);
         Options::EditData(['option_name'=>'test_info'],['option_value'=>11]);
+        return $list;
     }
 }

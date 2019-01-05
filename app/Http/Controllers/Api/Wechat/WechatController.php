@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Log;
 
 class WechatController extends Controller
 {
+    /**
+     * 获取配置信息
+     * @return \EasyWeChat\OfficialAccount\Application
+     */
     public static function App()
     {
         $config = config('wechat.official_account');

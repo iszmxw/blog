@@ -35,7 +35,7 @@ class WechatController extends Controller
         $app = Factory::officialAccount($config);
         $buttons = [
             [
-                "type" => "click",
+                "type" => "view",
                 "name" => "追梦小窝",
                 "url"  => "http://blog.54zm.com"
             ],

@@ -33,7 +33,7 @@ class WechatController extends Controller
     {
         $config = config('wechat.official_account');
         $app = Factory::officialAccount($config);
-        dd($app->access_token->getToken());
+        dd($app->access_token->getToken(true));
         $list = $app->menu->list();
 //        Options::EditData(['option_name'=>'test_info'],['option_value'=>serialize($list)]);
 //        Options::EditData(['option_name'=>'test_info'],['option_value'=>11]);

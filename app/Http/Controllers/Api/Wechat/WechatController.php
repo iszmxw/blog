@@ -22,7 +22,7 @@ class WechatController extends Controller
         $config = config('wechat.official_account');
         $app = Factory::officialAccount($config);
         $app->server->push(function ($message) {
-            return "您好！欢迎使用 公众号服务!";
+            return "您好！欢迎使用 公众号服务!".$message['FromUserName'];
         });
         $response = $app->server->serve();
         // 将响应输出
@@ -65,5 +65,12 @@ class WechatController extends Controller
         ];
         $list = $app->menu->create($buttons);
         dump($list);
+    }
+
+    public function get_user_info()
+    {
+        $config = config('wechat.official_account');
+        $app = Factory::officialAccount($config);
+        $user = $app->user->get('');
     }
 }

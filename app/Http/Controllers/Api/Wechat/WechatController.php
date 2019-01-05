@@ -28,7 +28,8 @@ class WechatController extends Controller
      */
     public function serve()
     {
-        $app = self::App();
+        $config = config('wechat.official_account');
+        $app = Factory::officialAccount($config);
         $app->server->push(function ($message) {
             return "您好！欢迎使用 公众号服务!";
         });

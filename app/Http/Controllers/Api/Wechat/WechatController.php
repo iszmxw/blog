@@ -30,7 +30,7 @@ class WechatController extends Controller
     {
         $app = self::App();
         $app->server->push(function ($message) {
-            return "您好！欢迎使用 公众号服务!";
+            return "您好！欢迎使用 追梦小窝提供的公众号服务!";
         });
         $response = $app->server->serve();
         // 将响应输出

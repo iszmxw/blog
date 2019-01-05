@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers\Api\Wechat;
 
-use App\Models\Options;
 use EasyWeChat\Factory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Log;
 
 class WechatController extends Controller
 {

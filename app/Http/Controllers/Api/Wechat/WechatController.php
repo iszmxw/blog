@@ -33,10 +33,34 @@ class WechatController extends Controller
     {
         $config = config('wechat.official_account');
         $app = Factory::officialAccount($config);
-        $list = $app->menu->list();
-//        Options::EditData(['option_name'=>'test_info'],['option_value'=>serialize($list)]);
-//        Options::EditData(['option_name'=>'test_info'],['option_value'=>11]);
-//        dump($list);
+        $buttons = [
+            [
+                "type" => "click",
+                "name" => "今日歌曲",
+                "key"  => "V1001_TODAY_MUSIC"
+            ],
+            [
+                "name"       => "菜单",
+                "sub_button" => [
+                    [
+                        "type" => "view",
+                        "name" => "搜索",
+                        "url"  => "http://www.soso.com/"
+                    ],
+                    [
+                        "type" => "view",
+                        "name" => "视频",
+                        "url"  => "http://v.qq.com/"
+                    ],
+                    [
+                        "type" => "click",
+                        "name" => "赞一下我们",
+                        "key" => "V1001_GOOD"
+                    ],
+                ],
+            ],
+        ];
+        $list = $app->menu->create($buttons);
         dump($list);
     }
 }

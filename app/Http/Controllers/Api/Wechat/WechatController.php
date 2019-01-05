@@ -37,6 +37,7 @@ class WechatController extends Controller
         return $response;
     }
 
+
     /**
      * 授权回调设置
      * @param Request $request

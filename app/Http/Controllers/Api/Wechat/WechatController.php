@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\Wechat;
 
+use App\Models\Options;
 use EasyWeChat\Factory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -21,9 +22,12 @@ class WechatController extends Controller
         Log::info('request arrived.'); # 注意：Log 为 Laravel 组件，所以它记的日志去 Laravel 日志看，而不是 EasyWeChat 日志
         $config = config('wechat.official_account');
         $app = Factory::officialAccount($config);
-        $app->server->push(function ($message) {
-            return "您好！欢迎使用 EasyWeChat!您当前的openid为：".$message['FromUserName'];
-        });
+//        $app->server->push(function ($message) {
+//            return "您好！欢迎使用 EasyWeChat!您当前的openid为：".$message['FromUserName'];
+//        });
+        $list = $app->menu->list();
+
+        Options::EditData(['option_name'=>'test_info'],['option_value'=>$list]);
 
         $response = $app->server->serve();
         // 将响应输出

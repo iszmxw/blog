@@ -29,7 +29,11 @@ class WechatController extends Controller
         return $response;
     }
 
-    //授权回调设置
+    /**
+     * 授权回调设置
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
     public function oauth_callback(Request $request)
     {
         $config = config('wechat.official_account');
@@ -43,6 +47,10 @@ class WechatController extends Controller
     }
 
 
+    /**
+     * 授权回调后处理个人信息
+     * @param Request $request
+     */
     public function profile(Request $request)
     {
         $config = config('wechat.official_account');
@@ -53,7 +61,10 @@ class WechatController extends Controller
         dump($user->toArray());
     }
 
-    //创建菜单
+    /**
+     * 创建菜单
+     * @param Request $request
+     */
     public function create_menu(Request $request)
     {
         $config = config('wechat.official_account');
@@ -84,14 +95,19 @@ class WechatController extends Controller
         dump($list);
     }
 
+    /**
+     * 获取用户信息
+     * @return array|\EasyWeChat\Kernel\Support\Collection|object|\Psr\Http\Message\ResponseInterface|string
+     * @throws \EasyWeChat\Kernel\Exceptions\InvalidConfigException
+     */
     public function get_user_info()
     {
         $config = config('wechat.official_account');
         $app = Factory::officialAccount($config);
-//        $user = $app->user->list();  // $nextOpenId 可选;
-//        $user = $app->user->get('olnffwJeNFN5WB2D_jXslSQ-bAj4');
+        $user = $app->user->list($nextOpenId = null);  //获取正常用户列表 $nextOpenId 可选;
+//        $user = $app->user->get('olnffwJeNFN5WB2D_jXslSQ-bAj4'); //获取单个用户信息
 //        $user = $app->user->block('olnffwOHy9V00GaXnrKfxiM2mF5Q');
-        $user = $app->user->blacklist(); // $beginOpenid 可选
+//        $user = $app->user->blacklist($nextOpenId = null); // 获取拉黑用户列表 $nextOpenId 可选;
         return $user;
     }
 }

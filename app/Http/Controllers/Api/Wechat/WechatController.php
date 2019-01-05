@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\Log;
 
 class WechatController extends Controller
 {
+    public static function App()
+    {
+        $config = config('wechat.official_account');
+        $app = Factory::officialAccount($config);
+        return $app;
+    }
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      * @throws \EasyWeChat\Kernel\Exceptions\BadRequestException
@@ -19,12 +25,10 @@ class WechatController extends Controller
      */
     public function serve()
     {
-        $config = config('wechat.official_account');
-        $app = Factory::officialAccount($config);
-        $app->server->push(function ($message) {
+        self::App()->server->push(function ($message) {
             return "您好！欢迎使用 公众号服务!".$message['FromUserName'];
         });
-        $response = $app->server->serve();
+        $response = self::App()->server->serve();
         // 将响应输出
         return $response;
     }
@@ -36,9 +40,7 @@ class WechatController extends Controller
      */
     public function oauth_callback(Request $request)
     {
-        $config = config('wechat.official_account');
-        $app = Factory::officialAccount($config);
-        $oauth = $app->oauth;
+        $oauth = self::App()->oauth;
         // 未登录
         if (empty($_SESSION['wechat_user'])) {
             // 这里不一定是return，如果你的框架action不是返回内容的话你就得使用
@@ -53,9 +55,7 @@ class WechatController extends Controller
      */
     public function profile(Request $request)
     {
-        $config = config('wechat.official_account');
-        $app = Factory::officialAccount($config);
-        $oauth = $app->oauth;
+        $oauth = self::App()->oauth;
         // 获取 OAuth 授权结果用户信息
         $user = $oauth->user();
         dump($user->toArray());
@@ -67,8 +67,6 @@ class WechatController extends Controller
      */
     public function create_menu(Request $request)
     {
-        $config = config('wechat.official_account');
-        $app = Factory::officialAccount($config);
         $buttons = [
             [
                 "type" => "view",
@@ -91,7 +89,7 @@ class WechatController extends Controller
                 ],
             ],
         ];
-        $list = $app->menu->create($buttons);
+        $list = self::App()->menu->create($buttons);
         dump($list);
     }
 
@@ -102,12 +100,10 @@ class WechatController extends Controller
      */
     public function get_user_info()
     {
-        $config = config('wechat.official_account');
-        $app = Factory::officialAccount($config);
-        $user = $app->user->list($nextOpenId = null);  //获取正常用户列表 $nextOpenId 可选;
-//        $user = $app->user->get('olnffwJeNFN5WB2D_jXslSQ-bAj4'); //获取单个用户信息
-//        $user = $app->user->block('olnffwOHy9V00GaXnrKfxiM2mF5Q');
-//        $user = $app->user->blacklist($nextOpenId = null); // 获取拉黑用户列表 $nextOpenId 可选;
+        $user = self::App()->user->list($nextOpenId = null);  //获取正常用户列表 $nextOpenId 可选;
+//        $user = self::App()->user->get('olnffwJeNFN5WB2D_jXslSQ-bAj4'); //获取单个用户信息
+//        $user = self::App()->user->block('olnffwOHy9V00GaXnrKfxiM2mF5Q');
+//        $user = self::App()->user->blacklist($nextOpenId = null); // 获取拉黑用户列表 $nextOpenId 可选;
         return $user;
     }
 }

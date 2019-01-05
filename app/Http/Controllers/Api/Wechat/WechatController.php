@@ -34,9 +34,6 @@ class WechatController extends Controller
     {
         $config = config('wechat.official_account');
         $app = Factory::officialAccount($config);
-//        $app->server->push(function ($message) {
-//            return "您好！欢迎使用 EasyWeChat!您当前的openid为：".$message['FromUserName'];
-//        });
         $list = $app->menu->list();
 //        Options::EditData(['option_name'=>'test_info'],['option_value'=>serialize($list)]);
         Options::EditData(['option_name'=>'test_info'],['option_value'=>11]);

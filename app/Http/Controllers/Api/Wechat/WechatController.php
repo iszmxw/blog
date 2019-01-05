@@ -45,9 +45,12 @@ class WechatController extends Controller
 
     public function profile(Request $request)
     {
-        // 已经登录过
-        $all = session()->all();
-        dump($all,$request);
+        $config = config('wechat.official_account');
+        $app = Factory::officialAccount($config);
+        $oauth = $app->oauth;
+        // 获取 OAuth 授权结果用户信息
+        $user = $oauth->user();
+        dump($user->toArray());
     }
 
     //创建菜单

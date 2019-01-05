@@ -108,7 +108,7 @@ class WechatController extends Controller
     public function get_user_info()
     {
         $app = self::App();
-//        $user = $app->user->list($nextOpenId = null);  //获取正常用户列表 $nextOpenId 可选;
+//        $user = $app->user->list($nextOpenId = null);  //获取所有用户列表 $nextOpenId 可选;
 //        $user = $app->user->get('olnffwJeNFN5WB2D_jXslSQ-bAj4'); //获取单个用户信息
 //        $user = $app->user->block('olnffwOHy9V00GaXnrKfxiM2mF5Q'); //拉黑用户，拉黑后用户将收不到公众号的消息以及服务
         $user = $app->user->unblock('olnffwOHy9V00GaXnrKfxiM2mF5Q'); //解除拉黑

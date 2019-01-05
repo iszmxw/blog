@@ -20,6 +20,7 @@ class WechatController extends Controller
         $app = Factory::officialAccount($config);
         return $app;
     }
+
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      * @throws \EasyWeChat\Kernel\Exceptions\BadRequestException

@@ -73,7 +73,8 @@ class WechatController extends Controller
         $app = Factory::officialAccount($config);
 //        $user = $app->user->list();  // $nextOpenId 可选;
 //        $user = $app->user->get('olnffwJeNFN5WB2D_jXslSQ-bAj4');
-        $user = $app->user->block('olnffwOHy9V00GaXnrKfxiM2mF5Q');
+//        $user = $app->user->block('olnffwOHy9V00GaXnrKfxiM2mF5Q');
+        $user = $app->user->blacklist(); // $beginOpenid 可选
         return $user;
     }
 }

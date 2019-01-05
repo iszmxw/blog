@@ -46,12 +46,19 @@ class WechatController extends Controller
     public function oauth_callback(Request $request)
     {
         $app = self::App();
-        $oauth = $app->oauth;
-        // 未登录
-        if (empty($_SESSION['wechat_user'])) {
-            // 这里不一定是return，如果你的框架action不是返回内容的话你就得使用
-            return $oauth->redirect();
-        }
+        $app->server->push(function ($message) {
+            return "您好！欢迎使用 公众号服务!";
+        });
+        $response = $app->server->serve();
+        // 将响应输出
+        return $response;
+
+//        $oauth = $app->oauth;
+//        // 未登录
+//        if (empty($_SESSION['wechat_user'])) {
+//            // 这里不一定是return，如果你的框架action不是返回内容的话你就得使用
+//            return $oauth->redirect();
+//        }
     }
 
 

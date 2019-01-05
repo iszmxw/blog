@@ -42,7 +42,7 @@ class WechatController extends Controller
         }else{
             // 已经登录过
             $user = $_SESSION['wechat_user'];
-            return redirect('api/wechat/user/profile');
+            dump($user);
         }
 
     }

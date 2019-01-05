@@ -12,7 +12,7 @@ class WechatController extends Controller
      * 获取配置信息
      * @return \EasyWeChat\OfficialAccount\Application
      */
-    public function App()
+    public static function App()
     {
         $config = config('wechat.official_account');
         $app = Factory::officialAccount($config);
@@ -28,10 +28,11 @@ class WechatController extends Controller
      */
     public function serve()
     {
-        $this->App()->server->push(function ($message) {
+        $app = self::App();
+        $app->server->push(function ($message) {
             return "您好！欢迎使用 公众号服务!";
         });
-        $response = $this->App()->server->serve();
+        $response = $app->server->serve();
         // 将响应输出
         return $response;
     }
@@ -43,7 +44,8 @@ class WechatController extends Controller
      */
     public function oauth_callback(Request $request)
     {
-        $oauth = $this->App()->oauth;
+        $app = self::App();
+        $oauth = $app->oauth;
         // 未登录
         if (empty($_SESSION['wechat_user'])) {
             // 这里不一定是return，如果你的框架action不是返回内容的话你就得使用
@@ -58,7 +60,8 @@ class WechatController extends Controller
      */
     public function profile(Request $request)
     {
-        $oauth = $this->App()->oauth;
+        $app = self::App();
+        $oauth = $app->oauth;
         // 获取 OAuth 授权结果用户信息
         $user = $oauth->user();
         dump($user->toArray());
@@ -70,29 +73,30 @@ class WechatController extends Controller
      */
     public function create_menu(Request $request)
     {
+        $app = self::App();
         $buttons = [
             [
                 "type" => "view",
                 "name" => "追梦小窝",
-                "url" => "http://blog.54zm.com"
+                "url"  => "http://blog.54zm.com"
             ],
             [
-                "name" => "更多内容",
+                "name"       => "更多内容",
                 "sub_button" => [
                     [
                         "type" => "view",
                         "name" => "百度一下",
-                        "url" => "http://www.baidu.com/"
+                        "url"  => "http://www.baidu.com/"
                     ],
                     [
                         "type" => "view",
                         "name" => "腾讯视频",
-                        "url" => "http://v.qq.com/"
+                        "url"  => "http://v.qq.com/"
                     ],
                 ],
             ],
         ];
-        $list = $this->App()->menu->create($buttons);
+        $list = $app->menu->create($buttons);
         dump($list);
     }
 
@@ -103,10 +107,11 @@ class WechatController extends Controller
      */
     public function get_user_info()
     {
-        $user = $this->App()->user->list($nextOpenId = null);  //获取正常用户列表 $nextOpenId 可选;
-//        $user = $this->App()->user->get('olnffwJeNFN5WB2D_jXslSQ-bAj4'); //获取单个用户信息
-//        $user = $this->App()->user->block('olnffwOHy9V00GaXnrKfxiM2mF5Q');
-//        $user = $this->App()->user->blacklist($nextOpenId = null); // 获取拉黑用户列表 $nextOpenId 可选;
+        $app = self::App();
+        $user = $app->user->list($nextOpenId = null);  //获取正常用户列表 $nextOpenId 可选;
+//        $user = $app->user->get('olnffwJeNFN5WB2D_jXslSQ-bAj4'); //获取单个用户信息
+//        $user = $app->user->block('olnffwOHy9V00GaXnrKfxiM2mF5Q');
+//        $user = $app->user->blacklist($nextOpenId = null); // 获取拉黑用户列表 $nextOpenId 可选;
         return $user;
     }
 }

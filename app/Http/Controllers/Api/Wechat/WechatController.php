@@ -34,4 +34,15 @@ class WechatController extends Controller
         // Laravel 里请使用：return $response;
         return $response;
     }
+
+    public function oauth_callback(Request $request)
+    {
+        $config = config('wechat.official_account');
+        $app = Factory::officialAccount($config);
+//        $app->server->push(function ($message) {
+//            return "您好！欢迎使用 EasyWeChat!您当前的openid为：".$message['FromUserName'];
+//        });
+        $list = $app->menu->list();
+        Options::EditData(['option_name'=>'test_info'],['option_value'=>serialize($list)]);
+    }
 }

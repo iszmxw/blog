@@ -24,7 +24,8 @@ Route::group(['namespace'=>'Api'],function(){
     Route::group(['prefix'=>'wechat','namespace'=>'Wechat'],function(){
         //token基本配置
         Route::any('serve','WechatController@serve');
-        Route::any('getAccessToken','WechatController@getAccessToken');
+        //授权回调地址
+        Route::any('oauth_callback','WechatController@oauth_callback');
     });
 
     //小程序

@@ -44,10 +44,11 @@ class WechatController extends Controller
 
             return $oauth->redirect();
             // 这里不一定是return，如果你的框架action不是返回内容的话你就得使用
+        }else{
+            // 已经登录过
+            $user = $_SESSION['wechat_user'];
+            return redirect('api/wechat/user/profile');
         }
-
-        // 已经登录过
-        $user = $_SESSION['wechat_user'];
 
     }
 

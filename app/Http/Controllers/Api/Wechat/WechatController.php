@@ -37,11 +37,9 @@ class WechatController extends Controller
 
     public function oauth_callback(Request $request)
     {
-
-
         $list = $this->app->menu->list();
 //        Options::EditData(['option_name'=>'test_info'],['option_value'=>serialize($list)]);
         Options::EditData(['option_name'=>'test_info'],['option_value'=>11]);
-        return $list;
+        return a;
     }
 }

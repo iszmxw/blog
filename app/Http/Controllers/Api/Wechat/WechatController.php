@@ -10,6 +10,14 @@ use Illuminate\Support\Facades\Log;
 
 class WechatController extends Controller
 {
+    public $app;
+    public function __construct($app)
+    {
+        Log::info('request arrived.'); # 注意：Log 为 Laravel 组件，所以它记的日志去 Laravel 日志看，而不是 EasyWeChat 日志
+        $config = config('wechat.official_account');
+        $this->app = Factory::officialAccount($config);
+    }
+
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      * @throws \EasyWeChat\Kernel\Exceptions\BadRequestException
@@ -19,28 +27,22 @@ class WechatController extends Controller
      */
     public function serve()
     {
-        Log::info('request arrived.'); # 注意：Log 为 Laravel 组件，所以它记的日志去 Laravel 日志看，而不是 EasyWeChat 日志
-        $config = config('wechat.official_account');
-        $app = Factory::officialAccount($config);
-        $app->server->push(function ($message) {
+        $this->app->server->push(function ($message) {
             return "您好！欢迎使用 公众号服务!";
         });
-        $response = $app->server->serve();
+        $response = $this->app->server->serve();
         // 将响应输出
         return $response;
     }
 
     public function oauth_callback(Request $request)
     {
-        $config = config('wechat.official_account');
-        $app = Factory::officialAccount($config);
-
         // 获取 access token 实例
-        $accessToken = $app->access_token;
+        $accessToken = $this->app->access_token;
         $newAccessToken = $accessToken->getToken(); // token 数组  token['access_token'] 字符串
-        $app['access_token']->setToken($newAccessToken, 7200);
+        $this->app['access_token']->setToken($newAccessToken, 7200);
 
-        $list = $app->menu->list();
+        $list = $this->app->menu->list();
 //        Options::EditData(['option_name'=>'test_info'],['option_value'=>serialize($list)]);
         Options::EditData(['option_name'=>'test_info'],['option_value'=>11]);
         return $list;

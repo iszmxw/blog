@@ -21,9 +21,7 @@ class WechatController extends Controller
         Log::info('request arrived.'); # 注意：Log 为 Laravel 组件，所以它记的日志去 Laravel 日志看，而不是 EasyWeChat 日志
         $config = config('wechat.official_account');
         $app = Factory::officialAccount($config);
-        $app->server->push(function ($message) {
-            return "您好！欢迎使用 EasyWeChat!您当前的openid为：".$message['FromUserName'];
-        });
+
         $buttons = [
             [
                 "type" => "click",
@@ -51,6 +49,12 @@ class WechatController extends Controller
                 ],
             ],
         ];
+
+
+        $app->server->push(function ($message) {
+            return "您好！欢迎使用 EasyWeChat!您当前的openid为：".$message['FromUserName'];
+        });
+
         $app->menu->create($buttons);
 
         $response = $app->server->serve();

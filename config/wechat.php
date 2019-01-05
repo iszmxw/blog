@@ -71,7 +71,7 @@ return [
          */
         'oauth' => [
             'scopes'   => array_map('trim', explode(',', env('WECHAT_OFFICIAL_ACCOUNT_OAUTH_SCOPES', 'snsapi_userinfo'))),
-            'callback' => env('WECHAT_OFFICIAL_ACCOUNT_OAUTH_CALLBACK', '/api/wechat/oauth_callback'),
+            'callback' => env('WECHAT_OFFICIAL_ACCOUNT_OAUTH_CALLBACK', '/api/wechat/user/profile'),
         ],
     ],
 

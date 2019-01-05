@@ -74,20 +74,20 @@ class WechatController extends Controller
             [
                 "type" => "view",
                 "name" => "追梦小窝",
-                "url"  => "http://blog.54zm.com"
+                "url" => "http://blog.54zm.com"
             ],
             [
-                "name"       => "更多内容",
+                "name" => "更多内容",
                 "sub_button" => [
                     [
                         "type" => "view",
                         "name" => "百度一下",
-                        "url"  => "http://www.baidu.com/"
+                        "url" => "http://www.baidu.com/"
                     ],
                     [
                         "type" => "view",
                         "name" => "腾讯视频",
-                        "url"  => "http://v.qq.com/"
+                        "url" => "http://v.qq.com/"
                     ],
                 ],
             ],

@@ -51,9 +51,9 @@ class WechatController extends Controller
         ];
 
 
-        $app->server->push(function ($message) {
-            return "您好！欢迎使用 EasyWeChat!您当前的openid为：".$message['FromUserName'];
-        });
+//        $app->server->push(function ($message) {
+//            return "您好！欢迎使用 EasyWeChat!您当前的openid为：".$message['FromUserName'];
+//        });
 
         $app->menu->create($buttons);
 

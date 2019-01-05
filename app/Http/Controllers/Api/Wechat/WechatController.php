@@ -29,7 +29,7 @@ class WechatController extends Controller
     public function serve()
     {
         self::App()->server->push(function ($message) {
-            return "您好！欢迎使用 公众号服务!".$message['FromUserName'];
+            return "您好！欢迎使用 公众号服务!";
         });
         $response = self::App()->server->serve();
         // 将响应输出

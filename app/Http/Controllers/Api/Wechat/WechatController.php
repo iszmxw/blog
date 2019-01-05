@@ -46,7 +46,8 @@ class WechatController extends Controller
     public function profile(Request $request)
     {
         // 已经登录过
-        dump($request);
+        $all = session()->all();
+        dump($all,$request);
     }
 
     //创建菜单

@@ -26,6 +26,8 @@ Route::group(['namespace'=>'Api'],function(){
         Route::any('serve','WechatController@serve');
         //创建菜单
         Route::any('create_menu','WechatController@create_menu');
+        //获取用户信息
+        Route::any('get_user_info','WechatController@get_user_info');
         //授权回调地址
         Route::any('oauth_callback','WechatController@oauth_callback');
     });

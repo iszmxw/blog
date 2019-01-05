@@ -31,7 +31,9 @@ class WechatController extends Controller
 
     public function oauth_callback(Request $request)
     {
-        $app = Factory::officialAccount();
+        $config = config('wechat.official_account');
+        $app = Factory::officialAccount($config);
+
         $list = $app->menu->list();
 //        Options::EditData(['option_name'=>'test_info'],['option_value'=>serialize($list)]);
 //        Options::EditData(['option_name'=>'test_info'],['option_value'=>11]);

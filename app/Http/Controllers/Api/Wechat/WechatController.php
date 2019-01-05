@@ -23,7 +23,7 @@ class WechatController extends Controller
         $config = config('wechat.official_account');
         $app = Factory::officialAccount($config);
         $app->server->push(function ($message) {
-            return "您好！欢迎使用 公众号服务!您当前的openid为：".$message['FromUserName'];
+            return "您好！欢迎使用 公众号服务!";
         });
         $response = $app->server->serve();
         // 将响应输出

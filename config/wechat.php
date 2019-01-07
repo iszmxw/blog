@@ -61,7 +61,7 @@ return [
         'app_id' => env('WECHAT_OFFICIAL_ACCOUNT_APPID', 'your-app-id'),         // AppID
         'secret' => env('WECHAT_OFFICIAL_ACCOUNT_SECRET', 'your-app-secret'),    // AppSecret
         'token' => env('WECHAT_OFFICIAL_ACCOUNT_TOKEN', 'your-token'),           // Token
-        'aes_key' => env('WECHAT_OFFICIAL_ACCOUNT_AES_KEY', ''),                 // EncodingAESKey
+        'aes_key' => env('WECHAT_OFFICIAL_ACCOUNT_AES_KEY', 'hETwXSL3Y5X96Sim4j1cUGsODDFonQxKcwIfwPBsLfl'),                 // EncodingAESKey
 
         /*
          * OAuth 配置

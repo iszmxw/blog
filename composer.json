@@ -11,6 +11,7 @@
         "caouecs/laravel-lang": "~3.0",
         "fideloper/proxy": "^4.0",
         "guzzlehttp/guzzle": "~6.0",
+        "intervention/image": "^2.4",
         "laravel/framework": "5.7.*",
         "laravel/tinker": "^1.0",
         "lyndon1994/xiongzhang-sdk": "^1.0",

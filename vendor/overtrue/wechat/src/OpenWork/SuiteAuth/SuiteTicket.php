@@ -45,10 +45,15 @@ class SuiteTicket
      * @return $this
      *
      * @throws \Psr\SimpleCache\InvalidArgumentException
+     * @throws \EasyWeChat\Kernel\Exceptions\RuntimeException
      */
     public function setTicket(string $ticket)
     {
-        $this->getCache()->set($this->getCacheKey(), $ticket, 1800);
+        $ok = $this->getCache()->set($this->getCacheKey(), $ticket, 1800);
+
+        if (!$ok) {
+            throw new RuntimeException('Failed to cache suite ticket.');
+        }
 
         return $this;
     }

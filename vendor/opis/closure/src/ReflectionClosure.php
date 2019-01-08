@@ -107,6 +107,8 @@ class ReflectionClosure extends ReflectionFunction
         $hasTraitSupport = defined('T_TRAIT_C');
         $tokens = $this->getTokens();
         $state = $lastState = 'start';
+        $inside_anonymous = false;
+        $anonymous_mark = 0;
         $open = 0;
         $code = '';
         $id_start = $id_start_ci = $id_name = $context = '';
@@ -248,6 +250,8 @@ class ReflectionClosure extends ReflectionFunction
                             $code .= '}';
                             if(--$open === 0){
                                 break 3;
+                            } elseif ($inside_anonymous) {
+                                $inside_anonymous = !($open === $anonymous_mark);
                             }
                             break;
                         case T_LINE:
@@ -285,7 +289,7 @@ class ReflectionClosure extends ReflectionFunction
                             }
                             break;
                         case T_VARIABLE:
-                            if($token[1] == '$this'){
+                            if($token[1] == '$this' && !$inside_anonymous){
                                 $isUsingThisObject = true;
                             }
                             $code .= $token[1];
@@ -309,6 +313,12 @@ class ReflectionClosure extends ReflectionFunction
                             $state = 'id_start';
                             $lastState = 'closure';
                             break 2;
+                        case T_USE:
+                            $code .= $token[1];
+                            $context = 'use';
+                            $state = 'id_start';
+                            $lastState = 'closure';
+                            break;
                         case T_INSTANCEOF:
                             $code .= $token[1];
                             $context = 'instanceof';
@@ -453,7 +463,12 @@ class ReflectionClosure extends ReflectionFunction
                             break;
                         default:
                             if($id_start !== '\\'){
-                                if($context === 'instanceof' || $context === 'args' || $context === 'return_type' || $context === 'extends'){
+                                if($context === 'use' ||
+                                    $context === 'instanceof' ||
+                                    $context === 'args' ||
+                                    $context === 'return_type' ||
+                                    $context === 'extends'
+                                ){
                                     if($id_start_ci === 'self' || $id_start_ci === 'static' || $id_start_ci === 'parent'){
                                         $isUsingScope = true;
                                     } elseif (!($php7 && in_array($id_start_ci, $php7_types))){
@@ -494,6 +509,10 @@ class ReflectionClosure extends ReflectionFunction
                         break;
                         case '{':
                             $state = 'closure';
+                            if (!$inside_anonymous) {
+                                $inside_anonymous = true;
+                                $anonymous_mark = $open;
+                            }
                             $i--;
                             break;
                         default:

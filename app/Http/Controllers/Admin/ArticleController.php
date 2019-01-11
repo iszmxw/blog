@@ -95,7 +95,6 @@ class ArticleController extends Controller
         $user_data = $request->get('user_data');
         $sort_id = $request->get('sort_id');
         $title = $request->get('title');
-        $where = [];
         if (!empty($sort_id)){
             $where[] = ['sortid',$sort_id];
         }

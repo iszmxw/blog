@@ -65,7 +65,9 @@
                                 <table class="table table-striped">
                                     <thead>
                                     <tr>
-                                        <th></th>
+                                        <th>
+                                            <input type="checkbox"  checked class="i-checks" name="input[]">
+                                        </th>
                                         <th>ID </th>
                                         <th>标题</th>
                                         <th>栏目</th>
@@ -77,7 +79,9 @@
                                     <tbody>
                                     @foreach($list as $value)
                                     <tr>
-                                        <td><input type="checkbox"  checked class="i-checks" name="input[]"></td>
+                                        <td>
+                                            <input type="checkbox" class="i-checks" name="input[]">
+                                        </td>
                                         <td>{{$value['gid']}}</td>
                                         <td>{{$value['title']}}</td>
                                         <td><span class="label label-primary">{{$value['sortname']}}</span></td>

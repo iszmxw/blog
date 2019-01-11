@@ -63,7 +63,6 @@
                                 <table class="table table-striped">
                                     <thead>
                                     <tr>
-
                                         <th></th>
                                         <th>ID </th>
                                         <th>标题</th>

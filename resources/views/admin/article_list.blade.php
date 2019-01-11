@@ -42,22 +42,24 @@
                         </div>
                         <div class="ibox-content">
                             <div class="row">
-                                <div class="col-sm-3">
-                                    <select class="input-sm form-control input-s-sm inline">
-                                        <option value="0">按照分类筛选</option>
-                                        @foreach($sort as $key=>$val)
-                                        <option value="{{ $val['sid'] }}">{{ $val['sortname'] }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="input-group">
-                                        <input type="text" placeholder="请输入搜索内容" name="title" class="input-sm form-control">
-                                        <span class="input-group-btn">
-                                        <button type="button" class="btn btn-sm btn-primary"> 搜索</button>
-                                        </span>
+                                <form action="">
+                                    <div class="col-sm-3">
+                                        <select class="input-sm form-control input-s-sm inline">
+                                            <option value="0">按照分类筛选</option>
+                                            @foreach($sort as $key=>$val)
+                                                <option value="{{ $val['sid'] }}">{{ $val['sortname'] }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
-                                </div>
+                                    <div class="col-sm-3">
+                                        <div class="input-group">
+                                            <input type="text" placeholder="请输入搜索内容" name="title" class="input-sm form-control">
+                                            <span class="input-group-btn">
+                                        <button type="submit" class="btn btn-sm btn-primary"> 搜索</button>
+                                        </span>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                             <div class="table-responsive">
                                 <table class="table table-striped">

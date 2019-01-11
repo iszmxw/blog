@@ -80,7 +80,7 @@
                                     @foreach($list as $value)
                                     <tr>
                                         <td>
-                                            <input type="checkbox" class="i-checks" name="input[]">
+                                            <input type="checkbox" class="i-checks" name="input['{{ $value['gid'] }}']">
                                         </td>
                                         <td>{{$value['gid']}}</td>
                                         <td>{{$value['title']}}</td>

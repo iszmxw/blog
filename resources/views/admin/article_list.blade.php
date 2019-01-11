@@ -51,8 +51,12 @@
                                     </select>
                                 </div>
                                 <div class="col-sm-3">
-                                    <div class="input-group"><input type="text" placeholder="请输入搜索内容" class="input-sm form-control"> <span class="input-group-btn">
-                                    <button type="button" class="btn btn-sm btn-primary"> 搜索</button> </span></div>
+                                    <div class="input-group">
+                                        <input type="text" placeholder="请输入搜索内容" name="title" class="input-sm form-control">
+                                        <span class="input-group-btn">
+                                        <button type="button" class="btn btn-sm btn-primary"> 搜索</button>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="table-responsive">

@@ -93,7 +93,14 @@ class ArticleController extends Controller
     public function article_list(Request $request)
     {
         $user_data = $request->get('user_data');
-        $list = Blog::getPaginate([],['blog.gid','blog.title','sort.sortname','blog.views','blog.date'],15,'date','DESC');
+        $sort_id = $request->get('sort_id');
+        $title = $request->get('title');
+        $where = [];
+        if (!empty($sort_id)){
+            $where[] = ['blog.sortid',$sort_id];
+        }
+        $where[] = ['blog.title',$title];
+        $list = Blog::getPaginate($where,['blog.gid','blog.title','sort.sortname','blog.views','blog.date'],15,'date','DESC');
         $sort = Sort::getList([],['sid','sortname']);
         $view = ['user_data'=>$user_data,'list'=>$list,'sort'=>$sort];
         return view('admin.article_list',$view);

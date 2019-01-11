@@ -11,16 +11,16 @@
 |
 */
 //前台页面
-Route::middleware('web_common')->namespace('Web')->group(function () {
+Route::group(['middleware'=>'web_common','namespace'=>'Web'],function () {
     Route::get('/', 'WebController@index');
     Route::get('article/{article_id}', 'WebController@article');
     Route::get('category/{category_id}', 'WebController@category');
     Route::get('about', 'WebController@about');
 
 
-    Route::prefix('blog')->group(function () {
+    Route::group(['prefix'=>'blog'],function () {
         //api
-        Route::prefix('api')->group(function () {
+        Route::group(['prefix'=>'api'],function () {
             Route::any('comment', 'WebController@comment_api');
         });
     });

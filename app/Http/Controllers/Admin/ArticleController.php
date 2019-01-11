@@ -101,6 +101,7 @@ class ArticleController extends Controller
         }
         $where[] = ['title',$title];
         $list = Blog::getPaginate($where,['blog.gid','blog.title','sort.sortname','blog.views','blog.date'],15,'date','DESC');
+        dump($where);
         $sort = Sort::getList([],['sid','sortname']);
         $view = ['user_data'=>$user_data,'list'=>$list,'sort'=>$sort];
         return view('admin.article_list',$view);

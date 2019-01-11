@@ -62,7 +62,6 @@
                                 </form>
                             </div>
                             <div class="table-responsive">
-                                <group class="checked_box_group_1">
                                 <table class="table table-striped">
                                     <thead>
                                     <tr>
@@ -81,22 +80,24 @@
                                     </thead>
                                     <tbody>
                                     @foreach($list as $value)
-                                    <tr>
-                                        <td>
-                                            <label class="checkbox-inline i-checks" style="margin-left:0px;margin-right:10px; margin-bottom: 10px;">
-                                                <input type="checkbox"  data-group_id="{{ $value['gid'] }}" class="checkbox_node_name checkbox_node_name_{{ $value['gid'] }}" name="module_node_ids[]" value="{{ $value['gid'] }}">
-                                            </label>
-                                        </td>
-                                        <td>{{$value['gid']}}</td>
-                                        <td>{{$value['title']}}</td>
-                                        <td><span class="label label-primary">{{$value['sortname']}}</span></td>
-                                        <td><span class="label label-success">{{$value['views']}}</span></td>
-                                        <td>{{date('Y-m-d H:i:s',$value['date'])}}</td>
-                                        <td>
-                                            <button class="btn btn-info" type="button" onclick="edit('{{$value['gid']}}')"><i class="fa fa-edit"></i>&nbsp;&nbsp;编辑</button>
-                                            <button class="btn btn-danger" type="button" onclick="deleted('{{$value['gid']}}')"><i class="fa fa-times"></i>&nbsp;&nbsp;删除</button>
-                                        </td>
-                                    </tr>
+                                        <group class="checked_box_group_1">
+                                            <tr>
+                                                <td>
+                                                    <label class="checkbox-inline i-checks" style="margin-left:0px;margin-right:10px; margin-bottom: 10px;">
+                                                        <input type="checkbox"  data-group_id="{{ $value['gid'] }}" class="checkbox_node_name checkbox_node_name_{{ $value['gid'] }}" name="module_node_ids[]" value="{{ $value['gid'] }}">
+                                                    </label>
+                                                </td>
+                                                <td>{{$value['gid']}}</td>
+                                                <td>{{$value['title']}}</td>
+                                                <td><span class="label label-primary">{{$value['sortname']}}</span></td>
+                                                <td><span class="label label-success">{{$value['views']}}</span></td>
+                                                <td>{{date('Y-m-d H:i:s',$value['date'])}}</td>
+                                                <td>
+                                                    <button class="btn btn-info" type="button" onclick="edit('{{$value['gid']}}')"><i class="fa fa-edit"></i>&nbsp;&nbsp;编辑</button>
+                                                    <button class="btn btn-danger" type="button" onclick="deleted('{{$value['gid']}}')"><i class="fa fa-times"></i>&nbsp;&nbsp;删除</button>
+                                                </td>
+                                            </tr>
+                                        </group>
                                     @endforeach
                                     </tbody>
                                     <tfoot>
@@ -109,7 +110,6 @@
                                     </tr>
                                     </tfoot>
                                 </table>
-                                </group>
 
                             </div>
                         </div>

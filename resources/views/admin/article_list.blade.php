@@ -44,7 +44,7 @@
                             <div class="row">
                                 <div class="col-sm-3">
                                     <select class="input-sm form-control input-s-sm inline">
-                                        <option value="0">选项 1</option>
+                                        <option value="0">按照分类筛选</option>
                                         <option value="1">选项 2</option>
                                         <option value="2">选项 3</option>
                                         <option value="3">选项 4</option>

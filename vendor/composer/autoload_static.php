@@ -602,7 +602,6 @@ class ComposerStaticInit80e74e3cc98fb61872274dfabac78f34
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Middleware\\Web\\Web' => __DIR__ . '/../..' . '/app/Http/Middleware/Web/Web.php',
-        'App\\Library\\HttpCurl' => __DIR__ . '/../..' . '/app/Library/HttpCurl.php',
         'App\\Library\\IpAddress' => __DIR__ . '/../..' . '/app/Library/IpAddress.php',
         'App\\Library\\Tooling' => __DIR__ . '/../..' . '/app/Library/Tooling.php',
         'App\\Mail\\OrderShipped' => __DIR__ . '/../..' . '/app/Mail/OrderShipped.php',

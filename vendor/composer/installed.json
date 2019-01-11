@@ -1276,17 +1276,17 @@
     },
     {
         "name": "fideloper/proxy",
-        "version": "4.0.0",
-        "version_normalized": "4.0.0.0",
+        "version": "4.1.0",
+        "version_normalized": "4.1.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/fideloper/TrustedProxy.git",
-            "reference": "cf8a0ca4b85659b9557e206c90110a6a4dba980a"
+            "reference": "177c79a2d1f9970f89ee2fb4c12b429af38b6dfb"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/fideloper/TrustedProxy/zipball/cf8a0ca4b85659b9557e206c90110a6a4dba980a",
-            "reference": "cf8a0ca4b85659b9557e206c90110a6a4dba980a",
+            "url": "https://api.github.com/repos/fideloper/TrustedProxy/zipball/177c79a2d1f9970f89ee2fb4c12b429af38b6dfb",
+            "reference": "177c79a2d1f9970f89ee2fb4c12b429af38b6dfb",
             "shasum": ""
         },
         "require": {
@@ -1298,7 +1298,7 @@
             "mockery/mockery": "~1.0",
             "phpunit/phpunit": "^6.0"
         },
-        "time": "2018-02-07T20:20:57+00:00",
+        "time": "2019-01-10T14:06:47+00:00",
         "type": "library",
         "extra": {
             "laravel": {
@@ -1918,17 +1918,17 @@
     },
     {
         "name": "laravel/framework",
-        "version": "v5.7.19",
-        "version_normalized": "5.7.19.0",
+        "version": "v5.7.20",
+        "version_normalized": "5.7.20.0",
         "source": {
             "type": "git",
             "url": "https://github.com/laravel/framework.git",
-            "reference": "5c1d1ec7e8563ea31826fd5eb3f6791acf01160c"
+            "reference": "10cd20294b5668f90ba91996236834e71f7ff670"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/laravel/framework/zipball/5c1d1ec7e8563ea31826fd5eb3f6791acf01160c",
-            "reference": "5c1d1ec7e8563ea31826fd5eb3f6791acf01160c",
+            "url": "https://api.github.com/repos/laravel/framework/zipball/10cd20294b5668f90ba91996236834e71f7ff670",
+            "reference": "10cd20294b5668f90ba91996236834e71f7ff670",
             "shasum": ""
         },
         "require": {
@@ -2002,7 +2002,7 @@
             "moontoast/math": "^1.1",
             "orchestra/testbench-core": "3.7.*",
             "pda/pheanstalk": "^3.0",
-            "phpunit/phpunit": "^7.0",
+            "phpunit/phpunit": "^7.5",
             "predis/predis": "^1.1.1",
             "symfony/css-selector": "^4.1",
             "symfony/dom-crawler": "^4.1",
@@ -2030,7 +2030,7 @@
             "symfony/dom-crawler": "Required to use most of the crawler integration testing tools (^4.1).",
             "symfony/psr-http-message-bridge": "Required to psr7 bridging features (^1.0)."
         },
-        "time": "2018-12-18T14:00:38+00:00",
+        "time": "2019-01-08T14:39:11+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -3107,17 +3107,17 @@
     },
     {
         "name": "overtrue/wechat",
-        "version": "4.1.16",
-        "version_normalized": "4.1.16.0",
+        "version": "4.1.17",
+        "version_normalized": "4.1.17.0",
         "source": {
             "type": "git",
             "url": "https://github.com/overtrue/wechat.git",
-            "reference": "26197e70fadd82195de7e5be8ec2e8c9d2a88eeb"
+            "reference": "6d8253d18b180833a0d815d722a08378b487cb4a"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/overtrue/wechat/zipball/26197e70fadd82195de7e5be8ec2e8c9d2a88eeb",
-            "reference": "26197e70fadd82195de7e5be8ec2e8c9d2a88eeb",
+            "url": "https://api.github.com/repos/overtrue/wechat/zipball/6d8253d18b180833a0d815d722a08378b487cb4a",
+            "reference": "6d8253d18b180833a0d815d722a08378b487cb4a",
             "shasum": ""
         },
         "require": {
@@ -3140,7 +3140,7 @@
             "overtrue/phplint": "dev-master",
             "phpunit/phpunit": "~6.0"
         },
-        "time": "2019-01-06T04:57:48+00:00",
+        "time": "2019-01-09T14:51:58+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {

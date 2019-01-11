@@ -97,9 +97,9 @@ class ArticleController extends Controller
         $title = $request->get('title');
         $where = [];
         if (!empty($sort_id)){
-            $where[] = ['blog.sortid',$sort_id];
+            $where[] = ['sortid',$sort_id];
         }
-        $where[] = ['blog.title',$title];
+        $where[] = ['title',$title];
         $list = Blog::getPaginate($where,['blog.gid','blog.title','sort.sortname','blog.views','blog.date'],15,'date','DESC');
         $sort = Sort::getList([],['sid','sortname']);
         $view = ['user_data'=>$user_data,'list'=>$list,'sort'=>$sort];

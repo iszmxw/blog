@@ -94,7 +94,9 @@ class ArticleController extends Controller
     {
         $user_data = $request->get('user_data');
         $list = Blog::getPaginate([],['blog.gid','blog.title','sort.sortname','blog.views','blog.date'],15,'date','DESC');
-        return view('admin.article_list',['user_data'=>$user_data,'list'=>$list]);
+        $sort = Sort::getList([],['sid','sortname']);
+        $view = ['user_data'=>$user_data,'list'=>$list,'sort'=>$sort];
+        return view('admin.article_list',$view);
     }
 
 

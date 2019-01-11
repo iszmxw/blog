@@ -66,9 +66,11 @@
                                     <thead>
                                     <tr>
                                         <th>
+                                            <group class="checked_box_group_1">
                                             <label class="i-checks">
                                                 <input type="checkbox" class="i-checks checkbox_module_name checkbox_module_name_1" value="1">
                                             </label>
+                                            </group>
                                         </th>
                                         <th>ID </th>
                                         <th>标题</th>

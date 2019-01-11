@@ -103,9 +103,9 @@ class ArticleController extends Controller
             $where[] = ['title','like','%'.$title.'%'];
         }
         $list = Blog::getPaginate($where,['blog.gid','blog.title','sort.sortname','blog.views','blog.date'],15,'date','DESC');
-        dump($where);
         $sort = Sort::getList([],['sid','sortname']);
-        $view = ['user_data'=>$user_data,'list'=>$list,'sort'=>$sort];
+        $search_data = ['sort_id'=>$sort_id,'title'=>$title];
+        $view = ['user_data'=>$user_data,'list'=>$list,'sort'=>$sort,'search_data'=>$search_data];
         return view('admin.article_list',$view);
     }
 

@@ -47,13 +47,13 @@
                                         <select class="input-sm form-control input-s-sm inline" name="sort_id">
                                             <option value="0">按照分类筛选</option>
                                             @foreach($sort as $key=>$val)
-                                                <option value="{{ $val['sid'] }}">{{ $val['sortname'] }}</option>
+                                                <option value="{{ $val['sid'] }}" @if($val['sid']==$search_data['sort_id']) selected @endif>{{ $val['sortname'] }}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                     <div class="col-sm-3">
                                         <div class="input-group">
-                                            <input type="text" placeholder="请输入搜索内容" name="title" class="input-sm form-control">
+                                            <input type="text" placeholder="请输入搜索内容" name="title" value="{{ $search_data['title'] }}" class="input-sm form-control">
                                             <span class="input-group-btn">
                                         <button type="submit" class="btn btn-sm btn-primary"> 搜索</button>
                                         </span>

@@ -42,7 +42,7 @@
                         </div>
                         <div class="ibox-content">
                             <div class="row">
-                                <div class="col-sm-5 m-b-xs">
+                                <div class="col-sm-3">
                                     <select class="input-sm form-control input-s-sm inline">
                                         <option value="0">选项 1</option>
                                         <option value="1">选项 2</option>
@@ -50,16 +50,9 @@
                                         <option value="3">选项 4</option>
                                     </select>
                                 </div>
-                                <div class="col-sm-4 m-b-xs">
-                                    <div data-toggle="buttons" class="btn-group">
-                                        <label class="btn btn-sm btn-white"> <input type="radio" id="option1" name="options"> 天 </label>
-                                        <label class="btn btn-sm btn-white active"> <input type="radio" id="option2" name="options"> 周 </label>
-                                        <label class="btn btn-sm btn-white"> <input type="radio" id="option3" name="options"> 月 </label>
-                                    </div>
-                                </div>
                                 <div class="col-sm-3">
                                     <div class="input-group"><input type="text" placeholder="请输入搜索内容" class="input-sm form-control"> <span class="input-group-btn">
-                                        <button type="button" class="btn btn-sm btn-primary"> 搜索</button> </span></div>
+                                    <button type="button" class="btn btn-sm btn-primary"> 搜索</button> </span></div>
                                 </div>
                             </div>
                             <div class="table-responsive">

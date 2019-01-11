@@ -44,7 +44,7 @@
                             <div class="row">
                                 <form action="">
                                     <div class="col-sm-3">
-                                        <select class="input-sm form-control input-s-sm inline">
+                                        <select class="input-sm form-control input-s-sm inline" name="sort_id">
                                             <option value="0">按照分类筛选</option>
                                             @foreach($sort as $key=>$val)
                                                 <option value="{{ $val['sid'] }}">{{ $val['sortname'] }}</option>

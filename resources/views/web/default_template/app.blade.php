@@ -66,6 +66,8 @@
 <script src="{{asset('style/web/default_template/js/plugins/pace/pace.min.js')}}"></script>
 <script src="{{asset('style/web/default_template/prismjs/prism.js')}}"></script>
 <script src="{{asset('style/web/default_template/js/baidu_seo.js')}}"></script>
+<script src="//msite.baidu.com/sdk/c.js?appid=1606122614792135"></script>
+<script>cambrian.render('head')</script>
 <script>
     (function(){
         var bp = document.createElement('script');

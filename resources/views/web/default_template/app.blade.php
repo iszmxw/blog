@@ -10,6 +10,7 @@
     <link href="{{asset('style/web/default_template/css/style.css')}}" rel="stylesheet">
     <link href="{{asset('style/web/default_template/prismjs/prism.css')}}" rel="stylesheet">
     @yield('style')
+    <script src="//msite.baidu.com/sdk/c.js?appid=1606122614792135"></script>
 </head>
 <body class="pace-done">
 <div id="wrapper">
@@ -44,6 +45,7 @@
         </div>
 
         <div class="row wrapper border-bottom white-bg page-heading">
+            <script>cambrian.render('head')</script>
             @yield('header_bar')
         </div>
 
@@ -66,8 +68,6 @@
 <script src="{{asset('style/web/default_template/js/plugins/pace/pace.min.js')}}"></script>
 <script src="{{asset('style/web/default_template/prismjs/prism.js')}}"></script>
 <script src="{{asset('style/web/default_template/js/baidu_seo.js')}}"></script>
-<script src="//msite.baidu.com/sdk/c.js?appid=1606122614792135"></script>
-<script>cambrian.render('head')</script>
 <script>
     (function(){
         var bp = document.createElement('script');

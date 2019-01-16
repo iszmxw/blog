@@ -67,6 +67,19 @@
 <script src="{{asset('style/web/default_template/prismjs/prism.js')}}"></script>
 <script src="{{asset('style/web/default_template/js/baidu_seo.js')}}"></script>
 <script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+
     $(function(){
         //控制菜单自动展开
         var menu = $(".menu");
@@ -80,6 +93,7 @@
             }
         }
     });
+
 </script>
 @yield('script')
 </body>

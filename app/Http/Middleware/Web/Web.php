@@ -11,6 +11,7 @@ use App\Models\Twitter;
 use App\Models\User;
 use App\Models\Blog;
 use App\Models\ViewLog;
+use GuzzleHttp\Client;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\View;
 use Closure;
@@ -63,6 +64,7 @@ class Web
     //公共数据
     public static function CommonData($request)
     {
+        $client = new Client();
         //左侧导航栏
         $nav = Navi::get_select(['pid'=>'0','hide'=>'n'],['id','naviname','navicon','url','newtab','pid','isdefault'],'taxis','ASC')->toArray();
         foreach ($nav as $key=>$val){
@@ -73,6 +75,10 @@ class Web
         foreach ($sort as $key=>$val){
             $sort[$key]['count'] = Blog::getCount(['sortid'=>$val['sid']]);
         }
+        //群信息
+        $response = $client->get('http://54zm.com/http_qun?qun=455924702');
+        $qun = json_decode($response);
+        dd($qun);
         //友情链接
         $link = Link::getList([]);
         //前十条评论数据调用

@@ -22,6 +22,21 @@
                 </a>
             </div>
         </div>
+
+        {{--关于我==自我介绍--}}
+        <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <span class="label label-danger pull-right">最近一个月</span>
+                        <h5>活跃用户</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <h1 class="no-margins">80,600</h1>
+                        <div class="stat-percent font-bold text-danger">38% <i class="fa fa-level-down"></i></div>
+                        <small>12月</small>
+                    </div>
+                </div>
+        </div>
         {{--微语说说--}}
         <div class="col-lg-12">
             <div class="panel panel-default">

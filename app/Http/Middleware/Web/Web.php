@@ -78,7 +78,6 @@ class Web
         //群信息
         $response = $client->get('http://54zm.com/http_qun?qun=455924702');
         $qun = json_decode($response->getBody()->getContents());
-        dd($qun);
         //友情链接
         $link = Link::getList([]);
         //前十条评论数据调用
@@ -97,6 +96,7 @@ class Web
 
         View::share('nav',$nav);
         View::share('sort',$sort);
+        View::share('qun',$qun);
         View::share('link',$link);
         View::share('comments',$comments);
         View::share('site_info',$site_info);

@@ -61,4 +61,10 @@ Route::group(['namespace'=>'Api'],function(){
         //发送邮件
         Route::any('push_content','MailController@push_content');
     });
+
+
+    //腾讯
+    Route::group(['prefix'=>'tencent'],function(){
+        Route::any('login','TencentController@login');
+    });
 });

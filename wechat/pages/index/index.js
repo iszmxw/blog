@@ -89,7 +89,7 @@ Page({
       success: function (res) {
         console.log(res);
         that.setData({
-          category: res
+          category: res.data.list
         })
       }
     })

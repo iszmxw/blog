@@ -50,8 +50,7 @@ view.menu{
 view.nav{
   width: 100%;
   box-shadow: 0px 0px 8px #999;
-  background-position: center top;
-  height: 118px;
+  /* height: 118px; */
   max-height: 120px;
   background-image: url('https://blog.54zm.com/blog/Home/img/sonico.jpg');
   overflow: hidden;
@@ -62,7 +61,7 @@ view.nav{
   -ms-background-size: cover;
   -o-background-size: cover;
 }
-view.nav navigator {
+view.nav .navigator {
     width: 25%;
     padding: 10px 0px;
     display: inline-block;

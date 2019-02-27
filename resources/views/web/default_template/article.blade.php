@@ -3,6 +3,7 @@
 @section('title', $blog['title'].'_追梦小窝的博客 - 努力霍城自己想要的样子')
 {{--样式引入--}}
 @section('style')
+    <link href="{{asset('style/web/default_template/prismjs/prism.css')}}" rel="stylesheet">
     <link href="{{asset('style/admin/inspinia/css/plugins/sweetalert/sweetalert.css')}}" rel="stylesheet">
 @endsection
 
@@ -143,6 +144,7 @@
 
 {{--js引用--}}
 @section('script')
+    <script src="{{asset('style/web/default_template/prismjs/prism.js')}}"></script>
     <script src="{{asset('style/admin/inspinia/js/plugins/sweetalert/sweetalert.min.js')}}"></script>
     <script>
 

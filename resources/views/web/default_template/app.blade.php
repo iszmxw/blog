@@ -8,7 +8,6 @@
     <link href="{{asset('style/web/default_template/font-awesome/css/font-awesome.css')}}" rel="stylesheet">
     <link href="{{asset('style/web/default_template/css/animate.css')}}" rel="stylesheet">
     <link href="{{asset('style/web/default_template/css/style.css')}}" rel="stylesheet">
-    <link href="{{asset('style/web/default_template/prismjs/prism.css')}}" rel="stylesheet">
     @yield('style')
     <script src="//msite.baidu.com/sdk/c.js?appid=1606122614792135"></script>
 </head>
@@ -66,7 +65,7 @@
 <!-- Custom and plugin javascript -->
 <script src="{{asset('style/web/default_template/js/inspinia.js')}}"></script>
 <script src="{{asset('style/web/default_template/js/plugins/pace/pace.min.js')}}"></script>
-<script src="{{asset('style/web/default_template/prismjs/prism.js')}}"></script>
+
 <script>
     (function(){
         var bp = document.createElement('script');

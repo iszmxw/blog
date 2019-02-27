@@ -1,10 +1,9 @@
 //pages/index.js
 
 const app = getApp();
-var url = 'https://blog.54zm.com/api/wechat_xcx/index';
-// var url = 'https://ctwxl.com';
 var animation = wx.createAnimation()
 var i_tips = 0;
+var baseUrl = app.globalData.baseUrl;
 Page({
   data: {
     content: [
@@ -62,7 +61,7 @@ Page({
       duration: 2000
     });
     wx.request({
-      url: url,
+      url: baseUrl + 'index',
       data: {
         pagesize: that.data.pagesize,
       },
@@ -70,7 +69,23 @@ Page({
         //设置参数内容类型为json
         'content-type': 'application/json'
       },
-      success: function(res) {
+      success: function (res) {
+        console.log(res);
+        that.setData({
+          list: res.data.list
+        })
+      }
+    });
+
+
+    wx.request({
+      url: baseUrl + 'get_category',
+      data: '',
+      header: {
+        //设置参数内容类型为json
+        'content-type': 'application/json'
+      },
+      success: function (res) {
         console.log(res);
         that.setData({
           list: res.data.list
@@ -90,7 +105,7 @@ Page({
     var that = this
     that.data.pagesize = that.data.pagesize + 10;
     wx.request({
-      url: url,
+      url: baseUrl+'index',
       data: {
         pagesize: that.data.pagesize,
       },

@@ -34,6 +34,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    baseUrl: 'https://blog.54zm.com/api/wechat_xcx/' 
   }
 })

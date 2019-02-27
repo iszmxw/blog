@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\Wechat;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
+use App\Models\Sort;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
@@ -98,7 +99,7 @@ class MiniController extends Controller
     //获取栏目分类
     public function get_category()
     {
-        $list = Sort::select(['sid as id','sortname as name'])->first();
+        $list = Sort::select(['sid as id','sortname as name'])->get();
         return $list;
     }
 

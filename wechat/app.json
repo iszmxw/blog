@@ -5,11 +5,11 @@
     "pages/article/index"
   ],
   "window":{
-    "backgroundTextStyle":"#ccc",
+    "backgroundTextStyle":"dark",
     "navigationBarBackgroundColor": "#009688",
     "navigationBarTitleText": "追梦小窝",
-    "navigationBarTextStyle":"light",
-    "onReachBottomDistance":"50"
+    "navigationBarTextStyle":"black",
+    "onReachBottomDistance":50
   },
   "plugins": {
     "htmltowxml": {

@@ -95,6 +95,13 @@ class MiniController extends Controller
         return $re;
     }
 
+    //获取栏目分类
+    public function get_category()
+    {
+        $list = Sort::select(['sid as id','sortname as name'])->first();
+        return $list;
+    }
+
     //获取小程序二维码
     public function createwxaqrcode()
     {

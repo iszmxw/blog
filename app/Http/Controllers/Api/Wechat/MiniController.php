@@ -100,7 +100,8 @@ class MiniController extends Controller
     public function get_category()
     {
         $list = Sort::select(['sid as id','sortname as name'])->get();
-        return $list;
+        $data = ['status'=>1,'list'=>$list];
+        return $data;
     }
 
     //获取小程序二维码

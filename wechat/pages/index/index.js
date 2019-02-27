@@ -16,6 +16,7 @@ Page({
     ],
     tips: '',
     list: {},
+    category: {},
     pagesize: 10,
   },
   //传入内容，广播将会以动画播放这条内容
@@ -88,7 +89,7 @@ Page({
       success: function (res) {
         console.log(res);
         that.setData({
-          list: res.data.list
+          category: res
         })
       }
     })

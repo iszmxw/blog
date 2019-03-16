@@ -52,6 +52,7 @@ var s = setInterval(function(){
 //     // console.log(personArray);
 // });
 
+
 //可以换成数据库里面的真实数据
 for(var _i=0;_i<6;_i++){
     for(var i=1;i<29;i++){

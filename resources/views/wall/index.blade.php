@@ -19,7 +19,7 @@
 <!--<button id="helix">螺旋</button>-->
 <!--<button id="grid">格子</button>-->
 <!--</div>-->
-<div class="show_info animated" style="display:none;">
+<div class="show_info animated" style="display:block;">
     <div class="info_my">
         <img src="{{asset('wall/img/1.jpg')}}"/>
         <div class="info_mem">

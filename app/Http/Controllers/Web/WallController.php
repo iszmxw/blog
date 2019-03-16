@@ -15,6 +15,6 @@ class WallController extends Controller
 {
     public function register()
     {
-        dd('注册');
+        return view('web.default_template.register');
     }
 }

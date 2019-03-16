@@ -26,12 +26,12 @@
         </div>
         <h3>授权提示</h3>
         <p>您访问的页面需要您的授权，即将前往QQ授权页面，授权后即可访问</p>
-        <form class="m-t" role="form" action="index.html">
-            <div class="form-group">
-                <input type="password" class="form-control" placeholder="******" required="">
-            </div>
-            <button type="submit" class="btn btn-primary block full-width">确认授权</button>
-        </form>
+        {{--<form class="m-t" role="form" action="index.html">--}}
+            {{--<div class="form-group">--}}
+                {{--<input type="password" class="form-control" placeholder="******" required="">--}}
+            {{--</div>--}}
+        {{--</form>--}}
+        <button type="submit" class="btn btn-primary block full-width">确认授权</button>
     </div>
 </div>
 

@@ -32,7 +32,7 @@ var s = setInterval(function () {
 //                },1000);
 }, 4500);
 
-
+console.log("personArray",typeof(personArray))
 // 生成虚拟数据
 $.get('http://blog.54zm.com/wall/get_user_list', function (json) {
     console.log("personArray",typeof(personArray))

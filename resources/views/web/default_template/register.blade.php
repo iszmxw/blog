@@ -16,9 +16,9 @@
 
 <body class="gray-bg">
 
-<div class="lock-word animated fadeInDown">
-    <span class="first-word">已锁定</span><span>屏幕</span>
-</div>
+{{--<div class="lock-word animated fadeInDown">--}}
+    {{--<span class="first-word">已锁定</span><span>屏幕</span>--}}
+{{--</div>--}}
 <div class="middle-box text-center lockscreen animated fadeInDown">
     <div>
         <div class="m-b-md">

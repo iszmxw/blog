@@ -1,4 +1,4 @@
-var personArray1 = [];
+var personArray = [];
 var CurPersonNum = 0;
 var ini = 0;
 // 随机animate动画库
@@ -32,17 +32,15 @@ var s = setInterval(function () {
 //                },1000);
 }, 4500);
 
-console.log("++++++++++++++++++",typeof(personArray1))
 // 生成虚拟数据
 $.get('http://blog.54zm.com/wall/get_user_list', function (json) {
-    console.log("personArray",typeof(personArray))
     if (json.length < 168) {
         for (var _i = 0; _i < 18; _i++) {
-            console.log("personArray",personArray.length,typeof(personArray))
-            for(var i=1;i<29;i++){
+            console.log("personArray", personArray.length, typeof(personArray))
+            for (var i = 1; i < 29; i++) {
                 //json[index].header_img
                 personArray.push({
-                    image: "123"
+                    image: "img/" + i + ".jpg"
                 });
             }
             // for (index in json) {

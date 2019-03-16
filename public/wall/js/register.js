@@ -35,6 +35,7 @@ var s = setInterval(function(){
 // 生成虚拟数据
 $.get('http://blog.54zm.com/wall/get_user_list',function (json) {
     for (data in json){
+        console.log(data);
         personArray.push({
             image: data.header_img
         });

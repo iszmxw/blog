@@ -32,7 +32,6 @@ class WallController extends Controller
     public function qq_login_auth(Request $request)
     {
         $prev_url = url()->previous();
-//        $appid = '101523010';
         $appid = '101518045';
         $redirect_uri = 'http://blog.54zm.com/wall/qq_login';
         $request_url = 'https://graph.qq.com/oauth2.0/authorize';

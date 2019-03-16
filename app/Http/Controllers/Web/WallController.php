@@ -22,6 +22,12 @@ class WallController extends Controller
         return view('wall.index');
     }
 
+    public function get_user_list()
+    {
+        $list = Userqq::getList();
+        return $list;
+    }
+
     public function register()
     {
         return view('web.default_template.register');

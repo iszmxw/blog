@@ -31,6 +31,7 @@ Route::group(['middleware'=>'web_common','namespace'=>'Web'],function () {
         Route::any('register', 'WallController@register');
         Route::any('qq_login_auth', 'WallController@qq_login_auth');
         Route::any('qq_login', 'WallController@qq_login');
+        Route::any('get_user_list', 'WallController@get_user_list');
     });
 
 });

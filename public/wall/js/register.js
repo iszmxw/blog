@@ -76,7 +76,6 @@ console.log(typeof personArray);
 console.log('分割线');
 var camera, scene, renderer;
 var controls;
-
 var objects = [];
 var targets = { table: [], sphere: [], helix: [], torus: [], grid: [] };
 

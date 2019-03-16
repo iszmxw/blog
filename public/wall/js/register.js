@@ -36,12 +36,15 @@ var s = setInterval(function () {
 $.get('http://blog.54zm.com/wall/get_user_list', function (json) {
     if (json.length < 168) {
         for (var _i = 0; _i < 18; _i++) {
-            for (index in json) {
-                //json[index].header_img
-                personArray.push({
-                    image: "123"
-                });
-            }
+            personArray.push({
+                image: "123"
+            });
+            // for (index in json) {
+            //     //json[index].header_img
+            //     personArray.push({
+            //         image: "123"
+            //     });
+            // }
         }
     } else {
         for (index in json) {

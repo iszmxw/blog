@@ -1,4 +1,4 @@
-var personArray = new Array();
+var personArray = [];
 var CurPersonNum = 0;
 var ini = 0;
 // 随机animate动画库
@@ -41,9 +41,9 @@ $.get('http://blog.54zm.com/wall/get_user_list', function (json) {
             for (index in json) {
                 console.log(index);
                 //json[index].header_img
-                // personArray[index].push({
-                //     image: "123"
-                // });
+                personArray.push({
+                    image: "123"
+                });
             }
         }
     }

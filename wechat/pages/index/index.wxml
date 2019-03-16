@@ -10,8 +10,8 @@
 </view>
 <!-- 菜单 -->
 <view class="nav">
-  <block wx:for="{{ category }}">
-    <view class="navigator" data-id="{{ item.id }}">{{ item.name }}</view>
+  <block wx:for="{{ category }}" wx:key="{{ item.id }}">
+    <view class="navigator" data-id="{{ item.id }}" bindtap='gotoCategory'>{{ item.name }}</view>
   </block>
 </view>
 

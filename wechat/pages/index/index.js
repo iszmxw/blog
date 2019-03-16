@@ -54,8 +54,6 @@ Page({
         i_tips = 0;
       }
     }, 2000)
-
-
     wx.showToast({
       title: '加载中',
       icon: 'loading',
@@ -70,7 +68,7 @@ Page({
         //设置参数内容类型为json
         'content-type': 'application/json'
       },
-      success: function (res) {
+      success: function(res) {
         console.log(res);
         that.setData({
           list: res.data.list
@@ -86,13 +84,17 @@ Page({
         //设置参数内容类型为json
         'content-type': 'application/json'
       },
-      success: function (res) {
+      success: function(res) {
         console.log(res);
         that.setData({
           category: res.data.list
         })
       }
     })
+  },
+  gotoCategory: function (option) {
+    let id = option.target.dataset.id;
+    console.log(id);
   },
   /**
    * 页面上拉触底事件的处理函数
@@ -106,7 +108,7 @@ Page({
     var that = this
     that.data.pagesize = that.data.pagesize + 10;
     wx.request({
-      url: baseUrl+'index',
+      url: baseUrl + 'index',
       data: {
         pagesize: that.data.pagesize,
       },

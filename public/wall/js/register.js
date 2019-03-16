@@ -38,14 +38,14 @@ $.get('http://blog.54zm.com/wall/get_user_list',function (json) {
         for(var _i=0;_i<24;_i++){
             for (index in json){
                 personArray.push({
-                    image: json[index].header_img
+                    image: json[index].header_img.toString()
                 });
             }
         }
     }else{
         for (index in json){
             personArray.push({
-                image: json[index].header_img
+                image: json[index].header_img.toString()
             });
         }
     }

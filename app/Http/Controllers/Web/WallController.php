@@ -82,7 +82,6 @@ class WallController extends Controller
 
         $user_info['openid'] = $openid;
         $qq_id = Userqq::getValue(['openid' => $openid], 'id');
-        $id = Userqq::getValue(['openid' => $openid], 'uid');
         //需要更新的数据
         $user_qq_data = [
             'nickname' => $user_info['nickname'],
@@ -105,7 +104,7 @@ class WallController extends Controller
             Redis::connection('blog_admin')->set('qq_data', json_encode($user_qq_data));
             $request->attributes->add(['qq_data' => $user_qq_data]); //添加参数
         }
-
+        dd($qq_id);
         return redirect('http://blog.54zm.com/wall');
     }
 }

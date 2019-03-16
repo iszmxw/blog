@@ -9,7 +9,7 @@
     <link href="{{asset('style/web/default_template/css/animate.css')}}" rel="stylesheet">
     <link href="{{asset('style/web/default_template/css/style.css')}}" rel="stylesheet">
     @yield('style')
-    <script src="//msite.baidu.com/sdk/c.js?appid=1606122614792135"></script>
+    <script src="http://msite.baidu.com/sdk/c.js?appid=1606122614792135"></script>
 </head>
 <body class="pace-done">
 <div id="wrapper">

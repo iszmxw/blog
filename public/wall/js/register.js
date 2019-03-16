@@ -55,7 +55,7 @@ var s = setInterval(function(){
 for(var _i=0;_i<6;_i++){
     for(var i=1;i<29;i++){
         personArray.push({
-            src: "img/"+ i +".jpg"
+            image: "img/"+ i +".jpg"
         });
     }
 }

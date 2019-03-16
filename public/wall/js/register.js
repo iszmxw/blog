@@ -40,6 +40,7 @@ $.get('http://blog.54zm.com/wall/get_user_list',function (json) {
             image: json[index].header_img
         });
     }
+    console.log(personArray);
 });
 //可以换成数据库里面的真实数据
 // for(var _i=0;_i<6;_i++){

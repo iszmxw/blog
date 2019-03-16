@@ -109,11 +109,11 @@ function init() {
 
         var img = document.createElement('img');
         img.src = table[i].image;
-        console.log(table[i]);
         element.appendChild(img);
 
 
         var object = new THREE.CSS3DObject(element);
+        console.log(object);
         object.position.x = Math.random() * 4000 - 2000;
         object.position.y = Math.random() * 4000 - 2000;
         object.position.z = Math.random() * 4000 - 2000;

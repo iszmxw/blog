@@ -32,7 +32,7 @@
 </div>
 
 <audio autoplay="autoplay">
-    <source src="./mp3/bgm.mp3"/>
+    <source src="{{asset('wall/mp3/bgm.mp3')}}"/>
 </audio>
 <script src="{{asset('wall/js/jquery.min.js')}}"></script>
 <script src="{{asset('wall/js/three.js')}}"></script>

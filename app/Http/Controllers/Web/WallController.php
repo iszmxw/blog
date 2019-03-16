@@ -19,7 +19,7 @@ class WallController extends Controller
 {
     public function index()
     {
-        dd(1,2,3,4);
+        return view('wall.index');
     }
 
     public function register()

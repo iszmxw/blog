@@ -90,9 +90,6 @@ $.get('http://blog.54zm.com/wall/get_user_list', function (json) {
 //     }
 // }
 
-console.log(personArray);
-console.log(personArrayStatus);
-
 
 
 function init() {
@@ -112,6 +109,7 @@ function init() {
 
         var img = document.createElement('img');
         img.src = table[i].image;
+        console.log(table[i]);
         element.appendChild(img);
 
 

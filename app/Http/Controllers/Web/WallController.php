@@ -102,7 +102,7 @@ class WallController extends Controller
             Redis::connection('blog_admin')->set('qq_data', json_encode($user_qq_data));
             $request->attributes->add(['qq_data' => $user_qq_data]); //添加参数
         }
-        dd($qq_id);
+
         return redirect('http://blog.54zm.com/wall');
     }
 }

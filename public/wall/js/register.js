@@ -60,12 +60,11 @@ for(var _i=0;_i<6;_i++){
     }
 }
 
-var table = new Array;
+var table = new Array();
 for (var i = 0; i < personArray.length; i++) {
     table[i] = new Object();
     if (i < personArray.length) {
         table[i] = personArray[i];
-        console.log(personArray[i]);
         table[i].src = personArray[i].image;
     }
     table[i].p_x = i % 20 + 1;
@@ -98,6 +97,7 @@ function init() {
 
         var img = document.createElement('img');
         img.src = table[ i ].image;
+        console.log(table[ i ].image);
         element.appendChild( img );
 
 

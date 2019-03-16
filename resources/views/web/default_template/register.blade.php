@@ -22,15 +22,15 @@
 <div class="middle-box text-center lockscreen animated fadeInDown">
     <div>
         <div class="m-b-md">
-            <img alt="image" class="img-circle circle-border" src="https://s3.amazonaws.com/uifaces/faces/twitter/ok/128.jpg">
+            <img alt="image" class="img-circle circle-border" src="https://cambrian-images.cdn.bcebos.com/771df369020a47a1337b265dbad378df_1531717703740.jpeg">
         </div>
-        <h3>小明</h3>
-        <p>你在锁屏幕。主应用程序已关闭，您需要输入您的密码才能回到应用程序。</p>
+        <h3>授权提示</h3>
+        <p>您即将前往QQ授权登录页面，授权后即可访问</p>
         <form class="m-t" role="form" action="index.html">
             <div class="form-group">
                 <input type="password" class="form-control" placeholder="******" required="">
             </div>
-            <button type="submit" class="btn btn-primary block full-width">解锁</button>
+            <button type="submit" class="btn btn-primary block full-width">确认授权</button>
         </form>
     </div>
 </div>

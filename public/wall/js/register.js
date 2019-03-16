@@ -46,6 +46,7 @@ $.get('http://blog.54zm.com/wall/get_user_list', function (json) {
                 });
             }
         }
+        console.log(personArrayStatus,1)
     } else {
         for (index in json) {
             personArray.push({

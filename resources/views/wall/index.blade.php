@@ -11,15 +11,15 @@
 
 
 <div id="container"></div>
-<!--<div id="info">3D签到墙（使用官方demo源元素周期表修改）</div>-->
+<div id="info">3D签到墙（使用官方demo源元素周期表修改）</div>
 <!--点击切换图形状态-->
-<!--<div id="menu">-->
-<!--<button id="table">表格</button>-->
-<!--<button id="sphere">球球</button>-->
-<!--<button id="helix">螺旋</button>-->
-<!--<button id="grid">格子</button>-->
-<!--</div>-->
-<div class="show_info animated" style="display:block;">
+<div id="menu">
+    <button id="table">表格</button>
+    <button id="sphere">球球</button>
+    <button id="helix">螺旋</button>
+    <button id="grid">格子</button>
+</div>
+<div class="show_info animated" style="display:none;">
     <div class="info_my">
         <img src="{{asset('wall/img/1.jpg')}}"/>
         <div class="info_mem">

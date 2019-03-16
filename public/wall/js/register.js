@@ -64,6 +64,8 @@ $.get('http://blog.54zm.com/wall/get_user_list', function (json) {
 var table = new Array();
 console.log(personArray);
 if(personArrayStatus){
+    console.log(personArrayStatus)
+    console.log(personArray.length)
     for (var i = 0; i < personArray.length; i++) {
         table[i] = new Object();
         if (i < personArray.length) {

@@ -1,4 +1,5 @@
 var personArray = [];
+var personArrayStatus = false;
 var CurPersonNum = 0;
 var ini = 0;
 // 随机animate动画库
@@ -35,6 +36,7 @@ var s = setInterval(function () {
 // 生成虚拟数据
 $.get('http://blog.54zm.com/wall/get_user_list', function (json) {
     if (json.length < 168) {
+        personArrayStatus = true;
         for (var _i = 0; _i < 18; _i++) {
             for (var index = 0;index < json.length;index++) {
                 personArray.push({
@@ -62,23 +64,26 @@ $.get('http://blog.54zm.com/wall/get_user_list', function (json) {
 // }
 var table = new Array();
 console.log(personArray);
-for (var i = 0; i < personArray.length; i++) {
-    table[i] = new Object();
-    if (i < personArray.length) {
-        table[i] = personArray[i];
-        table[i].src = personArray[i].image;
+if(personArrayStatus){
+    for (var i = 0; i < personArray.length; i++) {
+        table[i] = new Object();
+        if (i < personArray.length) {
+            table[i] = personArray[i];
+            table[i].src = personArray[i].image;
+        }
+        table[i].p_x = i % 20 + 1;
+        table[i].p_y = Math.floor(i / 20) + 1;
     }
-    table[i].p_x = i % 20 + 1;
-    table[i].p_y = Math.floor(i / 20) + 1;
+
+    var camera, scene, renderer;
+    var controls;
+    var objects = [];
+    var targets = {table: [], sphere: [], helix: [], torus: [], grid: []};
+
+    init();
+    animate();
 }
 
-var camera, scene, renderer;
-var controls;
-var objects = [];
-var targets = {table: [], sphere: [], helix: [], torus: [], grid: []};
-
-init();
-animate();
 
 function init() {
 

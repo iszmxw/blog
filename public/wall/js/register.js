@@ -32,7 +32,6 @@ var s = setInterval(function () {
 //                    },1500);
 //                },1000);
 }, 4500);
-
 // 生成虚拟数据
 $.get('http://blog.54zm.com/wall/get_user_list', function (json) {
     if (json.length < 168) {

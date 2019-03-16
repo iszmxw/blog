@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Redis;
 
 class WallController extends Controller
 {
-    public function index()
+    public function welcome()
     {
         dd(1);
     }

@@ -60,7 +60,6 @@ $.get('http://blog.54zm.com/wall/get_user_list',function (json) {
 //         });
 //     }
 // }
-
 var table = new Array();
 for (var i = 0; i < personArray.length; i++) {
     table[i] = new Object();

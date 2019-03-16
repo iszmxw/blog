@@ -1,4 +1,4 @@
-var personArray = [];
+var personArray1 = [];
 var CurPersonNum = 0;
 var ini = 0;
 // 随机animate动画库
@@ -32,7 +32,7 @@ var s = setInterval(function () {
 //                },1000);
 }, 4500);
 
-console.log("personArray",typeof(personArray))
+console.log("++++++++++++++++++",typeof(personArray1))
 // 生成虚拟数据
 $.get('http://blog.54zm.com/wall/get_user_list', function (json) {
     console.log("personArray",typeof(personArray))

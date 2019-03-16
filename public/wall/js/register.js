@@ -38,20 +38,21 @@ $.get('http://blog.54zm.com/wall/get_user_list', function (json) {
         for (var _i = 0; _i < 18; _i++) {
             console.log("personArray",personArray.length,typeof(personArray))
             personArray.push(1);
-            // for (index in json) {
-            //     //json[index].header_img
-            //     personArray.push({
-            //         image: "123"
-            //     });
-            // }
-        }
-    } else {
-        for (index in json) {
-            personArray.push({
-                image: "" + json[index].header_img
-            });
+            for (index in json) {
+                //json[index].header_img
+                personArray[index].push({
+                    image: "123"
+                });
+            }
         }
     }
+    // else {
+    //     for (index in json) {
+    //         personArray.push({
+    //             image: "" + json[index].header_img
+    //         });
+    //     }
+    // }
     // console.log(personArray);
 });
 

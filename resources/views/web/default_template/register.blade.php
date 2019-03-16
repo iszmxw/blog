@@ -31,7 +31,7 @@
                 {{--<input type="password" class="form-control" placeholder="******" required="">--}}
             {{--</div>--}}
         {{--</form>--}}
-        <button type="submit" class="btn btn-primary block full-width">确认授权</button>
+        <button type="submit" class="btn btn-primary block full-width" onclick="window.location.href='{{url('wall/qq_login_auth')}}'">确认授权</button>
     </div>
 </div>
 

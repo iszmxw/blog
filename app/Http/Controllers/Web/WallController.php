@@ -92,14 +92,7 @@ class WallController extends Controller
             'province' => $user_info['province'],
             'city' => $user_info['city'],
         ];
-        if (!empty($id) && $id == '1') {
-            Userqq::EditData(['openid' => $openid], $user_qq_data);
-            $user_data = User::getOne(['uid' => $id]);
-            Redis::connection('blog_admin')->set('user_data', json_encode($user_data));
-            session(['user_data' => $user_data]);
-
-            return redirect('admin');
-        } elseif (empty($qq_id)) {
+        if (empty($qq_id)) {
             $user_qq_data['openid'] = $openid;
             Userqq::create($user_qq_data);
             //用户登录留言使用
@@ -109,6 +102,7 @@ class WallController extends Controller
             Userqq::EditData(['openid' => $openid], $user_qq_data);
             //用户登录留言使用
             session(['qq_data' => $user_qq_data]);
+            Redis::connection('blog_admin')->set('qq_data', json_encode($user_qq_data));
             $request->attributes->add(['qq_data' => $user_qq_data]); //添加参数
         }
 

@@ -39,6 +39,6 @@
 <script src="{{asset('wall/js/tween.min.js')}}"></script>
 <script src="{{asset('wall/js/TrackballControls.js')}}"></script>
 <script src="{{asset('wall/js/CSS3DRenderer.js')}}"></script>
-<script src="{{asset('wall/js/register.js')}}"></script>
+<script src="{{asset('wall/js/register.js?v=').time()}}"></script>
 </body>
 </html>

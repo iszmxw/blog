@@ -27,7 +27,10 @@ Route::group(['middleware'=>'web_common','namespace'=>'Web'],function () {
 
 
     Route::group(['prefix'=>'wall'], function() {
+        Route::any('/', 'WallController@index');
         Route::any('register', 'WallController@register');
+        Route::any('qq_login_auth', 'WallController@qq_login_auth');
+        Route::any('qq_login', 'WallController@qq_login');
     });
 
 });

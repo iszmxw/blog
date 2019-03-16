@@ -39,7 +39,6 @@ $.get('http://blog.54zm.com/wall/get_user_list', function (json) {
             console.log("personArray",personArray.length,typeof(personArray))
             personArray.push(1);
             for (index in json) {
-                console.log(index);
                 //json[index].header_img
                 personArray.push({
                     image: "123"

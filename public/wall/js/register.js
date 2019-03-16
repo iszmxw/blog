@@ -33,24 +33,24 @@ var s = setInterval(function(){
 },4500);
 
 // 生成虚拟数据
-$.get('http://blog.54zm.com/wall/get_user_list',function (json) {
-    for (index in json){
-        console.log(json[index]);
-        personArray.push({
-            image: json[index].header_img
-        });
-    }
-    console.log(personArray);
-});
-//可以换成数据库里面的真实数据
-// for(var _i=0;_i<6;_i++){
-//     for(var i=1;i<29;i++){
+// $.get('http://blog.54zm.com/wall/get_user_list',function (json) {
+//     for (index in json){
+//         console.log(json[index]);
 //         personArray.push({
-//             image: "img/"+ i +".jpg"
+//             image: json[index].header_img
 //         });
 //     }
-// }
-
+//     console.log(personArray);
+// });
+//可以换成数据库里面的真实数据
+for(var _i=0;_i<6;_i++){
+    for(var i=1;i<29;i++){
+        personArray.push({
+            image: "img/"+ i +".jpg"
+        });
+    }
+}
+console.log(personArray);
 var table = new Array;
 for (var i = 0; i < personArray.length; i++) {
     table[i] = new Object();

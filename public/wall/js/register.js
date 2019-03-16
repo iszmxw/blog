@@ -35,8 +35,8 @@ var s = setInterval(function () {
 }, 4500);
 // 生成虚拟数据
 $.get('http://blog.54zm.com/wall/get_user_list', function (json) {
+    personArrayStatus = true;
     if (json.length < 168) {
-        personArrayStatus = true;
         for (var _i = 0; _i < 18; _i++) {
             for (var index = 0;index < json.length;index++) {
                 personArray.push({

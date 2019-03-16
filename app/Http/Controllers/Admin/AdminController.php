@@ -139,7 +139,6 @@ class AdminController extends Controller
         $code = $request->get('code');
         //上一页地址
         $state = $request->get('state');
-        dd($state);
         //跳转回调地址
         $redirect_uri = 'http://blog.54zm.com/admin/qq_login';
         //请求地址

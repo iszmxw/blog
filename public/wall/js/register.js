@@ -33,40 +33,34 @@ var s = setInterval(function () {
 }, 4500);
 
 // 生成虚拟数据
-$.get('http://blog.54zm.com/wall/get_user_list', function (json) {
-    if (json.length < 168) {
-        for (var _i = 0; _i < 18; _i++) {
-            console.log("personArray", personArray.length, typeof(personArray))
-            for (var i = 1; i < 29; i++) {
-                //json[index].header_img
-                personArray.push({
-                    image: "img/" + i + ".jpg"
-                });
-            }
-            // for (index in json) {
-            //
-            // }
-        }
-    }
-    // else {
-    //     for (index in json) {
-    //         personArray.push({
-    //             image: "" + json[index].header_img
-    //         });
-    //     }
-    // }
-    // console.log(personArray);
-});
+// $.get('http://blog.54zm.com/wall/get_user_list', function (json) {
+//     if (json.length < 168) {
+//         for (var _i = 0; _i < 18; _i++) {
+//             console.log("personArray", personArray.length, typeof(personArray))
+//             for (var i = 1; i < 29; i++) {
+//                 personArray.push({
+//                     image: "img/" + i + ".jpg"
+//                 });
+//             }
+//         }
+//     } else {
+//         for (index in json) {
+//             personArray.push({
+//                 image: "" + json[index].header_img
+//             });
+//         }
+//     }
+// });
 
 
 //可以换成数据库里面的真实数据
-// for(var _i=0;_i<6;_i++){
-//     for(var i=1;i<29;i++){
-//         personArray.push({
-//             image: "img/"+ i +".jpg"
-//         });
-//     }
-// }
+for(var _i=0;_i<6;_i++){
+    for(var i=1;i<29;i++){
+        personArray.push({
+            image: "img/"+ i +".jpg"
+        });
+    }
+}
 var table = new Array();
 for (var i = 0; i < personArray.length; i++) {
     table[i] = new Object();

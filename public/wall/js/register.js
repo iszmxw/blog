@@ -39,9 +39,9 @@ $.get('http://blog.54zm.com/wall/get_user_list', function (json) {
             console.log("personArray", personArray.length, typeof(personArray))
             // personArray = json;
             for (var index = 0;index <= json.length;index++) {
-                console.log(json);
+                console.log(json[0].header_img);
                 // personArray.push({
-                //     image: json[index].header_img
+                //     image: json[0].header_img
                 // });
             }
         }

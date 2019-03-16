@@ -38,14 +38,14 @@ $.get('http://blog.54zm.com/wall/get_user_list',function (json) {
         for(var _i=0;_i<24;_i++){
             for (index in json){
                 personArray.push({
-                    image: json[index].header_img.toString()
+                    image: json[index].header_img
                 });
             }
         }
     }else{
         for (index in json){
             personArray.push({
-                image: json[index].header_img.toString()
+                image: json[index].header_img
             });
         }
     }
@@ -72,7 +72,7 @@ for (var i = 0; i < personArray.length; i++) {
     table[i].p_y = Math.floor(i / 20) + 1;
 }
 console.log('分割线');
-console.log(personArray[0]);
+console.log(typeof personArray);
 console.log('分割线');
 var camera, scene, renderer;
 var controls;

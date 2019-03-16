@@ -25,6 +25,11 @@ Route::group(['middleware'=>'web_common','namespace'=>'Web'],function () {
         });
     });
 
+
+    Route::group(['prefix'=>'wall'], function() {
+        Route::any('register', 'WallController@register');
+    });
+
 });
 
 

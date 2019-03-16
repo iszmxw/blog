@@ -100,7 +100,7 @@ function init() {
 
         var img = document.createElement('img');
         img.src = table[ i ].image;
-        console.log(table[ i ].image);
+        // console.log(table[ i ].image);
         element.appendChild( img );
 
 

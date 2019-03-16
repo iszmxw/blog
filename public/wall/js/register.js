@@ -61,6 +61,7 @@ $.get('http://blog.54zm.com/wall/get_user_list', function (json) {
 //     }
 // }
 var table = new Array();
+console.log(personArray);
 for (var i = 0; i < personArray.length; i++) {
     table[i] = new Object();
     if (i < personArray.length) {
@@ -70,10 +71,7 @@ for (var i = 0; i < personArray.length; i++) {
     table[i].p_x = i % 20 + 1;
     table[i].p_y = Math.floor(i / 20) + 1;
 }
-console.log('分割线');
-console.log(personArray.length);
-console.log(personArray);
-console.log('分割线');
+
 var camera, scene, renderer;
 var controls;
 var objects = [];
@@ -99,7 +97,6 @@ function init() {
 
         var img = document.createElement('img');
         img.src = table[i].image;
-        // console.log(table[ i ].image);
         element.appendChild(img);
 
 
@@ -268,8 +265,6 @@ function init() {
 function transform(targets, style, duration) {
 
     TWEEN.removeAll();
-
-    console.log(style);
 
     for (var i = 0; i < objects.length; i++) {
 

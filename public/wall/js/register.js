@@ -66,7 +66,7 @@ for (var i = 0; i < personArray.length; i++) {
     if (i < personArray.length) {
         table[i] = personArray[i];
         console.log(personArray[i]);
-        table[i].src = personArray[i].thumb_image;
+        table[i].src = personArray[i].image;
     }
     table[i].p_x = i % 20 + 1;
     table[i].p_y = Math.floor(i / 20) + 1;

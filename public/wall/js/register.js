@@ -63,6 +63,8 @@ $.get('http://blog.54zm.com/wall/get_user_list', function (json) {
 // }
 var table = new Array();
 console.log(personArray);
+console.log(personArrayStatus);
+
 if(personArrayStatus){
     console.log(personArrayStatus)
     console.log(personArray.length)

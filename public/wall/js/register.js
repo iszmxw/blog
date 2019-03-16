@@ -50,7 +50,7 @@ for(var _i=0;_i<6;_i++){
         });
     }
 }
-console.log(personArray);
+
 var table = new Array;
 for (var i = 0; i < personArray.length; i++) {
     table[i] = new Object();
@@ -61,7 +61,7 @@ for (var i = 0; i < personArray.length; i++) {
     table[i].p_x = i % 20 + 1;
     table[i].p_y = Math.floor(i / 20) + 1;
 }
-
+console.log(personArray);
 var camera, scene, renderer;
 var controls;
 

@@ -37,22 +37,46 @@ var s = setInterval(function () {
 $.get('http://blog.54zm.com/wall/get_user_list', function (json) {
     if (json) {
         personArrayStatus = true;
-    }
-    if (json.length < 168) {
-        for (var _i = 0; _i < 18; _i++) {
-            for (var index = 0; index < json.length; index++) {
+        if (json.length < 168) {
+            for (var _i = 0; _i < 18; _i++) {
+                for (var index = 0; index < json.length; index++) {
+                    personArray.push({
+                        image: json[index].header_img
+                    });
+                }
+            }
+            console.log(personArrayStatus,1)
+        } else {
+            for (index in json) {
                 personArray.push({
-                    image: json[index].header_img
+                    image: "" + json[index].header_img
                 });
             }
         }
-        console.log(personArrayStatus,1)
-    } else {
-        for (index in json) {
-            personArray.push({
-                image: "" + json[index].header_img
-            });
+
+
+        if (personArrayStatus) {
+            console.log(personArrayStatus)
+            console.log(personArray.length)
+            for (var i = 0; i < personArray.length; i++) {
+                table[i] = new Object();
+                if (i < personArray.length) {
+                    table[i] = personArray[i];
+                    table[i].src = personArray[i].image;
+                }
+                table[i].p_x = i % 20 + 1;
+                table[i].p_y = Math.floor(i / 20) + 1;
+            }
+
+            var camera, scene, renderer;
+            var controls;
+            var objects = [];
+            var targets = {table: [], sphere: [], helix: [], torus: [], grid: []};
+
+            init();
+            animate();
         }
+
     }
 });
 
@@ -69,27 +93,6 @@ $.get('http://blog.54zm.com/wall/get_user_list', function (json) {
 console.log(personArray);
 console.log(personArrayStatus);
 
-if (personArrayStatus) {
-    console.log(personArrayStatus)
-    console.log(personArray.length)
-    for (var i = 0; i < personArray.length; i++) {
-        table[i] = new Object();
-        if (i < personArray.length) {
-            table[i] = personArray[i];
-            table[i].src = personArray[i].image;
-        }
-        table[i].p_x = i % 20 + 1;
-        table[i].p_y = Math.floor(i / 20) + 1;
-    }
-
-    var camera, scene, renderer;
-    var controls;
-    var objects = [];
-    var targets = {table: [], sphere: [], helix: [], torus: [], grid: []};
-
-    init();
-    animate();
-}
 
 
 function init() {

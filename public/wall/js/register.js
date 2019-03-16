@@ -72,7 +72,8 @@ for (var i = 0; i < personArray.length; i++) {
     table[i].p_y = Math.floor(i / 20) + 1;
 }
 console.log('分割线');
-console.log(typeof personArray);
+console.log(personArray.length);
+console.log(personArray);
 console.log('分割线');
 var camera, scene, renderer;
 var controls;

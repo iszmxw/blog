@@ -2,14 +2,14 @@ var personArray = new Array();
 var CurPersonNum = 0;
 var ini = 0;
 // 随机animate动画库
-var _in = ['bounceIn','bounceInDown','bounceInLeft','bounceInRight','bounceInUp','fadeIn','fadeInDown','fadeInDownBig','fadeInLeft','fadeInLeftBig','fadeInRight','fadeInRightBig','fadeInUp','fadeInUpBig','rotateIn','rotateInDownLeft','rotateInDownRight','rotateInUpLeft','rotateInUpRight','slideInDown','slideInLeft','slideInRight'];
-var _out = ['bounceOut','bounceOutDown','bounceOutLeft','bounceOutRight','bounceOutUp','fadeOut','fadeOutDown','fadeOutDownBig','fadeOutLeft','fadeOutLeftBig','fadeOutRight','fadeOutRightBig','fadeOutUp','fadeOutUpBig','rotateOut','rotateOutDownLeft','rotateOutDownRight','rotateOutUpLeft','rotateOutUpRight','slideOutDown','slideOutLeft','slideOutRight'];
+var _in = ['bounceIn', 'bounceInDown', 'bounceInLeft', 'bounceInRight', 'bounceInUp', 'fadeIn', 'fadeInDown', 'fadeInDownBig', 'fadeInLeft', 'fadeInLeftBig', 'fadeInRight', 'fadeInRightBig', 'fadeInUp', 'fadeInUpBig', 'rotateIn', 'rotateInDownLeft', 'rotateInDownRight', 'rotateInUpLeft', 'rotateInUpRight', 'slideInDown', 'slideInLeft', 'slideInRight'];
+var _out = ['bounceOut', 'bounceOutDown', 'bounceOutLeft', 'bounceOutRight', 'bounceOutUp', 'fadeOut', 'fadeOutDown', 'fadeOutDownBig', 'fadeOutLeft', 'fadeOutLeftBig', 'fadeOutRight', 'fadeOutRightBig', 'fadeOutUp', 'fadeOutUpBig', 'rotateOut', 'rotateOutDownLeft', 'rotateOutDownRight', 'rotateOutUpLeft', 'rotateOutUpRight', 'slideOutDown', 'slideOutLeft', 'slideOutRight'];
 // 模拟推送数据
-var s = setInterval(function(){
+var s = setInterval(function () {
     // 随机获取animate动画
-    var rand_in = parseInt(Math.random() * _in.length,10);
-    var rand_out = parseInt(Math.random() * _out.length,10);
-    if(CurPersonNum >= personArray.length){
+    var rand_in = parseInt(Math.random() * _in.length, 10);
+    var rand_out = parseInt(Math.random() * _out.length, 10);
+    if (CurPersonNum >= personArray.length) {
         CurPersonNum = 0;
     }
 //					//定时执行检查数据库的用户签到数据，有则加入到签到墙
@@ -30,22 +30,22 @@ var s = setInterval(function(){
 //                        },1000);
 //                    },1500);
 //                },1000);
-},4500);
+}, 4500);
 
 // 生成虚拟数据
-$.get('http://blog.54zm.com/wall/get_user_list',function (json) {
-    if(json.length < 168){
-        for(var _i=0;_i<24;_i++){
-            for (index in json){
+$.get('http://blog.54zm.com/wall/get_user_list', function (json) {
+    if (json.length < 168) {
+        for (var _i = 0; _i < 24; _i++) {
+            for (index in json) {
                 personArray.push({
-                    image: ""+json[index].header_img
+                    image: "" + json[index].header_img
                 });
             }
         }
-    }else{
-        for (index in json){
+    } else {
+        for (index in json) {
             personArray.push({
-                image: ""+json[index].header_img
+                image: "" + json[index].header_img
             });
         }
     }
@@ -77,46 +77,46 @@ console.log('分割线');
 var camera, scene, renderer;
 var controls;
 var objects = [];
-var targets = { table: [], sphere: [], helix: [], torus: [], grid: [] };
+var targets = {table: [], sphere: [], helix: [], torus: [], grid: []};
 
 init();
 animate();
 
 function init() {
 
-    camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 10000 );
+    camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 1, 10000);
     camera.position.z = 3000;
 
     scene = new THREE.Scene();
 
     // 表格状态
 
-    for ( var i = 0; i < table.length; i ++ ) {
+    for (var i = 0; i < table.length; i++) {
 
-        var element = document.createElement( 'div' );
+        var element = document.createElement('div');
         element.className = 'element';
-        element.style.backgroundColor = 'rgba(0,127,127,' + ( Math.random() * 0.5 + 0.25 ) + ')';
+        element.style.backgroundColor = 'rgba(0,127,127,' + (Math.random() * 0.5 + 0.25) + ')';
 
         var img = document.createElement('img');
-        img.src = table[ i ].image;
+        img.src = table[i].image;
         // console.log(table[ i ].image);
-        element.appendChild( img );
+        element.appendChild(img);
 
 
-        var object = new THREE.CSS3DObject( element );
+        var object = new THREE.CSS3DObject(element);
         object.position.x = Math.random() * 4000 - 2000;
         object.position.y = Math.random() * 4000 - 2000;
         object.position.z = Math.random() * 4000 - 2000;
-        scene.add( object );
+        scene.add(object);
 
-        objects.push( object );
+        objects.push(object);
 
         // 表格需要坐标进行排序的
         var object = new THREE.Object3D();
-        object.position.x = ( table[ i ].p_x * 140 ) - 1330;
-        object.position.y = - ( table[ i ].p_y * 180 ) + 990;
+        object.position.x = (table[i].p_x * 140) - 1330;
+        object.position.y = -(table[i].p_y * 180) + 990;
 
-        targets.table.push( object );
+        targets.table.push(object);
 
     }
 
@@ -124,22 +124,22 @@ function init() {
     var vector = new THREE.Vector3();
     var spherical = new THREE.Spherical();
 
-    for ( var i = 0, l = objects.length; i < l; i ++ ) {
+    for (var i = 0, l = objects.length; i < l; i++) {
 
-        var phi = Math.acos( -1 + ( 2 * i ) / l );
-        var theta = Math.sqrt( l * Math.PI ) * phi;
+        var phi = Math.acos(-1 + (2 * i) / l);
+        var theta = Math.sqrt(l * Math.PI) * phi;
 
         var object = new THREE.Object3D();
 
-        spherical.set( 800, phi, theta );
+        spherical.set(800, phi, theta);
 
-        object.position.setFromSpherical( spherical );
+        object.position.setFromSpherical(spherical);
 
-        vector.copy( object.position ).multiplyScalar( 2 );
+        vector.copy(object.position).multiplyScalar(2);
 
-        object.lookAt( vector );
+        object.lookAt(vector);
 
-        targets.sphere.push( object );
+        targets.sphere.push(object);
 
     }
 
@@ -147,94 +147,94 @@ function init() {
     var vector = new THREE.Vector3();
     var cylindrical = new THREE.Cylindrical();
 
-    for ( var i = 0, l = objects.length; i < l; i ++ ) {
+    for (var i = 0, l = objects.length; i < l; i++) {
 
         var theta = i * 0.175 + Math.PI;
-        var y = - ( i * 5 ) + 450;
+        var y = -(i * 5) + 450;
 
         var object = new THREE.Object3D();
 
         // 参数一 圈的大小 参数二 左右间距 参数三 上下间距
-        cylindrical.set( 900, theta, y );
+        cylindrical.set(900, theta, y);
 
-        object.position.setFromCylindrical( cylindrical );
+        object.position.setFromCylindrical(cylindrical);
 
         vector.x = object.position.x * 2;
         vector.y = object.position.y;
         vector.z = object.position.z * 2;
 
-        object.lookAt( vector );
+        object.lookAt(vector);
 
-        targets.helix.push( object );
+        targets.helix.push(object);
 
     }
 
     // 蜘蛛网状态torus
     var vector = new THREE.Vector3();
 
-    for ( var i = 0, l = objects.length; i < l; i ++ ) {
+    for (var i = 0, l = objects.length; i < l; i++) {
 
         var object = new THREE.Object3D();
 
-        object.position.x = 1200*Math.cos(-i);
-        object.position.y = 1200*Math.sin(-i);
-        object.position.z = 200-i*60*1.5;
-        object.rotation.z = -i*0.03;
+        object.position.x = 1200 * Math.cos(-i);
+        object.position.y = 1200 * Math.sin(-i);
+        object.position.z = 200 - i * 60 * 1.5;
+        object.rotation.z = -i * 0.03;
 
         //vector.copy( object.position ).multiplyScalar( 2 );
 
-        object.lookAt( vector );
+        object.lookAt(vector);
 
-        targets.torus.push( object );
+        targets.torus.push(object);
 
     }
 
 
     // 格子状态
-    for ( var i = 0; i < objects.length; i ++ ) {
+    for (var i = 0; i < objects.length; i++) {
 
         var object = new THREE.Object3D();
 
-        object.position.x = ( ( i % 5 ) * 400 ) - 800; // 400 图片的左右间距  800 x轴中心店
-        object.position.y = ( - ( Math.floor( i / 5 ) % 5 ) * 300 ) + 500;  // 500 y轴中心店
-        object.position.z = ( Math.floor( i / 25 ) ) * 200 - 800;// 300调整 片间距 800z轴中心店
+        object.position.x = ((i % 5) * 400) - 800; // 400 图片的左右间距  800 x轴中心店
+        object.position.y = (-(Math.floor(i / 5) % 5) * 300) + 500;  // 500 y轴中心店
+        object.position.z = (Math.floor(i / 25)) * 200 - 800;// 300调整 片间距 800z轴中心店
 
-        targets.grid.push( object );
+        targets.grid.push(object);
 
     }
 
     //渲染
     renderer = new THREE.CSS3DRenderer();
-    renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.domElement.style.position = 'absolute';
-    document.getElementById( 'container' ).appendChild( renderer.domElement );
+    document.getElementById('container').appendChild(renderer.domElement);
 
     // 鼠标控制
-    controls = new THREE.TrackballControls( camera, renderer.domElement );
+    controls = new THREE.TrackballControls(camera, renderer.domElement);
     controls.rotateSpeed = 0.5;
     controls.minDistance = 500;
     controls.maxDistance = 6000;
-    controls.addEventListener( 'change', render );
+    controls.addEventListener('change', render);
 
     // 自动更换
-    setInterval(function(){
+    setInterval(function () {
         ini = ini >= 4 ? 0 : ini;
         ++ini;
-        switch(ini){
+        switch (ini) {
             case 1:
-                transform( targets.sphere,"sphere", 1000 );
+                transform(targets.sphere, "sphere", 1000);
                 break;
             case 2:
-                transform( targets.helix,"helix", 1000 );
+                transform(targets.helix, "helix", 1000);
                 break;
             case 3:
-                transform( targets.torus,"torus", 1000 );
+                transform(targets.torus, "torus", 1000);
                 break;
             case 4:
-                transform( targets.grid,"grid", 1000 );
+                transform(targets.grid, "grid", 1000);
                 break;
         }
-    },8000);
+    }, 8000);
 
     //点击切换图形状态
     // var button = document.getElementById( 'table' );
@@ -257,39 +257,39 @@ function init() {
     //     transform( targets.grid, 2000 );
     // }, false );
 
-    transform( targets.sphere,"sphere", 2000 );
+    transform(targets.sphere, "sphere", 2000);
 
     //
 
-    window.addEventListener( 'resize', onWindowResize, false );
+    window.addEventListener('resize', onWindowResize, false);
 
 }
 
-function transform( targets,style, duration ) {
+function transform(targets, style, duration) {
 
     TWEEN.removeAll();
 
     console.log(style);
 
-    for ( var i = 0; i < objects.length; i ++ ) {
+    for (var i = 0; i < objects.length; i++) {
 
-        var object = objects[ i ];
-        var target = targets[ i ];
-        new TWEEN.Tween( object.position )
-            .to( { x: target.position.x, y: target.position.y, z: target.position.z }, Math.random() * duration + duration )
-            .easing( TWEEN.Easing.Exponential.InOut )
+        var object = objects[i];
+        var target = targets[i];
+        new TWEEN.Tween(object.position)
+            .to({x: target.position.x, y: target.position.y, z: target.position.z}, Math.random() * duration + duration)
+            .easing(TWEEN.Easing.Exponential.InOut)
             .start();
 
-        new TWEEN.Tween( object.rotation )
-            .to( { x: target.rotation.x, y: target.rotation.y, z: target.rotation.z }, Math.random() * duration + duration )
-            .easing( TWEEN.Easing.Exponential.InOut )
+        new TWEEN.Tween(object.rotation)
+            .to({x: target.rotation.x, y: target.rotation.y, z: target.rotation.z}, Math.random() * duration + duration)
+            .easing(TWEEN.Easing.Exponential.InOut)
             .start();
 
     }
 
-    new TWEEN.Tween( this )
-        .to( {}, duration * 2 )
-        .onUpdate( render )
+    new TWEEN.Tween(this)
+        .to({}, duration * 2)
+        .onUpdate(render)
         .start();
 
 }
@@ -299,7 +299,7 @@ function onWindowResize() {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
 
-    renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.setSize(window.innerWidth, window.innerHeight);
 
     render();
 
@@ -309,11 +309,11 @@ function animate() {
 
     // 让场景通过x轴或者y轴旋转  & z
     //判断是否为蜘蛛网状态
-    if (ini == '3'){
+    if (ini == '3') {
         scene.rotation.x = 0;
         scene.rotation.y = 0;
         scene.rotation.z += 0.008;
-    }else{
+    } else {
         scene.rotation.x = 0;
         scene.rotation.y += 0.008;
         scene.rotation.z = 0;
@@ -330,7 +330,7 @@ function animate() {
     //     scene.scale.z = scene.scale.z-0.008;
     // }
 
-    requestAnimationFrame( animate );
+    requestAnimationFrame(animate);
 
     TWEEN.update();
 
@@ -343,6 +343,6 @@ function animate() {
 
 function render() {
 
-    renderer.render( scene, camera );
+    renderer.render(scene, camera);
 
 }

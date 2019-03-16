@@ -25,7 +25,7 @@
             <img alt="image" class="img-circle circle-border" src="https://cambrian-images.cdn.bcebos.com/771df369020a47a1337b265dbad378df_1531717703740.jpeg">
         </div>
         <h3>授权提示</h3>
-        <p>您访问的页面需要您的授权，即将前往QQ授权页面，授权后即可访问</p>
+        <p>您访问的页面需要授权，即将前往QQ授权页面，授权后即可访问</p>
         {{--<form class="m-t" role="form" action="index.html">--}}
             {{--<div class="form-group">--}}
                 {{--<input type="password" class="form-control" placeholder="******" required="">--}}

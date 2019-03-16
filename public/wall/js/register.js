@@ -43,6 +43,7 @@ $.get('http://blog.54zm.com/wall/get_user_list', function (json) {
             //         image: "" + json[index].header_img
             //     });
             // }
+            console.log(personArray);
         }
     } else {
         for (index in json) {

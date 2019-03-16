@@ -35,10 +35,12 @@ var s = setInterval(function () {
 }, 4500);
 // 生成虚拟数据
 $.get('http://blog.54zm.com/wall/get_user_list', function (json) {
-    personArrayStatus = true;
+    if (json) {
+        personArrayStatus = true;
+    }
     if (json.length < 168) {
         for (var _i = 0; _i < 18; _i++) {
-            for (var index = 0;index < json.length;index++) {
+            for (var index = 0; index < json.length; index++) {
                 personArray.push({
                     image: json[index].header_img
                 });
@@ -66,7 +68,7 @@ $.get('http://blog.54zm.com/wall/get_user_list', function (json) {
 console.log(personArray);
 console.log(personArrayStatus);
 
-if(personArrayStatus){
+if (personArrayStatus) {
     console.log(personArrayStatus)
     console.log(personArray.length)
     for (var i = 0; i < personArray.length; i++) {

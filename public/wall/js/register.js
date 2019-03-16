@@ -34,10 +34,10 @@ var s = setInterval(function(){
 
 // 生成虚拟数据
 $.get('http://blog.54zm.com/wall/get_user_list',function (json) {
-    for ((data, index) in json){
-        console.log(data,index);
+    for (index in json){
+        console.log(json[index]);
         personArray.push({
-            image: data.header_img
+            image: json[index].header_img
         });
     }
 });

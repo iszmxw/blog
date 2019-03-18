@@ -50,12 +50,14 @@ Route::group(['namespace'=>'Api'],function(){
         Route::get('login', 'MiniController@login');
         //测试专用
         Route::get('test', 'MiniController@test');
+
+
         //小程序首页
         Route::any('index', 'MiniController@index');
         //小程序文章页面
-        Route::get('article', 'MiniController@article');
+        Route::any('article', 'MiniController@article');
         //获取栏目分类
-        Route::get('get_category', 'MiniController@get_category');
+        Route::any('get_category', 'MiniController@get_category');
     });
 
     //发送邮件(aszmxw)

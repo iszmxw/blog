@@ -112,6 +112,7 @@ class MiniController extends Controller
             if (time()-$time > $expires_in){
                 $this->get_access_token($redis_key);
             }
+            $access_token = Redis::connection('blog_web')->get($redis_key.'token');
         }
         $data['access_token'] = json_decode($access_token, true)['access_token'];
         return $data;

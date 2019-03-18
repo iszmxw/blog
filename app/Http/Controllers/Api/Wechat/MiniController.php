@@ -139,7 +139,7 @@ class MiniController extends Controller
 
     public function test1(Request $request){
         $access_token = session()->get('access_token');
-        return $request;
+        dd($request);
     }
 
 

@@ -101,17 +101,9 @@ class MiniController extends Controller
         $data['base_info'] = $base_info;
 
         //判断当前是否已经获取过access_token
-        $access_token = Redis::connection('blog_web')->get($redis_key.'token');
-        $time = Redis::connection('blog_web')->get($redis_key.'time');
+        $access_token = Redis::connection('blog_web')->get($redis_key);
         if (empty($access_token)){
             $access_token = $this->get_access_token($redis_key);
-        }else{
-            //获取过期时间
-            $expires_in = json_decode($access_token,true)['expires_in'];
-            //如果获取过，判断当前获取的是否已经过期
-            if (time()-$time > $expires_in){
-                $access_token = $this->get_access_token($redis_key);
-            }
         }
         $data['access_token'] = json_decode($access_token, true)['access_token'];
         return $data;
@@ -126,8 +118,9 @@ class MiniController extends Controller
         $url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid='.$appid.'&secret='.$appsecret;
         $client = new Client();
         $access_token = $client->get($url)->getBody()->getContents();
-        Redis::connection('blog_web')->set($redis_key.'token',$access_token);
-        Redis::connection('blog_web')->set($redis_key.'time', time());
+        //获取$access_token过期时间
+        $expires_in = json_decode($access_token,true)['expires_in'];
+        Redis::connection('blog_web')->setex($redis_key,$expires_in,$access_token);
         return $access_token;
     }
 

@@ -54,7 +54,6 @@ class MiniController extends Controller
         $url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid='.$appid.'&secret='.$appsecret;
         $client = new Client();
         $access_token = $client->get($url)->getBody()->getContents();
-        dd($access_token,222);
         session()->put('access_token',$access_token);
         session()->put('access_token_time',time());
         session()->save();
@@ -64,6 +63,7 @@ class MiniController extends Controller
     public function access_token()
     {
         //判断当前是否已经获取过access_token
+        dd(session()->get('access_token'));
         if (!session()->get('access_token')){
             $this->get_access_token();
         }else{

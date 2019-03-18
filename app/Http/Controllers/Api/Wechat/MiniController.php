@@ -97,37 +97,37 @@ class MiniController extends Controller
         $re = $client->get($url)->getBody()->getContents();
         //code换区的信息
         $base_info = json_decode($re,true);
+        $redis_key = $base_info['session_key'];
         $data['base_info'] = $base_info;
 
         //判断当前是否已经获取过access_token
-        if (!session()->get('access_token')){
-            $this->get_access_token();
+        $access_token = Redis::connection('blog_web')->get($redis_key.'token');
+        $time = Redis::connection('blog_web')->get($redis_key.'time');
+        if (empty($access_token)){
+            $this->get_access_token($redis_key);
         }else{
-            $time = session()->get('access_token_time');
-            $access_token = session()->get('access_token');
             //获取过期时间
             $expires_in = json_decode($access_token,true)['expires_in'];
             //如果获取过，判断当前获取的是否已经过期
             if (time()-$time > $expires_in){
-                $this->get_access_token();
+                $this->get_access_token($redis_key);
             }
         }
-        $access_token = session()->get('access_token');
         $data['access_token'] = json_decode($access_token, true)['access_token'];
         return $data;
     }
 
 
     //获取access_token中转站
-    public function get_access_token()
+    public function get_access_token($redis_key)
     {
         $appid = 'wxe97a91b8d58d8021';
         $appsecret = '51feac652d4ad42e402a028f76a63ddc';
         $url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid='.$appid.'&secret='.$appsecret;
         $client = new Client();
         $access_token = $client->get($url)->getBody()->getContents();
-        Redis::connection('blog_web')->set('access_token', $access_token);
-        Redis::connection('blog_web')->set('access_token_time', time());
+        Redis::connection('blog_web')->set($redis_key.'token',$access_token);
+        Redis::connection('blog_web')->set($redis_key.'time', time());
     }
 
 

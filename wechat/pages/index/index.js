@@ -1,9 +1,9 @@
 //pages/index.js
-
-const app = getApp();
+import base from '../../utils/http/base.js'
+//获取请求网址配置项
+const urls = base.config.data.urls
 var animation = wx.createAnimation()
 var i_tips = 0;
-var baseUrl = app.globalData.baseUrl;
 Page({
   data: {
     content: [
@@ -58,43 +58,44 @@ Page({
       title: '加载中',
       icon: 'loading',
       duration: 2000
-    });
-    wx.request({
-      url: baseUrl + 'index',
-      data: {
-        pagesize: that.data.pagesize,
-      },
-      header: {
-        //设置参数内容类型为json
-        'content-type': 'application/json'
-      },
-      success: function(res) {
-        console.log(res);
-        that.setData({
-          list: res.data.list
-        })
-      }
-    });
-
-
-    wx.request({
-      url: baseUrl + 'get_category',
-      data: '',
-      header: {
-        //设置参数内容类型为json
-        'content-type': 'application/json'
-      },
-      success: function(res) {
-        console.log(res);
+    })
+    //获取栏目列表
+    base.request({
+      url: urls.get_category,
+      sCallBack: function(res) {
         that.setData({
           category: res.data.list
         })
       }
     })
+    //获取文章列表
+    base.request({
+      url: urls.index,
+      data: {
+        pagesize: that.data.pagesize,
+      },
+      sCallBack: function(res) {
+        that.setData({
+          list: res.data.list
+        })
+      }
+    })
   },
-  gotoCategory: function (option) {
-    let id = option.target.dataset.id;
-    console.log(id);
+  gotoCategory: function(option) {
+    let id = base.getDataSet(option,'id');
+    let that = this
+    //获取文章列表
+    base.request({
+      url: urls.index,
+      data: {
+        pagesize: 10,
+      },
+      sCallBack: function (res) {
+        that.setData({
+          list: res.data.list
+        })
+      }
+    })
   },
   /**
    * 页面上拉触底事件的处理函数
@@ -107,16 +108,13 @@ Page({
     });
     var that = this
     that.data.pagesize = that.data.pagesize + 10;
-    wx.request({
-      url: baseUrl + 'index',
+    //上拉加载更多
+    base.request({
+      url: urls.index,
       data: {
         pagesize: that.data.pagesize,
       },
-      header: {
-        //设置参数内容类型为json
-        'content-type': 'application/json'
-      },
-      success: function(res) {
+      sCallBack: function(res) {
         if (res.data.status == 1) {
           that.setData({
             list: res.data.list

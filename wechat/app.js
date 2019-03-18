@@ -1,6 +1,6 @@
 //app.js
 App({
-  onLaunch: function () {
+  onLaunch: function() {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -10,6 +10,7 @@ App({
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        this.login(res.code);
       }
     })
     // 获取用户信息
@@ -34,7 +35,12 @@ App({
     })
   },
   globalData: {
-    userInfo: null,
-    baseUrl: 'https://blog.54zm.com/api/wechat_xcx/' 
+    userInfo: null
+  },
+  /**
+   * 自定义函数,login
+   */
+  login: function(code) {
+    console.log(code);
   }
 })

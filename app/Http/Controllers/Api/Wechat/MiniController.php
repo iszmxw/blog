@@ -149,6 +149,7 @@ class MiniController extends Controller
         $category_id = request()->get('category_id');
         $where = [];
         $where[] = ['sortid',$category_id];
+        dd($where);
         $list = Blog::where($where)->select('gid','title','date')->limit($pagesize)->orderby('date','DESC')->get();
         foreach ($list as $key=>$val){
             $val['date'] = date('Y-m-d',$val['date']);

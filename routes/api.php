@@ -46,12 +46,13 @@ Route::group(['namespace'=>'Api'],function(){
         Route::get('getwxacode', 'MiniController@getwxacode');
         //获取小程序二维码
         Route::get('createwxaqrcode', 'MiniController@createwxaqrcode');
-        //登录小程序
-        Route::get('login', 'MiniController@login');
+
         //测试专用
         Route::get('test', 'MiniController@test');
 
 
+        //登录小程序
+        Route::any('login', 'MiniController@login');
         //小程序首页
         Route::any('index', 'MiniController@index');
         //小程序文章页面

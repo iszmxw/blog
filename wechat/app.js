@@ -1,4 +1,6 @@
 //app.js
+import base from './utils/http/base.js'
+var urls = base.config.data.urls
 App({
   onLaunch: function() {
     // 展示本地存储能力
@@ -42,5 +44,15 @@ App({
    */
   login: function(code) {
     console.log(code);
+    base.request({
+      url: urls.login,
+      type: 'POST',
+      data: {
+        code: code
+      },
+      sCallBack: function (res) {
+        console.log(res)
+      }
+    })
   }
 })

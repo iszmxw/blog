@@ -122,13 +122,14 @@ class MiniController extends Controller
     //登录小程序
     public function login(Request $request)
     {
+        $code = $request->get('code');
         $appid = 'wxe97a91b8d58d8021';
         $appsecret = '51feac652d4ad42e402a028f76a63ddc';
-        $url = "https://api.weixin.qq.com/sns/jscode2session?appid={$appid}&secret={$appsecret}&js_code={$request->code}&grant_type=authorization_code";
+        $url = "https://api.weixin.qq.com/sns/jscode2session?appid={$appid}&secret={$appsecret}&js_code={$code}&grant_type=authorization_code";
         $client = new Client();
         $re = $client->get($url)->getBody()->getContents();
         $data = json_decode($re,true);
-        return $data['openid'];
+        return $data;
     }
 
 

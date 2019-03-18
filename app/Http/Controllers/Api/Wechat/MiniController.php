@@ -128,8 +128,24 @@ class MiniController extends Controller
         $url = "https://api.weixin.qq.com/sns/jscode2session?appid={$appid}&secret={$appsecret}&js_code={$code}&grant_type=authorization_code";
         $client = new Client();
         $re = $client->get($url)->getBody()->getContents();
+        //code换区的信息
         $base_info = json_decode($re,true);
         $data['base_info'] = $base_info;
+
+        //判断当前是否已经获取过access_token
+        if (!session()->get('access_token')){
+            $this->get_access_token();
+        }else{
+            $time = session()->get('access_token_time');
+            $access_token = session()->get('access_token');
+            //获取过期时间
+            $expires_in = json_decode($access_token,true)['expires_in'];
+            //如果获取过，判断当前获取的是否已经过期
+            if (time()-$time > $expires_in){
+                $this->get_access_token();
+            }
+        }
+        $data['access_token'] = session()->get('access_token');
         return $data;
     }
 

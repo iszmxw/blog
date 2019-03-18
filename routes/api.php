@@ -39,9 +39,7 @@ Route::group(['namespace'=>'Api'],function(){
     Route::group(['prefix'=>'wechat_xcx','namespace'=>'Wechat'],function () {
         //消息推送接口设置
         Route::get('message_push', 'MiniController@message_push');
-        //获取access_token
-        Route::get('access_token', 'MiniController@access_token');
-        Route::get('get_access_token', 'MiniController@get_access_token');
+
         //获取小程序码
         Route::get('getwxacode', 'MiniController@getwxacode');
         //获取小程序二维码
@@ -53,6 +51,11 @@ Route::group(['namespace'=>'Api'],function(){
 
         //登录小程序
         Route::any('login', 'MiniController@login');
+        //获取access_token
+        Route::get('access_token', 'MiniController@access_token');
+        Route::get('get_access_token', 'MiniController@get_access_token');
+
+
         //小程序首页
         Route::any('index', 'MiniController@index');
         //小程序文章页面

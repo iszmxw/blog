@@ -44,8 +44,6 @@ Route::group(['namespace'=>'Api'],function(){
         Route::get('get_access_token', 'MiniController@get_access_token');
         //获取小程序码
         Route::get('getwxacode', 'MiniController@getwxacode');
-        //获取栏目分类
-        Route::get('get_category', 'MiniController@get_category');
         //获取小程序二维码
         Route::get('createwxaqrcode', 'MiniController@createwxaqrcode');
         //登录小程序
@@ -53,9 +51,11 @@ Route::group(['namespace'=>'Api'],function(){
         //测试专用
         Route::get('test', 'MiniController@test');
         //小程序首页
-        Route::get('index', 'MiniController@index');
+        Route::any('index', 'MiniController@index');
         //小程序文章页面
         Route::get('article', 'MiniController@article');
+        //获取栏目分类
+        Route::get('get_category', 'MiniController@get_category');
     });
 
     //发送邮件(aszmxw)

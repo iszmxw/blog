@@ -87,7 +87,9 @@ Page({
     //获取文章列表
     base.request({
       url: urls.index,
+      type: 'POST',
       data: {
+        categoty_id: id,
         pagesize: 10,
       },
       sCallBack: function (res) {

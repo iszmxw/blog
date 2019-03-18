@@ -146,6 +146,7 @@ class MiniController extends Controller
     public function index()
     {
         $pagesize = request()->get('pagesize');
+        $pagesize = request()->get('pagesize');
         $list = Blog::where([])->select('gid','title','date')->limit($pagesize)->orderby('date','DESC')->get();
         foreach ($list as $key=>$val){
             $val['date'] = date('Y-m-d',$val['date']);

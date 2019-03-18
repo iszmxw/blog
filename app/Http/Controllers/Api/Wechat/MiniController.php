@@ -126,12 +126,7 @@ class MiniController extends Controller
         //获取$access_token过期时间
         $expires_in = json_decode($access_token, true)['expires_in'];
         //运用管道命令存储redis
-        Redis::connection('blog_web')->pipeline(
-            function ($pipe) use ($redis_key, $expires_in, $access_token) {
-                $pipe->setex($redis_key, $expires_in, $access_token);
-            }
-        );
-
+        Redis::connection('blog_web')->setex($redis_key, $expires_in, $access_token);
         return $access_token;
     }
 

@@ -128,7 +128,7 @@ class MiniController extends Controller
         //运用管道命令存储redis
         Redis::connection('blog_web')->pipeline(
             function ($pipe) use ($redis_key, $expires_in, $access_token) {
-                $pipe->set($redis_key, $access_token);
+                $pipe->setex($redis_key, $expires_in, $access_token);
             }
         );
 

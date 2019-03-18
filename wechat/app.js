@@ -12,7 +12,19 @@ App({
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        this.login(res.code);
+        // this.login(res.code);
+        base.request({
+          url: 'test',
+          sCallBack: res => {
+            console.log(res)
+          }
+        })
+        base.request({
+          url: 'test1',
+          sCallBack: res => {
+            console.log(res)
+          }
+        })
       }
     })
     // 获取用户信息

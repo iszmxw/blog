@@ -133,13 +133,13 @@ class MiniController extends Controller
 
     public function test()
     {
-        $access_token = session()->get('access_token');
-        dump($access_token);
+        session(['access_token' => '设置session']);
+        return '设置成功';
     }
 
     public function test1(){
         $access_token = session()->get('access_token');
-        dump($access_token);
+        return $access_token;
     }
 
 

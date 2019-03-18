@@ -7,6 +7,7 @@ use App\Models\Blog;
 use App\Models\Sort;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
 
 
 class MiniController extends Controller
@@ -99,7 +100,6 @@ class MiniController extends Controller
         $data['base_info'] = $base_info;
 
         //判断当前是否已经获取过access_token
-        dd(session()->get('access_token'));
         if (!session()->get('access_token')){
             $this->get_access_token();
         }else{
@@ -126,8 +126,8 @@ class MiniController extends Controller
         $url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid='.$appid.'&secret='.$appsecret;
         $client = new Client();
         $access_token = $client->get($url)->getBody()->getContents();
-        session(['access_token' => $access_token]);
-        session(['access_token_time' => time()]);
+        Redis::connection('blog_web')->set('access_token', $access_token);
+        Redis::connection('blog_web')->set('access_token_time', time());
     }
 
 

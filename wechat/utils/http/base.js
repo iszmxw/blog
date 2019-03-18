@@ -13,6 +13,7 @@ function request(params, noRefetch) {
     method: params.type,
     header: {
       'content-type': 'application/json',
+      'Cookie': 'session_id',
       'token': wx.getStorageSync('token')
     },
     success: function(res) {

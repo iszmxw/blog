@@ -134,11 +134,12 @@ class MiniController extends Controller
 
     public function test()
     {
+        session(['access_token' => '测试session']);
         $access_token = session()->get('access_token');
 //        $access_token = session()->all();
 //        $data = json_decode($access_token,true);
 //        dump('access_token：'.$data['access_token']);
-        dump($access_token,45454545);
+        dump($access_token);
     }
 
 

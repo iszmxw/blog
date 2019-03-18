@@ -47,6 +47,7 @@ Route::group(['namespace'=>'Api'],function(){
 
         //测试专用
         Route::get('test', 'MiniController@test');
+        Route::get('test1', 'MiniController@test1');
 
 
         //登录小程序

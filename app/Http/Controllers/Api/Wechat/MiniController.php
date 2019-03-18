@@ -128,7 +128,6 @@ class MiniController extends Controller
         $access_token = $client->get($url)->getBody()->getContents();
         session(['access_token' => $access_token]);
         session(['access_token_time' => time()]);
-        return redirect('api/wechat_xcx/access_token');
     }
 
 

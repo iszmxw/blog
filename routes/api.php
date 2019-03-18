@@ -52,7 +52,6 @@ Route::group(['namespace'=>'Api'],function(){
         //登录小程序
         Route::any('login', 'MiniController@login');
         //获取access_token
-        Route::get('access_token', 'MiniController@access_token');
         Route::get('get_access_token', 'MiniController@get_access_token');
 
 

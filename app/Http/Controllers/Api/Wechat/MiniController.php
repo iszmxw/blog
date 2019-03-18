@@ -45,41 +45,6 @@ class MiniController extends Controller
         }
     }
 
-
-    //获取access_token中转站
-    public function get_access_token()
-    {
-        $appid = 'wxe97a91b8d58d8021';
-        $appsecret = '51feac652d4ad42e402a028f76a63ddc';
-        $url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid='.$appid.'&secret='.$appsecret;
-        $client = new Client();
-        $access_token = $client->get($url)->getBody()->getContents();
-        session()->put('access_token',$access_token);
-        session()->put('access_token_time',time());
-        session()->save();
-        return redirect('api/wechat_xcx/access_token');
-    }
-    //获取access_token
-    public function access_token()
-    {
-        //判断当前是否已经获取过access_token
-        dd(session()->get('access_token'));
-        if (!session()->get('access_token')){
-            $this->get_access_token();
-        }else{
-            $time = session()->get('access_token_time');
-            $access_token = session()->get('access_token');
-            //获取过期时间
-            $expires_in = json_decode($access_token,true)['expires_in'];
-            //如果获取过，判断当前获取的是否已经过期
-            if (time()-$time > $expires_in){
-                $this->get_access_token();
-            }
-        }
-        $access_token = session()->get('access_token');
-        return $access_token;
-    }
-
     //获取小程序码
     public function getwxacode()
     {
@@ -134,6 +99,7 @@ class MiniController extends Controller
         $data['base_info'] = $base_info;
 
         //判断当前是否已经获取过access_token
+        dd(session()->get('access_token'));
         if (!session()->get('access_token')){
             $this->get_access_token();
         }else{
@@ -149,6 +115,21 @@ class MiniController extends Controller
         $access_token = session()->get('access_token');
         $data['access_token'] = json_decode($access_token, true)['access_token'];
         return $data;
+    }
+
+
+    //获取access_token中转站
+    public function get_access_token()
+    {
+        $appid = 'wxe97a91b8d58d8021';
+        $appsecret = '51feac652d4ad42e402a028f76a63ddc';
+        $url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid='.$appid.'&secret='.$appsecret;
+        $client = new Client();
+        $access_token = $client->get($url)->getBody()->getContents();
+        session()->put('access_token',$access_token);
+        session()->put('access_token_time',time());
+        session()->save();
+        return redirect('api/wechat_xcx/access_token');
     }
 
 

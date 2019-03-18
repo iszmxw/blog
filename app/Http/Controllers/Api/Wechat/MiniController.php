@@ -129,6 +129,7 @@ class MiniController extends Controller
         $client = new Client();
         $re = $client->get($url)->getBody()->getContents();
         $data = json_decode($re,true);
+        dd($data);
         return $data;
     }
 

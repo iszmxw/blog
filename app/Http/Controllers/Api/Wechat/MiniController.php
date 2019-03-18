@@ -128,8 +128,8 @@ class MiniController extends Controller
         $url = "https://api.weixin.qq.com/sns/jscode2session?appid={$appid}&secret={$appsecret}&js_code={$code}&grant_type=authorization_code";
         $client = new Client();
         $re = $client->get($url)->getBody()->getContents();
-        $data = json_decode($re,true);
-        dd($data);
+        $base_info = json_decode($re,true);
+        $data['base_info'] = $base_info;
         return $data;
     }
 

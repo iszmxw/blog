@@ -126,9 +126,8 @@ class MiniController extends Controller
         $url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid='.$appid.'&secret='.$appsecret;
         $client = new Client();
         $access_token = $client->get($url)->getBody()->getContents();
-        session()->put('access_token',$access_token);
-        session()->put('access_token_time',time());
-        session()->save();
+        session(['access_token' => $access_token]);
+        session(['access_token_time' => time()]);
         return redirect('api/wechat_xcx/access_token');
     }
 

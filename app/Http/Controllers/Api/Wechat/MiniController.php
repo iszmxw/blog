@@ -134,6 +134,7 @@ class MiniController extends Controller
 
         //判断当前是否已经获取过access_token
         if (!session()->get('access_token')){
+            dd(session()->get('access_token'),1);
             $this->get_access_token();
         }else{
             $time = session()->get('access_token_time');

@@ -17,6 +17,7 @@ Page({
     tips: '',
     list: {},
     category: {},
+    category_id: '',
     pagesize: 10,
   },
   //传入内容，广播将会以动画播放这条内容
@@ -84,10 +85,11 @@ Page({
   gotoCategory: function(option) {
     let id = base.getDataSet(option,'id');
     let that = this
+    that.data.pagesize = 10;
+    that.data.category_id = id;
     //获取文章列表
     base.request({
       url: urls.index,
-      type: 'POST',
       data: {
         category_id: id,
         pagesize: 10,
@@ -114,7 +116,8 @@ Page({
     base.request({
       url: urls.index,
       data: {
-        pagesize: that.data.pagesize,
+        category_id: that.data.category_id,
+        pagesize: that.data.pagesize
       },
       sCallBack: function(res) {
         if (res.data.status == 1) {

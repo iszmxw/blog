@@ -148,7 +148,7 @@ class MiniController extends Controller
         $pagesize = request()->get('pagesize');
         $category_id = request()->get('category_id');
         $where = [];
-        $category_id ? $where[] = ['sortid',$category_id];
+        $category_id ? $where[] = ['sortid',$category_id] : '';
         dd($where);
         $list = Blog::where($where)->select('gid','title','date')->limit($pagesize)->orderby('date','DESC')->get();
         foreach ($list as $key=>$val){

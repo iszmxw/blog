@@ -24,11 +24,12 @@ class MiniController extends Controller
         $token = 'iszmxw';
         // 如果验证正确，则返回参数echostr的内容，否则终止执行
         $re = $this->checkSignature($token);
-        if($re) {
+        if ($re) {
             echo $_GET['echostr'];
         }
         exit();
     }
+
     //检测函数
     private function checkSignature($token)
     {
@@ -37,11 +38,11 @@ class MiniController extends Controller
         $nonce = $_GET["nonce"];
         $tmpArr = array($token, $timestamp, $nonce);
         sort($tmpArr, SORT_STRING);
-        $tmpStr = implode( $tmpArr );
-        $tmpStr = sha1( $tmpStr );
-        if( $tmpStr == $signature ){
+        $tmpStr = implode($tmpArr);
+        $tmpStr = sha1($tmpStr);
+        if ($tmpStr == $signature) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
@@ -49,7 +50,7 @@ class MiniController extends Controller
     //获取小程序码
     public function getwxacode()
     {
-        $access_token = json_decode($this->access_token(),true)['access_token'];
+        $access_token = json_decode($this->access_token(), true)['access_token'];
         $url = 'https://api.weixin.qq.com/wxa/getwxacode?access_token='.$access_token;
         $data = [
             'path' => 128,
@@ -59,22 +60,24 @@ class MiniController extends Controller
         ];
         $data = json_encode($data, JSON_UNESCAPED_UNICODE);
         $client = new Client();
-        $re = $client->post($url,$data)->getBody()->getContents();
+        $re = $client->post($url, $data)->getBody()->getContents();
+
         return $re;
     }
 
     //获取栏目分类
     public function get_category()
     {
-        $list = Sort::select(['sid as id','sortname as name'])->get();
-        $data = ['status'=>1,'list'=>$list];
+        $list = Sort::select(['sid as id', 'sortname as name'])->get();
+        $data = ['status' => 1, 'list' => $list];
+
         return $data;
     }
 
     //获取小程序二维码
     public function createwxaqrcode()
     {
-        $access_token = json_decode($this->access_token(),true)['access_token'];
+        $access_token = json_decode($this->access_token(), true)['access_token'];
         $url = 'https://api.weixin.qq.com/cgi-bin/wxaapp/createwxaqrcode?access_token='.$access_token;
         $data = [
             'path' => 128,
@@ -82,7 +85,8 @@ class MiniController extends Controller
         ];
         $data = json_encode($data, JSON_UNESCAPED_UNICODE);
         $client = new Client();
-        $re = $client->post($url,$data)->getBody()->getContents();
+        $re = $client->post($url, $data)->getBody()->getContents();
+
         return $re;
     }
 
@@ -96,16 +100,17 @@ class MiniController extends Controller
         $client = new Client();
         $re = $client->get($url)->getBody()->getContents();
         //code换区的信息
-        $base_info = json_decode($re,true);
+        $base_info = json_decode($re, true);
         $redis_key = $base_info['session_key'];
         $data['base_info'] = $base_info;
 
         //判断当前是否已经获取过access_token
         $access_token = Redis::connection('blog_web')->get($redis_key);
-        if (empty($access_token)){
+        if (empty($access_token)) {
             $access_token = $this->get_access_token($redis_key);
         }
         $data['access_token'] = json_decode($access_token, true)['access_token'];
+
         return $data;
     }
 
@@ -119,11 +124,14 @@ class MiniController extends Controller
         $client = new Client();
         $access_token = $client->get($url)->getBody()->getContents();
         //获取$access_token过期时间
-        $expires_in = json_decode($access_token,true)['expires_in'];
+        $expires_in = json_decode($access_token, true)['expires_in'];
         //运用管道命令存储redis
-        Redis::connection('blog_web')->pipeline(function ($pipe) use($redis_key,$expires_in,$access_token) {
-            $pipe->setex($redis_key,$expires_in,$access_token);
-        });
+        Redis::connection('blog_web')->pipeline(
+            function ($pipe) use ($redis_key, $expires_in, $access_token) {
+                $pipe->set($redis_key, $expires_in, $access_token);
+            }
+        );
+
         return $access_token;
     }
 
@@ -131,10 +139,12 @@ class MiniController extends Controller
     public function test()
     {
         session(['access_token' => '设置session']);
+
         return '设置成功';
     }
 
-    public function test1(Request $request){
+    public function test1(Request $request)
+    {
         $access_token = session()->get('access_token');
         dd($request);
     }
@@ -146,16 +156,17 @@ class MiniController extends Controller
         $pagesize = request()->get('pagesize');
         $category_id = request()->get('category_id');
         $where = [];
-        $category_id ? $where[] = ['sortid',$category_id] : '';
-        $list = Blog::where($where)->select('gid','title','date')->limit($pagesize)->orderby('date','DESC')->get();
-        foreach ($list as $key=>$val){
-            $val['date'] = date('Y-m-d',$val['date']);
+        $category_id ? $where[] = ['sortid', $category_id] : '';
+        $list = Blog::where($where)->select('gid', 'title', 'date')->limit($pagesize)->orderby('date', 'DESC')->get();
+        foreach ($list as $key => $val) {
+            $val['date'] = date('Y-m-d', $val['date']);
         }
-        if($pagesize - $list->count() >10){
-            $data = ['status'=>0,'list'=>$list];
-        }else{
-            $data = ['status'=>1,'list'=>$list];
+        if ($pagesize - $list->count() > 10) {
+            $data = ['status' => 0, 'list' => $list];
+        } else {
+            $data = ['status' => 1, 'list' => $list];
         }
+
         return $data;
     }
 
@@ -163,12 +174,13 @@ class MiniController extends Controller
     public function article()
     {
         $blog_id = request()->get('blog_id');
-        if ($blog_id){
-            $article = Blog::where(['gid'=>$blog_id])->select('title','content')->first();
-            $data = ['status'=>'1','data'=>$article];
-        }else{
-            $data = ['status'=>'1','data'=>'没有数据'];
+        if ($blog_id) {
+            $article = Blog::where(['gid' => $blog_id])->select('title', 'content')->first();
+            $data = ['status' => '1', 'data' => $article];
+        } else {
+            $data = ['status' => '1', 'data' => '没有数据'];
         }
+
         return $data;
     }
 }

@@ -145,7 +145,7 @@ class MiniController extends Controller
                 $this->get_access_token();
             }
         }
-        $access_token = session()->get('access_token');
+        $access_token = session()->get('access_token')['access_token'];
         $data['access_token'] = json_decode($access_token, true);
         return $data;
     }

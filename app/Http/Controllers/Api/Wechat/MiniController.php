@@ -104,15 +104,14 @@ class MiniController extends Controller
         $access_token = Redis::connection('blog_web')->get($redis_key.'token');
         $time = Redis::connection('blog_web')->get($redis_key.'time');
         if (empty($access_token)){
-            $this->get_access_token($redis_key);
+            $access_token = $this->get_access_token($redis_key);
         }else{
             //获取过期时间
             $expires_in = json_decode($access_token,true)['expires_in'];
             //如果获取过，判断当前获取的是否已经过期
             if (time()-$time > $expires_in){
-                $this->get_access_token($redis_key);
+                $access_token = $this->get_access_token($redis_key);
             }
-            $access_token = Redis::connection('blog_web')->get($redis_key.'token');
         }
         $data['access_token'] = json_decode($access_token, true)['access_token'];
         return $data;
@@ -129,6 +128,7 @@ class MiniController extends Controller
         $access_token = $client->get($url)->getBody()->getContents();
         Redis::connection('blog_web')->set($redis_key.'token',$access_token);
         Redis::connection('blog_web')->set($redis_key.'time', time());
+        return $access_token;
     }
 
 

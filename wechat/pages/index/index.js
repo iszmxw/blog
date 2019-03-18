@@ -89,7 +89,7 @@ Page({
       url: urls.index,
       type: 'POST',
       data: {
-        categoty_id: id,
+        category_id: id,
         pagesize: 10,
       },
       sCallBack: function (res) {

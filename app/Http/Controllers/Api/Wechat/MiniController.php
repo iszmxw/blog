@@ -137,9 +137,9 @@ class MiniController extends Controller
         return '设置成功';
     }
 
-    public function test1(){
+    public function test1(Request $request){
         $access_token = session()->get('access_token');
-        return $access_token;
+        return $request;
     }
 
 

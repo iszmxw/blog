@@ -48,7 +48,7 @@ App({
             token: token,
             userInfo: userInfo
           },
-          sCallBack: function (res) {
+          sCallBack: function(res) {
             if (res.data.status === 1) {
               let token = res.data.data.token
               wx.setStorageSync('token', token);

@@ -103,7 +103,7 @@ class MiniController extends Controller
         $client = new Client();
         $redis_info = Redis::connection('blog_web')->get($token);
         //当redis中没有该用户时执行登录操作
-        if (empty($redis_info)){
+        if (empty($redis_info)) {
             $re = $client->get($url)->getBody()->getContents();
             //code换区的信息
             $base_info = json_decode($re, true);
@@ -116,7 +116,7 @@ class MiniController extends Controller
             $user_info['redis_key'] = $redis_key;
             $token = base64_encode($openid.time().$redis_key);
             $re_info = Redis::connection('blog_web')->setex($token, '7200', encrypt($user_info));
-        }else{//否则延长登录时间
+        } else {//否则延长登录时间
             $re_info = Redis::connection('blog_web')->setex($token, '7200', $redis_info);
         }
 
@@ -129,7 +129,7 @@ class MiniController extends Controller
 
     }
 
-
+    //维护用户信息，并且返回用户信息
     public static function get_user_info($openid, $userInfo)
     {
         //用户信息
@@ -155,7 +155,11 @@ class MiniController extends Controller
     }
 
 
-    //获取access_token中转站
+    /**
+     * 获取access_token中转站 获取并且维护access_token过期时间
+     * @param $openid
+     * @return bool
+     */
     public function get_access_token($openid)
     {
         $appid = 'wxe97a91b8d58d8021';

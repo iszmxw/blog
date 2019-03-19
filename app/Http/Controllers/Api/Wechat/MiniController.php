@@ -108,11 +108,15 @@ class MiniController extends Controller
         //检测维护用户信息
         self::get_user_info($openid, $userInfo);
         //获取access_token
-        $user_info =  $this->get_access_token($openid);
+        $user_info = $this->get_access_token($openid);
         $token = base64_encode($openid.time().$redis_key);
-        $access_token = Redis::connection('blog_web')->setex($token,'7200',encrypt($user_info));
-        dd($token,$user_info,$access_token);
-        return $user_info;
+        $re = Redis::connection('blog_web')->setex($token, '7200', encrypt($user_info));
+        if ($re) {
+            return ['status' => 1, 'msg' => '登录成功！', 'data' => ['token' => $token]];
+        } else {
+            return ['status' => 0, 'msg' => '登录失败！', 'data' => []];
+        }
+
     }
 
 
@@ -158,6 +162,7 @@ class MiniController extends Controller
         ];
         //更新access_token到数据库
         $user_info = UserMini::EditData(['openid' => $openid], $data);
+
         return $user_info;
     }
 

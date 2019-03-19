@@ -115,9 +115,9 @@ class MiniController extends Controller
             $user_info = $this->get_access_token($openid);
             $user_info['redis_key'] = $redis_key;
             $token = base64_encode(base64_encode($openid.time().$redis_key));
-            $re_info = Redis::connection('blog_web')->setex($token, '60', encrypt($user_info));
+            $re_info = Redis::connection('blog_web')->setex($token, '7200', encrypt($user_info));
         } else {//否则延长登录时间
-            $re_info = Redis::connection('blog_web')->setex($token, '60', $redis_info);
+            $re_info = Redis::connection('blog_web')->setex($token, '7200', $redis_info);
         }
 
         //返回登录状态

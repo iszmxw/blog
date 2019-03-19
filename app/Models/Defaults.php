@@ -87,7 +87,6 @@ class Defaults extends Model
         if (!empty($where)) {
             $res = self::where($where)->first();
             if (empty($res)) {
-                dd($res,1);
                 $res = self::create($data);
             }
         } else {

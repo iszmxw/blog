@@ -106,9 +106,14 @@ class MiniController extends Controller
         $redis_key = $base_info['session_key'];
         $openid = $base_info['openid'];
 
-        $user_info = UserMini::AddData(['openid'=>$openid],['openid'=>$openid]);
-        dd($user_info);
-
+        if (UserMini::checkRowExists(['openid'=>$openid])){
+            //编辑用户信息
+            dd($userInfo,1);
+        }else{
+            //创建新用户
+//            $user_info = UserMini::AddData(['openid'=>$openid]);
+            dd($userInfo,2);
+        }
         //判断当前是否已经获取过access_token
         $access_token = Redis::connection('blog_web')->get($redis_key);
         if (empty($access_token)) {

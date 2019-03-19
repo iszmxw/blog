@@ -45,10 +45,6 @@ Route::group(['namespace'=>'Api'],function(){
         //获取小程序二维码
         Route::get('createwxaqrcode', 'MiniController@createwxaqrcode');
 
-        //测试专用
-        Route::get('test', 'MiniController@test');
-        Route::get('test1', 'MiniController@test1');
-
 
         //登录小程序
         Route::any('login', 'MiniController@login');

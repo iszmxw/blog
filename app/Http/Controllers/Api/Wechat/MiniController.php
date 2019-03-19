@@ -94,6 +94,7 @@ class MiniController extends Controller
     public function login(Request $request)
     {
         $code = $request->get('code');
+        $userInfo = $request->get('userInfo');
         $appid = 'wxe97a91b8d58d8021';
         $appsecret = '51feac652d4ad42e402a028f76a63ddc';
         $url = "https://api.weixin.qq.com/sns/jscode2session?appid={$appid}&secret={$appsecret}&js_code={$code}&grant_type=authorization_code";
@@ -103,6 +104,9 @@ class MiniController extends Controller
         $base_info = json_decode($re, true);
         $redis_key = $base_info['session_key'];
         $data['base_info'] = $base_info;
+
+        $openid = $base_info['openid'];
+        return $openid;
 
         //判断当前是否已经获取过access_token
         $access_token = Redis::connection('blog_web')->get($redis_key);
@@ -130,19 +134,6 @@ class MiniController extends Controller
         return $access_token;
     }
 
-
-    public function test()
-    {
-        session(['access_token' => '设置session']);
-
-        return '设置成功';
-    }
-
-    public function test1(Request $request)
-    {
-        $access_token = session()->get('access_token');
-        dd($request);
-    }
 
 
     //小程序首页数据

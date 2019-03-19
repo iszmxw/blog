@@ -1,0 +1,21 @@
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.container .user-img {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 200rpx;
+}
+
+.container .moto-container button {
+  background: #3fca86;
+  color: #fff;
+}
+
+page {
+  height: 100%;
+  /**全局背景色**/
+  background-color: #fff;
+}

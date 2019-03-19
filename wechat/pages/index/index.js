@@ -134,4 +134,7 @@ Page({
       }
     })
   },
+  modalConfirm: function (res) {
+    console.log(res);
+  }
 })

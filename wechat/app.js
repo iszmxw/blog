@@ -7,14 +7,12 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        this.login(res.code);
-      }
-    })
+    var token = wx.getStorageSync('token')
+    if (!token) {
+      wx.navigateTo({
+        url: './pages/common/login/login', //跳转页面的路径，可带参数 ？隔开，不同参数用 & 分隔；相对路径，不需要.wxml后缀
+      })
+    }
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -36,23 +34,28 @@ App({
       }
     })
   },
-  globalData: {
-    userInfo: null
-  },
-  /**
-   * 自定义函数,login
-   */
-  login: function(code) {
-    console.log(code);
-    base.request({
-      url: urls.login,
-      type: 'POST',
-      data: {
-        code: code
-      },
-      sCallBack: function (res) {
-        console.log(res)
+  authLogin: function (userInfo) {
+    console.log(userInfo);
+    // 登录
+    wx.login({
+      success: res => {
+        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        base.request({
+          url: urls.login,
+          type: 'POST',
+          data: {
+            code: res.code,
+            userInfo: userInfo
+          },
+          sCallBack: function (res) {
+            console.log(res);
+            wx.setStorageSync('session_key', res.data.session_key);
+          }
+        })
       }
     })
+  },
+  globalData: {
+    userInfo: null
   }
 })

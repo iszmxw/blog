@@ -118,7 +118,6 @@ class MiniController extends Controller
         ];
         if (UserMini::checkRowExists(['openid' => $openid])) {
             //编辑用户信息
-            //创建新用户
             $user_info = UserMini::AddData($data,['openid'=>$openid]);
             dd($user_info, 1);
         } else {

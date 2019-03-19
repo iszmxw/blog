@@ -106,7 +106,7 @@ class MiniController extends Controller
         $redis_key = $base_info['session_key'];
         $openid = $base_info['openid'];
 
-        $user_info = UserMini::AddData([],['openid'=>$openid]);
+        $user_info = UserMini::AddData(['openid'=>$openid],['openid'=>$openid]);
         dd($user_info);
 
         //判断当前是否已经获取过access_token

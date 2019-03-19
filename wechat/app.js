@@ -34,8 +34,8 @@ App({
       }
     })
   },
-  authLogin: function (userInfo) {
-    console.log(userInfo);
+  authLogin: function(userInfo) {
+    var token = wx.getStorageSync('token')
     // 登录
     wx.login({
       success: res => {
@@ -45,11 +45,19 @@ App({
           type: 'POST',
           data: {
             code: res.code,
+            token: token,
             userInfo: userInfo
           },
           sCallBack: function (res) {
-            console.log(res);
-            wx.setStorageSync('session_key', res.data.session_key);
+            if (res.data.status === 1) {
+              let token = res.data.data.token
+              wx.setStorageSync('token', token);
+            } else {
+              wx.showModal({
+                title: '提示',
+                content: res.data.msg,
+              })
+            }
           }
         })
       }

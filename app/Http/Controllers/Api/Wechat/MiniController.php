@@ -97,7 +97,9 @@ class MiniController extends Controller
         $code = $request->get('code');
         $token = $request->get('token');
         $userInfo = $request->get('userInfo');
-        dd($code,$token,$userInfo);
+//        dd($code,$token,$userInfo);
+        $re = Redis::connection('blog_web')->get($token);
+        dd($re);
         $appid = 'wxe97a91b8d58d8021';
         $appsecret = '51feac652d4ad42e402a028f76a63ddc';
         $url = "https://api.weixin.qq.com/sns/jscode2session?appid={$appid}&secret={$appsecret}&js_code={$code}&grant_type=authorization_code";

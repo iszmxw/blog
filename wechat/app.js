@@ -3,16 +3,6 @@ import base from './utils/http/base.js'
 var urls = base.config.data.urls
 App({
   onLaunch: function() {
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-    var token = wx.getStorageSync('token')
-    if (!token) {
-      wx.navigateTo({
-        url: './pages/common/login/login', //跳转页面的路径，可带参数 ？隔开，不同参数用 & 分隔；相对路径，不需要.wxml后缀
-      })
-    }
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -52,6 +42,9 @@ App({
             if (res.data.status === 1) {
               let token = res.data.data.token
               wx.setStorageSync('token', token);
+              wx.navigateBack({
+                delta: 2,
+              });
             } else {
               wx.showModal({
                 title: '提示',

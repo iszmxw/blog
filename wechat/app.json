@@ -1,8 +1,8 @@
 {
   "pages":[
-    "pages/common/login/login",
     "pages/index/index",
     "pages/common/modal/modal",
+    "pages/common/login/login",
     "pages/article/index"
   ],
   "window":{

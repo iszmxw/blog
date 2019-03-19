@@ -105,14 +105,24 @@ class MiniController extends Controller
         $base_info = json_decode($re, true);
         $redis_key = $base_info['session_key'];
         $openid = $base_info['openid'];
-
-        if (UserMini::checkRowExists(['openid'=>$openid])){
+        //用户信息
+        $data = [
+            'openid' => $openid,
+            'nickname' => $userInfo['nickName'],
+            'avatarurl' => $userInfo['avatarUrl'],
+            'gender' => $userInfo['gender'],
+            'country' => $userInfo['country'],
+            'province' => $userInfo['province'],
+            'city' => $userInfo['city'],
+            'language' => $userInfo['language'],
+        ];
+        if (UserMini::checkRowExists(['openid' => $openid])) {
             //编辑用户信息
-            dd($userInfo,1);
-        }else{
+            dd($userInfo, 1);
+        } else {
             //创建新用户
-//            $user_info = UserMini::AddData(['openid'=>$openid]);
-            dd($userInfo,2);
+            $user_info = UserMini::AddData($data);
+            dd($user_info, 2);
         }
         //判断当前是否已经获取过access_token
         $access_token = Redis::connection('blog_web')->get($redis_key);
@@ -137,9 +147,9 @@ class MiniController extends Controller
         $expires_in = json_decode($access_token, true)['expires_in'];
         //运用管道命令存储redis
         Redis::connection('blog_web')->setex($redis_key, $expires_in, $access_token);
+
         return $access_token;
     }
-
 
 
     //小程序首页数据

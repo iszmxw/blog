@@ -98,7 +98,7 @@ class MiniController extends Controller
         $token = $request->get('token');
         $userInfo = $request->get('userInfo');
 //        dd($code,$token,$userInfo);
-        $re = Redis::connection('blog_web')->get($token);
+        $re = Redis::connection('blog_web')->get('b3hXMGIwV19OdlEtaGdfa29YYWkyOXRzU1dIWTE1NTI5ODU1MzZlYkFGSEpQQSs2andXSzQ2bElRKytBPT0=');
         dd($re);
         $appid = 'wxe97a91b8d58d8021';
         $appsecret = '51feac652d4ad42e402a028f76a63ddc';

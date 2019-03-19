@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Wechat;
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\Sort;
+use App\Models\UserMini;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
@@ -103,10 +104,10 @@ class MiniController extends Controller
         //code换区的信息
         $base_info = json_decode($re, true);
         $redis_key = $base_info['session_key'];
-        $data['base_info'] = $base_info;
-
         $openid = $base_info['openid'];
-        return $openid;
+
+        $user_info = UserMini::AddData([],['openid'=>$openid]);
+        dd($user_info);
 
         //判断当前是否已经获取过access_token
         $access_token = Redis::connection('blog_web')->get($redis_key);

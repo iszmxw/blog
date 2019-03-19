@@ -106,16 +106,13 @@ class MiniController extends Controller
         $redis_key = $base_info['session_key'];
         $openid = $base_info['openid'];
         //检测维护用户信息
-        $user_info = self::get_user_info($openid,$userInfo);
-        dd($user_info);
-        //判断当前是否已经获取过access_token
-        $access_token = Redis::connection('blog_web')->get($redis_key);
-        if (empty($access_token)) {
-            $access_token = $this->get_access_token($redis_key);
-        }
-        $data['access_token'] = json_decode($access_token, true)['access_token'];
-
-        return $data;
+        self::get_user_info($openid, $userInfo);
+        //获取access_token
+        $user_info =  $this->get_access_token($openid);
+        $token = encrypt($openid.time().$redis_key);
+        dd($token,$user_info);
+        $access_token = Redis::connection('blog_web')->setex($token,'7200',$user_info);
+        return $user_info;
     }
 
 
@@ -139,24 +136,29 @@ class MiniController extends Controller
             //创建新用户
             $user_info = UserMini::AddData($data);
         }
+
         return $user_info;
     }
 
 
     //获取access_token中转站
-    public function get_access_token($redis_key)
+    public function get_access_token($openid)
     {
         $appid = 'wxe97a91b8d58d8021';
         $appsecret = '51feac652d4ad42e402a028f76a63ddc';
         $url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid='.$appid.'&secret='.$appsecret;
         $client = new Client();
-        $access_token = $client->get($url)->getBody()->getContents();
+        $result = $client->get($url)->getBody()->getContents();
         //获取$access_token过期时间
-        $expires_in = json_decode($access_token, true)['expires_in'];
-        //运用管道命令存储redis
-        Redis::connection('blog_web')->setex($redis_key, $expires_in, $access_token);
-
-        return $access_token;
+        $expires_in = json_decode($result, true)['expires_in'];
+        $access_token = json_decode($result, true)['access_token'];
+        $data = [
+            'access_token' => $access_token,
+            'access_token_expires_time' => time() + $expires_in,
+        ];
+        //更新access_token到数据库
+        $user_info = UserMini::EditData(['openid' => $openid], $data);
+        return $user_info;
     }
 
 

@@ -97,25 +97,31 @@ class MiniController extends Controller
         $code = $request->get('code');
         $token = $request->get('token');
         $userInfo = $request->get('userInfo');
-//        dd($code,$token,$userInfo);
-        $re = Redis::connection('blog_web')->get('b3hXMGIwV19OdlEtaGdfa29YYWkyOXRzU1dIWTE1NTI5ODU1MzZlYkFGSEpQQSs2andXSzQ2bElRKytBPT0=');
-        dd(decrypt($re));
         $appid = 'wxe97a91b8d58d8021';
         $appsecret = '51feac652d4ad42e402a028f76a63ddc';
         $url = "https://api.weixin.qq.com/sns/jscode2session?appid={$appid}&secret={$appsecret}&js_code={$code}&grant_type=authorization_code";
         $client = new Client();
-        $re = $client->get($url)->getBody()->getContents();
-        //code换区的信息
-        $base_info = json_decode($re, true);
-        $redis_key = $base_info['session_key'];
-        $openid = $base_info['openid'];
-        //检测维护用户信息
-        self::get_user_info($openid, $userInfo);
-        //获取access_token
-        $user_info = $this->get_access_token($openid);
-        $token = base64_encode($openid.time().$redis_key);
-        $re = Redis::connection('blog_web')->setex($token, '7200', encrypt($user_info));
-        if ($re) {
+        $redis_info = Redis::connection('blog_web')->get($token);
+        //当redis中没有该用户时执行登录操作
+        if (empty($redis_info)){
+            $re = $client->get($url)->getBody()->getContents();
+            //code换区的信息
+            $base_info = json_decode($re, true);
+            $redis_key = $base_info['session_key'];
+            $openid = $base_info['openid'];
+            //检测维护用户信息
+            self::get_user_info($openid, $userInfo);
+            //获取access_token
+            $user_info = $this->get_access_token($openid);
+            $user_info['redis_key'] = $redis_key;
+            $token = base64_encode($openid.time().$redis_key);
+            $re_info = Redis::connection('blog_web')->setex($token, '7200', encrypt($user_info));
+        }else{//否则延长登录时间
+            $re_info = Redis::connection('blog_web')->setex($token, '7200', $redis_info);
+        }
+
+        //返回登录状态
+        if ($re_info) {
             return ['status' => 1, 'msg' => '登录成功！', 'data' => ['token' => $token]];
         } else {
             return ['status' => 0, 'msg' => '登录失败！', 'data' => []];

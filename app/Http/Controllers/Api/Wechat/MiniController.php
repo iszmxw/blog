@@ -109,7 +109,7 @@ class MiniController extends Controller
         self::get_user_info($openid, $userInfo);
         //获取access_token
         $user_info =  $this->get_access_token($openid);
-        $token = encrypt($openid.time().$redis_key);
+        $token = base64_encode($openid.time().$redis_key);
         dd($token,$user_info);
         $access_token = Redis::connection('blog_web')->setex($token,'7200',$user_info);
         return $user_info;

@@ -129,6 +129,12 @@ class MiniController extends Controller
 
     }
 
+    public function quit(Request $request)
+    {
+        $re = Cache::flush();
+        dd($re);
+    }
+
     //维护用户信息，并且返回用户信息
     public static function get_user_info($openid, $userInfo)
     {

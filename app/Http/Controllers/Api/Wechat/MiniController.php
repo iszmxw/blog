@@ -196,7 +196,7 @@ class MiniController extends Controller
         $result = $client->get($url)->getBody()->getContents();
         //获取$access_token过期时间
         $access_token = json_decode($result, true)['access_token'];
-
+        dd($access_token);
         return $access_token;
     }
 

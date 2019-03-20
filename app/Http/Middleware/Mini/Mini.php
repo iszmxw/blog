@@ -58,10 +58,10 @@ class Mini
      */
     public static function format_response($data, Closure $next)
     {
-        if ($data['status'] == '0') {
-            return response()->json($data);
-        } else{
+        if ($data['status'] == '1') {
             return $next($data['response']);
+        } else {
+            return response()->json($data);
         }
     }
 }

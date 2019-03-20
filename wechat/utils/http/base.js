@@ -1,8 +1,10 @@
 import config from 'config.js'
 //获取根域名地址
 var baseurl = config.data.urls.baseurl
-var token = wx.getStorageSync('token')
-function getRoute () {
+/**
+ * 获取当前页面的路径
+ */
+function getRoute() {
   let pages = getCurrentPages();
   let currPage = null;
   if (pages.length) {
@@ -10,18 +12,20 @@ function getRoute () {
   }
   return currPage.route
 }
+
+/**
+ * 网路请求
+ */
 function request(params, noRefetch) {
   //每次请求数据前检测token是否存在以及是否有效
+  var token = wx.getStorageSync('token')
   if (!token || token === null) {
     //获取要请求的路由
     let route = getRoute();
     switch (route) {
-      case 'pages/common/login/login':
-        break
+      default: break
       case 'pages/index/index':
-        console.log(route)
         goToNext('/pages/common/login/login');
-        console.log(2)
         break
     }
   }
@@ -64,7 +68,7 @@ function getDataSet(event, key) {
   return event.currentTarget.dataset[key];
 };
 
-function goToNext(){
+function goToNext() {
   wx.navigateTo({
     url: '../../pages/common/login/login',
   })

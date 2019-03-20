@@ -41,8 +41,10 @@ Page({
       tips: tips
     }), 300)
   },
-  //生命周期函数--监听页面加载
-  onLoad: function() {
+  /**
+   * 生命周期函数，监听页面显示
+   */
+  onShow: function() {
     var that = this
     var data = that.data;
     var counts = data.content.length;
@@ -82,8 +84,10 @@ Page({
       }
     })
   },
+  //生命周期函数--监听页面加载
+  onLoad: function() {},
   gotoCategory: function(option) {
-    let id = base.getDataSet(option,'id');
+    let id = base.getDataSet(option, 'id');
     let that = this
     that.data.pagesize = 10;
     that.data.category_id = id;
@@ -94,7 +98,7 @@ Page({
         category_id: id,
         pagesize: 10,
       },
-      sCallBack: function (res) {
+      sCallBack: function(res) {
         that.setData({
           list: res.data.list
         })
@@ -134,7 +138,7 @@ Page({
       }
     })
   },
-  modalConfirm: function (res) {
+  modalConfirm: function(res) {
     console.log(res);
   }
 })

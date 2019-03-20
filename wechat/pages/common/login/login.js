@@ -9,7 +9,11 @@ Page({
   data: {},
   login(e) {
     let userInfo = e.detail.userInfo
-    app.authLogin(userInfo)
+    if (userInfo){
+      app.authLogin(userInfo)
+      console.log(userInfo);
+      console.log(e);
+    }
   },
   /**
    * 生命周期函数--监听页面加载

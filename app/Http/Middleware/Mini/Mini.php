@@ -41,7 +41,7 @@ class Mini
             if (empty($redis)) {
                 return response()->json(['status' => '-100', 'msg' => '登录状态失效，请重新登录', 'data' => []]);
             }else{
-                return ['status' => '1', $request];
+                return ['status' => '1', 'response'=>$request];
             }
         }
     }
@@ -53,7 +53,7 @@ class Mini
         if ($data['status'] == '0') {
             return response()->json($data);
         } else{
-            return $next($data);
+            return $next($data['response']);
         }
     }
 }

@@ -22,7 +22,7 @@ class Mini
             case 'api/wx_mini/login':
                 break;
             default :
-                $re = self::CheckToken($data);
+                $re = self::CheckToken($data,$request);
 
                 return self::format_response($re, $next);
 
@@ -31,7 +31,7 @@ class Mini
         return $next($request);
     }
 
-    public static function CheckToken($data)
+    public static function CheckToken($data,$request)
     {
         if (empty($data['token'])) {
             return response()->json(['status' => '0', 'msg' => 'token不能为空', 'data' => []]);
@@ -40,7 +40,7 @@ class Mini
             if (empty($redis)) {
                 return response()->json(['status' => '-100', 'msg' => '登录状态失效，请重新登录', 'data' => []]);
             }else{
-                return ['status' => '1', 'msg' => 'token验证通过', 'data' => []];
+                return ['status' => '1', $request];
             }
         }
     }

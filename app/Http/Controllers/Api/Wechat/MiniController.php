@@ -8,6 +8,7 @@ use App\Models\Sort;
 use App\Models\UserMini;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Cache;
 
 
@@ -115,7 +116,9 @@ class MiniController extends Controller
             $user_info = $this->get_access_token($openid);
             $user_info['session_key'] = $session_key;
             $token = base64_encode(base64_encode($openid.time().$session_key));
-            $re_info = Cache::add($token,encrypt($user_info),60);
+            //设置六十秒
+            $seconds = Carbon::now()->addSeconds(60);
+            $re_info = Cache::add($token,encrypt($user_info),$seconds);
         }
         //返回登录状态
         if ($re_info) {

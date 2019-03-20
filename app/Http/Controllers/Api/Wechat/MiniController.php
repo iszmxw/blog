@@ -117,7 +117,6 @@ class MiniController extends Controller
             $token = base64_encode(base64_encode($openid.time().$session_key));
             $re_info = Cache::add($token,encrypt($user_info),60);
         }
-
         //返回登录状态
         if ($re_info) {
             return ['status' => 1, 'msg' => '登录成功！', 'data' => ['token' => $token]];

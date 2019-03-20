@@ -41,7 +41,8 @@ class Mini
         } else {
             $redis = Redis::connection('blog_web')->get($data['token']);
             if (empty($redis)) {
-                return response()->json(['status' => '-100', 'msg' => '登录状态失效，请重新登录', 'data' => []]);
+                $response = ['status' => '-100', 'msg' => '登录状态失效，请重新登录', 'data' => []];
+                return ['status' => '0', $response];
             }else{
                 return ['status' => '1', 'response'=>$request];
             }

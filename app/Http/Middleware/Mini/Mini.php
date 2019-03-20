@@ -33,7 +33,9 @@ class Mini
             return response()->json(['status'=>'0','msg'=>'token不能为空','data'=>[]]);
         }else{
             $redis = Redis::connection('blog_web')->get($data['token']);
-            dd($redis);
+            if (empty($redis)){
+                return response()->json(['status'=>'-100','msg'=>'登录状态失效，请重新登录','data'=>[]]);
+            }
         }
     }
 }

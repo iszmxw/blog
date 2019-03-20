@@ -40,7 +40,7 @@ function request(params, noRefetch) {
     params.data = {}
   }
   //初始化token
-  // params.data.token = token;
+  params.data.token = token;
   wx.request({
     url: url,
     data: params.data,

@@ -23,7 +23,6 @@ class Mini
                 break;
             default :
                 $re = self::CheckToken($request);
-
                 return self::format_response($re, $next);
 
         }

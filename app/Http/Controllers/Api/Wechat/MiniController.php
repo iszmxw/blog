@@ -9,7 +9,6 @@ use App\Models\UserMini;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Redis;
 
 
 class MiniController extends Controller
@@ -103,24 +102,20 @@ class MiniController extends Controller
         $url = "https://api.weixin.qq.com/sns/jscode2session?appid={$appid}&secret={$appsecret}&js_code={$code}&grant_type=authorization_code";
         $client = new Client();
         $mini_user = Cache::get($token);
-        dd($mini_user);
-        $redis_info = Redis::connection('blog_web')->get($token);
-        //当redis中没有该用户时执行登录操作
-        if (empty($redis_info)) {
+        //当cache中没有该用户时执行登录操作
+        if (empty($mini_user)) {
             $re = $client->get($url)->getBody()->getContents();
             //code换区的信息
             $base_info = json_decode($re, true);
-            $redis_key = $base_info['session_key'];
+            $session_key = $base_info['session_key'];
             $openid = $base_info['openid'];
             //检测维护用户信息
             self::get_user_info($openid, $userInfo);
             //获取access_token
             $user_info = $this->get_access_token($openid);
-            $user_info['redis_key'] = $redis_key;
-            $token = base64_encode(base64_encode($openid.time().$redis_key));
-            $re_info = Redis::connection('blog_web')->setex($token, '60', encrypt($user_info));
-        } else {//否则延长登录时间
-            $re_info = Redis::connection('blog_web')->setex($token, '60', $redis_info);
+            $user_info['session_key'] = $session_key;
+            $token = base64_encode(base64_encode($openid.time().$session_key));
+            $re_info = Cache::add($token,encrypt($user_info),60);
         }
 
         //返回登录状态

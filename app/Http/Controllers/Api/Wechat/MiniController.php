@@ -52,7 +52,7 @@ class MiniController extends Controller
     //获取小程序码
     public function getwxacode()
     {
-        $access_token = json_decode($this->access_token(), true)['access_token'];
+        $access_token = self::access_token();
         $url = 'https://api.weixin.qq.com/wxa/getwxacode?access_token='.$access_token;
         $data = [
             'path' => 128,
@@ -79,7 +79,7 @@ class MiniController extends Controller
     //获取小程序二维码
     public function createwxaqrcode()
     {
-        $access_token = json_decode($this->access_token(), true)['access_token'];
+        $access_token = self::access_token();
         $url = 'https://api.weixin.qq.com/cgi-bin/wxaapp/createwxaqrcode?access_token='.$access_token;
         $data = [
             'path' => 128,

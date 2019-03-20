@@ -25,13 +25,22 @@ function request(params, noRefetch) {
     switch (route) {
       default: break
       case 'pages/index/index':
-        goToNext('/pages/common/login/login');
+          goToNext('/pages/common/login/login');
         break
     }
   }
+
+  // if (!params.data.token) {
+  //   //如果存在token缓存,就将token加入到请求数据中
+  //   params.data.token = token;
+  // }
   var url = baseurl + params.url;
   if (!params.type) {
     params.type = 'GET';
+  }
+  //如果存在data数据，加入token请求
+  if (params.data){
+    params.data.token = token;
   }
   wx.request({
     url: url,

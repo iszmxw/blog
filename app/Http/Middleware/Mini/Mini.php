@@ -15,19 +15,20 @@ class Mini
      */
     public function handle($request, Closure $next)
     {
-        $token = $request->all();
+        $data = $request->all();
         $route = $request->path();
         switch ($route){
             case 'api/wx_mini/login':
                 break;
             default :
-                return self::CheckToken($token);
+                return self::CheckToken($data);
         }
         return $next($request);
     }
 
-    public static function CheckToken($token)
+    public static function CheckToken($data)
     {
+        dd($data);
         if(empty($token)){
             return ['status'=>'0','msg'=>'token不能为空','data'=>[]];
         }

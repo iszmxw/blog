@@ -69,14 +69,6 @@ function request(params, noRefetch) {
   })
 }
 
-//未授权重试机制
-function _refetch(params) {
-  var token = new Token();
-  token.getTokenFromServer((token) => {
-    this.request(params, true);
-  });
-}
-
 /*获得元素上的绑定的值*/
 function getDataSet(event, key) {
   return event.currentTarget.dataset[key];
@@ -91,6 +83,5 @@ function goToNext() {
 module.exports = {
   config: config,
   request: request,
-  _refetch: _refetch,
   getDataSet: getDataSet
 }

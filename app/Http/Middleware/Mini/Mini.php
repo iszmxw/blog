@@ -36,6 +36,7 @@ class Mini
     public static function CheckToken(Request $request)
     {
         $data = $request->all();
+        dd($data['token']);
         if (empty($data['token'])) {
             return response()->json(['status' => '0', 'msg' => 'token不能为空', 'data' => []]);
         } else {

@@ -35,8 +35,9 @@ Route::group(['namespace'=>'Api'],function(){
         Route::any('oauth_callback','WechatController@oauth_callback');
     });
 
+
     //小程序
-    Route::group(['prefix'=>'wechat_xcx','namespace'=>'Wechat'],function () {
+    Route::group(['prefix'=>'wx_mini','namespace'=>'Wechat'],function () {
         //消息推送接口设置
         Route::get('message_push', 'MiniController@message_push');
 

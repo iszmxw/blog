@@ -1,6 +1,6 @@
 const data = {
   urls: {
-    baseurl: 'https://blog.54zm.com/api/wechat_xcx/',
+    baseurl: 'https://blog.54zm.com/api/wx_mini/',
     login: 'login',
     index: 'index',
     get_category: 'get_category',

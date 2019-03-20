@@ -22,7 +22,6 @@ class Mini
                 break;
             default :
                 return self::CheckToken($token);
-                break;
         }
         return $next($request);
     }

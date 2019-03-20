@@ -40,7 +40,7 @@ class Mini
             return self::format_data('0',[],'token不能为空');
         } else {
             $token = Cache::get($data['token']);
-            dd($token);
+            dd(decrypt($token));
             if (empty($token)) {
                 $response = ['msg' => '登录状态失效，请重新登录', 'data' => []];
                 return self::format_data('-100',$response);

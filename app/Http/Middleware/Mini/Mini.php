@@ -37,22 +37,21 @@ class Mini
     {
         $data = $request->all();
         if (empty($data['token'])) {
-            dd($data['token'],2);
-            return response()->json(['status' => '0', 'msg' => 'token不能为空', 'data' => []]);
+            return self::format_data('0',[],'token不能为空');
         } else {
             $redis = Redis::connection('blog_web')->get($data['token']);
             if (empty($redis)) {
                 $response = ['msg' => '登录状态失效，请重新登录', 'data' => []];
-                return ['status' => '-100', 'response'=>$response];
+                return self::format_data('-100',$response);
             }else{
-                return ['status' => '1', 'response'=>$request];
+                return self::format_data('1',$request);
             }
         }
     }
 
 
     /**
-     * 格式化返回数据
+     * 格式化工厂
      * @param $data
      * @param Closure $next
      * @return \Illuminate\Http\JsonResponse|mixed
@@ -60,9 +59,22 @@ class Mini
     public static function format_response($data, Closure $next)
     {
         if ($data['status'] == '1') {
-            return $next($data['response']);
+            return $next($data['data']);
         } else {
             return response()->json($data);
         }
+    }
+
+
+    /**
+     * 封装格式化返回数据格式
+     * @param $status
+     * @param array $data
+     * @param string $msg
+     * @return array
+     */
+    public static function format_data($status,$data = [],$msg = '')
+    {
+        return ['status' => $status, 'msg' => $msg, 'data' => $data];
     }
 }

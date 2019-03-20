@@ -124,7 +124,7 @@ class MiniController extends Controller
         if ($re_info === true) {
             return ['status' => 1, 'msg' => '登录成功！', 'data' => ['token' => $token]];
         } else {
-            return ['status' => '-100', 'msg' => '登录失败！', 'data' => []];
+            return ['status' => '-100', 'msg' => '登录失败！,请不要重复请求登录接口，您已经登录啦', 'data' => []];
         }
 
     }

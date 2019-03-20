@@ -31,8 +31,6 @@ function request(params, noRefetch) {
     }
   }
 
-
-
   if (!params.type) {
     params.type = 'GET';
   }

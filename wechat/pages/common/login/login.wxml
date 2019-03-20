@@ -3,7 +3,7 @@
   <open-data class='username' type="userNickName"></open-data>
   <view class='moto-container'>
     <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="login">
-      开启小程序之旅
+      授权登录
     </button>
   </view>
 </view>

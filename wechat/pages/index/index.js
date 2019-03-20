@@ -18,7 +18,7 @@ Page({
     list: {},
     category: {},
     category_id: '',
-    pagesize: 10,
+    pagesize: 20,
   },
   //传入内容，广播将会以动画播放这条内容
   autoUpdate: function(tips) {
@@ -67,7 +67,7 @@ Page({
       url: urls.get_category,
       sCallBack: function(res) {
         that.setData({
-          category: res.data.list
+          category: res.data.data.list
         })
       }
     })
@@ -79,7 +79,7 @@ Page({
       },
       sCallBack: function(res) {
         that.setData({
-          list: res.data.list
+          list: res.data.data.list
         })
       }
     })
@@ -89,14 +89,14 @@ Page({
   gotoCategory: function(option) {
     let id = base.getDataSet(option, 'id');
     let that = this
-    that.data.pagesize = 10;
+    that.data.pagesize = 20;
     that.data.category_id = id;
     //获取文章列表
     base.request({
       url: urls.index,
       data: {
         category_id: id,
-        pagesize: 10,
+        pagesize: 20,
       },
       sCallBack: function(res) {
         that.setData({
@@ -126,7 +126,7 @@ Page({
       sCallBack: function(res) {
         if (res.data.status == 1) {
           that.setData({
-            list: res.data.list
+            list: res.data.data.list
           })
         } else {
           wx.showToast({

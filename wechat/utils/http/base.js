@@ -17,6 +17,7 @@ function getRoute() {
  * 网路请求
  */
 function request(params, noRefetch) {
+  var url = baseurl + params.url;
   //每次请求数据前检测token是否存在以及是否有效
   var token = wx.getStorageSync('token')
   if (!token || token === null) {
@@ -30,18 +31,16 @@ function request(params, noRefetch) {
     }
   }
 
-  // if (!params.data.token) {
-  //   //如果存在token缓存,就将token加入到请求数据中
-  //   params.data.token = token;
-  // }
-  var url = baseurl + params.url;
+  
+  
   if (!params.type) {
     params.type = 'GET';
   }
-  //如果存在data数据，加入token请求
-  if (params.data){
-    params.data.token = token;
+  if (!params.data){
+    params.data = {}
   }
+  //初始化token
+  // params.data.token = token;
   wx.request({
     url: url,
     data: params.data,

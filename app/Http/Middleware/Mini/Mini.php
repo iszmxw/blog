@@ -3,6 +3,7 @@
 namespace App\Http\Middleware\Mini;
 
 use Closure;
+use Illuminate\Support\Facades\Redis;
 
 class Mini
 {
@@ -31,6 +32,9 @@ class Mini
     {
         if(empty($data['token'])){
             return response()->json(['status'=>'0','msg'=>'token不能为空','data'=>[]]);
+        }else{
+            $redis = Redis::connection('blog_web')->get($data['token']);
+            dd($redis);
         }
     }
 }

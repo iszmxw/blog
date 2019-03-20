@@ -27,8 +27,10 @@ class Mini
                 break;
             default :
                 $re = self::CheckToken($request);
+
                 return self::format_response($re, $next);
         }
+
         return $next($request);
     }
 
@@ -41,14 +43,15 @@ class Mini
     {
         $data = $request->all();
         if (empty($data['token'])) {
-            return self::format_data('-100',[],'token不能为空');
+            return self::format_data('-100', [], 'token不能为空');
         } else {
             $token = Cache::get($data['token']);
             if (empty($token)) {
                 $response = ['msg' => '登录状态失效，请重新登录', 'data' => []];
-                return self::format_data('-100',$response);
-            }else{
-                return self::format_data('1',$request);
+
+                return self::format_data('-100', $response);
+            } else {
+                return self::format_data('1', $request);
             }
         }
     }
@@ -77,7 +80,7 @@ class Mini
      * @param string $msg
      * @return array
      */
-    public static function format_data($status,$data = [],$msg = '')
+    public static function format_data($status, $data = [], $msg = '')
     {
         return ['status' => $status, 'msg' => $msg, 'data' => $data];
     }

@@ -2,7 +2,13 @@
 import base from './utils/http/base.js'
 var urls = base.config.data.urls
 App({
-  onLaunch: function() {
+  onLaunch: function(options) {
+    if (options.query) {
+      if (options.query.article_id) {
+        // 获取分享文章id
+        wx.setStorageSync('article_id', options.query.article_id);
+      }
+    }
     // 获取用户信息
     wx.getSetting({
       success: res => {

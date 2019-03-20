@@ -116,8 +116,8 @@ class MiniController extends Controller
             $user_info = $this->get_access_token($openid);
             $user_info['session_key'] = $session_key;
             $token = base64_encode(base64_encode($openid.time().$session_key));
-            //设置六十秒
-            $seconds = Carbon::now()->addSeconds(60);
+            //设置7200秒（两个小时）
+            $seconds = Carbon::now()->addSeconds(7200);
             $re_info = Cache::add($token,encrypt($user_info),$seconds);
         }
         //返回登录状态

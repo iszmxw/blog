@@ -6,6 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    blog_id: '',
+    title: '',
     content: ''
   },
 
@@ -21,6 +23,8 @@ Page({
       },
       sCallBack: function(res) {
         that.setData({
+          blog_id: options.blog_id,
+          title: res.data.data.title,
           content: res.data.data.content
         })
       }
@@ -72,7 +76,14 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
-
+  onShareAppMessage(res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: this.data.title,
+      path: '/pages/article/index?blog_id=' + this.data.blog_id
+    }
   }
 })

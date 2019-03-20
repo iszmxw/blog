@@ -187,6 +187,20 @@ class MiniController extends Controller
     }
 
 
+    public static function access_token()
+    {
+        $appid = 'wxe97a91b8d58d8021';
+        $appsecret = '51feac652d4ad42e402a028f76a63ddc';
+        $url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid='.$appid.'&secret='.$appsecret;
+        $client = new Client();
+        $result = $client->get($url)->getBody()->getContents();
+        //获取$access_token过期时间
+        $access_token = json_decode($result, true)['access_token'];
+
+        return $access_token;
+    }
+
+
     //小程序首页数据
     public function index()
     {

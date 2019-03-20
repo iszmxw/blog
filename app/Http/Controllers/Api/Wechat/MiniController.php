@@ -60,7 +60,8 @@ class MiniController extends Controller
             'auto_color' => true,
             'is_hyaline' => false,
         ];
-//        $data = json_encode($data, JSON_UNESCAPED_UNICODE);
+        $data = json_encode($data, JSON_UNESCAPED_UNICODE);
+        dd($data);
         $client = new Client();
         $re = $client->post($url, $data)->getBody();
         return $re;

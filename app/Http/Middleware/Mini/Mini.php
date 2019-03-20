@@ -4,7 +4,7 @@ namespace App\Http\Middleware\Mini;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redis;
+use Illuminate\Support\Facades\Cache;
 
 class Mini
 {
@@ -39,8 +39,8 @@ class Mini
         if (empty($data['token'])) {
             return self::format_data('0',[],'token不能为空');
         } else {
-            $redis = Redis::connection('blog_web')->get($data['token']);
-            if (empty($redis)) {
+            $token = Cache::get($data['token']);
+            if (empty($token)) {
                 $response = ['msg' => '登录状态失效，请重新登录', 'data' => []];
                 return self::format_data('-100',$response);
             }else{

@@ -61,7 +61,7 @@ class MiniController extends Controller
             'is_hyaline' => false,
         ];
         $data = json_encode($data,true);
-        return $data;
+        echo $data;exit;
         $client = new Client();
         $re = $client->post($url, $data)->getBody();
         return $re;

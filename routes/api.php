@@ -37,7 +37,7 @@ Route::group(['namespace'=>'Api'],function(){
 
 
     //小程序
-    Route::group(['prefix'=>'wx_mini','namespace'=>'Wechat','middleware'=>'Mini'],function () {
+    Route::group(['prefix'=>'wx_mini','namespace'=>'Wechat','middleware'=>'wx_mini'],function () {
         //消息推送接口设置
         Route::get('message_push', 'MiniController@message_push');
 

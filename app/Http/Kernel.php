@@ -63,6 +63,7 @@ class Kernel extends HttpKernel
         //注册后台路由所需要的中间件，在中间件里面做一些拦截
         'admin' => \App\Http\Middleware\Admin\Admin::class,
         'web_common' => \App\Http\Middleware\Web\Web::class,
+        'wx_mini' => \App\Http\Middleware\Mini\Mini::class,
     ];
 
     /**

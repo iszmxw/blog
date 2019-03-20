@@ -20,6 +20,7 @@ class Mini
         $route = $request->path();
         switch ($route) {
             case 'api/wx_mini/login':
+            case 'api/wx_mini/quit':
                 break;
             default :
                 $re = self::CheckToken($request);

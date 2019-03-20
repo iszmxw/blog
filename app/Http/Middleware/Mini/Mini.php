@@ -21,15 +21,23 @@ class Mini
             case 'api/wx_mini/login':
                 break;
             default :
-                return self::CheckToken($data);
+                return self::CheckToken($data,$next);
         }
         return $next($request);
     }
 
-    public static function CheckToken($data)
+    public static function CheckToken($data,$next)
     {
         if(empty($data['token'])){
-            return ['status'=>'0','msg'=>'token不能为空','data'=>[]];
+            return self::response(['status'=>'0','msg'=>'token不能为空','data'=>[]],$next);
         }
+    }
+
+
+
+
+    public static function response($request, Closure $next)
+    {
+        return $next($request);
     }
 }

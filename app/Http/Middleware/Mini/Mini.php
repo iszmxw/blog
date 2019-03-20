@@ -21,7 +21,7 @@ class Mini
             case 'api/wx_mini/login':
                 break;
             default :
-                return self::CheckToken($data,$next);
+                self::CheckToken($data,$next);
         }
         return $next($request);
     }

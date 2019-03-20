@@ -16,7 +16,8 @@ class Mini
     public function handle($request, Closure $next)
     {
         $token = $request->all();
-        dd($token,$request);
+        $route = $request->route();
+        dd($route,$token,$request);
         return $next($request);
     }
 }

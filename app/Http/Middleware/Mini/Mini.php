@@ -28,8 +28,7 @@ class Mini
 
     public static function CheckToken($data)
     {
-        dd($data);
-        if(empty($token)){
+        if(empty($data['token'])){
             return ['status'=>'0','msg'=>'token不能为空','data'=>[]];
         }
     }

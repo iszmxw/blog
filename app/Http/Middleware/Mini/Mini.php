@@ -22,8 +22,7 @@ class Mini
             case 'api/wx_mini/index':
                 break;
             default :
-                $re = self::CheckToken($data);
-                return response()->json($re);
+                return self::CheckToken($data);
         }
         return $next($request);
     }
@@ -31,7 +30,7 @@ class Mini
     public static function CheckToken($data)
     {
         if(empty($data['token'])){
-            return ['status'=>'0','msg'=>'token不能为空','data'=>[]];
+            return response()->json(['status'=>'0','msg'=>'token不能为空','data'=>[]]);
         }
     }
 }

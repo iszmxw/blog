@@ -70,7 +70,7 @@ class MiniController extends Controller
     public function get_category()
     {
         $list = Sort::select(['sid as id', 'sortname as name'])->get();
-        $data = ['status' => 1, 'list' => $list];
+        $data = ['status' => 1, 'data' => ['list' => $list], 'msg' => ''];
 
         return $data;
     }
@@ -193,9 +193,9 @@ class MiniController extends Controller
             $val['date'] = date('Y-m-d', $val['date']);
         }
         if ($pagesize - $list->count() > 10) {
-            $data = ['status' => 0, 'list' => $list];
+            $data = ['status' => 0, 'data' => ['list' => $list] , 'msg' => ''];
         } else {
-            $data = ['status' => 1, 'list' => $list];
+            $data = ['status' => 1, 'data' => ['list' => $list] , 'msg' => ''];
         }
 
         return $data;

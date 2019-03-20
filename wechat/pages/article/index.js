@@ -15,23 +15,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log(options);
-    console.log(options.blog_id);
-    var that = this
-    base.request({
-      url: urls.article,
-      data: {
-        blog_id: options.blog_id,
-      },
-      sCallBack: function(res) {
-        console.log(2,res);
-        that.setData({
-          blog_id: options.blog_id,
-          title: res.data.data.title,
-          content: res.data.data.content
-        })
-      }
-    })
+    if (options.blog_id){
+      wx.setStorageSync('blog_id', options.blog_id)
+    }
   },
 
   /**
@@ -45,7 +31,21 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    let blog_id = wx.getStorageSync('blog_id')
+    let that = this
+    base.request({
+      url: urls.article,
+      data: {
+        blog_id: blog_id,
+      },
+      sCallBack: function(res) {
+        that.setData({
+          blog_id: blog_id,
+          title: res.data.data.title,
+          content: res.data.data.content
+        })
+      }
+    })
   },
 
   /**
@@ -88,5 +88,10 @@ Page({
       title: this.data.title,
       path: '/pages/article/index?blog_id=' + this.data.blog_id
     }
+  },
+  gotoHome: function () {
+    wx.navigateTo({
+      url: '/pages/index/index'
+    })
   }
 })

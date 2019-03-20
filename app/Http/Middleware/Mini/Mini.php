@@ -21,6 +21,9 @@ class Mini
         switch ($route) {
             case 'api/wx_mini/login':
             case 'api/wx_mini/quit':
+            case 'api/wx_mini/getwxacode':
+            case 'api/wx_mini/createwxaqrcode':
+            case 'api/wx_mini/message_push':
                 break;
             default :
                 $re = self::CheckToken($request);

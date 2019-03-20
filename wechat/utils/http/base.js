@@ -46,15 +46,13 @@ function request(params, noRefetch) {
     params.data = {}
   }
   //初始化token
-  // params.data.token = token;
+  params.data.token = token;
   wx.request({
     url: url,
     data: params.data,
     method: params.type,
     header: {
-      'content-type': 'application/json',
-      'Cookie': 'session_id',
-      'token': wx.getStorageSync('token')
+      'content-type': 'application/json'
     },
     success: function(res) {
       //检测登录状态是否失效

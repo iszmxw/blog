@@ -1,12 +1,12 @@
 <!--pages/article/index.wxml-->
 <!-- 头部 -->
 <view class="header">
-  <view class="cosplay_tx">
+  <view class="cosplay_tx" bindtap='gotoHome'>
     <image src="https://cambrian-images.cdn.bcebos.com/771df369020a47a1337b265dbad378df_1531717703740.jpeg"></image>
 
   </view>
   <view class="webname">追梦小窝-Blog</view>
-  <view class="menu"></view>
+  <!-- <view class="menu"></view> -->
 </view>
 
 <!-- 文章内容部分 -->

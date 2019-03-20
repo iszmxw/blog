@@ -31,12 +31,12 @@ function request(params, noRefetch) {
     }
   }
 
-  
-  
+
+
   if (!params.type) {
     params.type = 'GET';
   }
-  if (!params.data){
+  if (!params.data) {
     params.data = {}
   }
   //初始化token
@@ -51,8 +51,14 @@ function request(params, noRefetch) {
       'token': wx.getStorageSync('token')
     },
     success: function(res) {
-      if (params.sCallBack) {
-        params.sCallBack(res);
+      //检测登录状态是否失效
+      if (res.data.status === '-100') {
+        //跳转到登录页面
+        goToNext()
+      } else {
+        if (params.sCallBack) {
+          params.sCallBack(res);
+        }
       }
     },
     fail: function(err) {

@@ -15,7 +15,7 @@ class Mini
      */
     public function handle($request, Closure $next)
     {
-        $token = $request->get('token');
+        $token = $request->all();
         dd($token,$request);
         return $next($request);
     }

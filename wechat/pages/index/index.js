@@ -100,7 +100,7 @@ Page({
       },
       sCallBack: function(res) {
         that.setData({
-          list: res.data.list
+          list: res.data.data.list
         })
       }
     })

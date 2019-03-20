@@ -8,6 +8,7 @@ use App\Models\Sort;
 use App\Models\UserMini;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Redis;
 
 
@@ -101,6 +102,8 @@ class MiniController extends Controller
         $appsecret = '51feac652d4ad42e402a028f76a63ddc';
         $url = "https://api.weixin.qq.com/sns/jscode2session?appid={$appid}&secret={$appsecret}&js_code={$code}&grant_type=authorization_code";
         $client = new Client();
+        $mini_user = Cache::get($token);
+        dd($mini_user);
         $redis_info = Redis::connection('blog_web')->get($token);
         //当redis中没有该用户时执行登录操作
         if (empty($redis_info)) {

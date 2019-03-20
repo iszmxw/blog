@@ -63,7 +63,7 @@ class MiniController extends Controller
         $data = json_encode($data, JSON_UNESCAPED_UNICODE);
         $client = new Client();
         $re = $client->post($url, $data)->getBody()->getContents();
-
+        dd($re);
         return $re;
     }
 
@@ -196,7 +196,6 @@ class MiniController extends Controller
         $result = $client->get($url)->getBody()->getContents();
         //获取$access_token过期时间
         $access_token = json_decode($result, true)['access_token'];
-        dd($access_token);
         return $access_token;
     }
 

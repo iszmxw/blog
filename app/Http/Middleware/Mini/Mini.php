@@ -28,6 +28,11 @@ class Mini
         return $next($request);
     }
 
+    /**
+     * 检测token是否存在，以及是否过期
+     * @param Request $request
+     * @return array|\Illuminate\Http\JsonResponse
+     */
     public static function CheckToken(Request $request)
     {
         $data = $request->all();
@@ -44,7 +49,12 @@ class Mini
     }
 
 
-    //switch中使用的返回方法
+    /**
+     * 格式化返回数据
+     * @param $data
+     * @param Closure $next
+     * @return \Illuminate\Http\JsonResponse|mixed
+     */
     public static function format_response($data, Closure $next)
     {
         if ($data['status'] == '0') {

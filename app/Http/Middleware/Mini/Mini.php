@@ -3,6 +3,7 @@
 namespace App\Http\Middleware\Mini;
 
 use Closure;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
 
 class Mini
@@ -31,8 +32,9 @@ class Mini
         return $next($request);
     }
 
-    public static function CheckToken($data,$request)
+    public static function CheckToken(Request $request)
     {
+        $data = $request->all();
         if (empty($data['token'])) {
             return response()->json(['status' => '0', 'msg' => 'token不能为空', 'data' => []]);
         } else {

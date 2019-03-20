@@ -121,10 +121,10 @@ class MiniController extends Controller
             $re_info = Cache::add($token,encrypt($user_info),$seconds);
         }
         //返回登录状态
-        if ($re_info) {
+        if ($re_info === true) {
             return ['status' => 1, 'msg' => '登录成功！', 'data' => ['token' => $token]];
         } else {
-            return ['status' => 0, 'msg' => '登录失败！', 'data' => []];
+            return ['status' => '-100', 'msg' => '登录失败！', 'data' => []];
         }
 
     }

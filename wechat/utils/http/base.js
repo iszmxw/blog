@@ -14,23 +14,31 @@ function getRoute() {
 }
 
 /**
- * 网路请求
+ * 检测路由
  */
-function request(params, noRefetch) {
-  var url = baseurl + params.url;
-  //每次请求数据前检测token是否存在以及是否有效
-  var token = wx.getStorageSync('token')
+function checkRoute(token) {
   if (!token || token === null) {
     //获取要请求的路由
     let route = getRoute();
     switch (route) {
       default: break
       case 'pages/index/index':
+      case 'pages/article/index':
           goToNext('/pages/common/login/login');
         break
     }
   }
+}
 
+/**
+ * 网路请求
+ */
+function request(params, noRefetch) {
+  var url = baseurl + params.url;
+  //每次请求数据前检测token是否存在以及是否有效
+  var token = wx.getStorageSync('token')
+  //检测访问的页面是否需要登录(token)
+  checkRoute(token)
   if (!params.type) {
     params.type = 'GET';
   }
@@ -38,7 +46,7 @@ function request(params, noRefetch) {
     params.data = {}
   }
   //初始化token
-  params.data.token = token;
+  // params.data.token = token;
   wx.request({
     url: url,
     data: params.data,

@@ -38,7 +38,7 @@ class Mini
     {
         $data = $request->all();
         if (empty($data['token'])) {
-            return self::format_data('0',[],'token不能为空');
+            return self::format_data('-100',[],'token不能为空');
         } else {
             $token = Cache::get($data['token']);
             if (empty($token)) {

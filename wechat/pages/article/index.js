@@ -7,7 +7,7 @@ Page({
    */
   data: {
     blog_id: '',
-    title: '',
+    title: '追梦小窝',
     content: ''
   },
 
@@ -15,6 +15,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    console.log(options);
+    console.log(options.blog_id);
     var that = this
     base.request({
       url: urls.article,
@@ -22,6 +24,7 @@ Page({
         blog_id: options.blog_id,
       },
       sCallBack: function(res) {
+        console.log(2,res);
         that.setData({
           blog_id: options.blog_id,
           title: res.data.data.title,

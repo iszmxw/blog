@@ -17,13 +17,12 @@ class Mini
      */
     public function handle($request, Closure $next)
     {
-        $data = $request->all();
         $route = $request->path();
         switch ($route) {
             case 'api/wx_mini/login':
                 break;
             default :
-                $re = self::CheckToken($data,$request);
+                $re = self::CheckToken($request);
 
                 return self::format_response($re, $next);
 

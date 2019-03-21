@@ -57,8 +57,7 @@ class MiniController extends Controller
         $client = new Client();
         $data = ['path'=>'pages/index/index'];
         $data = json_encode($data, true);
-        return $data;
-        $re = $client->post($url,[$data])->getBody()->getContents();
+        $re = $client->post($url,['content'=>$data])->getBody()->getContents();
         return $re;
     }
 

@@ -56,16 +56,8 @@ class MiniController extends Controller
         $url = 'https://api.weixin.qq.com/wxa/getwxacode?access_token='.$access_token;
         $client = new Client();
         $data = json_encode(['path' => 'pages/index/index'], true);
-        $re = $client->post($url, ['body' => $data])->getBody()->getContents();
-
-        $newFilePath = 'getwxacode.png';
-        $data = $re;//得到post过来的二进制原始数据
-        if (empty($data)) {
-            $data = file_get_contents("php://input");
-        }
-        $newFile = fopen($newFilePath, "w");//打开文件准备写入
-        fwrite($newFile, $data);//写入二进制流到文件
-        fclose($newFile);//关闭文件
+        $img_code = $client->post($url, ['body' => $data])->getBody()->getContents();
+        $newFilePath = self::CreateImage('getwxacode',$img_code);
         return asset($newFilePath);
     }
 
@@ -85,8 +77,9 @@ class MiniController extends Controller
         $url = 'https://api.weixin.qq.com/cgi-bin/wxaapp/createwxaqrcode?access_token='.$access_token;
         $data = json_encode(['path' => 128,'width' => 430], JSON_UNESCAPED_UNICODE);
         $client = new Client();
-        $re = $client->post($url, ['body'=>$data])->getBody()->getContents();
-        return $re;
+        $img_code = $client->post($url, ['body'=>$data])->getBody()->getContents();
+        $newFilePath = self::CreateImage('createwxaqrcode',$img_code);
+        return asset($newFilePath);
     }
 
     //登录小程序
@@ -230,5 +223,19 @@ class MiniController extends Controller
         }
 
         return $data;
+    }
+
+
+    //创建图片
+    public static function CreateImage($newFilePath,$img_code)
+    {
+        $data = $img_code;//得到post过来的二进制原始数据
+        if (empty($data)) {
+            $data = file_get_contents("php://input");
+        }
+        $newFile = fopen($newFilePath, "w");//打开文件准备写入
+        fwrite($newFile, $data);//写入二进制流到文件
+        fclose($newFile);//关闭文件
+        return $newFilePath;
     }
 }

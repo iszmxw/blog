@@ -55,7 +55,8 @@ class MiniController extends Controller
         $access_token = self::access_token();
         $url = 'https://api.weixin.qq.com/wxa/getwxacode?access_token='.$access_token;
         $client = new Client();
-        $re = $client->post($url,"{'path':128}")->getBody();
+        $re = $client->post($url,['path'=>'pages/index/index'])->getBody();
+        dd($re);
         return $re;
     }
 

@@ -3,7 +3,7 @@ import base from '../../utils/http/base.js'
 //获取请求网址配置项
 const urls = base.config.data.urls
 var animation = wx.createAnimation()
-var i_tips = 0;
+var i_tips = 0
 Page({
   data: {
     content: [
@@ -46,21 +46,19 @@ Page({
    */
   onShow: function() {
     var that = this
-    var data = that.data;
-    var counts = data.content.length;
+    var data = that.data
+    var counts = data.content.length
     //定时器执行动画以及改变数据
     setInterval(() => {
-      this.autoUpdate(data.content[i_tips]);
+      this.autoUpdate(data.content[i_tips])
       if (i_tips + 1 < counts) {
-        i_tips++;
+        i_tips++
       } else {
-        i_tips = 0;
+        i_tips = 0
       }
     }, 2000)
-    wx.showToast({
-      title: '加载中',
-      icon: 'loading',
-      duration: 2000
+    wx.showLoading({
+      title: '初始化加载中',
     })
     //获取栏目列表
     base.request({
@@ -81,16 +79,17 @@ Page({
         that.setData({
           list: res.data.data.list
         })
+        wx.hideLoading()
       }
     })
   },
   //生命周期函数--监听页面加载
   onLoad: function() {},
   gotoCategory: function(option) {
-    let id = base.getDataSet(option, 'id');
+    let id = base.getDataSet(option, 'id')
     let that = this
-    that.data.pagesize = 20;
-    that.data.category_id = id;
+    that.data.pagesize = 20
+    that.data.category_id = id
     //获取文章列表
     base.request({
       url: urls.index,
@@ -109,13 +108,11 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-    wx.showToast({
-      title: '加载数据中',
-      icon: 'loading',
-      duration: 2000
-    });
+    wx.showLoading({
+      title: '数据加载中'
+    })
     var that = this
-    that.data.pagesize = that.data.pagesize + 10;
+    that.data.pagesize = that.data.pagesize + 10
     //上拉加载更多
     base.request({
       url: urls.index,
@@ -128,17 +125,17 @@ Page({
           that.setData({
             list: res.data.data.list
           })
+          wx.hideLoading()
         } else {
           wx.showToast({
-            title: '亲，到底部啦！',
-            icon: 'loading',
-            duration: 2000
-          });
+            title: '亲，到底啦！',
+            icon: 'loading'
+          })
         }
       }
     })
   },
   modalConfirm: function(res) {
-    console.log(res);
+    console.log(res)
   }
 })

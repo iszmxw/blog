@@ -33,6 +33,9 @@ Page({
   onShow: function() {
     let blog_id = wx.getStorageSync('blog_id')
     let that = this
+    wx.showLoading({
+      title: '内容正在加载中',
+    })
     base.request({
       url: urls.article,
       data: {
@@ -44,6 +47,7 @@ Page({
           title: res.data.data.title,
           content: res.data.data.content
         })
+        wx.hideLoading()
       }
     })
   },

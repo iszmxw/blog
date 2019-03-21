@@ -11,7 +11,7 @@
 
 <!-- 文章内容部分 -->
 <view class="content">
-<htmltowxml text="{{content}}" bindWxmlTagATap="wxmlTagATap" />
+<htmltowxml text="{{content}}" showLoading="{{false}}" bindWxmlTagATap="wxmlTagATap" />
 </view>
 <!-- 文章内容部分 -->
 

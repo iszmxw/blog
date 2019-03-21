@@ -57,7 +57,7 @@ class MiniController extends Controller
         $client = new Client();
         $data = json_encode(['path' => 'pages/index/index'], true);
         $img_code = $client->post($url, ['body' => $data])->getBody()->getContents();
-        $newFilePath = self::CreateImage('getwxacode',$img_code);
+        $newFilePath = self::CreateImage('getwxacode.png',$img_code);
         return asset($newFilePath);
     }
 
@@ -78,7 +78,7 @@ class MiniController extends Controller
         $data = json_encode(['path' => 128,'width' => 430], JSON_UNESCAPED_UNICODE);
         $client = new Client();
         $img_code = $client->post($url, ['body'=>$data])->getBody()->getContents();
-        $newFilePath = self::CreateImage('createwxaqrcode',$img_code);
+        $newFilePath = self::CreateImage('createwxaqrcode.png',$img_code);
         return asset($newFilePath);
     }
 

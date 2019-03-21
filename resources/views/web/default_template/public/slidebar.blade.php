@@ -33,7 +33,7 @@
                         <h5>QQ群用户</h5>
                     </div>
                     <div class="ibox-content">
-                        <h1 class="no-margins">{{ $qun->count }}</h1>
+                        <h1 class="no-margins">1212</h1>
                         <div class="stat-percent font-bold text-danger">44% <i class="fa fa-level-up"></i></div>
                         <small>人</small>
                     </div>

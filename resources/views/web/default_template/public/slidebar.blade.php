@@ -33,8 +33,8 @@
                         <h5>扫码关注体验小程序</h5>
                     </div>
                     <div class="ibox-content">
-                        <img src="https://blog.54zm.com/api/wx_mini/createwxaqrcode" alt="小程序二维码">
-                        <img src="https://blog.54zm.com/api/wx_mini/getwxacode" alt="小程序码">
+                        <img src="https://blog.54zm.com/createwxaqrcode.png" alt="小程序二维码">
+                        <img src="https://blog.54zm.com/getwxacode.png" alt="小程序码">
                     </div>
                 </div>
         </div>

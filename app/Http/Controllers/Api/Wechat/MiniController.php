@@ -75,7 +75,7 @@ class MiniController extends Controller
     {
         $access_token = self::access_token();
         $url = 'https://api.weixin.qq.com/cgi-bin/wxaapp/createwxaqrcode?access_token='.$access_token;
-        $data = json_encode(['path' => 128,'width' => 430], JSON_UNESCAPED_UNICODE);
+        $data = json_encode(['path' => 'pages/index/index','width' => 430], JSON_UNESCAPED_UNICODE);
         $client = new Client();
         $img_code = $client->post($url, ['body'=>$data])->getBody()->getContents();
         $newFilePath = self::CreateImage('createwxaqrcode.png',$img_code);

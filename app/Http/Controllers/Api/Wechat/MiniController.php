@@ -83,14 +83,9 @@ class MiniController extends Controller
     {
         $access_token = self::access_token();
         $url = 'https://api.weixin.qq.com/cgi-bin/wxaapp/createwxaqrcode?access_token='.$access_token;
-        $data = [
-            'path' => 128,
-            'width' => 430,
-        ];
-        $data = json_encode($data, JSON_UNESCAPED_UNICODE);
+        $data = json_encode(['path' => 128,'width' => 430], JSON_UNESCAPED_UNICODE);
         $client = new Client();
-        $re = $client->post($url, $data)->getBody()->getContents();
-
+        $re = $client->post($url, ['body'=>$data])->getBody()->getContents();
         return $re;
     }
 

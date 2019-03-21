@@ -58,7 +58,16 @@ class MiniController extends Controller
         $data = ['path'=>'pages/index/index'];
         $data = json_encode($data, true);
         $re = $client->post($url,['body'=>$data])->getBody()->getContents();
-        return $re;
+
+        $newFilePath='1.png';
+        $data = $re;//得到post过来的二进制原始数据
+        if(empty($data)){
+            $data=file_get_contents("php://input");
+        }
+        $newFile = fopen($newFilePath,"w");//打开文件准备写入
+        fwrite($newFile,$data);//写入二进制流到文件
+        fclose($newFile);//关闭文件
+        return $newFile;
     }
 
     //获取栏目分类

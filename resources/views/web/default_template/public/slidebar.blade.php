@@ -30,12 +30,11 @@
                         <span class="label label-default pull-right">
                             <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=e8bc9227e60cfe7bd25d45f2eeabb599dbee4a0cff411c1378d6af64ae71ae47"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="Laravel技术交流群" title="Laravel技术交流群"></a>
                         </span>
-                        <h5>QQ群用户</h5>
+                        <h5>扫码关注体验小程序</h5>
                     </div>
                     <div class="ibox-content">
-                        <h1 class="no-margins">1212</h1>
-                        <div class="stat-percent font-bold text-danger">44% <i class="fa fa-level-up"></i></div>
-                        <small>人</small>
+                        <img src="https://blog.54zm.com/api/wx_mini/createwxaqrcode" alt="小程序二维码">
+                        <img src="https://blog.54zm.com/api/wx_mini/getwxacode" alt="小程序码">
                     </div>
                 </div>
         </div>

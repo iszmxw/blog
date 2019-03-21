@@ -23,22 +23,22 @@
             </div>
         </div>
 
-        {{--关于我==自我介绍--}}
-        {{--<div class="col-lg-12">--}}
-                {{--<div class="ibox float-e-margins">--}}
-                    {{--<div class="ibox-title">--}}
-                        {{--<span class="label label-default pull-right">--}}
-                            {{--<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=e8bc9227e60cfe7bd25d45f2eeabb599dbee4a0cff411c1378d6af64ae71ae47"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="Laravel技术交流群" title="Laravel技术交流群"></a>--}}
-                        {{--</span>--}}
-                        {{--<h5>QQ群用户</h5>--}}
-                    {{--</div>--}}
-                    {{--<div class="ibox-content">--}}
-                        {{--<h1 class="no-margins">{{ $qun->count }}</h1>--}}
-                        {{--<div class="stat-percent font-bold text-danger">44% <i class="fa fa-level-up"></i></div>--}}
-                        {{--<small>人</small>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-        {{--</div>--}}
+        {{--扫码关注==微信小程序--}}
+        <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <span class="label label-default pull-right">
+                            <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=e8bc9227e60cfe7bd25d45f2eeabb599dbee4a0cff411c1378d6af64ae71ae47"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="Laravel技术交流群" title="Laravel技术交流群"></a>
+                        </span>
+                        <h5>QQ群用户</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <h1 class="no-margins">{{ $qun->count }}</h1>
+                        <div class="stat-percent font-bold text-danger">44% <i class="fa fa-level-up"></i></div>
+                        <small>人</small>
+                    </div>
+                </div>
+        </div>
         {{--微语说说--}}
         <div class="col-lg-12">
             <div class="panel panel-default">

@@ -42,7 +42,7 @@ Route::group(['namespace'=>'Api'],function(){
         Route::get('message_push', 'MiniController@message_push');
 
         //获取小程序码
-        Route::get('getwxacode', 'MiniController@getwxacode');
+        Route::any('getwxacode', 'MiniController@getwxacode');
         //获取小程序二维码
         Route::get('createwxaqrcode', 'MiniController@createwxaqrcode');
 

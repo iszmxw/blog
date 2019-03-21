@@ -55,19 +55,18 @@ class MiniController extends Controller
         $access_token = self::access_token();
         $url = 'https://api.weixin.qq.com/wxa/getwxacode?access_token='.$access_token;
         $client = new Client();
-        $data = ['path'=>'pages/index/index'];
-        $data = json_encode($data, true);
-        $re = $client->post($url,['body'=>$data])->getBody()->getContents();
+        $data = json_encode(['path' => 'pages/index/index'], true);
+        $re = $client->post($url, ['body' => $data])->getBody()->getContents();
 
-        $newFilePath='1.png';
+        $newFilePath = 'getwxacode.png';
         $data = $re;//得到post过来的二进制原始数据
-        if(empty($data)){
-            $data=file_get_contents("php://input");
+        if (empty($data)) {
+            $data = file_get_contents("php://input");
         }
-        $newFile = fopen($newFilePath,"w");//打开文件准备写入
-        fwrite($newFile,$data);//写入二进制流到文件
+        $newFile = fopen($newFilePath, "w");//打开文件准备写入
+        fwrite($newFile, $data);//写入二进制流到文件
         fclose($newFile);//关闭文件
-        return $newFile;
+        return public_path($newFilePath);
     }
 
     //获取栏目分类
@@ -121,7 +120,7 @@ class MiniController extends Controller
             $token = base64_encode(base64_encode($openid.time().$session_key));
             //设置7200秒（两个小时）
             $seconds = Carbon::now()->addSeconds(7200);
-            $re_info = Cache::add($token,encrypt($user_info),$seconds);
+            $re_info = Cache::add($token, encrypt($user_info), $seconds);
         }
         //返回登录状态
         if (empty($re_info)) {
@@ -199,6 +198,7 @@ class MiniController extends Controller
         $result = $client->get($url)->getBody()->getContents();
         //获取$access_token过期时间
         $access_token = json_decode($result, true)['access_token'];
+
         return $access_token;
     }
 
@@ -215,9 +215,9 @@ class MiniController extends Controller
             $val['date'] = date('Y-m-d', $val['date']);
         }
         if ($pagesize - $list->count() > 10) {
-            $data = ['status' => 0, 'data' => ['list' => $list] , 'msg' => ''];
+            $data = ['status' => 0, 'data' => ['list' => $list], 'msg' => ''];
         } else {
-            $data = ['status' => 1, 'data' => ['list' => $list] , 'msg' => ''];
+            $data = ['status' => 1, 'data' => ['list' => $list], 'msg' => ''];
         }
 
         return $data;

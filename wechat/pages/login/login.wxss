@@ -1,0 +1,76 @@
+/* pages/login/login.wxss */
+
+page {
+  background: rgba(0, 0, 0, 0.651);
+}
+
+navigator {
+  display: block;
+}
+
+button::after {
+  border: none;
+}
+
+button {
+  color: unset;
+  background-color: unset;
+}
+
+.button-hover {
+  color: unset;
+  background-color: unset;
+}
+
+.container {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.651);
+  width: 100%;
+  height: 100%;
+}
+
+.container .confirm_box {
+  position: absolute;
+  top: 25%;
+  bottom: 25%;
+  left: 0;
+  right: 0;
+  width: 610rpx;
+  height: 326rpx;
+  background: #fff;
+  margin: 0 auto;
+  border-radius: 20rpx;
+}
+
+.container .confirm_box .title {
+  text-align: center;
+  padding: 68rpx 0;
+  padding-bottom: 98rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.container .confirm_box .btn-box {
+  width: 610rpx;
+  height: 108rpx;
+  display: flex;
+}
+
+.container .confirm_box .btn-box view {
+  flex: 1;
+  overflow: hidden;
+}
+
+.container .confirm_box .btn-box .btn {
+  width: 100%;
+  line-height: 108rpx;
+  font-size: 18px;
+  text-align: center;
+}
+
+.container .confirm_box .btn-box .btn-left {
+  border-right: 1rpx solid #eee;
+}
+
+.container .confirm_box .btn-box .btn-right {
+  color: rgb(255, 0, 0);
+}

@@ -1,0 +1,125 @@
+/* pages/scanCode/scanCode.wxss */
+
+view {
+  background: #fafafa;
+}
+
+.scan-body {
+  width: 100%;
+  background: #fafafa;
+}
+
+.scan-body .scan-header {
+  position: relative;
+  width: 100%;
+  height: 575rpx;
+  background-image: url('https://blog.54zm.com/wxmini/bg-header.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.scan-body .scan-header .header-image {
+  position: absolute;
+  display: block;
+  width: 156rpx;
+  height: 156rpx;
+  top: 209rpx;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.scan-body .scan-header .nick-name {
+  position: absolute;
+  display: block;
+  color: #fff;
+  font-size: 26rpx;
+  width: 156rpx;
+  line-height: 35rpx;
+  text-align: center;
+  bottom: 165rpx;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.tips {
+  position: relative;
+  top: -58rpx;
+  width: 582rpx;
+  background: #fff;
+  margin: 0 auto;
+  box-shadow: 0rpx 0rpx 4rpx #eee;
+  border-radius: 12rpx;
+  padding: 30rpx 58rpx 20rpx 58rpx;
+}
+
+.tips .t-list {
+  height: 105rpx;
+  font-size: 29rpx;
+  color: #000;
+  font-weight: bold;
+  display: flex;
+  overflow: hidden;
+}
+
+.tips .t-list .icon {
+  flex: none;
+  width: 55rpx;
+  height: 55rpx;
+  background-repeat: no-repeat;
+  margin-top: 24rpx;
+}
+
+.tips .t-list .info {
+  flex: auto;
+  line-height: 105rpx;
+  padding-left: 62rpx;
+  background: #fff;
+}
+
+.tips .t-list .icon-menu {
+  background-image: url('https://blog.54zm.com/wxmini/menu.png');
+  background-size: contain;
+}
+
+.tips .t-list .icon-scan {
+  background-image: url('https://blog.54zm.com/wxmini/scan.png');
+  background-size: contain;
+}
+
+.tips .t-list .icon-anquan {
+  background-image: url('https://blog.54zm.com/wxmini/anquan.png');
+  background-size: contain;
+}
+
+.scan-btn {
+  width: 629rpx;
+  height: 94rpx;
+  line-height: 94rpx;
+  margin: 0 auto;
+  text-align: center;
+  background: #eb5424;
+  color: #fff;
+  border-radius: 8rpx;
+}
+
+.scan-btn .btn-info {
+  background: #eb5424;
+  position: relative;
+  display: inline-block;
+  padding-left: 45rpx;
+}
+
+.scan-btn .btn-info::before {
+  position: absolute;
+  display: block;
+  content: '';
+  width: 42rpx;
+  height: 42rpx;
+  background-image: url('https://blog.54zm.com/wxmini/scan-mini.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  top: 27rpx;
+  left: 0;
+}

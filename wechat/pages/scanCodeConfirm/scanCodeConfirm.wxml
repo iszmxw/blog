@@ -1,0 +1,16 @@
+<!--pages/scanCodeConfirm/scanCodeConfirm.wxml-->
+<view class="s-body">
+  <view class="info-box">
+    <view>
+      <view class="icon icon-success"></view>
+      <view class="info-tit">扫码成功</view>
+    </view>
+  </view>
+  <view class="tips">
+    <view class="tit">即将执行登录，请确认是本人操作</view>
+    <view class="li">使用你的账号登录该应用</view>
+    <view class="li">使用你的头像和昵称</view>
+  </view>
+  <button class="confirm-btn" bindtap='confirmLogin'>确认登录</button>
+  <button class="cancel-btn" bindtap='gotoPage'>取消登录</button>
+</view>

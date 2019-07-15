@@ -1,0 +1,170 @@
+/**index.wxss**/
+page{
+  background-image: #fff;
+  padding-top:44px;
+}
+view.header {
+  position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 500;
+    height: 44px;
+    box-sizing: border-box;
+    background: #3fca86;
+    text-align: center;
+    border-bottom: 1px solid #288859;
+}
+view.cosplay_tx {
+    width: 35px;
+    display: block;
+    margin-left: 6px;
+    margin-top: 5px;
+    float: left;
+}
+view.cosplay_tx image{
+    width: 35px;
+    height:35px;
+    border:1px solid #ffffff;
+    border-radius:50%;
+}
+view.webname{
+  color:#fff;
+  line-height:44px;
+  text-align:center;
+}
+view.menu{
+    width: 20px;
+    height: 18px;
+    display: inline-block;
+    background-image: url('https://cosplay.wodemo.net/entry/319671/ecaa8a9c40d515117197c0abe28543aa/pic.png');
+    background-size: 234px 48px;
+    background-repeat: no-repeat;
+    background-position: -136px 0;
+    margin-top: 13px;
+    cursor: pointer;
+    position: fixed;
+    right: 10px;
+    top: 0px;
+}
+view.nav{
+  width: 100%;
+  box-shadow: 0px 0px 8px #999;
+  /* height: 118px; */
+  max-height: 120px;
+  background-image: url('https://blog.54zm.com/blog/Home/img/sonico.jpg');
+  overflow: hidden;
+  background-position: center top !important;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+}
+view.nav .navigator {
+    width: 25%;
+    padding: 10px 0px;
+    display: inline-block;
+    color: #563743;
+    text-align: center;
+    font-size: 14px;
+}
+
+view.bulletin{
+    font-size: 13px;
+    padding: 10px 20px;
+    background: #ffedc7;
+    color: #6b3612;
+    border-radius: 3px;
+    margin-top: 1px;
+    padding-top: 12px;
+}
+view.bulletin .tb_gg {
+    width: 17px;
+    height: 19px;
+    float: left;
+    background: url('https://cosplay.wodemo.net/entry/319671/d34659af17d4fe1ea94ba59f6a17306c/bulletin.jpg') no-repeat;
+    background-size: 100%;
+    margin-right: 5px;
+    background-position: center right;
+}
+
+view.bulletin .gonggao {
+    float: left;
+    font-style: initial;
+    font-size: 14px;
+}
+
+#scrollDiv {
+    overflow: auto;
+}
+.scrollText {
+    width: auto;
+    height: 20px;
+    float: left;
+    overflow: hidden;
+    text-align: left;
+    margin-top: 1px;
+}
+.scrollText .ul{
+    height: 20px;
+}
+.scrollText .ul text.li{
+    display:block;
+    height: 25px;
+}
+/* .scrollText .ul text.li:nth-child(1){
+  display:none;
+} */
+
+view.list{
+  height: 38px;
+  background: #FFF;
+  text-align: left;
+  margin: 0px;
+  border-bottom: 1px solid #EEE;
+  padding: 6px;
+  background-size: 40px 44px;
+  -webkit-background-size: 40px 44px;
+  -moz-background-size: 40px 44px;
+  -ms-background-size: 40px 44px;
+  -o-background-size: 40px 44px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  clear: both;
+  position: relative;
+  transition: 0.6s;
+  background-image: url('https://cosplay.wodemo.net/entry/319342/5ec0abf4459f5ce71364280ba49d6259/zw.png');
+}
+
+view.list navigator{
+    width: 80%;
+    height: 25px;
+    overflow: hidden;
+    display: block;
+    float: left;
+    line-height: 26px;
+    padding-left: 55px;
+    transition: color 0.3s;
+    color:#563743;
+    font-size:14px;
+}
+text.time{
+  float: right;
+    display: block;
+    clear: both;
+    font-size: 12px;
+}
+view.copyright{
+  text-align: center;
+  font-size: 14px;
+  padding: 12px 5px;
+  background: #333;
+  color: #FFF;
+  border-top: 2px solid #288198;
+  margin-top: 15px;
+}
+
+view.copyright text{
+  color: #019C98;
+}

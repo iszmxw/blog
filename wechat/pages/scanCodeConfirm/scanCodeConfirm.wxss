@@ -1,0 +1,71 @@
+/* pages/scanCodeConfirm/scanCodeConfirm.wxss */
+
+.s-body {
+  padding: 0 56rpx;
+  background: #fff;
+}
+
+.s-body .info-box {
+  height: 281rpx;
+  padding-top: 196rpx;
+  text-align: center;
+  border-bottom: 1rpx solid #dbdbdb;
+}
+
+.s-body .info-box .icon {
+  width: 114rpx;
+  height: 125rpx;
+  margin: 0 auto;
+}
+
+.s-body .info-box .icon-success {
+  background-image: url('https://blog.54zm.com/wxmini/anquan.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.s-body .info-box .info-tit {
+  padding: 43rpx 0;
+}
+
+.s-body .tips {
+  padding: 58rpx 0;
+}
+
+.s-body .tips .tit {
+  font-size: 26rpx;
+  font-weight: bold;
+  margin-bottom: 43rpx;
+  color: #000;
+}
+
+.s-body .tips .li {
+  position: relative;
+  padding-left: 45rpx;
+  font-size: 22rpx;
+  color: #8c8c8c;
+  text-indent: 34rpx;
+  margin: 6rpx 0;
+}
+
+.s-body .tips .li::before {
+  position: absolute;
+  display: block;
+  content: '';
+  width: 10rpx;
+  height: 10rpx;
+  background: #8c8c8c;
+  border-radius: 10rpx;
+  top: 12rpx;
+}
+
+.confirm-btn {
+  color: #fff;
+  background: #17a4cf;
+  margin-bottom: 30rpx;
+}
+
+.cancel-btn {
+  color: #fff;
+  background: #eb5424;
+}

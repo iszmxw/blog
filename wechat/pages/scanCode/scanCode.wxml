@@ -1,0 +1,26 @@
+<!--pages/scanCode/scanCode.wxml-->
+<view>
+  <view class="scan-body">
+    <view class="scan-header">
+      <open-data type="userAvatarUrl" class="header-image"></open-data>
+      <open-data type="userNickName" class="nick-name"></open-data>
+    </view>
+  </view>
+  <view class="tips">
+    <view class="t-list">
+      <view class="icon icon-menu"></view>
+      <view class="info">打开要登录的网站或应用</view>
+    </view>
+    <view class="t-list">
+      <view class="icon icon-scan"></view>
+      <view class="info">扫描小程序码（非二维码）</view>
+    </view>
+    <view class="t-list">
+      <view class="icon icon-anquan"></view>
+      <view class="info">确认授权登录</view>
+    </view>
+  </view>
+  <view bindtap='scanCode' class="scan-btn">
+    <view class="btn-info">扫码登录</view>
+  </view>
+</view>

@@ -1,0 +1,18 @@
+<!--pages/login/login.wxml-->
+<view class="container">
+  <view class="confirm_box">
+    <view class="title">请您先登录，登录后即可！</view>
+    <form report-submit="true" bindsubmit="formId">
+      <view class="btn-box">
+        <view class="btn-left">
+          <navigator class="btn" open-type="exit" target="miniProgram">退出</navigator>
+        </view>
+        <view class=" btn-right">
+          <button class="btn" open-type="getUserInfo" formType="submit" lang="zh_CN" bindgetuserinfo="login">
+            授权登录
+          </button>
+        </view>
+      </view>
+    </form>
+  </view>
+</view>

@@ -1,0 +1,28 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/login/login",
+    "pages/article/index",
+    "pages/scanCodeConfirm/scanCodeConfirm",
+    "pages/scanCode/scanCode",
+    "pages/common/modal/modal"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#009688",
+    "navigationBarTitleText": "追梦小窝",
+    "navigationBarTextStyle": "black",
+    "onReachBottomDistance": 50
+  },
+  "plugins": {
+    "htmltowxml": {
+      "version": "1.4.0",
+      "provider": "wxa51b9c855ae38f3c"
+    }
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "请授权后操作"
+    }
+  }
+}

@@ -1,0 +1,48 @@
+<!--pages/index.wxml-->
+<!-- 头部 -->
+<view class="header">
+  <view class="cosplay_tx">
+    <image src="../images/logo.png"></image>
+  </view>
+  <view class="webname">追梦小窝-Blog</view>
+  <!-- <view class="menu"></view> -->
+</view>
+<!-- 菜单 -->
+<view class="nav">
+  <block wx:for="{{ category }}" wx:key="{{ item.id }}">
+    <view class="navigator" data-id="{{ item.id }}" bindtap='gotoCategory'>{{ item.name }}</view>
+  </block>
+</view>
+
+<!-- 公告 -->
+<view class="bulletin">
+  <view class="tb_gg"></view>
+  <text class="gonggao">博主吐槽：</text>
+  <view id="scrollDiv">
+    <view class="scrollText">
+      <view class="ul">
+        <text class="li" animation="{{animationData}}">{{tips}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 公告 -->
+
+<!-- 文章列表 -->
+<view class="list" wx:for="{{list}}" wx:key="list">
+  <navigator url="../article/index?blog_id={{item.gid}}">{{item.title}}</navigator>
+  <text class="time">{{item.date}}</text>
+</view>
+<!-- <image class="loading" src="../images/loading.png"></image> -->
+
+
+<!-- <view class="list">
+  <navigator url="pages/logs/logs">手机信息伪装器</navigator>
+  <text class="time">2018-08-18</text>
+</view> -->
+
+<!-- 博客底部 -->
+<view class="copyright">
+  Copyright ©
+  <text>追梦小窝-Blog</text> 2018-08-18
+</view>

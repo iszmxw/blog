@@ -75,7 +75,7 @@ Page({
       data: {
         pagesize: that.data.pagesize,
       },
-      sCallBack: function(res) {
+      sCallBack: function (res) {
         that.setData({
           list: res.data.data.list
         })

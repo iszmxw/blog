@@ -30,7 +30,7 @@
 
 <!-- 文章列表 -->
 <view class="list" wx:for="{{list}}" wx:key="list">
-  <navigator url="../article/index?blog_id={{item.gid}}">{{item.title}}</navigator>
+  <navigator url="../article/index?blog_id={{item.id}}">{{item.title}}</navigator>
   <text class="time">{{item.date}}</text>
 </view>
 <!-- <image class="loading" src="../images/loading.png"></image> -->

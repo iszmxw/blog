@@ -1,6 +1,9 @@
 /.idea
 /vendor
-/public
+/public/shell
+/public/scan_code
+/public/content
+/public/mp4
 .user.ini
 composer.lock
 _ide_helper.php

@@ -24,5 +24,6 @@
     "scope.userLocation": {
       "desc": "请授权后操作"
     }
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

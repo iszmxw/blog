@@ -39,8 +39,8 @@ class MiniController extends Controller
     {
         $signature = $_GET["signature"];
         $timestamp = $_GET["timestamp"];
-        $nonce = $_GET["nonce"];
-        $tmpArr = array($token, $timestamp, $nonce);
+        $nonce     = $_GET["nonce"];
+        $tmpArr    = array($token, $timestamp, $nonce);
         sort($tmpArr, SORT_STRING);
         $tmpStr = implode($tmpArr);
         $tmpStr = sha1($tmpStr);
@@ -55,11 +55,11 @@ class MiniController extends Controller
     public function getwxacode()
     {
         $access_token = self::access_token();
-        $url = 'https://api.weixin.qq.com/wxa/getwxacode?access_token='.$access_token;
-        $client = new Client();
-        $data = json_encode(['path' => 'pages/index/index'], true);
-        $img_code = $client->post($url, ['body' => $data])->getBody()->getContents();
-        $newFilePath = self::CreateImage('getwxacode.png', $img_code);
+        $url          = 'https://api.weixin.qq.com/wxa/getwxacode?access_token=' . $access_token;
+        $client       = new Client();
+        $data         = json_encode(['path' => 'pages/index/index'], true);
+        $img_code     = $client->post($url, ['body' => $data])->getBody()->getContents();
+        $newFilePath  = self::CreateImage('getwxacode.png', $img_code);
 
         return asset($newFilePath);
     }
@@ -73,20 +73,20 @@ class MiniController extends Controller
     public function get_scan_code(Request $request)
     {
         //随机取得uuid
-        $uuid = Uuid::uuid1()->getHex();
+        $uuid         = Uuid::uuid1()->getHex();
         $access_token = self::access_token();
-        $url = 'https://api.weixin.qq.com/wxa/getwxacode?access_token='.$access_token;
-        $client = new Client();
-        $data = json_encode(['path' => 'pages/scanCodeConfirm/scanCodeConfirm?uuid='.$uuid], true);
-        $img_code = $client->post($url, ['body' => $data])->getBody()->getContents();
-        $data = [
+        $url          = 'https://api.weixin.qq.com/wxa/getwxacode?access_token=' . $access_token;
+        $client       = new Client();
+        $data         = json_encode(['path' => 'pages/scanCodeConfirm/scanCodeConfirm?uuid=' . $uuid], true);
+        $img_code     = $client->post($url, ['body' => $data])->getBody()->getContents();
+        $data         = [
             'status' => '-1',
         ];
         try {
             //缓存预备登录的用户 设置7200秒（两个小时）
             $seconds = Carbon::now()->addSeconds(7200);
             Cache::add($uuid, encrypt($data), $seconds);
-            $imgurl = self::CreateImage($uuid.".png", $img_code, './scan_code');
+            $imgurl = self::CreateImage($uuid . ".png", $img_code, './scan_code');
             $imgurl = asset($imgurl);
         } catch (\Exception $exception) {
             Cache::forget($uuid);
@@ -101,10 +101,10 @@ class MiniController extends Controller
     //扫码登录状态修改为已扫码status==0
     public function scan_code(Request $request)
     {
-        $uuid = $request->get('uuid');
+        $uuid  = $request->get('uuid');
         $token = $request->get('token');
-        $data = [
-            'token' => $token,
+        $data  = [
+            'token'  => $token,
             'status' => '0',//已扫码状态
         ];
         try {
@@ -123,10 +123,10 @@ class MiniController extends Controller
     //扫码登录确认
     public function scan_code_confirm(Request $request)
     {
-        $uuid = $request->get('uuid');
+        $uuid  = $request->get('uuid');
         $token = $request->get('token');
-        $data = [
-            'token' => $token,
+        $data  = [
+            'token'  => $token,
             'status' => '1',
         ];
         try {
@@ -146,7 +146,7 @@ class MiniController extends Controller
     //获取栏目分类
     public function get_category()
     {
-        $list = Sort::select(['sid as id', 'sortname as name'])->get();
+        $list = Sort::select(['id', 'name'])->get();
         $data = ['status' => 1, 'data' => ['list' => $list], 'msg' => ''];
 
         return $data;
@@ -156,11 +156,11 @@ class MiniController extends Controller
     public function createwxaqrcode()
     {
         $access_token = self::access_token();
-        $url = 'https://api.weixin.qq.com/cgi-bin/wxaapp/createwxaqrcode?access_token='.$access_token;
-        $data = json_encode(['path' => 'pages/index/index', 'width' => 430], JSON_UNESCAPED_UNICODE);
-        $client = new Client();
-        $img_code = $client->post($url, ['body' => $data])->getBody()->getContents();
-        $newFilePath = self::CreateImage('createwxaqrcode.png', $img_code);
+        $url          = 'https://api.weixin.qq.com/cgi-bin/wxaapp/createwxaqrcode?access_token=' . $access_token;
+        $data         = json_encode(['path' => 'pages/index/index', 'width' => 430], JSON_UNESCAPED_UNICODE);
+        $client       = new Client();
+        $img_code     = $client->post($url, ['body' => $data])->getBody()->getContents();
+        $newFilePath  = self::CreateImage('createwxaqrcode.png', $img_code);
 
         return asset($newFilePath);
     }
@@ -168,30 +168,30 @@ class MiniController extends Controller
     //登录小程序
     public function login(Request $request)
     {
-        $code = $request->get('code');
-        $token = $request->get('token');
-        $userInfo = $request->get('userInfo');
+        $code                = $request->get('code');
+        $token               = $request->get('token');
+        $userInfo            = $request->get('userInfo');
         $userInfo['address'] = $request->get('address');
-        $form_id = $request->get('form_id');
-        $appid = 'wxe97a91b8d58d8021';
-        $appsecret = '51feac652d4ad42e402a028f76a63ddc';
-        $url = "https://api.weixin.qq.com/sns/jscode2session?appid={$appid}&secret={$appsecret}&js_code={$code}&grant_type=authorization_code";
-        $client = new Client();
-        $mini_user = Cache::get($token);
+        $form_id             = $request->get('form_id');
+        $appid               = 'wxe97a91b8d58d8021';
+        $appsecret           = '51feac652d4ad42e402a028f76a63ddc';
+        $url                 = "https://api.weixin.qq.com/sns/jscode2session?appid={$appid}&secret={$appsecret}&js_code={$code}&grant_type=authorization_code";
+        $client              = new Client();
+        $mini_user           = Cache::get($token);
         //当cache中没有该用户时执行登录操作
         if (empty($mini_user)) {
             $re = $client->get($url)->getBody()->getContents();
             //code换区的信息
-            $base_info = json_decode($re, true);
+            $base_info   = json_decode($re, true);
             $session_key = $base_info['session_key'];
-            $openid = $base_info['openid'];
+            $openid      = $base_info['openid'];
             //检测维护用户信息
             $user_info = self::get_user_info($openid, $userInfo);
             if (!empty($form_id)) {
                 UserMiniFormid::AddData(['openid' => $openid, 'form_id' => $form_id], ['form_id' => $form_id]);
             }
             $user_info['session_key'] = $session_key;
-            $token = base64_encode(base64_encode($openid.time().$session_key));
+            $token                    = base64_encode(base64_encode($openid . time() . $session_key));
             //设置7200秒（两个小时）
             $seconds = Carbon::now()->addSeconds(7200);
             $re_info = Cache::add($token, encrypt($user_info), $seconds);
@@ -225,23 +225,23 @@ class MiniController extends Controller
     {
         //用户信息
         $data = [
-            'openid' => $openid,
-            'nickname' => $userInfo['nickName'],
+            'openid'    => $openid,
+            'nickname'  => $userInfo['nickName'],
             'avatarurl' => $userInfo['avatarUrl'],
-            'gender' => $userInfo['gender'],
-            'country' => $userInfo['country'],
-            'province' => $userInfo['province'],
-            'city' => $userInfo['city'],
-            'language' => $userInfo['language'],
-            'address' => $userInfo['address'],
+            'gender'    => $userInfo['gender'],
+            'country'   => $userInfo['country'],
+            'province'  => $userInfo['province'],
+            'city'      => $userInfo['city'],
+            'language'  => $userInfo['language'],
+            'address'   => $userInfo['address'],
         ];
         if (UserMini::checkRowExists(['openid' => $openid])) {
             //编辑用户信息
-            $user_info = UserMini::EditData(['openid' => $openid], $data);
+            $user_info                = UserMini::EditData(['openid' => $openid], $data);
             $user_info['is_register'] = false;
         } else {
             //创建新用户
-            $user_info = UserMini::AddData($data);
+            $user_info                = UserMini::AddData($data);
             $user_info['is_register'] = true;
         }
 
@@ -257,14 +257,14 @@ class MiniController extends Controller
     {
         $access_token = Cache::get('access_token');
         if (empty($access_token)) {
-            $appid = 'wxe97a91b8d58d8021';
+            $appid     = 'wxe97a91b8d58d8021';
             $appsecret = '51feac652d4ad42e402a028f76a63ddc';
-            $url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid='.$appid.'&secret='.$appsecret;
-            $client = new Client();
-            $result = $client->get($url)->getBody()->getContents();
+            $url       = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=' . $appid . '&secret=' . $appsecret;
+            $client    = new Client();
+            $result    = $client->get($url)->getBody()->getContents();
             //获取$access_token过期时间
             $access_token = json_decode($result, true)['access_token'];
-            $expires_in = json_decode($result, true)['expires_in'];
+            $expires_in   = json_decode($result, true)['expires_in'];
             //设置7200秒（两个小时）
             $seconds = Carbon::now()->addSeconds($expires_in);
             $re_info = Cache::add('access_token', $access_token, $seconds);
@@ -283,10 +283,10 @@ class MiniController extends Controller
     public static function send_template_message($openid, $template_id, $values)
     {
         $template_id = empty($template_id) ? '2Z9ma8ZfCnNpVP1uMLWMMysrdiScecKmDA4MzgNGbxo' : $template_id;
-        $form_data = UserMiniFormid::getOne(['openid' => $openid], ['form_id']);
-        $form_id = $form_data['form_id'];
-        $values = empty($values) ? ['追梦小屋小程序', '感谢您的关注，您的支持是对我们最大的鼓励', '追梦小窝', date('Y-m-d H:i:s', time())] : $values;
-        $result = self::template_message($openid, $template_id, $form_id, $values);
+        $form_data   = UserMiniFormid::getOne(['openid' => $openid], ['form_id']);
+        $form_id     = $form_data['form_id'];
+        $values      = empty($values) ? ['追梦小屋小程序', '感谢您的关注，您的支持是对我们最大的鼓励', '追梦小窝', date('Y-m-d H:i:s', time())] : $values;
+        $result      = self::template_message($openid, $template_id, $form_id, $values);
         UserMiniFormid::selected_delete(['form_id' => $form_id]);
         if ($result["errcode"] == 0) {
             return ['status' => 1, 'msg' => '消息发送成功', 'data' => []];
@@ -313,21 +313,21 @@ class MiniController extends Controller
      */
     public static function template_message($openid, $template_id, $form_id, $values = [], $page = 'pages/index/index', $emphasis_keyword = 'keyword1.DATA')
     {
-        $client = new Client();
+        $client       = new Client();
         $access_token = self::access_token();
-        $url = "https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token={$access_token}";
-        $body = [
-            'touser' => $openid,
-            'template_id' => $template_id,
-            'page' => $page,
-            'form_id' => $form_id,
+        $url          = "https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token={$access_token}";
+        $body         = [
+            'touser'           => $openid,
+            'template_id'      => $template_id,
+            'page'             => $page,
+            'form_id'          => $form_id,
             'emphasis_keyword' => $emphasis_keyword,
         ];
         foreach ($values as $key => $val) {
-            $keyword = "keyword".($key + 1);
+            $keyword                         = "keyword" . ($key + 1);
             $body['data'][$keyword]['value'] = $val;
         }
-        $re = $client->post($url, ['body' => json_encode($body)])->getBody()->getContents();
+        $re     = $client->post($url, ['body' => json_encode($body)])->getBody()->getContents();
         $result = json_decode($re, true);
 
         return $result;
@@ -337,9 +337,9 @@ class MiniController extends Controller
     //小程序首页数据
     public function index()
     {
-        $pagesize = request()->get('pagesize');
+        $pagesize    = request()->get('pagesize');
         $category_id = request()->get('category_id');
-        $where = [];
+        $where       = [];
         $category_id ? $where[] = ['sort_id', $category_id] : '';
         $list = Blog::where($where)->select('gid', 'title', 'date')->limit($pagesize)->orderby('date', 'DESC')->get();
         foreach ($list as $key => $val) {
@@ -360,7 +360,7 @@ class MiniController extends Controller
         $blog_id = request()->get('blog_id');
         if ($blog_id) {
             $article = Blog::where(['gid' => $blog_id])->select('title', 'content')->first();
-            $data = ['status' => '1', 'data' => $article];
+            $data    = ['status' => '1', 'data' => $article];
         } else {
             $data = ['status' => '1', 'data' => '没有数据'];
         }
@@ -376,8 +376,8 @@ class MiniController extends Controller
         }
         $dir = realpath($path);
         //目录+文件
-        $newFilePath = $dir.(empty($newFile) ? '/'.time().'.jpg' : '/'.$newFile);
-        $data = $img_code;//得到post过来的二进制原始数据
+        $newFilePath = $dir . (empty($newFile) ? '/' . time() . '.jpg' : '/' . $newFile);
+        $data        = $img_code;//得到post过来的二进制原始数据
         if (empty($data)) {
             $data = file_get_contents("php://input");
         }
@@ -385,7 +385,7 @@ class MiniController extends Controller
         fwrite($resource, $data);//写入二进制流到文件
         fclose($resource);//关闭文件
 
-        $result = $path.(empty($newFile) ? '/'.time().'.jpg' : '/'.$newFile);
+        $result = $path . (empty($newFile) ? '/' . time() . '.jpg' : '/' . $newFile);
 
         return str_replace('./', '', $result);
     }

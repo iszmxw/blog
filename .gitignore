@@ -2,3 +2,4 @@
 /vendor
 composer.lock
 _ide_helper.php
+.user.ini

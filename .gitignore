@@ -1,5 +1,5 @@
 /.idea
 /vendor
+.user.ini
 composer.lock
 _ide_helper.php
-.user.ini

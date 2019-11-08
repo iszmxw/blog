@@ -356,7 +356,7 @@ class MiniController extends Controller
     {
         $blog_id = request()->get('blog_id');
         if ($blog_id) {
-            $article = Blog::where(['gid' => $blog_id])->select('title', 'content')->first();
+            $article = Blog::where(['id' => $blog_id])->select('title', 'content')->first();
             $data    = ['status' => '1', 'data' => $article];
         } else {
             $data = ['status' => '1', 'data' => '没有数据'];

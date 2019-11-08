@@ -343,7 +343,6 @@ class MiniController extends Controller
         $category_id ? $where[] = ['sort_id', $category_id] : '';
         $list = Blog::where($where)->select('id', 'title', 'created_at')->limit($pagesize)->orderby('created_at', 'DESC')->get()->toArray();
         foreach ($list as $key => $val) {
-            dd($val['created_at']);
             $val['created_at'] = date('Y-m-d', $val['created_at']);
         }
         if ($pagesize - $list->count() > 10) {

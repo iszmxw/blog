@@ -34,7 +34,7 @@
             </div>
             <div class="ibox-content">
                 <div class="col-lg-12">
-                    <img class="col-lg-6" src="https://blog.54zm.com/createwxaqrcode.png" alt="小程序二维码"> <img class="col-lg-6" src="https://blog.54zm.com/getwxacode.png" alt="小程序码">
+                    <img class="col-lg-6" src="http://blog.54zm.com/createwxaqrcode.png" alt="小程序二维码"> <img class="col-lg-6" src="http://blog.54zm.com/getwxacode.png" alt="小程序码">
                 </div>
                 <div style="clear:both"></div>
             </div>

@@ -24,8 +24,10 @@
 <div class="middle-box text-center lockscreen animated fadeInDown">
     <div>
         <div class="m-b-md">
-            <img alt="image" id="image" class="img-circle circle-border" width="212" height="212" src="https://cambrian-images.cdn.bcebos.com/771df369020a47a1337b265dbad378df_1531717703740.jpeg">
-            <div id="image_model" class="img-circle" style="width: 202px;line-height: 202px;font-size: 24px;color: #fff;background: rgba(0, 0, 0, 0.5);;position: absolute;top: 115px;left: 4px;"></div>
+            <img alt="image" id="image" class="img-circle circle-border" width="212" height="212"
+                 src="https://cambrian-images.cdn.bcebos.com/771df369020a47a1337b265dbad378df_1531717703740.jpeg">
+            <div id="image_model" class="img-circle"
+                 style="width: 202px;line-height: 202px;font-size: 24px;color: #fff;background: rgba(0, 0, 0, 0.5);;position: absolute;top: 115px;left: 4px;"></div>
         </div>
         <h3>授权提示</h3>
         <p>您可以扫描小程序码进行用户授权，或者切换到QQ授权页面进行授权，授权后即可访问</p>
@@ -34,9 +36,13 @@
         {{--<input type="password" class="form-control" placeholder="******" required="">--}}
         {{--</div>--}}
         {{--</form>--}}
-        <button type="submit" class="btn btn-primary block full-width" onclick="mini_auth('{{url('api/wx_mini/get_scan_code')}}')">刷新小程序码</button>
+        <button type="submit" class="btn btn-primary block full-width"
+                onclick="mini_auth('{{url('api/wx_mini/get_scan_code')}}')">刷新小程序码
+        </button>
         <br>
-        <button type="submit" class="btn btn-primary block full-width" onclick="qq_auth('{{url('wall/qq_login_auth')}}')">前往QQ授权</button>
+        <button type="submit" class="btn btn-primary block full-width"
+                onclick="qq_auth('{{url('wall/qq_login_auth')}}')">前往QQ授权
+        </button>
     </div>
 </div>
 
@@ -48,8 +54,9 @@
 <script src="{{asset('style/admin/inspinia/js/plugins/toastr/toastr_style.js')}}"></script>
 <script>
     var setTime;
+
     //定时监控页面的登录状态
-    function setInte(json){
+    function setInte(json) {
         setTime = setInterval(function () {
             $.get('https://blog.54zm.com/wall/scan_code_status?uuid=' + json.data.uuid, function (response) {
                 if (response.status === 0) {
@@ -64,21 +71,23 @@
                     toastr.success(response.msg);
                     clearInterval(setTime);
                     setInterval(function () {
-                        window.location.href='{{url('wall/index')}}';
+                        window.location.href = '{{url('wall/index')}}';
                     }, 1600)
                 }
             })
         }, 1600)
     }
+
     function qq_auth(url) {
         window.location.href = url
     }
+
     //页面初次请求
-    $.get('https://blog.54zm.com/api/wx_mini/get_scan_code', function (json) {
+    $.get('http://blog.54zm.com/api/wx_mini/get_scan_code', function (json) {
         if (json.status == 1) {
             $("#image").attr("src", json.data.image);
             setInte(json);//定时监控页面的登录状态
-        }else{
+        } else {
             clearInterval(setTime);
             toastr.error('小程序码获取失败，请刷新！');
             $('#image_model').html('已失效，请刷新！');

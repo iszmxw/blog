@@ -1,5 +1,6 @@
 /.idea
 /vendor
+/public_bak
 .user.ini
 composer.lock
 _ide_helper.php

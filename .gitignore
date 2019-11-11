@@ -1,6 +1,7 @@
 /.idea
 /vendor
 /public_bak
+/public/mp4
 .user.ini
 composer.lock
 _ide_helper.php

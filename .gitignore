@@ -2,6 +2,7 @@
 /vendor
 /public_bak
 /public/mp4
+/public/content
 .user.ini
 composer.lock
 _ide_helper.php

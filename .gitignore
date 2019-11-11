@@ -3,6 +3,8 @@
 /public_bak
 /public/mp4
 /public/content
+/public/shell
+/public/scan_code
 .user.ini
 composer.lock
 _ide_helper.php

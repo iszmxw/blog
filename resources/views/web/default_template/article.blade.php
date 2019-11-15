@@ -1,6 +1,6 @@
 @extends('web.default_template.app')
 
-@section('title', $blog['title'].'_追梦小窝的博客')
+@section('title', $blog['title'].'_追梦小窝')
 @section('keywords', $blog['title'])
 @section('description', $blog['title'])
 {{--样式引入--}}

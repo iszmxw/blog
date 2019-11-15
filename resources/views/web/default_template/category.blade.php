@@ -1,6 +1,6 @@
 @extends('web.default_template.app')
 
-@section('title', '追梦小窝博客首页')
+@section('title', '追梦小窝首页')
 {{--样式引入--}}
 @section('style')
 

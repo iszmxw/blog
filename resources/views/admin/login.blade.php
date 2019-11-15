@@ -7,7 +7,7 @@
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0">
-    <title>登录博客</title>
+    <title>登录小窝</title>
     <link href="{{asset('style/admin/login/css/default.css')}}" rel="stylesheet" type="text/css"/>
     <!--必要样式-->
     <link href="{{asset('style/admin/login/css/styles.css')}}" rel="stylesheet" type="text/css"/>
@@ -51,7 +51,7 @@
     <div class='success'></div>
     <div class='disclaimer'>
         {{--<p onclick="scan_code()">小程序扫码登录</p><br>--}}
-        <p>欢迎登录本博客后台管理系统 <a href="{{url('/')}}" target="_blank">前往首页</a></p>
+        <p>欢迎登录追梦小窝后台管理系统 <a href="{{url('/')}}" target="_blank">前往首页</a></p>
     </div>
 </div>
 <div class='authent'>

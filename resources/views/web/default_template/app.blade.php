@@ -36,7 +36,7 @@
                 </div>
                 <ul class="nav navbar-top-links navbar-right">
                     <li>
-                        <span class="m-r-sm text-muted welcome-message">欢迎来到追梦小窝的博客收藏馆</span>
+                        <span class="m-r-sm text-muted welcome-message">追梦小窝欢迎您的到来</span>
                     </li>
                     <li>
                         <a href="{{url('wall/register')}}">

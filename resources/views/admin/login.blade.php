@@ -175,8 +175,8 @@
                         if (data.code === 200) {
                             //登录成功
                             $('.login div').fadeOut(100);
-                            $('.success').fadeIn(1000);
-                            $('.success').html(data.data);
+                            $success.fadeIn(1000);
+                            $success.html(data.data);
                             //跳转操作
                             setInterval(function () {
                                 window.location.reload()

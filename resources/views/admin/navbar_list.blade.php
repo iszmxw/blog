@@ -331,7 +331,7 @@
         let url = target.attr("action");
         let data = target.serialize();
         $.post(url, data, function (json) {
-            if (json.code === 1) {
+            if (json.code === 200) {
                 swal({
                     title: "提示信息",
                     text: json.msg,

@@ -46,6 +46,14 @@ class AdminController extends Controller
         return view('admin.config', ['user_data' => $user_data, 'config' => $config]);
     }
 
+    /**
+     * 修改站点基本配置
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Exception
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2019/11/16 9:40
+     */
     public function config_edit_check(Request $request)
     {
         $data['blogname'] = $request->get('blogname');
@@ -72,7 +80,6 @@ class AdminController extends Controller
                 Options::EditData(['option_name' => 'footer_info'], ['option_value' => $data['footer_info']]);
             }
             DB::commit();
-
             return response()->json(['data' => '修改成功！', 'status' => '1']);
         } catch (\Exception $e) {
             dd($e);

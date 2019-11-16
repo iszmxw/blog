@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Options extends Model
+class Options extends Defaults
 {
     protected $table = 'options';
     protected $primaryKey = 'option_id';

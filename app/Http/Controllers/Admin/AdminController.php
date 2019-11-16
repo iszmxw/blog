@@ -201,7 +201,6 @@ class AdminController extends Controller
             //如果包含错误信息则返回上一级页面重新登录
             return redirect(config('app.url') . '/admin/qq_login_auth');
         }
-
         //获取access_token
         $data         = explode('&', $response);
         $data         = explode('=', $data[0]);
@@ -210,9 +209,9 @@ class AdminController extends Controller
         //将返回的jsonp转换为json
         $re_json = trim(str_replace(';', '', str_replace(')', '', str_replace('callback(', '', $result))));
         //获取openid
-        $openid = json_decode($re_json, true)['openid'];
-        $user_info = $client->get("https://graph.qq.com/user/get_user_info?access_token={$access_token}&oauth_consumer_key={$client_id}&openid={$openid}")->getBody()->getContents();
-        $user_info = json_decode($user_info, true);
+        $openid              = json_decode($re_json, true)['openid'];
+        $user_info           = $client->get("https://graph.qq.com/user/get_user_info?access_token={$access_token}&oauth_consumer_key={$client_id}&openid={$openid}")->getBody()->getContents();
+        $user_info           = json_decode($user_info, true);
         $user_info['openid'] = $openid;
         $qq_id               = Userqq::getValue(['openid' => $openid], 'id');
         $id                  = Userqq::getValue(['openid' => $openid], 'user_id');
@@ -230,7 +229,6 @@ class AdminController extends Controller
             $user_data = User::getOne(['id' => $id]);
             Redis::connection('blog_admin')->set('user_data', json_encode($user_data));
             session(['user_data' => $user_data]);
-
             return redirect('admin');
         } elseif (empty($qq_id)) {
             $user_qq_data['openid'] = $openid;
@@ -244,14 +242,18 @@ class AdminController extends Controller
             session(['qq_data' => $user_qq_data]);
             $request->attributes->add(['qq_data' => $user_qq_data]); //添加参数
         }
-
         return redirect('http://blog.54zm.com');
     }
 
+    /**
+     * 退出后台
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2019/11/16 10:20
+     */
     public function quit()
     {
         session()->put('user_data', '');
-
         return redirect('admin/login');
     }
 }

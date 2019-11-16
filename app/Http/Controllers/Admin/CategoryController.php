@@ -218,7 +218,7 @@ class CategoryController extends Controller
             return ['msg' => '添加导航栏成功', 'code' => 200];
         } catch (\Exception $e) {
             DB::rollBack();
-            return ['msg' => '添加导航栏失败', 'code' => 500];
+            return ['msg' => '添加导航栏失败'.$e, 'code' => 500];
         }
     }
 

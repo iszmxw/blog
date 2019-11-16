@@ -370,6 +370,8 @@
         let data = {'_token': "{{csrf_token()}}", 'id': id};
         $.post(url, data, function (json) {
             if (json.code === 200) {
+                // 移除多余样式
+                $(".switchery").remove();
                 $("#id").val(json.data.id);
                 $(".url_type").val(json.data.type);
                 $("#nav_name").val(json.data.nav_name);

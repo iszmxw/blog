@@ -378,9 +378,9 @@
                 $("#nav_pid option[value='" + json.data.pid + "']").attr("selected", "selected");
                 if (json.data.type === 1) {
                     // 先移除所有样式
-                    $("#switch-1").remove();
+                    $("#switch-1").removeClass("active");
                     $("#switch-2").removeClass("active");
-                    $("#tabs-1").remove();
+                    $("#tabs-1").removeClass("active");
                     $("#tabs-2").removeClass("active");
                     // 在做修改动作
                     $("#switch-1").addClass("active");
@@ -389,9 +389,9 @@
                 } else {
                     // 先移除所有样式
                     $("#switch-1").removeClass("active");
-                    $("#switch-2").remove();
+                    $("#switch-2").removeClass("active");
                     $("#tabs-1").removeClass("active");
-                    $("#tabs-2").remove();
+                    $("#tabs-2").removeClass("active");
 
                     // 在做修改动作
                     $("#switch-2").addClass("active");

@@ -77,6 +77,11 @@
 <script type="text/javascript" src="{{asset('style/admin/login/js/Treatment.js')}}"></script>
 <script type="text/javascript" src="{{asset('style/admin/login/js/jquery.mockjax.js')}}"></script>
 <script type="text/javascript">
+
+    let $authent = $('.authent');
+    let $login = $('.login');
+    let $success = $('.success');
+
     function toLogin() {
         window.location.href = 'qq_login_auth';
     }
@@ -130,17 +135,17 @@
             } else {
                 //认证中..
                 fullscreen();
-                $('.login').addClass('test'); //倾斜特效
+                $login.addClass('test'); //倾斜特效
                 setTimeout(function () {
-                    $('.login').addClass('testtwo'); //平移特效
+                    $login.addClass('testtwo'); //平移特效
                 }, 300);
                 setTimeout(function () {
-                    $('.authent').show().animate({right: -320}, {
+                    $authent.show().animate({right: -320}, {
                         easing: 'easeOutQuint',
                         duration: 600,
                         queue: false
                     });
-                    $('.authent').animate({opacity: 1}, {
+                    $authent.animate({opacity: 1}, {
                         duration: 200,
                         queue: false
                     }).addClass('visible');
@@ -153,20 +158,20 @@
                 $.post(url, JsonData, function (data) {
                     //认证完成
                     setTimeout(function () {
-                        $('.authent').show().animate({right: 90}, {
+                        $authent.show().animate({right: 90}, {
                             easing: 'easeOutQuint',
                             duration: 600,
                             queue: false
                         });
-                        $('.authent').animate({opacity: 0}, {
+                        $authent.animate({opacity: 0}, {
                             duration: 200,
                             queue: false
                         }).addClass('visible');
-                        $('.login').removeClass('testtwo'); //平移特效
+                        $login.removeClass('testtwo'); //平移特效
                     }, 2000);
                     setTimeout(function () {
-                        $('.authent').hide();
-                        $('.login').removeClass('test');
+                        $authent.hide();
+                        $login.removeClass('test');
                         if (data.code === 200) {
                             //登录成功
                             $('.login div').fadeOut(100);

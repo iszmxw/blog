@@ -378,9 +378,7 @@
                 $("#nav_pid option[value='" + json.data.pid + "']").attr("selected", "selected");
                 if (json.data.type === 1) {
                     // 先移除所有样式
-                    $("#switch-1").removeClass("active");
                     $("#switch-2").removeClass("active");
-                    $("#tabs-1").removeClass("active");
                     $("#tabs-2").removeClass("active");
                     // 在做修改动作
                     $("#switch-1").addClass("active");
@@ -389,10 +387,7 @@
                 } else {
                     // 先移除所有样式
                     $("#switch-1").removeClass("active");
-                    $("#switch-2").removeClass("active");
                     $("#tabs-1").removeClass("active");
-                    $("#tabs-2").removeClass("active");
-
                     // 在做修改动作
                     $("#switch-2").addClass("active");
                     $("#tabs-2").addClass("active");
@@ -410,7 +405,6 @@
                 }
                 let elem_3 = document.querySelector('.js-switch_3');
                 let elem_4 = document.querySelector('.js-switch_4');
-                $(".switchery").remove();
                 new Switchery(elem_3, {color: '#1AB394'});
                 new Switchery(elem_4, {color: '#1AB394'});
                 $("#myModal").modal();

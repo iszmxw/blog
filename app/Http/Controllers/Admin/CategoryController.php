@@ -11,12 +11,18 @@ use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
-    //栏目分类列表
+    /**
+     * 栏目分类列表
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2019/11/16 11:13
+     */
     public function category_list(Request $request)
     {
         $user_data = $request->get('user_data');
-        $list = Sort::getPaginate([], '', 10, 'sort', 'ASC');
-        $sort = Sort::getList([]);
+        $list      = Sort::getPaginate([], '', 10, 'sort', 'ASC');
+        $sort      = Sort::getList([]);
         foreach ($list as $value) {
             $value['blogs'] = Blog::getCount(['sort_id' => $value['id']]);
         }
@@ -26,54 +32,77 @@ class CategoryController extends Controller
     /**
      * 添加分类
      * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return array
      * @throws \Exception
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2019/11/16 11:14
      */
     public function category_add_check(Request $request)
     {
-        $data['name'] = $request->get('name');
-        $data['alias'] = $request->get('alias');
-        $data['pid'] = $request->get('pid');
+        $data['name']        = $request->get('name');
+        $data['alias']       = $request->get('alias');
+        $data['pid']         = $request->get('pid');
         $data['description'] = $request->get('description');
         DB::beginTransaction();
         try {
             Sort::create($data);
             DB::commit();
-            return response()->json(['data' => '添加分类成功！', 'status' => '1']);
+            return ['msg' => '添加分类成功！', 'code' => 200];
         } catch (\Exception $e) {
             DB::rollBack();
-            return response()->json(['data' => '添加失败请稍后再试！', 'status' => '0']);
+            return ['msg' => '添加失败请稍后再试！', 'code' => 500];
         }
     }
 
-    //分类数据获取
+    /**
+     * 分类数据获取
+     * @param Request $request
+     * @return array
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2019/11/16 11:18
+     */
     public function category_data(Request $request)
     {
-        $id = $request->get('id');
+        $id   = $request->get('id');
         $data = Sort::getOne(['id' => $id]);
-        return response()->json(['status' => '1', 'data' => $data]);
+        return ['code' => 200, 'data' => $data, 'msg' => 'ok'];
     }
 
-    //修改分类数据
+
+    /**
+     * 修改分类数据
+     * @param Request $request
+     * @return array
+     * @throws \Exception
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2019/11/16 11:20
+     */
     public function category_data_edit_check(Request $request)
     {
-        $id = $request->get('id');
-        $data['name'] = $request->get('name');
-        $data['alias'] = $request->get('alias');
-        $data['pid'] = $request->get('pid');
+        $id                  = $request->get('id');
+        $data['name']        = $request->get('name');
+        $data['alias']       = $request->get('alias');
+        $data['pid']         = $request->get('pid');
         $data['description'] = $request->get('description');
         DB::beginTransaction();
         try {
             Sort::EditData(['id' => $id], $data);
             DB::commit();
-            return response()->json(['data' => '编辑分类信息成功！', 'status' => '1']);
+            return ['msg' => '编辑分类信息成功！', 'code' => 200];
         } catch (\Exception $e) {
             DB::rollBack();
-            return response()->json(['data' => '编辑失败请稍后再试！', 'status' => '0']);
+            return ['msg' => '编辑失败请稍后再试！', 'code' => 500];
         }
     }
 
-    //删除分类信息
+    /**
+     * 删除分类信息
+     * @param Request $request
+     * @return array
+     * @throws \Exception
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2019/11/16 11:21
+     */
     public function category_delete_check(Request $request)
     {
         $id = $request->get('id');
@@ -81,10 +110,10 @@ class CategoryController extends Controller
         try {
             Sort::selected_delete(['id' => $id]);
             DB::commit();
-            return response()->json(['data' => '删除分类信息成功！', 'status' => '1']);
+            return ['msg' => '删除分类信息成功！', 'code' => 200];
         } catch (\Exception $e) {
             DB::rollBack();
-            return response()->json(['data' => '删除失败请稍后再试！', 'status' => '0']);
+            return ['msg' => '删除失败请稍后再试！', 'code' => 500];
         }
 
     }
@@ -93,8 +122,8 @@ class CategoryController extends Controller
     public function navbar_list(Request $request)
     {
         $data['user_data'] = $request->get('user_data');
-        $data['category'] = Sort::getList([]);
-        $navi = Navi::get_select(['pid' => '0'], ['id', 'nav_name', 'url', 'new_tab'], 'sort', 'ASC')->toArray();
+        $data['category']  = Sort::getList([]);
+        $navi              = Navi::get_select(['pid' => '0'], ['id', 'nav_name', 'url', 'new_tab'], 'sort', 'ASC')->toArray();
         foreach ($navi as $key => $val) {
             $navi[$key]['sub_menu'] = Navi::get_select(['pid' => $val['id']], ['id', 'nav_name', 'url', 'new_tab'], 'sort', 'ASC')->toArray();
         }
@@ -138,35 +167,35 @@ class CategoryController extends Controller
      */
     public function navbar_add_check(Request $request)
     {
-        $pid = $request->get('pid');
-        $nav_name = $request->get('nav_name');
-        $nav_icon = $request->get('nav_icon');
+        $pid        = $request->get('pid');
+        $nav_name   = $request->get('nav_name');
+        $nav_icon   = $request->get('nav_icon');
         $system_url = $request->get('system_url');
-        $url = $request->get('url');
-        $url_type = $request->get('url_type');
+        $url        = $request->get('url');
+        $url_type   = $request->get('url_type');
         if ($url_type == 1) {
             if (!$system_url) return response()->json(['data' => '请选择系统地址', 'status' => '0']);
-            $category_url = config('app.url') . '/category/' . $system_url;
+            $category_url    = config('app.url') . '/category/' . $system_url;
             $data['type_id'] = $system_url;
         } else {
             if (!$url) return response()->json(['data' => '请输入链接地址', 'status' => '0']);
-            $category_url = $url;
+            $category_url    = $url;
             $data['type_id'] = 0;
         }
-        $hide = $request->get('hide');
-        $new_tab = $request->get('new_tab');
+        $hide       = $request->get('hide');
+        $new_tab    = $request->get('new_tab');
         $is_default = $request->get('is_default');
         if (empty($hide)) $hide = 1;
         if (empty($new_tab)) $new_tab = 0;
         if (!$nav_name) return response()->json(['data' => '请输入导航栏名称', 'status' => '0']);
-        $data['nav_name'] = $nav_name;
-        $data['nav_icon'] = $nav_icon;
-        $data['url'] = $category_url;
-        $data['new_tab'] = $new_tab;
-        $data['hide'] = $hide;
-        $data['pid'] = $pid;
+        $data['nav_name']   = $nav_name;
+        $data['nav_icon']   = $nav_icon;
+        $data['url']        = $category_url;
+        $data['new_tab']    = $new_tab;
+        $data['hide']       = $hide;
+        $data['pid']        = $pid;
         $data['is_default'] = $is_default;
-        $data['type'] = $url_type;
+        $data['type']       = $url_type;
         DB::beginTransaction();
         try {
             Navi::create($data);
@@ -181,7 +210,7 @@ class CategoryController extends Controller
     //异步获取导航栏数据，编辑时使用
     public function navbar_data(Request $request)
     {
-        $id = $request->get('id');
+        $id   = $request->get('id');
         $data = Navi::getOne(['id' => $id]);
         if ($data) {
             return response()->json(['data' => $data, 'status' => '1']);
@@ -193,36 +222,36 @@ class CategoryController extends Controller
     //编辑导航栏数据提交
     public function navbar_data_edit_check(Request $request)
     {
-        $id = $request->get('id');
-        $pid = $request->get('pid');
-        $nav_name = $request->get('nav_name');
-        $nav_icon = $request->get('nav_icon');
+        $id         = $request->get('id');
+        $pid        = $request->get('pid');
+        $nav_name   = $request->get('nav_name');
+        $nav_icon   = $request->get('nav_icon');
         $system_url = $request->get('system_url');
-        $url = $request->get('url');
-        $url_type = $request->get('url_type');
+        $url        = $request->get('url');
+        $url_type   = $request->get('url_type');
         if ($url_type == 1) {
             if (!$system_url) return response()->json(['data' => '请选择系统地址', 'status' => '0']);
-            $category_url = config('app.url') . '/category/' . $system_url;
+            $category_url    = config('app.url') . '/category/' . $system_url;
             $data['type_id'] = $system_url;
         } else {
             if (!$url) return response()->json(['data' => '请输入链接地址', 'status' => '0']);
-            $category_url = $url;
+            $category_url    = $url;
             $data['type_id'] = 0;
         }
-        $hide = $request->get('hide');
-        $new_tab = $request->get('new_tab');
+        $hide       = $request->get('hide');
+        $new_tab    = $request->get('new_tab');
         $is_default = $request->get('is_default');
         if (empty($hide)) $hide = 1;
         if (empty($new_tab)) $new_tab = 0;
         if (!$nav_name) return response()->json(['data' => '请输入导航栏名称', 'status' => '0']);
-        $data['nav_name'] = $nav_name;
-        $data['nav_icon'] = $nav_icon;
-        $data['url'] = $category_url;
-        $data['new_tab'] = $new_tab;
-        $data['hide'] = $hide;
-        $data['pid'] = $pid;
+        $data['nav_name']   = $nav_name;
+        $data['nav_icon']   = $nav_icon;
+        $data['url']        = $category_url;
+        $data['new_tab']    = $new_tab;
+        $data['hide']       = $hide;
+        $data['pid']        = $pid;
         $data['is_default'] = $is_default;
-        $data['type'] = $url_type;
+        $data['type']       = $url_type;
         DB::beginTransaction();
         try {
             Navi::EditData(['id' => $id], $data);

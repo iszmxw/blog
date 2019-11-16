@@ -210,14 +210,14 @@
 
     //添加分类
     function add_data() {
-        var target = $("#post_url");
-        var url = target.attr("action");
-        var data = target.serialize();
+        let target = $("#post_url");
+        let url = target.attr("action");
+        let data = target.serialize();
         $.post(url, data, function (json) {
-            if (json.status == 1) {
+            if (json.code === 200) {
                 swal({
                     title: "提示信息",
-                    text: json.data,
+                    text: json.msg,
                     confirmButtonColor: "#DD6B55",
                     confirmButtonText: "确定",
                 }, function () {
@@ -226,7 +226,7 @@
             } else {
                 swal({
                     title: "提示信息",
-                    text: json.data,
+                    text: json.msg,
                     confirmButtonColor: "#DD6B55",
                     confirmButtonText: "确定"
                 });
@@ -236,11 +236,10 @@
 
     //获取分类数据
     function EditData(id) {
-        var url = "{{url('admin/ajax/category_data')}}";
-        var data = {'_token': "{{csrf_token()}}", 'id': id};
+        let url = "{{url('admin/ajax/category_data')}}";
+        let data = {'_token': "{{csrf_token()}}", 'id': id};
         $.post(url, data, function (json) {
-            if (json.status == '1') {
-                console.log(json.data);
+            if (json.code === 200) {
                 $("#id").val(json.data.id);
                 $("#name").val(json.data.name);
                 $("#alias").val(json.data.alias);
@@ -258,14 +257,14 @@
 
     //保存数据
     function SaveData() {
-        var target = $("#currentForm");
-        var url = target.attr("action");
-        var data = target.serialize();
+        let target = $("#currentForm");
+        let url = target.attr("action");
+        let data = target.serialize();
         $.post(url, data, function (json) {
-            if (json.status == 1) {
+            if (json.code === 200) {
                 swal({
                     title: "提示信息",
-                    text: json.data,
+                    text: json.msg,
                     confirmButtonColor: "#DD6B55",
                     confirmButtonText: "确定",
                 }, function () {
@@ -274,7 +273,7 @@
             } else {
                 swal({
                     title: "提示信息",
-                    text: json.data,
+                    text: json.msg,
                     confirmButtonColor: "#DD6B55",
                     confirmButtonText: "确定"
                 });
@@ -284,8 +283,8 @@
 
     //删除友情链接数据
     function deleted(id) {
-        var url = "{{url('admin/ajax/category_delete_check')}}";
-        var data = {'_token': '{{csrf_token()}}', 'id': id};
+        let url = "{{url('admin/ajax/category_delete_check')}}";
+        let data = {'_token': '{{csrf_token()}}', 'id': id};
         swal({
                 title: "你确定？",
                 text: "你将无法恢复这条数据！",
@@ -300,7 +299,7 @@
             function (isConfirm) {
                 if (isConfirm) {
                     $.post(url, data, function (json) {
-                        if (json.status == '1') {
+                        if (json.code === 200) {
                             swal("删除", "您的分类已被删除", "success");
                             setInterval(function () {
                                 window.location.reload();

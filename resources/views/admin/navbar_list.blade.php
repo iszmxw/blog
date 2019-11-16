@@ -410,8 +410,8 @@
                 }
                 let elem_3 = document.querySelector('.js-switch_3');
                 let elem_4 = document.querySelector('.js-switch_4');
-                new Switchery(elem_3, {color: '#1AB394'});
-                new Switchery(elem_4, {color: '#1AB394'});
+                // new Switchery(elem_3, {color: '#1AB394'});
+                // new Switchery(elem_4, {color: '#1AB394'});
                 $("#myModal").modal();
             } else {
                 swal("失败", json.msg, "error");

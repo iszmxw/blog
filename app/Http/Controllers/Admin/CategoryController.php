@@ -191,8 +191,8 @@ class CategoryController extends Controller
         $hide       = $request->get('hide');
         $new_tab    = $request->get('new_tab');
         $is_root    = $request->get('is_root');
-        if ($url_type == 1) {
-            if (!$system_url) return ['msg' => '请选择系统地址', 'code' => 200];
+        if ($url_type === 1) {
+            if (!$system_url) return ['msg' => '请选择系统地址', 'code' => 500];
             $category_url    = config('app.url') . '/category/' . $system_url;
             $data['type_id'] = $system_url;
         } else {

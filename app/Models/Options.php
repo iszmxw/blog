@@ -9,7 +9,7 @@ class Options extends Defaults
     protected $table = 'options';
     protected $primaryKey = 'option_id';
     //设置时间戳字段
-    public $timestamps = false;
+    public $timestamps= false;
     // 以时间戳的形式来维护
     public $dateFormat = false;
     //过滤黑名单字段

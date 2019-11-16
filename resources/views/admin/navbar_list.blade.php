@@ -396,12 +396,14 @@
                     $("#url").val(json.data.url);
                 }
                 if (json.data.hide === 1) {
+                    console.log(json.data.hide === 1);
                     $(".js-switch_3").attr("checked", false);
                     $(".js-switch_3").attr("checked", "checked");
                 } else {
                     $(".js-switch_3").attr("checked", false);
                 }
                 if (json.data.new_tab === 1) {
+                    console.log(json.data.new_tab === 1);
                     $(".js-switch_3").attr("checked", false);
                     $(".js-switch_4").attr("checked", "checked");
                 } else {

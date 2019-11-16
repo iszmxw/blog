@@ -17,15 +17,21 @@ use Illuminate\Support\Facades\Redis;
 
 class AdminController extends Controller
 {
-    //后台首页
+    /**
+     * 后台首页
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2019/11/16 10:00
+     */
     public function index(Request $request)
     {
-        $data['php_version'] = phpversion();
+        $data['php_version']     = phpversion();
         $data['laravel_version'] = app()->version();
-        $data['blog_count'] = Blog::getCount();
-        $data['comment_count'] = Comment::getCount();
-        $data['twitter_count'] = Twitter::getCount();
-        $phpinfo = $request->get('phpinfo');
+        $data['blog_count']      = Blog::getCount();
+        $data['comment_count']   = Comment::getCount();
+        $data['twitter_count']   = Twitter::getCount();
+        $phpinfo                 = $request->get('phpinfo');
         if ($phpinfo == 'yes') {
             echo phpinfo();
         } else {
@@ -33,16 +39,21 @@ class AdminController extends Controller
         }
     }
 
-    //基本配置
+    /**
+     * 基本配置
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2019/11/16 10:00
+     */
     public function config(Request $request)
     {
-        $user_data = $request->get('user_data');
-        $config['blogname'] = Options::getValue('blogname');
-        $config['bloginfo'] = Options::getValue('bloginfo');
-        $config['blogurl'] = Options::getValue('blogurl');
-        $config['icp'] = Options::getValue('icp');
+        $user_data             = $request->get('user_data');
+        $config['blogname']    = Options::getValue('blogname');
+        $config['bloginfo']    = Options::getValue('bloginfo');
+        $config['blogurl']     = Options::getValue('blogurl');
+        $config['icp']         = Options::getValue('icp');
         $config['footer_info'] = Options::getValue('footer_info');
-
         return view('admin.config', ['user_data' => $user_data, 'config' => $config]);
     }
 
@@ -52,14 +63,14 @@ class AdminController extends Controller
      * @return \Illuminate\Http\JsonResponse
      * @throws \Exception
      * @author: iszmxw <mail@54zm.com>
-     * @Date：2019/11/16 9:40
+     * @Date：2019/11/16 10:01
      */
     public function config_edit_check(Request $request)
     {
-        $data['blogname'] = $request->get('blogname');
-        $data['bloginfo'] = $request->get('bloginfo');
-        $data['blogurl'] = $request->get('blogurl');
-        $data['icp'] = $request->get('icp');
+        $data['blogname']    = $request->get('blogname');
+        $data['bloginfo']    = $request->get('bloginfo');
+        $data['blogurl']     = $request->get('blogurl');
+        $data['icp']         = $request->get('icp');
         $data['footer_info'] = $request->get('footer_info');
         //数据库事物回滚
         DB::beginTransaction();
@@ -93,7 +104,7 @@ class AdminController extends Controller
     public function view_log(Request $request)
     {
         $user_data = $request->get('user_data');
-        $view_log = ViewLog::getPaginate([], ['*'], 20, 'updated_at', 'DESC');
+        $view_log  = ViewLog::getPaginate([], ['*'], 20, 'updated_at', 'DESC');
 
         return view('admin.view_log_list', ['user_data' => $user_data, 'view_log' => $view_log]);
     }
@@ -110,10 +121,10 @@ class AdminController extends Controller
 
     public function login_check(Request $request)
     {
-        $username = $request->get('username');
-        $password = $request->get('password');
+        $username  = $request->get('username');
+        $password  = $request->get('password');
         $user_data = User::getOne(['username' => $username]);
-        $data = $user_data;
+        $data      = $user_data;
         if ($user_data) {
             if (decrypt($user_data['password']) == $password) {
                 Redis::connection('blog_admin')->set('user_data', json_encode($data));
@@ -134,10 +145,10 @@ class AdminController extends Controller
     {
         $prev_url = url()->previous();
 //        $appid = '101523010';
-        $appid = '101518045';
+        $appid        = '101518045';
         $redirect_uri = 'http://blog.54zm.com/admin/qq_login';
-        $request_url = 'https://graph.qq.com/oauth2.0/authorize';
-        $url = $request_url . '?response_type=code&client_id=' . $appid . '&redirect_uri=' . $redirect_uri . '&state=' . $prev_url . '&scope=get_user_info';
+        $request_url  = 'https://graph.qq.com/oauth2.0/authorize';
+        $url          = $request_url . '?response_type=code&client_id=' . $appid . '&redirect_uri=' . $redirect_uri . '&state=' . $prev_url . '&scope=get_user_info';
 
         return redirect($url);
     }
@@ -145,16 +156,16 @@ class AdminController extends Controller
     //QQ登录授权第二步
     public function qq_login(Request $request)
     {
-        $client_id = '101518045';
+        $client_id     = '101518045';
         $client_secret = '9d7c45e29ed77a7d728b2367f06361f8';
-        $code = $request->get('code');
+        $code          = $request->get('code');
         //上一页地址
         $state = $request->get('state');
         //跳转回调地址
         $redirect_uri = 'http://blog.54zm.com/admin/qq_login';
         //请求地址
-        $url = "https://graph.qq.com/oauth2.0/token?grant_type=authorization_code&client_id={$client_id}&client_secret={$client_secret}&code={$code}&redirect_uri={$redirect_uri}";
-        $client = new Client();
+        $url      = "https://graph.qq.com/oauth2.0/token?grant_type=authorization_code&client_id={$client_id}&client_secret={$client_secret}&code={$code}&redirect_uri={$redirect_uri}";
+        $client   = new Client();
         $response = $client->get($url)->getBody()->getContents();
 
         //检测返回结果是否包含错误信息
@@ -165,10 +176,10 @@ class AdminController extends Controller
         }
 
         //获取access_token
-        $data = explode('&', $response);
-        $data = explode('=', $data[0]);
+        $data         = explode('&', $response);
+        $data         = explode('=', $data[0]);
         $access_token = $data[1];
-        $result = $client->get('https://graph.qq.com/oauth2.0/me?access_token=' . $access_token)->getBody()->getContents();
+        $result       = $client->get('https://graph.qq.com/oauth2.0/me?access_token=' . $access_token)->getBody()->getContents();
         //将返回的jsonp转换为json
         $re_json = trim(str_replace(';', '', str_replace(')', '', str_replace('callback(', '', $result))));
         //获取openid
@@ -179,16 +190,16 @@ class AdminController extends Controller
         $user_info = json_decode($user_info, true);
 
         $user_info['openid'] = $openid;
-        $qq_id = Userqq::getValue(['openid' => $openid], 'id');
-        $id = Userqq::getValue(['openid' => $openid], 'user_id');
+        $qq_id               = Userqq::getValue(['openid' => $openid], 'id');
+        $id                  = Userqq::getValue(['openid' => $openid], 'user_id');
         //需要更新的数据
         $user_qq_data = [
-            'nickname' => $user_info['nickname'],
+            'nickname'   => $user_info['nickname'],
             'header_img' => $user_info['figureurl_qq_2'],
-            'sex' => $user_info['gender'],
-            'year' => $user_info['year'],
-            'province' => $user_info['province'],
-            'city' => $user_info['city'],
+            'sex'        => $user_info['gender'],
+            'year'       => $user_info['year'],
+            'province'   => $user_info['province'],
+            'city'       => $user_info['city'],
         ];
         if (!empty($id) && $id == '1') {
             Userqq::EditData(['openid' => $openid], $user_qq_data);

@@ -377,22 +377,31 @@
                 $("#is_root option[value='" + json.data.is_root + "']").attr("selected", "selected");
                 $("#nav_pid option[value='" + json.data.pid + "']").attr("selected", "selected");
                 if (json.data.type === 1) {
+                    // 先移除所有样式
+                    $("#switch-1").removeClass("active");
+                    $("#switch-2").removeClass("active");
+                    $("#tabs-1").removeClass("active");
+                    $("#tabs-2").removeClass("active");
+                    // 在做修改动作
                     $("#switch-1").addClass("active");
                     $("#tabs-1").addClass("active");
-                    $("#switch-2").removeClass("active");
-                    $("#tabs-2").removeClass("active");
                     $("#system_url option[value='" + json.data.type_id + "']").attr("selected", "selected");
                 } else {
+                    // 先移除所有样式
                     $("#switch-1").removeClass("active");
+                    $("#switch-2").removeClass("active");
                     $("#tabs-1").removeClass("active");
+                    $("#tabs-2").removeClass("active");
+
+                    // 在做修改动作
                     $("#switch-2").addClass("active");
                     $("#tabs-2").addClass("active");
                     $("#url").val(json.data.url);
                 }
                 if (json.data.hide === 1) {
-                    $(".js-switch_3").attr("checked", false);
-                } else {
                     $(".js-switch_3").attr("checked", "checked");
+                } else {
+                    $(".js-switch_3").attr("checked", false);
                 }
                 if (json.data.new_tab === 1) {
                     $(".js-switch_4").attr("checked", "checked");

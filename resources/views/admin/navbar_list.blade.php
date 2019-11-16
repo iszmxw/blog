@@ -128,7 +128,7 @@
                     <div style="clear: both;  padding-top: 15px;"></div>
                     <div class="form-group">
                         <label class="control-label">是否根目录</label>
-                        <select class="form-control m-b" name="is_default">
+                        <select class="form-control m-b" name="is_root">
                             <option value="0" selected="selected">否</option>
                             <option value="1">是</option>
                         </select>
@@ -221,7 +221,7 @@
 
                     <div class="form-group">
                         <label class="control-label">是否根目录</label>
-                        <select class="form-control m-b" name="is_default" id="is_default">
+                        <select class="form-control m-b" name="is_root" id="is_root">
                             <option value="0">否</option>
                             <option value="1">是</option>
                         </select>
@@ -372,7 +372,7 @@
                 $(".url_type").val(json.data.type);
                 $("#nav_name").val(json.data.nav_name);
                 $("#navicon").val(json.data.navicon);
-                $("#is_default option[value='" + json.data.is_default + "']").attr("selected", "selected");
+                $("#is_root option[value='" + json.data.is_root + "']").attr("selected", "selected");
                 $("#nav_pid option[value='" + json.data.pid + "']").attr("selected", "selected");
                 if (json.data.type === 1) {
                     $("#switch-1").addClass("active");

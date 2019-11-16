@@ -199,7 +199,7 @@
             <form action="{{url('admin/ajax/navbar_data_edit_check')}}" id="currentForm">
                 <input type="hidden" name="id" id="id">
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
-                <input type="hidden" name="url_type" class="url_type" value="1">
+                <input type="hidden" name="url_type" class="url_type" value=1>
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"><span
                                 aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>

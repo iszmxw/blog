@@ -176,14 +176,14 @@
                             //登录成功
                             $('.login div').fadeOut(100);
                             $success.fadeIn(1000);
-                            $success.html(data.data);
+                            $success.html(data.msg);
                             //跳转操作
                             setInterval(function () {
                                 window.location.reload()
                             }, 1500);
                         } else {
                             var index = layer.alert(
-                                data.data,
+                                data.msg,
                                 {
                                     icon: 5,
                                     time: 2000,
@@ -215,12 +215,6 @@
             //浏览器不支持全屏API或已被禁用
         }
     }
-
-    // function scan_code() {
-    //     $(".login_title span").html('小程序扫码登录');
-    //     $("#scan-login").show();
-    //     $("#input-login").hide();
-    // }
 </script>
 
 </body>

@@ -118,7 +118,7 @@
                     <div class="form-group">
                         <div class="col-lg-6">
                             <h3>是否隐藏</h3>
-                            <input type="checkbox" name="hide" value="0" class="js-switch" checked/>
+                            <input type="checkbox" name="hide" value="0" class="js-switch"/>
                         </div>
                         <div class="col-lg-6">
                             <h3>是否新窗口打开</h3>

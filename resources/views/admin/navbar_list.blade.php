@@ -153,9 +153,11 @@
                     <div class="form-group">
                         <div class="tabs-container">
                             <ul class="nav nav-tabs">
-                                <li class="active"><a data-toggle="tab" href="#tab-1"><i class="fa fa-cog"></i>&nbsp;系统地址</a>
+                                <li class="active"><a data-toggle="tab" href="#tab-1" onclick="SetType(1)"><i
+                                                class="fa fa-cog"></i>&nbsp;系统地址</a>
                                 </li>
-                                <li class=""><a data-toggle="tab" href="#tab-2"><i class="fa fa-link"></i>&nbsp;手动输入</a>
+                                <li class=""><a data-toggle="tab" href="#tab-2" onclick="SetType(2)"><i
+                                                class="fa fa-link"></i>&nbsp;手动输入</a>
                                 </li>
                             </ul>
                             <div class="tab-content">

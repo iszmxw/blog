@@ -20,7 +20,7 @@ class ArticleController extends Controller
     public function article_add(Request $request)
     {
         $user_data = $request->get('user_data');
-        $sort = Sort::getList([]);
+        $sort      = Sort::getList([]);
         return view('admin.article_add', ['user_data' => $user_data, 'sort' => $sort]);
     }
 
@@ -48,7 +48,7 @@ class ArticleController extends Controller
         //重命名文件
         $NewFileName = time() . mt_rand(1, 999) . '.' . $ext;
         // 上传文件并判断
-        $path = $file->move(public_path() . '/' . $upload_path, $NewFileName);
+        $path    = $file->move(public_path() . '/' . $upload_path, $NewFileName);
         $img_url = '/' . $upload_path . $NewFileName;
         if ($path) {
             return ['status' => 1, 'msg' => '文件上传成功', 'img' => $img_url];
@@ -64,29 +64,29 @@ class ArticleController extends Controller
     public function article_add_check(Request $request)
     {
         $attachment = [];
-        $filedata = $request->input('filedata');
+        $filedata   = $request->input('filedata');
         if (!empty($filedata)) {
             $arr = explode('&', $filedata);
             foreach ($arr as $key => $val) {
                 $attachment[explode('=', $val)[0]] = explode('=', $val)[1];
             }
         }
-        $title = $request->get('title');
-        $sort_id = $request->get('sort_id');
+        $title    = $request->get('title');
+        $sort_id  = $request->get('sort_id');
         $password = $request->get('password');
-        $excerpt = $request->get('excerpt');//摘要
-        $content = $request->get('content');
+        $excerpt  = $request->get('excerpt');//摘要
+        $content  = $request->get('content');
         if ($sort_id == '-1') {
             return response()->json(['data' => '请选择栏目分类！', 'status' => '0']);
         }
         if (!$title) {
             return response()->json(['data' => '请输入文章标题！', 'status' => '0']);
         }
-        $data['title'] = $title;
-        $data['sort_id'] = $sort_id;
+        $data['title']    = $title;
+        $data['sort_id']  = $sort_id;
         $data['password'] = $password ? $password : '';
-        $data['excerpt'] = $excerpt ? $excerpt : '';
-        $data['content'] = $content ? $content : '';
+        $data['excerpt']  = $excerpt ? $excerpt : '';
+        $data['content']  = $content ? $content : '';
         //数据库事物回滚
         DB::beginTransaction();
         try {
@@ -115,19 +115,19 @@ class ArticleController extends Controller
     public function article_list(Request $request)
     {
         $user_data = $request->get('user_data');
-        $sort_id = $request->get('sort_id');
-        $title = $request->get('title');
-        $where = [];
+        $sort_id   = $request->get('sort_id');
+        $title     = $request->get('title');
+        $where     = [];
         if (!empty($sort_id)) {
             $where[] = ['sort_id', $sort_id];
         }
         if (!empty($title)) {
             $where[] = ['title', 'like', '%' . $title . '%'];
         }
-        $list = Blog::getPaginate($where, ['blog.id', 'blog.title', 'sort.name', 'blog.views', 'blog.created_at'], 15, 'blog.created_at', 'DESC');
-        $sort = Sort::getList([], ['id', 'name']);
+        $list        = Blog::getPaginate($where, ['blog.id', 'blog.title', 'sort.name', 'blog.views', 'blog.created_at'], 15, 'blog.created_at', 'DESC');
+        $sort        = Sort::getList([], ['id', 'name']);
         $search_data = ['sort_id' => $sort_id, 'title' => $title];
-        $view = ['user_data' => $user_data, 'list' => $list, 'sort' => $sort, 'search_data' => $search_data];
+        $view        = ['user_data' => $user_data, 'list' => $list, 'sort' => $sort, 'search_data' => $search_data];
 
         return view('admin.article_list', $view);
     }
@@ -140,11 +140,11 @@ class ArticleController extends Controller
      */
     public function article_edit(Request $request)
     {
-        $view['sort'] = Sort::getList([]);
-        $id = $request->get('id');
-        $view['blog'] = Blog::getOne(['id' => $id]);
-        $attachment = Attachment::getOne(['blog_id' => $id]);
-        $view['attachment'] = 'filename=' . $attachment['filename'] . '&filesize=' . $attachment['filesize'] . '&mimetype=' . $attachment['mimetype'] . '&filepath=' . $attachment['filepath'];
+        $view['sort']          = Sort::getList([]);
+        $id                    = $request->get('id');
+        $view['blog']          = Blog::getOne(['id' => $id]);
+        $attachment            = Attachment::getOne(['blog_id' => $id]);
+        $view['attachment']    = 'filename=' . $attachment['filename'] . '&filesize=' . $attachment['filesize'] . '&mimetype=' . $attachment['mimetype'] . '&filepath=' . $attachment['filepath'];
         $view['attachment_id'] = $attachment['id'];
 
         return view('admin.article_edit', $view);
@@ -158,7 +158,7 @@ class ArticleController extends Controller
      */
     public function article_edit_check(Request $request)
     {
-        $filedata = $request->input('filedata');
+        $filedata      = $request->input('filedata');
         $attachment_id = $request->input('attachment_id');
         if (!empty($filedata)) {
             $arr = explode('&', $filedata);
@@ -166,23 +166,23 @@ class ArticleController extends Controller
                 $attachment[explode('=', $val)[0]] = explode('=', $val)[1];
             }
         }
-        $id = $request->get('id');
-        $title = $request->get('title');
-        $sort_id = $request->get('sort_id');
+        $id       = $request->get('id');
+        $title    = $request->get('title');
+        $sort_id  = $request->get('sort_id');
         $password = $request->get('password');
-        $excerpt = $request->get('excerpt');//摘要
-        $content = $request->get('content');
+        $excerpt  = $request->get('excerpt');//摘要
+        $content  = $request->get('content');
         if ($sort_id == '-1') {
             return response()->json(['data' => '请选择栏目分类！', 'status' => '0']);
         }
         if (!$title) {
             return response()->json(['data' => '请输入文章标题！', 'status' => '0']);
         }
-        $data['title'] = $title;
-        $data['sort_id'] = $sort_id;
+        $data['title']    = $title;
+        $data['sort_id']  = $sort_id;
         $data['password'] = $password ? $password : '';
-        $data['excerpt'] = $excerpt ? $excerpt : '';
-        $data['content'] = $content ? $content : '';
+        $data['excerpt']  = $excerpt ? $excerpt : '';
+        $data['content']  = $content ? $content : '';
         //数据库事物回滚
         DB::beginTransaction();
         try {

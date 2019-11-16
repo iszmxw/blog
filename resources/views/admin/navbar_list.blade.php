@@ -361,7 +361,7 @@
         }
     }
 
-    //获取分类数据
+    // 获取分类数据
     function EditData(id, e) {
         stopPropagation(e);
         let url = "{{url('admin/ajax/navbar_data')}}";

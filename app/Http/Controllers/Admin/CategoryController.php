@@ -22,13 +22,12 @@ class CategoryController extends Controller
     {
         $user_data = $request->get('user_data');
         $param     = $request->all();
-        dump($param);
-        $list      = Sort::getPaginate([], '', 10, 'sort', 'ASC');
+        $list      = Sort::getPaginate($param, '', 10, 'sort', 'ASC');
         $sort      = Sort::getList([]);
         foreach ($list as $value) {
             $value['blogs'] = Blog::getCount(['sort_id' => $value['id']]);
         }
-        return view('admin.category_list', ['user_data' => $user_data, 'sort' => $sort, 'list' => $list]);
+        return view('admin.category_list', ['user_data' => $user_data, 'sort' => $sort, 'list' => $list, $param]);
     }
 
     /**

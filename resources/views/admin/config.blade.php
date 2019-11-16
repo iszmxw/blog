@@ -90,7 +90,7 @@
             if(json.code === 200) {
                 swal({
                     title: "提示信息",
-                    text: json.data,
+                    text: json.msg,
                     confirmButtonColor: "#DD6B55",
                     confirmButtonText: "确定",
                 },function(){
@@ -99,7 +99,7 @@
             }else{
                 swal({
                     title: "提示信息",
-                    text: json.data,
+                    text: json.msg,
                     confirmButtonColor: "#DD6B55",
                     confirmButtonText: "确定"
                 });

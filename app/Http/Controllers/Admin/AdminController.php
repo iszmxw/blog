@@ -91,11 +91,11 @@ class AdminController extends Controller
                 Options::EditData(['option_name' => 'footer_info'], ['option_value' => $data['footer_info']]);
             }
             DB::commit();
-            return ['data' => '修改成功！', 'code' => 200];
+            return ['msg' => '修改成功！', 'code' => 200];
         } catch (\Exception $e) {
             \Log::debug($e);
             DB::rollBack();//事件回滚
-            return ['data' => '编辑失败，请稍后再试！', 'code' => 500];
+            return ['msg' => '编辑失败，请稍后再试！', 'code' => 500];
         }
     }
 
@@ -147,12 +147,12 @@ class AdminController extends Controller
             if (decrypt($user_data['password']) == $password) {
                 Redis::connection('blog_admin')->set('user_data', json_encode($data));
                 session(['user_data' => $data]);
-                return ['data' => '登录成功！', 'code' => 200];
+                return ['msg' => '登录成功！', 'code' => 200];
             } else {
-                return ['data' => '密码不正确！', 'code' => 500];
+                return ['msg' => '密码不正确！', 'code' => 500];
             }
         } else {
-            return ['data' => '用户不存在，请检查用户名是否正确！！', 'code' => 500];
+            return ['msg' => '用户不存在，请检查用户名是否正确！！', 'code' => 500];
         }
     }
 

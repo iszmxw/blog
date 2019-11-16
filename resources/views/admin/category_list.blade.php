@@ -45,12 +45,14 @@
                                 <div class="col-sm-3">
                                     <a href="JavaScript:;" class="btn btn-primary" onclick="add_alert()">添加分类</a>
                                 </div>
-                                <div class="col-sm-3">
-                                    <div class="input-group"><input type="text" placeholder="请输入搜索内容"
-                                                                    class="input-sm form-control"> <span
-                                                class="input-group-btn">
-                                        <button type="button" class="btn btn-sm btn-primary"> 搜索</button> </span></div>
-                                </div>
+                                <form>
+                                    <div class="col-sm-3">
+                                        <div class="input-group">
+                                            <input type="text" placeholder="请输入搜索内容" name="name" class="input-sm form-control">
+                                            <span class="input-group-btn">
+                                        <button type="submit" class="btn btn-sm btn-primary"> 搜索</button> </span></div>
+                                    </div>
+                                </form>
                             </div>
                             <div class="table-responsive">
                                 <table class="table table-striped">

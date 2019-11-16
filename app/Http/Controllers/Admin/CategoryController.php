@@ -21,6 +21,8 @@ class CategoryController extends Controller
     public function category_list(Request $request)
     {
         $user_data = $request->get('user_data');
+        $param     = $request->all();
+        dump($param);
         $list      = Sort::getPaginate([], '', 10, 'sort', 'ASC');
         $sort      = Sort::getList([]);
         foreach ($list as $value) {

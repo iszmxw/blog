@@ -20,14 +20,16 @@ class CategoryController extends Controller
      */
     public function category_list(Request $request)
     {
-        $user_data = $request->get('user_data');
-        $param     = $request->all();
-        $list      = Sort::getPaginate($param, '', 10, 'sort', 'ASC');
-        $sort      = Sort::getList([]);
+        $user_data   = $request->get('user_data');
+        $name        = $request->get('name');
+        $where       = ['name' => $name];
+        $search_data = ['name' => $name];
+        $list        = Sort::getPaginate($where, '', 10, 'sort', 'ASC');
+        $sort        = Sort::getList([]);
         foreach ($list as $value) {
             $value['blogs'] = Blog::getCount(['sort_id' => $value['id']]);
         }
-        return view('admin.category_list', ['user_data' => $user_data, 'sort' => $sort, 'list' => $list, $param]);
+        return view('admin.category_list', ['user_data' => $user_data, 'sort' => $sort, 'list' => $list, 'search_data' => $search_data]);
     }
 
     /**

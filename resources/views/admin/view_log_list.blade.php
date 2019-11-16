@@ -45,7 +45,7 @@
                                 <table class="table table-striped">
                                     <thead>
                                     <tr>
-                                        <th>ID </th>
+                                        <th>ID</th>
                                         <th>IP</th>
                                         <th>地址</th>
                                         <th>浏览量</th>
@@ -57,28 +57,30 @@
                                     </thead>
                                     <tbody>
                                     @foreach($view_log as $value)
-                                    <tr>
-                                        <td>{{$value['id']}}</td>
-                                        <td>{{$value['ip']}}</td>
-                                        <td><span class="label label-primary">{{$value['ip_position']}}</span></td>
-                                        <td><span class="label label-success">{{$value['num']}}</span></td>
-                                        <td>{{$value['created_at']->diffForHumans()}}</td>
-                                        <td>
-                                            @if($value['previous'])
-                                                <a href="{{$value['previous']}}" title="{{$value['previous']}}" target="_blank" class="btn btn-default">新窗口打开查看</a>
-                                            @else
-                                                暂无
-                                            @endif
-                                        </td>
-                                        <td>{{$value['updated_at']->diffForHumans()}}</td>
-                                        <td>
-                                            @if($value['full'])
-                                                <a href="{{$value['full']}}" title="{{$value['full']}}" target="_blank" class="btn btn-danger">新窗口打开查看</a>
-                                            @else
-                                                暂无
-                                            @endif
-                                        </td>
-                                    </tr>
+                                        <tr>
+                                            <td>{{$value['id']}}</td>
+                                            <td>{{$value['ip']}}</td>
+                                            <td><span class="label label-primary">{{$value['ip_position']}}</span></td>
+                                            <td><span class="label label-success">{{$value['num']}}</span></td>
+                                            <td>{{$value['created_at']->diffForHumans()}}</td>
+                                            <td>
+                                                @if($value['previous'])
+                                                    <a href="{{$value['previous']}}" title="{{$value['previous']}}"
+                                                       target="_blank" class="btn btn-default">新窗口打开查看</a>
+                                                @else
+                                                    暂无
+                                                @endif
+                                            </td>
+                                            <td>{{$value['updated_at']->diffForHumans()}}</td>
+                                            <td>
+                                                @if($value['full'])
+                                                    <a href="{{$value['full']}}" title="{{$value['full']}}"
+                                                       target="_blank" class="btn btn-danger">新窗口打开查看</a>
+                                                @else
+                                                    暂无
+                                                @endif
+                                            </td>
+                                        </tr>
                                     @endforeach
                                     </tbody>
                                     <tfoot>
@@ -105,52 +107,5 @@
     </div>
 </div>
 @include('admin.public.common_js')
-<!-- iCheck -->
-<script src="{{asset('style/admin/inspinia/js/plugins/iCheck/icheck.min.js')}}"></script>
-<script>
-    function edit(id){
-        window.location.href="{{url('admin/article/article_edit?id=')}}"+id;
-    }
-    function deleted(id){
-        var url = "{{url('admin/ajax/article_delete_check')}}";
-        var data = {'_token':'{{csrf_token()}}','id':id};
-        swal({
-                title: "你确定？",
-                text: "你将无法恢复这篇文章！",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#DD6B55",
-                confirmButtonText: "删除",
-                cancelButtonText: "取消",
-                closeOnConfirm: false,
-                closeOnCancel: false
-            },
-            function (isConfirm) {
-                if (isConfirm) {
-                    $.post(url,data,function(json){
-                        if (json.status == '1'){
-                            swal("删除", "您的文章已被删除", "success");
-                            setInterval(function(){
-                                window.location.reload();
-                            },1500);
-                        }else{
-                            swal("操作失败", "删除失败请稍后再试！", "error");
-                        }
-                    });
-                } else {
-                    swal("取消", "您已取消了删除", "error");
-                    setInterval(function(){
-                        window.location.reload();
-                    },1500);
-                }
-            });
-    }
-    $(document).ready(function(){
-        $('.i-checks').iCheck({
-            checkboxClass: 'icheckbox_square-green',
-            radioClass: 'iradio_square-green'
-        });
-    });
-</script>
 </body>
 </html>

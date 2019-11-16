@@ -22,7 +22,7 @@ class CategoryController extends Controller
     {
         $user_data   = $request->get('user_data');
         $name        = $request->get('name');
-        $where       = ['name' => $name];
+        $where       = [['name', 'like', "%$name%"]];
         $search_data = ['name' => $name];
         $list        = Sort::getPaginate($where, '', 10, 'sort', 'ASC');
         $sort        = Sort::getList([]);

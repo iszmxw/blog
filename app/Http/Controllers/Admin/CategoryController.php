@@ -188,6 +188,9 @@ class CategoryController extends Controller
         $system_url = $request->get('system_url');
         $url        = $request->get('url');
         $url_type   = $request->get('url_type');
+        $hide       = $request->get('hide');
+        $new_tab    = $request->get('new_tab');
+        $is_root    = $request->get('is_root');
         if ($url_type == 1) {
             if (!$system_url) return ['msg' => '请选择系统地址', 'code' => 200];
             $category_url    = config('app.url') . '/category/' . $system_url;
@@ -197,20 +200,15 @@ class CategoryController extends Controller
             $category_url    = $url;
             $data['type_id'] = 0;
         }
-        $hide       = $request->get('hide');
-        $new_tab    = $request->get('new_tab');
-        $is_default = $request->get('is_default');
-        if (empty($hide)) $hide = 1;
-        if (empty($new_tab)) $new_tab = 0;
-        if (!$nav_name) return ['msg' => '请输入导航栏名称', 'code' => 500];
-        $data['nav_name']   = $nav_name;
-        $data['nav_icon']   = $nav_icon;
-        $data['url']        = $category_url;
-        $data['new_tab']    = $new_tab;
-        $data['hide']       = $hide;
-        $data['pid']        = $pid;
-        $data['is_default'] = $is_default;
-        $data['type']       = $url_type;
+        if (empty($nav_name)) return ['msg' => '请输入导航栏名称', 'code' => 500];
+        $data['nav_name'] = $nav_name;
+        $data['nav_icon'] = $nav_icon;
+        $data['url']      = $category_url;
+        $data['new_tab']  = $new_tab;
+        $data['hide']     = $hide;
+        $data['pid']      = $pid;
+        $data['is_root']  = $is_root;
+        $data['type']     = $url_type;
         DB::beginTransaction();
         try {
             Navi::create($data);
@@ -267,20 +265,20 @@ class CategoryController extends Controller
             $category_url    = $url;
             $data['type_id'] = 0;
         }
-        $hide       = $request->get('hide');
-        $new_tab    = $request->get('new_tab');
-        $is_default = $request->get('is_default');
+        $hide    = $request->get('hide');
+        $new_tab = $request->get('new_tab');
+        $is_root = $request->get('is_root');
         if (empty($hide)) $hide = 1;
         if (empty($new_tab)) $new_tab = 0;
         if (!$nav_name) return ['msg' => '请输入导航栏名称', 'code' => 500];
-        $data['nav_name']   = $nav_name;
-        $data['nav_icon']   = $nav_icon;
-        $data['url']        = $category_url;
-        $data['new_tab']    = $new_tab;
-        $data['hide']       = $hide;
-        $data['pid']        = $pid;
-        $data['is_default'] = $is_default;
-        $data['type']       = $url_type;
+        $data['nav_name'] = $nav_name;
+        $data['nav_icon'] = $nav_icon;
+        $data['url']      = $category_url;
+        $data['new_tab']  = $new_tab;
+        $data['hide']     = $hide;
+        $data['pid']      = $pid;
+        $data['is_root']  = $is_root;
+        $data['type']     = $url_type;
         DB::beginTransaction();
         try {
             Navi::EditData(['id' => $id], $data);

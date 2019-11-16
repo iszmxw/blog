@@ -91,21 +91,25 @@ class AdminController extends Controller
                 Options::EditData(['option_name' => 'footer_info'], ['option_value' => $data['footer_info']]);
             }
             DB::commit();
-            return response()->json(['data' => '修改成功！', 'status' => '1']);
+            return response()->json(['data' => '修改成功！', 'code' => 200]);
         } catch (\Exception $e) {
-            dd($e);
+            \Log::debug($e);
             DB::rollBack();//事件回滚
-
-            return response()->json(['data' => '编辑失败，请稍后再试！', 'status' => '0']);
+            return response()->json(['data' => '编辑失败，请稍后再试！', 'code' => 500]);
         }
     }
 
-    //浏览记录
+    /**
+     * 浏览记录
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2019/11/16 10:04
+     */
     public function view_log(Request $request)
     {
         $user_data = $request->get('user_data');
         $view_log  = ViewLog::getPaginate([], ['*'], 20, 'updated_at', 'DESC');
-
         return view('admin.view_log_list', ['user_data' => $user_data, 'view_log' => $view_log]);
     }
 

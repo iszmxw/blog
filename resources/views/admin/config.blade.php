@@ -83,11 +83,11 @@
 @include('admin.public.common_js')
 <script>
     function edit_data(){
-        var target = $("#currentForm");
-        var url = target.attr("action");
-        var data = target.serialize();
+        let target = $("#currentForm");
+        let url = target.attr("action");
+        let data = target.serialize();
         $.post(url, data, function (json) {
-            if(json.status == 1) {
+            if(json.code === 200) {
                 swal({
                     title: "提示信息",
                     text: json.data,

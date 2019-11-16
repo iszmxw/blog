@@ -60,10 +60,10 @@ class AdminController extends Controller
     /**
      * 修改站点基本配置
      * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return array
      * @throws \Exception
      * @author: iszmxw <mail@54zm.com>
-     * @Date：2019/11/16 10:01
+     * @Date：2019/11/16 10:10
      */
     public function config_edit_check(Request $request)
     {
@@ -91,11 +91,11 @@ class AdminController extends Controller
                 Options::EditData(['option_name' => 'footer_info'], ['option_value' => $data['footer_info']]);
             }
             DB::commit();
-            return response()->json(['data' => '修改成功！', 'code' => 200]);
+            return ['data' => '修改成功！', 'code' => 200];
         } catch (\Exception $e) {
             \Log::debug($e);
             DB::rollBack();//事件回滚
-            return response()->json(['data' => '编辑失败，请稍后再试！', 'code' => 500]);
+            return ['data' => '编辑失败，请稍后再试！', 'code' => 500];
         }
     }
 
@@ -113,6 +113,13 @@ class AdminController extends Controller
         return view('admin.view_log_list', ['user_data' => $user_data, 'view_log' => $view_log]);
     }
 
+    /**
+     * 登录页面
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2019/11/16 10:09
+     */
     public function login(Request $request)
     {
         $data = $request->session()->get('user_data');
@@ -123,6 +130,13 @@ class AdminController extends Controller
         }
     }
 
+    /**
+     * 后台登录检测
+     * @param Request $request
+     * @return array
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2019/11/16 10:09
+     */
     public function login_check(Request $request)
     {
         $username  = $request->get('username');
@@ -133,18 +147,23 @@ class AdminController extends Controller
             if (decrypt($user_data['password']) == $password) {
                 Redis::connection('blog_admin')->set('user_data', json_encode($data));
                 session(['user_data' => $data]);
-
-                return response()->json(['data' => '登录成功！', 'Status' => '1']);
+                return ['data' => '登录成功！', 'code' => 200];
             } else {
-                return response()->json(['data' => '密码不正确！', 'Status' => '0']);
+                return ['data' => '密码不正确！', 'code' => 500];
             }
         } else {
-            return response()->json(['data' => '用户不存在，请检查用户名是否正确！！', 'Status' => '0']);
+            return ['data' => '用户不存在，请检查用户名是否正确！！', 'code' => 500];
         }
     }
 
 
-    //QQ登录授权第一步
+    /**
+     * QQ登录授权第一步
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2019/11/16 10:11
+     */
     public function qq_login_auth(Request $request)
     {
         $prev_url = url()->previous();
@@ -152,12 +171,17 @@ class AdminController extends Controller
         $appid        = '101518045';
         $redirect_uri = 'http://blog.54zm.com/admin/qq_login';
         $request_url  = 'https://graph.qq.com/oauth2.0/authorize';
-        $url          = $request_url . '?response_type=code&client_id=' . $appid . '&redirect_uri=' . $redirect_uri . '&state=' . $prev_url . '&scope=get_user_info';
-
+        $url          = "{$request_url}?response_type=code&client_id={$appid}&redirect_uri={$redirect_uri}&state={$prev_url}&scope=get_user_info";
         return redirect($url);
     }
 
-    //QQ登录授权第二步
+    /**
+     * QQ登录授权第二步
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2019/11/16 10:12
+     */
     public function qq_login(Request $request)
     {
         $client_id     = '101518045';
@@ -171,7 +195,6 @@ class AdminController extends Controller
         $url      = "https://graph.qq.com/oauth2.0/token?grant_type=authorization_code&client_id={$client_id}&client_secret={$client_secret}&code={$code}&redirect_uri={$redirect_uri}";
         $client   = new Client();
         $response = $client->get($url)->getBody()->getContents();
-
         //检测返回结果是否包含错误信息
         $error_msg = strstr($response, 'error');
         if ($error_msg) {
@@ -188,11 +211,8 @@ class AdminController extends Controller
         $re_json = trim(str_replace(';', '', str_replace(')', '', str_replace('callback(', '', $result))));
         //获取openid
         $openid = json_decode($re_json, true)['openid'];
-
         $user_info = $client->get("https://graph.qq.com/user/get_user_info?access_token={$access_token}&oauth_consumer_key={$client_id}&openid={$openid}")->getBody()->getContents();
-
         $user_info = json_decode($user_info, true);
-
         $user_info['openid'] = $openid;
         $qq_id               = Userqq::getValue(['openid' => $openid], 'id');
         $id                  = Userqq::getValue(['openid' => $openid], 'user_id');

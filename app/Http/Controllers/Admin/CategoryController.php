@@ -140,13 +140,14 @@ class CategoryController extends Controller
         return view('admin.navbar_list', $data);
     }
 
+
     /**
      * 导航栏排序以及层级修改
      * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return array
      * @throws \Exception
      * @author: iszmxw <mail@54zm.com>
-     * @Date：2019/11/16 11:38
+     * @Date：2019/11/16 11:44
      */
     public function navbar_sort(Request $request)
     {
@@ -163,18 +164,21 @@ class CategoryController extends Controller
                 }
             }
             DB::commit();
-            return response()->json(['msg' => '编辑成功', 'code' => 200]);
+            return ['msg' => '编辑成功', 'code' => 200];
         } catch (\Exception $e) {
             DB::rollBack();
-            return response()->json(['msg' => '编辑失败', 'code' => 500]);
+            return ['msg' => '编辑失败', 'code' => 500];
         }
     }
+
 
     /**
      * 添加导航栏数据
      * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return array
      * @throws \Exception
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2019/11/16 11:47
      */
     public function navbar_add_check(Request $request)
     {
@@ -185,11 +189,11 @@ class CategoryController extends Controller
         $url        = $request->get('url');
         $url_type   = $request->get('url_type');
         if ($url_type == 1) {
-            if (!$system_url) return response()->json(['data' => '请选择系统地址', 'status' => '0']);
+            if (!$system_url) return ['msg' => '请选择系统地址', 'code' => 200];
             $category_url    = config('app.url') . '/category/' . $system_url;
             $data['type_id'] = $system_url;
         } else {
-            if (!$url) return response()->json(['data' => '请输入链接地址', 'status' => '0']);
+            if (!$url) return ['msg' => '请输入链接地址', 'code' => 500];
             $category_url    = $url;
             $data['type_id'] = 0;
         }
@@ -198,7 +202,7 @@ class CategoryController extends Controller
         $is_default = $request->get('is_default');
         if (empty($hide)) $hide = 1;
         if (empty($new_tab)) $new_tab = 0;
-        if (!$nav_name) return response()->json(['data' => '请输入导航栏名称', 'status' => '0']);
+        if (!$nav_name) return ['msg' => '请输入导航栏名称', 'code' => 500];
         $data['nav_name']   = $nav_name;
         $data['nav_icon']   = $nav_icon;
         $data['url']        = $category_url;
@@ -211,26 +215,40 @@ class CategoryController extends Controller
         try {
             Navi::create($data);
             DB::commit();
-            return response()->json(['data' => '添加导航栏成功', 'status' => '1']);
+            return ['msg' => '添加导航栏成功', 'code' => 200];
         } catch (\Exception $e) {
             DB::rollBack();
-            return response()->json(['data' => '添加导航栏失败', 'status' => '0']);
+            return ['msg' => '添加导航栏失败', 'code' => 500];
         }
     }
 
-    //异步获取导航栏数据，编辑时使用
+    /**
+     * 异步获取导航栏数据，编辑时使用
+     * @param Request $request
+     * @return array
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2019/11/16 11:49
+     */
     public function navbar_data(Request $request)
     {
         $id   = $request->get('id');
         $data = Navi::getOne(['id' => $id]);
         if ($data) {
-            return response()->json(['data' => $data, 'status' => '1']);
+            return ['data' => $data, 'code' => 200, 'msg' => 'ok'];
         } else {
-            return response()->json(['data' => '获取数据失败请稍后再试！', 'status' => '0']);
+            return ['data' => [], 'msg' => '获取数据失败请稍后再试！', 'code' => 500];
         }
     }
 
-    //编辑导航栏数据提交
+
+    /**
+     * 编辑导航栏数据提交
+     * @param Request $request
+     * @return array
+     * @throws \Exception
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2019/11/16 11:51
+     */
     public function navbar_data_edit_check(Request $request)
     {
         $id         = $request->get('id');
@@ -241,11 +259,11 @@ class CategoryController extends Controller
         $url        = $request->get('url');
         $url_type   = $request->get('url_type');
         if ($url_type == 1) {
-            if (!$system_url) return response()->json(['data' => '请选择系统地址', 'status' => '0']);
+            if (!$system_url) return ['msg' => '请选择系统地址', 'code' => 500];
             $category_url    = config('app.url') . '/category/' . $system_url;
             $data['type_id'] = $system_url;
         } else {
-            if (!$url) return response()->json(['data' => '请输入链接地址', 'status' => '0']);
+            if (!$url) return ['msg' => '请输入链接地址', 'code' => 500];
             $category_url    = $url;
             $data['type_id'] = 0;
         }
@@ -254,7 +272,7 @@ class CategoryController extends Controller
         $is_default = $request->get('is_default');
         if (empty($hide)) $hide = 1;
         if (empty($new_tab)) $new_tab = 0;
-        if (!$nav_name) return response()->json(['data' => '请输入导航栏名称', 'status' => '0']);
+        if (!$nav_name) return ['msg' => '请输入导航栏名称', 'code' => 500];
         $data['nav_name']   = $nav_name;
         $data['nav_icon']   = $nav_icon;
         $data['url']        = $category_url;
@@ -267,13 +285,21 @@ class CategoryController extends Controller
         try {
             Navi::EditData(['id' => $id], $data);
             DB::commit();
-            return response()->json(['data' => '修改数据成功', 'status' => '1']);
+            return ['msg' => '修改数据成功', 'code' => 200];
         } catch (\Exception $e) {
             DB::rollBack();
-            return response()->json(['data' => '修改数据失败！', 'status' => '0']);
+            return ['msg' => '修改数据失败！', 'code' => 500];
         }
     }
 
+    /**
+     * 删除导航栏
+     * @param Request $request
+     * @return array
+     * @throws \Exception
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2019/11/16 11:52
+     */
     public function navbar_delete_check(Request $request)
     {
         $id = $request->get('id');
@@ -281,10 +307,10 @@ class CategoryController extends Controller
         try {
             Navi::selected_delete(['id' => $id]);
             DB::commit();
-            return response()->json(['data' => '删除导航栏成功', 'status' => '1']);
+            return ['msg' => '删除导航栏成功', 'code' => 200];
         } catch (\Exception $e) {
             DB::rollBack();
-            return response()->json(['data' => '删除失败，请稍后再试！', 'status' => '0']);
+            return ['msg' => '删除失败，请稍后再试！', 'code' => 500];
         }
     }
 }

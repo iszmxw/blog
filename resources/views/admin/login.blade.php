@@ -21,10 +21,11 @@
     </div>
     <div class='login_fields'>
         {{--<div id="scan-login" style="display:none">--}}
-            {{--<img src="{{url('api/wx_mini/scan_code')}}" alt="小程序二维码" style="width:80%;height:80%;display:block;margin:0 auto;">--}}
+        {{--<img src="{{url('api/wx_mini/scan_code')}}" alt="小程序二维码" style="width:80%;height:80%;display:block;margin:0 auto;">--}}
         {{--</div>--}}
         <div id="input-login">
-            <input type="hidden" id="url" value="{{url('admin/ajax/login_check')}}"> <input type="hidden" id="_token" value="{{csrf_token()}}">
+            <input type="hidden" id="url" value="{{url('admin/ajax/login_check')}}"> <input type="hidden" id="_token"
+                                                                                            value="{{csrf_token()}}">
             <div class='login_fields__user'>
                 <div class='icon'>
                     <img alt="" src='{{asset('style/admin/login/img/user_icon_copy.png')}}'>
@@ -44,7 +45,8 @@
                 </div>
             </div>
             <div class='login_fields__submit'>
-                <input id="login" type='button' value='登录'> <input id="login_qq" type="button" value='QQ登录' onclick="toLogin()">
+                <input id="login" type='button' value='登录'> <input id="login_qq" type="button" value='QQ登录'
+                                                                   onclick="toLogin()">
             </div>
         </div>
     </div>
@@ -165,7 +167,7 @@
                     setTimeout(function () {
                         $('.authent').hide();
                         $('.login').removeClass('test');
-                        if (data.Status == '1') {
+                        if (data.code === 200) {
                             //登录成功
                             $('.login div').fadeOut(100);
                             $('.success').fadeIn(1000);

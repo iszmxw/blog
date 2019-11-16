@@ -121,7 +121,13 @@ class CategoryController extends Controller
 
     }
 
-    //首页导航栏列表
+    /**
+     * 首页导航栏列表
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2019/11/16 11:37
+     */
     public function navbar_list(Request $request)
     {
         $data['user_data'] = $request->get('user_data');
@@ -139,6 +145,8 @@ class CategoryController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      * @throws \Exception
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2019/11/16 11:38
      */
     public function navbar_sort(Request $request)
     {
@@ -155,10 +163,10 @@ class CategoryController extends Controller
                 }
             }
             DB::commit();
-            return response()->json(['data' => '编辑成功', 'status' => '1']);
+            return response()->json(['msg' => '编辑成功', 'code' => 200]);
         } catch (\Exception $e) {
             DB::rollBack();
-            return response()->json(['data' => '编辑失败', 'status' => '0']);
+            return response()->json(['msg' => '编辑失败', 'code' => 500]);
         }
     }
 

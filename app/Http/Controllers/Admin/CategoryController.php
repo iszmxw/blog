@@ -201,14 +201,16 @@ class CategoryController extends Controller
             $data['type_id'] = 0;
         }
         if (empty($nav_name)) return ['msg' => '请输入导航栏名称', 'code' => 500];
-        $data['nav_name'] = $nav_name;
-        $data['nav_icon'] = $nav_icon;
-        $data['url']      = $category_url;
-        $data['new_tab']  = $new_tab;
-        $data['hide']     = $hide;
-        $data['pid']      = $pid;
-        $data['is_root']  = $is_root;
-        $data['type']     = $url_type;
+        $data = [
+            'nav_name' => $nav_name,
+            'nav_icon' => $nav_icon,
+            'url'      => $category_url,
+            'new_tab'  => $new_tab,
+            'hide'     => $hide,
+            'pid'      => $pid,
+            'is_root'  => $is_root,
+            'type'     => $url_type
+        ];
         DB::beginTransaction();
         try {
             Navi::create($data);

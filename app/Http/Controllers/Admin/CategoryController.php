@@ -196,7 +196,6 @@ class CategoryController extends Controller
             $category_url    = config('app.url') . '/category/' . $system_url;
             $data['type_id'] = $system_url;
         } else {
-            dd($url_type);
             if (!$url) return ['msg' => '请输入链接地址', 'code' => 500];
             $category_url    = $url;
             $data['type_id'] = 0;

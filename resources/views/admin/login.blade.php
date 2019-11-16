@@ -85,7 +85,7 @@
     //默认账号密码
     $(document).keypress(function (e) {
         // 回车键事件
-        if (e.which == 13) {
+        if (e.which === 13) {
             $('#login').click();
         }
     });
@@ -105,7 +105,7 @@
     });
     $('input[name="username"],input[name="password"]').keyup(function () {
         var Len = $(this).val().length;
-        if (!$(this).val() == '' && Len >= 5) {
+        if (!$(this).val() === '' && Len >= 5) {
             $(this).next().animate({
                 'opacity': '1',
                 'right': '30'
@@ -120,12 +120,12 @@
     layui.use('layer', function () {
         //非空验证
         $('#login').click(function () {
-            var username = $('input[name="username"]').val();
-            var password = $('input[name="password"]').val();
-            var _token = $('#_token').val();
-            if (username == '') {
+            let username = $('input[name="username"]').val();
+            let password = $('input[name="password"]').val();
+            let _token = $('#_token').val();
+            if (username === '') {
                 ErroAlert('请输入您的账号');
-            } else if (password == '') {
+            } else if (password === '') {
                 ErroAlert('请输入密码');
             } else {
                 //认证中..

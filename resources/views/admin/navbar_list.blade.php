@@ -396,15 +396,12 @@
                     $("#url").val(json.data.url);
                 }
                 if (1 === json.data.hide) {
-                    console.log(json.data.hide === 1);
-                    $(".js-switch_3").attr("checked", false);
-                    $(".js-switch_3").attr("checked", "checked");
+                    $(".js-switch_3").attr("checked", true);
                 } else {
                     $(".js-switch_3").attr("checked", false);
                 }
                 if (1 === json.data.new_tab) {
-                    $(".js-switch_3").attr("checked", false);
-                    $(".js-switch_4").attr("checked", "checked");
+                    $(".js-switch_4").attr("checked", true);
                 } else {
                     $(".js-switch_4").attr("checked", false);
                 }

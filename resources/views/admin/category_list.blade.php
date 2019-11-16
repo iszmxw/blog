@@ -49,7 +49,7 @@
                                     <div class="col-sm-3">
                                         <div class="input-group">
                                             <input type="text" placeholder="请输入搜索内容" name="name"
-                                                   value="{{$search_data['name']}}}"
+                                                   value="{{$search_data['name']}}"
                                                    class="input-sm form-control">
                                             <span class="input-group-btn">
                                         <button type="submit" class="btn btn-sm btn-primary"> 搜索</button> </span></div>

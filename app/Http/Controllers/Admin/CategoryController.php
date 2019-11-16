@@ -201,7 +201,7 @@ class CategoryController extends Controller
             $data['type_id'] = 0;
         }
         if (empty($hide)) $hide = 1;
-        if (empty($new_tab)) $new_tab = 0;
+        if (empty($new_tab)) $new_tab = 1;
         if (empty($nav_name)) return ['msg' => '请输入导航栏名称', 'code' => 500];
         $data = [
             'nav_name' => $nav_name,
@@ -274,7 +274,7 @@ class CategoryController extends Controller
         $new_tab = $request->get('new_tab');
         $is_root = $request->get('is_root');
         if (empty($hide)) $hide = 1;
-        if (empty($new_tab)) $new_tab = 0;
+        if (empty($new_tab)) $new_tab = 1;
         if (!$nav_name) return ['msg' => '请输入导航栏名称', 'code' => 500];
         $data['nav_name'] = $nav_name;
         $data['nav_icon'] = $nav_icon;

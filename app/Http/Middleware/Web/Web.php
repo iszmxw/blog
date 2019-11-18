@@ -67,7 +67,7 @@ class Web
     }
 
 
-    //公共数据
+    // 公共数据
     public static function CommonData($request)
     {
 //        $client = new Client();

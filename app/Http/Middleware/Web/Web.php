@@ -72,9 +72,9 @@ class Web
     {
 //        $client = new Client();
         //左侧导航栏
-        $nav = Navi::get_select(['pid' => '0', 'hide' => 1], ['id', 'nav_name', 'nav_icon', 'url', 'new_tab', 'pid', 'is_default'], 'sort', 'ASC')->toArray();
+        $nav = Navi::get_select(['pid' => '0', 'hide' => 1], ['id', 'nav_name', 'nav_icon', 'url', 'new_tab', 'pid', 'is_root'], 'sort', 'ASC')->toArray();
         foreach ($nav as $key => $val) {
-            $nav[$key]['sub_menu'] = Navi::get_select(['pid' => $val['id'], 'hide' => 0], ['id', 'nav_name', 'nav_icon', 'url', 'new_tab', 'pid', 'is_default'], 'sort', 'ASC')->toArray();
+            $nav[$key]['sub_menu'] = Navi::get_select(['pid' => $val['id'], 'hide' => 0], ['id', 'nav_name', 'nav_icon', 'url', 'new_tab', 'pid', 'is_root'], 'sort', 'ASC')->toArray();
         }
         //分类统计
         $sort = Sort::getList([]);

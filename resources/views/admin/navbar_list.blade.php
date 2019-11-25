@@ -265,13 +265,14 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="col-lg-6">
-                            <label class="control-label">新窗口</label>
-                            <input type="checkbox" name="new_tab" value="1"/>
-                        </div>
-                        <div class="col-lg-6">
-                            <label class="control-label">隐藏</label>
-                            <input type="checkbox" name="hide" value="1"/>
+                        <label class="col-sm-2 control-label">更多选项</label>
+                        <div class="col-sm-10">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="new_tab" value="1" id="inlineCheckbox1">新窗口
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="hide" value="1" id="inlineCheckbox2">隐藏
+                            </label>
                         </div>
                     </div>
                     <div style="clear: both;  padding-top: 15px;"></div>

@@ -6,6 +6,7 @@
     <title>追梦小窝 | 后台首页</title>
     @include('admin.public.common_css')
     <link href="{{asset('style/admin/inspinia/css/plugins/switchery/switchery.css')}}" rel="stylesheet">
+    <link href="{{asset('style/admin/inspinia/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css')}}" rel="stylesheet">
 </head>
 <body class="">
 <div id="wrapper">

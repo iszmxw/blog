@@ -208,19 +208,6 @@
                     <h4 class="modal-title">编辑导航栏是</h4>
                 </div>
                 <div class="modal-body">
-
-                    <div class="form-group">
-                        <div class="col-lg-6">
-                            <label class="control-label">是否隐藏</label>
-                            <input type="checkbox" name="hide" value="0" />
-                        </div>
-                        <div class="col-lg-6">
-                            <label class="control-label">是否新窗口打开</label>
-                            <input type="checkbox" name="new_tab" value="1" />
-                        </div>
-                    </div>
-                    <div style="clear: both;  padding-top: 15px;"></div>
-
                     <div class="form-group">
                         <label class="control-label">是否根目录</label>
                         <select class="form-control m-b" name="is_root" id="is_root">

@@ -271,7 +271,7 @@
                         </div>
                         <div class="col-lg-6">
                             <label class="control-label">隐藏</label>
-                            <input type="checkbox" name="hide" value="0"/>
+                            <input type="checkbox" name="hide" value="1"/>
                         </div>
                     </div>
                     <div style="clear: both;  padding-top: 15px;"></div>

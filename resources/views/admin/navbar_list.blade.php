@@ -266,7 +266,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-lg-6">
-                            <label class="control-label">新窗口打开</label>
+                            <label class="control-label">新窗口</label>
                             <input type="checkbox" name="new_tab" value="1"/>
                         </div>
                         <div class="col-lg-6">

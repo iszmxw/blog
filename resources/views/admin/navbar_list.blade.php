@@ -393,20 +393,16 @@
                     $("#tabs-2").addClass("active");
                     $("#url").val(json.data.url);
                 }
-                // if (json.data.hide === 1) {
-                //     $(".js-switch_3").attr("checked", 'checked');
-                // } else {
-                //     $(".js-switch_3").attr("checked", false);
-                // }
-                // if (json.data.new_tab === 1) {
-                //     $(".js-switch_4").attr("checked", 'checked');
-                // } else {
-                //     $(".js-switch_4").attr("checked", false);
-                // }
-                // let elem_3 = document.querySelector('.js-switch_3');
-                // let elem_4 = document.querySelector('.js-switch_4');
-                // new Switchery(elem_3, {color: '#1AB394'});
-                // new Switchery(elem_4, {color: '#1AB394'});
+                if (json.data.new_tab === 1) {
+                    $("#inlineCheckbox1").attr("checked", 'checked');
+                } else {
+                    $("#inlineCheckbox1").attr("checked", false);
+                }
+                if (json.data.hide === 1) {
+                    $("#inlineCheckbox2").attr("checked", 'checked');
+                } else {
+                    $("#inlineCheckbox2").attr("checked", false);
+                }
                 $("#myModal").modal();
             } else {
                 swal("失败", json.msg, "error");

@@ -395,12 +395,12 @@
                     $("#tabs-2").addClass("active");
                     $("#url").val(json.data.url);
                 }
-                if (1 === json.data.hide) {
+                if (json.data.hide === 1) {
                     $(".js-switch_3").attr("checked", 'checked');
                 } else {
                     $(".js-switch_3").attr("checked", false);
                 }
-                if (1 === json.data.new_tab) {
+                if (json.data.new_tab === 1) {
                     $(".js-switch_4").attr("checked", true);
                 } else {
                     $(".js-switch_4").attr("checked", false);

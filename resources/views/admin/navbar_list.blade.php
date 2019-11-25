@@ -264,7 +264,17 @@
 
                         </div>
                     </div>
-                    <div style="clear: both"></div>
+                    <div class="form-group">
+                        <div class="col-lg-6">
+                            <label class="control-label">隐藏</label>
+                            <input type="checkbox" name="hide" value="0"/>
+                        </div>
+                        <div class="col-lg-6">
+                            <label class="control-label">新窗口打开</label>
+                            <input type="checkbox" name="new_tab" value="1"/>
+                        </div>
+                    </div>
+                    <div style="clear: both;  padding-top: 15px;"></div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>

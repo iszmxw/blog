@@ -211,11 +211,11 @@
 
                     <div class="form-group">
                         <div class="col-lg-6">
-                            <h3>是否隐藏</h3>
+                            <label class="control-label">是否隐藏</label>
                             <input type="checkbox" name="hide" value="0" />
                         </div>
                         <div class="col-lg-6">
-                            <h3>是否新窗口打开</h3>
+                            <label class="control-label">是否新窗口打开</label>
                             <input type="checkbox" name="new_tab" value="1" />
                         </div>
                     </div>

@@ -322,12 +322,12 @@
         $("#add_data").modal();
     }
 
-    //修改导航栏链接类型
+    // 修改导航栏链接类型
     function SetType(type) {
         $(".url_type").val(type);
     }
 
-    //添加分类
+    // 添加分类
     function add_data() {
         let target = $("#post_url");
         let url = target.attr("action");

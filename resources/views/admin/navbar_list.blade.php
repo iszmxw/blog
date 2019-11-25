@@ -212,11 +212,11 @@
                     <div class="form-group">
                         <div class="col-lg-6">
                             <h3>是否隐藏</h3>
-                            <input type="checkbox" name="hide" value="0" class="js-switch_3"/>
+                            <input type="checkbox" name="hide" value="0" />
                         </div>
                         <div class="col-lg-6">
                             <h3>是否新窗口打开</h3>
-                            <input type="checkbox" name="new_tab" value="1" class="js-switch_4"/>
+                            <input type="checkbox" name="new_tab" value="1" />
                         </div>
                     </div>
                     <div style="clear: both;  padding-top: 15px;"></div>
@@ -401,7 +401,7 @@
                     $(".js-switch_3").attr("checked", false);
                 }
                 if (json.data.new_tab === 1) {
-                    $(".js-switch_4").attr("checked", true);
+                    $(".js-switch_4").attr("checked", 'checked');
                 } else {
                     $(".js-switch_4").attr("checked", false);
                 }

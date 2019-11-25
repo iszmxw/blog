@@ -27,24 +27,24 @@ class Web
      */
     public function handle($request, Closure $next)
     {
-        $ip = $request->getClientIp();
-        $full = URL::full();
+        $ip       = $request->getClientIp();
+        $full     = URL::full();
         $previous = URL::previous();
-        $address = IpAddress::address($ip);
+        $address  = IpAddress::address($ip);
         //添加用户访问记录
         if ($address) {
-            $address['full'] = $full;
+            $address['full']     = $full;
             $address['previous'] = $previous;
             self::AddViewlog($address);
         }
         //获取路由中的参数，文章id
         $article_id = $request->route('article_id');
-        $route = $request->getPathInfo();
+        $route      = $request->getPathInfo();
         //处理公共数据
         self::CommonData($request);
 
         //共享用户信息到所有视图
-        $uesr_data = User::getOne(['id' => '1']);
+        $uesr_data          = User::getOne(['id' => '1']);
         $uesr_data['photo'] = str_replace('../', '/', $uesr_data['photo']);
         View::share('user_data', $uesr_data);
         $qq_data = session('qq_data');
@@ -67,14 +67,14 @@ class Web
     }
 
 
-    //公共数据
+    // 公共数据
     public static function CommonData($request)
     {
 //        $client = new Client();
         //左侧导航栏
-        $nav = Navi::get_select(['pid' => '0', 'hide' => 1], ['id', 'nav_name', 'nav_icon', 'url', 'new_tab', 'pid', 'is_default'], 'sort', 'ASC')->toArray();
+        $nav = Navi::get_select(['pid' => '0', 'hide' => 0], ['id', 'nav_name', 'nav_icon', 'url', 'new_tab', 'pid', 'is_root'], 'sort', 'ASC')->toArray();
         foreach ($nav as $key => $val) {
-            $nav[$key]['sub_menu'] = Navi::get_select(['pid' => $val['id'], 'hide' => 0], ['id', 'nav_name', 'nav_icon', 'url', 'new_tab', 'pid', 'is_default'], 'sort', 'ASC')->toArray();
+            $nav[$key]['sub_menu'] = Navi::get_select(['pid' => $val['id'], 'hide' => 0], ['id', 'nav_name', 'nav_icon', 'url', 'new_tab', 'pid', 'is_root'], 'sort', 'ASC')->toArray();
         }
         //分类统计
         $sort = Sort::getList([]);
@@ -96,9 +96,9 @@ class Web
         }
         //站点统计信息
         $site_info['naissance'] = floor((time() - strtotime('2015-8-1')) / 86400);
-        $site_info['comments'] = Comment::getCount([]);
-        $site_info['twitters'] = Twitter::getCount([]);
-        $site_info['blogs'] = Blog::getCount([]);
+        $site_info['comments']  = Comment::getCount([]);
+        $site_info['twitters']  = Twitter::getCount([]);
+        $site_info['blogs']     = Blog::getCount([]);
 
         View::share('nav', $nav);
         View::share('sort', $sort);

@@ -10,7 +10,7 @@
 		</div>
 	</li>
 	@foreach($nav as $key=>$val)
-		@if($val['is_default'] == 'y')
+		@if($val['is_root'] === 1)
 			<li class="menu">
 				<a href="{{ $val['url'] }}">
 					<i class="{{ $val['nav_icon'] }}"></i>

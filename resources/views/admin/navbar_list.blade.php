@@ -396,7 +396,6 @@
                     $("#url").val(json.data.url);
                 }
                 if (1 === json.data.hide) {
-                    console.log(json.data);
                     $(".js-switch_3").attr("checked", true);
                 } else {
                     $(".js-switch_3").attr("checked", false);

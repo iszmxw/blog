@@ -46,6 +46,7 @@
                             <div class="row">
                                 <div class="col-sm-3">
                                     <a href="JavaScript:;" class="btn btn-primary" onclick="add_alert()">添加导航</a>
+                                    <el-button type="text" @click="dialogFormVisible = true">添加导航</el-button>
                                 </div>
                             </div>
                             <br>

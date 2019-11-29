@@ -119,7 +119,7 @@
                                     <el-input v-model="form.name"></el-input>
                                 </el-form-item>
                                 <el-form-item>
-                                    <el-tabs type="border-card" v-model="activeName" @tab-click="handleClick">
+                                    <el-tabs type="border-card" v-model="activeName" @tab-click="handleSwitch">
                                         <el-tab-pane>
                                             <span slot="label"><i class="el-icon-s-tools"></i> 系统地址</span>
                                             <el-select v-model="form.region" placeholder="请选择上级导航栏" style="width:100%">

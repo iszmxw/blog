@@ -206,6 +206,8 @@ class ArticleController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      * @throws \Exception
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2019/11/29 16:59
      */
     public function article_delete_check(Request $request)
     {

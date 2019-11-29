@@ -118,14 +118,15 @@
                                 <el-form-item label="导航栏ICON">
                                     <el-input v-model="form.name"></el-input>
                                 </el-form-item>
-                                <el-tabs type="border-card">
-                                    <el-tab-pane>
-                                        <span slot="label"><i class="el-icon-date"></i> 系统地址</span>
-                                        系统地址
-                                    </el-tab-pane>
-                                    <el-tab-pane label="手动输入">手动输入</el-tab-pane>
-                                </el-tabs>
-
+                                <el-form-item>
+                                    <el-tabs type="border-card" v-model="activeName" @tab-click="handleClick">
+                                        <el-tab-pane>
+                                            <span slot="label"><i class="el-icon-date"></i> 系统地址</span>
+                                            系统地址
+                                        </el-tab-pane>
+                                        <el-tab-pane label="手动输入">手动输入</el-tab-pane>
+                                    </el-tabs>
+                                </el-form-item>
                                 <el-form-item>
                                     <el-button type="primary" @click="onSubmit">立即创建</el-button>
                                     <el-button @click="dialogFormVisible = false">取消</el-button>

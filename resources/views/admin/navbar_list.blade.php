@@ -374,7 +374,7 @@
     // 利用element-ui的表单组件
     var vm = new Vue({
         el: '#app',
-        data: function () {
+        data() {
             return {
                 dialogFormVisible: false,
                 form: {

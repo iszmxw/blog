@@ -8,8 +8,8 @@
     <link href="{{asset('style/admin/inspinia/css/plugins/iCheck/custom.css')}}" rel="stylesheet">
     <link href="{{asset('style/admin/inspinia/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css')}}"
           rel="stylesheet">
-    <!-- 引入样式 -->
-    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入element-ui样式 -->
+    <link rel="stylesheet" href="{{asset('style/admin/element-ui/css/index.css')}}">
 </head>
 <body class="">
 <div id="wrapper">
@@ -291,9 +291,9 @@
 </div>
 @include('admin.public.common_js')
 <!-- 引入Vuejs -->
-<script src="https://unpkg.com/vue/dist/vue.js"></script>
-<!-- 引入组件库 -->
-<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="{{asset('style/admin/element-ui/js/vue.js')}}"></script>
+<!-- 引入element-ui组件库 -->
+<script src="{{asset('style/admin/element-ui/js/index.js')}}"></script>
 <!-- Switchery -->
 <script src="{{asset('style/admin/inspinia/js/plugins/switchery/switchery.js')}}"></script>
 <!-- Nestable List -->

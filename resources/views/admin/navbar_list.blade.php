@@ -121,10 +121,13 @@
                                 <el-form-item>
                                     <el-tabs type="border-card" v-model="activeName" @tab-click="handleClick">
                                         <el-tab-pane>
-                                            <span slot="label"><i class="el-icon-date"></i> 系统地址</span>
+                                            <span slot="label"><i class="el-icon-s-tools"></i> 系统地址</span>
                                             系统地址
                                         </el-tab-pane>
-                                        <el-tab-pane label="手动输入">手动输入</el-tab-pane>
+                                        <el-tab-pane>
+                                            <span slot="label"><i class="el-icon-link"></i> 手动输入</span>
+                                            手动输入
+                                        </el-tab-pane>
                                     </el-tabs>
                                 </el-form-item>
                                 <el-form-item>

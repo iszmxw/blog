@@ -382,6 +382,7 @@
         el: '#app',
         data: function () {
             return {
+                dialogFormVisible: false,
                 form: {
                     name: '',
                     region: '',

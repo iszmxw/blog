@@ -6,7 +6,10 @@
     <title>追梦小窝 | 后台首页</title>
     @include('admin.public.common_css')
     <link href="{{asset('style/admin/inspinia/css/plugins/iCheck/custom.css')}}" rel="stylesheet">
-    <link href="{{asset('style/admin/inspinia/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css')}}" rel="stylesheet">
+    <link href="{{asset('style/admin/inspinia/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css')}}"
+          rel="stylesheet">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
 </head>
 <body class="">
 <div id="wrapper">
@@ -33,10 +36,9 @@
                 </div>
             </div>
 
-
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="ibox ">
+                    <div id="app" class="ibox">
                         <div class="ibox-title">
                             <h5>网站导航列表</h5>
                         </div>
@@ -287,11 +289,22 @@
     </div>
 </div>
 @include('admin.public.common_js')
+<!-- 引入Vuejs -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- 引入组件库 -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
 <!-- Switchery -->
 <script src="{{asset('style/admin/inspinia/js/plugins/switchery/switchery.js')}}"></script>
 <!-- Nestable List -->
 <script src="{{asset('style/admin/inspinia/js/plugins/nestable/jquery.nestable.js')}}"></script>
 <script>
+    new Vue({
+        el: '#app',
+        data: function () {
+            return {visible: false}
+        }
+    })
+
     let elem = document.querySelector('.js-switch');
     let elem_2 = document.querySelector('.js-switch_2');
     new Switchery(elem, {color: '#1AB394'});

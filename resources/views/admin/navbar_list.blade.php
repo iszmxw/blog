@@ -96,9 +96,8 @@
 
 
                         </div>
-
-
-                        <el-dialog title="收货地址" :visible.sync="dialogFormVisible">
+                        {{--表单--}}
+                        <el-dialog title="添加导航栏" :visible.sync="dialogFormVisible">
                             <el-form ref="form" :model="form" label-width="80px">
                                 <el-form-item label="上级导航栏">
                                     <el-select v-model="form.region" placeholder="请选择上级导航栏">

@@ -389,8 +389,10 @@
                 }
             }
         },
-        onSubmit() {
-            console.log(this.data)
+        methods: {
+            onSubmit() {
+                console.log(this.data)
+            }
         }
     });
 </script>

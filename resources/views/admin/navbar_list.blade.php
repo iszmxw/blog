@@ -388,6 +388,9 @@
                     desc: ''
                 }
             }
+        },
+        onSubmit() {
+            console.log(this.data)
         }
     });
 </script>

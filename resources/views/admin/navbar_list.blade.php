@@ -378,7 +378,7 @@
     }).on('change', updateOutput);
 
     // 利用element-ui的表单组件
-    new Vue({
+    var vm = new Vue({
         el: '#app',
         data: function () {
             return {

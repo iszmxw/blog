@@ -122,7 +122,7 @@
                                     <el-tabs type="border-card" v-model="activeName" @tab-click="handleClick">
                                         <el-tab-pane>
                                             <span slot="label"><i class="el-icon-s-tools"></i> 系统地址</span>
-                                            <el-select v-model="form.region" placeholder="请选择上级导航栏" width="100%">
+                                            <el-select v-model="form.region" placeholder="请选择上级导航栏" size="medium">
                                                 <el-option label="区域一" value="shanghai"></el-option>
                                                 <el-option label="区域二" value="beijing"></el-option>
                                             </el-select>

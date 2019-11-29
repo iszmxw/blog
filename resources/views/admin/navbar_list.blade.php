@@ -99,18 +99,18 @@
                         {{--表单--}}
                         <el-dialog title="添加导航栏" :visible.sync="dialogFormVisible">
                             <el-form ref="form" :model="form" label-width="100px">
+                                <el-form-item label="上级导航栏">
+                                    <el-select v-model="form.region" placeholder="请选择上级导航栏">
+                                        <el-option label="区域一" value="shanghai"></el-option>
+                                        <el-option label="区域二" value="beijing"></el-option>
+                                    </el-select>
+                                </el-form-item>
                                 <el-form-item label="导航栏设置">
                                     <el-checkbox-group v-model="form.type">
                                         <el-checkbox label="是否隐藏" name="type"></el-checkbox>
                                         <el-checkbox label="是否新窗口" name="type"></el-checkbox>
                                         <el-checkbox label="是否根目录" name="type"></el-checkbox>
                                     </el-checkbox-group>
-                                </el-form-item>
-                                <el-form-item label="上级导航栏">
-                                    <el-select v-model="form.region" placeholder="请选择上级导航栏">
-                                        <el-option label="区域一" value="shanghai"></el-option>
-                                        <el-option label="区域二" value="beijing"></el-option>
-                                    </el-select>
                                 </el-form-item>
                                 <el-form-item label="导航栏名称">
                                     <el-input v-model="form.name"></el-input>

@@ -107,9 +107,9 @@
                                 </el-form-item>
                                 <el-form-item label="导航栏设置">
                                     <el-checkbox-group v-model="form.type">
-                                        <el-checkbox label="是否隐藏" name="type"></el-checkbox>
-                                        <el-checkbox label="是否新窗口" name="type"></el-checkbox>
-                                        <el-checkbox label="是否根目录" name="type"></el-checkbox>
+                                        <el-checkbox label="隐藏栏目" name="type"></el-checkbox>
+                                        <el-checkbox label="新窗口打开" name="type"></el-checkbox>
+                                        <el-checkbox label="设置根目录" name="type"></el-checkbox>
                                     </el-checkbox-group>
                                 </el-form-item>
                                 <el-form-item label="导航栏名称">

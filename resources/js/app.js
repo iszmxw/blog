@@ -15,7 +15,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 
 
-const vm = new Vue({
+window.Vue = new Vue({
     el: '#app',
     data: {
         "name": "dkr"

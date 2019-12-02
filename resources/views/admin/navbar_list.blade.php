@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ config('app.locale') }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,10 +9,10 @@
     <link href="{{asset('style/admin/inspinia/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css')}}"
           rel="stylesheet">
     <!-- 引入element-ui样式 -->
-    <link rel="stylesheet" href="{{asset('style/admin/element-ui/css/index.css')}}">
+{{--    <link rel="stylesheet" href="{{asset('style/admin/element-ui/css/index.css')}}">--}}
 </head>
 <body class="">
-<div id="wrapper">
+<div id="app wrapper">
     {{--侧边栏--}}
     @include('admin.public.nav')
     <div id="page-wrapper" class="gray-bg">
@@ -332,10 +332,11 @@
     </div>
 </div>
 @include('admin.public.common_js')
-<!-- 引入Vuejs -->
-<script src="{{asset('style/admin/element-ui/js/vue.js')}}"></script>
-<!-- 引入element-ui组件库 -->
-<script src="{{asset('style/admin/element-ui/js/index.js')}}"></script>
+{{--<!-- 引入Vuejs -->--}}
+{{--<script src="{{asset('style/admin/element-ui/js/vue.js')}}"></script>--}}
+{{--<!-- 引入element-ui组件库 -->--}}
+{{--<script src="{{asset('style/admin/element-ui/js/index.js')}}"></script>--}}
+<script src="{{ mix('js/app.js') }}"></script>
 <!-- Switchery -->
 <script src="{{asset('style/admin/inspinia/js/plugins/switchery/switchery.js')}}"></script>
 <!-- Nestable List -->

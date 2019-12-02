@@ -13,7 +13,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 
 Vue.use(ElementUI);
 
-Vue.component('Example', require('./components/Example.vue'));
+Vue.component('Example', require('./components/Example.vue').default);
 
 const vm = new Vue({
     el: '#app',

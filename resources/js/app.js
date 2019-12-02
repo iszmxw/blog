@@ -13,12 +13,12 @@ import 'element-ui/lib/theme-chalk/index.css';
 
 Vue.use(ElementUI);
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('Dialog', require('./components/Dialog.vue'));
 
 const vm = new Vue({
     el: '#app',
     components: {
-        ExampleComponent
+        Dialog
     },
     data: {
         "name": "dkr"

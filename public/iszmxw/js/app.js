@@ -6973,6 +6973,9 @@ Vue.component('example-component', __webpack_require__(195).default);
 
 var vm = new Vue({
     el: '#app',
+    components: {
+        ExampleComponent: ExampleComponent
+    },
     data: {
         "name": "dkr"
     }

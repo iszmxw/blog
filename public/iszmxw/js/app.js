@@ -6114,8 +6114,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+// import Example from './components/Example.vue';
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_element_ui___default.a);
+
+var vm = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
+    el: '#app',
+    data: {
+        "name": "dkr"
+    },
+    components: {
+        // Example: Example
+    },
+    mounted: function mounted() {
+        console.log(this);
+    }
+});
 
 /***/ }),
 /* 73 */

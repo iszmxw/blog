@@ -13,12 +13,15 @@ import 'element-ui/lib/theme-chalk/index.css';
 
 Vue.use(ElementUI);
 
-// Vue.component('Example', require('./components/Example.vue'));
+Vue.component('Example', require('./components/Example.vue'));
 
 const vm = new Vue({
     el: '#app',
     data: {
         "name": "dkr"
+    },
+    components: {
+        Example
     },
     mounted() {
         console.log(this);

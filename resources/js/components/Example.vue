@@ -16,7 +16,7 @@
 
 <script>
     export default {
-        name: 'disalog',
+        name: 'Example',
         mounted() {
             console.log('Component mounted.')
         }

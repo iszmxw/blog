@@ -10,5 +10,21 @@ import Vue from 'vue';
 
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+// import Example from './components/Example.vue';
 
 Vue.use(ElementUI);
+
+
+const vm = new Vue({
+    el: '#app',
+    data: {
+        "name": "dkr"
+    },
+    components: {
+        // Example: Example
+    },
+    mounted() {
+        console.log(this);
+    }
+
+});

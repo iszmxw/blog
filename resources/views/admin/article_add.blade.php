@@ -1,8 +1,8 @@
 @extends('admin.app')
 
-@section('title', '网站导航列表')
-@section('keywords', '网站导航列表')
-@section('description', '网站导航列表')
+@section('title', '添加文章')
+@section('keywords', '添加文章')
+@section('description', '添加文章')
 {{--样式引入--}}
 @section('style')
     <link href="{{asset('style/admin/inspinia/css/plugins/summernote/summernote.css')}}" rel="stylesheet">

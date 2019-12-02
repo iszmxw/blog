@@ -9,7 +9,7 @@
     <link href="{{asset('style/admin/inspinia/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css')}}"
           rel="stylesheet">
     <!-- 引入element-ui样式 -->
-{{--    <link rel="stylesheet" href="{{asset('style/admin/element-ui/css/index.css')}}">--}}
+    {{--    <link rel="stylesheet" href="{{asset('style/admin/element-ui/css/index.css')}}">--}}
 </head>
 <body class="">
 <div id="app wrapper">
@@ -336,7 +336,7 @@
 {{--<script src="{{asset('style/admin/element-ui/js/vue.js')}}"></script>--}}
 {{--<!-- 引入element-ui组件库 -->--}}
 {{--<script src="{{asset('style/admin/element-ui/js/index.js')}}"></script>--}}
-<script src="{{ mix('js/app.js') }}"></script>
+<script src="{{ mix('iszmxw/js/app.js') }}"></script>
 <!-- Switchery -->
 <script src="{{asset('style/admin/inspinia/js/plugins/switchery/switchery.js')}}"></script>
 <!-- Nestable List -->

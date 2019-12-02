@@ -64,8 +64,6 @@
 @section('script')
     <!-- Peity -->
     <script src="{{asset('style/admin/inspinia/js/plugins/peity/jquery.peity.min.js')}}"></script>
-    <!-- Peity -->
-    <script src="{{asset('style/admin/inspinia/js/demo/peity-demo.js')}}"></script>
     <script>
         $(document).ready(function () {
             // Local script for demo purpose only

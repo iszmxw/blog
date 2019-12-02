@@ -4,7 +4,7 @@
  * application frontend using useful Laravel and JavaScript libraries.
  */
 
-// require('./bootstrap');
+require('./bootstrap');
 
 import Vue from 'vue';
 
@@ -17,9 +17,7 @@ Vue.use(ElementUI);
 
 window.Vue = new Vue({
     el: '#app',
-    data: {
-        "name": "dkr"
-    },
+    data: {},
     components: {
         // Example: Example
     },

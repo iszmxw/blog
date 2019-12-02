@@ -17,7 +17,6 @@
     <div id="page-wrapper" class="gray-bg">
         {{--头部--}}
         @include('admin.public.header')
-
         <div class="wrapper wrapper-content">
             @yield('content')
         </div>

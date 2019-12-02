@@ -1,319 +1,314 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>追梦小窝 | 评论列表</title>
-    @include('admin.public.common_css')
-</head>
-<body class="">
-<div id="wrapper">
-    {{--侧边栏--}}
-    @include('admin.public.nav')
-    <div id="page-wrapper" class="gray-bg">
-        {{--头部--}}
-        @include('admin.public.header')
-        <div class="wrapper wrapper-content">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="ibox float-e-margins">
-                        <div class="ibox-title">
-                            <h5>评论列表</h5>
-                            <div class="ibox-tools">
-                                <span class="label label-warning-light pull-right">{{$list->total()}} 条评论</span>
-                            </div>
-                        </div>
-                        <div class="ibox-content">
+@extends('admin.app')
 
-                            <div>
-                                <div class="feed-activity-list">
-                                    @foreach($list as $value)
-                                        <div class="feed-element">
-                                            <a href="JavaScript:;" class="pull-left">
-                                                <img alt="image" class="img-circle"
-                                                     src="http://q1.qlogo.cn/g?b=qq&nk={{$value['mail']}}&s=640">
-                                            </a>
-                                            <div class="media-body">`
-                                                <small class="pull-right">{{ $value['created_at'] }}</small>
-                                                <strong>{{$value['poster']}}</strong> 评论了
-                                                <strong>{{$value['blog_title']}}</strong><br>
-                                                <small class="text-muted">来自：{{$value['ip']}}</small>
-                                                <div class="well">
-                                                    {{$value['comment']}}
-                                                </div>
-                                                <div class="actions">
-                                                    <a class="btn btn-xs btn-danger"
-                                                       onclick="delete_fn('{{$value['id']}}')"><i
-                                                                class="fa fa-times"></i> 删除 </a>
-                                                    @if($value['hide'] == 1)
-                                                        <a class="btn btn-xs btn-success"
-                                                           onclick="show_fn('{{$value['id']}}',0)"><i
-                                                                    class="fa fa-eye-slash"></i> 隐藏</a>
-                                                    @else
-                                                        <a class="btn btn-xs btn-warning"
-                                                           onclick="show_fn('{{$value['id']}}',1)"><i
-                                                                    class="fa fa-eye"></i> 显示</a>
-                                                    @endif
-                                                    <a class="btn btn-xs btn-primary"
-                                                       onclick="comment_fn('{{$value['id']}}')"><i
-                                                                class="fa fa-comments"></i> 回复</a>
-                                                    <a class="btn btn-xs btn-info"
-                                                       onclick="edit_fn('{{$value['id']}}')"><i class="fa fa-edit"></i>
-                                                        编辑</a>
-                                                </div>
-                                            </div>
+@section('title', '评论列表')
+@section('keywords', '评论列表')
+@section('description', '评论列表')
+{{--样式引入--}}
+@section('style')
+
+
+@endsection
+
+{{--内容部分--}}
+@section('content')
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>评论列表</h5>
+                    <div class="ibox-tools">
+                        <span class="label label-warning-light pull-right">{{$list->total()}} 条评论</span>
+                    </div>
+                </div>
+                <div class="ibox-content">
+
+                    <div>
+                        <div class="feed-activity-list">
+                            @foreach($list as $value)
+                                <div class="feed-element">
+                                    <a href="JavaScript:;" class="pull-left">
+                                        <img alt="image" class="img-circle"
+                                             src="http://q1.qlogo.cn/g?b=qq&nk={{$value['mail']}}&s=640">
+                                    </a>
+                                    <div class="media-body">`
+                                        <small class="pull-right">{{ $value['created_at'] }}</small>
+                                        <strong>{{$value['poster']}}</strong> 评论了
+                                        <strong>{{$value['blog_title']}}</strong><br>
+                                        <small class="text-muted">来自：{{$value['ip']}}</small>
+                                        <div class="well">
+                                            {{$value['comment']}}
                                         </div>
-                                    @endforeach
-                                    <div class="pagination pull-right">
-                                        {{$list->links()}}
+                                        <div class="actions">
+                                            <a class="btn btn-xs btn-danger"
+                                               onclick="delete_fn('{{$value['id']}}')"><i
+                                                        class="fa fa-times"></i> 删除 </a>
+                                            @if($value['hide'] == 1)
+                                                <a class="btn btn-xs btn-success"
+                                                   onclick="show_fn('{{$value['id']}}',0)"><i
+                                                            class="fa fa-eye-slash"></i> 隐藏</a>
+                                            @else
+                                                <a class="btn btn-xs btn-warning"
+                                                   onclick="show_fn('{{$value['id']}}',1)"><i
+                                                            class="fa fa-eye"></i> 显示</a>
+                                            @endif
+                                            <a class="btn btn-xs btn-primary"
+                                               onclick="comment_fn('{{$value['id']}}')"><i
+                                                        class="fa fa-comments"></i> 回复</a>
+                                            <a class="btn btn-xs btn-info"
+                                               onclick="edit_fn('{{$value['id']}}')"><i class="fa fa-edit"></i>
+                                                编辑</a>
+                                        </div>
                                     </div>
                                 </div>
+                            @endforeach
+                            <div class="pagination pull-right">
+                                {{$list->links()}}
                             </div>
-
                         </div>
                     </div>
 
                 </div>
             </div>
-        </div>
-        {{--底部--}}
-        @include('admin.public.footer')
-    </div>
-</div>
-{{--回复数据框--}}
-<div class="modal inmodal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form action="{{url('admin/ajax/comment_data_check')}}" id="currentForm">
-                <input type="hidden" name="id" id="id">
-                <input type="hidden" name="blog_id" id="blog_id">
-                <input type="hidden" name="pid" id="pid">
-                <input type="hidden" name="_token" value="{{csrf_token()}}">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span
-                                aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title">回复评论人</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <p><strong>评论人：</strong> <span id="poster">匿名用户</span></p>
-                    </div>
-                    <div class="form-group">
-                        <p><strong>时间：</strong> <span id="time">获取失败</span></p>
-                    </div>
-                    <div class="form-group">
-                        <p><strong>内容：</strong> <span id="comment">暂无</span></p>
-                    </div>
-                    <div class="form-group">
-                        <label>回复内容</label>
-                        <input type="text" placeholder="回复内容" name="comment" class="form-control">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary" onclick="Comment()">回复</button>
-                </div>
-            </form>
+
         </div>
     </div>
-</div>
-{{--编辑数据框--}}
-<div class="modal inmodal fade" id="myModal_edit" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form action="{{url('admin/ajax/comment_data_check')}}" id="e_currentForm">
-                <input type="hidden" name="id" id="e_id">
-                <input type="hidden" name="is_edit" value="1">
-                <input type="hidden" name="_token" value="{{csrf_token()}}">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span
-                                aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title">编辑评论</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label>评论人：</label>
-                        <input type="text" placeholder="评论人" name="poster" id="e_poster" class="form-control">
+
+    {{--回复数据框--}}
+    <div class="modal inmodal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="{{url('admin/ajax/comment_data_check')}}" id="currentForm">
+                    <input type="hidden" name="id" id="id">
+                    <input type="hidden" name="blog_id" id="blog_id">
+                    <input type="hidden" name="pid" id="pid">
+                    <input type="hidden" name="_token" value="{{csrf_token()}}">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span
+                                    aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title">回复评论人</h4>
                     </div>
-                    <div class="form-group">
-                        <label>电子邮件：</label>
-                        <input type="text" placeholder="电子邮件" name="mail" id="e_mail" class="form-control">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <p><strong>评论人：</strong> <span id="poster">匿名用户</span></p>
+                        </div>
+                        <div class="form-group">
+                            <p><strong>时间：</strong> <span id="time">获取失败</span></p>
+                        </div>
+                        <div class="form-group">
+                            <p><strong>内容：</strong> <span id="comment">暂无</span></p>
+                        </div>
+                        <div class="form-group">
+                            <label>回复内容</label>
+                            <input type="text" placeholder="回复内容" name="comment" class="form-control">
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label>主页：</label>
-                        <input type="text" placeholder="主页" name="url" id="e_url" class="form-control">
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-primary" onclick="Comment()">回复</button>
                     </div>
-                    <div class="form-group">
-                        <label>评论内容：</label>
-                        <input type="text" placeholder="评论内容" name="comment" id="e_comment" class="form-control">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary" onclick="Edit_Comment()">编辑</button>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
-</div>
-@include('admin.public.common_js')
-<script>
-    //删除方法
-    function delete_fn(id) {
-        var url = "{{url('admin/ajax/comment_delete_check')}}";
-        var data = {'_token': '{{csrf_token()}}', 'id': id};
-        swal({
-                title: "你确定？",
-                text: "你将无法恢复这条数据！",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#DD6B55",
-                confirmButtonText: "删除",
-                cancelButtonText: "取消",
-                closeOnConfirm: false,
-                closeOnCancel: false
-            },
-            function (isConfirm) {
-                if (isConfirm) {
-                    $.post(url, data, function (json) {
-                        if (json.status == '1') {
-                            swal("删除", json.data, "success");
-                            setInterval(function () {
-                                window.location.reload();
-                            }, 1500);
-                        } else {
-                            swal("操作失败", json.data, "error");
-                        }
+    {{--编辑数据框--}}
+    <div class="modal inmodal fade" id="myModal_edit" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="{{url('admin/ajax/comment_data_check')}}" id="e_currentForm">
+                    <input type="hidden" name="id" id="e_id">
+                    <input type="hidden" name="is_edit" value="1">
+                    <input type="hidden" name="_token" value="{{csrf_token()}}">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span
+                                    aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title">编辑评论</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>评论人：</label>
+                            <input type="text" placeholder="评论人" name="poster" id="e_poster" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>电子邮件：</label>
+                            <input type="text" placeholder="电子邮件" name="mail" id="e_mail" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>主页：</label>
+                            <input type="text" placeholder="主页" name="url" id="e_url" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>评论内容：</label>
+                            <input type="text" placeholder="评论内容" name="comment" id="e_comment" class="form-control">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-primary" onclick="Edit_Comment()">编辑</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+@endsection
+
+{{--js引用--}}
+@section('script')
+    <script>
+        //删除方法
+        function delete_fn(id) {
+            var url = "{{url('admin/ajax/comment_delete_check')}}";
+            var data = {'_token': '{{csrf_token()}}', 'id': id};
+            swal({
+                    title: "你确定？",
+                    text: "你将无法恢复这条数据！",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "删除",
+                    cancelButtonText: "取消",
+                    closeOnConfirm: false,
+                    closeOnCancel: false
+                },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        $.post(url, data, function (json) {
+                            if (json.status == '1') {
+                                swal("删除", json.data, "success");
+                                setInterval(function () {
+                                    window.location.reload();
+                                }, 1500);
+                            } else {
+                                swal("操作失败", json.data, "error");
+                            }
+                        });
+                    } else {
+                        swal("取消", "您已取消了删除", "error");
+                        setInterval(function () {
+                            window.location.reload();
+                        }, 1500);
+                    }
+                });
+        }
+
+        // 显示、隐藏方法
+        function show_fn(id, hide) {
+            var url = "{{url('admin/ajax/comment_hide_check')}}";
+            var data = {'_token': '{{csrf_token()}}', 'id': id, 'hide': hide};
+            $.post(url, data, function (json) {
+                if (json.status == 1) {
+                    swal({
+                        title: "提示信息",
+                        text: json.data,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "确定",
+                    }, function () {
+                        window.location.reload();
                     });
                 } else {
-                    swal("取消", "您已取消了删除", "error");
+                    swal({
+                        title: "提示信息",
+                        text: json.data,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "确定"
+                    });
+                }
+            });
+        }
+
+        //获取要回复人的相关信息
+        function comment_fn(id) {
+            var url = "{{url('admin/ajax/comment_data')}}";
+            var data = {'_token': "{{csrf_token()}}", 'id': id};
+            $.post(url, data, function (json) {
+                if (json.status == '1') {
+                    $("#id").val(json.data.id);
+                    $("#blog_id").val(json.data.blog_id);
+                    $("#pid").val(json.data.pid);
+                    $("#poster").text(json.data.poster);
+                    $("#time").text(json.data.created_at);
+                    $("#comment").text(json.data.comment);
+                    $("#myModal").modal();
+                } else {
+                    swal("失败", json.data, "error");
                     setInterval(function () {
                         window.location.reload();
                     }, 1500);
                 }
             });
-    }
+        }
 
-    // 显示、隐藏方法
-    function show_fn(id, hide) {
-        var url = "{{url('admin/ajax/comment_hide_check')}}";
-        var data = {'_token': '{{csrf_token()}}', 'id': id, 'hide': hide};
-        $.post(url, data, function (json) {
-            if (json.status == 1) {
-                swal({
-                    title: "提示信息",
-                    text: json.data,
-                    confirmButtonColor: "#DD6B55",
-                    confirmButtonText: "确定",
-                }, function () {
-                    window.location.reload();
-                });
-            } else {
-                swal({
-                    title: "提示信息",
-                    text: json.data,
-                    confirmButtonColor: "#DD6B55",
-                    confirmButtonText: "确定"
-                });
-            }
-        });
-    }
+        //回复方法
+        function Comment() {
+            var target = $("#currentForm");
+            var url = target.attr("action");
+            var data = target.serialize();
+            $.post(url, data, function (json) {
+                if (json.status == 1) {
+                    swal({
+                        title: "提示信息",
+                        text: json.data,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "确定",
+                    }, function () {
+                        window.location.reload();
+                    });
+                } else {
+                    swal({
+                        title: "提示信息",
+                        text: json.data,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "确定"
+                    });
+                }
+            });
+        }
 
-    //获取要回复人的相关信息
-    function comment_fn(id) {
-        var url = "{{url('admin/ajax/comment_data')}}";
-        var data = {'_token': "{{csrf_token()}}", 'id': id};
-        $.post(url, data, function (json) {
-            if (json.status == '1') {
-                $("#id").val(json.data.id);
-                $("#blog_id").val(json.data.blog_id);
-                $("#pid").val(json.data.pid);
-                $("#poster").text(json.data.poster);
-                $("#time").text(json.data.created_at);
-                $("#comment").text(json.data.comment);
-                $("#myModal").modal();
-            } else {
-                swal("失败", json.data, "error");
-                setInterval(function () {
-                    window.location.reload();
-                }, 1500);
-            }
-        });
-    }
+        //编辑方法
+        function edit_fn(id) {
+            var url = "{{url('admin/ajax/comment_data')}}";
+            var data = {'_token': "{{csrf_token()}}", 'id': id};
+            $.post(url, data, function (json) {
+                if (json.status == '1') {
+                    console.log(json);
+                    $("#e_id").val(json.data.id);
+                    $("#e_poster").val(json.data.poster);
+                    $("#e_mail").val(json.data.mail);
+                    $("#e_url").val(json.data.url);
+                    $("#e_comment").val(json.data.comment);
+                    $("#myModal_edit").modal();
+                } else {
+                    swal("失败", json.data, "error");
+                    setInterval(function () {
+                        window.location.reload();
+                    }, 1500);
+                }
+            });
+        }
 
-    //回复方法
-    function Comment() {
-        var target = $("#currentForm");
-        var url = target.attr("action");
-        var data = target.serialize();
-        $.post(url, data, function (json) {
-            if (json.status == 1) {
-                swal({
-                    title: "提示信息",
-                    text: json.data,
-                    confirmButtonColor: "#DD6B55",
-                    confirmButtonText: "确定",
-                }, function () {
-                    window.location.reload();
-                });
-            } else {
-                swal({
-                    title: "提示信息",
-                    text: json.data,
-                    confirmButtonColor: "#DD6B55",
-                    confirmButtonText: "确定"
-                });
-            }
-        });
-    }
-
-    //编辑方法
-    function edit_fn(id) {
-        var url = "{{url('admin/ajax/comment_data')}}";
-        var data = {'_token': "{{csrf_token()}}", 'id': id};
-        $.post(url, data, function (json) {
-            if (json.status == '1') {
-                console.log(json);
-                $("#e_id").val(json.data.id);
-                $("#e_poster").val(json.data.poster);
-                $("#e_mail").val(json.data.mail);
-                $("#e_url").val(json.data.url);
-                $("#e_comment").val(json.data.comment);
-                $("#myModal_edit").modal();
-            } else {
-                swal("失败", json.data, "error");
-                setInterval(function () {
-                    window.location.reload();
-                }, 1500);
-            }
-        });
-    }
-
-    //编辑评论提交
-    function Edit_Comment() {
-        var target = $("#e_currentForm");
-        var url = target.attr("action");
-        var data = target.serialize();
-        $.post(url, data, function (json) {
-            if (json.status == 1) {
-                swal({
-                    title: "提示信息",
-                    text: json.data,
-                    confirmButtonColor: "#DD6B55",
-                    confirmButtonText: "确定",
-                }, function () {
-                    window.location.reload();
-                });
-            } else {
-                swal({
-                    title: "提示信息",
-                    text: json.data,
-                    confirmButtonColor: "#DD6B55",
-                    confirmButtonText: "确定"
-                });
-            }
-        });
-    }
-</script>
-</body>
-</html>
+        //编辑评论提交
+        function Edit_Comment() {
+            var target = $("#e_currentForm");
+            var url = target.attr("action");
+            var data = target.serialize();
+            $.post(url, data, function (json) {
+                if (json.status == 1) {
+                    swal({
+                        title: "提示信息",
+                        text: json.data,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "确定",
+                    }, function () {
+                        window.location.reload();
+                    });
+                } else {
+                    swal({
+                        title: "提示信息",
+                        text: json.data,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "确定"
+                    });
+                }
+            });
+        }
+    </script>
+@endsection

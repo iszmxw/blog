@@ -135,7 +135,7 @@
             </div>
         </div>
 
-        <disalog></disalog>
+        <Example></Example>
     </div>
 @endsection
 

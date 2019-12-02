@@ -6969,12 +6969,13 @@ window.Vue = __webpack_require__(2);
 
 Vue.use(__WEBPACK_IMPORTED_MODULE_0_element_ui___default.a);
 
-Vue.component('Disalog', __webpack_require__(195));
+Vue.component('Example', __webpack_require__(195));
+Vue.use(Example);
 
 var vm = new Vue({
     el: '#app',
     components: {
-        Disalog: Disalog
+        Example: Example
     },
     data: {
         "name": "dkr"
@@ -92900,7 +92901,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/js/components/Disalog.vue"
+Component.options.__file = "resources/js/components/Example.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -92909,9 +92910,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-3e60a1b6", Component.options)
+    hotAPI.createRecord("data-v-63af75cf", Component.options)
   } else {
-    hotAPI.reload("data-v-3e60a1b6", Component.options)
+    hotAPI.reload("data-v-63af75cf", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -93099,7 +93100,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-3e60a1b6", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-63af75cf", module.exports)
   }
 }
 

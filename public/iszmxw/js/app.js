@@ -6117,7 +6117,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_element_ui___default.a);
 
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('Example', __webpack_require__(167));
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('Example', __webpack_require__(167).default);
 
 var vm = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     el: '#app',
@@ -74365,7 +74365,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    name: 'Example',
+    name: 'example',
     mounted: function mounted() {
         console.log('Component mounted.');
     }

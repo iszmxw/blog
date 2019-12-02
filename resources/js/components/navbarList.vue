@@ -1,10 +1,15 @@
 <template>
-    
+
 </template>
 
 <script>
     export default {
-        name: "Example"
+        name: "navbarList",
+        data() {
+            return {
+
+            }
+        }
     }
 </script>
 

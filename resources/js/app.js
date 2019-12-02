@@ -15,7 +15,7 @@ Vue.use(ElementUI);
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
-const app = new Vue({
+const vm = new Vue({
     el: '#app',
     data: {
         "name": "dkr"

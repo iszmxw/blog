@@ -142,6 +142,6 @@
 {{--js引用--}}
 @section('script')
     <script>
-        console.log(app);
+        console.log(vm.$data);
     </script>
 @endsection

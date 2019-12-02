@@ -135,7 +135,7 @@
             </div>
         </div>
 
-        <Example></Example>
+{{--        <Example></Example>--}}
     </div>
 @endsection
 

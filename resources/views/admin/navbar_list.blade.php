@@ -139,17 +139,6 @@
 {{--js引用--}}
 @section('script')
     <script>
-        const vm = new Vue({
-            el: '#app',
-            data: {
-                "name": "dkr"
-            },
-            components: {
-                Example: Example
-            },
-            mounted() {
-                console.log(this);
-            }
-        });
+
     </script>
 @endsection

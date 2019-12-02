@@ -135,7 +135,7 @@
             </div>
         </div>
 
-        <example-component/>
+        <dialog/>
     </div>
 @endsection
 

@@ -5,7 +5,7 @@
 @section('description', '博客管理系统-文章列表')
 {{--样式引入--}}
 @section('style')
-{{--    <link href="{{asset('style/admin/inspinia/css/plugins/iCheck/custom.css')}}" rel="stylesheet">--}}
+    <link href="{{asset('style/admin/inspinia/css/plugins/iCheck/custom.css')}}" rel="stylesheet">
 @endsection
 
 {{--内容部分--}}

@@ -20,9 +20,6 @@ const vm = new Vue({
     data: {
         "name": "dkr"
     },
-    components: {
-        Example
-    },
     mounted() {
         console.log(this);
     }

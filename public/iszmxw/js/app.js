@@ -6124,6 +6124,9 @@ var vm = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     data: {
         "name": "dkr"
     },
+    components: {
+        Example: Example
+    },
     mounted: function mounted() {
         console.log(this);
     }

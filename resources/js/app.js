@@ -18,7 +18,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const vm = new Vue({
     el: '#app',
     components: {
-        ExampleComponent
+        ExampleComponent: 'example-component',
     },
     data: {
         "name": "dkr"

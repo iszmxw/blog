@@ -12,7 +12,7 @@
     {{--    <link rel="stylesheet" href="{{asset('style/admin/element-ui/css/index.css')}}">--}}
 </head>
 <body class="">
-<div id="app wrapper">
+<div id="app">
     {{--侧边栏--}}
     @include('admin.public.nav')
     <div id="page-wrapper" class="gray-bg">

@@ -6969,12 +6969,12 @@ window.Vue = __webpack_require__(2);
 
 Vue.use(__WEBPACK_IMPORTED_MODULE_0_element_ui___default.a);
 
-Vue.component('example-component', __webpack_require__(195).default);
+Vue.component('example-component', __webpack_require__(195));
 
 var vm = new Vue({
     el: '#app',
     components: {
-        'example-component': ExampleComponent
+        ExampleComponent: ExampleComponent
     },
     data: {
         "name": "dkr"

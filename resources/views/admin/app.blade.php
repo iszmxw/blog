@@ -11,7 +11,7 @@
     @yield('style')
 </head>
 <body class="">
-<div id="app">
+<div id="wrapper">
     {{--侧边栏--}}
     @include('admin.public.nav')
     <div id="page-wrapper" class="gray-bg">

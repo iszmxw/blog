@@ -61,6 +61,9 @@
         methods: {
             handleSwitch() {
                 console.log(11);
+            },
+            onSubmit() {
+                console.log('onSubmit');
             }
         }
     }

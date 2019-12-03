@@ -45,7 +45,7 @@
 
 <script>
     export default {
-        name: "navbarList",
+        name: "navbarlist",
         data() {
             return {
                 dialogFormVisible: false,

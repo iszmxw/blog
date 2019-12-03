@@ -49,7 +49,7 @@
         data: function () {
             return {
                 dialogFormVisible: false,
-                activeName: true,
+                activeName: 0,
                 form: {
                     pid: 0,
                     type: 0,

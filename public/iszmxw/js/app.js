@@ -7038,8 +7038,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_element_ui___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_element_ui__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_theme_chalk_index_css__ = __webpack_require__(188);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_element_ui_lib_theme_chalk_index_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_element_ui_lib_theme_chalk_index_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_NavbarList_vue__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_NavbarList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_NavbarList_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Navbarlist_vue__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Navbarlist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_Navbarlist_vue__);
 /**
  * First, we will load all of this project's Javascript utilities and other
  * dependencies. Then, we will be ready to develop a robust and powerful
@@ -7060,7 +7060,7 @@ window.Vue = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     el: '#app',
     data: {},
     components: {
-        NavbarList: __WEBPACK_IMPORTED_MODULE_3__components_NavbarList_vue___default.a
+        Navbarlist: __WEBPACK_IMPORTED_MODULE_3__components_Navbarlist_vue___default.a
     },
     mounted: function mounted() {
         console.log(this);
@@ -92897,7 +92897,7 @@ var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = "data-v-6e5f4e79"
+var __vue_scopeId__ = "data-v-6a84ea59"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -92908,7 +92908,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/js/components/NavbarList.vue"
+Component.options.__file = "resources/js/components/Navbarlist.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -92917,9 +92917,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-6e5f4e79", Component.options)
+    hotAPI.createRecord("data-v-6a84ea59", Component.options)
   } else {
-    hotAPI.reload("data-v-6e5f4e79", Component.options)
+    hotAPI.reload("data-v-6a84ea59", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -92940,13 +92940,13 @@ var content = __webpack_require__(197);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(198)("6ed586b5", content, false, {});
+var update = __webpack_require__(198)("189d28be", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6e5f4e79\",\"scoped\":true,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./NavbarList.vue", function() {
-     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6e5f4e79\",\"scoped\":true,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./NavbarList.vue");
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6a84ea59\",\"scoped\":true,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Navbarlist.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6a84ea59\",\"scoped\":true,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Navbarlist.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -93392,7 +93392,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    name: "navbarlist",
+    name: "Navbarlist",
     data: function data() {
         return {
             dialogFormVisible: false,
@@ -93659,7 +93659,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-6e5f4e79", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-6a84ea59", module.exports)
   }
 }
 

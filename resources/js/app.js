@@ -10,7 +10,7 @@ import Vue from 'vue';
 
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
-import NavbarList from './components/NavbarList.vue';
+import Navbarlist from './components/Navbarlist.vue';
 
 Vue.use(ElementUI);
 
@@ -19,7 +19,7 @@ window.Vue = new Vue({
     el: '#app',
     data: {},
     components: {
-        NavbarList: NavbarList
+        Navbarlist: Navbarlist
     },
     mounted() {
         console.log(this);

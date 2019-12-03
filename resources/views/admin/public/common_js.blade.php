@@ -10,5 +10,6 @@
 <script src="{{asset('style/admin/inspinia/js/plugins/toastr/toastr_style.js')}}"></script>
 <!-- Sweet alert -->
 <script src="{{asset('style/admin/inspinia/js/plugins/sweetalert/sweetalert.min.js')}}"></script>
-{{--laravel mix--}}
-<script src="{{ mix('iszmxw/js/app.js') }}"></script>
+
+<!-- 引入组件库 -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>

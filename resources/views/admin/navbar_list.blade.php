@@ -88,7 +88,7 @@
 
                     </div>
                     {{--表单--}}
-                    <navbarList></navbarList>
+                    <NavbarList></NavbarList>
                 </div>
             </div>
         </div>

@@ -5,7 +5,7 @@ var ini = 0;
 var _in = ['bounceIn', 'bounceInDown', 'bounceInLeft', 'bounceInRight', 'bounceInUp', 'fadeIn', 'fadeInDown', 'fadeInDownBig', 'fadeInLeft', 'fadeInLeftBig', 'fadeInRight', 'fadeInRightBig', 'fadeInUp', 'fadeInUpBig', 'rotateIn', 'rotateInDownLeft', 'rotateInDownRight', 'rotateInUpLeft', 'rotateInUpRight', 'slideInDown', 'slideInLeft', 'slideInRight'];
 var _out = ['bounceOut', 'bounceOutDown', 'bounceOutLeft', 'bounceOutRight', 'bounceOutUp', 'fadeOut', 'fadeOutDown', 'fadeOutDownBig', 'fadeOutLeft', 'fadeOutLeftBig', 'fadeOutRight', 'fadeOutRightBig', 'fadeOutUp', 'fadeOutUpBig', 'rotateOut', 'rotateOutDownLeft', 'rotateOutDownRight', 'rotateOutUpLeft', 'rotateOutUpRight', 'slideOutDown', 'slideOutLeft', 'slideOutRight'];
 // 模拟推送数据
-$.get('https://blog.54zm.com/wall/get_user_list', function (json) {
+$.get('http://blog.54zm.com/wall/get_user_list', function (json) {
     var s = setInterval(function () {
         // 随机获取animate动画
         var rand_in = parseInt(Math.random() * _in.length, 10);
@@ -256,12 +256,20 @@ $.get('https://blog.54zm.com/wall/get_user_list', function (json) {
             var object = objects[i];
             var target = targets[i];
             new TWEEN.Tween(object.position)
-                .to({x: target.position.x, y: target.position.y, z: target.position.z}, Math.random() * duration + duration)
+                .to({
+                    x: target.position.x,
+                    y: target.position.y,
+                    z: target.position.z
+                }, Math.random() * duration + duration)
                 .easing(TWEEN.Easing.Exponential.InOut)
                 .start();
 
             new TWEEN.Tween(object.rotation)
-                .to({x: target.rotation.x, y: target.rotation.y, z: target.rotation.z}, Math.random() * duration + duration)
+                .to({
+                    x: target.rotation.x,
+                    y: target.rotation.y,
+                    z: target.rotation.z
+                }, Math.random() * duration + duration)
                 .easing(TWEEN.Easing.Exponential.InOut)
                 .start();
 

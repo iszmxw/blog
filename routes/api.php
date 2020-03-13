@@ -20,8 +20,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'ApiAdmin', 'middleware' => 'a
     Route::any('sms', 'AdminController@sms');
     // 退出系统
     Route::any('logout', 'AdminController@logout');
-    // 用户信息
-    Route::any('user_info', 'AdminController@user_info');
+    // 获取用户信息
+    Route::any('info', 'AdminController@info');
     // 系统首页
     Route::any('dashboard', 'AdminController@dashboard');
 

@@ -21,8 +21,8 @@ class AdminController extends Controller
      * 后台首页
      * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     * @author: iszmxw <mail@54zm.com>
-     * @Date：2019/11/16 10:00
+     * @author：iszmxw <mail@54zm.com>
+     * @time：2020/3/13 16:52
      */
     public function index(Request $request)
     {
@@ -43,8 +43,8 @@ class AdminController extends Controller
      * 基本配置
      * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     * @author: iszmxw <mail@54zm.com>
-     * @Date：2019/11/16 10:00
+     * @author：iszmxw <mail@54zm.com>
+     * @time：2020/3/13 16:52
      */
     public function config(Request $request)
     {
@@ -116,18 +116,12 @@ class AdminController extends Controller
     /**
      * 登录页面
      * @param Request $request
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
-     * @author: iszmxw <mail@54zm.com>
-     * @Date：2019/11/16 10:09
+     * @author：iszmxw <mail@54zm.com>
+     * @time：2020/3/13 16:53
      */
     public function login(Request $request)
     {
-        $data = $request->session()->get('user_data');
-        if ($data) {//检测是否已经登录，已经登录就跳转
-            return redirect('admin');
-        } else {
-            return view('admin.login');
-        }
+        dd($request);
     }
 
     /**

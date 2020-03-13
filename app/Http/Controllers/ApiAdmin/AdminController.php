@@ -171,29 +171,25 @@ class AdminController extends Controller
     }
 
     /**
-     * 后台登录检测
+     * 获取用户信息
      * @param Request $request
      * @return array
      * @author: iszmxw <mail@54zm.com>
      * @Date：2019/11/16 10:09
      */
-    public function login_check(Request $request)
+    public function info(Request $request)
     {
-        $username  = $request->get('username');
-        $password  = $request->get('password');
-        $user_data = User::getOne(['username' => $username]);
-        $data      = $user_data;
-        if ($user_data) {
-            if (decrypt($user_data['password']) == $password) {
-                Redis::connection('blog_admin')->set('user_data', json_encode($data));
-                session(['user_data' => $data]);
-                return ['msg' => '登录成功！', 'code' => 200];
-            } else {
-                return ['msg' => '密码不正确！', 'code' => 500];
-            }
-        } else {
-            return ['msg' => '用户不存在，请检查用户名是否正确！！', 'code' => 500];
+        $info = $request->get('info');
+        $data = User::getOne(['id' => $info['id']]);
+        dd($data);
+        if ($data['images_prove']) {
+            $data['images_prove'] = [json_decode($data['images_prove'], true)];
         }
+        if ($data['images_license']) {
+            $data['images_license'] = [json_decode($data['images_license'], true)];
+        }
+        unset($data['password']);
+        return ['code' => 200, 'message' => 'ok', 'data' => $data];
     }
 
 

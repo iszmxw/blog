@@ -29,7 +29,7 @@ class ApiAdmin
                 return $next($request);
                 break;
             default;
-                $res = self::LoginAndRoleCheck($request);
+                $res = self::LoginCheck($request);
                 return self::Response($res, $next);
                 break;
         }

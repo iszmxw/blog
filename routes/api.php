@@ -11,7 +11,7 @@
 
 
 // 后台业务接口
-Route::group(['prefix' => 'admin', 'namespace' => 'ApiAdmin', 'middleware' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'namespace' => 'ApiAdmin', 'middleware' => 'api_admin'], function () {
     // 登录系统
     Route::any('login', 'AdminController@login');
     // 登录日志

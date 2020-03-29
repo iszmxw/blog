@@ -24,26 +24,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'ApiAdmin', 'middleware' => 'a
     Route::any('info', 'AdminController@info');
     // 系统首页
     Route::any('dashboard', 'AdminController@dashboard');
-
-    // 账户管理
-    Route::group(['prefix' => 'account'], function () {
-        // 添加账号
-        Route::any('add', 'AccountController@add');
-        // 超级管理员编辑账号信息
-        Route::any('edit', 'AccountController@edit');
-        // 账户修改自己的信息
-        Route::any('edit_info', 'AccountController@edit_info');
-        // 修改账号密码
-        Route::any('password', 'AccountController@password');
-        // 账号状态更改
-        Route::any('status', 'AccountController@status');
-        // 账号脚本状态修改
-        Route::any('script_status', 'AccountController@script_status');
-        // 用户列表
-        Route::any('list', 'AccountController@list');
-        // 广告主获取账户信息
-        Route::any('info', 'AccountController@info');
-    });
 });
 
 

@@ -181,13 +181,6 @@ class AdminController extends Controller
     {
         $info = $request->get('info');
         $data = User::getOne(['id' => $info['id']]);
-        dd($data);
-        if ($data['images_prove']) {
-            $data['images_prove'] = [json_decode($data['images_prove'], true)];
-        }
-        if ($data['images_license']) {
-            $data['images_license'] = [json_decode($data['images_license'], true)];
-        }
         unset($data['password']);
         return ['code' => 200, 'message' => 'ok', 'data' => $data];
     }

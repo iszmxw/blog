@@ -229,7 +229,7 @@ class AdminController extends Controller
             $user_data = User::getOne(['id' => $id]);
             Redis::connection('blog_admin')->set('user_data', json_encode($user_data));
             session(['user_data' => $user_data]);
-            return redirect('admin');
+            return redirect('admin_web');
         } elseif (empty($qq_id)) {
             $user_qq_data['openid'] = $openid;
             Userqq::create($user_qq_data);
@@ -254,6 +254,6 @@ class AdminController extends Controller
     public function quit()
     {
         session()->put('user_data', '');
-        return redirect('admin/login');
+        return redirect('admin_web/login');
     }
 }

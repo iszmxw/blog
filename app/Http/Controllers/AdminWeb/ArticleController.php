@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\AdminWeb;
 
 use App\Models\Attachment;
 use App\Models\Blog;

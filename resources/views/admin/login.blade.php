@@ -24,7 +24,7 @@
         {{--<img src="{{url('api/wx_mini/scan_code')}}" alt="小程序二维码" style="width:80%;height:80%;display:block;margin:0 auto;">--}}
         {{--</div>--}}
         <div id="input-login">
-            <input type="hidden" id="url" value="{{url('admin/ajax/login_check')}}"> <input type="hidden" id="_token"
+            <input type="hidden" id="url" value="{{url('admin_web/ajax/login_check')}}"> <input type="hidden" id="_token"
                                                                                             value="{{csrf_token()}}">
             <div class='login_fields__user'>
                 <div class='icon'>

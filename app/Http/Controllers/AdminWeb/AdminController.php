@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\AdminWeb;
 
 use App\Models\Blog;
 use App\Models\Comment;
@@ -124,7 +124,7 @@ class AdminController extends Controller
     {
         $data = $request->session()->get('user_data');
         if ($data) {//检测是否已经登录，已经登录就跳转
-            return redirect('admin');
+            return redirect('admin_web');
         } else {
             return view('admin.login');
         }

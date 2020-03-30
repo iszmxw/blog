@@ -11,7 +11,7 @@
 */
 
 
-Route::group(['namespace' => 'Admin'], function () {
+Route::group(['namespace' => 'AdminWeb'], function () {
     //不需要检测登录和权限就可以访问的路由
     Route::get('login', 'AdminController@login');
     Route::post('ajax/login_check', 'AdminController@login_check');

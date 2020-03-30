@@ -62,8 +62,8 @@ class Kernel extends HttpKernel
         'throttle'      => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified'      => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         //注册后台路由所需要的中间件，在中间件里面做一些拦截
-        'admin'         => \App\Http\Middleware\Admin\Admin::class,
-        'api_admin'     => \App\Http\Middleware\Admin\ApiAdmin::class,
+        'admin'         => \App\Http\Middleware\AdminWeb\Admin::class,
+        'api_admin'     => \App\Http\Middleware\AdminWeb\ApiAdmin::class,
         'web_common'    => \App\Http\Middleware\Web\Web::class,
         'wx_mini'       => \App\Http\Middleware\Mini\Mini::class,
     ];

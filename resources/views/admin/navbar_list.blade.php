@@ -42,7 +42,7 @@
                         </div>
                         <br>
                         <div class="dd" id="nestable2">
-                            <input type="hidden" id="navbar_sort" value="{{ url('admin/ajax/navbar_sort') }}">
+                            <input type="hidden" id="navbar_sort" value="{{ url('admin_web/ajax/navbar_sort') }}">
                             <input type="hidden" id="_token" value="{{csrf_token()}}">
                             <ol class="dd-list">
                                 @foreach($navi as $key=>$val)

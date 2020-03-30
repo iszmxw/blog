@@ -112,7 +112,7 @@
     <div class="modal inmodal fade" id="add_data" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form action="{{url('admin/ajax/category_add_check')}}" id="post_url">
+                <form action="{{url('admin_web/ajax/category_add_check')}}" id="post_url">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span
@@ -154,7 +154,7 @@
     <div class="modal inmodal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form action="{{url('admin/ajax/category_data_edit_check')}}" id="currentForm">
+                <form action="{{url('admin_web/ajax/category_data_edit_check')}}" id="currentForm">
                     <input type="hidden" name="id" id="id">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                     <div class="modal-header">
@@ -232,7 +232,7 @@
 
         //获取分类数据
         function EditData(id) {
-            let url = "{{url('admin/ajax/category_data')}}";
+            let url = "{{url('admin_web/ajax/category_data')}}";
             let data = {'_token': "{{csrf_token()}}", 'id': id};
             $.post(url, data, function (json) {
                 if (json.code === 200) {
@@ -279,7 +279,7 @@
 
         //删除友情链接数据
         function deleted(id) {
-            let url = "{{url('admin/ajax/category_delete_check')}}";
+            let url = "{{url('admin_web/ajax/category_delete_check')}}";
             let data = {'_token': '{{csrf_token()}}', 'id': id};
             swal({
                     title: "你确定？",

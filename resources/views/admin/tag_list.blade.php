@@ -24,7 +24,7 @@
     <div class="modal inmodal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
-                <form action="{{url('admin/ajax/tag_edit_data_check')}}" id="currentForm">
+                <form action="{{url('admin_web/ajax/tag_edit_data_check')}}" id="currentForm">
                     <input type="hidden" name="id" id="id">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                     <div class="modal-header">
@@ -53,7 +53,7 @@
         //删除标签数据
         function deleted(id, e) {
             stopPropagation(e);
-            var url = "{{url('admin/ajax/tag_delete_check')}}";
+            var url = "{{url('admin_web/ajax/tag_delete_check')}}";
             var data = {'_token': '{{csrf_token()}}', 'id': id};
             swal({
                     title: "你确定？",
@@ -89,7 +89,7 @@
 
         //获取标签数据
         function EditData(id) {
-            var url = "{{url('admin/ajax/tag_edit_data')}}";
+            var url = "{{url('admin_web/ajax/tag_edit_data')}}";
             var data = {'_token': "{{csrf_token()}}", 'id': id};
             $.post(url, data, function (json) {
                 if (json.status == '1') {

@@ -19,7 +19,7 @@
                     </h5>
                 </div>
                 <div class="ibox-content">
-                    <form method="post" action="{{url('admin/ajax/config_edit_check')}}" id="currentForm"
+                    <form method="post" action="{{url('admin_web/ajax/config_edit_check')}}" id="currentForm"
                           class="form-horizontal">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                         <div class="form-group">

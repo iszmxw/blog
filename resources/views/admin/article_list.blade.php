@@ -156,11 +156,11 @@
         });
 
         function edit(id) {
-            window.location.href = "{{url('admin/article/article_edit?id=')}}" + id;
+            window.location.href = "{{url('admin_web/article/article_edit?id=')}}" + id;
         }
 
         function deleted(id) {
-            var url = "{{url('admin/ajax/article_delete_check')}}";
+            var url = "{{url('admin_web/ajax/article_delete_check')}}";
             var data = {'_token': '{{csrf_token()}}', 'id': id};
             swal({
                     title: "你确定？",

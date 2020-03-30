@@ -87,7 +87,7 @@
 
         //删除方法
         function delete_fn(id) {
-            var url = "{{url('admin/ajax/twitter_delete_check')}}";
+            var url = "{{url('admin_web/ajax/twitter_delete_check')}}";
             var data = {'_token': '{{csrf_token()}}', 'id': id};
             swal({
                     title: "你确定？",

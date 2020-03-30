@@ -111,7 +111,7 @@
 
 
 			<li>
-				<a href="{{url('admin/quit')}}">
+				<a href="{{url('admin_web/quit')}}">
 					<i class="fa fa-sign-out"></i> 注销
 				</a>
 			</li>

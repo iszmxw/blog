@@ -103,7 +103,7 @@
     <div class="modal inmodal fade" id="add_data" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form action="{{url('admin/ajax/link_list_add_check')}}" id="post_url">
+                <form action="{{url('admin_web/ajax/link_list_add_check')}}" id="post_url">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span
@@ -137,7 +137,7 @@
     <div class="modal inmodal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form action="{{url('admin/ajax/link_list_data_check')}}" id="currentForm">
+                <form action="{{url('admin_web/ajax/link_list_data_check')}}" id="currentForm">
                     <input type="hidden" name="id" id="id">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                     <div class="modal-header">
@@ -206,7 +206,7 @@
 
         //获取标签数据
         function EditData(id) {
-            var url = "{{url('admin/ajax/link_list_data')}}";
+            var url = "{{url('admin_web/ajax/link_list_data')}}";
             var data = {'_token': "{{csrf_token()}}", 'id': id};
             $.post(url, data, function (json) {
                 if (json.status == '1') {
@@ -253,7 +253,7 @@
 
         //删除友情链接数据
         function deleted(id) {
-            var url = "{{url('admin/ajax/link_delete_check')}}";
+            var url = "{{url('admin_web/ajax/link_delete_check')}}";
             var data = {'_token': '{{csrf_token()}}', 'id': id};
             swal({
                     title: "你确定？",

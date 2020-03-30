@@ -77,7 +77,7 @@
     <div class="modal inmodal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form action="{{url('admin/ajax/comment_data_check')}}" id="currentForm">
+                <form action="{{url('admin_web/ajax/comment_data_check')}}" id="currentForm">
                     <input type="hidden" name="id" id="id">
                     <input type="hidden" name="blog_id" id="blog_id">
                     <input type="hidden" name="pid" id="pid">
@@ -114,7 +114,7 @@
     <div class="modal inmodal fade" id="myModal_edit" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form action="{{url('admin/ajax/comment_data_check')}}" id="e_currentForm">
+                <form action="{{url('admin_web/ajax/comment_data_check')}}" id="e_currentForm">
                     <input type="hidden" name="id" id="e_id">
                     <input type="hidden" name="is_edit" value="1">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
@@ -156,7 +156,7 @@
     <script>
         //删除方法
         function delete_fn(id) {
-            var url = "{{url('admin/ajax/comment_delete_check')}}";
+            var url = "{{url('admin_web/ajax/comment_delete_check')}}";
             var data = {'_token': '{{csrf_token()}}', 'id': id};
             swal({
                     title: "你确定？",
@@ -192,7 +192,7 @@
 
         // 显示、隐藏方法
         function show_fn(id, hide) {
-            var url = "{{url('admin/ajax/comment_hide_check')}}";
+            var url = "{{url('admin_web/ajax/comment_hide_check')}}";
             var data = {'_token': '{{csrf_token()}}', 'id': id, 'hide': hide};
             $.post(url, data, function (json) {
                 if (json.status == 1) {
@@ -217,7 +217,7 @@
 
         //获取要回复人的相关信息
         function comment_fn(id) {
-            var url = "{{url('admin/ajax/comment_data')}}";
+            var url = "{{url('admin_web/ajax/comment_data')}}";
             var data = {'_token': "{{csrf_token()}}", 'id': id};
             $.post(url, data, function (json) {
                 if (json.status == '1') {
@@ -265,7 +265,7 @@
 
         //编辑方法
         function edit_fn(id) {
-            var url = "{{url('admin/ajax/comment_data')}}";
+            var url = "{{url('admin_web/ajax/comment_data')}}";
             var data = {'_token': "{{csrf_token()}}", 'id': id};
             $.post(url, data, function (json) {
                 if (json.status == '1') {

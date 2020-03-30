@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Middleware\Admin;
+namespace App\Http\Middleware\AdminWeb;
 
 use Closure;
 use Illuminate\Support\Facades\View;
@@ -10,8 +10,8 @@ class Admin
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure $next
      * @return mixed
      */
     public function handle($request, Closure $next)
@@ -22,8 +22,8 @@ class Admin
         if ($re['status'] == '0') {
             return $re['data'];
         } else {
-            switch ($route){ //检测特殊路由
-                case '/admin/quit';
+            switch ($route) { //检测特殊路由
+                case '/admin_web/quit';
                     break;
             }
         }
@@ -35,16 +35,16 @@ class Admin
     public static function CheckIsLogin($request)
     {
         $data = $request->session()->get('user_data');
-        if ($data){
-            $data['photo'] = str_replace('../','/',$data['photo']);
-            $request->attributes->add(['user_data'=>$data]);
+        if ($data) {
+            $data['photo'] = str_replace('../', '/', $data['photo']);
+            $request->attributes->add(['user_data' => $data]);
             View::share('user_data', $data);
-            return self::RtData(1,$request);
-        }else{
+            return self::RtData(1, $request);
+        } else {
             if ($request->isMethod('post')) {
-                return self::RtJson(0,'登录状态失效!');
+                return self::RtJson(0, '登录状态失效!');
             } elseif ($request->isMethod('get')) {
-                return self::RtData(0,redirect('admin/login'));
+                return self::RtData(0, redirect('admin_web/login'));
             }
         }
     }
@@ -53,25 +53,25 @@ class Admin
     public static function CheckIsLoginAndHasRole($request)
     {
         $re = self::CheckIsLogin($request);
-        if ($re['status'] == '0'){
+        if ($re['status'] == '0') {
             return $re;
-        }else{
+        } else {
             //权限暂时不做拦截
             return $re;
         }
     }
 
     //返回结果
-    public static function RtData($status,$data)
+    public static function RtData($status, $data)
     {
-        return ['status'=>$status,'data'=>$data];
+        return ['status' => $status, 'data' => $data];
     }
 
 
     //返回Json数据
-    public static function RtJson($status,$data)
+    public static function RtJson($status, $data)
     {
-        return response()->json(['status'=>$status,'data'=>$data]);
+        return response()->json(['status' => $status, 'data' => $data]);
     }
 
     //格式化返回值

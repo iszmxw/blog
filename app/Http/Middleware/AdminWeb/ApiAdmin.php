@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Middleware\Admin;
+namespace App\Http\Middleware\AdminWeb;
 
 use App\Library\Tools;
 use Closure;

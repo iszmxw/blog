@@ -63,7 +63,7 @@ class Kernel extends HttpKernel
         'verified'      => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         //注册后台路由所需要的中间件，
         'admin'         => \App\Http\Middleware\Admin\Admin::class,
-        'admin_web'     => \App\Http\Middleware\AdminWeb\Admin::class,
+        'admin_web'     => \App\Http\Middleware\AdminWeb\AdminWeb::class,
         'web_common'    => \App\Http\Middleware\Web\Web::class,
         'wx_mini'       => \App\Http\Middleware\Mini\Mini::class,
     ];

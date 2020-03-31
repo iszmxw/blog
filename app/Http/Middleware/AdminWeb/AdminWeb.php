@@ -5,7 +5,7 @@ namespace App\Http\Middleware\AdminWeb;
 use Closure;
 use Illuminate\Support\Facades\View;
 
-class Admin
+class AdminWeb
 {
     /**
      * Handle an incoming request.

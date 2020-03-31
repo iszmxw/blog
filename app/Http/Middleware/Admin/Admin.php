@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Middleware\AdminWeb;
+namespace App\Http\Middleware\Admin;
 
 use App\Library\Tools;
 use Closure;
 use Illuminate\Support\Facades\Cache;
 
-class ApiAdmin
+class Admin
 {
     /**
      * Handle an incoming request.
@@ -20,9 +20,8 @@ class ApiAdmin
         $route     = $request->path();
         $arr_route = explode('/', $route);
         switch ($route) {
-            case 'api/admin/sms';
-            case 'api/admin/login';
-            case 'api/admin/advert/image_upload';
+            case 'admin/api/sms';
+            case 'admin/api/login';
             case 'api/admin/collection/' . end($arr_route);
                 return $next($request);
                 break;

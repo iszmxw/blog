@@ -78,15 +78,18 @@ class LoginController extends Controller
         return ['code' => 200, 'message' => '获取用户信息成功！', 'data' => $data];
     }
 
+
     /**
-     * 退出后台
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * 退出登录
+     * @param Request $request
+     * @return array
      * @author: iszmxw <mail@54zm.com>
-     * @Date：2019/11/16 10:20
+     * @Date：2020/4/6 22:43
      */
-    public function quit()
+    public function logout(Request $request)
     {
-        session()->put('user_data', '');
-        return redirect('admin_web/login');
+        $token = $request->get('token');
+        Cache::forget($token);
+        return ['code' => 200, 'message' => '操作成功！'];
     }
 }

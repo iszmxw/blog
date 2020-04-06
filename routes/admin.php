@@ -20,6 +20,9 @@ Route::group(['namespace' => 'Admin'], function () {
         // 获取用户信息
         Route::any('info', 'LoginController@info');
 
+        // 系统首页
+        Route::any('dashboard', 'DashboardController@dashboard');
+
     });
 });
 

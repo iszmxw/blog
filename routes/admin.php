@@ -13,9 +13,12 @@
 
 Route::group(['namespace' => 'Admin'], function () {
     //需要检测登录和权限才能访问
-    Route::group(['middleware' => 'admin', 'prefix' => 'api'], function () {
+    Route::group(['prefix' => 'api'], function () {
 
-        Route::get('login', 'LoginController@login');
+        // 登录后台
+        Route::any('login', 'LoginController@login');
+        // 获取用户信息
+        Route::any('info', 'LoginController@info');
 
     });
 });

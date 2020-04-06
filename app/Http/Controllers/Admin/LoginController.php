@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redis;
 use Ramsey\Uuid\Uuid;
@@ -56,7 +57,7 @@ class LoginController extends Controller
                 DB::rollBack();
                 return ['code' => 500, 'data' => [], 'message' => '登录失败请刷新后再试！'];
             }
-            return ['code' => 200, 'data' => ['token' => $token]];
+            return ['code' => 200, 'message' => '恭喜您登录成功！', 'data' => ['token' => $token]];
         } else {
             return ['code' => 500, 'data' => [], 'message' => '账号密码不正确！'];
         }
@@ -74,7 +75,7 @@ class LoginController extends Controller
         $info = $request->get('info');
         $data = User::getOne(['id' => $info['id']]);
         unset($data['password']);
-        return ['code' => 200, 'message' => 'ok', 'data' => $data];
+        return ['code' => 200, 'message' => '获取用户信息成功！', 'data' => $data];
     }
 
     /**

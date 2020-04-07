@@ -38,7 +38,7 @@ class Defaults extends Model
         if (!empty($where)) {
             $model = $model->where($where);
         }
-        if(!empty($orderby)){
+        if (!empty($orderby)) {
             $model = $model->orderBy($orderby, $sort);
         }
         if (!empty($offset)) {
@@ -58,7 +58,7 @@ class Defaults extends Model
 
 
     //分页获取数据
-    public static function getPaginate($where = [], $field = [], $paginate = 1, $orderby = "", $sort = "DESC")
+    public static function getPaginate($where = [], $field = [], $paginate = 10, $orderby = "", $sort = "DESC")
     {
         if (empty($field)) {
             $field = '*';
@@ -67,7 +67,7 @@ class Defaults extends Model
         if (!empty($where)) {
             $model = $model->where($where);
         }
-        if (!empty($orderby)){
+        if (!empty($orderby)) {
             $model = $model->orderBy($orderby, $sort);
         }
         $res = $model->paginate($paginate);
@@ -125,9 +125,9 @@ class Defaults extends Model
     public static function getPluck($where = [], $field = "id")
     {
         $res = self::where($where)->pluck($field);
-        if(!empty($res)){
+        if (!empty($res)) {
             return $res->toArray();
-        }else{
+        } else {
             return false;
         }
     }

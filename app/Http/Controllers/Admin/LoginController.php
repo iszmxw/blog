@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Library\IpAddress;
+use App\Models\LoginLog;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Redis;
 use Ramsey\Uuid\Uuid;
 
 class LoginController extends Controller
@@ -23,8 +24,8 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         // 用户ip
-//        $ip       = $request->getClientIp();
-//        $address  = IpAddress::address($ip);
+        $ip       = $request->getClientIp();
+        $address  = IpAddress::address($ip);
         $username = $request->get('username');
         $password = $request->get('password');
         if (empty($username))
@@ -52,6 +53,13 @@ class LoginController extends Controller
             DB::beginTransaction();
             try {
                 Cache::add($token, $info, 3600);
+                LoginLog::AddData([
+                    'user_id'  => $user['id'],
+                    'username' => $user['username'],
+                    'role'     => $user['role'],
+                    'ip'       => $ip,
+                    'address'  => $address['location'],
+                ]);
                 DB::commit();
             } catch (\Exception $e) {
                 DB::rollBack();

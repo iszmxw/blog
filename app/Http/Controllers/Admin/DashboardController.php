@@ -15,7 +15,7 @@ use Ramsey\Uuid\Uuid;
 
 class DashboardController extends Controller
 {
-    public function dashboard(Request $request)
+    public function index(Request $request)
     {
         // 文章数量
         $blog_num = Blog::getCount();

@@ -21,8 +21,9 @@ Route::group(['namespace' => 'Admin'], function () {
         Route::any('info', 'LoginController@info');
 
         // 系统首页
-        Route::any('dashboard', 'DashboardController@dashboard');
-
+        Route::group(['prefix' => 'dashboard'], function () {
+            Route::any('index', 'DashboardController@index');
+        });
 
         // 系统管理
         Route::group(['prefix' => 'system'], function () {

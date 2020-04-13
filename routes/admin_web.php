@@ -20,7 +20,7 @@ Route::group(['namespace' => 'AdminWeb'], function () {
     Route::get('quit', 'AdminController@quit');
 
     //需要检测登录和权限才能访问
-    Route::group(['middleware' => 'admin'], function () {
+    Route::group(['middleware' => 'admin_web'], function () {
         Route::get('/', 'AdminController@index');
         Route::get('config', 'AdminController@config');
         Route::get('view_log', 'AdminController@view_log');

@@ -34,7 +34,7 @@ class DashboardController extends Controller
             'php'         => PHP_VERSION,
             'serve'       => $_SERVER ['SERVER_SOFTWARE'],
             'serve_name'  => $_SERVER['SERVER_NAME'],
-            'tp_version'  => app()::VERSION,
+            'version'     => "Laravel @ {" . app()::VERSION . "} ",
             'login_log'   => $login_log
         ];
         return ['code' => 200, 'message' => 'ok', 'data' => $data];

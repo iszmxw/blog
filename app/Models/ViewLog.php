@@ -19,4 +19,28 @@ class ViewLog extends Defaults
     protected $table = 'view_log';
     protected $primaryKey = 'id';
 
+    /**
+     * 格式化返回时间戳
+     * @param $time
+     * @return false|string
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2020/4/13 20:56
+     */
+    public function getCreatedAtAttribute($time)
+    {
+        return date('Y-m-d H:i:s', $time);
+    }
+
+    /**
+     * 格式化返回时间戳
+     * @param $time
+     * @return false|string
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2020/4/13 20:56
+     */
+    public function getUpdatedAtAttribute($time)
+    {
+        return date('Y-m-d H:i:s', $time);
+    }
+
 }

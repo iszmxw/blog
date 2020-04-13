@@ -122,7 +122,7 @@ class AdminController extends Controller
      */
     public function login(Request $request)
     {
-        $data = $request->session()->get('user_data');
+        $data = session()->get('user_data');
         if ($data) {//检测是否已经登录，已经登录就跳转
             return redirect('admin_web');
         } else {

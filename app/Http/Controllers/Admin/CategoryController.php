@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Blog;
+use App\Models\Sort;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -14,7 +16,13 @@ class CategoryController extends Controller
     // 栏目列表
     public function category_list(Request $request)
     {
-
+        $where = [];
+        $list  = Sort::getPaginate($where, '', 100, 'sort', 'ASC');
+        $sort  = Sort::getList([]);
+        foreach ($list as $value) {
+            $value['article_num'] = Blog::getCount(['sort_id' => $value['id']]);
+        }
+        return ['code' => 200, 'message' => 'ok', 'data' => $list];
     }
 
 

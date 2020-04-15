@@ -80,8 +80,9 @@ class LoginController extends Controller
      */
     public function info(Request $request)
     {
-        $info = $request->get('info');
-        $data = User::getOne(['id' => $info['id']]);
+        $info           = $request->get('info');
+        $data           = User::getOne(['id' => $info['id']]);
+        $data['avatar'] = config('app.url') . trim($data['photo'], '.');
         unset($data['password']);
         return ['code' => 200, 'message' => '获取用户信息成功！', 'data' => $data];
     }

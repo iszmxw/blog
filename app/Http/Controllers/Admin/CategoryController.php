@@ -35,7 +35,11 @@ class CategoryController extends Controller
     // 编辑栏目
     public function category_edit(Request $request)
     {
-
+        $id          = $request->get('id');
+        $name        = $request->get('name');
+        $pid         = $request->get('pid');
+        $description = $request->get('description');
+        $alias       = $request->get('alias');
     }
 
     // 删除栏目

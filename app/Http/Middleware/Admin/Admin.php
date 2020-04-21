@@ -22,6 +22,8 @@ class Admin
         switch ($route) {
             case 'admin/api/sms';
             case 'admin/api/login';
+            case 'admin/api/save_data';
+            case 'admin/api/show_data';
             case 'api/admin/collection/' . end($arr_route);
                 return $next($request);
                 break;

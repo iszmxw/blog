@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Library\IpAddress;
+use App\Models\Iszmxw;
 use App\Models\LoginLog;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -100,5 +101,35 @@ class LoginController extends Controller
         $token = $request->get('token');
         Cache::forget($token);
         return ['code' => 200, 'message' => '操作成功！'];
+    }
+
+
+    /**
+     * 收集数据
+     * @param Request $request
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2020/4/21 23:39
+     */
+    public function save_data(Request $request)
+    {
+//        $data = $request->all();
+        $res = file_get_contents("php://input");
+        if ($res) {
+            Iszmxw::AddData([
+                'content' => json_encode($res, true)
+            ]);
+        }
+    }
+
+    /**
+     * 展示数据
+     * @param Request $request
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2020/4/21 23:40
+     */
+    public function show_data(Request $request)
+    {
+        $list = Iszmxw::getList();
+        dump($list);
     }
 }

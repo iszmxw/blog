@@ -105,4 +105,5 @@ class NavbarController extends Controller
             return ['code' => 500, 'message' => '删除导航栏失败，请稍后再试！'];
         }
     }
+    
 }

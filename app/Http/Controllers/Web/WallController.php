@@ -129,6 +129,7 @@ class WallController extends Controller
         dump($uuid);
         if ($uuid) {
             $data = Cache::get($uuid);
+            dump($data);
             if ($data) {
                 $data = decrypt($data);
                 if ($data['status'] == '0') {

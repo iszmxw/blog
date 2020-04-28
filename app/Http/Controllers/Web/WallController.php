@@ -129,9 +129,9 @@ class WallController extends Controller
         dump($uuid);
         if ($uuid) {
             $data = Cache::get($uuid);
-            dump($data);
             if ($data) {
                 $data = decrypt($data);
+                dump($data);
                 if ($data['status'] == '0') {
                     return ['status' => 1, 'msg' => '扫码成功', 'data' => []];
                 } elseif ($data['status'] == '1') {

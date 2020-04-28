@@ -53,3 +53,5 @@ Route::get('phpinfo', function () {
 Route::get('iszmxw/logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
 Route::get('bomb', 'Web\WebController@bomb');
+
+Route::get('images', 'Web\WebController@images');

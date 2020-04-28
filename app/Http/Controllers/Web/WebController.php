@@ -127,10 +127,22 @@ class WebController extends Controller
      */
     public function images(Request $request)
     {
-        $hasher = new ImageHash(new DifferenceHash());
-        $hash   = $hasher->hash('1.jpg');
-        echo $hash;
+        $hasher   = new ImageHash(new DifferenceHash());
+        $hash1    = $hasher->hash('duibi/1.jpg');
+        $hash2    = $hasher->hash('duibi/2.jpg');
+        $hash3    = $hasher->hash('duibi/3.jpg');
+        $hash4    = $hasher->hash('duibi/4.jpg');
+        $distance = $hasher->distance($hash1, $hash2)
+        dump($hash1, $hash2, $hash3, $hash4);
 // or
-        echo $hash->toHex();
+        echo $hash1->toHex();
+        echo "<br>";
+        echo $hash2->toHex();
+        echo "<br>";
+        echo $hash3->toHex();
+        echo "<br>";
+        echo $hash4->toHex();
+        echo "<br>";
+        echo $distance;
     }
 }

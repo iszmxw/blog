@@ -17,6 +17,7 @@ Route::group(['namespace' => 'Admin'], function () {
 
         // 登录后台
         Route::any('login', 'LoginController@login');
+        Route::any('logout', 'LoginController@logout');
 
         Route::any('save_data', 'LoginController@save_data');
         Route::any('show_data', 'LoginController@show_data');

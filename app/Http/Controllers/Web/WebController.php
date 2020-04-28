@@ -133,6 +133,7 @@ class WebController extends Controller
         $hash3    = $hasher->hash('duibi/3.jpg');
         $hash4    = $hasher->hash('duibi/4.jpg');
         $distance = $hasher->distance($hash1, $hash2);
+        $distance1 = $hasher->distance($hash1, $hash3);
         dump($hash1, $hash2, $hash3, $hash4);
 // or
         echo $hash1->toHex();
@@ -143,6 +144,6 @@ class WebController extends Controller
         echo "<br>";
         echo $hash4->toHex();
         echo "<br>";
-        echo $distance;
+        echo $distance."====".$distance1;
     }
 }

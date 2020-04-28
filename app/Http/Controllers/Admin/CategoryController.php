@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Blog;
+use App\Models\Navi;
 use App\Models\Sort;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -22,6 +23,21 @@ class CategoryController extends Controller
         foreach ($list as $value) {
             $value['article_num'] = Blog::getCount(['sort_id' => $value['id']]);
         }
+        return ['code' => 200, 'message' => 'ok', 'data' => $list];
+    }
+
+
+    /**
+     * 导航列表
+     * @param Request $request
+     * @return array
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2020/4/28 15:29
+     */
+    public function navbar_list(Request $request)
+    {
+        $where = [];
+        $list  = Navi::getPaginate($where, '', 100, 'sort', 'ASC');
         return ['code' => 200, 'message' => 'ok', 'data' => $list];
     }
 

@@ -56,9 +56,13 @@ Route::group(['namespace' => 'Admin'], function () {
         // 首页导航管理
         Route::group(['prefix' => 'navbar'], function () {
             // 导航列表
-            Route::any('navbar_list', 'CategoryController@navbar_list');
+            Route::any('navbar_list', 'NavbarController@navbar_list');
+            // 导航排序
+            Route::any('navbar_sort', 'NavbarController@navbar_sort');
             // 添加导航
-            Route::any('navbar_add', 'CategoryController@navbar_add');
+            Route::any('navbar_add', 'NavbarController@navbar_add');
+            // 删除导航
+            Route::any('navbar_delete', 'NavbarController@navbar_delete');
         });
 
 

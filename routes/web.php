@@ -45,7 +45,7 @@ Route::any('git_pull', 'Tooling\ToolingController@get_pull');
 
 
 Route::get('phpinfo', function () {
-    dd("别想了，你还是做个好人吧！");
+//    dd("别想了，你还是做个好人吧！");
     phpinfo();
 });
 

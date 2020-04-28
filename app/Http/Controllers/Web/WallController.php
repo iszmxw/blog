@@ -27,7 +27,7 @@ class WallController extends Controller
 
     public function get_user_list()
     {
-        $qq   = Userqq::where([])->select(['id', 'openid', 'nickname', 'header_img']);
+        $qq = Userqq::where([])->select(['id', 'openid', 'nickname', 'header_img']);
         $mini = UserMini::where([])->select(['id', 'openid', 'nickname', 'avatarurl as header_img']);
         $list = $qq->union($mini)->get();
 
@@ -47,11 +47,11 @@ class WallController extends Controller
     //QQ登录授权第一步
     public function qq_login_auth(Request $request)
     {
-        $prev_url     = url()->previous();
-        $appid        = '101518045';
+        $prev_url = url()->previous();
+        $appid = '101518045';
         $redirect_uri = 'http://blog.54zm.com/wall/qq_login';
-        $request_url  = 'https://graph.qq.com/oauth2.0/authorize';
-        $url          = $request_url . '?response_type=code&client_id=' . $appid . '&redirect_uri=' . $redirect_uri . '&state=' . $prev_url . '&scope=get_user_info';
+        $request_url = 'https://graph.qq.com/oauth2.0/authorize';
+        $url = $request_url.'?response_type=code&client_id='.$appid.'&redirect_uri='.$redirect_uri.'&state='.$prev_url.'&scope=get_user_info';
 
         return redirect($url);
     }
@@ -60,30 +60,30 @@ class WallController extends Controller
     //QQ登录授权第二步
     public function qq_login(Request $request)
     {
-        $client_id     = '101518045';
+        $client_id = '101518045';
         $client_secret = '9d7c45e29ed77a7d728b2367f06361f8';
-        $code          = $request->get('code');
+        $code = $request->get('code');
         //上一页地址
         $state = $request->get('state');
         //跳转回调地址
         $redirect_uri = 'http://blog.54zm.com/wall/qq_login';
         //请求地址
-        $url      = "https://graph.qq.com/oauth2.0/token?grant_type=authorization_code&client_id={$client_id}&client_secret={$client_secret}&code={$code}&redirect_uri={$redirect_uri}";
-        $client   = new Client();
+        $url = "https://graph.qq.com/oauth2.0/token?grant_type=authorization_code&client_id={$client_id}&client_secret={$client_secret}&code={$code}&redirect_uri={$redirect_uri}";
+        $client = new Client();
         $response = $client->get($url)->getBody()->getContents();
 
         //检测返回结果是否包含错误信息
         $error_msg = strstr($response, 'error');
         if ($error_msg) {
             //如果包含错误信息则返回上一级页面重新登录
-            return redirect(config('app.url') . '/admin/qq_login_auth');
+            return redirect(config('app.url').'/admin/qq_login_auth');
         }
 
         //获取access_token
-        $data         = explode('&', $response);
-        $data         = explode('=', $data[0]);
+        $data = explode('&', $response);
+        $data = explode('=', $data[0]);
         $access_token = $data[1];
-        $result       = $client->get('https://graph.qq.com/oauth2.0/me?access_token=' . $access_token)->getBody()->getContents();
+        $result = $client->get('https://graph.qq.com/oauth2.0/me?access_token='.$access_token)->getBody()->getContents();
         //将返回的jsonp转换为json
         $re_json = trim(str_replace(';', '', str_replace(')', '', str_replace('callback(', '', $result))));
         //获取openid
@@ -94,15 +94,15 @@ class WallController extends Controller
         $user_info = json_decode($user_info, true);
 
         $user_info['openid'] = $openid;
-        $qq_id               = Userqq::getValue(['openid' => $openid], 'id');
+        $qq_id = Userqq::getValue(['openid' => $openid], 'id');
         //需要更新的数据
         $user_qq_data = [
-            'nickname'   => $user_info['nickname'],
+            'nickname' => $user_info['nickname'],
             'header_img' => $user_info['figureurl_qq_2'],
-            'sex'        => $user_info['gender'],
-            'year'       => $user_info['year'],
-            'province'   => $user_info['province'],
-            'city'       => $user_info['city'],
+            'sex' => $user_info['gender'],
+            'year' => $user_info['year'],
+            'province' => $user_info['province'],
+            'city' => $user_info['city'],
         ];
         if (empty($qq_id)) {
             $user_qq_data['openid'] = $openid;
@@ -126,12 +126,10 @@ class WallController extends Controller
     public function scan_code_status(Request $request)
     {
         $uuid = $request->get('uuid');
-        dump($uuid);
         if ($uuid) {
             $data = Cache::get($uuid);
             if ($data) {
                 $data = decrypt($data);
-                dump($data);
                 if ($data['status'] == '0') {
                     return ['status' => 1, 'msg' => '扫码成功', 'data' => []];
                 } elseif ($data['status'] == '1') {

@@ -132,7 +132,7 @@ class WebController extends Controller
         $hash2    = $hasher->hash('duibi/2.jpg');
         $hash3    = $hasher->hash('duibi/3.jpg');
         $hash4    = $hasher->hash('duibi/4.jpg');
-        $distance = $hasher->distance($hash1, $hash2)
+        $distance = $hasher->distance($hash1, $hash2);
         dump($hash1, $hash2, $hash3, $hash4);
 // or
         echo $hash1->toHex();

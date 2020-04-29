@@ -19,10 +19,8 @@ use Jenssegers\ImageHash\Implementations\DifferenceHash;
 class WebController extends Controller
 {
     //首页控制器
-    public function index(Request $request)
+    public function index()
     {
-        $top_search = $request->get('top_search');
-        dump($top_search);
         $blog = Blog::getPaginate([], ['blog.id', 'blog.sort_id', 'blog.title', 'blog.created_at', 'blog.content', 'blog.views'], 10, 'created_at', 'DESC');
         foreach ($blog as $value) {
             $value['content']   = Tooling::tool_purecontent($value['content'], 240);
@@ -129,12 +127,12 @@ class WebController extends Controller
      */
     public function images(Request $request)
     {
-        $hasher    = new ImageHash(new DifferenceHash());
-        $hash1     = $hasher->hash('duibi/1.jpg');
-        $hash2     = $hasher->hash('duibi/2.jpg');
-        $hash3     = $hasher->hash('duibi/3.jpg');
-        $hash4     = $hasher->hash('duibi/4.jpg');
-        $distance  = $hasher->distance($hash1, $hash2);
+        $hasher   = new ImageHash(new DifferenceHash());
+        $hash1    = $hasher->hash('duibi/1.jpg');
+        $hash2    = $hasher->hash('duibi/2.jpg');
+        $hash3    = $hasher->hash('duibi/3.jpg');
+        $hash4    = $hasher->hash('duibi/4.jpg');
+        $distance = $hasher->distance($hash1, $hash2);
         $distance1 = $hasher->distance($hash1, $hash3);
         dump($hash1, $hash2, $hash3, $hash4);
 // or
@@ -146,6 +144,6 @@ class WebController extends Controller
         echo "<br>";
         echo $hash4->toHex();
         echo "<br>";
-        echo $distance . "====" . $distance1;
+        echo $distance."====".$distance1;
     }
 }

@@ -28,7 +28,8 @@ class WallController extends Controller
         $qq_data = session()->get('qq_data');
         $qq      = $request->get('qq');
         if (empty($qq_data['qq']) && is_numeric($qq)) {
-            $url    = "http://q1.qlogo.cn/g?b=qq&nk=$qq@qq.com&s=640";
+            $url = "http://q1.qlogo.cn/g?b=qq&nk=$qq@qq.com&s=640";
+            @unlink("./upload/qq_images/{$qq_data['openid']}/2.jpg");
             $images = Upload::download($url, '2.jpg', "./upload/qq_images/{$qq_data['openid']}");
             // 处理高清头像
             if ($images['error'] != 0) {
@@ -125,7 +126,8 @@ class WallController extends Controller
 
         $user_info['openid'] = $openid;
         $qq_id               = Userqq::getValue(['openid' => $openid], 'id');
-        $images              = Upload::download($user_info['figureurl_qq'], '1.jpg', "./upload/qq_images/$openid");
+        @unlink("./upload/qq_images/{$openid}/1.jpg");
+        $images = Upload::download($user_info['figureurl_qq'], '1.jpg', "./upload/qq_images/{$openid}");
         //需要更新的数据
         $user_qq_data = [
             'nickname'   => $user_info['nickname'],

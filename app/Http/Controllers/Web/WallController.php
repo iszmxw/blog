@@ -106,7 +106,7 @@ class WallController extends Controller
             'province'   => $user_info['province'],
             'city'       => $user_info['city'],
         ];
-        Upload::download($user_qq_data['hd_img'], '1.jpg', "./public/upload/qq_images/$openid/");
+        Upload::download($user_qq_data['hd_img'], '1.jpg', "./upload/qq_images/$openid/");
         if (empty($qq_id)) {
             $user_qq_data['openid'] = $openid;
             Userqq::create($user_qq_data);

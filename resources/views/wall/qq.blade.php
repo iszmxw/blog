@@ -27,7 +27,8 @@
                     <div class="col-lg-12">
                         <form class="m-t" role="form" action="">
                             <div class="form-group">
-                                <input type="number" class="form-control" placeholder="请输入您登陆的QQ号码，方便以后联系" required="">
+                                <input type="number" name="qq" class="form-control" placeholder="请输入您登陆的QQ号码，方便以后联系"
+                                       required="">
                             </div>
                             <button type="submit" class="btn btn-primary block full-width m-b">确认此QQ</button>
                         </form>

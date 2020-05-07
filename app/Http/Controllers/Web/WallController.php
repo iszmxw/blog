@@ -49,7 +49,11 @@ class WallController extends Controller
                 dd("对不起系统检测到您输入的QQ号码不是您此次登录的QQ，请您确保输入与登录QQ一致，当前错误代码：{$distance1}");
             }
         }
-        if (empty($qq_data['qq']) && $qq_data['type'] == 'qq') {
+
+        if (empty($qq_data['type'])) {
+            return view('wall.index');
+        }
+        if (empty($qq_data['qq'])) {
             return view('wall.qq');
         } else {
             return view('wall.index');

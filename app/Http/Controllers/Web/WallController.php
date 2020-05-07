@@ -100,6 +100,7 @@ class WallController extends Controller
         $user_qq_data = [
             'nickname'   => $user_info['nickname'],
             'header_img' => $user_info['figureurl_qq_2'],
+            'hd_img'     => $user_info['figureurl_qq'],
             'sex'        => $user_info['gender'],
             'year'       => $user_info['year'],
             'province'   => $user_info['province'],

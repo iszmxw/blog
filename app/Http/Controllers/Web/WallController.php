@@ -23,8 +23,7 @@ class WallController extends Controller
 {
     public function index(Request $request)
     {
-        $qq_data = $request->get('qq_data');
-        dd($request);
+        dd(session()->get('qq_data'));
         return view('wall.index');
     }
 

@@ -114,16 +114,14 @@ class WallController extends Controller
         if (empty($qq_id)) {
             $user_qq_data['openid'] = $openid;
             Userqq::create($user_qq_data);
-            //用户登录留言使用
-            session(['qq_data' => $user_qq_data]);
-            $request->attributes->add(['qq_data' => $user_qq_data]); //添加参数
         } else {
             Userqq::EditData(['openid' => $openid], $user_qq_data);
-            //用户登录留言使用
-            session(['qq_data' => $user_qq_data]);
-            Redis::connection('blog_admin')->set('qq_data', json_encode($user_qq_data));
-            $request->attributes->add(['qq_data' => $user_qq_data]); //添加参数
         }
+        //用户登录留言使用
+        $session_data = Userqq::getOne(['openid' => $openid]);
+        session(['qq_data' => $session_data]);
+        $request->attributes->add(['qq_data' => $user_qq_data]); //添加参数
+        Redis::connection('blog_admin')->set('qq_data', json_encode($user_qq_data));
 
         return redirect(url('wall/index'));
     }

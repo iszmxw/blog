@@ -127,13 +127,13 @@ class WebController extends Controller
      */
     public function images(Request $request)
     {
-        $hasher   = new ImageHash(new DifferenceHash());
-        $hash1    = $hasher->hash('duibi/1.jpg');
-        $hash2    = $hasher->hash('duibi/2.jpg');
-        $hash3    = $hasher->hash('duibi/3.jpg');
-        $hash4    = $hasher->hash('duibi/4.jpg');
-        $distance = $hasher->distance($hash1, $hash2);
-        $distance1 = $hasher->distance($hash1, $hash3);
+        $hasher    = new ImageHash(new DifferenceHash());
+        $hash1     = $hasher->hash('duibi/1.jpg');
+        $hash2     = $hasher->hash('duibi/2.jpg');
+        $hash3     = $hasher->hash('http://q1.qlogo.cn/g?b=qq&nk=543619552@qq.com&s=640');
+        $hash4     = $hasher->hash('http://thirdqq.qlogo.cn/g?b=oidb&k=LoGg40Ia0d72iaLmevg0rog&s=640&t=1555902380');
+        $distance  = $hasher->distance($hash1, $hash2);
+        $distance1 = $hasher->distance($hash3, $hash4);
         dump($hash1, $hash2, $hash3, $hash4);
 // or
         echo $hash1->toHex();
@@ -144,6 +144,6 @@ class WebController extends Controller
         echo "<br>";
         echo $hash4->toHex();
         echo "<br>";
-        echo $distance."====".$distance1;
+        echo $distance . "====" . $distance1;
     }
 }

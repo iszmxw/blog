@@ -46,7 +46,7 @@ class WallController extends Controller
                 session(['qq_data' => $res]);
                 return view('wall.index');
             } else {
-                dd($distance1);
+                dd("对不起系统检测到您输入的QQ号码不是您此次登录的QQ，请您确保输入与登录QQ一致，当前错误代码：{$distance1}");
             }
         }
         if (empty($qq_data['qq'])) {

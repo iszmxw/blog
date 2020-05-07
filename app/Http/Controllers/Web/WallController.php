@@ -27,7 +27,6 @@ class WallController extends Controller
     {
         $qq_data = session()->get('qq_data');
         $qq      = $request->get('qq');
-        dd($qq_data);
         if (empty($qq_data['qq']) && is_numeric($qq)) {
             $url = "http://q1.qlogo.cn/g?b=qq&nk=$qq@qq.com&s=640";
             @unlink("./upload/qq_images/{$qq_data['openid']}/2.jpg");
@@ -50,7 +49,7 @@ class WallController extends Controller
                 dd("对不起系统检测到您输入的QQ号码不是您此次登录的QQ，请您确保输入与登录QQ一致，当前错误代码：{$distance1}");
             }
         }
-        if (empty($qq_data['qq'])) {
+        if (empty($qq_data['qq']) && $qq_data['type'] == 'qq') {
             return view('wall.qq');
         } else {
             return view('wall.index');
@@ -149,7 +148,8 @@ class WallController extends Controller
             Userqq::EditData(['openid' => $openid], $user_qq_data);
         }
         //用户登录留言使用
-        $session_data = Userqq::getOne(['openid' => $openid]);
+        $session_data         = Userqq::getOne(['openid' => $openid]);
+        $session_data['type'] = 'qq';
         session(['qq_data' => $session_data]);
         $request->attributes->add(['qq_data' => $user_qq_data]); //添加参数
         Redis::connection('blog_admin')->set('qq_data', json_encode($user_qq_data));

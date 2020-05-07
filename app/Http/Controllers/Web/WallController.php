@@ -18,6 +18,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redis;
+use Jenssegers\ImageHash\ImageHash;
+use Jenssegers\ImageHash\Implementations\DifferenceHash;
 
 class WallController extends Controller
 {
@@ -25,7 +27,19 @@ class WallController extends Controller
     {
         $qq_data = session()->get('qq_data');
         $qq      = $request->get('qq');
-        dump($qq_data, $qq);
+        $url     = "http://q1.qlogo.cn/g?b=qq&nk=$qq@qq.com&s=640";
+        $images  = Upload::download($url, '2.jpg', "./upload/qq_images/{$qq_data['openid']}");
+        // 处理高清头像
+        if ($images['error'] != 0) {
+            return ['code' => 500, 'message' => '网络错误'];
+        }
+        $hasher    = new ImageHash(new DifferenceHash());
+        $img1      = $qq_data['hd_img'];
+        $img2      = $images['save_path'];
+        $hash1     = $hasher->hash($img1);
+        $hash2     = $hasher->hash($img2);
+        $distance1 = $hasher->distance($hash1, $hash2);
+        dump($qq_data, $qq, $distance1);
         if (empty($qq_data['qq'])) {
             return view('wall.qq');
         } else {

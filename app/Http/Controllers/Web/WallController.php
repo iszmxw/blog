@@ -21,8 +21,10 @@ use Illuminate\Support\Facades\Redis;
 
 class WallController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $qq_data = $request->get('qq_data');
+        dd($qq_data);
         return view('wall.index');
     }
 

@@ -127,6 +127,7 @@ class WebController extends Controller
      */
     public function images(Request $request)
     {
+        $time1     = microtime();
         $hasher    = new ImageHash(new DifferenceHash());
         $hash3     = $hasher->hash('http://q1.qlogo.cn/g?b=qq&nk=543619552@qq.com&s=640');
         $hash4     = $hasher->hash('http://thirdqq.qlogo.cn/g?b=oidb&k=LoGg40Ia0d72iaLmevg0rog&s=640&t=1555902380');
@@ -136,6 +137,6 @@ class WebController extends Controller
         echo "<br>";
         echo $hash4->toHex();
         echo "<br>";
-        echo "====" . $distance1;
+        echo microtime() - $time1 . "====" . $distance1;
     }
 }

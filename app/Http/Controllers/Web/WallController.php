@@ -44,6 +44,8 @@ class WallController extends Controller
                 $res = Userqq::EditData(['openid' => $qq_data['openid']], ['qq' => $qq]);
                 session(['qq_data' => $res]);
                 return view('wall.index');
+            } else {
+                dump($distance1);
             }
         }
         if (empty($qq_data['qq'])) {

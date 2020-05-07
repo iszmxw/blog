@@ -45,7 +45,7 @@ class WallController extends Controller
                 session(['qq_data' => $res]);
                 return view('wall.index');
             } else {
-                dump($distance1);
+                dd($distance1);
             }
         }
         if (empty($qq_data['qq'])) {

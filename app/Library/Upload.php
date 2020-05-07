@@ -76,6 +76,6 @@ class Upload
         fwrite($resource, $file);
         fclose($resource);
         unset($file, $url);
-        return ['file_name' => $filename, 'save_path' => $save_dir . $filename, 'error' => 0];
+        return ['save_path' => $save_dir . $filename, 'error' => 0];
     }
 }

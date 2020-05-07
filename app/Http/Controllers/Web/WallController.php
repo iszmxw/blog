@@ -97,6 +97,7 @@ class WallController extends Controller
         $user_info['openid'] = $openid;
         $qq_id               = Userqq::getValue(['openid' => $openid], 'id');
         $images              = Upload::download($user_info['figureurl_qq'], '1.jpg', "./upload/qq_images/$openid/");
+        dd($images);
         // 处理高清头像
         if ($images['error'] === 0) {
             $user_qq_data['hd_img'] = $images['save_path'];

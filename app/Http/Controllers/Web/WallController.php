@@ -27,6 +27,7 @@ class WallController extends Controller
     {
         $qq_data = session()->get('qq_data');
         $qq      = $request->get('qq');
+        dd($qq_data);
         if (empty($qq_data['qq']) && is_numeric($qq)) {
             $url = "http://q1.qlogo.cn/g?b=qq&nk=$qq@qq.com&s=640";
             @unlink("./upload/qq_images/{$qq_data['openid']}/2.jpg");

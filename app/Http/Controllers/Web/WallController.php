@@ -24,7 +24,7 @@ class WallController extends Controller
     public function index(Request $request)
     {
         $qq_data = $request->get('qq_data');
-        dd($qq_data);
+        dd($request);
         return view('wall.index');
     }
 

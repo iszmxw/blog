@@ -92,7 +92,6 @@ class WallController extends Controller
         $user_info = $client->get("https://graph.qq.com/user/get_user_info?access_token={$access_token}&oauth_consumer_key={$client_id}&openid={$openid}")->getBody()->getContents();
 
         $user_info = json_decode($user_info, true);
-        dd($user_info);
 
         $user_info['openid'] = $openid;
         $qq_id               = Userqq::getValue(['openid' => $openid], 'id');

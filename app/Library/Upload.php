@@ -50,18 +50,10 @@ class Upload
      * @param string $filename 保存文件名
      * @return array
      */
-    public static function download($url, $save_dir = './public/upload/iszmxw/', $filename = '')
+    public static function download($url, $filename, $save_dir = './public/upload/iszmxw/')
     {
-        $ext = strrchr($url, '.');
-        if (trim($save_dir) == '')
+        if (trim($save_dir) == '') {
             $save_dir = './';
-
-        if (trim($filename) == '') {//保存文件名
-            $allowExt = array('gif', 'jpg', 'jpeg', 'png', 'bmp');
-            if (!in_array($ext, $allowExt))
-                return array('file_name' => '', 'save_path' => '', 'error' => 3);
-
-            $filename = time() . $ext;
         }
         if (0 !== strrpos($save_dir, '/'))
             $save_dir .= '/';

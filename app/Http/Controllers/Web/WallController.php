@@ -25,7 +25,7 @@ class WallController extends Controller
     {
         $qq_data = session()->get('qq_data');
         $qq      = $request->get('qq');
-        dump($qq);
+        dump($qq_data, $qq);
         if (empty($qq_data['qq'])) {
             return view('wall.qq');
         } else {

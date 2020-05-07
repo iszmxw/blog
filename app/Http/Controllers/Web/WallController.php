@@ -71,7 +71,6 @@ class WallController extends Controller
         $url      = "https://graph.qq.com/oauth2.0/token?grant_type=authorization_code&client_id={$client_id}&client_secret={$client_secret}&code={$code}&redirect_uri={$redirect_uri}";
         $client   = new Client();
         $response = $client->get($url)->getBody()->getContents();
-        dd($response);
 
         //检测返回结果是否包含错误信息
         $error_msg = strstr($response, 'error');
@@ -85,6 +84,7 @@ class WallController extends Controller
         $data         = explode('=', $data[0]);
         $access_token = $data[1];
         $result       = $client->get('https://graph.qq.com/oauth2.0/me?access_token=' . $access_token)->getBody()->getContents();
+        dd($result);
         //将返回的jsonp转换为json
         $re_json = trim(str_replace(';', '', str_replace(')', '', str_replace('callback(', '', $result))));
         //获取openid

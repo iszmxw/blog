@@ -97,11 +97,6 @@ class WallController extends Controller
         $user_info['openid'] = $openid;
         $qq_id               = Userqq::getValue(['openid' => $openid], 'id');
         $images              = Upload::download($user_info['figureurl_qq'], '1.jpg', "./upload/qq_images/$openid/");
-        dd($images);
-        // 处理高清头像
-        if ($images['error'] == 0) {
-            $user_qq_data['hd_img'] = $images['save_path'];
-        }
         //需要更新的数据
         $user_qq_data = [
             'nickname'   => $user_info['nickname'],
@@ -111,6 +106,10 @@ class WallController extends Controller
             'province'   => $user_info['province'],
             'city'       => $user_info['city'],
         ];
+        // 处理高清头像
+        if ($images['error'] == 0) {
+            $user_qq_data['hd_img'] = $images['save_path'];
+        }
         if (empty($qq_id)) {
             $user_qq_data['openid'] = $openid;
             Userqq::create($user_qq_data);

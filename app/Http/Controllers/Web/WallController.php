@@ -23,8 +23,12 @@ class WallController extends Controller
 {
     public function index(Request $request)
     {
-        dd(session()->get('qq_data'));
-        return view('wall.index');
+        $qq_data = session()->get('qq_data');
+        if (empty($qq_data['qq'])) {
+            return view('wall.qq');
+        } else {
+            return view('wall.index');
+        }
     }
 
     public function get_user_list()

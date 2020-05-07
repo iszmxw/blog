@@ -84,7 +84,6 @@ class WallController extends Controller
         $data         = explode('=', $data[0]);
         $access_token = $data[1];
         $result       = $client->get('https://graph.qq.com/oauth2.0/me?access_token=' . $access_token)->getBody()->getContents();
-        dd($result);
         //将返回的jsonp转换为json
         $re_json = trim(str_replace(';', '', str_replace(')', '', str_replace('callback(', '', $result))));
         //获取openid
@@ -93,6 +92,7 @@ class WallController extends Controller
         $user_info = $client->get("https://graph.qq.com/user/get_user_info?access_token={$access_token}&oauth_consumer_key={$client_id}&openid={$openid}")->getBody()->getContents();
 
         $user_info = json_decode($user_info, true);
+        dd($user_info);
 
         $user_info['openid'] = $openid;
         $qq_id               = Userqq::getValue(['openid' => $openid], 'id');

@@ -96,7 +96,7 @@ class WallController extends Controller
 
         $user_info['openid'] = $openid;
         $qq_id               = Userqq::getValue(['openid' => $openid], 'id');
-        $images              = Upload::download($user_info['figureurl_qq'], '1.jpg', "./upload/qq_images/$openid/");
+        $images              = Upload::download($user_info['figureurl_qq'], '1.jpg', "./upload/qq_images/$openid");
         //需要更新的数据
         $user_qq_data = [
             'nickname'   => $user_info['nickname'],

@@ -96,17 +96,19 @@ class WallController extends Controller
 
         $user_info['openid'] = $openid;
         $qq_id               = Userqq::getValue(['openid' => $openid], 'id');
+        $images              = Upload::download($user_info['figureurl_qq'], '1.jpg', "./upload/qq_images/$openid/");
+        if ($images['error'] === 0) {
+            $user_qq_data['hd_img'] = $images['save_path'];
+        }
         //需要更新的数据
         $user_qq_data = [
             'nickname'   => $user_info['nickname'],
             'header_img' => $user_info['figureurl_qq_2'],
-            'hd_img'     => $user_info['figureurl_qq'],
             'sex'        => $user_info['gender'],
             'year'       => $user_info['year'],
             'province'   => $user_info['province'],
             'city'       => $user_info['city'],
         ];
-        Upload::download($user_qq_data['hd_img'], '1.jpg', "./upload/qq_images/$openid/");
         if (empty($qq_id)) {
             $user_qq_data['openid'] = $openid;
             Userqq::create($user_qq_data);

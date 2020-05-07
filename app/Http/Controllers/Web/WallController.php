@@ -40,7 +40,7 @@ class WallController extends Controller
             $hash1     = $hasher->hash($img1);
             $hash2     = $hasher->hash($img2);
             $distance1 = $hasher->distance($hash1, $hash2);
-            if ($distance1 < 15) {
+            if ($distance1 == 0) {
                 $res = Userqq::EditData(['openid' => $qq_data['openid']], ['qq' => $qq]);
                 session(['qq_data' => $res]);
                 return view('wall.index');

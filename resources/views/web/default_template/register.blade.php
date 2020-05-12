@@ -58,6 +58,7 @@
     //定时监控页面的登录状态
     function setInte(json) {
         setTime = setInterval(function () {
+            console.log(window.origin);
             $.get(window.origin + '/wall/scan_code_status?uuid=' + json.data.uuid, function (response) {
                 if (response.status === 0) {
                     toastr.success('二维码已过期，即将刷新页面');

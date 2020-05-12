@@ -58,7 +58,6 @@
     //定时监控页面的登录状态
     function setInte(json) {
         setTime = setInterval(function () {
-            console.log(window.origin);
             $.get(window.origin + '/wall/scan_code_status?uuid=' + json.data.uuid, function (response) {
                 if (response.status === 0) {
                     toastr.success('二维码已过期，即将刷新页面');
@@ -84,7 +83,7 @@
     }
 
     //页面初次请求
-    $.get('http://blog.54zm.com/api/wx_mini/get_scan_code', function (json) {
+    $.get(window.origin + '/api/wx_mini/get_scan_code', function (json) {
         if (json.status == 1) {
             $("#image").attr("src", json.data.image);
             setInte(json);//定时监控页面的登录状态

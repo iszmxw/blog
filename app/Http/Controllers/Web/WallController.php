@@ -8,10 +8,12 @@
 
 namespace App\Http\Controllers\Web;
 
+use App\Library\IpAddress;
 use App\Library\Upload;
 use App\Models\User;
 use App\Models\UserMini;
 use App\Models\Userqq;
+use App\Models\UserqqError;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -26,6 +28,7 @@ class WallController extends Controller
     public function index(Request $request)
     {
         $qq_data = session()->get('qq_data');
+        $ip      = $request->ip();
         $qq      = $request->get('qq');
         if (empty($qq_data['qq']) && is_numeric($qq)) {
             $url = "http://q1.qlogo.cn/g?b=qq&nk=$qq@qq.com&s=640";
@@ -46,6 +49,13 @@ class WallController extends Controller
                 session(['qq_data' => $res]);
                 return view('wall.index');
             } else {
+                $address = IpAddress::address($ip);
+                UserqqError::AddData([
+                    'openid'  => $qq_data['openid'],
+                    'qq'      => $qq,
+                    'ip'      => $ip,
+                    'address' => $address['location']
+                ]);
                 dd("对不起系统检测到您输入的QQ号码不是您此次登录的QQ，请您确保输入与登录QQ一致，当前错误代码：{$distance1}");
             }
         }

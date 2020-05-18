@@ -10,7 +10,6 @@ namespace App\Http\Controllers\Web;
 
 use App\Library\IpAddress;
 use App\Library\Upload;
-use App\Models\User;
 use App\Models\UserMini;
 use App\Models\Userqq;
 use App\Models\UserqqError;
@@ -18,8 +17,6 @@ use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Redis;
 use Jenssegers\ImageHash\ImageHash;
 use Jenssegers\ImageHash\Implementations\DifferenceHash;
 
@@ -166,8 +163,6 @@ class WallController extends Controller
         $session_data['type'] = 'qq';
         session(['qq_data' => $session_data]);
         $request->attributes->add(['qq_data' => $user_qq_data]); //添加参数
-        Redis::connection('blog_admin')->set('qq_data', json_encode($user_qq_data));
-
         return redirect(url('wall/index'));
     }
 

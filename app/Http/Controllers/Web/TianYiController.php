@@ -24,6 +24,6 @@ class TianYiController extends Controller
                 'X-Request-ID' => 'a9014397a420403485eec1effbd9b303'
             ]
         ]);
-        echo $ql->getHtml();
+        dd($ql);
     }
 }

@@ -20,7 +20,8 @@ class TianYiController extends Controller
         $ql  = QueryList::get($url, 'fileId=7149639355806000&mediaType=&keyword=&inGroupSpace=false&orderBy=1&order=ASC&pageNum=1&pageSize=60&noCache=0.3625186131502507', [
             'headers' => [
                 // 从浏览器填写Cookie
-                'Cookie' => 'edrive_view_mode=icon; offline_Pic_Showed=true; wpsGuideStatus=true; bad_id92f4b1d0-eda7-11e6-9886-e964fbee51ea=c534ecf1-a1a4-11ea-befb-e9a14b03d6c0; IS_SHOW_TREE=false; JSESSIONID=aaacjXskMK5U_7is47wjx; Login_Hash=; COOKIE_LOGIN_USER=D5C1110BA65EFCBC4CB6D9F298CC886604AAE93F764CC5CB195A9E3125BB7F9E52FBDBED2DD95F3E4ADF42118D76AA3AF7BD3E51593F3579E2321152'
+                'Cookie'       => 'edrive_view_mode=icon; offline_Pic_Showed=true; wpsGuideStatus=true; bad_id92f4b1d0-eda7-11e6-9886-e964fbee51ea=c534ecf1-a1a4-11ea-befb-e9a14b03d6c0; IS_SHOW_TREE=false; JSESSIONID=aaacjXskMK5U_7is47wjx; Login_Hash=; COOKIE_LOGIN_USER=D5C1110BA65EFCBC4CB6D9F298CC886604AAE93F764CC5CB195A9E3125BB7F9E52FBDBED2DD95F3E4ADF42118D76AA3AF7BD3E51593F3579E2321152',
+                'X-Request-ID' => 'a9014397a420403485eec1effbd9b303'
             ]
         ]);
         echo $ql->getHtml();

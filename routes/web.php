@@ -57,13 +57,7 @@ Route::get('bomb', 'Web\WebController@bomb');
 Route::get('images', 'Web\WebController@images');
 
 
+// 测试
 Route::group(['prefix' => 'test', 'namespace' => 'Web'], function () {
-    Route::any('index', 'WallController@index');
-    Route::any('register', 'WallController@register');
-    Route::any('qq_login_auth', 'WallController@qq_login_auth');
-    Route::any('qq_login', 'WallController@qq_login');
-    Route::any('get_user_list', 'WallController@get_user_list');
-    //小程序扫码登录状态检测
-    Route::any('scan_code_status', 'WallController@scan_code_status');
-    Route::any('quit', 'WallController@quit');
+    Route::any('index', 'TianYiController@index');
 });

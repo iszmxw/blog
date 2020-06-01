@@ -21,7 +21,9 @@ class TianYiController extends Controller
             'headers' => [
                 // 从浏览器填写Cookie
                 'Cookie'       => "edrive_view_mode=icon; offline_Pic_Showed=true; wpsGuideStatus=true; bad_id92f4b1d0-eda7-11e6-9886-e964fbee51ea=c534ecf1-a1a4-11ea-befb-e9a14b03d6c0; IS_SHOW_TREE=false; JSESSIONID=aaacjXskMK5U_7is47wjx; Login_Hash=; COOKIE_LOGIN_USER=D5C1110BA65EFCBC4CB6D9F298CC886604AAE93F764CC5CB195A9E3125BB7F9E52FBDBED2DD95F3E4ADF42118D76AA3AF7BD3E51593F3579E2321152",
-                'X-Request-ID' => '745f8a4509ab4ee8a0e404341885aea7'
+                'X-Request-ID' => '745f8a4509ab4ee8a0e404341885aea7',
+                'X-Cache'      => 'MISS from BC12_dx-guangdong-jiangmen-7-cache-1(baishan)',
+                'X-Ser'        => 'BC42_dx-lt-yd-shandong-jinan-5-cache-6, BC12_dx-guangdong-jiangmen-7-cache-1',
             ]
         ]);
         dd($ql);

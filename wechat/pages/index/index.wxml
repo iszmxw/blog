@@ -9,7 +9,7 @@
 </view>
 <!-- 菜单 -->
 <view class="nav">
-  <block wx:for="{{ category }}" wx:key="{{ item.id }}">
+  <block wx:key="category" wx:for="{{ category }}">
     <view class="navigator" data-id="{{ item.id }}" bindtap='gotoCategory'>{{ item.name }}</view>
   </block>
 </view>

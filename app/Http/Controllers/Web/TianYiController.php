@@ -54,6 +54,49 @@ class TianYiController extends Controller
             ]
         ];
         $res          = $client->put($url, $options)->getBody()->getContents();
-        dd($options, $res);
+
+        $re = self::github_function('iszmxw', 'FigureBed', 'createwxaqrcode.png', 'b3dba05cd97b45c20b4a52df0e31ad039fe56390');
+        dd($re);
+    }
+
+    public static function github_function($user, $xiangmu, $file, $token)
+    {
+        $data      = array(
+            "message" => "commit from INSOMNIA",
+            "content" => self::imgToBase64($file)
+        );
+        $data_json = json_encode($data);
+        $url       = "https://api.github.com/repos/" . $user . "/" . $xiangmu . "/contents/" . $file . "?access_token=" . $token;
+        $ch        = curl_init($url);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data_json);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'Content-Type: application/json',
+            'User-Agent: Mozilla/4.0 (compatible; MSIE .0; Windows NT 6.1; Trident/4.0; SLCC2;)'
+        ));
+        $result = curl_exec($ch);
+        return $result;
+    }
+
+    public static function imgToBase64($img)
+    {
+        $img_file   = './' . $img;
+        $img_base64 = '';
+        if (file_exists($img_file)) {
+
+            $fp = fopen($img_file, "r"); // 图片是否可读权限
+            if ($fp) {
+                $filesize     = filesize($img_file);
+                $content      = fread($fp, $filesize);
+                $file_content = base64_encode($content); // base64编码
+                $img_base64   = $file_content;//合成图片的base64编码
+
+            }
+            fclose($fp);
+        }
+        return $img_base64; //返回图片的base64
     }
 }

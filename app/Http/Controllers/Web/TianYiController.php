@@ -38,7 +38,7 @@ class TianYiController extends Controller
      */
     public function github(Request $request)
     {
-        $access_token = "b3dba05cd97b45c20b4a52df0e31ad039fe56390";
+        $access_token = "6a5d3519667172b429d3df3233a03766894dcdec";
         $path         = "images/2020/0612"; // 文件保存路径
         $old_file     = "createwxaqrcode.png";
         $new_file     = "images-" . date('YmdHis', time()) . time() . ".png";

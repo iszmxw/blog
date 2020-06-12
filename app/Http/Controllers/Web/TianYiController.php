@@ -41,7 +41,7 @@ class TianYiController extends Controller
         $access_token = "b3dba05cd97b45c20b4a52df0e31ad039fe56390";
         $path         = "images/2020/0612"; // 文件保存路径
         $file         = "images-" . date('YmdHis', time()) . time() . ".png";
-        $url          = "https://api.github.com/repos/iszmxw/FigureBed/contens/{$path}/{$file}?access_token={$access_token}";
+        $url          = "https://api.github.com/repos/iszmxw/FigureBed/contents/{$path}/{$file}?access_token={$access_token}";
         $client       = new Client();
         $options      = [
             "json" => [

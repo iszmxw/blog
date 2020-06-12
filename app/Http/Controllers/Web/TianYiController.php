@@ -40,8 +40,9 @@ class TianYiController extends Controller
     {
         $access_token = "b3dba05cd97b45c20b4a52df0e31ad039fe56390";
         $path         = "images/2020/0612"; // 文件保存路径
-        $file         = "images-" . date('YmdHis', time()) . time() . ".png";
-        $url          = "https://api.github.com/repos/iszmxw/FigureBed/contents/{$path}/{$file}?access_token={$access_token}";
+        $old_file     = "createwxaqrcode.png";
+        $new_file     = "images-" . date('YmdHis', time()) . time() . ".png";
+        $url          = "https://api.github.com/repos/iszmxw/FigureBed/contents/{$path}/{$new_file}?access_token={$access_token}";
         $client       = new Client();
         $options      = [
             "json" => [
@@ -50,7 +51,7 @@ class TianYiController extends Controller
                     "name"  => "iszmxw",
                     "email" => "mail@54zm.com"
                 ],
-                "content"   => self::imgToBase64($file)
+                "content"   => self::imgToBase64($old_file)
             ]
         ];
         $res          = $client->put($url, $options)->getBody()->getContents();

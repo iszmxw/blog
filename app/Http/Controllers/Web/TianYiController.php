@@ -43,7 +43,7 @@ class TianYiController extends Controller
         $file         = "images-" . date('YmdHis', time()) . time() . ".png";
         $url          = "https://api.github.com/repos/iszmxw/FigureBed/contens/{$path}/{$file}?access_token={$access_token}";
         $client       = new Client();
-        $res          = $client->put($url, [
+        $options      = [
             "json" => [
                 "message"   => "文件上传测试",
                 "committer" => [
@@ -52,7 +52,8 @@ class TianYiController extends Controller
                 ],
                 "content"   => "bXkgbmV3IGZpbGUgY29udGVudHM="
             ]
-        ])->getBody()->getContents();
-        dd($res);
+        ];
+        $res          = $client->put($url, $options)->getBody()->getContents();
+        dd($options, $res);
     }
 }

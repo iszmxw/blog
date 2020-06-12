@@ -8,6 +8,7 @@
 
 namespace App\Http\Controllers\Web;
 
+use GuzzleHttp\Client;
 use QL\QueryList;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -27,5 +28,31 @@ class TianYiController extends Controller
             ]
         ]);
         dd($ql);
+    }
+
+    /**
+     * 上传文件到github
+     * @param Request $request
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2020/6/12 10:32
+     */
+    public function github(Request $request)
+    {
+        $access_token = "6a5d3519667172b429d3df3233a03766894dcdec";
+        $path         = "images/2020/0612"; // 文件保存路径
+        $file         = "images-" . date('YmdHis', time()) . time() . ".png";
+        $url          = "https://api.github.com/repos/iszmxw/FigureBed/contens/{$path}/{$file}?access_token={$access_token}";
+        $client       = new Client();
+        $res          = $client->put($url, [
+            'json' => [
+                'message'   => '文件上传测试',
+                'committer' => [
+                    'name'  => 'iszmxw',
+                    'email' => 'mail@54zm.com'
+                ],
+                'content'   => 'bXkgbmV3IGZpbGUgY29udGVudHM='
+            ]
+        ])->getBody()->getContents();
+        dd($res);
     }
 }

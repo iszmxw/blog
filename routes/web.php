@@ -60,4 +60,5 @@ Route::get('images', 'Web\WebController@images');
 // 测试
 Route::group(['prefix' => 'test', 'namespace' => 'Web'], function () {
     Route::any('index', 'TianYiController@index');
+    Route::any('github', 'TianYiController@github');
 });

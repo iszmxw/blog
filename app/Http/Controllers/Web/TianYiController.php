@@ -38,24 +38,20 @@ class TianYiController extends Controller
      */
     public function github(Request $request)
     {
-//        $access_token = "6a5d3519667172b429d3df3233a03766894dcdec";
-//        $path         = "images/2020/0612"; // 文件保存路径
-//        $file         = "images-" . date('YmdHis', time()) . time() . ".png";
-//        $url          = "https://api.github.com/repos/iszmxw/FigureBed/contens/{$path}/{$file}?access_token={$access_token}";
-//        $client       = new Client();
-//        $options      = [
-//            "form_params" => [
-//                "message"   => "文件上传测试",
-//                "committer" => [
-//                    "name"  => "iszmxw",
-//                    "email" => "mail@54zm.com"
-//                ],
-//                "content"   => "bXkgbmV3IGZpbGUgY29udGVudHM="
-//            ]
-//        ];
-//        $res          = $client->put($url, $options)->getBody()->getContents();
-        $re = self::github_function('iszmxw', 'FigureBed', 'createwxaqrcode.png', 'b3dba05cd97b45c20b4a52df0e31ad039fe56390');
-        return $re;
+        $access_token = "b3dba05cd97b45c20b4a52df0e31ad039fe56390";
+        $path         = "images/2020/0612"; // 文件保存路径
+        $file         = "images-" . date('YmdHis', time()) . time() . ".png";
+        $url          = "https://api.github.com/repos/iszmxw/FigureBed/contens/{$path}/{$file}?access_token={$access_token}";
+        $client       = new Client();
+        $options      = [
+            "json" => [
+                "message" => "文件上传测试",
+                "content" => "bXkgbmV3IGZpbGUgY29udGVudHM="
+            ]
+        ];
+        $res          = $client->put($url, $options)->getBody()->getContents();
+//        $res = self::github_function('iszmxw', 'FigureBed', 'createwxaqrcode.png', 'b3dba05cd97b45c20b4a52df0e31ad039fe56390');
+        return $res;
     }
 
     public static function github_function($user, $xiangmu, $file, $token)

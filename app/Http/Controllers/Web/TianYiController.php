@@ -44,13 +44,13 @@ class TianYiController extends Controller
         $url          = "https://api.github.com/repos/iszmxw/FigureBed/contens/{$path}/{$file}?access_token={$access_token}";
         $client       = new Client();
         $res          = $client->put($url, [
-            'json' => [
-                'message'   => '文件上传测试',
-                'committer' => [
-                    'name'  => 'iszmxw',
-                    'email' => 'mail@54zm.com'
+            "json" => [
+                "message"   => "文件上传测试",
+                "committer" => [
+                    "name"  => "iszmxw",
+                    "email" => "mail@54zm.com"
                 ],
-                'content'   => 'bXkgbmV3IGZpbGUgY29udGVudHM='
+                "content"   => "bXkgbmV3IGZpbGUgY29udGVudHM="
             ]
         ])->getBody()->getContents();
         dd($res);

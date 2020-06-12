@@ -55,7 +55,7 @@ class TianYiController extends Controller
 //        ];
 //        $res          = $client->put($url, $options)->getBody()->getContents();
         $re = self::github_function('iszmxw', 'FigureBed', 'createwxaqrcode.png', 'b3dba05cd97b45c20b4a52df0e31ad039fe56390');
-        dd($re);
+        return $re;
     }
 
     public static function github_function($user, $xiangmu, $file, $token)

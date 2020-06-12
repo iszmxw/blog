@@ -46,7 +46,7 @@ class TianYiController extends Controller
         $options      = [
             "json" => [
                 "message" => "文件上传测试",
-                "content" => "bXkgbmV3IGZpbGUgY29udGVudHM="
+                "content" => self::imgToBase64($file)
             ]
         ];
         $res          = $client->put($url, $options)->getBody()->getContents();

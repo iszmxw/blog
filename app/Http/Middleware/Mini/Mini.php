@@ -26,10 +26,12 @@ class Mini
             case 'api/wx_mini/getwxacode':
             case 'api/wx_mini/createwxaqrcode':
             case 'api/wx_mini/message_push':
+                // 允许访问页面
+            case 'api/wx_mini/get_category':
+            case 'api/wx_mini/index':
                 break;
             default :
                 $re = self::CheckToken($request);
-
                 return self::format_response($re, $next);
         }
 

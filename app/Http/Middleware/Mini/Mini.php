@@ -29,6 +29,7 @@ class Mini
                 // 允许访问页面
             case 'api/wx_mini/get_category':
             case 'api/wx_mini/index':
+            case 'api/wx_mini/article':
                 break;
             default :
                 $re = self::CheckToken($request);

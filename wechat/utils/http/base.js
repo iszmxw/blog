@@ -27,7 +27,7 @@ function request(params, noRefetch) {
       //检测登录状态是否失效
       if (res.data.status === '-100') {
         //跳转到登录页面
-        goToLogin()
+        // goToLogin()
       } else {
         if (params.sCallBack) {
           params.sCallBack(res);

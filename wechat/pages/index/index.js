@@ -64,9 +64,11 @@ Page({
     base.request({
       url: urls.get_category,
       sCallBack: function(res) {
-        that.setData({
-          category: res.data.data.list
-        })
+        if(res.data.status === 1){
+          that.setData({
+            category: res.data.data.list
+          })
+        }
       }
     })
     //获取文章列表
@@ -76,10 +78,12 @@ Page({
         pagesize: that.data.pagesize,
       },
       sCallBack: function (res) {
-        that.setData({
-          list: res.data.data.list
-        })
-        wx.hideLoading()
+        if(res.data.status === 1){
+          that.setData({
+            list: res.data.data.list
+          })
+          wx.hideLoading()
+        }
       }
     })
   },

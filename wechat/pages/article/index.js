@@ -42,12 +42,14 @@ Page({
         blog_id: blog_id,
       },
       sCallBack: function(res) {
-        that.setData({
-          blog_id: blog_id,
-          title: res.data.data.title,
-          content: res.data.data.content
-        })
-        wx.hideLoading()
+        if(res.data.status === "1"){
+          that.setData({
+            blog_id: blog_id,
+            title: res.data.data.title,
+            content: res.data.data.content
+          })
+          wx.hideLoading()
+        }
       }
     })
   },

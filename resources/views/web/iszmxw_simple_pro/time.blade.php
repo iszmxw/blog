@@ -89,7 +89,6 @@
             "created": '04月20日'
         };
         articles.push(article);
-        console.log(articles);
         layui.use('laypage', function () {
             var laypage = layui.laypage;
             //执行一个laypage实例

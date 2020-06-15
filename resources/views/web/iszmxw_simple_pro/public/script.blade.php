@@ -64,9 +64,7 @@
         ]
     })
     var index;
-    console.log(pjax);
     document.addEventListener('pjax:send', function () {
-        console.log(123)
         index = layer.load();
     });
     document.addEventListener('pjax:success', function () {
@@ -159,6 +157,6 @@
     })(window, document);    /***/
     /**自定义盒子宽度
      */
-    $(".p-box").css("width", "100%");
+    $(".p-box").css("width", "80%");
     /***/
 </script>

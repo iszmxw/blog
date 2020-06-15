@@ -37,7 +37,5 @@
 {{--引用公共js--}}
 @include('web.iszmxw_simple_pro.public.script')
 @yield('script')
-<div class="loadJs">
-</div>
 </body>
 </html>

@@ -36,6 +36,8 @@
 </div>
 {{--引用公共js--}}
 @include('web.iszmxw_simple_pro.public.script')
-@yield('script')
+<div class="loadJs">
+    @yield('script')
+</div>
 </body>
 </html>

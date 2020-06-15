@@ -27,7 +27,7 @@ $(function () {
     }
     //初始化layui相关
     layui.config({
-        base: '/templates/perfree-simple-pro/static/plugins/laynotice/'
+        base: 'style/web/iszmxw_simple_pro/static/plugins/laynotice/'
     });
     layui.use(['layedit','form','jquery','notice'], function(){
         var layedit = layui.layedit,form=layui.form,$=layui.jquery,lay_notice = layui.notice;

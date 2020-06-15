@@ -52,7 +52,7 @@
                 <!--缩略图获取方式-->
                 <a href="/article/9" class="pjax" data-pjax-state="">
                     <div class="p-article-thumb"
-                         style="background-image: url('./images/429ac173b205465ba3e3a1410bd38e88.jpg')">
+                         style="background-image: url('{{asset('style/web/iszmxw_simple_pro/images/429ac173b205465ba3e3a1410bd38e88.jpg')}}')">
                     </div>
                 </a>
                 <div class="p-article-brief-box">
@@ -98,7 +98,7 @@
                 <!--缩略图获取方式-->
                 <a href="/article/1359" class="pjax" data-pjax-state="">
                     <div class="p-article-thumb"
-                         style="background-image: url('./images/99d1d59fa97e438aae07087e98be63bb.jpg')">
+                         style="background-image: url('{{asset('style/web/iszmxw_simple_pro/images/99d1d59fa97e438aae07087e98be63bb.jpg')}}')">
                     </div>
                 </a>
                 <div class="p-article-brief-box">
@@ -145,7 +145,7 @@
                 <!--缩略图获取方式-->
                 <a href="/article/7" class="pjax" data-pjax-state="">
                     <div class="p-article-thumb"
-                         style="background-image: url('./images/81d2350c430a462a83b0b31018b6c991.jpg')">
+                         style="background-image: url('{{asset('style/web/iszmxw_simple_pro/images/81d2350c430a462a83b0b31018b6c991.jpg')}}')">
                     </div>
                 </a>
                 <div class="p-article-brief-box">
@@ -213,7 +213,7 @@
             <div class="p-right-card-body">
                 <ul>
                     <li class="p-hot-article-box"><a href="/article/9" class="pjax" data-pjax-state=""> <img
-                                    src="./templates/iszmxw-simple-pro/static/images/1.png" alt=""
+                                    src="{{asset('style/web/iszmxw_simple_pro/static/images')}}/1.png" alt=""
                                     class="p-hot-article-img">
                             <div class="p-hot-article-right-box">
                                 <h2>Perfree-Simple-Pro-致更好的你</h2>
@@ -221,7 +221,7 @@
                             </div>
                         </a></li>
                     <li class="p-hot-article-box"><a href="/article/1" class="pjax" data-pjax-state=""> <img
-                                    src="./templates/iszmxw-simple-pro/static/images/2.png" alt=""
+                                    src="{{asset('style/web/iszmxw_simple_pro/static/images')}}/2.png" alt=""
                                     class="p-hot-article-img">
                             <div class="p-hot-article-right-box">
                                 <h2>PerfreeSimple-安安静静的写博客</h2>
@@ -229,7 +229,7 @@
                             </div>
                         </a></li>
                     <li class="p-hot-article-box"><a href="/article/4" class="pjax" data-pjax-state=""> <img
-                                    src="./templates/iszmxw-simple-pro/static/images/3.png" alt=""
+                                    src="{{asset('style/web/iszmxw_simple_pro/static/images')}}/3.png" alt=""
                                     class="p-hot-article-img">
                             <div class="p-hot-article-right-box">
                                 <h2>推荐一个很棒的html网页背景图片网站</h2>
@@ -237,7 +237,7 @@
                             </div>
                         </a></li>
                     <li class="p-hot-article-box"><a href="/article/7" class="pjax" data-pjax-state=""> <img
-                                    src="./templates/iszmxw-simple-pro/static/images/4.png" alt=""
+                                    src="{{asset('style/web/iszmxw_simple_pro/static/images')}}/4.png" alt=""
                                     class="p-hot-article-img">
                             <div class="p-hot-article-right-box">
                                 <h2>谁又不曾孤独呢-孤独患者</h2>
@@ -245,7 +245,7 @@
                             </div>
                         </a></li>
                     <li class="p-hot-article-box"><a href="/article/2" class="pjax" data-pjax-state=""> <img
-                                    src="./templates/iszmxw-simple-pro/static/images/5.png" alt=""
+                                    src="{{asset('style/web/iszmxw_simple_pro/static/images')}}/5.png" alt=""
                                     class="p-hot-article-img">
                             <div class="p-hot-article-right-box">
                                 <h2>Python数据分析之Pandas数据可视化</h2>

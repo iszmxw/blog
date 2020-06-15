@@ -1,6 +1,7 @@
 <script src="{{asset('style/web/iszmxw_simple_pro/static/plugins/jquery/jquery-1.8.3.min.js')}}"></script>
 <script src="https://v1.hitokoto.cn/?encode=js&amp;select=%23hitokoto" defer=""></script>
-<script type="text/javascript" src="{{asset('style/web/iszmxw_simple_pro/static/plugins/pjax/pjax.js')}}"></script>
+{{--<script type="text/javascript" src="{{asset('style/web/iszmxw_simple_pro/static/plugins/pjax/pjax.js')}}"></script>--}}
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pjax/pjax.js"></script>
 <script type="text/javascript" src="{{asset('style/web/iszmxw_simple_pro/static/plugins/layer/layer.js')}}"></script>
 <script type="text/javascript" src="{{asset('style/web/iszmxw_simple_pro/static/plugins/layui/layui.js')}}"></script>
 <script type="text/javascript" src="{{asset('style/web/iszmxw_simple_pro/static/js/common.js')}}"></script>
@@ -65,6 +66,7 @@
     })
     var index;
     document.addEventListener('pjax:send', function () {
+        console.log(123)
         index = layer.load();
     });
     document.addEventListener('pjax:success', function () {
@@ -157,6 +159,6 @@
     })(window, document);    /***/
     /**自定义盒子宽度
      */
-    $(".p-box").css("width", "80%");
+    $(".p-box").css("width", "100%");
     /***/
 </script>

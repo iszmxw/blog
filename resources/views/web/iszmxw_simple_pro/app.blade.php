@@ -23,7 +23,12 @@
     </div>
     {{--右边内容部分--}}
     <div class="p-right-box">
-        @include('web.iszmxw_simple_pro.public.right')
+        @include('web.iszmxw_simple_pro.public.header')
+        <div class="p-container-box">
+            @yield('content')
+            @include('web.iszmxw_simple_pro.public.slidebar')
+            @include('web.iszmxw_simple_pro.public.footer')
+        </div>
     </div>
 </div>
 <div class="p-layout-right-btn">

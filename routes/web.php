@@ -29,6 +29,7 @@ Route::group(['middleware' => 'web_common', 'namespace' => 'Web'], function () {
     // 新版网站
     Route::group(['prefix' => 'new'], function () {
         Route::get('/', 'SiteController@index');
+        Route::get('time', 'SiteController@time');
         Route::get('article/{article_id}', 'SiteController@article');
         Route::get('category/{category_id}', 'SiteController@category');
         Route::get('about', 'SiteController@about');

@@ -35,6 +35,19 @@ class SiteController extends Controller
         return view('web.iszmxw_simple_pro.index', $view);
     }
 
+    /**
+     * 归档
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2020/6/15 18:09
+     */
+    public function time(Request $request)
+    {
+        $view = ['blog' => ''];
+        return view('web.iszmxw_simple_pro.time', $view);
+    }
+
     //栏目页面
     public function category($category_id)
     {

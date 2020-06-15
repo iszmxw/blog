@@ -7,7 +7,7 @@
     </div>
     <div class="p-left-user-box">
         <a class="p-left-user-img-box pjax" href="/" data-pjax-state=""> <img
-                    src="{{asset('style/web/iszmxw-simple-pro/images/ec83d6ed69d84517beb3ee9ccc49f8b4.jpg')}}">
+                    src="{{asset('style/web/iszmxw_simple_pro/images/ec83d6ed69d84517beb3ee9ccc49f8b4.jpg')}}">
         </a>
         <a class="p-left-user-name-box pjax" href="/" data-pjax-state=""> <span>追梦小窝</span> </a>
         <div class="p-left-user-hitokoto-box">

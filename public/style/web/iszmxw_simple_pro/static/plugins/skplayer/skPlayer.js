@@ -1,5 +1,5 @@
 layui.config({
-    base: '/templates/perfree-simple-pro/static/plugins/laynotice/'
+    base: 'style/web/iszmxw_simple_pro/static/plugins/laynotice/'
 });
 var lay_notice;
 layui.use(['notice'], function(){

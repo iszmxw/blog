@@ -100,16 +100,16 @@ class IszmxwController extends Controller
         if ($id == 2) {
             return [
                 'photo' => [
-                    'coverImg'   => '/attachment/20190423/cb743a7f974341fea544ebf4906e8d11.jpg',
+                    'coverImg'   => './images/cb743a7f974341fea544ebf4906e8d11.jpg',
                     'createTime' => "2019-04-23 20:01:10",
                     'name'       => "记录点点滴滴",
                     'nickname'   => "perfree",
                     'id'         => 2,
                     'avatar'     => 'https://www.jpress.yinpengfei.com/attachment/20190430/860afc7be45042429c93804000e8cbed.jpg',
                     'photos'     => [
-                        '/attachment/20190423/4a6457240990458c9b091dc0391f77c6.jpg',
-                        '/attachment/20190423/cbe75eea92684312a2a4989e9faf5d3e.jpg',
-                        '/attachment/20190423/3131a68e8f5f4555837cf38739bc1ef7.jpg',
+                        './images/4a6457240990458c9b091dc0391f77c6.jpg',
+                        './images/cbe75eea92684312a2a4989e9faf5d3e.jpg',
+                        './images/3131a68e8f5f4555837cf38739bc1ef7.jpg',
                     ],
                     'userId'     => 1,
                     'isEncrypt'  => 1,
@@ -122,15 +122,15 @@ class IszmxwController extends Controller
         if ($id == 3) {
             return [
                 'photo' => [
-                    'coverImg'   => '/attachment/20190423/9f49b15643374d5b9013e05dc524be04.jpg',
+                    'coverImg'   => './images/9f49b15643374d5b9013e05dc524be04.jpg',
                     'createTime' => "2019-04-23 20:10:02",
                     'name'       => "四月你好",
                     'nickname'   => "perfree",
                     'id'         => 3,
                     'avatar'     => 'https://www.jpress.yinpengfei.com/attachment/20190430/860afc7be45042429c93804000e8cbed.jpg',
                     'photos'     => [
-                        '/attachment/20190423/cb743a7f974341fea544ebf4906e8d11.jpg',
-                        '/attachment/20190423/b90a6345206349a59c9bfc974afc1ab3.jpg',
+                        './images/cb743a7f974341fea544ebf4906e8d11.jpg',
+                        './images/b90a6345206349a59c9bfc974afc1ab3.jpg',
                     ],
                     'userId'     => 1,
                     'isEncrypt'  => 1,

@@ -55,9 +55,10 @@ class SiteController extends Controller
      * @author: iszmxw <mail@54zm.com>
      * @Date：2020/6/15 22:08
      */
-    public function category($category_id)
+    public function category()
     {
-        $blog = Blog::getPaginate(['sort_id' => $category_id], ['blog.id', 'blog.sort_id', 'blog.title', 'blog.created_at', 'blog.content', 'blog.views'], 10, 'blog.created_at', 'DESC');
+        $category_id = 1;
+        $blog        = Blog::getPaginate(['sort_id' => $category_id], ['blog.id', 'blog.sort_id', 'blog.title', 'blog.created_at', 'blog.content', 'blog.views'], 10, 'blog.created_at', 'DESC');
         foreach ($blog as $value) {
             $value['content']  = Tooling::tool_purecontent($value['content'], 240);
             $value['name']     = Sort::getValue(['id' => $value['sort_id']], 'name');
@@ -68,7 +69,31 @@ class SiteController extends Controller
             }
         }
         $view = ['blog' => $blog];
-        return view('web.default_template.category', $view);
+        return view('web.iszmxw_simple_pro.category', $view);
+    }
+
+    /**
+     * 相册列表
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2020/6/15 22:14
+     */
+    public function photo_list()
+    {
+        $view = ['blog' => ''];
+        return view('web.iszmxw_simple_pro.photo_list', $view);
+    }
+
+    /**
+     * 朋友
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2020/6/15 22:19
+     */
+    public function link()
+    {
+        $view = ['blog' => ''];
+        return view('web.iszmxw_simple_pro.link', $view);
     }
 
     //文章页面

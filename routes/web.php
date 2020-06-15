@@ -18,6 +18,8 @@ Route::group(['middleware' => 'web_common', 'namespace' => 'Web'], function () {
         Route::get('/', 'SiteController@index');
         Route::get('time', 'SiteController@time');
         Route::get('category', 'SiteController@category');
+        Route::get('photo_list', 'SiteController@photo_list');
+        Route::get('link', 'SiteController@link');
         Route::get('article/{article_id}', 'SiteController@article');
         Route::get('about', 'SiteController@about');
 

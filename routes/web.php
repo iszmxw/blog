@@ -17,8 +17,8 @@ Route::group(['middleware' => 'web_common', 'namespace' => 'Web'], function () {
     if (env('APP_ENV') === 'example') {
         Route::get('/', 'SiteController@index');
         Route::get('time', 'SiteController@time');
+        Route::get('category', 'SiteController@category');
         Route::get('article/{article_id}', 'SiteController@article');
-        Route::get('category/{category_id}', 'SiteController@category');
         Route::get('about', 'SiteController@about');
 
         Route::group(['prefix' => 'blog'], function () {

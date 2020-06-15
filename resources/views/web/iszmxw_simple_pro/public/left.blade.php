@@ -44,7 +44,7 @@
                 </a>
             </li>
             <li class="layui-nav-item " lay-unselect="">
-                <a href="/photoList"
+                <a href="/photo_list"
                    class=" nav-menu-a  p-nav-menu-btn  pjax"
                    target="_self">
                     <i class="fa fa-image fa-fw"></i>
@@ -66,13 +66,13 @@
     <!-- 左侧导航底部社交按钮start -->
     <div class="p-left-bottom-box">
         <div class="p-l-b-content layui-clear">
-            <a class="p-l-b-btn" href="http://weibo.com/gbcxf" target="_blank" title="微博">
+            <a class="p-l-b-btn" href="http://weibo.com/iszmxw" target="_blank" title="微博">
                 <span class="p-l-b-btn-icon">
                     <i class="fa fa-weibo" aria-hidden="true"></i>
                 </span>
                 <span class="p-l-b-btn-name">微博</span>
             </a>
-            <a class="p-l-b-btn" href="https://github.com/perfree" target="_blank" title="GitHub">
+            <a class="p-l-b-btn" href="https://github.com/iszmxw" target="_blank" title="GitHub">
                 <span class="p-l-b-btn-icon">
                     <i class="fa fa-github" aria-hidden="true"></i>
                 </span>

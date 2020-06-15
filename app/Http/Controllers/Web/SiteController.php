@@ -48,7 +48,13 @@ class SiteController extends Controller
         return view('web.iszmxw_simple_pro.time', $view);
     }
 
-    // 栏目页面
+    /**
+     * 分类
+     * @param $category_id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2020/6/15 22:08
+     */
     public function category($category_id)
     {
         $blog = Blog::getPaginate(['sort_id' => $category_id], ['blog.id', 'blog.sort_id', 'blog.title', 'blog.created_at', 'blog.content', 'blog.views'], 10, 'blog.created_at', 'DESC');

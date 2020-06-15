@@ -1,15 +1,15 @@
 <div class="p-left-box-2">
     <div class="p-left-logo-box">
-        <a class="p-left-logo-box-text pjax" href="/" data-pjax-state="">
+        <a class="p-left-logo-box-text pjax" href="/">
             <i class="fa fa-snowflake-o"></i>
             <span class="p-left-logo-box-text-name">追梦小窝</span>
         </a>
     </div>
     <div class="p-left-user-box">
-        <a class="p-left-user-img-box pjax" href="/" data-pjax-state=""> <img
+        <a class="p-left-user-img-box pjax" href="/"> <img
                     src="{{asset('style/web/iszmxw_simple_pro/images/ec83d6ed69d84517beb3ee9ccc49f8b4.jpg')}}">
         </a>
-        <a class="p-left-user-name-box pjax" href="/" data-pjax-state=""> <span>追梦小窝</span></a>
+        <a class="p-left-user-name-box pjax" href="/"> <span>追梦小窝</span></a>
         <div class="p-left-user-hitokoto-box">
             <span class="text-muted text-xs block">
               <div id="chakhsu">♥简简单单的生活,安安静静</div>
@@ -30,7 +30,7 @@
             <li class="layui-nav-item " lay-unselect="">
                 <a href="/time"
                    class=" nav-menu-a  p-nav-menu-btn  pjax"
-                   target="_self" data-pjax-state="">
+                   target="_self">
                     <i class="fa fa-clock-o fa-fw"></i>
                     <span class="p-left-menu-nav-txt">归档</span>
                 </a>
@@ -38,7 +38,7 @@
             <li class="layui-nav-item " lay-unselect="">
                 <a href="/category"
                    class=" nav-menu-a  p-nav-menu-btn  pjax"
-                   target="_self" data-pjax-state="">
+                   target="_self">
                     <i class="fa fa-bars fa-fw"></i>
                     <span class="p-left-menu-nav-txt">分类</span>
                 </a>
@@ -46,7 +46,7 @@
             <li class="layui-nav-item " lay-unselect="">
                 <a href="/photoList"
                    class=" nav-menu-a  p-nav-menu-btn  pjax"
-                   target="_self" data-pjax-state="">
+                   target="_self">
                     <i class="fa fa-image fa-fw"></i>
                     <span class="p-left-menu-nav-txt">相册</span>
                 </a>
@@ -54,7 +54,7 @@
             <li class="layui-nav-item " lay-unselect="">
                 <a href="/link"
                    class=" nav-menu-a  p-nav-menu-btn  pjax"
-                   target="_self" data-pjax-state="">
+                   target="_self">
                     <i class="fa fa-user-o fa-fw"></i>
                     <span class="p-left-menu-nav-txt">朋友</span>
                 </a>

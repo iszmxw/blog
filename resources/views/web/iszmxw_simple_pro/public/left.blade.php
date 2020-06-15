@@ -21,14 +21,14 @@
     <div class="p-left-menu-box">
         <ul class="layui-nav layui-nav-tree" lay-filter="left-side">
             <li class="layui-nav-item " lay-unselect="">
-                <a href="/new" class=" nav-menu-a  p-nav-menu-btn  pjax"
-                   target="_self" data-pjax-state="">
+                <a href="/" class="nav-menu-a p-nav-menu-btn pjax"
+                   target="_self">
                     <i class="fa fa-home fa-fw"></i>
                     <span class="p-left-menu-nav-txt">首页</span>
                 </a>
             </li>
             <li class="layui-nav-item " lay-unselect="">
-                <a href="/new/time"
+                <a href="/time"
                    class=" nav-menu-a  p-nav-menu-btn  pjax"
                    target="_self" data-pjax-state="">
                     <i class="fa fa-clock-o fa-fw"></i>
@@ -36,7 +36,7 @@
                 </a>
             </li>
             <li class="layui-nav-item " lay-unselect="">
-                <a href="/new/category"
+                <a href="/category"
                    class=" nav-menu-a  p-nav-menu-btn  pjax"
                    target="_self" data-pjax-state="">
                     <i class="fa fa-bars fa-fw"></i>
@@ -44,7 +44,7 @@
                 </a>
             </li>
             <li class="layui-nav-item " lay-unselect="">
-                <a href="/new/photoList"
+                <a href="/photoList"
                    class=" nav-menu-a  p-nav-menu-btn  pjax"
                    target="_self" data-pjax-state="">
                     <i class="fa fa-image fa-fw"></i>
@@ -52,7 +52,7 @@
                 </a>
             </li>
             <li class="layui-nav-item " lay-unselect="">
-                <a href="/new/link"
+                <a href="/link"
                    class=" nav-menu-a  p-nav-menu-btn  pjax"
                    target="_self" data-pjax-state="">
                     <i class="fa fa-user-o fa-fw"></i>

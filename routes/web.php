@@ -65,6 +65,6 @@ Route::group(['prefix' => 'test', 'namespace' => 'Web'], function () {
 
 
 // mp3
-Route::any('mp3', 'IszmxwController@mp3');
+Route::any('mp3', 'Web\IszmxwController@mp3');
 // photo
-Route::any('photo/getPhoto', 'IszmxwController@photo');
+Route::any('photo/getPhoto', 'Web\IszmxwController@photo');

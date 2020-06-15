@@ -20,6 +20,8 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         //
-        'git_pull'
+        'git_pull',
+        'photo/getPhoto',
+        'mp3'
     ];
 }

@@ -36,6 +36,7 @@
 </div>
 {{--引用公共js--}}
 @include('web.iszmxw_simple_pro.public.script')
+{{--可自动加载的js部分--}}
 <div class="loadJs">
     @yield('script')
 </div>

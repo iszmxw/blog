@@ -1,4 +1,4 @@
-@extends('web.default_template.app')
+@extends('web.iszmxw_simple_pro.app')
 
 @section('title', '追梦小窝首页')
 {{--样式引入--}}
@@ -13,52 +13,56 @@
 @section('content')
     <div class="col-lg-8">
         @foreach($blog as $key=>$val)
-        <div class="ibox">
-            <div class="ibox-content">
-                <a href="{{url('article')}}/{{$val['id']}}" class="btn-link">
-                    <h2>
-                        {{$val['title']}}
-                    </h2>
-                </a>
-                <div class="small m-b-xs">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <a href="{{url('article')}}/{{$val['id']}}" class="btn-link">
+                        <h2>
+                            {{$val['title']}}
+                        </h2>
+                    </a>
+                    <div class="small m-b-xs">
                     <span class="text-muted">
                         <button class="btn btn-info btn-xs btn-outline" type="button">
                             <i class="fa fa-user-o"></i>&nbsp;&nbsp;
                             {{$val['name']}}
                         </button>
                     </span>
-                    <span class="text-muted">
+                        <span class="text-muted">
                         <button class="btn btn-primary btn-xs btn-outline" type="button">
                             <i class="fa fa-clock-o"></i>&nbsp;&nbsp;
                             {{$val['created_at']}}
                         </button>
                     </span>
-                </div>
-                <br>
-                <div class="row">
-                    @if($val['thumb'])
-                    <div class="col-md-4">
-                        <img src="http://blog.54zm.com/{{$val['thumb']}}" style="width:100%;max-height:150px;">
                     </div>
-                    @endif
-                    <p @if($val['thumb']) class="col-md-8" @else class="col-md-12" @endif>
-                        {{$val['content']}}
-                    </p>
-                </div>
-                <br>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="small text-right">
-                            <button class="btn btn-primary btn-xs" type="button"><i class="fa fa-comments-o"> </i> {{$val['comments']}} 评论 </button>
-                            <button class="btn btn-white btn-xs" type="button"><i class="fa fa-eye"> </i> {{$val['views']}} 浏览</button>
+                    <br>
+                    <div class="row">
+                        @if($val['thumb'])
+                            <div class="col-md-4">
+                                <img src="http://blog.54zm.com/{{$val['thumb']}}" style="width:100%;max-height:150px;">
+                            </div>
+                        @endif
+                        <p @if($val['thumb']) class="col-md-8" @else class="col-md-12" @endif>
+                            {{$val['content']}}
+                        </p>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="small text-right">
+                                <button class="btn btn-primary btn-xs" type="button"><i
+                                            class="fa fa-comments-o"> </i> {{$val['comments']}} 评论
+                                </button>
+                                <button class="btn btn-white btn-xs" type="button"><i
+                                            class="fa fa-eye"> </i> {{$val['views']}} 浏览
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        @endforeach
+    @endforeach
 
-        <!--分页-->
+    <!--分页-->
         <div class="btn-group pull-right">
             {{$blog->links()}}
         </div>

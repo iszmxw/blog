@@ -12,6 +12,14 @@
 <script>
     // 渐变色背景
     $("body").css("background-image", "linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%)");
+    $(function () {
+        var yiyan = $("#hitokoto").text();
+        $("#yiyan").text(yiyan);
+    })
+
+    function closeNotice() {
+        $(".p-notice-box").hide();
+    }
     var chakhsu = function (r) {
         function t() {
             return b[Math.floor(Math.random() * b.length)]

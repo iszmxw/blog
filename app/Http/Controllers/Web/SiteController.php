@@ -48,7 +48,7 @@ class SiteController extends Controller
         return view('web.iszmxw_simple_pro.time', $view);
     }
 
-    //栏目页面
+    // 栏目页面
     public function category($category_id)
     {
         $blog = Blog::getPaginate(['sort_id' => $category_id], ['blog.id', 'blog.sort_id', 'blog.title', 'blog.created_at', 'blog.content', 'blog.views'], 10, 'blog.created_at', 'DESC');

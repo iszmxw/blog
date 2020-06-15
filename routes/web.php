@@ -10,22 +10,22 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-//前台页面
+// 前台页面
 Route::group(['middleware' => 'web_common', 'namespace' => 'Web'], function () {
+
     Route::get('/', 'WebController@index');
     Route::get('article/{article_id}', 'WebController@article');
     Route::get('category/{category_id}', 'WebController@category');
     Route::get('about', 'WebController@about');
 
-
     Route::group(['prefix' => 'blog'], function () {
-        //api
+        // api
         Route::group(['prefix' => 'api'], function () {
             Route::any('comment', 'WebController@comment_api');
         });
     });
 
-
+    // 粉丝墙
     Route::group(['prefix' => 'wall'], function () {
         Route::any('index', 'WallController@index');
         Route::any('register', 'WallController@register');
@@ -40,30 +40,20 @@ Route::group(['middleware' => 'web_common', 'namespace' => 'Web'], function () {
 });
 
 
-//工具
-Route::any('git_pull', 'Tooling\ToolingController@get_pull');
-
-
-Route::get('phpinfo', function () {
-    dd("别想了，你还是做个好人吧！");
-    phpinfo();
+// 工具==>钩子pull更新代码
+Route::any('git_pull', function () {
+    exec("cd /home/wwwroot/blog_54zm_com && git pull", $res);
+    dump($res);
 });
 
-
+/**
+ * 杂七杂八测试
+ */
 Route::get('iszmxw/logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
 Route::get('bomb', 'Web\WebController@bomb');
 
 Route::get('images', 'Web\WebController@images');
-
-
-// 测试
-Route::group(['prefix' => 'test', 'namespace' => 'Web'], function () {
-    Route::any('index', 'TianYiController@index');
-    Route::any('github', 'TianYiController@github');
-});
-
-
 // mp3
 Route::any('mp3', 'Web\IszmxwController@mp3');
 // photo

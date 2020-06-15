@@ -2,6 +2,9 @@
 
 namespace App\Library;
 
+use GuzzleHttp\Client;
+use Illuminate\Http\Request;
+
 class Upload
 {
     /**
@@ -78,4 +81,52 @@ class Upload
         unset($file, $url);
         return ['save_path' => $save_dir . $filename, 'error' => 0];
     }
+
+
+    /**
+     * 上传文件到github
+     * @return string
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2020/6/15 16:53
+     */
+    public static function github_upload()
+    {
+        $access_token = "6a5d3519667172b429d3df3233a03766894dcdec";
+        $path         = "images/2020/0612"; // 文件保存路径
+        $old_file     = "createwxaqrcode.png";
+        $new_file     = "images-" . date('YmdHis', time()) . time() . ".png";
+        $url          = "https://api.github.com/repos/iszmxw/FigureBed/contents/{$path}/{$new_file}?access_token={$access_token}";
+        $client       = new Client();
+        $options      = [
+            "json" => [
+                "message"   => "文件上传测试",
+                "committer" => [
+                    "name"  => "iszmxw",
+                    "email" => "mail@54zm.com"
+                ],
+                "content"   => self::imgToBase64($old_file)
+            ]
+        ];
+        $res          = $client->put($url, $options)->getBody()->getContents();
+        return $res;
+    }
+
+    public static function imgToBase64($img)
+    {
+        $img_file   = './' . $img;
+        $img_base64 = '';
+        if (file_exists($img_file)) {
+            $fp = fopen($img_file, "r"); // 图片是否可读权限
+            if ($fp) {
+                $filesize     = filesize($img_file);
+                $content      = fread($fp, $filesize);
+                $file_content = base64_encode($content); // base64编码
+                $img_base64   = $file_content;//合成图片的base64编码
+            }
+            fclose($fp);
+        }
+        return $img_base64; //返回图片的base64
+    }
+
+
 }

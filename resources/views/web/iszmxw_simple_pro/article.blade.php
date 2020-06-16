@@ -54,8 +54,8 @@
             </div>
         </div>
         <span id="edit-model" style="display: none">markdown</span>
-        @if($val['thumb'])
-            <div class="p-article-img" style="background-image: url('http://blog.54zm.com/{{$val['thumb']}}')">
+        @if($blog['thumb'])
+            <div class="p-article-img" style="background-image: url('http://blog.54zm.com/{{$blog['thumb']}}')">
             </div>
         @endif
         <article class="p-article-content-box" id="article">

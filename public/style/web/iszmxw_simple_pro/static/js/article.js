@@ -17,7 +17,7 @@ $(function () {
         });
         lay_notice.success('复制成功');
     });
-    //toc导航
+    // toc导航
     var toc = $("#toc").tocify({context: "article", selectors: "h1,h2,h3,h4", extendPage: false});
     var tocHtml = toc[0];
     if (tocHtml.getElementsByTagName("li").length > 0) {

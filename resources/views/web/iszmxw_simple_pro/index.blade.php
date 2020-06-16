@@ -143,6 +143,9 @@
     </div>
 @endsection
 
+@section('toxBox')
+@endsection
+
 {{--js引用--}}
 @section('script')
 @endsection

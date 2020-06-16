@@ -96,7 +96,13 @@ class SiteController extends Controller
         return view('web.iszmxw_simple_pro.link', $view);
     }
 
-    //文章页面
+    /**
+     * 文章页面
+     * @param $article_id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2020/6/16 21:57
+     */
     public function article($article_id)
     {
         $blog               = Blog::getOne(['id' => $article_id]);
@@ -106,8 +112,12 @@ class SiteController extends Controller
         $blog['tags']       = Tag::getList([['blog_id', 'like', '%,' . $blog['id'] . ',%']]);
         $comment            = Comment::where(['id' => $article_id])->get()->toArray();
         $blog['comment']    = Comment::where(['id' => $article_id])->count();
-        $data               = ['blog' => $blog, 'comment' => $comment];
-        return view('web.default_template.article', $data);
+        //取第一张图片作为缩略图
+        if ($thumb = Attachment::getOne([['blog_id', $blog['id']], ['mimetype', 'like', '%' . 'image/' . '%']])) {
+            $blog['thumb'] = $thumb['thumb']['filepath'];
+        }
+        $data = ['blog' => $blog, 'comment' => $comment];
+        return view('web.iszmxw_simple_pro.article', $data);
     }
 
     public function about()

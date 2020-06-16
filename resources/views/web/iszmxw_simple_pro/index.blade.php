@@ -12,6 +12,10 @@
             padding: 2px 8px;
         }
 
+        .p-left-user-box .p-left-user-hitokoto-box {
+            height: 72px;
+        }
+
         .heart {
             width: 10px;
             height: 10px;

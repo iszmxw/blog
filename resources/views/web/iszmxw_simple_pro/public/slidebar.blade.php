@@ -111,6 +111,6 @@
     </div>
     <!-- 标签end -->
     <div id="toxBox">
-
+        @yield('toxBox')
     </div>
 </div>

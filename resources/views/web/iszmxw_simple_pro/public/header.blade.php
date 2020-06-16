@@ -9,8 +9,10 @@
             <button type="submit"><i class="layui-icon"></i></button>
         </form>
     </div>
-    <a class="phone-title pjax" href="/" data-pjax-state=""> <i class="fa fa-snowflake-o"></i> <span
-                class="p-left-logo-box-text-name">Perfree</span> </a>
+    <a class="phone-title pjax" href="/" data-pjax-state="">
+        <i class="fa fa-snowflake-o"></i>
+        <span class="p-left-logo-box-text-name">{{$user_data['nickname']}}</span>
+    </a>
     <div class="p-header-box-right-box">
         <div class="p-header-box-music-box">
             <div id="skPlayer"></div>
@@ -20,7 +22,7 @@
             <span style="float: left;line-height: 50px;">|</span>
             <a class="p-header-box-login-box-register" href="/user/register">注册</a>
         </div>
-        <a id="phoneSetting" style="display: none"> <i class="layui-icon"></i> </a>
+        <a id="phoneSetting" style="display: none"> <i class="layui-icon"></i></a>
     </div>
     <div class="p-phone-top-nav box-shadow">
         <form action="/article/search" data-pjax-state="">

@@ -42,11 +42,10 @@ class Web
         $route      = $request->getPathInfo();
         //处理公共数据
         self::CommonData($request);
-
         //共享用户信息到所有视图
-        $uesr_data          = User::getOne(['id' => '1']);
-        $uesr_data['photo'] = str_replace('../', '/', $uesr_data['photo']);
-        View::share('user_data', $uesr_data);
+        $user_data          = User::getOne(['id' => '1']);
+        $user_data['photo'] = str_replace('../', '/', $user_data['photo']);
+        View::share('user_data', $user_data);
         $qq_data = session('qq_data');
         switch ($route) {
             case '/';
@@ -71,12 +70,12 @@ class Web
     public static function CommonData($request)
     {
 //        $client = new Client();
-        //左侧导航栏
+        // 左侧导航栏
         $nav = Navi::get_select(['pid' => '0', 'hide' => 0], ['id', 'nav_name', 'nav_icon', 'url', 'new_tab', 'pid', 'is_root'], 'sort', 'ASC')->toArray();
         foreach ($nav as $key => $val) {
             $nav[$key]['sub_menu'] = Navi::get_select(['pid' => $val['id'], 'hide' => 0], ['id', 'nav_name', 'nav_icon', 'url', 'new_tab', 'pid', 'is_root'], 'sort', 'ASC')->toArray();
         }
-        //分类统计
+        // 分类统计
         $sort = Sort::getList([]);
         foreach ($sort as $key => $val) {
             $sort[$key]['count'] = Blog::getCount(['sort_id' => $val['id']]);

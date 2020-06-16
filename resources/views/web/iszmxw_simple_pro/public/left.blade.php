@@ -2,17 +2,17 @@
     <div class="p-left-logo-box">
         <a class="p-left-logo-box-text pjax" href="/">
             <i class="fa fa-snowflake-o"></i>
-            <span class="p-left-logo-box-text-name">追梦小窝</span>
+            <span class="p-left-logo-box-text-name">{{$user_data['nickname']}}</span>
         </a>
     </div>
     <div class="p-left-user-box">
-        <a class="p-left-user-img-box pjax" href="/"> <img
-                    src="{{asset('style/web/iszmxw_simple_pro/images/ec83d6ed69d84517beb3ee9ccc49f8b4.jpg')}}">
+        <a class="p-left-user-img-box pjax" href="/">
+            <img src="{{asset($user_data['photo'])}}">
         </a>
-        <a class="p-left-user-name-box pjax" href="/"> <span>追梦小窝</span></a>
+        <a class="p-left-user-name-box pjax" href="/"> <span>{{$user_data['nickname']}}</span></a>
         <div class="p-left-user-hitokoto-box">
             <span class="text-muted text-xs block">
-              <div id="chakhsu">♥简简单单的生活,安安静静</div>
+              <div id="chakhsu"></div>
             </span>
         </div>
     </div>

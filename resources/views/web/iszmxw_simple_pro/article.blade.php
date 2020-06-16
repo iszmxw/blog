@@ -54,7 +54,7 @@
             </div>
         </div>
         <span id="edit-model" style="display: none">markdown</span>
-        @if($blog['thumb'])
+        @if(isset($blog['thumb']))
             <div class="p-article-img" style="background-image: url('http://blog.54zm.com/{{$blog['thumb']}}')">
             </div>
         @endif
@@ -79,8 +79,10 @@
                 <div class="appreciate-content-tip">
                     扫一扫支付
                 </div>
-                <img src="./images/2d8c70692e854dde814bbc71b88a83e4.png" id="appreciate-content-aLiImg">
-                <img src="./images/79ae8444d40744fa80edb4b7abe606b5.png" id="appreciate-content-wechatImg"
+                <img src="{{asset('style/web/iszmxw_simple_pro/images/2d8c70692e854dde814bbc71b88a83e4.png')}}"
+                     id="appreciate-content-aLiImg">
+                <img src="{{asset('style/web/iszmxw_simple_pro/images/79ae8444d40744fa80edb4b7abe606b5.png')}}"
+                     id="appreciate-content-wechatImg"
                      style="display: none;">
                 <hr>
                 <div class="appreciate-content-btn-box">
@@ -220,7 +222,103 @@
     </div>
 @endsection
 
+
+@section('toxBox')
+    <div class="p-right-card-box p-toc-box">
+        <h2 class="p-right-card-title">文章目录</h2>
+        <div class="p-right-card-body">
+            <div class="toc" id="toc">
+            </div>
+        </div>
+    </div>
+@endsection
+
 {{--js引用--}}
 @section('script')
+    <script type="text/javascript" src="{{asset('style/web/iszmxw_simple_pro/static/js/article.js')}}"></script>
+    <script>
+        // 加载代码解析器
+        $.getScript("{{asset('style/web/iszmxw_simple_pro/static/plugins/highlight/highlight.pack.js')}}", function () {
+            hljs.initHighlighting();
+            $('pre code').each(function () {
+                var edit = $("#edit-model").text();
+                var lines = $(this).text().split('\n').length - 1;
+                if (edit == 'html') {
+                    lines = $(this).text().split('\n').length;
+                }
+                var $numbering = $('<ul/>').addClass('pre-numbering hljs');
+                $(this)
+                    .addClass('has-numbering')
+                    .parent()
+                    .append($numbering);
+                for (i = 1; i <= lines; i++) {
+                    $numbering.append($('<li/>').text(i + "."));
+                }
+            });
+        })
+        // 加载数学公式
+        $.getScript("//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML", function () {
+            MathJax.Hub.Config({
+                showProcessingMessages: false,
+                messageStyle: "none",
+                extensions: ["tex2jax.js"],
+                jax: ["input/TeX", "output/HTML-CSS"],
+                tex2jax: {
+                    inlineMath: [['$', '$'], ["\\(", "\\)"]],
+                    displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+                    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code', 'a']
+                },
+                "HTML-CSS": {
+                    availableFonts: ["STIX", "TeX"],
+                    showMathMenu: false,
+                    showProcessingMessages: false,
+                    messageStyle: "none"
+                }
+            });
+            var mathId = document.getElementById("articleContent");
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub, mathId]);
+        });
 
+        function appreciate() {
+            layer.open({
+                type: 1,
+                title: '赞赏作者',
+                shade: 0.6,
+                anim: 1,
+                shadeClose: true,
+                area: ["300px", "350px"],
+                content: $('#appreciate-content')
+            });
+        }
+
+        function changeImg(type) {
+            if (type == 1) {
+                $(".layui-layer-wrap > #appreciate-content-wechatImg").hide();
+                $(".layui-layer-wrap > #appreciate-content-aLiImg").show();
+            } else {
+                $(".layui-layer-wrap > #appreciate-content-aLiImg").hide();
+                $(".layui-layer-wrap > #appreciate-content-wechatImg").show();
+            }
+        }
+
+        var index;
+        $('.p-article-goto-box').on('mouseenter', '#preArticle', function () {
+            var preTitle = $("#preArticle").attr("articleTitle");
+            index = layer.tips(preTitle, '#preArticle', {
+                tips: 1
+            });
+        });
+        $('.p-article-goto-box').on('mouseleave', '#preArticle', function () {
+            layer.close(index);
+        });
+        $('.p-article-goto-box').on('mouseenter', '#nextArticle', function () {
+            var preTitle = $("#nextArticle").attr("articleTitle");
+            index = layer.tips(preTitle, '#nextArticle', {
+                tips: 1
+            });
+        });
+        $('.p-article-goto-box').on('mouseleave', '#nextArticle', function () {
+            layer.close(index);
+        });
+    </script>
 @endsection

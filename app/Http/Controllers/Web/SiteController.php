@@ -114,7 +114,9 @@ class SiteController extends Controller
         $blog['comment']    = Comment::where(['id' => $article_id])->count();
         //取第一张图片作为缩略图
         if ($thumb = Attachment::getOne([['blog_id', $blog['id']], ['mimetype', 'like', '%' . 'image/' . '%']])) {
-            $blog['thumb'] = $thumb['thumb']['filepath'];
+            if (isset($thumb['thumb']['filepath'])) {
+                $blog['thumb'] = $thumb['thumb']['filepath'];
+            }
         }
         $data = ['blog' => $blog, 'comment' => $comment];
         return view('web.iszmxw_simple_pro.article', $data);

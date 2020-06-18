@@ -35,6 +35,34 @@ class SiteController extends Controller
         return view('web.iszmxw_simple_pro.index', $view);
     }
 
+    // 标签文章列表
+    public function article_tag($tag_id)
+    {
+        $blog_id = Tag::getValue(['id' => $tag_id], 'blog_id');
+        $blog    = [];
+        if ($blog_id) {
+            $blog_id = explode(',', $blog_id);
+            $blog    = Blog::whereIn('blog.id', $blog_id)
+                ->join('sort', function ($join) {
+                    $join->on('sort.id', '=', 'blog.sort_id');
+                })
+                ->select(['blog.id', 'blog.sort_id', 'blog.title', 'blog.created_at', 'blog.content', 'blog.views'])
+                ->orderby('created_at', 'DESC')
+                ->paginate(10);
+            foreach ($blog as $value) {
+                $value['content']   = Tooling::tool_purecontent($value['content'], 240);
+                $value['sort_name'] = Sort::getValue(['id' => $value['sort_id']], 'name');
+                $value['comments']  = Comment::getCount(['id' => $value['id']]);
+                //取第一张图片作为缩略图
+                if ($value['thumb'] = Attachment::getOne([['blog_id', $value['id']], ['mimetype', 'like', '%' . 'image/' . '%']])) {
+                    $value['thumb'] = $value['thumb']['filepath'];
+                }
+            }
+        }
+        $view = ['blog' => $blog];
+        return view('web.iszmxw_simple_pro.article_tag', $view);
+    }
+
     /**
      * 归档
      * @param Request $request
@@ -44,7 +72,10 @@ class SiteController extends Controller
      */
     public function time(Request $request)
     {
-        $view = ['blog' => ''];
+        $blog = Blog::select(['blog.id', 'blog.title', 'blog.created_at'])
+            ->orderby('created_at', 'DESC')
+            ->paginate(10);
+        $view = ['blog' => $blog];
         return view('web.iszmxw_simple_pro.time', $view);
     }
 

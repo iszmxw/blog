@@ -19,9 +19,12 @@ Route::group(['middleware' => 'web_common', 'namespace' => 'Web'], function () {
         Route::get('time', 'SiteController@time');
         Route::get('category', 'SiteController@category');
         Route::get('photo_list', 'SiteController@photo_list');
+        // 友情链接页面
         Route::get('link', 'SiteController@link');
+        // 文章详情页面
         Route::get('article/{article_id}', 'SiteController@article');
-        Route::get('about', 'SiteController@about');
+        // 标签文章列表
+        Route::get('article/tag/{tag_id}', 'SiteController@article_tag');
 
         Route::group(['prefix' => 'blog'], function () {
             // api

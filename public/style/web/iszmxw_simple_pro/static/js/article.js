@@ -18,7 +18,11 @@ $(function () {
         lay_notice.success('复制成功');
     });
     // toc导航
-    var toc = $("#toc").tocify({context: "article", selectors: "h1,h2,h3,h4", extendPage: false});
+    var toc = $("#toc").tocify({
+        context: "article",
+        selectors: "h2,h3",
+        extendPage: false
+    });
     var tocHtml = toc[0];
     if (tocHtml.getElementsByTagName("li").length > 0) {
         $("#toxBox").show();
@@ -43,7 +47,7 @@ $(function () {
             }
         });
         var pRevertContent, pRevertAuthor, pRevertCreated, pRevertAvatar;
-        //监听回复按钮点击事件
+        // 监听回复按钮点击事件
         $('.p-article-revert-container').on('click', '.p-revert-btn', function () {
             $('#revertPid').val($(this).attr('data-cid'));
             $('#revert').val('回复 @' + $(this).attr('data-author') + " ：");

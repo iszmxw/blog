@@ -7,6 +7,7 @@ use App\Models\Navi;
 use App\Models\Sort;
 use App\Models\Link;
 use App\Models\Comment;
+use App\Models\Tag;
 use App\Models\Twitter;
 use App\Models\User;
 use App\Models\Blog;
@@ -85,7 +86,7 @@ class Web
 //        $qun = json_decode($response->getBody()->getContents());
         //友情链接
         $link = Link::getList([]);
-        //前十条评论数据调用
+        // 前十条评论数据调用
         $comments = Comment::getList(['hide' => 1], '', 0, 6, 'created_at', 'DESC');
         foreach ($comments as $key => $val) {
             if (empty($val['mail'])) {
@@ -93,17 +94,32 @@ class Web
             }
             $comments[$key]['blog_title'] = Blog::getValue(['id' => $val['blog_id']], 'title');
         }
-        //站点统计信息
+        $hot_blog = Blog::getList([], ['id', 'title', 'views'], '', 5, 'views', 'DESC');
+        // 站点统计信息
         $site_info['naissance'] = floor((time() - strtotime('2015-8-1')) / 86400);
-        $site_info['comments']  = Comment::getCount([]);
-        $site_info['twitters']  = Twitter::getCount([]);
-        $site_info['blogs']     = Blog::getCount([]);
+        // 评论数量
+        $site_info['comments'] = Comment::getCount([]);
+        // 微语数量
+        $site_info['twitters'] = Twitter::getCount([]);
+        // 文章数
+        $site_info['blogs'] = Blog::getCount([]);
+        // 标签数量
+        $site_info['tags'] = Tag::getCount([]);
+        // 随机取出10个标签
+        $site_info['tags_list'] = Tag::getList([], ['id', 'name']);
 
+        // 导航栏
         View::share('nav', $nav);
+        // 分类
         View::share('sort', $sort);
 //        View::share('qun',$qun);
+        // 友情链接
         View::share('link', $link);
+        // 前十条评论
         View::share('comments', $comments);
+        // 浏览最多的五篇文章
+        View::share('hot_blog', $hot_blog);
+        // 站点信息
         View::share('site_info', $site_info);
 
         return $request;

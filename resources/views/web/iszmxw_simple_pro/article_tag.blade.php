@@ -63,31 +63,31 @@
         </div>
         <div class="p-content-box-articleList-box">
             <!-- 置顶文章start -->
-            <div class="p-content-box-article-box">
-                <!--缩略图获取方式-->
-                <a href="/article/9" class="pjax">
-                    <div class="p-article-thumb"
-                         style="background-image: url('{{asset('style/web/iszmxw_simple_pro/images/429ac173b205465ba3e3a1410bd38e88.jpg')}}')">
-                    </div>
-                </a>
-                <div class="p-article-brief-box">
-                    <h2 class="p-article-title"><a href="/article/9" class="pjax"> <span
-                                    class="p-article-top">置顶</span> Perfree-Simple-Pro-致更好的你 </a></h2>
-                    <p class="p-article-content"> 一款高仿Typecho的handsome博客主题 主题简介
-                        抛弃一切繁琐,只想简简单单的呈现你的文采,如你所见,这是一款简约清新的博客主题模板,该模板收费69元,包含相册插件和留言板插件(开发中)以及以后所有新出的插件,你只管创作,其他交给 </p>
-                    <hr>
-                    <div class="p-article-msg">
-                                <span class="p-article-msg-btn"> <i class="fa fa-eye"
-                                                                    aria-hidden="true"></i> 3608浏览 </span>
-                        <span class="p-article-msg-btn"> <i class="fa fa-comment-o"
-                                                            aria-hidden="true"></i> 48条评论 </span>
-                        <span class="p-article-msg-btn"> <i class="fa fa-clock-o"
-                                                            aria-hidden="true"></i> 2019年06月03日 </span>
-                        <a href="/article/9" class="p-article-msg-all-btn pjax">阅读全文</a>
-                    </div>
-                </div>
-            </div>
-            <!-- 置顶文章end -->
+        {{--            <div class="p-content-box-article-box">--}}
+        {{--                <!--缩略图获取方式-->--}}
+        {{--                <a href="/article/9" class="pjax">--}}
+        {{--                    <div class="p-article-thumb"--}}
+        {{--                         style="background-image: url('{{asset('style/web/iszmxw_simple_pro/images/429ac173b205465ba3e3a1410bd38e88.jpg')}}')">--}}
+        {{--                    </div>--}}
+        {{--                </a>--}}
+        {{--                <div class="p-article-brief-box">--}}
+        {{--                    <h2 class="p-article-title"><a href="/article/9" class="pjax"> <span--}}
+        {{--                                    class="p-article-top">置顶</span> Perfree-Simple-Pro-致更好的你 </a></h2>--}}
+        {{--                    <p class="p-article-content"> 一款高仿Typecho的handsome博客主题 主题简介--}}
+        {{--                        抛弃一切繁琐,只想简简单单的呈现你的文采,如你所见,这是一款简约清新的博客主题模板,该模板收费69元,包含相册插件和留言板插件(开发中)以及以后所有新出的插件,你只管创作,其他交给 </p>--}}
+        {{--                    <hr>--}}
+        {{--                    <div class="p-article-msg">--}}
+        {{--                                <span class="p-article-msg-btn"> <i class="fa fa-eye"--}}
+        {{--                                                                    aria-hidden="true"></i> 3608浏览 </span>--}}
+        {{--                        <span class="p-article-msg-btn"> <i class="fa fa-comment-o"--}}
+        {{--                                                            aria-hidden="true"></i> 48条评论 </span>--}}
+        {{--                        <span class="p-article-msg-btn"> <i class="fa fa-clock-o"--}}
+        {{--                                                            aria-hidden="true"></i> 2019年06月03日 </span>--}}
+        {{--                        <a href="/article/9" class="p-article-msg-all-btn pjax">阅读全文</a>--}}
+        {{--                    </div>--}}
+        {{--                </div>--}}
+        {{--            </div>--}}
+        <!-- 置顶文章end -->
             <!--文章列表start-->
             @foreach($blog as $key=>$val)
                 <div class="p-content-box-article-box">

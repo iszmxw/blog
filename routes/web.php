@@ -18,6 +18,7 @@ Route::group(['middleware' => 'web_common', 'namespace' => 'Web'], function () {
         Route::get('/', 'SiteController@index');
         Route::get('time', 'SiteController@time');
         Route::get('category', 'SiteController@category');
+        Route::get('category/{category_id}', 'SiteController@category_article');
         Route::get('photo_list', 'SiteController@photo_list');
         // 友情链接页面
         Route::get('link', 'SiteController@link');

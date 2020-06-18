@@ -6,6 +6,7 @@ use App\Library\Bomb;
 use App\Library\Tooling;
 use App\Models\Attachment;
 use App\Models\Blog;
+use App\Models\Link;
 use App\Models\Sort;
 use App\Models\Comment;
 use App\Models\Tag;
@@ -88,19 +89,29 @@ class SiteController extends Controller
      */
     public function category()
     {
-        $category_id = 1;
-        $blog        = Blog::getPaginate(['sort_id' => $category_id], ['blog.id', 'blog.sort_id', 'blog.title', 'blog.created_at', 'blog.content', 'blog.views'], 10, 'blog.created_at', 'DESC');
+        $category = Sort::getList();
+        foreach ($category as $key => $val) {
+            $category[$key]['blog_num'] = Blog::getCount(['sort_id' => $val['id']]);
+        }
+        $view = ['category' => $category];
+        return view('web.iszmxw_simple_pro.category', $view);
+    }
+
+    // 栏目分类文章列表
+    public function category_article($category_id)
+    {
+        $blog = Blog::getPaginate(['sort_id' => $category_id], ['blog.id', 'blog.sort_id', 'blog.title', 'blog.created_at', 'blog.content', 'blog.views'], 10, 'created_at', 'DESC');
         foreach ($blog as $value) {
-            $value['content']  = Tooling::tool_purecontent($value['content'], 240);
-            $value['name']     = Sort::getValue(['id' => $value['sort_id']], 'name');
-            $value['comments'] = Comment::getCount(['id' => $value['id']]);
+            $value['content']   = Tooling::tool_purecontent($value['content'], 240);
+            $value['sort_name'] = Sort::getValue(['id' => $value['sort_id']], 'name');
+            $value['comments']  = Comment::getCount(['id' => $value['id']]);
             //取第一张图片作为缩略图
             if ($value['thumb'] = Attachment::getOne([['blog_id', $value['id']], ['mimetype', 'like', '%' . 'image/' . '%']])) {
                 $value['thumb'] = $value['thumb']['filepath'];
             }
         }
         $view = ['blog' => $blog];
-        return view('web.iszmxw_simple_pro.category', $view);
+        return view('web.iszmxw_simple_pro.category_article', $view);
     }
 
     /**
@@ -123,7 +134,8 @@ class SiteController extends Controller
      */
     public function link()
     {
-        $view = ['blog' => ''];
+        $link = Link::getList(['hide' => 'n'], [], '', '', 'taxis', 'ASC');
+        $view = ['link' => $link];
         return view('web.iszmxw_simple_pro.link', $view);
     }
 
@@ -143,7 +155,7 @@ class SiteController extends Controller
         $blog['tags']       = Tag::getList([['blog_id', 'like', '%,' . $blog['id'] . ',%']]);
         $comment            = Comment::where(['id' => $article_id])->get()->toArray();
         $blog['comment']    = Comment::where(['id' => $article_id])->count();
-        //取第一张图片作为缩略图
+        // 取第一张图片作为缩略图
         if ($thumb = Attachment::getOne([['blog_id', $blog['id']], ['mimetype', 'like', '%' . 'image/' . '%']])) {
             if (isset($thumb['thumb']['filepath'])) {
                 $blog['thumb'] = $thumb['thumb']['filepath'];
@@ -151,11 +163,6 @@ class SiteController extends Controller
         }
         $data = ['blog' => $blog, 'comment' => $comment];
         return view('web.iszmxw_simple_pro.article', $data);
-    }
-
-    public function about()
-    {
-        return view('web.default_template.about');
     }
 
 

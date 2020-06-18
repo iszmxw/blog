@@ -16,16 +16,19 @@
             <h3>分类</h3>
         </div>
         <div class="p-category-list-box layui-clear">
-            <a class="p-category-box layui-clear pjax" title="共2篇文章" href="/article/category/jpress">
-                <div class="p-category-img"></div>
-                <div class="p-category-msg">
-                    <h2 class="p-category-title">jpress</h2>
-                    <span>别看了,只是一个测试分类</span>
-                </div>
-                <div class="p-category-count">
-                    2
-                </div>
-            </a>
+            @foreach($category as $key=>$val)
+                <a class="p-category-box layui-clear pjax" title="共{{$val['blog_num']}}篇文章"
+                   href="{{url('category')}}/{{$val['id']}}">
+                    <div class="p-category-img"></div>
+                    <div class="p-category-msg">
+                        <h2 class="p-category-title">{{$val['name']}}</h2>
+                        <span>{{$val['description']}}</span>
+                    </div>
+                    <div class="p-category-count">
+                        {{$val['blog_num']}}
+                    </div>
+                </a>
+            @endforeach
         </div>
     </div>
 @endsection
@@ -33,7 +36,7 @@
 {{--js引用--}}
 @section('script')
     <script type="text/javascript">
-        //截取分类首字母
+        // 截取分类首字母
         $(".p-category-title").each(function () {
             var title = $(this).text();
             $(this).parent().siblings(".p-category-img").text(title.substring(0, 1));

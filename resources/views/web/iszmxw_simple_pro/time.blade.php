@@ -14,7 +14,7 @@
     <div class="p-content-box">
         <div class="p-content-box-lwlhitokoto">
             <h3>文章归档</h3>
-            <span>目前共发布了9篇文章,继续努力~</span>
+            <span>目前共发布了{{$blog->toArray()['total']}}篇文章,继续努力~</span>
         </div>
         <div class="p-article-timeline-box">
             <ul class="layui-timeline" id="timelineBox">
@@ -22,7 +22,7 @@
                     <li class="layui-timeline-item">
                         <i class="layui-icon layui-timeline-axis"></i>
                         <div class="layui-timeline-content layui-text">
-                            <h3 class="layui-timeline-title">{{$val['created_at']}}</h3>
+                            <h3 class="layui-timeline-title">{{date('Y 年 m 月 d 日',strtotime($val['created_at']))}}</h3>
                             <span class="time-box-top">
                                 <i class="fa fa-caret-up"></i>
                             </span>
@@ -33,15 +33,19 @@
                 @endforeach
             </ul>
         </div>
-        <div id="timeLinePage" style="text-align: center;">
-            <div class="layui-box layui-laypage layui-laypage-molv" id="layui-laypage-1">
-                <a href="javascript:;"
-                   class="layui-laypage-prev layui-disabled"
-                   data-page="0">上一页</a><span
-                        class="layui-laypage-curr"><em
-                            class="layui-laypage-em" style="background-color:#337ab7;"></em><em>1</em></span><a
-                        href="javascript:;" class="layui-laypage-next layui-disabled" data-page="2">下一页</a></div>
+        <div class="perfree-page-box layui-clear">
+            {{$blog->links()}}
         </div>
+        {{--        <div id="timeLinePage" style="text-align: center;">--}}
+        {{--            <div class="layui-box layui-laypage layui-laypage-molv" id="layui-laypage-1">--}}
+        {{--                <a href="javascript:;"--}}
+        {{--                   class="layui-laypage-prev layui-disabled"--}}
+        {{--                   data-page="0">上一页</a><span--}}
+        {{--                        class="layui-laypage-curr"><em--}}
+        {{--                            class="layui-laypage-em" style="background-color:#337ab7;"></em><em>1</em></span><a--}}
+        {{--                        href="javascript:;" class="layui-laypage-next layui-disabled" data-page="2">下一页</a>--}}
+        {{--            </div>--}}
+        {{--        </div>--}}
     </div>
 @endsection
 

@@ -29,10 +29,10 @@
                         </a>
                         <dl class="layui-nav-child">
                             <dd>
-                                <a href="/ucenter" target="_blank">个人中心</a>
+                                <a href="{{url('wall/index')}}" target="_blank">个人中心</a>
                             </dd>
                             <dd>
-                                <a href="/ucenter/doLogout?csrf_token=148887311a644561a5ce88c18fee1da5" target="_blank">退出登录</a>
+                                <a href="{{url('wall/quit')}}" target="_blank">退出登录</a>
                             </dd>
                         </dl>
                     </li>

@@ -50,6 +50,9 @@ class Web
         $user_data['photo'] = UserMini::getValue(['id' => 1], 'avatarurl');
         View::share('user_data', $user_data);
         $qq_data = session('qq_data');
+        if ($qq_data) {
+            View::share('qq_data', $qq_data);
+        }
         switch ($route) {
             case '/';
             case '/article/' . $article_id;

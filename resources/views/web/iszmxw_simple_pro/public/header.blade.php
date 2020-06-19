@@ -17,11 +17,14 @@
         <div class="p-header-box-music-box">
             <div id="skPlayer"></div>
         </div>
-        <div class="p-header-box-login-box">
-            <a class="p-header-box-login-box-login" href="{{url('wall/register')}}">登录</a>
-            <span style="float: left;line-height: 50px;">|</span>
-            <a class="p-header-box-login-box-register" href="{{url('wall/register')}}">注册</a>
-        </div>
+        @if(isset($qq_data))
+        @else
+            <div class="p-header-box-login-box">
+                <a class="p-header-box-login-box-login" href="{{url('wall/register')}}">登录</a>
+                <span style="float: left;line-height: 50px;">|</span>
+                <a class="p-header-box-login-box-register" href="{{url('wall/register')}}">注册</a>
+            </div>
+        @endif
         <a id="phoneSetting" style="display: none"> <i class="layui-icon"></i></a>
     </div>
     <div class="p-phone-top-nav box-shadow">
@@ -30,10 +33,13 @@
             <button type="submit"><i class="layui-icon"></i></button>
         </form>
         <div class="p-phone-top-nav-login-box">
-            <div class="no-login layui-clear">
-                <a class="login-btn" href="{{url('wall/register')}}">登录</a>
-                <a class="register-btn" href="{{url('wall/register')}}">注册</a>
-            </div>
+            @if(isset($qq_data))
+            @else
+                <div class="no-login layui-clear">
+                    <a class="login-btn" href="{{url('wall/register')}}">登录</a>
+                    <a class="register-btn" href="{{url('wall/register')}}">注册</a>
+                </div>
+            @endif
         </div>
     </div>
 </div>

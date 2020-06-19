@@ -5,4 +5,5 @@
 <link rel="stylesheet" href="{{asset('style/web/iszmxw_simple_pro/static/plugins/skplayer/skPlayer.min.css')}}" media="all">
 <link rel="dns-prefetch" href="//cdn.bootcss.com">
 <link rel="stylesheet" href="{{asset('style/web/iszmxw_simple_pro/static/plugins/highlight/styles/vs.css')}}" media="all">
+<script src="{{asset('style/web/iszmxw_simple_pro/static/plugins/jquery/jquery-1.8.3.min.js')}}"></script>
 {{--<link rel="stylesheet" href="{{asset('style/web/iszmxw_simple_pro/static/plugins/layer/theme/default/layer.css?v=3.1.1')}}" id="layuicss-layer">--}}

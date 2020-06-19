@@ -79,9 +79,9 @@
                 <div class="appreciate-content-tip">
                     扫一扫支付
                 </div>
-                <img src="{{asset('style/web/iszmxw_simple_pro/images/2d8c70692e854dde814bbc71b88a83e4.png')}}"
+                <img src="{{asset('style/web/iszmxw_simple_pro/images/zfb.png')}}"
                      id="appreciate-content-aLiImg">
-                <img src="{{asset('style/web/iszmxw_simple_pro/images/79ae8444d40744fa80edb4b7abe606b5.png')}}"
+                <img src="{{asset('style/web/iszmxw_simple_pro/images/wx.png')}}"
                      id="appreciate-content-wechatImg"
                      style="display: none;">
                 <hr>
@@ -92,12 +92,17 @@
             </div>
         </article>
         <div class="p-article-goto-box layui-clear">
-            <a href="{{url('article')}}/{{$blog['id'] - 1}}" class="p-pre-article pjax"
-               articletitle="Python数据分析之Pandas数据可视化" id="preArticle"> 上一篇
-            </a>
-            <a href="{{url('article')}}/{{$blog['id'] + 1}}" articletitle="推荐一个很棒的html网页背景图片网站"
-               class="p-next-article pjax" id="nextArticle"> 下一篇
-            </a>
+            @if($blog['preArticle'])
+                <a href="{{url('article')}}/{{$blog['preArticle']['id']}}" class="p-pre-article pjax"
+                   articletitle="{{$blog['preArticle']['title']}}" id="preArticle"> 上一篇
+                </a>
+            @endif
+            @if($blog['nextArticle'])
+                <a href="{{url('article')}}/{{$blog['nextArticle']['id']}}"
+                   articletitle="{{$blog['nextArticle']['title']}}"
+                   class="p-next-article pjax" id="nextArticle"> 下一篇
+                </a>
+            @endif
         </div>
         <div class="p-article-comment-box">
             <h2>发表评论</h2>

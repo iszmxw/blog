@@ -51,6 +51,7 @@ class Web
         View::share('user_data', $user_data);
         $qq_data = session('qq_data');
         if ($qq_data) {
+            dd($qq_data);
             View::share('qq_data', $qq_data);
         }
         switch ($route) {

@@ -18,7 +18,6 @@
             <div id="skPlayer"></div>
         </div>
         <div class="p-header-box-login-box">
-            {{dump(session('qq_data'))}}
             <a class="p-header-box-login-box-login" href="{{url('wall/register')}}">登录</a>
             <span style="float: left;line-height: 50px;">|</span>
             <a class="p-header-box-login-box-register" href="{{url('wall/register')}}">注册</a>

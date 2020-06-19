@@ -170,6 +170,14 @@ class SiteController extends Controller
                 $blog['thumb'] = $thumb['thumb']['filepath'];
             }
         }
+        // 修改浏览记录
+        DB::beginTransaction();
+        try {
+            Blog::EditData(['id' => $article_id], ['views' => $blog['views'] + 1]);
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
+        }
         $data = ['blog' => $blog, 'comment_list' => $comment_list];
         return view('web.iszmxw_simple_pro.article', $data);
     }

@@ -13,39 +13,39 @@
 // 前台页面
 Route::group(['middleware' => 'web_common', 'namespace' => 'Web'], function () {
 
-    // 新版
-    if (env('APP_ENV') === 'example') {
-        Route::get('/', 'SiteController@index');
-        Route::get('time', 'SiteController@time');
-        Route::get('category', 'SiteController@category');
-        Route::get('category/{category_id}', 'SiteController@category_article');
-        Route::get('photo_list', 'SiteController@photo_list');
-        // 友情链接页面
-        Route::get('link', 'SiteController@link');
-        // 文章详情页面
-        Route::get('article/{article_id}', 'SiteController@article');
-        // 标签文章列表
-        Route::get('article/tag/{tag_id}', 'SiteController@article_tag');
+    // 新版站点
+    Route::get('/', 'SiteController@index');
+    Route::get('time', 'SiteController@time');
+    Route::get('category', 'SiteController@category');
+    Route::get('category/{category_id}', 'SiteController@category_article');
+    Route::get('photo_list', 'SiteController@photo_list');
+    // 友情链接页面
+    Route::get('link', 'SiteController@link');
+    // 文章详情页面
+    Route::get('article/{article_id}', 'SiteController@article');
+    // 标签文章列表
+    Route::get('article/tag/{tag_id}', 'SiteController@article_tag');
+    // 评论接口
+    Route::group(['prefix' => 'blog'], function () {
+        // api
+        Route::group(['prefix' => 'api'], function () {
+            Route::any('comment', 'SiteController@comment_api');
+        });
+    });
 
-        Route::group(['prefix' => 'blog'], function () {
-            // api
-            Route::group(['prefix' => 'api'], function () {
-                Route::any('comment', 'SiteController@comment_api');
-            });
-        });
-    } else {
-        // 旧版网站
-        Route::get('/', 'WebController@index');
-        Route::get('article/{article_id}', 'WebController@article');
-        Route::get('category/{category_id}', 'WebController@category');
-        Route::get('about', 'WebController@about');
-        Route::group(['prefix' => 'blog'], function () {
-            // api
-            Route::group(['prefix' => 'api'], function () {
-                Route::any('comment', 'WebController@comment_api');
-            });
-        });
-    }
+//    if (env('APP_ENV') === 'example') {
+//        // 旧版网站
+//        Route::get('/', 'WebController@index');
+//        Route::get('article/{article_id}', 'WebController@article');
+//        Route::get('category/{category_id}', 'WebController@category');
+//        Route::get('about', 'WebController@about');
+//        Route::group(['prefix' => 'blog'], function () {
+//            // api
+//            Route::group(['prefix' => 'api'], function () {
+//                Route::any('comment', 'WebController@comment_api');
+//            });
+//        });
+//    }
 
     // 粉丝墙
     Route::group(['prefix' => 'wall'], function () {

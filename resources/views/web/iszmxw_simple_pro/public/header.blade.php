@@ -22,10 +22,11 @@
             @if(isset($qq_data))
                 <ul class="layui-nav">
                     <li class="layui-nav-item">
-                        <a href="">
-                            <img src="/static/commons/img/avatar.png"
-                                 class="layui-nav-img">iszmxw<span
-                                    class="layui-nav-more"></span></a>
+                        <a href="javascript:;">
+                            <img src="{{$qq_data['header_img']}}" class="layui-nav-img">
+                            {{$qq_data['nickname']}}
+                            <span class="layui-nav-more"></span>
+                        </a>
                         <dl class="layui-nav-child">
                             <dd>
                                 <a href="/ucenter" target="_blank">个人中心</a>

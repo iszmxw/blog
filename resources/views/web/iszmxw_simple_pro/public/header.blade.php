@@ -22,7 +22,7 @@
             @if(isset($qq_data))
                 <ul class="layui-nav">
                     <li class="layui-nav-item">
-                        <a href="javascript:;">
+                        <a href="/">
                             <img src="{{$qq_data['header_img']}}" class="layui-nav-img">
                             {{$qq_data['nickname']}}
                             <span class="layui-nav-more"></span>

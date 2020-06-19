@@ -79,7 +79,7 @@
                 <span class="p-l-b-btn-name">GitHub</span>
             </a>
             <a class="p-l-b-btn"
-               href="http://www.jpress.yinpengfei.com/attachment/20190605/af8f6fa8de17421ea73eae37917f1924.jpg"
+               href="{{asset('style/web/iszmxw_simple_pro/images/wechat.png')}}"
                target="_blank" title="微信">
                 <span class="p-l-b-btn-icon">
                     <i class="fa fa-weixin" aria-hidden="true"></i>

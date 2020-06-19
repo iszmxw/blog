@@ -11,6 +11,7 @@ use App\Models\Tag;
 use App\Models\Twitter;
 use App\Models\User;
 use App\Models\Blog;
+use App\Models\UserMini;
 use App\Models\ViewLog;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\URL;
@@ -43,9 +44,10 @@ class Web
         $route      = $request->getPathInfo();
         //处理公共数据
         self::CommonData($request);
-        //共享用户信息到所有视图
-        $user_data          = User::getOne(['id' => '1']);
-        $user_data['photo'] = str_replace('../', '/', $user_data['photo']);
+        // 共享用户信息到所有视图
+        $user_data = User::getOne(['id' => '1']);
+//        $user_data['photo'] = str_replace('../', '/', $user_data['photo']);
+        $user_data['photo'] = UserMini::getValue(['id' => 1], 'avatarurl');
         View::share('user_data', $user_data);
         $qq_data = session('qq_data');
         switch ($route) {

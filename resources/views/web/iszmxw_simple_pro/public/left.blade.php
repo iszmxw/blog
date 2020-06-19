@@ -7,8 +7,7 @@
     </div>
     <div class="p-left-user-box">
         <a class="p-left-user-img-box pjax" href="/">
-            {{--            <img src="{{asset($user_data['photo'])}}">--}}
-            <img src="https://wx.qlogo.cn/mmopen/vi_32/iccBKDeOp4jzCLQwkvNG9VkuAR25h9HZ3KSgm8EFicTmKOROpU4b3AhMibO1F0kXTcpZmHGiadre5nYrK9j7SD4ibPQ/132">
+            <img src="{{asset($user_data['photo'])}}">
         </a>
         <a class="p-left-user-name-box pjax" href="/"> <span>{{$user_data['nickname']}}</span></a>
         <div class="p-left-user-hitokoto-box">

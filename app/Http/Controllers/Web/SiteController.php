@@ -148,12 +148,14 @@ class SiteController extends Controller
      */
     public function article($article_id)
     {
-        $blog               = Blog::getOne(['id' => $article_id]);
-        $blog['created_at'] = date('Y-m-d H:i:s', $blog['created_at']);
-        $blog['author']     = User::getValue(['id' => $blog['author']], 'nickname');
-        $blog['name']       = Sort::getValue(['id' => $blog['sort_id']], 'name');
-        $blog['tags']       = Tag::getList([['blog_id', 'like', '%,' . $blog['id'] . ',%']]);
-        $comment_list       = Comment::where(['blog_id' => $article_id, 'pid' => 0])->get()->toArray();
+        $blog                = Blog::getOne(['id' => $article_id]);
+        $blog['created_at']  = date('Y-m-d H:i:s', $blog['created_at']);
+        $blog['author']      = User::getValue(['id' => $blog['author']], 'nickname');
+        $blog['name']        = Sort::getValue(['id' => $blog['sort_id']], 'name');
+        $blog['tags']        = Tag::getList([['blog_id', 'like', '%,' . $blog['id'] . ',%']]);
+        $blog['preArticle']  = Blog::getOne(['id' => $article_id - 1], ['id', 'title']);
+        $blog['nextArticle'] = Blog::getOne(['id' => $article_id + 1], ['id', 'title']);
+        $comment_list        = Comment::where(['blog_id' => $article_id, 'pid' => 0])->get()->toArray();
         // 评论递归
         foreach ($comment_list as $key => $val) {
             $sub_comment_list = Comment::where(['blog_id' => $article_id, 'pid' => $val['id']])->get()->toArray();

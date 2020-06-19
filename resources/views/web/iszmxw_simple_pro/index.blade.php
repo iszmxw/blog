@@ -11,6 +11,10 @@
             display: block;
             padding: 2px 8px;
         }
+
+        .aasasas {
+
+        }
     </style>
 @endsection
 

@@ -1,18 +1,13 @@
-<script src="{{asset('style/web/iszmxw_simple_pro/static/plugins/jquery/jquery-1.8.3.min.js')}}"></script>
 <script src="https://v1.hitokoto.cn/?encode=js&amp;select=%23hitokoto" defer=""></script>
 <script type="text/javascript" src="{{asset('style/web/iszmxw_simple_pro/static/plugins/pjax/pjax.js')}}"></script>
 <script type="text/javascript" src="{{asset('style/web/iszmxw_simple_pro/static/plugins/layer/layer.js')}}"></script>
 <script type="text/javascript" src="{{asset('style/web/iszmxw_simple_pro/static/plugins/layui/layui.js')}}"></script>
 <script type="text/javascript" src="{{asset('style/web/iszmxw_simple_pro/static/js/common.js')}}"></script>
-<script type="text/javascript"
-        src="{{asset('style/web/iszmxw_simple_pro/static/plugins/skplayer/skPlayer.js')}}"></script>
+<script type="text/javascript" src="{{asset('style/web/iszmxw_simple_pro/static/plugins/skplayer/skPlayer.js')}}"></script>
 <script type="text/javascript" src="{{asset('style/web/iszmxw_simple_pro/static/js/main.min.js')}}"></script>
-<script type="text/javascript"
-        src="{{asset('style/web/iszmxw_simple_pro/static/plugins/clipboard/clipboard.min.js')}}"></script>
-<script type="text/javascript"
-        src="{{asset('style/web/iszmxw_simple_pro/static/plugins/jquery.tocify/jquery-ui-1.9.1.custom.min.js')}}"></script>
-<script type="text/javascript"
-        src="{{asset('style/web/iszmxw_simple_pro/static/plugins/jquery.tocify/jquery.tocify.js')}}"></script>
+<script type="text/javascript" src="{{asset('style/web/iszmxw_simple_pro/static/plugins/clipboard/clipboard.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('style/web/iszmxw_simple_pro/static/plugins/jquery.tocify/jquery-ui-1.9.1.custom.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('style/web/iszmxw_simple_pro/static/plugins/jquery.tocify/jquery.tocify.js')}}"></script>
 <script>
     // 渐变色背景
     $("body").css("background-image", "linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%)");

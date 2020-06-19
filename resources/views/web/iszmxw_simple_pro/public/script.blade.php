@@ -101,7 +101,10 @@
         $(this).find('dl').addClass('layui-anim-upbit');
         $(this).find('dl').addClass('layui-show');
     }, function () {
-
+        $(this).find('span').removeClass('layui-nav-mored');
+        $(this).find('dl').removeClass('layui-anim');
+        $(this).find('dl').removeClass('layui-anim-upbit');
+        $(this).find('dl').removeClass('layui-show');
     })
     /**自定义盒子宽度
      */

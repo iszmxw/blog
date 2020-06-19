@@ -101,8 +101,8 @@
         </div>
         <div class="p-article-comment-box">
             <h2>发表评论</h2>
-            <form class="layui-form" action="/article/postComment" id="commentForm" method="post">
-                <input type="hidden" name="articleId" value="3" id="articleId">
+            <form class="layui-form" action="{{url('blog/api/comment')}}" id="commentForm" method="post">
+                <input type="hidden" name="articleId" value="{{ $blog['id'] }}" id="articleId">
                 <input type="hidden" name="revertPid" id="revertPid">
                 <textarea id="revert" style="display: none;" name="content" lay-verify="content"></textarea>
                 <div class="p-send-comment-box layui-clear">
@@ -114,110 +114,59 @@
         </div>
         <h2 class="p-commoent-count">评论列表</h2>
         <div class="p-article-comment-list-box" id="allComment">
-            <div class="p-article-revert-box">
-                <div class="p-article-revert-container layui-clear">
-                    <div class="p-revert-user layui-clear">
-                        <img src="{{asset('style/web/iszmxw_simple_pro/static/images/user.jpeg')}}" alt=""
-                             class="p-user-img">
-                        <div class="p-article-revert-container-right">
-                            <span class="p-revert-user-name">匿名用户</span>
-                            <span class="p-revert-time">2019-11-06 17:25:28</span>
+            @foreach($comment_list as $key=>$val)
+                <div class="p-article-revert-box">
+                    <div class="p-article-revert-container layui-clear">
+                        <div class="p-revert-user layui-clear">
+                            @if($val['mail'])
+                                <img alt="image"
+                                     src="http://q1.qlogo.cn/g?b=qq&nk={{$val['mail']}}&s=640" class="p-user-img">
+                            @else
+                                <img alt="image" src="http://q1.qlogo.cn/g?b=qq&nk=10000&s=640" class="p-user-img">
+                            @endif
+                            <div class="p-article-revert-container-right">
+                                <span class="p-revert-user-name">{{$val['poster']}}</span>
+                                <span class="p-revert-time">{{$val['created_at']}}</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="p-revert-content">
-                        11
-                    </div>
-                    <a href="javascript:;" data-cid="60" data-author="匿名用户" class="p-revert-btn">回复</a>
-                </div>
-                <div class="p-article-revert-container p-revert-child layui-clear">
-                    <div class="p-revert-user layui-clear">
-                        <img src="{{asset('style/web/iszmxw_simple_pro/static/images/user.jpeg')}}" alt=""
-                             class="p-user-img">
-                        <div class="p-article-revert-container-right">
-                            <span class="p-revert-user-name">匿名用户</span>
-                            <span class="p-revert-time">2019-05-17 10:11:39</span>
+                        <div class="p-revert-content">
+                            {{$val['comment']}}
                         </div>
+                        <a href="javascript:;" data-cid="{{$val['id']}}" data-author="{{$val['poster']}}"
+                           class="p-revert-btn">回复</a>
                     </div>
-                    <div class="p-revert-content">
-                        <img
-                                src="http://www.jpress.yinpengfei.com/templates/jpress-perfree-simple/static/plugin/layui/images/face/13.gif"
-                                alt="[偷笑]">
-                    </div>
-                    <a data-cid="60" data-author="匿名用户" class="p-revert-btn">回复</a>
+                    @if(isset($val['sub_comment']))
+                        @foreach($val['sub_comment'] as $kk=>$vv)
+                            <div class="p-article-revert-container p-revert-child layui-clear">
+                                <div class="p-revert-user layui-clear">
+                                    @if($vv['mail'])
+                                        <img alt="image"
+                                             src="http://q1.qlogo.cn/g?b=qq&nk={{$vv['mail']}}&s=640"
+                                             class="p-user-img">
+                                    @else
+                                        <img alt="image" src="http://q1.qlogo.cn/g?b=qq&nk=10000&s=640"
+                                             class="p-user-img">
+                                    @endif
+                                    <div class="p-article-revert-container-right">
+                                        <span class="p-revert-user-name">{{$vv['poster']}}</span>
+                                        <span class="p-revert-time">{{$vv['created_at']}}</span>
+                                    </div>
+                                </div>
+                                <div class="p-revert-content">
+                                    {{$vv['comment']}}
+                                </div>
+                                <a data-cid="{{$vv['id']}}" data-author="{{$vv['poster']}}" class="p-revert-btn">回复</a>
+                            </div>
+                        @endforeach
+                    @endif
                 </div>
-            </div>
-            <div class="p-article-revert-box">
-                <div class="p-article-revert-container layui-clear">
-                    <div class="p-revert-user layui-clear">
-                        <img src="{{asset('style/web/iszmxw_simple_pro/static/images/user.jpeg')}}" alt=""
-                             class="p-user-img">
-                        <div class="p-article-revert-container-right">
-                            <span class="p-revert-user-name">匿名用户</span>
-                            <span class="p-revert-time">2019-07-15 17:01:23</span>
-                        </div>
-                    </div>
-                    <div class="p-revert-content">
-                        厉害
-                    </div>
-                    <a href="javascript:;" data-cid="44" data-author="匿名用户" class="p-revert-btn">回复</a>
-                </div>
-            </div>
-            <div class="p-article-revert-box">
-                <div class="p-article-revert-container layui-clear">
-                    <div class="p-revert-user layui-clear">
-                        <img src="{{asset('style/web/iszmxw_simple_pro/static/images/user.jpeg')}}" alt=""
-                             class="p-user-img">
-                        <div class="p-article-revert-container-right">
-                            <span class="p-revert-user-name">匿名用户</span>
-                            <span class="p-revert-time">2019-07-07 12:10:51</span>
-                        </div>
-                    </div>
-                    <div class="p-revert-content">
-                        nnn
-                    </div>
-                    <a href="javascript:;" data-cid="41" data-author="匿名用户" class="p-revert-btn">回复</a>
-                </div>
-            </div>
-            <div class="p-article-revert-box">
-                <div class="p-article-revert-container layui-clear">
-                    <div class="p-revert-user layui-clear">
-                        <img src="{{asset('style/web/iszmxw_simple_pro/static/images/user.jpeg')}}" alt=""
-                             class="p-user-img">
-                        <div class="p-article-revert-container-right">
-                            <span class="p-revert-user-name">匿名用户</span>
-                            <span class="p-revert-time">2019-06-12 18:21:04</span>
-                        </div>
-                    </div>
-                    <div class="p-revert-content">
-                        <p><b>哈哈&nbsp; &nbsp;&nbsp;</b></p>
-                        <p><b><br></b></p>
-                    </div>
-                    <a href="javascript:;" data-cid="33" data-author="匿名用户" class="p-revert-btn">回复</a>
-                </div>
-            </div>
-            <div class="p-article-revert-box">
-                <div class="p-article-revert-container layui-clear">
-                    <div class="p-revert-user layui-clear">
-                        <img src="{{asset('style/web/iszmxw_simple_pro/static/images/user.jpeg')}}" alt=""
-                             class="p-user-img">
-                        <div class="p-article-revert-container-right">
-                            <span class="p-revert-user-name">匿名用户</span>
-                            <span class="p-revert-time">2019-05-17 10:11:39</span>
-                        </div>
-                    </div>
-                    <div class="p-revert-content">
-                        <img
-                                src="http://www.jpress.yinpengfei.com/templates/jpress-perfree-simple/static/plugin/layui/images/face/13.gif"
-                                alt="[偷笑]">
-                    </div>
-                    <a href="javascript:;" data-cid="5" data-author="匿名用户" class="p-revert-btn">回复</a>
-                </div>
-            </div>
-            <div class="perfree-page-box layui-clear">
-                <a class="page-item previous disabled pjax" href="javascript:;">上一页</a>
-                <a class="page-item active pjax" href="javascript:;">1</a>
-                <a class="page-item next disabled pjax" href="javascript:;">下一页</a>
-            </div>
+            @endforeach
+            {{--评论分页--}}
+            {{--            <div class="perfree-page-box layui-clear">--}}
+            {{--                <a class="page-item previous disabled pjax" href="javascript:;">上一页</a>--}}
+            {{--                <a class="page-item active pjax" href="javascript:;">1</a>--}}
+            {{--                <a class="page-item next disabled pjax" href="javascript:;">下一页</a>--}}
+            {{--            </div>--}}
         </div>
     </div>
 @endsection

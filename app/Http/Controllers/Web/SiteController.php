@@ -153,15 +153,22 @@ class SiteController extends Controller
         $blog['author']     = User::getValue(['id' => $blog['author']], 'nickname');
         $blog['name']       = Sort::getValue(['id' => $blog['sort_id']], 'name');
         $blog['tags']       = Tag::getList([['blog_id', 'like', '%,' . $blog['id'] . ',%']]);
-        $comment            = Comment::where(['id' => $article_id])->get()->toArray();
-        $blog['comment']    = Comment::where(['id' => $article_id])->count();
+        $comment_list       = Comment::where(['blog_id' => $article_id, 'pid' => 0])->get()->toArray();
+        // 评论递归
+        foreach ($comment_list as $key => $val) {
+            $sub_comment_list = Comment::where(['blog_id' => $article_id, 'pid' => $val['id']])->get()->toArray();
+            if (count($sub_comment_list) > 0) {
+                $comment_list[$key]['sub_comment'] = $sub_comment_list;
+            }
+        }
+        $blog['comment'] = Comment::where(['blog_id' => $article_id])->count();
         // 取第一张图片作为缩略图
         if ($thumb = Attachment::getOne([['blog_id', $blog['id']], ['mimetype', 'like', '%' . 'image/' . '%']])) {
             if (isset($thumb['thumb']['filepath'])) {
                 $blog['thumb'] = $thumb['thumb']['filepath'];
             }
         }
-        $data = ['blog' => $blog, 'comment' => $comment];
+        $data = ['blog' => $blog, 'comment_list' => $comment_list];
         return view('web.iszmxw_simple_pro.article', $data);
     }
 

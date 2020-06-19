@@ -18,7 +18,7 @@
         <div class="p-photoList-box layui-clear">
             <a class="p-photo-box p-shadow pjax" href="/photo.html">
                 <div class="p-photoList-img-box">
-                    <img src="{{asset('style/web/iszmxw_simple_pro/images')}}/d625b89499504c60aeac8fa996545b8a.jpg"
+                    <img src="{{asset('style/web/iszmxw_simple_pro/images')}}/1.jpg"
                          alt="" class="p-photoList-thumb">
                 </div>
                 <div class="p-photoList-title-box">
@@ -28,7 +28,7 @@
             </a>
             <a class="p-photo-box p-shadow pjax" href="/photo.html">
                 <div class="p-photoList-img-box">
-                    <img src="{{asset('style/web/iszmxw_simple_pro/images')}}/67e3c8edff2348868e19369d2d2f647e.jpg"
+                    <img src="{{asset('style/web/iszmxw_simple_pro/images')}}/2.jpg"
                          alt="" class="p-photoList-thumb">
                 </div>
                 <div class="p-photoList-title-box">
@@ -38,7 +38,7 @@
             </a>
             <a class="p-photo-box p-shadow pjax" href="/photo.html">
                 <div class="p-photoList-img-box">
-                    <img src="{{asset('style/web/iszmxw_simple_pro/images')}}/d625b89499504c60aeac8fa996545b8a.jpg"
+                    <img src="{{asset('style/web/iszmxw_simple_pro/images')}}/3.jpg"
                          alt="" class="p-photoList-thumb">
                 </div>
                 <div class="p-photoList-title-box">
@@ -48,7 +48,7 @@
             </a>
             <a class="p-photo-box p-shadow pjax" href="/photo-2.html">
                 <div class="p-photoList-img-box">
-                    <img src="{{asset('style/web/iszmxw_simple_pro/images')}}/9f49b15643374d5b9013e05dc524be04.jpg"
+                    <img src="{{asset('style/web/iszmxw_simple_pro/images')}}/4.jpg"
                          alt="" class="p-photoList-thumb">
                 </div>
                 <div class="p-photoList-title-box">
@@ -58,7 +58,7 @@
             </a>
             <a class="p-photo-box p-shadow pjax" href="/photo-3.html">
                 <div class="p-photoList-img-box">
-                    <img src="{{asset('style/web/iszmxw_simple_pro/images')}}/cb743a7f974341fea544ebf4906e8d11.jpg"
+                    <img src="{{asset('style/web/iszmxw_simple_pro/images')}}/5.jpg"
                          alt="" class="p-photoList-thumb">
                 </div>
                 <div class="p-photoList-title-box">
@@ -68,7 +68,7 @@
             </a>
             <a class="p-photo-box p-shadow pjax" href="/photo.html">
                 <div class="p-photoList-img-box">
-                    <img src="{{asset('style/web/iszmxw_simple_pro/images')}}/cbe75eea92684312a2a4989e9faf5d3e.jpg"
+                    <img src="{{asset('style/web/iszmxw_simple_pro/images')}}/6.jpg"
                          alt="" class="p-photoList-thumb">
                 </div>
                 <div class="p-photoList-title-box">

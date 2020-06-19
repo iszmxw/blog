@@ -17,14 +17,31 @@
         <div class="p-header-box-music-box">
             <div id="skPlayer"></div>
         </div>
-        @if(isset($qq_data))
-        @else
-            <div class="p-header-box-login-box">
+
+        <div class="p-header-box-login-box">
+            @if(isset($qq_data))
+                <ul class="layui-nav">
+                    <li class="layui-nav-item">
+                        <a href="">
+                            <img src="/static/commons/img/avatar.png"
+                                 class="layui-nav-img">iszmxw<span
+                                    class="layui-nav-more"></span></a>
+                        <dl class="layui-nav-child">
+                            <dd>
+                                <a href="/ucenter" target="_blank">个人中心</a>
+                            </dd>
+                            <dd>
+                                <a href="/ucenter/doLogout?csrf_token=148887311a644561a5ce88c18fee1da5" target="_blank">退出登录</a>
+                            </dd>
+                        </dl>
+                    </li>
+                    <span class="layui-nav-bar"></span></ul>
+            @else
                 <a class="p-header-box-login-box-login" href="{{url('wall/register')}}">登录</a>
                 <span style="float: left;line-height: 50px;">|</span>
                 <a class="p-header-box-login-box-register" href="{{url('wall/register')}}">注册</a>
-            </div>
-        @endif
+            @endif
+        </div>
         <a id="phoneSetting" style="display: none"> <i class="layui-icon"></i></a>
     </div>
     <div class="p-phone-top-nav box-shadow">

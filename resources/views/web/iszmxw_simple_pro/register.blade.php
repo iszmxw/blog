@@ -71,7 +71,7 @@
                     toastr.success(response.msg);
                     clearInterval(setTime);
                     setInterval(function () {
-                        window.location.href = '{{url('wall/index')}}';
+                        window.location.href = '{{url('/')}}';
                     }, 1600)
                 }
             })

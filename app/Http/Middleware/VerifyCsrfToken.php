@@ -21,6 +21,7 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         //
         'git_pull',
+        'blog/api/comment',
         'photo/getPhoto',
         'mp3'
     ];

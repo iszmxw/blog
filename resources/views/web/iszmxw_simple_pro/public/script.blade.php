@@ -1,3 +1,4 @@
+<script src="{{asset('style/web/iszmxw_simple_pro/static/plugins/jquery/jquery-1.8.3.min.js')}}"></script>
 <script src="https://v1.hitokoto.cn/?encode=js&amp;select=%23hitokoto" defer=""></script>
 <script type="text/javascript" src="{{asset('style/web/iszmxw_simple_pro/static/plugins/pjax/pjax.js')}}"></script>
 <script type="text/javascript" src="{{asset('style/web/iszmxw_simple_pro/static/plugins/layer/layer.js')}}"></script>

@@ -4,11 +4,15 @@
 <script type="text/javascript" src="{{asset('style/web/iszmxw_simple_pro/static/plugins/layer/layer.js')}}"></script>
 <script type="text/javascript" src="{{asset('style/web/iszmxw_simple_pro/static/plugins/layui/layui.js')}}"></script>
 <script type="text/javascript" src="{{asset('style/web/iszmxw_simple_pro/static/js/common.js')}}"></script>
-<script type="text/javascript" src="{{asset('style/web/iszmxw_simple_pro/static/plugins/skplayer/skPlayer.js')}}"></script>
+<script type="text/javascript"
+        src="{{asset('style/web/iszmxw_simple_pro/static/plugins/skplayer/skPlayer.js')}}"></script>
 <script type="text/javascript" src="{{asset('style/web/iszmxw_simple_pro/static/js/main.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('style/web/iszmxw_simple_pro/static/plugins/clipboard/clipboard.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('style/web/iszmxw_simple_pro/static/plugins/jquery.tocify/jquery-ui-1.9.1.custom.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('style/web/iszmxw_simple_pro/static/plugins/jquery.tocify/jquery.tocify.js')}}"></script>
+<script type="text/javascript"
+        src="{{asset('style/web/iszmxw_simple_pro/static/plugins/clipboard/clipboard.min.js')}}"></script>
+<script type="text/javascript"
+        src="{{asset('style/web/iszmxw_simple_pro/static/plugins/jquery.tocify/jquery-ui-1.9.1.custom.min.js')}}"></script>
+<script type="text/javascript"
+        src="{{asset('style/web/iszmxw_simple_pro/static/plugins/jquery.tocify/jquery.tocify.js')}}"></script>
 <script>
     // 渐变色背景
     $("body").css("background-image", "linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%)");
@@ -90,7 +94,15 @@
 <script>
     /**自定义js代码
      */
+    $li = $(".p-header-box-login-box .layui-nav .layui-nav-item");
+    $li.hover(function () {
+        $(this).find('span').addClass('layui-nav-mored');
+        $(this).find('dl').addClass('layui-anim');
+        $(this).find('dl').addClass('layui-anim-upbit');
+        $(this).find('dl').addClass('layui-show');
+    }, function () {
 
+    })
     /**自定义盒子宽度
      */
     $(".p-box").css("width", "80%");

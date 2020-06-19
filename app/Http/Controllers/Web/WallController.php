@@ -181,7 +181,8 @@ class WallController extends Controller
                     $cache_data = Cache::get($data['token']);
                     if ($cache_data) {
                         $user_info = decrypt($cache_data);
-                        //用户登录留言使用
+                        // 用户登录留言使用
+                        $user_info['header_img'] = $user_info['avatarurl'];
                         session(['qq_data' => $user_info]);
 
                         return ['status' => 2, 'msg' => '登录成功', 'data' => ['user_info' => $user_info]];

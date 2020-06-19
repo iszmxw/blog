@@ -77,18 +77,17 @@
                 <span class="p-hover-bg"><i class="layui-icon" style="font-size: 30px;"></i></span>
             </a>
         </div>
-        <script>
-            $('.p-photoList-box').on('mouseenter', '.p-photo-box', function () {
-                $(this).children('.p-hover-bg').show();
-            });
-            $('.p-photoList-box').on('mouseleave', '.p-photo-box', function () {
-                $(this).children('.p-hover-bg').hide();
-            });
-        </script>
     </div>
 @endsection
 
 {{--js引用--}}
 @section('script')
-
+    <script>
+        $('.p-photoList-box').on('mouseenter', '.p-photo-box', function () {
+            $(this).children('.p-hover-bg').show();
+        });
+        $('.p-photoList-box').on('mouseleave', '.p-photo-box', function () {
+            $(this).children('.p-hover-bg').hide();
+        });
+    </script>
 @endsection

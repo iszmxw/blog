@@ -92,13 +92,13 @@
             @foreach($blog as $key=>$val)
                 <div class="p-content-box-article-box">
                     <!--缩略图获取方式-->
-                    @if($val['thumb'])
-                        <a href="{{url('article')}}/{{$val['id']}}" class="pjax">
-                            <div class="p-article-thumb"
-                                 style="background-image: url('http://blog.54zm.com/{{$val['thumb']}}')">
-                            </div>
-                        </a>
-                    @endif
+                    {{--                    @if($val['thumb'])--}}
+                    {{--                        <a href="{{url('article')}}/{{$val['id']}}" class="pjax">--}}
+                    {{--                            <div class="p-article-thumb"--}}
+                    {{--                                 style="background-image: url('http://blog.54zm.com/{{$val['thumb']}}')">--}}
+                    {{--                            </div>--}}
+                    {{--                        </a>--}}
+                    {{--                    @endif--}}
                     <div class="p-article-brief-box">
                         <h2 class="p-article-title">
                             <a href="{{url('article')}}/{{$val['id']}}" class="pjax">

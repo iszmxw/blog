@@ -80,7 +80,7 @@ $(function () {
             }
             $.ajax({
                 type: "post",
-                url: "/article/postComment",
+                url: "/blog/api/comment",
                 data: {
                     articleId: $("#articleId").val(),
                     pid: $('#revertPid').val(),

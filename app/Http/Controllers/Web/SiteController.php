@@ -173,7 +173,12 @@ class SiteController extends Controller
         // 修改浏览记录
         DB::beginTransaction();
         try {
-            Blog::EditData(['id' => $article_id], ['views' => $blog['views'] + 1]);
+            Blog::EditData([
+                'id' => $article_id
+            ], [
+                'views'      => $blog['views'] + 1,
+                'updated_at' => $blog['updated_at']
+            ]);
             DB::commit();
         } catch (\Exception $e) {
             DB::rollBack();

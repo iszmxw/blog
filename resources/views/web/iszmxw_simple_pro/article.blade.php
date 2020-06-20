@@ -66,7 +66,7 @@
                 <!-- 文章内广告 -->
             </ins>
             <div class="p-article-foot-box">
-                <span>最后修改：{{date('Y-m-d H:i:s',$blog['updated_at'])}}</span>
+                <span>最后修改：{{date('Y-m-d H:i:s',strtotime($blog['updated_at']))}}</span>
                 <span style="float: right;">© 著作权归作者所有</span>
             </div>
             <div class="appreciate-box">

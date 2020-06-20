@@ -137,8 +137,8 @@ $(function () {
                         lay_notice.error('评论失败:' + result.data + '，点击右上角进行登录');
                         $(".captcha").val("");
                         $(".comment-verify").attr("src", '/commons/captcha?d=' + Math.random());
-                        if (data.errorCode == 9) {
-                            location.href = '/user/login';
+                        if (result.status === 0) {
+                            location.href = '/wall/register';
                         }
                     }
                     return false;

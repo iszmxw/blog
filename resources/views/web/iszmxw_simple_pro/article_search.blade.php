@@ -89,6 +89,9 @@
         {{--            </div>--}}
         <!-- 置顶文章end -->
             <!--文章列表start-->
+            @if(count($blog) <= 0)
+                没找到关于 {{isset($keyword) ? $keyword : ''}} 的文章，换个关键词试试~
+            @endif
             @foreach($blog as $key=>$val)
                 <div class="p-content-box-article-box">
                     <!--缩略图获取方式-->

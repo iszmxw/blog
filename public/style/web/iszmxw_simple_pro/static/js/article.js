@@ -89,8 +89,8 @@ $(function () {
                 },
                 success: function (result) {
                     console.log(result);
-                    if (result.state == "ok") {
-                        console.log(result);
+                    console.log(data);
+                    if (result.status === 1) {
                         var avatarUrl;
                         var author;
                         if (result.user != null) {
@@ -134,7 +134,7 @@ $(function () {
                         $(".captcha").val("");
                         $(".comment-verify").attr("src", '/commons/captcha?d=' + Math.random());
                     } else {
-                        lay_notice.error('评论失败:' + result.message);
+                        lay_notice.error('评论失败:' + result.data + '，点击右上角进行登录');
                         $(".captcha").val("");
                         $(".comment-verify").attr("src", '/commons/captcha?d=' + Math.random());
                         if (data.errorCode == 9) {

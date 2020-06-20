@@ -209,14 +209,19 @@ class SiteController extends Controller
         //数据库事物回滚
         DB::beginTransaction();
         try {
-            Comment::create($data);
+            $res = Comment::AddData($data);
             DB::commit();
             return response()->json([
-                'data'   => '发表评论成功！',
-                'status' => 1,
-                'user'   => [
+                'data'    => '发表评论成功！',
+                'status'  => 1,
+                'user'    => [
                     'header_img' => $user_data['header_img'],
                     'nickname'   => $user_data['nickname']
+                ],
+                'comment' => [
+                    'created' => $res['created_at'],
+                    'text'    => $res['comment'],
+                    'id'      => $res['id'],
                 ]
             ]);
         } catch (\Exception $e) {

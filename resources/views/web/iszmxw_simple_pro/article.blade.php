@@ -235,7 +235,7 @@
         }
 
         function changeImg(type) {
-            if (type == 1) {
+            if (type === 1) {
                 $(".layui-layer-wrap > #appreciate-content-wechatImg").hide();
                 $(".layui-layer-wrap > #appreciate-content-aLiImg").show();
             } else {

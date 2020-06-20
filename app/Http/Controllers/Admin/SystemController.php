@@ -20,26 +20,31 @@ class SystemController extends Controller
         // 重命名文件
         $ext       = strtolower($file->getClientOriginalExtension());
         $file_name = time() . mt_rand(1, 999) . "." . $ext;
+        // 图片移动后的临时路径
+        $img_path = '/' . $upload_path . $file_name;
         // 上传文件并判断
         $path = $file->move(public_path() . '/' . $upload_path, $file_name);
         // 文件移动成功
-        if ($path->isFile()) {
-            $img_path = '/' . $upload_path . $file_name;
-            $json     = Upload::github_upload($img_path);
+        try {
+            if ($path->isFile()) {
+                $json = Upload::github_upload($img_path);
+                // 上传后删掉图片
+                @unlink(public_path($img_path));
+                $array = json_decode($json, true);
+                if (isset($array['content']['download_url']) && $array['content']['path']) {
+                    return [
+                        'code'          => 20000,
+                        'path'          => $array['content']['path'],
+                        'complete_path' => $array['content']['download_url'],
+                        'message'       => 'ok',
+                    ];
+                }
+            }
+        } catch (\Exception $e) {
             // 上传后删掉图片
             @unlink(public_path($img_path));
-            $array = json_decode($json, true);
-            if (isset($array['content']['download_url']) && $array['content']['path']) {
-                return [
-                    'code'          => 20000,
-                    'path'          => $array['content']['path'],
-                    'complete_path' => $array['content']['download_url'],
-                    'message'       => 'ok',
-                ];
-            } else {
-                return ['code' => 50000, 'message' => '上传文件无效,请重新上传文件'];
-            }
         }
+        return ['code' => 50000, 'message' => '上传文件无效,请重新上传文件'];
     }
 
     // 获取网站系统配置

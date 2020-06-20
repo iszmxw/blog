@@ -26,7 +26,7 @@ Route::group(['middleware' => 'web_common', 'namespace' => 'Web'], function () {
     // 标签文章列表
     Route::get('article/tag/{tag_id}', 'SiteController@article_tag');
     // 搜索文章
-    Route::get('article/search/', 'SiteController@article_search');
+    Route::get('article/search/keyword', 'SiteController@article_search');
     // 评论接口
     Route::group(['prefix' => 'blog'], function () {
         // api

@@ -125,7 +125,7 @@
                         <div class="p-revert-user layui-clear">
                             @if($val['mail'])
                                 <img alt="image"
-                                     src="http://q1.qlogo.cn/g?b=qq&nk={{$val['mail']}}&s=640" class="p-user-img">
+                                     src="{{$val['header_img']}}" class="p-user-img">
                             @else
                                 <img alt="image" src="http://q1.qlogo.cn/g?b=qq&nk=10000&s=640" class="p-user-img">
                             @endif
@@ -135,7 +135,7 @@
                             </div>
                         </div>
                         <div class="p-revert-content">
-                            {{$val['comment']}}
+                            {!! $vv['comment'] !!}
                         </div>
                         <a href="javascript:;" data-cid="{{$val['id']}}" data-author="{{$val['poster']}}"
                            class="p-revert-btn">回复</a>
@@ -158,7 +158,7 @@
                                     </div>
                                 </div>
                                 <div class="p-revert-content">
-                                    {{$vv['comment']}}
+                                    {!! $vv['comment'] !!}
                                 </div>
                                 <a data-cid="{{$vv['id']}}" data-author="{{$vv['poster']}}" class="p-revert-btn">回复</a>
                             </div>

@@ -117,7 +117,7 @@ class SiteController extends Controller
     // 栏目分类文章列表
     public function article_search(Request $request)
     {
-        $keyword = $request->get('$keyword');
+        $keyword = $request->get('keyword');
         $blog    = Blog::getPaginate([['title', 'like', "%$keyword%"]], ['blog.id', 'blog.sort_id', 'blog.title', 'blog.created_at', 'blog.content', 'blog.views'], 10, 'created_at', 'DESC');
         foreach ($blog as $value) {
             $value['content']   = Tooling::tool_purecontent($value['content'], 240);
@@ -128,7 +128,7 @@ class SiteController extends Controller
                 $value['thumb'] = $value['thumb']['filepath'];
             }
         }
-        $view = ['blog' => $blog];
+        $view = ['blog' => $blog, 'keyword' => $keyword];
         return view('web.iszmxw_simple_pro.article_search', $view);
     }
 

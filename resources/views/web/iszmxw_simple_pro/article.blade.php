@@ -75,6 +75,22 @@
                 </button>
                 <span class="appreciate-tip">如果觉得我的文章对你有用，请随意赞赏</span>
             </div>
+            {{--收款码--}}
+            <div id="appreciate-content">
+                <div class="appreciate-content-tip">
+                    扫一扫支付
+                </div>
+                <img src="{{asset('style/web/iszmxw_simple_pro/images/zfb.png')}}"
+                     id="appreciate-content-aLiImg">
+                <img src="{{asset('style/web/iszmxw_simple_pro/images/wx.png')}}"
+                     id="appreciate-content-wechatImg"
+                     style="display: none;">
+                <hr>
+                <div class="appreciate-content-btn-box">
+                    <button class="layui-btn layui-btn-normal ali-btn" onclick="changeImg(1);">支付宝支付</button>
+                    <button class="layui-btn wechat-btn" onclick="changeImg(2);">微信支付</button>
+                </div>
+            </div>
         </article>
         <div class="p-article-goto-box layui-clear">
             @if($blog['preArticle'])
@@ -145,23 +161,6 @@
             {{--                <a class="page-item active pjax" href="javascript:;">1</a>--}}
             {{--                <a class="page-item next disabled pjax" href="javascript:;">下一页</a>--}}
             {{--            </div>--}}
-        </div>
-    </div>
-
-    {{--收款码--}}
-    <div id="appreciate-content">
-        <div class="appreciate-content-tip">
-            扫一扫支付
-        </div>
-        <img src="{{asset('style/web/iszmxw_simple_pro/images/zfb.png')}}"
-             id="appreciate-content-aLiImg">
-        <img src="{{asset('style/web/iszmxw_simple_pro/images/wx.png')}}"
-             id="appreciate-content-wechatImg"
-             style="display: none;">
-        <hr>
-        <div class="appreciate-content-btn-box">
-            <button class="layui-btn layui-btn-normal ali-btn" onclick="changeImg(1);">支付宝支付</button>
-            <button class="layui-btn wechat-btn" onclick="changeImg(2);">微信支付</button>
         </div>
     </div>
 @endsection
@@ -236,7 +235,7 @@
         }
 
         function changeImg(type) {
-            if (type === 1) {
+            if (type == 1) {
                 $(".layui-layer-wrap > #appreciate-content-wechatImg").hide();
                 $(".layui-layer-wrap > #appreciate-content-aLiImg").show();
             } else {

@@ -134,7 +134,7 @@ $(function () {
                         $(".captcha").val("");
                         $(".comment-verify").attr("src", '/commons/captcha?d=' + Math.random());
                     } else {
-                        lay_notice.error('评论失败:' + result.data + '，点击右上角进行登录');
+                        lay_notice.error('评论失败:' + result.data);
                         $(".captcha").val("");
                         $(".comment-verify").attr("src", '/commons/captcha?d=' + Math.random());
                         if (result.status === 0) {

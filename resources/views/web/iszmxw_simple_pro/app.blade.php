@@ -16,6 +16,10 @@
             opacity: 0.9;
         }
 
+        .layui-layer {
+            opacity: 1;
+        }
+
         .background {
             z-index: -1;
             position: fixed;

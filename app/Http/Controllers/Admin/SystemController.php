@@ -34,7 +34,7 @@ class SystemController extends Controller
                     'code'          => 20000,
                     'path'          => $array['content']['path'],
                     'complete_path' => $array['content']['download_url'],
-                    'message'       => $array['content']['ok'],
+                    'message'       => 'ok',
                 ];
             } else {
                 return ['code' => 50000, 'message' => '上传文件无效,请重新上传文件'];

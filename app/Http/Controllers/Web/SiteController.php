@@ -192,15 +192,14 @@ class SiteController extends Controller
     public function comment_api(Request $request)
     {
         $user_data = $request->get('qq_data');
-        $id        = $request->get('articleId');
+        $articleId = $request->get('articleId');
         $pid       = $request->get('pid');
         $url       = $request->get('url');
         $comment   = $request->get('content');
         $ip        = $request->getClientIp();
         $data      = [
-            'id'         => $id,
+            'blog_id'    => $articleId,
             'pid'        => $pid ? $pid : 0,
-            'date'       => time(),
             'poster'     => $user_data['nickname'],
             'header_img' => $user_data['header_img'],
             'comment'    => $comment,

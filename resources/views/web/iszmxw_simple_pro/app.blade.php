@@ -12,7 +12,7 @@
     {{--引用公共css--}}
     @include('web.iszmxw_simple_pro.public.style')
     <style>
-        .p-right-box {
+        .p-content-box {
             opacity: 0.9;
         }
 

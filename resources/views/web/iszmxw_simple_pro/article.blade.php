@@ -201,27 +201,27 @@
             });
         })
         // 加载数学公式
-        $.getScript("//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML", function () {
-            MathJax.Hub.Config({
-                showProcessingMessages: false,
-                messageStyle: "none",
-                extensions: ["tex2jax.js"],
-                jax: ["input/TeX", "output/HTML-CSS"],
-                tex2jax: {
-                    inlineMath: [['$', '$'], ["\\(", "\\)"]],
-                    displayMath: [['$$', '$$'], ["\\[", "\\]"]],
-                    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code', 'a']
-                },
-                "HTML-CSS": {
-                    availableFonts: ["STIX", "TeX"],
-                    showMathMenu: false,
-                    showProcessingMessages: false,
-                    messageStyle: "none"
-                }
-            });
-            var mathId = document.getElementById("articleContent");
-            MathJax.Hub.Queue(["Typeset", MathJax.Hub, mathId]);
-        });
+        // $.getScript("//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML", function () {
+        //     MathJax.Hub.Config({
+        //         showProcessingMessages: false,
+        //         messageStyle: "none",
+        //         extensions: ["tex2jax.js"],
+        //         jax: ["input/TeX", "output/HTML-CSS"],
+        //         tex2jax: {
+        //             inlineMath: [['$', '$'], ["\\(", "\\)"]],
+        //             displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+        //             skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code', 'a']
+        //         },
+        //         "HTML-CSS": {
+        //             availableFonts: ["STIX", "TeX"],
+        //             showMathMenu: false,
+        //             showProcessingMessages: false,
+        //             messageStyle: "none"
+        //         }
+        //     });
+        //     var mathId = document.getElementById("articleContent");
+        //     MathJax.Hub.Queue(["Typeset", MathJax.Hub, mathId]);
+        // });
 
         function appreciate() {
             layer.open({

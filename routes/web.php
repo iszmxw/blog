@@ -18,7 +18,6 @@ Route::group(['middleware' => 'web_common', 'namespace' => 'Web'], function () {
     Route::get('time', 'SiteController@time');
     Route::get('category', 'SiteController@category');
     Route::get('category/{category_id}', 'SiteController@category_article');
-    Route::get('search', 'SiteController@search_article');
     Route::get('photo_list', 'SiteController@photo_list');
     // 友情链接页面
     Route::get('link', 'SiteController@link');
@@ -26,6 +25,8 @@ Route::group(['middleware' => 'web_common', 'namespace' => 'Web'], function () {
     Route::get('article/{article_id}', 'SiteController@article');
     // 标签文章列表
     Route::get('article/tag/{tag_id}', 'SiteController@article_tag');
+    // 搜索文章
+    Route::get('article/search', 'SiteController@article_search');
     // 评论接口
     Route::group(['prefix' => 'blog'], function () {
         // api

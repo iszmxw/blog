@@ -192,22 +192,20 @@ class SiteController extends Controller
     public function comment_api(Request $request)
     {
         $user_data = $request->get('qq_data');
-        dump($user_data);die();
-        $id      = $request->get('articleId');
-        $pid     = $request->get('pid');
-        $qq      = $request->get('qq');
-        $url     = $request->get('url');
-        $comment = $request->get('comment');
-        $ip      = $request->getClientIp();
-        $data    = [
-            'id'      => $id,
-            'pid'     => $pid ? $pid : 0,
-            'date'    => time(),
-            'poster'  => $user_data['nickname'],
-            'comment' => $comment,
-            'mail'    => $qq . '@qq.com',
-            'url'     => $url,
-            'ip'      => $ip,
+        $id        = $request->get('articleId');
+        $pid       = $request->get('pid');
+        $url       = $request->get('url');
+        $comment   = $request->get('content');
+        $ip        = $request->getClientIp();
+        $data      = [
+            'id'         => $id,
+            'pid'        => $pid ? $pid : 0,
+            'date'       => time(),
+            'poster'     => $user_data['nickname'],
+            'header_img' => $user_data['header_img'],
+            'comment'    => $comment,
+            'url'        => $url ? $url : null,
+            'ip'         => $ip,
         ];
         //数据库事物回滚
         DB::beginTransaction();

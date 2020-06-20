@@ -115,9 +115,10 @@ class SiteController extends Controller
     }
 
     // 栏目分类文章列表
-    public function article_search($keyword)
+    public function article_search(Request $request)
     {
-        $blog = Blog::getPaginate([['title', 'like', "%$keyword%"]], ['blog.id', 'blog.sort_id', 'blog.title', 'blog.created_at', 'blog.content', 'blog.views'], 10, 'created_at', 'DESC');
+        $keyword = $request->get('$keyword');
+        $blog    = Blog::getPaginate([['title', 'like', "%$keyword%"]], ['blog.id', 'blog.sort_id', 'blog.title', 'blog.created_at', 'blog.content', 'blog.views'], 10, 'created_at', 'DESC');
         foreach ($blog as $value) {
             $value['content']   = Tooling::tool_purecontent($value['content'], 240);
             $value['sort_name'] = Sort::getValue(['id' => $value['sort_id']], 'name');

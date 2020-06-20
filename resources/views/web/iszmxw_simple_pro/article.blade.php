@@ -135,7 +135,7 @@
                             </div>
                         </div>
                         <div class="p-revert-content">
-                            {!! $vv['comment'] !!}
+                            {!! $val['comment'] !!}
                         </div>
                         <a href="javascript:;" data-cid="{{$val['id']}}" data-author="{{$val['poster']}}"
                            class="p-revert-btn">回复</a>

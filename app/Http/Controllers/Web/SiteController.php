@@ -114,6 +114,24 @@ class SiteController extends Controller
         return view('web.iszmxw_simple_pro.category_article', $view);
     }
 
+    // 栏目分类文章列表
+    public function search_article(Request $request)
+    {
+        $keyword = $request->get('keyword');
+        $blog    = Blog::getPaginate(['title', ['like', "%$keyword%"]], ['blog.id', 'blog.sort_id', 'blog.title', 'blog.created_at', 'blog.content', 'blog.views'], 10, 'created_at', 'DESC');
+        foreach ($blog as $value) {
+            $value['content']   = Tooling::tool_purecontent($value['content'], 240);
+            $value['sort_name'] = Sort::getValue(['id' => $value['sort_id']], 'name');
+            $value['comments']  = Comment::getCount(['id' => $value['id']]);
+            //取第一张图片作为缩略图
+            if ($value['thumb'] = Attachment::getOne([['blog_id', $value['id']], ['mimetype', 'like', '%' . 'image/' . '%']])) {
+                $value['thumb'] = $value['thumb']['filepath'];
+            }
+        }
+        $view = ['blog' => $blog];
+        return view('web.iszmxw_simple_pro.search_article', $view);
+    }
+
     /**
      * 相册列表
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View

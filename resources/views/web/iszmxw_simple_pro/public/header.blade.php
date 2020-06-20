@@ -4,7 +4,7 @@
         <a id="phoneOnOffMenu" style="display: none"><i class="layui-icon"></i> </a>
     </div>
     <div class="p-header-box-search-box">
-        <form action="{{url('/article/search')}}">
+        <form action="{{url('article/search/')}}">
             <input type="text" placeholder="请输入搜索内容" name="keyword" required="">
             <button type="submit"><i class="layui-icon"></i></button>
         </form>

@@ -70,9 +70,10 @@ $(function () {
                 return false;
             }
             var captcha = $(".captcha").val();
-            var str = '回复 @' + pRevertAuthor + " ：";
+            // var str = '回复 @' + pRevertAuthor + " ：";
+            var str = '';
             var revertContent = $("#revert").val();
-            //判断回复是否存在
+            // 判断回复是否存在
             if (!new RegExp(str).test(revertContent)) {
                 $('#revertPid').val('');
             } else {
@@ -88,19 +89,17 @@ $(function () {
                     captcha: captcha
                 },
                 success: function (result) {
-                    console.log(result);
-                    console.log(data);
                     if (result.status === 1) {
                         var avatarUrl;
                         var author;
                         if (result.user != null) {
-                            avatarUrl = result.user.avatar;
-                            author = result.comment.author;
+                            avatarUrl = result.user.header_img;
+                            author = result.user.nickname;
                         } else {
-                            avatarUrl = "/templates/jpress-perfree-simple/static/img/user.jpeg";
+                            avatarUrl = "http://q1.qlogo.cn/g?b=qq&nk=10000&s=640";
                             author = "匿名用户";
                         }
-                        //清空编辑器
+                        // 清空编辑器
                         layedit.clearContent(edit);
                         var pid = $("#revertPid").val();
                         var html = '<div class="p-article-revert-box">' +

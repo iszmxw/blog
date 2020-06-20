@@ -211,7 +211,14 @@ class SiteController extends Controller
         try {
             Comment::create($data);
             DB::commit();
-            return response()->json(['data' => '发表评论成功！', 'status' => 1]);
+            return response()->json([
+                'data'   => '发表评论成功！',
+                'status' => 1,
+                'user'   => [
+                    'header_img' => $user_data['header_img'],
+                    'nickname'   => $user_data['nickname']
+                ]
+            ]);
         } catch (\Exception $e) {
             DB::rollBack();//事件回滚
             return response()->json(['data' => '发表失败，请稍后再试！' . $e->getMessage(), 'status' => '-1']);

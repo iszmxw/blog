@@ -88,6 +88,7 @@ $(function () {
                     captcha: captcha
                 },
                 success: function (result) {
+                    console.log(result);
                     if (result.state == "ok") {
                         console.log(result);
                         var avatarUrl;

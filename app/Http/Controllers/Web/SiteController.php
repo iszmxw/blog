@@ -128,7 +128,7 @@ class SiteController extends Controller
             }
         }
         $view = ['blog' => $blog];
-        return view('web.iszmxw_simple_pro.search_article', $view);
+        return view('web.iszmxw_simple_pro.article_search', $view);
     }
 
     /**

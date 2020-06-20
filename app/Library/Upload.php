@@ -85,15 +85,15 @@ class Upload
 
     /**
      * 上传文件到github
+     * @param $img_path
      * @return string
      * @author: iszmxw <mail@54zm.com>
-     * @Date：2020/6/15 16:53
+     * @Date：2020/6/20 23:24
      */
-    public static function github_upload()
+    public static function github_upload($img_path)
     {
         $access_token = "6a5d3519667172b429d3df3233a03766894dcdec";
         $path         = "images/2020/0612"; // 文件保存路径
-        $old_file     = "createwxaqrcode.png";
         $new_file     = "images-" . date('YmdHis', time()) . time() . ".png";
         $url          = "https://api.github.com/repos/iszmxw/FigureBed/contents/{$path}/{$new_file}?access_token={$access_token}";
         $client       = new Client();
@@ -104,11 +104,10 @@ class Upload
                     "name"  => "iszmxw",
                     "email" => "mail@54zm.com"
                 ],
-                "content"   => self::imgToBase64($old_file)
+                "content"   => self::imgToBase64($img_path)
             ]
         ];
-        $res          = $client->put($url, $options)->getBody()->getContents();
-        return $res;
+        return $client->put($url, $options)->getBody()->getContents();
     }
 
     public static function imgToBase64($img)

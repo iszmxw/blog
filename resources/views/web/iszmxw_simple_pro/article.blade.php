@@ -126,7 +126,7 @@
                             <img alt="image" src="{{$val['header_img']}}" class="p-user-img">
                             <div class="p-article-revert-container-right">
                                 <span class="p-revert-user-name">{{$val['poster']}}</span>
-                                <span class="p-revert-time">{{$val['created_at']}}</span>
+                                <span class="p-revert-time">{{date('Y-m-d H:i:s',$val['created_at'])}}</span>
                             </div>
                         </div>
                         <div class="p-revert-content">
@@ -142,7 +142,7 @@
                                     <img alt="image" src="{{$vv['header_img']}}" class="p-user-img">
                                     <div class="p-article-revert-container-right">
                                         <span class="p-revert-user-name">{{$vv['poster']}}</span>
-                                        <span class="p-revert-time">{{$vv['created_at']}}</span>
+                                        <span class="p-revert-time">{{date('Y-m-d H:i:s',$vv['created_at'])}}</span>
                                     </div>
                                 </div>
                                 <div class="p-revert-content">

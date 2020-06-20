@@ -232,7 +232,7 @@ class SiteController extends Controller
             ]);
         } catch (\Exception $e) {
             DB::rollBack();//事件回滚
-            return response()->json(['data' => '发表失败，请稍后再试！' . $e->getMessage(), 'status' => '-1']);
+            return response()->json(['data' => '发表失败，请稍后再试！', 'status' => '-1']);
         }
     }
 

@@ -50,7 +50,7 @@
     <a class="go-top"><i class="fa fa-caret-up" aria-hidden="true"></i></a>
 </div>
 {{--背景图像--}}
-<img class="background" src="{{asset('style/web/iszmxw_simple_pro/images/4.jpg')}}">
+<img class="background" src="{{asset('style/web/iszmxw_simple_pro/images/7.jpg')}}">
 {{--引用公共js--}}
 @include('web.iszmxw_simple_pro.public.script')
 {{--可自动加载的js部分--}}

@@ -219,7 +219,7 @@ class SiteController extends Controller
                     'nickname'   => $user_data['nickname']
                 ],
                 'comment' => [
-                    'created' => $res['created_at'],
+                    'created' => date('Y-m-d H:i:s', $res['created_at']),
                     'text'    => $res['comment'],
                     'id'      => $res['id'],
                 ]

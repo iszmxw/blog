@@ -5,7 +5,7 @@
     </div>
     <div class="p-header-box-search-box">
         <form action="{{url('article/search/keyword')}}">
-            <input type="text" placeholder="请输入搜索内容" name="keyword" value="{{$keyword}}">
+            <input type="text" placeholder="请输入搜索内容" name="keyword" value="{{isset($keyword) ? $keyword : ''}}">
             <button type="submit"><i class="layui-icon"></i></button>
         </form>
     </div>

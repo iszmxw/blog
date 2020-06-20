@@ -31,6 +31,8 @@ Route::group(['namespace' => 'Admin'], function () {
 
         // 系统管理
         Route::group(['prefix' => 'system'], function () {
+            // 上传图片
+            Route::any('upload_images', 'SystemController@upload_images');
             // 获取网站系统配置
             Route::any('config', 'SystemController@config');
             // 保存网站配置

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Library\Upload;
 use App\Models\Options;
 use App\Models\ViewLog;
 use Illuminate\Http\Request;
@@ -10,6 +11,27 @@ use Illuminate\Support\Facades\DB;
 
 class SystemController extends Controller
 {
+    // 上传图片操作
+    public function upload_images(Request $request)
+    {
+        $file = $request->file('file');
+        // 文件将要上传的路径
+        $upload_path = 'uploads/images/iszmxw/';
+        // 重命名文件
+        $ext       = strtolower($file->getClientOriginalExtension());
+        $file_name = time() . mt_rand(1, 999) . "." . $ext;
+        // 上传文件并判断
+        $path = $file->move(public_path() . '/' . $upload_path, $file_name);
+        // 文件移动成功
+        if ($path->isFile()) {
+            $img_path = '/' . $upload_path . $file_name;
+            $res      = Upload::github_upload($img_path);
+            // 上传后删掉图片
+            @unlink(public_path($img_path));
+            return $res;
+        }
+    }
+
     // 获取网站系统配置
     public function config(Request $request)
     {
@@ -48,7 +70,6 @@ class SystemController extends Controller
             DB::commit();
             return ['code' => 200, 'message' => '操作成功！'];
         } catch (\Exception $e) {
-            dd($e);
             DB::rollback();
             return ['code' => 500, 'message' => '操作失败请稍后再试！'];
         }

@@ -123,12 +123,7 @@
                 <div class="p-article-revert-box">
                     <div class="p-article-revert-container layui-clear">
                         <div class="p-revert-user layui-clear">
-                            @if($val['mail'])
-                                <img alt="image"
-                                     src="{{$val['header_img']}}" class="p-user-img">
-                            @else
-                                <img alt="image" src="http://q1.qlogo.cn/g?b=qq&nk=10000&s=640" class="p-user-img">
-                            @endif
+                            <img alt="image" src="{{$val['header_img']}}" class="p-user-img">
                             <div class="p-article-revert-container-right">
                                 <span class="p-revert-user-name">{{$val['poster']}}</span>
                                 <span class="p-revert-time">{{$val['created_at']}}</span>
@@ -144,14 +139,7 @@
                         @foreach($val['sub_comment'] as $kk=>$vv)
                             <div class="p-article-revert-container p-revert-child layui-clear">
                                 <div class="p-revert-user layui-clear">
-                                    @if($vv['mail'])
-                                        <img alt="image"
-                                             src="{{$vv['header_img']}}"
-                                             class="p-user-img">
-                                    @else
-                                        <img alt="image" src="http://q1.qlogo.cn/g?b=qq&nk=10000&s=640"
-                                             class="p-user-img">
-                                    @endif
+                                    <img alt="image" src="{{$vv['header_img']}}" class="p-user-img">
                                     <div class="p-article-revert-container-right">
                                         <span class="p-revert-user-name">{{$vv['poster']}}</span>
                                         <span class="p-revert-time">{{$vv['created_at']}}</span>

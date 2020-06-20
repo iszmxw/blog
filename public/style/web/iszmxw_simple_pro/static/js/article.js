@@ -50,7 +50,7 @@ $(function () {
         // 监听回复按钮点击事件
         $('.p-article-revert-container').on('click', '.p-revert-btn', function () {
             $('#revertPid').val($(this).attr('data-cid'));
-            $('#revert').val('回复 @' + $(this).attr('data-author') + " ：");
+            $('#revert').val('@' + $(this).attr('data-author') + " ：");
             edit = layedit.build('revert', {
                 tool: ['strong', 'italic', 'underline', 'del', 'link', 'face'],
                 height: 120
@@ -70,7 +70,7 @@ $(function () {
                 return false;
             }
             var captcha = $(".captcha").val();
-            // var str = '回复 @' + pRevertAuthor + " ：";
+            // var str = '@' + pRevertAuthor + " ：";
             var str = '';
             var revertContent = $("#revert").val();
             // 判断回复是否存在

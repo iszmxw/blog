@@ -146,7 +146,7 @@
                                 <div class="p-revert-user layui-clear">
                                     @if($vv['mail'])
                                         <img alt="image"
-                                             src="http://q1.qlogo.cn/g?b=qq&nk={{$vv['mail']}}&s=640"
+                                             src="{{$vv['header_img']}}"
                                              class="p-user-img">
                                     @else
                                         <img alt="image" src="http://q1.qlogo.cn/g?b=qq&nk=10000&s=640"

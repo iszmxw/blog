@@ -25,10 +25,20 @@ class SystemController extends Controller
         // 文件移动成功
         if ($path->isFile()) {
             $img_path = '/' . $upload_path . $file_name;
-            $res      = Upload::github_upload($img_path);
+            $json     = Upload::github_upload($img_path);
             // 上传后删掉图片
             @unlink(public_path($img_path));
-            return $res;
+            $array = json_decode($json, true);
+            if (isset($array['content']['download_url']) && $array['content']['path']) {
+                return [
+                    'code'          => 20000,
+                    'path'          => $array['content']['path'],
+                    'complete_path' => $array['content']['download_url'],
+                    'message'       => $array['content']['ok'],
+                ];
+            } else {
+                return ['code' => 50000, 'message' => '上传文件无效,请重新上传文件'];
+            }
         }
     }
 

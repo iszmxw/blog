@@ -148,6 +148,7 @@
         </div>
     </div>
 
+    {{--收款码--}}
     <div id="appreciate-content">
         <div class="appreciate-content-tip">
             扫一扫支付

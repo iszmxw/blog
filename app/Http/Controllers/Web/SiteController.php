@@ -197,7 +197,13 @@ class SiteController extends Controller
         $url       = $request->get('url');
         $comment   = $request->get('content');
         $ip        = $request->getClientIp();
-        $data      = [
+        if ($pid) {
+            $parent_pid = Comment::getValue(['id' => $pid], 'pid');
+            if ($parent_pid > 0) {
+                $pid = $parent_pid;
+            }
+        }
+        $data = [
             'blog_id'    => $articleId,
             'pid'        => $pid ? $pid : 0,
             'poster'     => $user_data['nickname'],

@@ -22,7 +22,7 @@ class SiteController extends Controller
     // 首页控制器
     public function index()
     {
-        $blog = Blog::getPaginate([], ['blog.id', 'blog.sort_id', 'blog.title', 'blog.created_at', 'blog.content', 'blog.views'], 10, 'created_at', 'DESC');
+        $blog = Blog::getPaginate([], ['blog.id', 'blog.sort_id', 'blog.title', 'blog.created_at', 'blog.content', 'blog.views'], 10, 'views', 'DESC');
         foreach ($blog as $value) {
             $value['content']   = Tooling::tool_purecontent($value['content'], 240);
             $value['sort_name'] = Sort::getValue(['id' => $value['sort_id']], 'name');
@@ -48,7 +48,7 @@ class SiteController extends Controller
                     $join->on('sort.id', '=', 'blog.sort_id');
                 })
                 ->select(['blog.id', 'blog.sort_id', 'blog.title', 'blog.created_at', 'blog.content', 'blog.views'])
-                ->orderby('created_at', 'DESC')
+                ->orderby('blog.views', 'DESC')
                 ->paginate(10);
             foreach ($blog as $value) {
                 $value['content']   = Tooling::tool_purecontent($value['content'], 240);
@@ -100,7 +100,7 @@ class SiteController extends Controller
     // 栏目分类文章列表
     public function category_article($category_id)
     {
-        $blog = Blog::getPaginate(['sort_id' => $category_id], ['blog.id', 'blog.sort_id', 'blog.title', 'blog.created_at', 'blog.content', 'blog.views'], 10, 'created_at', 'DESC');
+        $blog = Blog::getPaginate(['sort_id' => $category_id], ['blog.id', 'blog.sort_id', 'blog.title', 'blog.created_at', 'blog.content', 'blog.views'], 10, 'views', 'DESC');
         foreach ($blog as $value) {
             $value['content']   = Tooling::tool_purecontent($value['content'], 240);
             $value['sort_name'] = Sort::getValue(['id' => $value['sort_id']], 'name');
@@ -118,7 +118,7 @@ class SiteController extends Controller
     public function article_search(Request $request)
     {
         $keyword = $request->get('keyword');
-        $blog    = Blog::getPaginate([['title', 'like', "%$keyword%"]], ['blog.id', 'blog.sort_id', 'blog.title', 'blog.created_at', 'blog.content', 'blog.views'], 10, 'created_at', 'DESC');
+        $blog    = Blog::getPaginate([['title', 'like', "%$keyword%"]], ['blog.id', 'blog.sort_id', 'blog.title', 'blog.created_at', 'blog.content', 'blog.views'], 10, 'views', 'DESC');
         foreach ($blog as $value) {
             $value['content']   = Tooling::tool_purecontent($value['content'], 240);
             $value['sort_name'] = Sort::getValue(['id' => $value['sort_id']], 'name');

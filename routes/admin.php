@@ -54,18 +54,24 @@ Route::group(['namespace' => 'Admin'], function () {
             Route::any('category_delete', 'CategoryController@category_delete');
         });
 
-
-        // 首页导航管理
-        Route::group(['prefix' => 'navbar'], function () {
-            // 导航列表
-            Route::any('navbar_list', 'NavbarController@navbar_list');
-            // 导航排序
-            Route::any('navbar_sort', 'NavbarController@navbar_sort');
-            // 添加导航
-            Route::any('navbar_add', 'NavbarController@navbar_add');
-            // 删除导航
-            Route::any('navbar_delete', 'NavbarController@navbar_delete');
+        // 文章管理
+        Route::group(['prefix' => 'article'], function () {
+            // 文章列表
+            Route::any('article_list', 'ArticleController@article_list');
         });
+
+
+//        // 首页导航管理
+//        Route::group(['prefix' => 'navbar'], function () {
+//            // 导航列表
+//            Route::any('navbar_list', 'NavbarController@navbar_list');
+//            // 导航排序
+//            Route::any('navbar_sort', 'NavbarController@navbar_sort');
+//            // 添加导航
+//            Route::any('navbar_add', 'NavbarController@navbar_add');
+//            // 删除导航
+//            Route::any('navbar_delete', 'NavbarController@navbar_delete');
+//        });
 
 
     });

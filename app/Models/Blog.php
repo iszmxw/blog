@@ -25,10 +25,10 @@ class Blog extends Defaults
      * @author: iszmxw <mail@54zm.com>
      * @Date：2020/8/24 22:30
      */
-    public function getCreatedAtAttribute($time)
-    {
-        return date('Y-m-d H:i:s', $time);
-    }
+    // public function getCreatedAtAttribute($time)
+    // {
+    //     return date('Y-m-d H:i:s', $time);
+    // }
 
     //分页获取数据
     public static function getPaginate($where = [], $field = [], $paginate = 1, $orderby = "", $sort = "DESC")

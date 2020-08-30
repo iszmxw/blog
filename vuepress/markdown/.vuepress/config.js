@@ -3,12 +3,12 @@ const _sidebar = require('./sidebar')
 
 module.exports = {
     title: '小窝博客',
-    description: '追梦小窝的博客文档',
+    description: '追梦小窝博客开发文档',
     base: '/blog/',
     port: '',
     dest: '../docs',
     head: [
-        ['link', { rel: 'icon', href: '/assets/img/plan.svg' }],
+        ['link', { rel: 'icon', href: '/assets/img/xw.svg' }],
         ['meta', { 'name': 'viewport', content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" }],
         ['script', { src: 'https://s4.cnzz.com/z_stat.php?id=1279222603&web_id=1279222603' }]
     ],
@@ -24,7 +24,7 @@ module.exports = {
         // }
     },
     themeConfig: {
-        logo: '/assets/img/plan.svg',
+        logo: '/assets/img/xw.svg',
         nav: _nav,
         sidebar: _sidebar,
         sidebarDepth: 1,

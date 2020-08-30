@@ -1,0 +1,22 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "description": "小窝笔记",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "dev": "vuepress dev markdown",
+    "build": "vuepress build markdown"
+  },
+  "keywords": [
+    "小窝笔记"
+  ],
+  "author": "mail@54zm.com",
+  "license": "ISC",
+  "devDependencies": {
+    "path": "^0.12.7"
+  },
+  "dependencies": {
+    "vuepress": "^1.5.4"
+  }
+}

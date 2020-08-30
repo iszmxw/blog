@@ -2,8 +2,8 @@ const _nav = require('./nav')
 const _sidebar = require('./sidebar')
 
 module.exports = {
-    title: '追梦小窝笔记',
-    description: '记录日常开发笔记',
+    title: '小窝博客',
+    description: '追梦小窝的博客文档',
     base: '/blog/',
     port: '',
     dest: '../docs',
@@ -39,7 +39,7 @@ module.exports = {
             // }
         },
         // 假定 GitHub。也可以是一个完整的 GitLab URL。
-        repo: 'https://github.com/iszmxw/studys.git'
+        repo: 'https://gitee.com/iszmxw/blog.git'
     },
     plugins: [
         // 'axios'  // 配置插件

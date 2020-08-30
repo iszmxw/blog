@@ -1,6 +1,5 @@
 module.exports = [
     getSideBar('小窝博客', [
-        ['/dashboard/outline', '索引大纲'],
         ['/dashboard/description', '博客介绍'],
         ['/dashboard/install', '博客安装'],
     ]),
@@ -18,7 +17,7 @@ function getSideBar(_title, _children) {
     return {
         title: _title,
         collapsable: true,
-        displayAllHeaders: true,
+        // displayAllHeaders: true,
         children: _children
     }
 }

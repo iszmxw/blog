@@ -1,25 +1,25 @@
-# 安装
+## 安装
 
 ```shell script
 git clone https://gitee.com/iszmxw/blog.git
 ```
 
-# 清除缓存
+## 清除缓存
 ```shell script
 php artisan cache:clear
 ```
 
-# 应用程序加密密钥生成
+## 应用程序加密密钥生成
 ```shell script
 php artisan key:generate
 ```
 
-# 复制生成配置文件
+## 复制生成配置文件
 ```shell script
 cp .env.example .env
 ```
 
-# 配置文件.env
+## 配置文件.env
 ```env
 APP_NAME=网站名称
 APP_URL=网站地址
@@ -36,7 +36,7 @@ WC_AppID=微信订阅号appid
 WC_AppSecret=微信AppSecret
 ```
 
-# composer仓库 （主要用了以下扩展）
+## composer仓库 （主要用了以下扩展）
 
 - 1、"caouecs/laravel-lang": "~3.0",
 - 2、"barryvdh/laravel-debugbar": "^3.2",

@@ -1,27 +1,43 @@
 module.exports = [
     {
-      text: 'MongoDB',
-      items: [
-        {
-          text: '介绍',
-          link: '/mongodb/mongodb-index'
-        },
-        {
-          text: '安装',
-          link: '/mongodb/install-red-hat'
-        }
-      ]
+        text: '小窝博客',
+        items: [
+            {
+                text: '索引大纲',
+                link: '/dashboard/outline'
+            },
+            {
+                text: '介绍',
+                link: '/dashboard/description'
+            },
+            {
+                text: '安装',
+                link: '/dashboard/install'
+            }
+        ]
     },
     {
-      text: '学习资源',
-      items: [{
-          text: '前端学习路线',
-          link: 'http://www.imooc.com/article/261756'
+        text: '后台相关',
+        items: [{
+            text: '前端学习路线',
+            link: 'http://www.imooc.com/article/261756'
         },
-        {
-          text: '全栈',
-          link: 'http://baidu.com'
-        }
-      ]
+            {
+                text: '全栈',
+                link: 'http://baidu.com'
+            }
+        ]
+    },
+    {
+        text: '前台相关',
+        items: [{
+            text: '前端学习路线',
+            link: 'http://www.imooc.com/article/261756'
+        },
+            {
+                text: '全栈',
+                link: 'http://baidu.com'
+            }
+        ]
     }
 ]

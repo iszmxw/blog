@@ -7,9 +7,12 @@
 <a href="#"><img src="https://img.shields.io/badge/License-MIT-red" alt="License"></a>
 </p>
 
-## 计划大纲
+## 介绍
 
-这是我最近整理的一些计划，由于有些东西不是很了解，下面吧这些东西列入以后的充电计划中，按照下面的计划不断完善自己，温故而知新
+- 博客文档
+**后台采用laravel+vue-element-admin**
+**前端采用laravel+vue-element-admin**
+
 
 - [设计模式](#)
 - [MongoDB](markdown/mongodb/mongodb-index.md)

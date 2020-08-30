@@ -1,8 +1,14 @@
 module.exports = [
-    getSideBar('目录大纲', [
-        ['/dashboard/outline', '首页大纲']
+    getSideBar('小窝博客', [
+        ['/dashboard/outline', '索引大纲'],
+        ['/dashboard/description', '博客介绍'],
+        ['/dashboard/install', '博客安装'],
     ]),
-    getSideBar('MongoDB', [
+    getSideBar('后台相关', [
+        ['/mongodb/mongodb-index', 'MongoDB'],
+        ['/mongodb/install-red-hat', 'RedHat环境安装']
+    ]),
+    getSideBar('前台相关', [
         ['/mongodb/mongodb-index', 'MongoDB'],
         ['/mongodb/install-red-hat', 'RedHat环境安装']
     ])

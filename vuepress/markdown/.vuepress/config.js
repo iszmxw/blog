@@ -4,7 +4,7 @@ const _sidebar = require('./sidebar')
 module.exports = {
     title: '追梦小窝笔记',
     description: '记录日常开发笔记',
-    base: '/blog',
+    base: '/blog/',
     port: '',
     dest: '../docs',
     head: [

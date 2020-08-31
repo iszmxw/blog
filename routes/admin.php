@@ -58,6 +58,8 @@ Route::group(['namespace' => 'Admin'], function () {
         Route::group(['prefix' => 'article'], function () {
             // 文章列表
             Route::any('article_list', 'ArticleController@article_list');
+            // 添加文章
+            Route::any('article_add', 'ArticleController@article_add');
         });
 
 

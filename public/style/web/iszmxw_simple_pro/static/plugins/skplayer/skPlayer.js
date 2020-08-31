@@ -44,7 +44,7 @@ const Util = {
 };
 
 let instance = false;
-const baseUrl = 'http://blog.54zm.com/mp3';
+const baseUrl = window.origin + '/mp3';
 
 class skPlayer {
     constructor(option) {

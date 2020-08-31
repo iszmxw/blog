@@ -7,7 +7,8 @@
     </div>
     <div class="p-left-user-box">
         <a class="p-left-user-img-box pjax" href="/">
-            <img src="{{asset($user_data['photo'])}}">
+            {{--<img src="{{asset($user_data['photo'])}}">--}}
+            <img src="{{asset('style/web/iszmxw_simple_pro/static/images/head.jpg')}}">
         </a>
         <a class="p-left-user-name-box pjax" href="/"> <span>{{$user_data['nickname']}}</span></a>
         <div class="p-left-user-hitokoto-box">

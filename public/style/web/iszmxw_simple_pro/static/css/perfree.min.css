@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'liguofu-1';
-    src: url('../fonts/liguofu-1.ttf');
+    src: url('../fonts/iszmxw.ttf');
 }
 
 html, body {
@@ -12,7 +12,7 @@ html, body {
     color: #657180;
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
-    font-family: jdzhonyuanjian23205ab50b22613 !important;
+    font-family: iszmxw !important;
     background-attachment: fixed !important;
     background-repeat: no-repeat !important;
     background-size: cover !important

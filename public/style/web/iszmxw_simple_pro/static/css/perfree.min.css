@@ -3,6 +3,11 @@
     src: url('../fonts/FenPinYinTi-2.ttf');
 }
 
+@font-face {
+    font-family: 'HanBiaoBangYangMaoBiPinYin';
+    src: url('../fonts/HanBiaoBangYangMaoBiPinYin-2.ttf');
+}
+
 html, body {
     margin: 0;
     height: auto;
@@ -12,7 +17,7 @@ html, body {
     color: #657180;
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
-    font-family: FenPinYinTi !important;
+    font-family: HanBiaoBangYangMaoBiPinYin !important;
     background-attachment: fixed !important;
     background-repeat: no-repeat !important;
     background-size: cover !important

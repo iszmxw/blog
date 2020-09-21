@@ -56,10 +56,16 @@ Route::group(['namespace' => 'Admin'], function () {
 
         // 文章管理
         Route::group(['prefix' => 'article'], function () {
-            // 文章列表
-            Route::any('article_list', 'ArticleController@article_list');
             // 添加文章
             Route::any('article_add', 'ArticleController@article_add');
+            // 删除文章
+            Route::any('article_delete', 'ArticleController@article_delete');
+            // 编辑文章
+            Route::any('article_edit', 'ArticleController@article_edit');
+            // 文章列表
+            Route::any('article_list', 'ArticleController@article_list');
+            // 获取单条博客数据
+            Route::any('article_one', 'ArticleController@article_one');
         });
 
 

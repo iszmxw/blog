@@ -22,7 +22,7 @@
         <div class="p-article-share-box layui-clear">
             <div class="p-share-left">
                 <a class="p-index-link pjax" href="/"><i class="fa fa-home fa-fw"></i> 首页</a>/
-                <span class="p-active-link">正文</span>
+                <span class="p-active-link">正文_</span>
             </div>
             <div class="p-share-right">
                 <span>分享到:</span>

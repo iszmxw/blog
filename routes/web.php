@@ -23,6 +23,8 @@ Route::group(['middleware' => 'web_common', 'namespace' => 'Web'], function () {
     Route::get('link', 'SiteController@link');
     // 文章详情页面
     Route::get('article/{article_id}', 'SiteController@article');
+    // 获取文章数据
+    Route::post('article/{article_id}', 'SiteController@article');
     // 标签文章列表
     Route::get('article/tag/{tag_id}', 'SiteController@article_tag');
     // 搜索文章

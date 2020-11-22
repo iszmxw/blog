@@ -204,6 +204,8 @@ class SiteController extends Controller
                 DB::rollBack();
             }
             $data = ['blog' => $blog, 'comment_list' => $comment_list];
+            $url = request()->getClientIp();
+            dump($url);
             return view('web.iszmxw_simple_pro.article', $data);
         } else if ("POST" == $method) {
             $blog = Blog::getOne(['id' => $article_id]);

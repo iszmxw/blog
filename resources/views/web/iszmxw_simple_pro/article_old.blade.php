@@ -6,7 +6,72 @@
 @section('title', $blog['title'].'_追梦小窝')
 {{--样式引入--}}
 @section('style')
-    <link rel="stylesheet" href="{{asset('style/web/iszmxw_simple_pro/static/plugins/highlight/styles/vs.css')}}" media="all">
+    <style>
+        .p-article-content-box pre code::-webkit-scrollbar {
+            width: 6px;
+            height: 5px
+        }
+
+        .p-article-content-box pre code::-webkit-scrollbar-thumb {
+            background: #9ea7b4 !important
+        }
+
+        .p-article-content-box pre code::-webkit-scrollbar-track {
+            background: #d7dde4 !important
+        }
+
+        pre {
+            position: relative !important;
+            margin-bottom: 24px !important;
+            background: #FFF !important;
+            overflow: hidden !important
+        }
+
+        code {
+            display: block !important;
+            padding: 12px 6px !important;
+            overflow-y: auto !important;
+            font-weight: 300 !important;
+            font-size: 1.05em !important;
+            line-height: 23px
+        }
+
+        code.has-numbering {
+            margin-left: 38px !important
+        }
+
+        .pre-numbering {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 35px !important;
+            padding: 12px 2px 12px 0 !important;
+            border-right: 1px solid #c3ccd0 !important;
+            text-align: right !important;
+            font-size: 1.05em !important
+        }
+
+        .p-article-content-box pre {
+            font-size: 13px !important;
+            line-height: 1.42857143 !important;
+            word-break: break-all !important;
+            word-wrap: break-word !important;
+            background-color: #f5f5f5 !important;
+            white-space: pre !important;
+            margin-top: 14px !important;
+            margin-bottom: 14px !important
+        }
+
+        .p-article-content-box pre, .p-article-content-box pre code {
+            font-family: Menlo, Monaco, Consolas, "Courier New", monospace !important
+        }
+
+        .p-article-content-box pre ul {
+            margin: 0
+        }
+    </style>
+    <link rel="stylesheet" href="{{asset('style/web/iszmxw_simple_pro/static/plugins/highlight/styles/vs.css')}}"
+          media="all">
 @endsection
 
 {{--内容部分--}}

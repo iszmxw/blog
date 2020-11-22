@@ -205,7 +205,7 @@ class SiteController extends Controller
             }
             $data = ['blog' => $blog, 'comment_list' => $comment_list];
             $url  = env('APP_URL');
-            if ("http://blog.test" != $url) {
+            if ("http://blog.test" == $url) {
                 return view('web.iszmxw_simple_pro.article', $data);
             } else {
                 return view('web.iszmxw_simple_pro.article_old', $data);

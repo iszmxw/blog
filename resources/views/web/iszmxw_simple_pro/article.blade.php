@@ -181,6 +181,7 @@
         </div>
     </div>
     <script type="text/javascript" src="{{asset('style/web/iszmxw_simple_pro/static/js/article.js')}}"></script>
+    <script type="text/javascript" src="{{asset('style/web/iszmxw_simple_pro/static/plugins/prism/prism.js')}}"></script>
     {{--加载markdown预览--}}
     <script src="{{asset('style/web/iszmxw_simple_pro/static/plugins/editor.md/lib/marked.min.js')}}"></script>
     <script src="{{asset('style/web/iszmxw_simple_pro/static/plugins/editor.md/lib/prettify.min.js')}}"></script>

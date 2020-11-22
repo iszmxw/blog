@@ -13,8 +13,6 @@
         src="{{asset('style/web/iszmxw_simple_pro/static/plugins/jquery.tocify/jquery-ui-1.9.1.custom.min.js')}}"></script>
 <script type="text/javascript"
         src="{{asset('style/web/iszmxw_simple_pro/static/plugins/jquery.tocify/jquery.tocify.js')}}"></script>
-<script type="text/javascript"
-        src="{{asset('style/web/iszmxw_simple_pro/static/plugins/prism/prism.js')}}"></script>
 <script>
     // 渐变色背景
     $("body").css("background-image", "linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%)");

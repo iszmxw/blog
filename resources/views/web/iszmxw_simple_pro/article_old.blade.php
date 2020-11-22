@@ -6,7 +6,7 @@
 @section('title', $blog['title'].'_追梦小窝')
 {{--样式引入--}}
 @section('style')
-
+    <link rel="stylesheet" href="{{asset('style/web/iszmxw_simple_pro/static/plugins/highlight/styles/vs.css')}}" media="all">
 @endsection
 
 {{--内容部分--}}

@@ -6,7 +6,8 @@
 @section('title', $blog['title'].'_追梦小窝')
 {{--样式引入--}}
 @section('style')
-    <link rel="stylesheet" href="{{asset('style/web/iszmxw_simple_pro/static/plugins/editor.md/css/editormd.css')}}" media="all">
+    <link rel="stylesheet" href="{{asset('style/web/iszmxw_simple_pro/static/plugins/editor.md/css/editormd.css')}}"
+          media="all">
     <link rel="stylesheet" href="{{asset('style/web/iszmxw_simple_pro/static/plugins/prism/prism.css')}}" media="all">
 @endsection
 
@@ -191,12 +192,11 @@
     <script src="{{asset('style/web/iszmxw_simple_pro/static/plugins/editor.md/editormd.min.js')}}"></script>
     <script type="text/javascript">
         $(function () {
-            $.post(window.origin + "/article/157", function (markdown) {
+            $.post(window.origin + "/article/{{$blog['id']}}", function (markdown) {
                 let editorMdView = editormd.markdownToHTML("articleContent", {
                     markdown: markdown,         // + "\r\n" + $("#articleContent").text(),
                     htmlDecode: true,           // 开启 HTML 标签解析，为了安全性，默认不开启
                     previewCodeHighlight: false, // 关闭预览 HTML 的代码块高亮，默认开启
-                    markdownSourceCode: true, // 是否保留 Markdown 源码，即是否删除保存源码的 Textarea 标签
                     emoji: true,
                     taskList: true,
                     tex: true,  // 默认不解析

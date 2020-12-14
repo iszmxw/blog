@@ -2,59 +2,21 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Navi;
+use App\Models\Link;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 
-class NavbarController extends Controller
+class ServeController extends Controller
 {
     /**
-     * 导航列表
-     * @param Request $request
-     * @return array
-     * @author: iszmxw <mail@54zm.com>
-     * @Date：2020/4/28 16:19
-     */
-    public function navbar_list(Request $request)
-    {
-        $list = Navi::getPaginate([], '', 100, 'sort', 'ASC');
-        return ['code' => 200, 'message' => 'ok', 'data' => $list];
-    }
-
-    /**
-     * 导航排序
      * @param Request $request
      * @return array
      * @throws \Exception
      * @author: iszmxw <mail@54zm.com>
-     * @Date：2020/4/28 16:46
+     * @Date：2020-12-14 22:47
      */
-    public function navbar_sort(Request $request)
-    {
-        $data = $request->all();
-        DB::beginTransaction();
-        try {
-            foreach ($data as $key => $value) {
-                Navi::EditData(['id' => $value], ['sort' => $key]);
-            }
-            Db::commit();
-            return ['code' => 200, 'message' => '排序成功！'];
-        } catch (\Exception $e) {
-            DB::rollBack();
-            return ['code' => 500, 'message' => '排序失败，请稍后再试！'];
-        }
-    }
-
-    /**
-     * 添加导航
-     * @param Request $request
-     * @return array
-     * @throws \Exception
-     * @author: iszmxw <mail@54zm.com>
-     * @Date：2020/4/28 16:35
-     */
-    public function navbar_add(Request $request)
+    public function link_add(Request $request)
     {
         $data   = $request->all();
         $domain = config('app.url');
@@ -75,7 +37,7 @@ class NavbarController extends Controller
         // 添加事物包裹进行添加数据
         DB::beginTransaction();
         try {
-            Navi::AddData($data);
+            Link::AddData($data);
             DB::commit();
             return ['code' => 200, 'message' => '添加成功！'];
         } catch (\Exception $e) {
@@ -85,19 +47,19 @@ class NavbarController extends Controller
     }
 
     /**
-     * 删除导航
+     * 删除
      * @param Request $request
      * @return array
      * @throws \Exception
      * @author: iszmxw <mail@54zm.com>
      * @Date：2020/4/28 16:41
      */
-    public function navbar_delete(Request $request)
+    public function link_delete(Request $request)
     {
         $data = $request->all();
         DB::beginTransaction();
         try {
-            Navi::selected_delete($data);
+            Link::selected_delete($data);
             Db::commit();
             return ['code' => 200, 'message' => '删除导航栏成功！'];
         } catch (\Exception $e) {
@@ -105,5 +67,65 @@ class NavbarController extends Controller
             return ['code' => 500, 'message' => '删除导航栏失败，请稍后再试！'];
         }
     }
-    
+
+    /**
+     *
+     * @param Request $request
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2020-12-14 22:48
+     */
+    public function link_edit(Request $request)
+    {
+
+    }
+
+    /**
+     * 列表
+     * @param Request $request
+     * @return array
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2020/4/28 16:19
+     */
+    public function link_list(Request $request)
+    {
+        $list = Link::getPaginate([], '', 100, 'order', 'ASC');
+        return ['code' => 200, 'message' => 'ok', 'data' => $list];
+    }
+
+
+    /**
+     *
+     * @param Request $request
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2020-12-14 22:48
+     */
+    public function link_one(Request $request)
+    {
+
+    }
+
+    /**
+     * 导航排序
+     * @param Request $request
+     * @return array
+     * @throws \Exception
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2020/4/28 16:46
+     */
+    public function link_sort(Request $request)
+    {
+        $data = $request->all();
+        DB::beginTransaction();
+        try {
+            foreach ($data as $key => $value) {
+                Link::EditData(['id' => $value], ['sort' => $key]);
+            }
+            Db::commit();
+            return ['code' => 200, 'message' => '排序成功！'];
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return ['code' => 500, 'message' => '排序失败，请稍后再试！'];
+        }
+    }
+
 }

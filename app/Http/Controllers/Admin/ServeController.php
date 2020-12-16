@@ -19,20 +19,20 @@ class ServeController extends Controller
     public function link_add(Request $request)
     {
         $data   = $request->all();
-        $domain = config('app.url');
-        if ($data['type'] === 1 && empty($data['type_id'])) {
-            return ['code' => 500, 'message' => '请选择要设置为导航的栏目地址'];
+        if (empty($data['sitename'])){
+            return ['code' => 500, 'message' => '友链标题不能为空！'];
         }
-        if ($data['type'] === 2 && empty($data['url'])) {
-            return ['code' => 500, 'message' => '请输入导航栏地址'];
+        if (empty($data['hide'])){
+            return ['code' => 500, 'message' => '请设置是否隐藏此友链！'];
         }
-        // 添加系统导航栏目
-        if ($data['type'] === 1 && isset($data['type_id'])) {
-            $data['url'] = $domain . "/category/" . $data['type_id'];
+        if (empty($data['siteurl'])){
+            return ['code' => 500, 'message' => '网站地址不能为空！'];
         }
-        // 添加网址导航
-        if ($data['type'] === 2 && isset($data['url'])) {
-            $data['type_id'] = 0;
+        if (filter_var($data['siteurl'],FILTER_VALIDATE_URL) == false){
+            return ['code' => 500, 'message' => '网站地址格式不正确！'];
+        }
+        if (isset($data['order']) && !is_numeric($data['order'])){
+            return ['code' => 500, 'message' => '排序格式不正确，应该为数字！'];
         }
         // 添加事物包裹进行添加数据
         DB::beginTransaction();

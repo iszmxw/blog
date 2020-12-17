@@ -18,20 +18,20 @@ class ServeController extends Controller
      */
     public function link_add(Request $request)
     {
-        $data   = $request->all();
-        if (empty($data['sitename'])){
+        $data = $request->all();
+        if (empty($data['sitename'])) {
             return ['code' => 500, 'message' => '友链标题不能为空！'];
         }
-        if (empty($data['hide'])){
+        if (empty($data['hide'])) {
             return ['code' => 500, 'message' => '请设置是否隐藏此友链！'];
         }
-        if (empty($data['siteurl'])){
+        if (empty($data['siteurl'])) {
             return ['code' => 500, 'message' => '网站地址不能为空！'];
         }
-        if (filter_var($data['siteurl'],FILTER_VALIDATE_URL) == false){
+        if (filter_var($data['siteurl'], FILTER_VALIDATE_URL) == false) {
             return ['code' => 500, 'message' => '网站地址格式不正确！'];
         }
-        if (isset($data['order']) && !is_numeric($data['order'])){
+        if (isset($data['order']) && !is_numeric($data['order'])) {
             return ['code' => 500, 'message' => '排序格式不正确，应该为数字！'];
         }
         // 添加事物包裹进行添加数据
@@ -61,22 +61,51 @@ class ServeController extends Controller
         try {
             Link::selected_delete($data);
             Db::commit();
-            return ['code' => 200, 'message' => '删除导航栏成功！'];
+            return ['code' => 200, 'message' => '删除成功！'];
         } catch (\Exception $e) {
             DB::rollback();
-            return ['code' => 500, 'message' => '删除导航栏失败，请稍后再试！'];
+            return ['code' => 500, 'message' => '删除失败，请稍后再试！'];
         }
     }
 
+
     /**
-     *
+     * 编辑友链
      * @param Request $request
+     * @return array
+     * @throws \Exception
      * @author: iszmxw <mail@54zm.com>
-     * @Date：2020-12-14 22:48
+     * @Date：2020-12-17 23:11
      */
     public function link_edit(Request $request)
     {
-
+        $data = $request->all();
+        if (empty($data['sitename'])) {
+            return ['code' => 500, 'message' => '友链标题不能为空！'];
+        }
+        if (empty($data['hide'])) {
+            return ['code' => 500, 'message' => '请设置是否隐藏此友链！'];
+        }
+        if (empty($data['siteurl'])) {
+            return ['code' => 500, 'message' => '网站地址不能为空！'];
+        }
+        if (filter_var($data['siteurl'], FILTER_VALIDATE_URL) == false) {
+            return ['code' => 500, 'message' => '网站地址格式不正确！'];
+        }
+        if (isset($data['order']) && !is_numeric($data['order'])) {
+            return ['code' => 500, 'message' => '排序格式不正确，应该为数字！'];
+        }
+        unset($data['updated_at']);
+        DB::beginTransaction();
+        try {
+            $where = ['id' => $data['id']];
+            Link::EditData($where, $data);
+            DB::commit();
+            return ['code' => 200, 'message' => '编辑成功！'];
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return ['code' => 500, 'message' => '编辑失败，请稍后再试！'];
+        }
     }
 
     /**
@@ -94,14 +123,21 @@ class ServeController extends Controller
 
 
     /**
-     *
+     * 单条数据
      * @param Request $request
+     * @return array
      * @author: iszmxw <mail@54zm.com>
-     * @Date：2020-12-14 22:48
+     * @Date：2020-12-17 22:55
      */
     public function link_one(Request $request)
     {
-
+        $id = $request->get('id');
+        if (!empty($id) && $id > 0) {
+            $data = Link::getOne(['id' => $id]);
+            return ['code' => 200, 'message' => 'ok', 'data' => $data];
+        } else {
+            return ['code' => 500, 'message' => '数据异常'];
+        }
     }
 
     /**

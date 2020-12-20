@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Blog;
+use App\Models\Comment;
 use App\Models\Link;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -140,28 +143,58 @@ class ServeController extends Controller
         }
     }
 
+
     /**
-     * 导航排序
+     * 标签列表
      * @param Request $request
      * @return array
-     * @throws \Exception
      * @author: iszmxw <mail@54zm.com>
-     * @Date：2020/4/28 16:46
+     * @Date：2020-12-20 14:34
      */
-    public function link_sort(Request $request)
+    public function tag_list(Request $request)
     {
-        $data = $request->all();
-        DB::beginTransaction();
-        try {
-            foreach ($data as $key => $value) {
-                Link::EditData(['id' => $value], ['sort' => $key]);
-            }
-            Db::commit();
-            return ['code' => 200, 'message' => '排序成功！'];
-        } catch (\Exception $e) {
-            DB::rollBack();
-            return ['code' => 500, 'message' => '排序失败，请稍后再试！'];
+        $list = Tag::getList([], '*', 0, 0, 'id', 'DESC');
+        return ['code' => 200, 'message' => 'ok', 'data' => $list];
+    }
+
+
+    /**
+     * 删除标签
+     * @param Request $request
+     * @return array
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2020-12-20 15:26
+     */
+    public function tag_delete(Request $request)
+    {
+        $params = $request->all();
+        if (empty($params['id'])) {
+            return ['code' => 500, 'message' => '数据传输错误，请选择要删除的标签id'];
         }
+        $res = Tag::selected_delete(['id' => $params['id']]);
+        if ($res) {
+            return ['code' => 200, 'message' => '删除成功！'];
+        } else {
+            return ['code' => 500, 'message' => '操作失败'];
+        }
+    }
+
+
+    /**
+     * 评论列表
+     * @param Request $request
+     * @return array
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2020-12-20 17:32
+     */
+    public function comment_list(Request $request)
+    {
+        $list = Comment::getPaginate([], '', 10, 'created_at', 'DESC');
+        foreach ($list as $key => $value) {
+            if (!$value['mail']) $value['mail'] = 10000;
+            $list[$key]['blog_title'] = Blog::getValue(['id' => $value['blog_id']], 'title');
+        }
+        return ['code' => 200, 'message' => 'ok', 'data' => $list];
     }
 
 }

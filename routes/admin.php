@@ -86,6 +86,23 @@ Route::group(['namespace' => 'Admin'], function () {
                 Route::any('link_one', 'ServeController@link_one');
             });
 
+            // 标签管理
+            Route::group(['prefix' => 'tag'], function () {
+                // 删除标签
+                Route::any('tag_delete', 'ServeController@tag_delete');
+                // 标签列表
+                Route::any('tag_list', 'ServeController@tag_list');
+            });
+
+
+            // 评论管理
+            Route::group(['prefix' => 'comment'], function () {
+                // 删除评论
+                Route::any('comment_delete', 'ServeController@comment_delete');
+                // 评论列表
+                Route::any('comment_list', 'ServeController@comment_list');
+            });
+
         });
 
 

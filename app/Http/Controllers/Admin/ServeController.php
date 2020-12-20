@@ -197,4 +197,51 @@ class ServeController extends Controller
         return ['code' => 200, 'message' => 'ok', 'data' => $list];
     }
 
+
+    /**
+     * 删除评论
+     * @param Request $request
+     * @return array
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2020-12-20 22:08
+     */
+    public function comment_delete(Request $request)
+    {
+        $id = $request->get('id');
+        $res = Comment::selected_delete(['id'=>$id]);
+        if ($res) {
+            return ['code' => 200, 'message' => '删除成功！'];
+        } else {
+            return ['code' => 500, 'message' => '操作失败'];
+        }
+    }
+
+    /**
+     * 修改评论显示、隐藏状态
+     * @param Request $request
+     * @return array
+     * @throws \Exception
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2020-12-20 22:20
+     */
+    public function comment_status(Request $request)
+    {
+        $id = $request->get('id');
+        $hide = Comment::getValue(['id'=>$id],'hide');
+        if ($hide == 1){
+            $hide = 0;
+        }else{
+            $hide = 1;
+        }
+        DB::beginTransaction();
+        try{
+            Comment::EditData(['id'=>$id],['hide'=>$hide]);
+            DB::commit();
+            return ['code' => 200, 'message' => '操作成功！'];
+        }catch (\Exception $e){
+            DB::rollBack();
+            return ['code' => 500, 'message' => '操作失败'];
+        }
+    }
+
 }

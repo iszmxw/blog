@@ -99,6 +99,8 @@ Route::group(['namespace' => 'Admin'], function () {
             Route::group(['prefix' => 'comment'], function () {
                 // 删除评论
                 Route::any('comment_delete', 'ServeController@comment_delete');
+                // 显示、隐藏评论
+                Route::any('comment_status', 'ServeController@comment_status');
                 // 评论列表
                 Route::any('comment_list', 'ServeController@comment_list');
             });

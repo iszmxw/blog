@@ -103,6 +103,10 @@ Route::group(['namespace' => 'Admin'], function () {
                 Route::any('comment_status', 'ServeController@comment_status');
                 // 评论列表
                 Route::any('comment_list', 'ServeController@comment_list');
+                // 获取单条评论
+                Route::any('comment_one', 'ServeController@comment_one');
+                // 回复评论
+                Route::any('comment_reply', 'ServeController@comment_reply');
             });
 
         });

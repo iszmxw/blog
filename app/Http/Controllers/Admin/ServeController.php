@@ -207,8 +207,8 @@ class ServeController extends Controller
      */
     public function comment_delete(Request $request)
     {
-        $id = $request->get('id');
-        $res = Comment::selected_delete(['id'=>$id]);
+        $id  = $request->get('id');
+        $res = Comment::selected_delete(['id' => $id]);
         if ($res) {
             return ['code' => 200, 'message' => '删除成功！'];
         } else {
@@ -226,21 +226,69 @@ class ServeController extends Controller
      */
     public function comment_status(Request $request)
     {
-        $id = $request->get('id');
-        $hide = Comment::getValue(['id'=>$id],'hide');
-        if ($hide == 1){
+        $id   = $request->get('id');
+        $hide = Comment::getValue(['id' => $id], 'hide');
+        if ($hide == 1) {
             $hide = 0;
-        }else{
+        } else {
             $hide = 1;
         }
         DB::beginTransaction();
-        try{
-            Comment::EditData(['id'=>$id],['hide'=>$hide]);
+        try {
+            Comment::EditData(['id' => $id], ['hide' => $hide]);
             DB::commit();
             return ['code' => 200, 'message' => '操作成功！'];
-        }catch (\Exception $e){
+        } catch (\Exception $e) {
             DB::rollBack();
             return ['code' => 500, 'message' => '操作失败'];
+        }
+    }
+
+
+    /**
+     * 获取单条评论数据
+     * @param Request $request
+     * @return array
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2020-12-21 22:43
+     */
+    public function comment_one(Request $request)
+    {
+        $id   = $request->get('id');
+        $data = Comment::getOne(['id' => $id]);
+        return ['code' => 200, 'message' => 'ok', 'data' => $data];
+    }
+
+
+    /**
+     * 回复评论
+     * @param Request $request
+     * @return array
+     * @throws \Exception
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2020-12-21 23:11
+     */
+    public function comment_reply(Request $request)
+    {
+        $id                 = $request->get('id');
+        $reply              = $request->get('reply');
+        $poster             = Comment::getValue(['id' => $id], 'poster');
+        $data['mail']       = "442246396@qq.com";
+        $data['url']        = "http://blog.54zm.com/";
+        $data['ip']         = $request->getClientIp();
+        $data['blog_id']    = $request->get('blog_id');
+        $data['pid']        = $id;
+        $data['poster']     = '追梦小窝';
+        $data['header_img'] = 'http://q1.qlogo.cn/g?b=qq&nk=442246396@qq.com&s=640';
+        $data['comment']    = '@' . $poster . '：' . $reply;
+        DB::beginTransaction();
+        try {
+            Comment::create($data);
+            DB::commit();
+            return ['code' => 200, 'message' => '回复成功！'];
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return ['code' => 500, 'message' => '回复失败'];
         }
     }
 

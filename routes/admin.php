@@ -107,6 +107,17 @@ Route::group(['namespace' => 'Admin'], function () {
                 Route::any('comment_one', 'ServeController@comment_one');
                 // 回复评论
                 Route::any('comment_reply', 'ServeController@comment_reply');
+                // 评论编辑
+                Route::any('comment_edit', 'ServeController@comment_edit');
+            });
+
+
+            // 说说管理
+            Route::group(['prefix' => 'twitter'], function () {
+                // 删除说说
+                Route::any('twitter_delete', 'ServeController@twitter_delete');
+                // 说说列表
+                Route::any('twitter_list', 'ServeController@twitter_list');
             });
 
         });

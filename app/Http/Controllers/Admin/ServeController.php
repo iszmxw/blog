@@ -6,6 +6,7 @@ use App\Models\Blog;
 use App\Models\Comment;
 use App\Models\Link;
 use App\Models\Tag;
+use App\Models\Twitter;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -290,6 +291,52 @@ class ServeController extends Controller
             DB::rollBack();
             return ['code' => 500, 'message' => '回复失败'];
         }
+    }
+
+    /**
+     * 编辑评论
+     * @param Request $request
+     * @return array
+     * @throws \Exception
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2020-12-22 21:57
+     */
+    public function comment_edit(Request $request)
+    {
+        $id      = $request->get('id');
+        $poster  = $request->get('poster');
+        $mail    = $request->get('mail');
+        $url     = $request->get('url');
+        $comment = $request->get('comment');
+        $data    = [
+            'poster'  => $poster,
+            'mail'    => $mail,
+            'url'     => $url,
+            'comment' => $comment
+        ];
+        DB::beginTransaction();
+        try {
+            Comment::EditData(['id' => $id], $data);
+            DB::commit();
+            return ['code' => 200, 'message' => '编辑成功！'];
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return ['code' => 500, 'message' => '编辑失败'];
+        }
+    }
+
+
+    /**
+     * 说说列表
+     * @param Request $request
+     * @return array
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2020-12-22 22:15
+     */
+    public function twitter_list(Request $request)
+    {
+        $data = Twitter::getPaginate([], '*', 10, 'id', 'DESC');
+        return ['code' => 200, 'message' => 'ok', 'data' => $data];
     }
 
 }

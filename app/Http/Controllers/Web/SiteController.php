@@ -152,7 +152,7 @@ class SiteController extends Controller
      */
     public function link()
     {
-        $link = Link::getList(['hide' => 'n'], [], '', '', 'taxis', 'ASC');
+        $link = Link::getList(['hide' => 'n'], [], '', '', 'order', 'ASC');
         $view = ['link' => $link];
         return view('web.iszmxw_simple_pro.link', $view);
     }

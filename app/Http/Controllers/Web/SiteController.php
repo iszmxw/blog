@@ -152,7 +152,7 @@ class SiteController extends Controller
      */
     public function link()
     {
-        $link = Link::getList(['hide' => 'n'], [], '', '', 'taxis', 'ASC');
+        $link = Link::getList(['hide' => 'n'], [], '', '', 'order', 'ASC');
         $view = ['link' => $link];
         return view('web.iszmxw_simple_pro.link', $view);
     }
@@ -204,12 +204,7 @@ class SiteController extends Controller
                 DB::rollBack();
             }
             $data = ['blog' => $blog, 'comment_list' => $comment_list];
-            $url  = env('APP_URL');
-            if ("http://blog.test" == $url) {
-                return view('web.iszmxw_simple_pro.article', $data);
-            } else {
-                return view('web.iszmxw_simple_pro.article_old', $data);
-            }
+            return view('web.iszmxw_simple_pro.article', $data);
         } else if ("POST" == $method) {
             $blog = Blog::getOne(['id' => $article_id]);
             return $blog['content'];

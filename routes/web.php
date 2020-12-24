@@ -13,7 +13,6 @@
 // 前台页面
 Route::group(['middleware' => 'web_common', 'namespace' => 'Web'], function () {
 
-    // 新版站点
     Route::get('/', 'SiteController@index');
     Route::get('time', 'SiteController@time');
     Route::get('category', 'SiteController@category');
@@ -23,6 +22,8 @@ Route::group(['middleware' => 'web_common', 'namespace' => 'Web'], function () {
     Route::get('link', 'SiteController@link');
     // 文章详情页面
     Route::get('article/{article_id}', 'SiteController@article');
+    // 获取文章数据
+    Route::post('article/{article_id}', 'SiteController@article');
     // 标签文章列表
     Route::get('article/tag/{tag_id}', 'SiteController@article_tag');
     // 搜索文章
@@ -34,20 +35,6 @@ Route::group(['middleware' => 'web_common', 'namespace' => 'Web'], function () {
             Route::any('comment', 'SiteController@comment_api');
         });
     });
-
-//    if (env('APP_ENV') === 'example') {
-//        // 旧版网站
-//        Route::get('/', 'WebController@index');
-//        Route::get('article/{article_id}', 'WebController@article');
-//        Route::get('category/{category_id}', 'WebController@category');
-//        Route::get('about', 'WebController@about');
-//        Route::group(['prefix' => 'blog'], function () {
-//            // api
-//            Route::group(['prefix' => 'api'], function () {
-//                Route::any('comment', 'WebController@comment_api');
-//            });
-//        });
-//    }
 
     // 粉丝墙
     Route::group(['prefix' => 'wall'], function () {
@@ -75,9 +62,6 @@ Route::any('git_pull', function () {
  */
 Route::get('iszmxw/logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
-Route::get('bomb', 'Web\WebController@bomb');
-
-Route::get('images', 'Web\WebController@images');
 // mp3
 Route::any('mp3', 'Web\IszmxwController@mp3');
 // photo

@@ -69,17 +69,58 @@ Route::group(['namespace' => 'Admin'], function () {
         });
 
 
-//        // 首页导航管理
-//        Route::group(['prefix' => 'navbar'], function () {
-//            // 导航列表
-//            Route::any('navbar_list', 'NavbarController@navbar_list');
-//            // 导航排序
-//            Route::any('navbar_sort', 'NavbarController@navbar_sort');
-//            // 添加导航
-//            Route::any('navbar_add', 'NavbarController@navbar_add');
-//            // 删除导航
-//            Route::any('navbar_delete', 'NavbarController@navbar_delete');
-//        });
+        // 文章管理
+        Route::group(['prefix' => 'serve'], function () {
+
+            // 友情链接
+            Route::group(['prefix' => 'link'], function () {
+                // 添加友链
+                Route::any('link_add', 'ServeController@link_add');
+                // 删除友链
+                Route::any('link_delete', 'ServeController@link_delete');
+                // 编辑友链
+                Route::any('link_edit', 'ServeController@link_edit');
+                // 友链列表
+                Route::any('link_list', 'ServeController@link_list');
+                // 单条数据
+                Route::any('link_one', 'ServeController@link_one');
+            });
+
+            // 标签管理
+            Route::group(['prefix' => 'tag'], function () {
+                // 删除标签
+                Route::any('tag_delete', 'ServeController@tag_delete');
+                // 标签列表
+                Route::any('tag_list', 'ServeController@tag_list');
+            });
+
+
+            // 评论管理
+            Route::group(['prefix' => 'comment'], function () {
+                // 删除评论
+                Route::any('comment_delete', 'ServeController@comment_delete');
+                // 显示、隐藏评论
+                Route::any('comment_status', 'ServeController@comment_status');
+                // 评论列表
+                Route::any('comment_list', 'ServeController@comment_list');
+                // 获取单条评论
+                Route::any('comment_one', 'ServeController@comment_one');
+                // 回复评论
+                Route::any('comment_reply', 'ServeController@comment_reply');
+                // 评论编辑
+                Route::any('comment_edit', 'ServeController@comment_edit');
+            });
+
+
+            // 说说管理
+            Route::group(['prefix' => 'twitter'], function () {
+                // 删除说说
+                Route::any('twitter_delete', 'ServeController@twitter_delete');
+                // 说说列表
+                Route::any('twitter_list', 'ServeController@twitter_list');
+            });
+
+        });
 
 
     });

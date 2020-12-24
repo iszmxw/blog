@@ -6,7 +6,6 @@
 @section('title', $blog['title'].'_追梦小窝')
 {{--样式引入--}}
 @section('style')
-
 @endsection
 
 {{--内容部分--}}
@@ -53,14 +52,13 @@
                 </a>
             </div>
         </div>
-        <span id="edit-model" style="display: none">markdown</span>
         @if(isset($blog['thumb']))
             <div class="p-article-img" style="background-image: url('http://blog.54zm.com/{{$blog['thumb']}}')">
             </div>
         @endif
         <article class="p-article-content-box" id="article">
             <div id="articleContent">
-                {!! $blog['content'] !!}
+                {{--文章内容--}}
             </div>
             <ins class="p-article-ad-box">
                 <!-- 文章内广告 -->
@@ -180,49 +178,36 @@
         </div>
     </div>
     <script type="text/javascript" src="{{asset('style/web/iszmxw_simple_pro/static/js/article.js')}}"></script>
-    <script>
-        // 加载代码解析器
-        $.getScript("{{asset('style/web/iszmxw_simple_pro/static/plugins/highlight/highlight.pack.js')}}", function () {
-            hljs.initHighlighting();
-            $('pre code').each(function () {
-                var edit = $("#edit-model").text();
-                var lines = $(this).text().split('\n').length - 1;
-                if (edit == 'html') {
-                    lines = $(this).text().split('\n').length;
-                }
-                var $numbering = $('<ul/>').addClass('pre-numbering hljs');
-                $(this)
-                    .addClass('has-numbering')
-                    .parent()
-                    .append($numbering);
-                for (i = 1; i <= lines; i++) {
-                    $numbering.append($('<li/>').text(i + "."));
-                }
+    <script type="text/javascript"
+            src="{{asset('style/web/iszmxw_simple_pro/static/plugins/prism/prism.js')}}"></script>
+    {{--加载markdown预览--}}
+    <script src="{{asset('style/web/iszmxw_simple_pro/static/plugins/editor.md/lib/marked.min.js')}}"></script>
+    <script src="{{asset('style/web/iszmxw_simple_pro/static/plugins/editor.md/lib/prettify.min.js')}}"></script>
+    <script src="{{asset('style/web/iszmxw_simple_pro/static/plugins/editor.md/lib/raphael.min.js')}}"></script>
+    <script src="{{asset('style/web/iszmxw_simple_pro/static/plugins/editor.md/lib/underscore.min.js')}}"></script>
+    <script src="{{asset('style/web/iszmxw_simple_pro/static/plugins/editor.md/lib/sequence-diagram.min.js')}}"></script>
+    <script src="{{asset('style/web/iszmxw_simple_pro/static/plugins/editor.md/lib/flowchart.min.js')}}"></script>
+    <script src="{{asset('style/web/iszmxw_simple_pro/static/plugins/editor.md/lib/jquery.flowchart.min.js')}}"></script>
+    <script src="{{asset('style/web/iszmxw_simple_pro/static/plugins/editor.md/editormd.min.js')}}"></script>
+    <script type="text/javascript">
+        $(function () {
+            $.post(window.origin + "/article/{{$blog['id']}}", function (markdown) {
+                let editorMdView = editormd.markdownToHTML("articleContent", {
+                    markdown: markdown,         // + "\r\n" + $("#articleContent").text(),
+                    htmlDecode: true,           // 开启 HTML 标签解析，为了安全性，默认不开启
+                    previewCodeHighlight: false, // 关闭预览 HTML 的代码块高亮，默认开启
+                    emoji: true,
+                    taskList: true,
+                    tex: true,  // 默认不解析
+                    flowChart: true,  // 默认不解析
+                    sequenceDiagram: true,  // 默认不解析
+                });
+                Prism.highlightAll();
             });
-        })
-        // 加载数学公式
-        // $.getScript("//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML", function () {
-        //     MathJax.Hub.Config({
-        //         showProcessingMessages: false,
-        //         messageStyle: "none",
-        //         extensions: ["tex2jax.js"],
-        //         jax: ["input/TeX", "output/HTML-CSS"],
-        //         tex2jax: {
-        //             inlineMath: [['$', '$'], ["\\(", "\\)"]],
-        //             displayMath: [['$$', '$$'], ["\\[", "\\]"]],
-        //             skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code', 'a']
-        //         },
-        //         "HTML-CSS": {
-        //             availableFonts: ["STIX", "TeX"],
-        //             showMathMenu: false,
-        //             showProcessingMessages: false,
-        //             messageStyle: "none"
-        //         }
-        //     });
-        //     var mathId = document.getElementById("articleContent");
-        //     MathJax.Hub.Queue(["Typeset", MathJax.Hub, mathId]);
-        // });
-
+        });
+    </script>
+    <script>
+        // 赞赏作者
         function appreciate() {
             layer.open({
                 type: 1,

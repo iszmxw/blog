@@ -11,21 +11,7 @@
     <title>@yield('title')</title>
     {{--引用公共css--}}
     @include('web.iszmxw_simple_pro.public.style')
-    <style>
-        .p-content-box {
-            opacity: 0.9;
-        }
 
-        .background {
-            z-index: -1;
-            position: fixed;
-            top: 0px;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center center;
-        }
-    </style>
     @yield('style')
 </head>
 {{--身体--}}
@@ -50,7 +36,7 @@
     <a class="go-top"><i class="fa fa-caret-up" aria-hidden="true"></i></a>
 </div>
 {{--背景图像--}}
-<img class="background" src="{{asset('style/web/iszmxw_simple_pro/images/7.jpg')}}">
+{{--<img class="background" src="{{asset('style/web/iszmxw_simple_pro/images/7.jpg')}}">--}}
 {{--引用公共js--}}
 @include('web.iszmxw_simple_pro.public.script')
 {{--可自动加载的js部分--}}

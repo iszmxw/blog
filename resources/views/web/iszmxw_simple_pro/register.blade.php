@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>追梦小窝 | 授权提醒</title>
-    <link href="{{asset('style/web/default_template/css/bootstrap.min.css')}}" rel="stylesheet">
-    <link href="{{asset('style/web/default_template/font-awesome/css/font-awesome.css')}}" rel="stylesheet">
+    <link href="{{asset('style/web/iszmxw_simple_pro/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('style/web/iszmxw_simple_pro/plugins/font-awesome/css/font-awesome.css')}}" rel="stylesheet">
 
-    <link href="{{asset('style/web/default_template/css/animate.css')}}" rel="stylesheet">
-    <link href="{{asset('style/web/default_template/css/style.css')}}" rel="stylesheet">
-    <link href="{{asset('style/admin/inspinia/css/plugins/sweetalert/sweetalert.css')}}" rel="stylesheet">
-    <link href="{{asset('style/admin/inspinia/css/plugins/toastr/toastr.min.css')}}" rel="stylesheet">
+    <link href="{{asset('style/web/iszmxw_simple_pro/css/animate.css')}}" rel="stylesheet">
+    <link href="{{asset('style/web/iszmxw_simple_pro/css/inspinia_style.css')}}" rel="stylesheet">
+    <link href="{{asset('style/web/iszmxw_simple_pro/plugins/sweetalert/sweetalert.css')}}" rel="stylesheet">
+    <link href="{{asset('style/web/iszmxw_simple_pro/plugins/toastr/toastr.min.css')}}" rel="stylesheet">
 
 </head>
 
@@ -47,11 +47,11 @@
 </div>
 
 <!-- Mainly scripts -->
-<script src="{{asset('style/web/default_template/js/jquery-3.1.1.min.js')}}"></script>
-<script src="{{asset('style/web/default_template/js/bootstrap.min.js')}}"></script>
-<script src="{{asset('style/admin/inspinia/js/plugins/sweetalert/sweetalert.min.js')}}"></script>
-<script src="{{asset('style/admin/inspinia/js/plugins/toastr/toastr.min.js')}}"></script>
-<script src="{{asset('style/admin/inspinia/js/plugins/toastr/toastr_style.js')}}"></script>
+<script src="{{asset('style/web/iszmxw_simple_pro/js/jquery-3.1.1.min.js')}}"></script>
+<script src="{{asset('style/web/iszmxw_simple_pro/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('style/web/iszmxw_simple_pro/plugins/sweetalert/sweetalert.min.js')}}"></script>
+<script src="{{asset('style/web/iszmxw_simple_pro/plugins/toastr/toastr.min.js')}}"></script>
+<script src="{{asset('style/web/iszmxw_simple_pro/plugins/toastr/toastr_style.js')}}"></script>
 <script>
     var setTime;
 

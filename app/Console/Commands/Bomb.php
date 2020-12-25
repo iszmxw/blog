@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use GuzzleHttp\Client;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 
 class Bomb extends Command
 {
@@ -39,6 +40,7 @@ class Bomb extends Command
     public function handle()
     {
         $res = \App\Library\Bomb::bomb('18576409426');
+        Log::debug($res);
         if (json_encode($res)['data']['Code'] == "OK") {
             \Log::debug($res);
         } else {

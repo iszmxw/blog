@@ -40,24 +40,24 @@ class BaiduSeo extends Command
     public function handle()
     {
         //定时执行的任务
-        $blog = Blog::getList(['baidu_seo'=>'0'],'gid',0,10);
-        foreach($blog as $key=>$val){
-            $urls[] = 'http://blog.54zm.com/article/'.$val['gid'];
+        $blog = Blog::getList(['baidu_seo' => '0'], 'id', 0, 10);
+        foreach ($blog as $key => $val) {
+            $urls[] = 'http://blog.54zm.com/article/' . $val['id'];
         }
         //每天推送十条的地址
-        $api = 'http://data.zz.baidu.com/urls?appid=1606122614792135&token=zIWbEIZuASc0biYF&type=realtime';
+        $api          = 'http://data.zz.baidu.com/urls?appid=1606122614792135&token=zIWbEIZuASc0biYF&type=realtime';
         $data['body'] = implode("\n", $urls);
-        $client = new Client();
-        $result = $client->post($api,$data);
-        $response = $result->getBody()->getContents();
-        $dataArr = json_decode($response,true);
-        $file  = 'cron.txt';//要写入文件的文件名（可以是任意文件名），如果文件不存在，将会创建一个
-        $content = "百度内容提交成功\r\n";
-        if ($dataArr['success'] > 0){
-            foreach($blog as $key=>$val){
-                Blog::EditData(['gid'=>$val['gid']],['baidu_seo'=>'1']);
+        $client       = new Client();
+        $result       = $client->post($api, $data);
+        $response     = $result->getBody()->getContents();
+        $dataArr      = json_decode($response, true);
+        $file         = 'cron.txt';//要写入文件的文件名（可以是任意文件名），如果文件不存在，将会创建一个
+        $content      = "百度内容提交成功\r\n";
+        if ($dataArr['success'] > 0) {
+            foreach ($blog as $key => $val) {
+                Blog::EditData(['id' => $val['id']], ['baidu_seo' => '1']);
             }
-            file_put_contents($file, $content,FILE_APPEND);
+            file_put_contents($file, $content, FILE_APPEND);
             $client->get("http://blog.54zm.com/api/mail/push_content");
         }
     }

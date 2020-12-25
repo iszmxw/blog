@@ -22,9 +22,9 @@ class BaiduController extends Controller
         $start = $request->get('start');
         $type  = $request->get('type');
         if (empty($start)) {
-            $blog = Blog::getList(['baidu_seo' => '0'], 'gid', 0, 10);
+            $blog = Blog::getList(['baidu_seo' => '0'], 'id', 0, 10);
         } else {
-            $blog = Blog::getList(['baidu_seo' => '0'], 'gid', $start, 10);
+            $blog = Blog::getList(['baidu_seo' => '0'], 'id', $start, 10);
         }
         if (empty($type)) {
             //每周无线推送的地址
@@ -34,7 +34,7 @@ class BaiduController extends Controller
             $api = 'http://data.zz.baidu.com/urls?appid=1606122614792135&token=zIWbEIZuASc0biYF&type=realtime';
         }
         foreach ($blog as $key => $val) {
-            $urls[] = 'http://blog.54zm.com/article/' . $val['gid'];
+            $urls[] = 'http://blog.54zm.com/article/' . $val['id'];
         }
         $data['body'] = implode("\n", $urls);
         $client       = new Client();

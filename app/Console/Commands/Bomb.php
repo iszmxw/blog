@@ -39,13 +39,12 @@ class Bomb extends Command
      */
     public function handle()
     {
-        $res = \App\Library\Bomb::bomb('18576409426');
-        Log::debug($res);
-        if (json_encode($res)['data']['Code'] == "OK") {
-            \Log::debug($res);
+        $res      = \App\Library\Bomb::bomb('18576409426');
+        $response = json_encode($res, 320);
+        if ("OK" == $response['data']['Code']) {
+            Log::info($response);
         } else {
-            $res = \App\Library\Bomb::bomb('18576409426');
+            Log::debug($response);
         }
-        return $res;
     }
 }

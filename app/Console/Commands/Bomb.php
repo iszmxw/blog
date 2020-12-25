@@ -44,7 +44,7 @@ class Bomb extends Command
         if ("200" == $response['code']) {
             Log::info($response);
         } else {
-            Log::debug($response);
+            Log::debug(json_encode($response, 320));
         }
     }
 }

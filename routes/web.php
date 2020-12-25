@@ -57,6 +57,10 @@ Route::any('git_pull', function () {
     dump(env('APP_ENV'), $res);
 });
 
+Route::any('phpinfo', function () {
+    phpinfo();
+});
+
 /**
  * 杂七杂八测试
  */

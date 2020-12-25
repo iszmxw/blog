@@ -82,7 +82,7 @@ class WallController extends Controller
             return redirect('/wall/index');
         }
 
-        return view('web.default_template.register');
+        return view('wall.register');
     }
 
 

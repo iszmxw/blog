@@ -54,7 +54,7 @@ Route::group(['middleware' => 'web_common', 'namespace' => 'Web'], function () {
 // 工具==>钩子pull更新代码
 Route::any('git_pull', function () {
     exec("cd /home/wwwroot/blog_54zm_com && git pull", $res);
-    dump($res);
+    dump(env('APP_ENV'), $res);
 });
 
 /**

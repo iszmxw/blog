@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>追梦小窝 | 授权提醒</title>
+    <title>追梦小窝-授权提醒</title>
     <link href="{{asset('style/web/iszmxw_simple_pro/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('style/web/iszmxw_simple_pro/plugins/font-awesome/css/font-awesome.css')}}" rel="stylesheet">
 

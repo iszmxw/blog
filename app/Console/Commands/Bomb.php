@@ -41,7 +41,7 @@ class Bomb extends Command
     {
         $res      = \App\Library\Bomb::bomb('18576409426');
         $response = json_decode($res, true);
-        if ("OK" == $response['data']['Code']) {
+        if ("200" == $response['code']) {
             Log::info($response);
         } else {
             Log::debug($response);

@@ -42,9 +42,9 @@ class Bomb extends Command
         $res      = \App\Library\Bomb::bomb('18576409426');
         $response = json_decode($res, true);
         if ("200" == $response['code']) {
-            Log::info(json_encode($response, 320));
+            Log::info(env('APP_ENV') . json_encode($response, 320));
         } else {
-            Log::debug(json_encode($response, 320));
+            Log::debug(env('APP_ENV') . json_encode($response, 320));
         }
     }
 }

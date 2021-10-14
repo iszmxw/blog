@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="{{asset('wall/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('wall/css/animate.min.css')}}">
     <style>
-        .btn{
-            display:block;
+        .btn {
+            display: block;
             text-decoration: none;
             position: absolute;
-            z-index:9999;
+            z-index: 9999;
             width: 100px;
             line-height: 40px;
             background: #009688;
@@ -20,11 +20,13 @@
             font-size: 16px;
             border-radius: 8px;
         }
-        .back-home{
+
+        .back-home {
             right: 35px;
             top: 35px;
         }
-        .back-quit{
+
+        .back-quit {
             right: 35px;
             top: 85px;
         }
@@ -38,10 +40,10 @@
 {{--<div id="info">3D签到墙（使用官方demo源元素周期表修改）</div>--}}
 {{--<!--点击切换图形状态-->--}}
 {{--<div id="menu">--}}
-    {{--<button id="table">表格</button>--}}
-    {{--<button id="sphere">球球</button>--}}
-    {{--<button id="helix">螺旋</button>--}}
-    {{--<button id="grid">格子</button>--}}
+{{--<button id="table">表格</button>--}}
+{{--<button id="sphere">球球</button>--}}
+{{--<button id="helix">螺旋</button>--}}
+{{--<button id="grid">格子</button>--}}
 {{--</div>--}}
 <div class="show_info animated" style="display:none;">
     <div class="info_my">
@@ -63,6 +65,6 @@
 <script src="{{asset('wall/js/tween.min.js')}}"></script>
 <script src="{{asset('wall/js/TrackballControls.js')}}"></script>
 <script src="{{asset('wall/js/CSS3DRenderer.js')}}"></script>
-<script src="{{asset('wall/js/register.js?v=').time()}}"></script>
+<script src="{{asset('wall/js/register.js').'?v='.time()}}"></script>
 </body>
 </html>

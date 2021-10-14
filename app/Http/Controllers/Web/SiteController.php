@@ -22,6 +22,7 @@ class SiteController extends Controller
     // 首页控制器
     public function index()
     {
+        dump(666);
         $blog = Blog::getPaginate([], ['blog.id', 'blog.sort_id', 'blog.title', 'blog.created_at', 'blog.content', 'blog.views'], 10, 'views', 'DESC');
         foreach ($blog as $value) {
             $value['content']   = Tooling::tool_purecontent($value['content'], 240);

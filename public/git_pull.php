@@ -1,10 +1,11 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: mail
- * Date: 2019/3/22
- * Time: 9:48
+ * User: iszmxw
+ * Date: 2021/10/08
+ * Time: 12:49
  */
 
-exec("cd /home/wwwroot/blog_54zm_com && git pull",$res);
+$pwd = __DIR__ . "/../";
+exec("cd {$pwd} && git pull", $res);
 var_dump($res);

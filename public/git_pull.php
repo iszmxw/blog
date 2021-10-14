@@ -9,3 +9,5 @@
 $pwd = __DIR__ . "/../";
 exec("cd {$pwd} && git pull", $res);
 var_dump($res);
+exec("whoami", $res);
+var_dump($res);

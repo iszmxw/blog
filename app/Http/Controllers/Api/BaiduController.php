@@ -25,6 +25,7 @@ class BaiduController extends Controller
         $params = $request->all();
         if ($params['type']) {
             $uuid = uniqid($params['type']);
+            Redis::select(1);
             Redis::set($uuid, json_encode($params));
         }
         return ['status' => 200, 'msg' => 'ok'];

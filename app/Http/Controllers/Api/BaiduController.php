@@ -11,6 +11,13 @@ use Illuminate\Support\Facades\Mail;
 
 class BaiduController extends Controller
 {
+
+    public function collect(Request $request)
+    {
+        $params = $request->all();
+        dump($params);
+    }
+
     /**
      * 百度seo内容提交
      * @param Request $request

@@ -8,14 +8,26 @@ use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Redis;
 
 class BaiduController extends Controller
 {
 
-    public function collect(Request $request)
+    /**
+     * 收集
+     * @param Request $request
+     * @return array
+     * @author: iszmxw <mail@54zm.com>
+     * @Date：2021/12/30 17:43
+     */
+    public function collect(Request $request): array
     {
         $params = $request->all();
-        dump($params);
+        if ($params['type']) {
+            $uuid = uniqid($params['type']);
+            Redis::set($uuid, $params);
+        }
+        return ['status' => 200, 'msg' => 'ok'];
     }
 
     /**

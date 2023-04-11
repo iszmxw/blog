@@ -38,7 +38,7 @@ WC_AppSecret=微信AppSecret
 
 ## composer仓库 （主要用了以下扩展）
 
-- 1、"caouecs/laravel-lang": "~3.0",
+[//]: # (- 1、"caouecs/laravel-lang": "~3.0",)
 - 2、"barryvdh/laravel-debugbar": "^3.2",
 - 3、"barryvdh/laravel-ide-helper": "^2.5",
 - 4、"guzzlehttp/guzzle": "~6.0",

@@ -17,7 +17,7 @@ class ArticleController extends Controller
      * @author: iszmxw <mail@54zm.com>
      * @Date：2020/8/31 23:05
      */
-    public function article_add(Request $request)
+    public function article_add(Request $request): array
     {
         $param = $request->all();
         if (empty($param['title'])) {
@@ -47,7 +47,7 @@ class ArticleController extends Controller
      * @author: iszmxw <mail@54zm.com>
      * @Date：2020/9/21 21:13
      */
-    public function article_delete(Request $request)
+    public function article_delete(Request $request): array
     {
         $article_id = $request->get('article_id');
         DB::beginTransaction();
@@ -70,7 +70,7 @@ class ArticleController extends Controller
      * @author: iszmxw <mail@54zm.com>
      * @Date：2020/8/31 23:05
      */
-    public function article_edit(Request $request)
+    public function article_edit(Request $request): array
     {
         $param = $request->all();
         if (empty($param['title'])) {
@@ -105,7 +105,7 @@ class ArticleController extends Controller
      * @author: iszmxw <mail@54zm.com>
      * @Date：2020/9/21 21:28
      */
-    public function article_list(Request $request)
+    public function article_list(Request $request): array
     {
         $where = [];
         $list  = Blog::getPaginate($where, ['blog.id', 'blog.title', 'sort.name as category_name', 'blog.views', 'blog.created_at'], 15, 'blog.created_at', 'DESC');
@@ -119,7 +119,7 @@ class ArticleController extends Controller
      * @author: iszmxw <mail@54zm.com>
      * @Date：2020/9/21 21:28
      */
-    public function article_one(Request $request)
+    public function article_one(Request $request): array
     {
         $article_id = $request->get('article_id');
         $where      = ['id' => $article_id];

@@ -22,7 +22,7 @@ class LoginController extends Controller
      * @author: iszmxw <mail@54zm.com>
      * @Date：2020/3/31 16:56
      */
-    public function login(Request $request)
+    public function login(Request $request): array
     {
         // 用户ip
         $ip       = $request->getClientIp();
@@ -79,7 +79,7 @@ class LoginController extends Controller
      * @author: iszmxw <mail@54zm.com>
      * @Date：2020/3/31 16:56
      */
-    public function info(Request $request)
+    public function info(Request $request): array
     {
         $info           = $request->get('info');
         $data           = User::getOne(['id' => $info['id']]);
@@ -96,7 +96,7 @@ class LoginController extends Controller
      * @author: iszmxw <mail@54zm.com>
      * @Date：2020/4/6 22:43
      */
-    public function logout(Request $request)
+    public function logout(Request $request): array
     {
         $token = $request->get('token');
         Cache::forget($token);

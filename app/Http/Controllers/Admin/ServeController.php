@@ -20,7 +20,7 @@ class ServeController extends Controller
      * @author: iszmxw <mail@54zm.com>
      * @Date：2020-12-14 22:47
      */
-    public function link_add(Request $request)
+    public function link_add(Request $request): array
     {
         $data = $request->all();
         if (empty($data['sitename'])) {
@@ -58,7 +58,7 @@ class ServeController extends Controller
      * @author: iszmxw <mail@54zm.com>
      * @Date：2020/4/28 16:41
      */
-    public function link_delete(Request $request)
+    public function link_delete(Request $request): array
     {
         $data = $request->all();
         DB::beginTransaction();
@@ -81,7 +81,7 @@ class ServeController extends Controller
      * @author: iszmxw <mail@54zm.com>
      * @Date：2020-12-17 23:11
      */
-    public function link_edit(Request $request)
+    public function link_edit(Request $request): array
     {
         $data = $request->all();
         if (empty($data['sitename'])) {
@@ -119,7 +119,7 @@ class ServeController extends Controller
      * @author: iszmxw <mail@54zm.com>
      * @Date：2020/4/28 16:19
      */
-    public function link_list(Request $request)
+    public function link_list(Request $request): array
     {
         $list = Link::getPaginate([], '', 100, 'order', 'ASC');
         return ['code' => 200, 'message' => 'ok', 'data' => $list];
@@ -133,7 +133,7 @@ class ServeController extends Controller
      * @author: iszmxw <mail@54zm.com>
      * @Date：2020-12-17 22:55
      */
-    public function link_one(Request $request)
+    public function link_one(Request $request): array
     {
         $id = $request->get('id');
         if (!empty($id) && $id > 0) {
@@ -152,7 +152,7 @@ class ServeController extends Controller
      * @author: iszmxw <mail@54zm.com>
      * @Date：2020-12-20 14:34
      */
-    public function tag_list(Request $request)
+    public function tag_list(Request $request): array
     {
         $list = Tag::getList([], '*', 0, 0, 'id', 'DESC');
         return ['code' => 200, 'message' => 'ok', 'data' => $list];
@@ -166,7 +166,7 @@ class ServeController extends Controller
      * @author: iszmxw <mail@54zm.com>
      * @Date：2020-12-20 15:26
      */
-    public function tag_delete(Request $request)
+    public function tag_delete(Request $request): array
     {
         $params = $request->all();
         if (empty($params['id'])) {
@@ -188,7 +188,7 @@ class ServeController extends Controller
      * @author: iszmxw <mail@54zm.com>
      * @Date：2020-12-20 17:32
      */
-    public function comment_list(Request $request)
+    public function comment_list(Request $request): array
     {
         $list = Comment::getPaginate([], '', 10, 'created_at', 'DESC');
         foreach ($list as $key => $value) {
@@ -206,7 +206,7 @@ class ServeController extends Controller
      * @author: iszmxw <mail@54zm.com>
      * @Date：2020-12-20 22:08
      */
-    public function comment_delete(Request $request)
+    public function comment_delete(Request $request): array
     {
         $id  = $request->get('id');
         $res = Comment::selected_delete(['id' => $id]);
@@ -225,7 +225,7 @@ class ServeController extends Controller
      * @author: iszmxw <mail@54zm.com>
      * @Date：2020-12-20 22:20
      */
-    public function comment_status(Request $request)
+    public function comment_status(Request $request): array
     {
         $id   = $request->get('id');
         $hide = Comment::getValue(['id' => $id], 'hide');
@@ -253,7 +253,7 @@ class ServeController extends Controller
      * @author: iszmxw <mail@54zm.com>
      * @Date：2020-12-21 22:43
      */
-    public function comment_one(Request $request)
+    public function comment_one(Request $request): array
     {
         $id   = $request->get('id');
         $data = Comment::getOne(['id' => $id]);
@@ -269,7 +269,7 @@ class ServeController extends Controller
      * @author: iszmxw <mail@54zm.com>
      * @Date：2020-12-21 23:11
      */
-    public function comment_reply(Request $request)
+    public function comment_reply(Request $request): array
     {
         $id                 = $request->get('id');
         $reply              = $request->get('reply');
@@ -301,7 +301,7 @@ class ServeController extends Controller
      * @author: iszmxw <mail@54zm.com>
      * @Date：2020-12-22 21:57
      */
-    public function comment_edit(Request $request)
+    public function comment_edit(Request $request): array
     {
         $id      = $request->get('id');
         $poster  = $request->get('poster');
@@ -333,7 +333,7 @@ class ServeController extends Controller
      * @author: iszmxw <mail@54zm.com>
      * @Date：2020-12-22 22:15
      */
-    public function twitter_list(Request $request)
+    public function twitter_list(Request $request): array
     {
         $data = Twitter::getPaginate([], '*', 10, 'id', 'DESC');
         return ['code' => 200, 'message' => 'ok', 'data' => $data];

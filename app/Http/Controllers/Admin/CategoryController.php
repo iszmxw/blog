@@ -14,7 +14,7 @@ use Ramsey\Uuid\Uuid;
 class CategoryController extends Controller
 {
     // 栏目列表
-    public function category_list(Request $request)
+    public function category_list(Request $request): array
     {
         $where = [];
         $list  = Sort::getPaginate($where, '', 100, 'sort', 'ASC');
@@ -34,7 +34,7 @@ class CategoryController extends Controller
      * @author: iszmxw <mail@54zm.com>
      * @Date：2020/4/20 12:07
      */
-    public function category_add(Request $request)
+    public function category_add(Request $request): array
     {
         $data = $request->all();
         DB::beginTransaction();
@@ -56,7 +56,7 @@ class CategoryController extends Controller
      * @author: iszmxw <mail@54zm.com>
      * @Date：2020/4/20 12:04
      */
-    public function category_edit(Request $request)
+    public function category_edit(Request $request): array
     {
         $data = $request->all();
         DB::beginTransaction();
@@ -78,7 +78,7 @@ class CategoryController extends Controller
      * @author: iszmxw <mail@54zm.com>
      * @Date：2020/4/20 12:05
      */
-    public function category_delete(Request $request)
+    public function category_delete(Request $request): array
     {
         $data = $request->all();
         DB::beginTransaction();

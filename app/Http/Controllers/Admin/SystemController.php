@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 class SystemController extends Controller
 {
     // 上传图片操作
-    public function upload_images(Request $request)
+    public function upload_images(Request $request): array
     {
         $file = $request->file('file');
         // 文件将要上传的路径
@@ -48,7 +48,7 @@ class SystemController extends Controller
     }
 
     // 获取网站系统配置
-    public function config(Request $request)
+    public function config(Request $request): array
     {
         $site_title       = Options::getOption('site_title');
         $site_description = Options::getOption('site_description');
@@ -74,7 +74,7 @@ class SystemController extends Controller
      * @author: iszmxw <mail@54zm.com>
      * @Date：2020/4/7 19:46
      */
-    public function save_config(Request $request)
+    public function save_config(Request $request): array
     {
         $param = $request->all();
         DB::beginTransaction();
@@ -97,7 +97,7 @@ class SystemController extends Controller
      * @author: iszmxw <mail@54zm.com>
      * @Date：2020/4/7 19:52
      */
-    public function view_log(Request $request)
+    public function view_log(Request $request): array
     {
         $view_log = ViewLog::getPaginate([], [], 10, 'id', 'DESC');
         return ['code' => 200, 'message' => 'ok', 'data' => $view_log];

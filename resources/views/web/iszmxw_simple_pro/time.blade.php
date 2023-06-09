@@ -3,7 +3,7 @@
 @section('keywords','追梦小窝博客归档')
 @section('description','追梦小窝博客归档')
 
-@section('title', '追梦小窝-时间轴')
+@section('title', '追梦小窝-时间轴ssss')
 {{--样式引入--}}
 @section('style')
 

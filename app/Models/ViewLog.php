@@ -28,7 +28,7 @@ class ViewLog extends Defaults
      */
     public function getCreatedAtAttribute($time)
     {
-        return date('Y-m-d H:i:s', $time);
+        return date('Y-m-d H:i:s', ((int)$time));
     }
 
     /**
@@ -40,7 +40,7 @@ class ViewLog extends Defaults
      */
     public function getUpdatedAtAttribute($time)
     {
-        return date('Y-m-d H:i:s', $time);
+        return date('Y-m-d H:i:s', (int)$time);
     }
 
 }

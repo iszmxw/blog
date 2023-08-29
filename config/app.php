@@ -171,7 +171,6 @@ return [
         /*
          * 第三方包服务提供商 ...
          */
-        Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -185,10 +184,6 @@ return [
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         //注册微信公众号
         Overtrue\LaravelWeChat\ServiceProvider::class,
-        //注册 熊掌号ServiceProvider
-        Xiongzhang\Laravel\XiongzhangServiceProvider::class,
-        Way\Generators\GeneratorsServiceProvider::class,
-        Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider::class,
 
     ],
 

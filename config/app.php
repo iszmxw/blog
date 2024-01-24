@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://blog.54zm.com'),
+    'url' => env('APP_URL', 'http://blog.ethanyep.cn'),
 
     /*
     |--------------------------------------------------------------------------

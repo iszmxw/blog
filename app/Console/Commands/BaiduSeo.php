@@ -42,7 +42,7 @@ class BaiduSeo extends Command
         //定时执行的任务
         $blog = Blog::getList(['baidu_seo' => '0'], 'id', 0, 10);
         foreach ($blog as $key => $val) {
-            $urls[] = 'http://blog.54zm.com/article/' . $val['id'];
+            $urls[] = 'http://blog.ethanyep.cn/article/' . $val['id'];
         }
         //每天推送十条的地址
         $api          = 'http://data.zz.baidu.com/urls?appid=1606122614792135&token=zIWbEIZuASc0biYF&type=realtime';
@@ -58,7 +58,7 @@ class BaiduSeo extends Command
                 Blog::EditData(['id' => $val['id']], ['baidu_seo' => '1']);
             }
             file_put_contents($file, $content, FILE_APPEND);
-            $client->get("http://blog.54zm.com/api/mail/push_content");
+            $client->get("http://blog.ethanyep.cn/api/mail/push_content");
         }
     }
 }

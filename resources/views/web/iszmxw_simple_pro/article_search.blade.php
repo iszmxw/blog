@@ -98,7 +98,7 @@
                     {{--                    @if($val['thumb'])--}}
                     {{--                        <a href="{{url('article')}}/{{$val['id']}}" class="pjax">--}}
                     {{--                            <div class="p-article-thumb"--}}
-                    {{--                                 style="background-image: url('http://blog.54zm.com/{{$val['thumb']}}')">--}}
+                    {{--                                 style="background-image: url('http://blog.ethanyep.cn/{{$val['thumb']}}')">--}}
                     {{--                            </div>--}}
                     {{--                        </a>--}}
                     {{--                    @endif--}}

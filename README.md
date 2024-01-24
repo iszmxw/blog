@@ -9,10 +9,10 @@
 </p>
 
 <p align="center">
-<a href="http://blog.54zm.com"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="http://blog.54zm.com"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="http://blog.54zm.com"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="http://blog.54zm.com"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
+<a href="http://blog.ethanyep.cn"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
+<a href="http://blog.ethanyep.cn"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
+<a href="http://blog.ethanyep.cn"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
+<a href="http://blog.ethanyep.cn"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
 <p align="center">
@@ -24,6 +24,6 @@
 # blog
 Laravel重写Blog   采用Laravel版本： 5.7.3 
 ######
-### 博客地址：http://blog.54zm.com
+### 博客地址：http://blog.ethanyep.cn
 ######
 ### 文档地址：http://iszmxw.gitee.io/blog/

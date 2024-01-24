@@ -275,7 +275,7 @@ class ServeController extends Controller
         $reply              = $request->get('reply');
         $poster             = Comment::getValue(['id' => $id], 'poster');
         $data['mail']       = "442246396@qq.com";
-        $data['url']        = "http://blog.54zm.com/";
+        $data['url']        = "http://blog.ethanyep.cn/";
         $data['ip']         = $request->getClientIp();
         $data['blog_id']    = $request->get('blog_id');
         $data['pid']        = $id;

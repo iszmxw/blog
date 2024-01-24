@@ -43,7 +43,7 @@
             <small>Copyright 追梦小窝 &copy; 2019-2021</small>
         </div>
         <div class="col-md-6 text-right">
-            blog.54zm.com
+            blog.ethanyep.cn
         </div>
     </div>
 </div>

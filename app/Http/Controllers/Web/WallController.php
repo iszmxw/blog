@@ -91,7 +91,7 @@ class WallController extends Controller
     {
         $prev_url     = url()->previous();
         $appid        = '101518045';
-        $redirect_uri = 'http://blog.54zm.com/wall/qq_login';
+        $redirect_uri = 'https://blog.ethanyep.cn/wall/qq_login';
         $request_url  = 'https://graph.qq.com/oauth2.0/authorize';
         $url          = $request_url . '?response_type=code&client_id=' . $appid . '&redirect_uri=' . $redirect_uri . '&state=' . $prev_url . '&scope=get_user_info';
 
@@ -108,7 +108,7 @@ class WallController extends Controller
         //上一页地址
         $state = $request->get('state');
         //跳转回调地址
-        $redirect_uri = 'http://blog.54zm.com/wall/qq_login';
+        $redirect_uri = 'https://blog.ethanyep.cn/wall/qq_login';
         //请求地址
         $url      = "https://graph.qq.com/oauth2.0/token?grant_type=authorization_code&client_id={$client_id}&client_secret={$client_secret}&code={$code}&redirect_uri={$redirect_uri}";
         $client   = new Client();

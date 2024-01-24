@@ -54,7 +54,7 @@ class BaiduController extends Controller
             $api = 'http://data.zz.baidu.com/urls?appid=1606122614792135&token=zIWbEIZuASc0biYF&type=realtime';
         }
         foreach ($blog as $key => $val) {
-            $urls[] = 'http://blog.54zm.com/article/' . $val['id'];
+            $urls[] = 'http://blog.ethanyep.cn/article/' . $val['id'];
         }
         $data['body'] = implode("\n", $urls);
         $client       = new Client();

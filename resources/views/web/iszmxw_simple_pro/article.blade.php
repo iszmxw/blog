@@ -53,7 +53,7 @@
             </div>
         </div>
         @if(isset($blog['thumb']))
-            <div class="p-article-img" style="background-image: url('http://blog.54zm.com/{{$blog['thumb']}}')">
+            <div class="p-article-img" style="background-image: url('http://blog.ethanyep.cn/{{$blog['thumb']}}')">
             </div>
         @endif
         <article class="p-article-content-box" id="article">

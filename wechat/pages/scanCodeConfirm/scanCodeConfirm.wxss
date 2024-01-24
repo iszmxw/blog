@@ -19,7 +19,7 @@
 }
 
 .s-body .info-box .icon-success {
-  background-image: url('https://blog.54zm.com/wxmini/anquan.png');
+  background-image: url('https://blog.ethanyep.cn/wxmini/anquan.png');
   background-repeat: no-repeat;
   background-size: cover;
 }

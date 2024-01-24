@@ -13,7 +13,7 @@ view {
   position: relative;
   width: 100%;
   height: 575rpx;
-  background-image: url('https://blog.54zm.com/wxmini/bg-header.jpg');
+  background-image: url('https://blog.ethanyep.cn/wxmini/bg-header.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -79,17 +79,17 @@ view {
 }
 
 .tips .t-list .icon-menu {
-  background-image: url('https://blog.54zm.com/wxmini/menu.png');
+  background-image: url('https://blog.ethanyep.cn/wxmini/menu.png');
   background-size: contain;
 }
 
 .tips .t-list .icon-scan {
-  background-image: url('https://blog.54zm.com/wxmini/scan.png');
+  background-image: url('https://blog.ethanyep.cn/wxmini/scan.png');
   background-size: contain;
 }
 
 .tips .t-list .icon-anquan {
-  background-image: url('https://blog.54zm.com/wxmini/anquan.png');
+  background-image: url('https://blog.ethanyep.cn/wxmini/anquan.png');
   background-size: contain;
 }
 
@@ -117,7 +117,7 @@ view {
   content: '';
   width: 42rpx;
   height: 42rpx;
-  background-image: url('https://blog.54zm.com/wxmini/scan-mini.png');
+  background-image: url('https://blog.ethanyep.cn/wxmini/scan-mini.png');
   background-repeat: no-repeat;
   background-size: cover;
   top: 27rpx;

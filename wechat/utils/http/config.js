@@ -1,6 +1,6 @@
 const data = {
   urls: {
-    baseurl: 'https://blog.54zm.com/api/wx_mini/',
+    baseurl: 'https://blog.ethanyep.cn/api/wx_mini/',
     login: 'login',
     index: 'index',
     scan_code: 'scan_code',

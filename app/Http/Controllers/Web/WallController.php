@@ -117,6 +117,7 @@ class WallController extends Controller
         //检测返回结果是否包含错误信息
         $error_msg = strstr($response, 'error');
         if ($error_msg) {
+            dd($error_msg);
             //如果包含错误信息则返回上一级页面重新登录
             return redirect(config('app.url') . '/admin/qq_login_auth');
         }

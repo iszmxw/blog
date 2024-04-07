@@ -70,11 +70,11 @@
                     {{--                        </a>--}}
                     {{--                    @endif--}}
                     <div class="p-article-brief-box">
-                        <h2 class="p-article-title">
+                        <h1 class="p-article-title">
                             <a href="{{url('article')}}/{{$val['id']}}" class="pjax">
                                 {{$val['title']}}
                             </a>
-                        </h2>
+                        </h1>
                         <p class="p-article-content">
                             {{$val['content']}}
                         </p>

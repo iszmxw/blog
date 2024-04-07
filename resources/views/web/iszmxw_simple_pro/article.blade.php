@@ -10,9 +10,14 @@
 
 {{--内容部分--}}
 @section('content')
+    {{--编辑器样式--}}
+    <link rel="stylesheet" href="{{asset('style/web/iszmxw_simple_pro/static/plugins/editor.md/css/editormd.css')}}">
+    <link rel="stylesheet" href="{{asset('style/web/iszmxw_simple_pro/static/plugins/prism/prism.css')}}">
+
+
     <div class="p-content-box">
         <div class="p-content-box-lwlhitokoto">
-            <h2>{{$blog['title']}}</h2>
+            <h1>{{$blog['title']}}</h1>
             <span><i class="fa fa-user-o" aria-hidden="true"></i> {{$blog['author']}}</span>
             <span><i class="fa fa-clock-o" aria-hidden="true"></i> {{$blog['created_at']}}</span>
             <span><i class="fa fa-eye" aria-hidden="true"></i> {{$blog['views']}}浏览</span>
@@ -146,6 +151,100 @@
             {{--            </div>--}}
         </div>
     </div>
+
+
+    {{--js引用--}}
+    @section('script')
+        {{--收款码--}}
+        <div id="appreciate-content">
+            <div class="appreciate-content-tip">
+                扫一扫支付
+            </div>
+            <img src="{{asset('style/web/iszmxw_simple_pro/images/zfb.png')}}"
+                 id="appreciate-content-aLiImg">
+            <img src="{{asset('style/web/iszmxw_simple_pro/images/wx.png')}}"
+                 id="appreciate-content-wechatImg"
+                 style="display: none;">
+            <hr>
+            <div class="appreciate-content-btn-box">
+                <button class="layui-btn layui-btn-normal ali-btn" onclick="changeImg(1);">支付宝支付</button>
+                <button class="layui-btn wechat-btn" onclick="changeImg(2);">微信支付</button>
+            </div>
+        </div>
+        <script type="text/javascript" src="{{asset('style/web/iszmxw_simple_pro/static/js/article.js')}}"></script>
+        <script type="text/javascript"
+                src="{{asset('style/web/iszmxw_simple_pro/static/plugins/prism/prism.js')}}"></script>
+        {{--加载markdown预览--}}
+        <script src="{{asset('style/web/iszmxw_simple_pro/static/plugins/editor.md/lib/marked.min.js')}}"></script>
+        <script src="{{asset('style/web/iszmxw_simple_pro/static/plugins/editor.md/lib/prettify.min.js')}}"></script>
+        <script src="{{asset('style/web/iszmxw_simple_pro/static/plugins/editor.md/lib/raphael.min.js')}}"></script>
+        <script src="{{asset('style/web/iszmxw_simple_pro/static/plugins/editor.md/lib/underscore.min.js')}}"></script>
+        <script src="{{asset('style/web/iszmxw_simple_pro/static/plugins/editor.md/lib/sequence-diagram.min.js')}}"></script>
+        <script src="{{asset('style/web/iszmxw_simple_pro/static/plugins/editor.md/lib/flowchart.min.js')}}"></script>
+        <script src="{{asset('style/web/iszmxw_simple_pro/static/plugins/editor.md/lib/jquery.flowchart.min.js')}}"></script>
+        <script src="{{asset('style/web/iszmxw_simple_pro/static/plugins/editor.md/editormd.min.js')}}"></script>
+        <script type="text/javascript">
+            $(function () {
+                $.post(window.origin + "/article/{{$blog['id']}}", function (markdown) {
+                    let editorMdView = editormd.markdownToHTML("articleContent", {
+                        markdown: markdown,         // + "\r\n" + $("#articleContent").text(),
+                        htmlDecode: true,           // 开启 HTML 标签解析，为了安全性，默认不开启
+                        previewCodeHighlight: false, // 关闭预览 HTML 的代码块高亮，默认开启
+                        emoji: true,
+                        taskList: true,
+                        tex: true,  // 默认不解析
+                        flowChart: true,  // 默认不解析
+                        sequenceDiagram: true,  // 默认不解析
+                    });
+                    Prism.highlightAll();
+                });
+            });
+        </script>
+        <script>
+            // 赞赏作者
+            function appreciate() {
+                layer.open({
+                    type: 1,
+                    title: '赞赏作者',
+                    shade: 0.6,
+                    anim: 1,
+                    shadeClose: true,
+                    area: ["300px", "350px"],
+                    content: $('#appreciate-content')
+                });
+            }
+
+            function changeImg(type) {
+                if (type == 1) {
+                    $(".layui-layer-wrap > #appreciate-content-wechatImg").hide();
+                    $(".layui-layer-wrap > #appreciate-content-aLiImg").show();
+                } else {
+                    $(".layui-layer-wrap > #appreciate-content-aLiImg").hide();
+                    $(".layui-layer-wrap > #appreciate-content-wechatImg").show();
+                }
+            }
+
+            var index;
+            $('.p-article-goto-box').on('mouseenter', '#preArticle', function () {
+                var preTitle = $("#preArticle").attr("articleTitle");
+                index = layer.tips(preTitle, '#preArticle', {
+                    tips: 1
+                });
+            });
+            $('.p-article-goto-box').on('mouseleave', '#preArticle', function () {
+                layer.close(index);
+            });
+            $('.p-article-goto-box').on('mouseenter', '#nextArticle', function () {
+                var preTitle = $("#nextArticle").attr("articleTitle");
+                index = layer.tips(preTitle, '#nextArticle', {
+                    tips: 1
+                });
+            });
+            $('.p-article-goto-box').on('mouseleave', '#nextArticle', function () {
+                layer.close(index);
+            });
+        </script>
+    @endsection
 @endsection
 
 
@@ -157,97 +256,4 @@
             </div>
         </div>
     </div>
-@endsection
-
-{{--js引用--}}
-@section('script')
-    {{--收款码--}}
-    <div id="appreciate-content">
-        <div class="appreciate-content-tip">
-            扫一扫支付
-        </div>
-        <img src="{{asset('style/web/iszmxw_simple_pro/images/zfb.png')}}"
-             id="appreciate-content-aLiImg">
-        <img src="{{asset('style/web/iszmxw_simple_pro/images/wx.png')}}"
-             id="appreciate-content-wechatImg"
-             style="display: none;">
-        <hr>
-        <div class="appreciate-content-btn-box">
-            <button class="layui-btn layui-btn-normal ali-btn" onclick="changeImg(1);">支付宝支付</button>
-            <button class="layui-btn wechat-btn" onclick="changeImg(2);">微信支付</button>
-        </div>
-    </div>
-    <script type="text/javascript" src="{{asset('style/web/iszmxw_simple_pro/static/js/article.js')}}"></script>
-    <script type="text/javascript"
-            src="{{asset('style/web/iszmxw_simple_pro/static/plugins/prism/prism.js')}}"></script>
-    {{--加载markdown预览--}}
-    <script src="{{asset('style/web/iszmxw_simple_pro/static/plugins/editor.md/lib/marked.min.js')}}"></script>
-    <script src="{{asset('style/web/iszmxw_simple_pro/static/plugins/editor.md/lib/prettify.min.js')}}"></script>
-    <script src="{{asset('style/web/iszmxw_simple_pro/static/plugins/editor.md/lib/raphael.min.js')}}"></script>
-    <script src="{{asset('style/web/iszmxw_simple_pro/static/plugins/editor.md/lib/underscore.min.js')}}"></script>
-    <script src="{{asset('style/web/iszmxw_simple_pro/static/plugins/editor.md/lib/sequence-diagram.min.js')}}"></script>
-    <script src="{{asset('style/web/iszmxw_simple_pro/static/plugins/editor.md/lib/flowchart.min.js')}}"></script>
-    <script src="{{asset('style/web/iszmxw_simple_pro/static/plugins/editor.md/lib/jquery.flowchart.min.js')}}"></script>
-    <script src="{{asset('style/web/iszmxw_simple_pro/static/plugins/editor.md/editormd.min.js')}}"></script>
-    <script type="text/javascript">
-        $(function () {
-            $.post(window.origin + "/article/{{$blog['id']}}", function (markdown) {
-                let editorMdView = editormd.markdownToHTML("articleContent", {
-                    markdown: markdown,         // + "\r\n" + $("#articleContent").text(),
-                    htmlDecode: true,           // 开启 HTML 标签解析，为了安全性，默认不开启
-                    previewCodeHighlight: false, // 关闭预览 HTML 的代码块高亮，默认开启
-                    emoji: true,
-                    taskList: true,
-                    tex: true,  // 默认不解析
-                    flowChart: true,  // 默认不解析
-                    sequenceDiagram: true,  // 默认不解析
-                });
-                Prism.highlightAll();
-            });
-        });
-    </script>
-    <script>
-        // 赞赏作者
-        function appreciate() {
-            layer.open({
-                type: 1,
-                title: '赞赏作者',
-                shade: 0.6,
-                anim: 1,
-                shadeClose: true,
-                area: ["300px", "350px"],
-                content: $('#appreciate-content')
-            });
-        }
-
-        function changeImg(type) {
-            if (type == 1) {
-                $(".layui-layer-wrap > #appreciate-content-wechatImg").hide();
-                $(".layui-layer-wrap > #appreciate-content-aLiImg").show();
-            } else {
-                $(".layui-layer-wrap > #appreciate-content-aLiImg").hide();
-                $(".layui-layer-wrap > #appreciate-content-wechatImg").show();
-            }
-        }
-
-        var index;
-        $('.p-article-goto-box').on('mouseenter', '#preArticle', function () {
-            var preTitle = $("#preArticle").attr("articleTitle");
-            index = layer.tips(preTitle, '#preArticle', {
-                tips: 1
-            });
-        });
-        $('.p-article-goto-box').on('mouseleave', '#preArticle', function () {
-            layer.close(index);
-        });
-        $('.p-article-goto-box').on('mouseenter', '#nextArticle', function () {
-            var preTitle = $("#nextArticle").attr("articleTitle");
-            index = layer.tips(preTitle, '#nextArticle', {
-                tips: 1
-            });
-        });
-        $('.p-article-goto-box').on('mouseleave', '#nextArticle', function () {
-            layer.close(index);
-        });
-    </script>
 @endsection

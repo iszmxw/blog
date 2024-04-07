@@ -18,8 +18,8 @@
 @section('content')
     <div class="p-content-box">
         <div class="p-content-box-lwlhitokoto">
-            <h3>{{$user_data['nickname']}}</h3>
-            <span id="yiyan">大丈夫立世无所畏惧。</span>
+            <h1>{{$user_data['nickname']}}</h1>
+            <span id="yiyan">你所浪费的今天，是昨天死去的人所奢望的明天，你所厌恶的现在，却是未来的你回不到的曾今，制定明确的目标，继续前进，不留遗憾的去做你想做的事，去成为你想成为人。</span>
         </div>
         <div class="p-notice-box">
             <span><i class="layui-icon layui-icon-speaker" style="font-weight: 700;"></i> 这是一条不正经的测试公告呀~</span>

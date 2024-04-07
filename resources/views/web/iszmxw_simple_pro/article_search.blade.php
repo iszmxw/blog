@@ -52,7 +52,7 @@
 @section('content')
     <div class="p-content-box">
         <div class="p-content-box-lwlhitokoto">
-            <h3>{{$user_data['nickname']}}</h3>
+            <h1>{{isset($keyword) ? $keyword : ''}}</h1>
             <span id="yiyan">大丈夫立世无所畏惧。</span>
         </div>
         <div class="p-notice-box">

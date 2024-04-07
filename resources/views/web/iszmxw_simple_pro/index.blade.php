@@ -1,7 +1,7 @@
 @extends('web.iszmxw_simple_pro.app')
 
-@section('keywords','')
-@section('description','')
+@section('keywords','博客,自媒体,笔记')
+@section('description','追梦小窝的博客，一个记录日常的的博客站点')
 
 @section('title', '追梦小窝首页')
 {{--样式引入--}}
@@ -10,10 +10,6 @@
         .page-link {
             display: block;
             padding: 2px 8px;
-        }
-
-        .aasasas {
-
         }
     </style>
 @endsection

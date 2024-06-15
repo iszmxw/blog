@@ -3,8 +3,14 @@
         <strong>Copyright</strong> 五四战盟 © 2017-2024 <a href="http://www.beian.miit.gov.cn/">粤ICP备2024262124号-1</a>
     </div>
     <div class="p-footer-box-right">
-        <span>站长统计</span>
-        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
-            document.write(unescape("%3Cspan id='cnzz_stat_icon_1276750286'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s96.cnzz.com/z_stat.php%3Fid%3D1276750286%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+        <script>
+            var _hmt = _hmt || [];
+            (function() {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?5c2003e8cbfc324a649d5954794b67d9";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
     </div>
 </div>

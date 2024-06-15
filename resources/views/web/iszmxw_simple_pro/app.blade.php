@@ -13,6 +13,17 @@
     @include('web.iszmxw_simple_pro.public.style')
 
     @yield('style')
+    {{--百度统计--}}
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?5c2003e8cbfc324a649d5954794b67d9";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
 </head>
 {{--身体--}}
 <body>

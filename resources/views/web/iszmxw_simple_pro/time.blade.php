@@ -1,9 +1,9 @@
 @extends('web.iszmxw_simple_pro.app')
 
-@section('keywords','追梦小窝博客归档')
-@section('description','追梦小窝博客归档')
+@section('keywords','五四战盟博客归档')
+@section('description','五四战盟博客归档')
 
-@section('title', '追梦小窝-时间轴ssss')
+@section('title', '五四战盟-时间轴ssss')
 {{--样式引入--}}
 @section('style')
 

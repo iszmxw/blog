@@ -3,7 +3,7 @@
 @section('keywords','')
 @section('description','')
 
-@section('title', '追梦小窝首页')
+@section('title', '五四战盟首页')
 {{--样式引入--}}
 @section('style')
     <style type="text/css">
@@ -114,7 +114,7 @@
                         <hr>
                         <div class="p-article-msg">
                             <span class="p-article-msg-btn">
-                                <i class="fa fa-user-o" aria-hidden="true"></i> 追梦小窝
+                                <i class="fa fa-user-o" aria-hidden="true"></i> 五四战盟
                             </span>
                             <span class="p-article-msg-btn eye-cont">
                                 <i class="fa fa-eye" aria-hidden="true"></i> {{$val['views']}}浏览

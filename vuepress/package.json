@@ -1,7 +1,7 @@
 {
   "name": "docs",
   "version": "1.0.0",
-  "description": "小窝笔记",
+  "description": "五四战盟笔记",
   "main": "index.js",
   "scripts": {
     "test": "test",
@@ -9,7 +9,7 @@
     "build": "vuepress build markdown"
   },
   "keywords": [
-    "小窝笔记"
+    "五四战盟笔记"
   ],
   "author": "mail@54zm.com",
   "license": "ISC",

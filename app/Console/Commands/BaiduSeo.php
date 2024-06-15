@@ -20,7 +20,7 @@ class BaiduSeo extends Command
      *
      * @var string
      */
-    protected $description = '追梦小窝的第一个定时任务,百度seo链接自动提交';
+    protected $description = '五四战盟的第一个定时任务,百度seo链接自动提交';
 
     /**
      * Create a new command instance.

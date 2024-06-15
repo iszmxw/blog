@@ -1,6 +1,6 @@
 module.exports = [
     {
-        text: '小窝博客',
+        text: '五四战盟博客',
         items: [
             {
                 text: '索引大纲',

@@ -148,7 +148,7 @@ Page({
       console.log(res.target)
     }
     return {
-      title: '追梦小窝',
+      title: '五四战盟',
       path: '/pages/index/index'
     }
   },

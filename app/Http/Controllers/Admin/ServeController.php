@@ -279,7 +279,7 @@ class ServeController extends Controller
         $data['ip']         = $request->getClientIp();
         $data['blog_id']    = $request->get('blog_id');
         $data['pid']        = $id;
-        $data['poster']     = '追梦小窝';
+        $data['poster']     = '五四战盟';
         $data['header_img'] = 'http://q1.qlogo.cn/g?b=qq&nk=442246396@qq.com&s=640';
         $data['comment']    = '@' . $poster . '：' . $reply;
         DB::beginTransaction();

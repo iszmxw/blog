@@ -4,7 +4,7 @@
   <view class="cosplay_tx">
     <image src="../images/logo.png"></image>
   </view>
-  <view class="webname">追梦小窝-Blog</view>
+  <view class="webname">五四战盟-Blog</view>
   <!-- <view class="menu"></view> -->
 </view>
 <!-- 菜单 -->
@@ -44,5 +44,5 @@
 <!-- 博客底部 -->
 <view class="copyright">
   Copyright ©
-  <text>追梦小窝-Blog</text> 2018-08-18
+  <text>五四战盟-Blog</text> 2018-08-18
 </view>

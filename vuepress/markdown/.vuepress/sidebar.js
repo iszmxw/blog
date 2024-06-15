@@ -1,5 +1,5 @@
 module.exports = [
-    getSideBar('小窝博客', [
+    getSideBar('五四战盟博客', [
         ['/dashboard/description', '博客介绍'],
         ['/dashboard/install', '博客安装'],
     ]),

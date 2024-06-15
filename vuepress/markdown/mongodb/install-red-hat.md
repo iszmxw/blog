@@ -126,14 +126,14 @@ The server generated these startup warnings when booting:
 
 **现在让我们插入一些简单的数据，并对插入的数据进行检索：**
 
-> 下面第一个命令将数字 `追梦小窝` 插入到 iszmxw 集合的 `name` 字段中，`25`插入到 iszmxw 集合的 `age` 字段中
+> 下面第一个命令将数字 `五四战盟` 插入到 iszmxw 集合的 `name` 字段中，`25`插入到 iszmxw 集合的 `age` 字段中
 > 第二个命令测试查找集合中的所有数据
 
 ```sh
-> db.iszmxw.insert({name:"追梦小窝",age:25})
+> db.iszmxw.insert({name:"五四战盟",age:25})
 WriteResult({ "nInserted" : 1 })
 > db.iszmxw.find()
-{ "_id" : ObjectId("5f4771292ad494d7f6b8b545"), "name" : "追梦小窝", "age" : 25 }
+{ "_id" : ObjectId("5f4771292ad494d7f6b8b545"), "name" : "五四战盟", "age" : 25 }
 > 
 
 ```

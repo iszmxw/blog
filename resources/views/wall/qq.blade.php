@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>追梦小窝 | QQ登记处</title>
+    <title>五四战盟 | QQ登记处</title>
     <link href="{{asset('style/admin/inspinia/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('style/admin/inspinia/font-awesome/css/font-awesome.css')}}" rel="stylesheet">
     <link href="{{asset('style/admin/inspinia/css/animate.css')}}" rel="stylesheet">
@@ -40,7 +40,7 @@
     <hr/>
     <div class="row">
         <div class="col-md-6">
-            <small>Copyright 追梦小窝 &copy; 2019-2021</small>
+            <small>Copyright 五四战盟 &copy; 2019-2021</small>
         </div>
         <div class="col-md-6 text-right">
             blog.ethanyep.cn

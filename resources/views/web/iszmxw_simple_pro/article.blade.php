@@ -3,7 +3,7 @@
 @section('keywords',$blog['title'])
 @section('description',$blog['title'])
 
-@section('title', $blog['title'].'_追梦小窝')
+@section('title', $blog['title'].'_五四战盟')
 {{--样式引入--}}
 @section('style')
 @endsection

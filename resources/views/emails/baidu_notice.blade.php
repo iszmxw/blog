@@ -294,7 +294,7 @@
                                 </tr>
                                 <tr>
                                     <td class="content-block">
-                                        以上邮件信息由追梦小窝提供
+                                        以上邮件信息由五四战盟提供
                                     </td>
                                 </tr>
                             </table>

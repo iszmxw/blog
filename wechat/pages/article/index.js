@@ -7,7 +7,7 @@ Page({
    */
   data: {
     blog_id: '',
-    title: '追梦小窝',
+    title: '五四战盟',
     content: ''
   },
 

@@ -285,7 +285,7 @@ class MiniController extends Controller
         $template_id = empty($template_id) ? '2Z9ma8ZfCnNpVP1uMLWMMysrdiScecKmDA4MzgNGbxo' : $template_id;
         $form_data   = UserMiniFormid::getOne(['openid' => $openid], ['form_id']);
         $form_id     = $form_data['form_id'];
-        $values      = empty($values) ? ['追梦小屋小程序', '感谢您的关注，您的支持是对我们最大的鼓励', '追梦小窝', date('Y-m-d H:i:s', time())] : $values;
+        $values      = empty($values) ? ['追梦小屋小程序', '感谢您的关注，您的支持是对我们最大的鼓励', '五四战盟', date('Y-m-d H:i:s', time())] : $values;
         $result      = self::template_message($openid, $template_id, $form_id, $values);
         UserMiniFormid::selected_delete(['form_id' => $form_id]);
         if ($result["errcode"] == 0) {

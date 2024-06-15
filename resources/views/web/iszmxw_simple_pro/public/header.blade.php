@@ -38,9 +38,9 @@
                     </li>
                     <span class="layui-nav-bar"></span></ul>
             @else
-                <a class="p-header-box-login-box-login" href="{{url('wall/register')}}">登录</a>
-                <span style="float: left;line-height: 50px;">|</span>
-                <a class="p-header-box-login-box-register" href="{{url('wall/register')}}">注册</a>
+{{--                <a class="p-header-box-login-box-login" href="{{url('wall/register')}}">登录</a>--}}
+{{--                <span style="float: left;line-height: 50px;">|</span>--}}
+{{--                <a class="p-header-box-login-box-register" href="{{url('wall/register')}}">注册</a>--}}
             @endif
         </div>
         <a id="phoneSetting" style="display: none"> <i class="layui-icon"></i></a>
